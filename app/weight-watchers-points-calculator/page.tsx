@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import WeightWatchersPointsCalculator from '../../components/calculators/WeightWatchersPointsCalculator'
+import WeightWatchersPointsCalculator from '../components/calculators/WeightWatchersPointsCalculator'
 
 export const metadata: Metadata = {
   title: 'Weight Watchers Points Calculator - Calculate SmartPoints for Food',
