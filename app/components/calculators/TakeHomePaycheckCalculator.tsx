@@ -24,7 +24,16 @@ export default function TakeHomePaycheckCalculator() {
       totalDeductions: 0,
       netPercentage: 0,
       recommendations: [],
-      breakdown: {}
+      breakdown: {
+        gross: 0,
+        federal: 0,
+        state: 0,
+        socialSecurity: 0,
+        medicare: 0,
+        other: 0,
+        totalDeductions: 0,
+        takeHome: 0
+      }
     }
 
     const totalDeductions = federal + state + ss + medicareTax + other

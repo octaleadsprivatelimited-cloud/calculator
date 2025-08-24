@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, Download, Share2, Printer, RotateCcw, Info, Dice, BarChart3, RefreshCw } from 'lucide-react'
+import { Calculator, Download, Share2, Printer, RotateCcw, Info, Dice1, BarChart3, RefreshCw } from 'lucide-react'
 
 interface DiceResult {
   rolls: number[]
@@ -142,7 +142,7 @@ ${rollHistory.map((roll, index) =>
             </p>
           </div>
           <div className="hidden md:block">
-            <Dice className="w-16 h-16 text-green-200" />
+            <Dice1 className="w-16 h-16 text-green-200" />
           </div>
         </div>
       </div>

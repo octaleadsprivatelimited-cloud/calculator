@@ -15,7 +15,12 @@ export default function DebtToIncomeCalculator() {
       dti: 0, 
       category: '', 
       recommendations: [],
-      details: {}
+      details: {
+      monthlyIncome: 0,
+      monthlyDebt: 0,
+      annualIncome: 0,
+      annualDebt: 0
+    }
     }
 
     const dti = (debt / income) * 100
@@ -85,7 +90,17 @@ export default function DebtToIncomeCalculator() {
     setShowResults(false)
   }
 
-  const result = showResults ? calculateDTI() : { 
+  const result = showResults ? calculateDTI() || { 
+    dti: 0, 
+    category: '', 
+    recommendations: [],
+    details: {
+      monthlyIncome: 0,
+      monthlyDebt: 0,
+      annualIncome: 0,
+      annualDebt: 0
+    }
+  } : { 
     dti: 0, 
     category: '', 
     recommendations: [],

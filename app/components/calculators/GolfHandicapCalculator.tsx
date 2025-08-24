@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, Download, Share2, Printer, RotateCcw, Info, Golf, Target } from 'lucide-react'
+import { Calculator, Download, Share2, Printer, RotateCcw, Info, Target } from 'lucide-react'
 
 interface Score {
   id: string
@@ -204,7 +204,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
             </p>
           </div>
           <div className="hidden md:block">
-            <Golf className="w-16 h-16 text-green-200" />
+            <Target className="w-16 h-16 text-green-200" />
           </div>
         </div>
       </div>

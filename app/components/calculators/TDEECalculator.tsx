@@ -14,7 +14,17 @@ export default function TDEECalculator() {
     const a = parseFloat(age) || 0
     const w = parseFloat(weight) || 0
     const h = parseFloat(height) || 0
-    if (a === 0 || w === 0 || h === 0) return { bmr: 0, tdee: 0, goals: {} }
+    if (a === 0 || w === 0 || h === 0) return { 
+      bmr: 0, 
+      tdee: 0, 
+      goals: {
+        weightLoss: 0,
+        mildWeightLoss: 0,
+        maintenance: 0,
+        mildGain: 0,
+        weightGain: 0
+      }
+    }
 
     // Convert height to cm if in feet
     let heightCm = h
@@ -66,7 +76,17 @@ export default function TDEECalculator() {
     setShowResults(false)
   }
 
-  const result = showResults ? calculateTDEE() : { bmr: 0, tdee: 0, goals: {} }
+  const result = showResults ? calculateTDEE() : { 
+    bmr: 0, 
+    tdee: 0, 
+    goals: {
+      weightLoss: 0,
+      mildWeightLoss: 0,
+      maintenance: 0,
+      mildGain: 0,
+      weightGain: 0
+    }
+  }
 
   return (
     <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">

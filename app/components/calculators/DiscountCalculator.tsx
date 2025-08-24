@@ -20,7 +20,13 @@ export default function DiscountCalculator() {
       finalPrice: 0,
       discountPercent: 0,
       recommendations: [],
-      details: {}
+      details: {
+        originalPrice: 0,
+        discountPercent: 0,
+        discountAmount: 0,
+        finalPrice: 0,
+        savingsPercent: 0
+      }
     }
 
     let savings = 0

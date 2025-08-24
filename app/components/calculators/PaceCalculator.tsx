@@ -12,7 +12,16 @@ export default function PaceCalculator() {
   const calculatePace = useCallback(() => {
     const d = parseFloat(distance) || 0
     const t = parseFloat(time) || 0
-    if (d === 0 || t === 0) return { pace: '', splits: [], conversions: {} }
+    if (d === 0 || t === 0) return { 
+      pace: '', 
+      splits: [], 
+      conversions: {
+        mph: 0,
+        kmh: 0,
+        minPerKm: 0,
+        minPerMile: 0
+      }
+    }
 
     let totalMinutes = 0
     let totalSeconds = 0
@@ -39,7 +48,7 @@ export default function PaceCalculator() {
     }
 
     // Calculate splits for common distances
-    const splits = []
+    const splits: Array<{distance: number, time: string, pace: string}> = []
     const commonDistances = distanceUnit === 'miles' ? [0.25, 0.5, 1, 2, 3, 6.2, 13.1, 26.2] : [0.4, 0.8, 1, 2, 5, 10, 21.1, 42.2]
     
     commonDistances.forEach(dist => {
@@ -75,7 +84,16 @@ export default function PaceCalculator() {
     setShowResults(false)
   }
 
-  const result = showResults ? calculatePace() : { pace: '', splits: [], conversions: {} }
+  const result = showResults ? calculatePace() : { 
+    pace: '', 
+    splits: [], 
+    conversions: {
+      mph: 0,
+      kmh: 0,
+      minPerKm: 0,
+      minPerMile: 0
+    }
+  }
 
   return (
     <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">

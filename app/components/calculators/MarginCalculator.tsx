@@ -25,7 +25,14 @@ export default function MarginCalculator() {
       markup: 0,
       markupPercent: 0,
       recommendations: [],
-      details: {}
+      details: {
+        revenue: 0,
+        cost: 0,
+        price: 0,
+        costPerUnit: 0,
+        units: 0,
+        operatingExpenses: 0
+      }
     }
 
     let grossMargin = 0

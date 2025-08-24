@@ -23,10 +23,26 @@ export default function RealEstateCalculator() {
     
     if (price === 0 || down === 0 || rate === 0) return { 
       monthlyPayment: 0, 
-      breakdown: {},
+      breakdown: {
+        principal: 0,
+        tax: 0,
+        insurance: 0,
+        hoa: 0,
+        total: 0
+      },
       totalCost: 0,
       recommendations: [],
-      details: {}
+      details: {
+        purchasePrice: 0,
+        downPayment: 0,
+        loanAmount: 0,
+        interestRate: 0,
+        loanTerm: 0,
+        monthlyTax: 0,
+        monthlyInsurance: 0,
+        hoaFee: 0,
+        equityBuildUp: 0
+      }
     }
 
     const loanAmount = price - down

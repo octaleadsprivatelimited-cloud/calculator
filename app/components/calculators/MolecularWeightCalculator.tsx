@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, Download, Share2, Printer, RotateCcw, Info, Atom, Flask } from 'lucide-react'
+import { Calculator, Download, Share2, Printer, RotateCcw, Info, Atom } from 'lucide-react'
 
 interface Element {
   symbol: string

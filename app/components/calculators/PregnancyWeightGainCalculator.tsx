@@ -12,7 +12,18 @@ export default function PregnancyWeightGainCalculator() {
     const preWeight = parseFloat(prePregnancyWeight) || 0
     const h = parseFloat(height) || 0
     const week = parseFloat(currentWeek) || 0
-    if (preWeight === 0 || h === 0) return { bmi: 0, category: '', recommendations: {}, weeklyGain: 0 }
+    if (preWeight === 0 || h === 0) return { 
+      bmi: 0, 
+      category: '', 
+      recommendations: {
+        first: { total: 0, weekly: 0, notes: '' },
+        second: { total: 0, weekly: 0, notes: '' },
+        third: { total: 0, weekly: 0, notes: '' }
+      }, 
+      weeklyGain: 0,
+      totalGain: 0,
+      currentExpectedGain: 0
+    }
 
     // Convert height to cm if in feet
     let heightCm = h
@@ -97,7 +108,11 @@ export default function PregnancyWeightGainCalculator() {
   const result = showResults ? calculateWeightGain() : { 
     bmi: 0, 
     category: '', 
-    recommendations: {}, 
+    recommendations: {
+      first: { total: 0, weekly: 0, notes: '' },
+      second: { total: 0, weekly: 0, notes: '' },
+      third: { total: 0, weekly: 0, notes: '' }
+    }, 
     weeklyGain: 0,
     totalGain: 0,
     currentExpectedGain: 0

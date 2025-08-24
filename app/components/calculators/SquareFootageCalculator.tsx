@@ -166,7 +166,7 @@ ${rooms.map((room, index) =>
 Total Results:
 - Square Feet: ${formatNumber(result.squareFeet)}
 - Square Meters: ${formatNumber(result.squareMeters)}
-- Square Yards: ${formatNumber(result.sqYards)}
+- Square Yards: ${formatNumber(result.squareYards)}
 - Acres: ${formatNumber(result.acres)}
 ${costPerSqFt ? `- Total Cost: $${formatNumber(result.cost)}` : ''}`
     

@@ -118,7 +118,7 @@ export default function TimeZoneCalculator() {
   const handleReset = () => {
     setSourceTime('')
     setSourceZone('UTC')
-    setSourceZone2('EST')
+    setTargetZone('EST')
     setShowResults(false)
   }
 

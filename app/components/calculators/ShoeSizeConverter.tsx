@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, Download, Share2, Printer, RotateCcw, Info, Shoe } from 'lucide-react'
+import { Calculator, Download, Share2, Printer, RotateCcw, Info } from 'lucide-react'
 
 interface ShoeSize {
   us: number
@@ -19,7 +19,7 @@ interface ShoeSizeResult {
   inches: number
 }
 
-const SHOE_SIZE_CHART = {
+const SHOE_SIZE_CHART: Record<string, number[]> = {
   us: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
   uk: [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5],
   eu: [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
@@ -189,7 +189,7 @@ Converted Sizes:
             </p>
           </div>
           <div className="hidden md:block">
-            <Shoe className="w-16 h-16 text-purple-200" />
+            <Calculator className="w-16 h-16 text-purple-200" />
           </div>
         </div>
       </div>
