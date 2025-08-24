@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  body {
+    @apply bg-gray-100 text-gray-900;
+  }
+}
+
+@layer components {
+  .calculator-button {
+    @apply w-16 h-16 font-mono text-lg font-semibold transition-all duration-200 
+           active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+  }
+  
+  .calculator-display {
+    @apply bg-calculator-display text-white p-6 rounded-lg font-mono text-right text-2xl 
+           min-h-[80px] flex items-center justify-end overflow-hidden;
+  }
+  
+  .scientific-function {
+    @apply bg-calculator-function hover:bg-calculator-functionHover text-white;
+  }
+  
+  .operator-button {
+    @apply bg-calculator-operator hover:bg-calculator-operatorHover text-white;
+  }
+  
+  .number-button {
+    @apply bg-calculator-number hover:bg-calculator-numberHover text-white;
+  }
+  
+  .function-button {
+    @apply bg-calculator-button hover:bg-calculator-buttonHover text-white;
+  }
+
+  /* Calculator grid layout */
+  .calculator-grid {
+    @apply grid gap-0;
+  }
+
+  .calculator-grid-4 {
+    @apply grid-cols-4;
+  }
+
+  .calculator-grid-8 {
+    @apply grid-cols-8;
+  }
+
+  /* Ensure buttons touch each other */
+  .calculator-grid button {
+    @apply border-0 outline-none;
+  }
+
+  .calculator-grid button:not(:last-child) {
+    @apply border-r border-gray-300;
+  }
+
+  .calculator-grid-4 button:nth-child(4n) {
+    @apply border-r-0;
+  }
+
+  .calculator-grid-8 button:nth-child(8n) {
+    @apply border-r-0;
+  }
+}
+
+/* Header responsiveness */
+.header-nav-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-nav-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+@media (min-width: 1280px) {
+  .header-nav-text {
+    max-width: none;
+  }
+}
+
+/* Custom scrollbar for calculation history */
+.history-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.history-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.history-scrollbar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.history-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
