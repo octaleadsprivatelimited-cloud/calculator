@@ -480,19 +480,159 @@ Safety Notes:
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-green-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Stair Calculator</h2>
+          
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Stair Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This professional stair calculator computes all essential dimensions for safe and comfortable stairs. 
-                It automatically calculates the optimal number of steps, rise height, run depth, and stringer length 
-                while ensuring compliance with building codes and safety standards. The calculator considers comfort 
-                formulas (2R + G = 22-28 inches) and provides detailed compliance checking for various stair types 
-                including residential, commercial, and ADA-compliant designs.
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <p className="text-gray-700 mb-3">
+                This comprehensive stair calculator helps architects, builders, and homeowners design safe, 
+                comfortable, and code-compliant stairs. It automatically calculates optimal dimensions while 
+                ensuring adherence to building codes and safety standards across different stair types.
               </p>
+              <p className="text-gray-700">
+                The calculator considers ergonomic principles, building regulations, and accessibility requirements 
+                to provide stair designs that are both functional and safe for all users.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Stair Design Principles</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Comfort Formula</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>2R + G = 22-28 inches</strong></li>
+                    <li>R = Rise height (vertical step)</li>
+                    <li>G = Going/run depth (horizontal step)</li>
+                    <li>Optimal range: 24-26 inches</li>
+                    <li>Ensures comfortable walking rhythm</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Safety Standards</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Maximum Rise:</strong> 7.75 inches (residential)</li>
+                    <li><strong>Minimum Run:</strong> 10 inches (residential)</li>
+                    <li><strong>Maximum Angle:</strong> 37 degrees</li>
+                    <li><strong>Consistency:</strong> All steps must be uniform</li>
+                    <li><strong>Handrails:</strong> Required for safety</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Stair Types & Applications</h3>
+              <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                <h4 className="font-semibold text-gray-800 mb-2">Building Code Classifications</h4>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p><strong>Residential Stairs:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Max Rise: 7.75 inches</li>
+                      <li>Min Run: 10 inches</li>
+                      <li>Use: Homes and apartments</li>
+                      <li>Comfort: High priority</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Commercial Stairs:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Max Rise: 7.0 inches</li>
+                      <li>Min Run: 11 inches</li>
+                      <li>Use: Offices and retail</li>
+                      <li>Safety: Maximum priority</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Key Measurements Explained</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Vertical Dimensions</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Total Rise:</strong> Floor-to-floor height</li>
+                    <li><strong>Rise Height:</strong> Individual step height</li>
+                    <li><strong>Number of Steps:</strong> Calculated from rise</li>
+                    <li><strong>Landing Height:</strong> Intermediate platforms</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Horizontal Dimensions</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Total Run:</strong> Horizontal distance</li>
+                    <li><strong>Run Depth:</strong> Individual step depth</li>
+                    <li><strong>Stringer Length:</strong> Diagonal support beam</li>
+                    <li><strong>Landing Depth:</strong> Platform dimensions</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Building Code Compliance</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>International Building Code (IBC):</strong> Sets minimum safety standards</li>
+                <li><strong>Americans with Disabilities Act (ADA):</strong> Accessibility requirements</li>
+                <li><strong>Local Building Codes:</strong> May have additional requirements</li>
+                <li><strong>Fire Safety Codes:</strong> Emergency exit stair requirements</li>
+                <li><strong>Occupancy Loads:</strong> Stair capacity requirements</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Safety Considerations</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Physical Safety</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Proper rise-to-run ratios</li>
+                    <li>Consistent step dimensions</li>
+                    <li>Adequate tread depth</li>
+                    <li>Proper handrail height</li>
+                    <li>Good lighting and visibility</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Accessibility</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>ADA compliance requirements</li>
+                    <li>Handrail specifications</li>
+                    <li>Landing requirements</li>
+                    <li>Clear width requirements</li>
+                    <li>Emergency egress standards</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Design Mistakes</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Inconsistent Steps:</strong> Varying rise/run dimensions cause trips</li>
+                <li><strong>Steep Angles:</strong> Angles over 37° are difficult to navigate</li>
+                <li><strong>Inadequate Run Depth:</strong> Steps too shallow for safe footing</li>
+                <li><strong>Missing Handrails:</strong> Essential for safety and accessibility</li>
+                <li><strong>Poor Lighting:</strong> Inadequate visibility increases accident risk</li>
+              </ul>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Always consult local building codes before finalizing stair designs</li>
+                <li>• Use the comfort formula (2R + G = 24-26 inches) for optimal user experience</li>
+                <li>• Consider adding intermediate landings for stairs with more than 12 steps</li>
+                <li>• Ensure adequate headroom clearance (minimum 6'8" for residential)</li>
+                <li>• Test stair dimensions with actual users when possible</li>
+                <li>• Remember that wider stairs (36"+ clear width) are more comfortable and safer</li>
+              </ul>
             </div>
           </div>
         </div>
