@@ -410,18 +410,183 @@ ${SLEEP_TIPS.join('\n')}`
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-indigo-600 mt-1 flex-shrink-0" />
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Sleep Calculator</h2>
+          
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Sleep Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator helps you optimize your sleep schedule by considering sleep cycles. 
-                Each sleep cycle lasts approximately 90 minutes and includes different stages of sleep. 
-                Waking up at the end of a complete cycle helps you feel more refreshed and alert. 
-                The calculator provides multiple timing options to help you find the best sleep schedule for your needs.
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <p className="text-gray-700 mb-3">
+                This comprehensive sleep calculator helps you optimize your sleep schedule by aligning your 
+                bedtime and wake-up times with natural sleep cycles. Understanding sleep cycles is crucial 
+                for achieving restorative sleep and waking up feeling refreshed and alert.
               </p>
+              <p className="text-gray-700">
+                The calculator provides multiple timing options based on your target time and desired sleep 
+                duration, ensuring you wake up at the optimal point in your sleep cycle for maximum energy 
+                and mental clarity.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Understanding Sleep Cycles</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Sleep Cycle Structure</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Duration:</strong> Approximately 90 minutes per cycle</li>
+                    <li><strong>Stages:</strong> 4-5 stages including REM and non-REM</li>
+                    <li><strong>Pattern:</strong> Cycles repeat throughout the night</li>
+                    <li><strong>Variation:</strong> Individual differences in cycle length</li>
+                    <li><strong>Quality:</strong> Later cycles have more REM sleep</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Sleep Stages</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Stage 1:</strong> Light sleep, easy to wake</li>
+                    <li><strong>Stage 2:</strong> Deeper sleep, body temperature drops</li>
+                    <li><strong>Stage 3:</strong> Deep sleep, restoration occurs</li>
+                    <li><strong>REM:</strong> Dreaming, brain activity, memory consolidation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Optimal Sleep Duration</h3>
+              <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
+                <h4 className="font-semibold text-gray-800 mb-2">Age-Based Sleep Recommendations</h4>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p><strong>Adults (18-64):</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Recommended: 7-9 hours</li>
+                      <li>Minimum: 6 hours</li>
+                      <li>Optimal: 7.5-8.5 hours</li>
+                      <li>Cycles: 5-6 complete cycles</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Other Age Groups:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Teens: 8-10 hours</li>
+                      <li>Seniors: 7-8 hours</li>
+                      <li>Children: 9-11 hours</li>
+                      <li>Infants: 12-15 hours</li>
+                    </ul>
+                  </div>
+                </div>
+                <p className="text-gray-700 mt-3 text-sm">
+                  <strong>Note:</strong> Individual sleep needs vary based on genetics, lifestyle, health, 
+                  and recent sleep debt. Listen to your body's signals for optimal sleep duration.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Sleep Cycle Timing</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Why Timing Matters</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Complete Cycles:</strong> Waking mid-cycle causes grogginess</li>
+                    <li><strong>REM Sleep:</strong> Essential for memory and learning</li>
+                    <li><strong>Deep Sleep:</strong> Critical for physical restoration</li>
+                    <li><strong>Circadian Rhythm:</strong> Natural sleep-wake patterns</li>
+                    <li><strong>Sleep Inertia:</strong> Reduced when waking at cycle end</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Optimal Wake Times</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Cycle End:</strong> Natural awakening point</li>
+                    <li><strong>Light Sleep:</strong> Easier to wake from</li>
+                    <li><strong>Energy Levels:</strong> Higher when cycle complete</li>
+                    <li><strong>Mental Clarity:</strong> Improved cognitive function</li>
+                    <li><strong>Mood:</strong> Better emotional regulation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Sleep Optimization Strategies</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Consistent Schedule:</strong> Go to bed and wake up at the same time daily</li>
+                <li><strong>Sleep Environment:</strong> Cool, dark, quiet bedroom with comfortable bedding</li>
+                <li><strong>Pre-Sleep Routine:</strong> Relaxing activities 1-2 hours before bed</li>
+                <li><strong>Technology Limits:</strong> Avoid screens 1 hour before bedtime</li>
+                <li><strong>Physical Activity:</strong> Regular exercise, but not close to bedtime</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Sleep Problems</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Sleep Disorders</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Insomnia:</strong> Difficulty falling or staying asleep</li>
+                    <li><strong>Sleep Apnea:</strong> Breathing interruptions during sleep</li>
+                    <li><strong>Restless Legs:</strong> Uncomfortable sensations in legs</li>
+                    <li><strong>Narcolepsy:</strong> Excessive daytime sleepiness</li>
+                    <li><strong>Circadian Disorders:</strong> Misaligned sleep-wake cycle</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Lifestyle Factors</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Caffeine:</strong> Stimulant effects lasting 6+ hours</li>
+                    <li><strong>Alcohol:</strong> Disrupts sleep architecture</li>
+                    <li><strong>Stress:</strong> Activates fight-or-flight response</li>
+                    <li><strong>Irregular Schedule:</strong> Confuses circadian rhythm</li>
+                    <li><strong>Poor Sleep Hygiene:</strong> Inconsistent bedtime routines</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Sleep Quality Indicators</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Morning Energy:</strong> Feeling refreshed upon waking</li>
+                <li><strong>Daytime Alertness:</strong> Sustained focus and concentration</li>
+                <li><strong>Mood Stability:</strong> Consistent emotional well-being</li>
+                <li><strong>Physical Recovery:</strong> Reduced muscle soreness and fatigue</li>
+                <li><strong>Memory Function:</strong> Improved learning and recall</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">When to Seek Professional Help</h3>
+              <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+                <h4 className="font-semibold text-red-800 mb-2">Warning Signs</h4>
+                <ul className="list-disc list-inside text-red-700 space-y-2 text-sm">
+                  <li><strong>Chronic Insomnia:</strong> Difficulty sleeping for 3+ months</li>
+                  <li><strong>Excessive Daytime Sleepiness:</strong> Falling asleep during activities</li>
+                  <li><strong>Loud Snoring:</strong> Especially with breathing pauses</li>
+                  <li><strong>Unrefreshing Sleep:</strong> Feeling tired despite adequate sleep</li>
+                  <li><strong>Sleep-Related Injuries:</strong> Accidents due to sleepiness</li>
+                </ul>
+                <p className="text-red-700 mt-3 text-sm">
+                  <strong>Consult a healthcare provider</strong> if you experience persistent sleep problems 
+                  that affect your daily life, health, or safety.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Use this calculator to plan your sleep schedule around your natural wake-up time</li>
+                <li>• Aim for 5-6 complete sleep cycles (7.5-9 hours) for optimal rest</li>
+                <li>• Create a consistent bedtime routine to signal your body it's time to sleep</li>
+                <li>• Keep your bedroom temperature between 65-68°F (18-20°C) for optimal sleep</li>
+                <li>• Avoid large meals, caffeine, and alcohol within 3 hours of bedtime</li>
+                <li>• Consider using a sleep tracking app to monitor your sleep patterns and quality</li>
+              </ul>
             </div>
           </div>
         </div>

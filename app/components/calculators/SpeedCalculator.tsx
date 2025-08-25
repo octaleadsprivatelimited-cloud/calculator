@@ -441,17 +441,119 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-cyan-600 mt-1 flex-shrink-0" />
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Speed Calculator</h2>
+          
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Speed Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator helps you convert between different speed units and calculate travel time 
-                or distance. Speed is the rate at which an object covers distance. Use it for travel planning, 
-                sports performance analysis, or physics calculations.
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <p className="text-gray-700 mb-3">
+                This comprehensive speed calculator helps you convert between different speed units and 
+                perform time-distance calculations. Whether you're planning a trip, analyzing athletic 
+                performance, or working on physics problems, this tool provides accurate conversions 
+                and calculations across multiple measurement systems.
               </p>
+              <p className="text-gray-700">
+                The calculator handles speed conversions, travel time calculations, and distance 
+                computations, making it versatile for various real-world applications.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Speed Units Explained</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Imperial Units</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Miles per Hour (mph):</strong> Standard US speed measurement</li>
+                    <li><strong>Feet per Second (ft/s):</strong> Used in engineering and physics</li>
+                    <li><strong>Knots:</strong> Nautical miles per hour, used in aviation and maritime</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Metric Units</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Kilometers per Hour (km/h):</strong> International standard</li>
+                    <li><strong>Meters per Second (m/s):</strong> Scientific and engineering use</li>
+                    <li><strong>Centimeters per Second:</strong> For very slow movements</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Speed References</h3>
+              <div className="bg-cyan-50 p-4 rounded-lg border border-cyan-200">
+                <h4 className="font-semibold text-gray-800 mb-2">Everyday Speeds</h4>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p><strong>Human Movement:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Walking: 3-4 mph</li>
+                      <li>Jogging: 5-7 mph</li>
+                      <li>Running: 8-12 mph</li>
+                      <li>Sprinting: 15-20 mph</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Transportation:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>City driving: 25-35 mph</li>
+                      <li>Highway: 55-75 mph</li>
+                      <li>Commercial jet: 500-600 mph</li>
+                      <li>Speed of sound: 767 mph</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Calculation Methods</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Speed Conversion</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Base Unit:</strong> mph (miles per hour)</li>
+                    <li><strong>Conversion Factors:</strong> Mathematical multipliers</li>
+                    <li><strong>Precision:</strong> Accurate to multiple decimal places</li>
+                    <li><strong>Range:</strong> Handles very slow to very fast speeds</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Time-Distance Calculations</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Speed = Distance ÷ Time</strong></li>
+                    <li><strong>Time = Distance ÷ Speed</strong></li>
+                    <li><strong>Distance = Speed × Time</strong></li>
+                    <li><strong>Units:</strong> Automatically handled</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Practical Applications</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Travel Planning:</strong> Estimate driving times and arrival times</li>
+                <li><strong>Athletic Training:</strong> Analyze running, cycling, and swimming speeds</li>
+                <li><strong>Physics Education:</strong> Learn about motion and velocity concepts</li>
+                <li><strong>Engineering:</strong> Calculate machine and vehicle performance</li>
+                <li><strong>Navigation:</strong> Plan routes and estimate travel duration</li>
+              </ul>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Use mph for US travel planning and km/h for international destinations</li>
+                <li>• Remember that knots are used in aviation and maritime navigation</li>
+                <li>• For precise scientific calculations, use meters per second (m/s)</li>
+                <li>• Consider traffic conditions when planning travel times</li>
+                <li>• Use the calculator to compare different transportation options</li>
+                <li>• Factor in rest stops and breaks for long-distance travel planning</li>
+              </ul>
             </div>
           </div>
         </div>
