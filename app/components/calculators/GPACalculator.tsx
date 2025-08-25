@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, GraduationCap } from 'lucide-react'
+import { GraduationCap } from 'lucide-react'
 
 interface Course {
   name: string
