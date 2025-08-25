@@ -1,9 +1,9 @@
 import CalculatorComparison from '../components/CalculatorComparison'
 
 export const metadata = {
-  title: 'Compare Calculators - Side by Side Analysis | Calculator.net',
-  description: 'Compare up to 4 calculators side by side. Analyze features, pros, cons, and find the perfect tool for your needs with our comprehensive comparison tool.',
-  keywords: ['calculator comparison', 'compare calculators', 'calculator features', 'calculator analysis', 'tool comparison'],
+  title: 'Compare Calculators - Side by Side Analysis | Online Calculator.live',
+  description: 'Compare different calculators side by side to find the best tool for your needs. Analyze features, accuracy, and ease of use.',
+  keywords: ['compare calculators', 'calculator comparison', 'best calculator', 'calculator analysis', 'online calculators'],
 }
 
 export default function ComparePage() {

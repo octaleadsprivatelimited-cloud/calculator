@@ -1,9 +1,9 @@
 import CalculatorHistory from '../components/CalculatorHistory'
 
 export const metadata = {
-  title: 'Calculation History - Track Your Calculator Usage | Calculator.net',
-  description: 'Review your calculation history, track usage patterns, and analyze your calculator usage with detailed records and export capabilities.',
-  keywords: ['calculation history', 'calculator usage', 'calculation records', 'usage tracking', 'calculation export'],
+  title: 'Calculation History - Track Your Calculator Usage | Online Calculator.live',
+  description: 'View your calculation history and track your usage patterns. Monitor your most used calculators and improve your productivity.',
+  keywords: ['calculation history', 'calculator usage', 'track calculations', 'calculator history', 'online calculators'],
 }
 
 export default function HistoryPage() {

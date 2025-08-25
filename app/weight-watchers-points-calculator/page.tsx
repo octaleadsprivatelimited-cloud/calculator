@@ -2,17 +2,17 @@ import { Metadata } from 'next'
 import WeightWatchersPointsCalculator from '../components/calculators/WeightWatchersPointsCalculator'
 
 export const metadata: Metadata = {
-  title: 'Weight Watchers Points Calculator - Calculate SmartPoints for Food',
-  description: 'Calculate Weight Watchers SmartPoints for any food item. Enter calories, saturated fat, sugar, protein, and fiber to get accurate points calculation.',
-  keywords: 'weight watchers, smartpoints, points calculator, food points, diet calculator, weight loss',
+  title: 'Weight Watchers Points Calculator - Calculate WW Points | Online Calculator.live',
+  description: 'Calculate Weight Watchers points for foods and meals. Track your daily points, SmartPoints, and stay within your daily budget.',
+  keywords: ['weight watchers points calculator', 'WW points', 'smartpoints calculator', 'weight watchers', 'points tracking'],
   openGraph: {
-    title: 'Weight Watchers Points Calculator',
-    description: 'Calculate Weight Watchers SmartPoints for any food item with our free online calculator.',
-    url: 'https://calculator.net/weight-watchers-points-calculator',
-    siteName: 'Calculator.net',
+    title: 'Weight Watchers Points Calculator - Calculate WW Points | Online Calculator.live',
+    description: 'Calculate Weight Watchers points for foods and meals. Track your daily points, SmartPoints, and stay within your daily budget.',
+    url: 'https://onlinecalculator.live/weight-watchers-points-calculator',
+    siteName: 'Online Calculator.live',
     images: [
       {
-        url: 'https://calculator.net/og-image.jpg',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Weight Watchers Points Calculator',
@@ -23,12 +23,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Weight Watchers Points Calculator',
-    description: 'Calculate Weight Watchers SmartPoints for any food item with our free online calculator.',
-    images: ['https://calculator.net/og-image.jpg'],
+    title: 'Weight Watchers Points Calculator - Calculate WW Points | Online Calculator.live',
+    description: 'Calculate Weight Watchers points for foods and meals. Track your daily points, SmartPoints, and stay within your daily budget.',
+    images: ['/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://calculator.net/weight-watchers-points-calculator',
+    canonical: 'https://onlinecalculator.live/weight-watchers-points-calculator',
   },
 }
 

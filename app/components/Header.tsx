@@ -151,7 +151,7 @@ export default function Header() {
                  </div>
                                  <div className="hidden sm:block">
                   <h1 className="text-base lg:text-lg xl:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent whitespace-nowrap">
-                    Calculator.net
+                    Online Calculator.live
                   </h1>
                   <p className="text-xs text-gray-500 hidden xl:block">Free Online Calculators</p>
                 </div>

@@ -318,7 +318,7 @@ export default function PageCalculator() {
         {/* Welcome Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-            Welcome to Calculator.net
+            Welcome to Online Calculator.live
           </h1>
           <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Free online calculators for finance, math, health, and more. Currently featuring over 50+ calculators to help you "do the math" quickly in various areas.
@@ -580,14 +580,14 @@ export default function PageCalculator() {
         )}
 
         {/* Footer */}
-        <footer className="text-center mt-16 pt-8 border-t border-gray-200">
-          <p className="text-gray-500 mb-2">
-            Calculator.net's sole focus is to provide fast, comprehensive, convenient, free online calculators.
+        <div className="text-center py-8 border-t border-gray-200">
+          <p className="text-gray-600 mb-2">
+            Online Calculator.live's sole focus is to provide fast, comprehensive, convenient, free online calculators.
           </p>
-          <p className="text-sm text-gray-400">
-            © 2024 Calculator.net - All calculators are completely free with no registration required.
+          <p className="text-gray-500 text-sm">
+            © 2024 Online Calculator.live - All calculators are completely free with no registration required.
           </p>
-        </footer>
+        </div>
       </div>
     </div>
   )

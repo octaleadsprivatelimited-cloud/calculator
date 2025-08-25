@@ -40,8 +40,8 @@ export default function SEOWrapper({
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Calculator.net",
-              "url": "https://calculator.net"
+              "name": "Online Calculator.live",
+              "url": "https://onlinecalculator.live"
             },
             "aggregateRating": {
               "@type": "AggregateRating",
@@ -73,7 +73,7 @@ export default function SEOWrapper({
                 "name": `Is the ${title} free to use?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes, all calculators on Calculator.net are completely free to use. There are no hidden fees or registrations required."
+                  "text": "Yes, all calculators on Online Calculator.live are completely free to use. There are no hidden fees or registrations required."
                 }
               },
               {

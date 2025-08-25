@@ -1,4 +1,4 @@
-# 🧮 **Calculator.net - Professional Calculator Website**
+# 🧮 **Online Calculator.live - Professional Calculator Website**
 
 A comprehensive, enterprise-grade calculator website built with Next.js, featuring 40+ specialized calculators and advanced user experience features.
 

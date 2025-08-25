@@ -20,84 +20,68 @@ export default function MetaTags({
   ogImage = '/og-image.jpg',
   calculatorType = 'Calculator'
 }: MetaTagsProps) {
-  const fullTitle = `${title} - Free Online ${calculatorType} | Calculator.net`
-  
+  const fullTitle = `${title} - Free Online ${calculatorType} | Online Calculator.live`
+  const fullDescription = `${description} Use our free online ${calculatorType.toLowerCase()} for accurate calculations.`
+
   return (
-    <Head>
-      {/* Basic Meta Tags */}
+    <>
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={fullDescription} />
       <meta name="keywords" content={keywords.join(', ')} />
-      <meta name="author" content="Calculator.net" />
-      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="author" content="Online Calculator.live" />
+      <meta name="robots" content="index, follow" />
+      <meta name="language" content="English" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       
-      {/* Canonical URL */}
-      <link rel="canonical" href={canonicalUrl} />
-      
-      {/* Open Graph Meta Tags */}
+      {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:description" content={fullDescription} />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Calculator.net" />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:site_name" content="Online Calculator.live" />
+      <meta property="og:image" content="/og-image.jpg" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={title} />
       <meta property="og:locale" content="en_US" />
       
-      {/* Twitter Meta Tags */}
+      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:site" content="@calculator_net" />
-      <meta name="twitter:creator" content="@calculator_net" />
+      <meta name="twitter:description" content={fullDescription} />
+      <meta name="twitter:image" content="/og-image.jpg" />
       
-      {/* Additional Meta Tags for Search Engines */}
-      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-      <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-      <meta name="slurp" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-      <meta name="duckduckbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      {/* Canonical */}
+      <link rel="canonical" href={canonicalUrl} />
       
-      {/* AI Training Bot Meta Tags */}
-      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      {/* Favicon */}
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       
-      {/* Mobile Meta Tags */}
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="theme-color" content="#3B82F6" />
+      {/* Mobile App */}
+      <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="apple-mobile-web-app-title" content="Calculator.net" />
-      <meta name="application-name" content="Calculator.net" />
-      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-title" content="Online Calculator.live" />
+      <meta name="application-name" content="Online Calculator.live" />
+      <meta name="theme-color" content="#3B82F6" />
       
-      {/* Windows Tiles */}
+      {/* Additional Meta */}
+      <meta name="format-detection" content="telephone=no" />
       <meta name="msapplication-TileColor" content="#3B82F6" />
       <meta name="msapplication-config" content="/browserconfig.xml" />
       
-      {/* Additional SEO Meta Tags */}
-      <meta name="classification" content="Calculator Tools" />
-      <meta name="category" content="Technology" />
-      <meta name="coverage" content="Worldwide" />
-      <meta name="distribution" content="Global" />
-      <meta name="rating" content="General" />
-      <meta name="revisit-after" content="7 days" />
-      <meta name="language" content="English" />
-      <meta name="geo.region" content="US" />
-      <meta name="geo.placename" content="United States" />
-      
-      {/* Structured Data for Calculator */}
+      {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": title,
-            "description": description,
+            "@type": "WebApplication",
+            "name": `${title} Calculator`,
+            "description": fullDescription,
             "url": canonicalUrl,
-            "applicationCategory": calculatorType,
+            "applicationCategory": "CalculatorApplication",
             "operatingSystem": "Web Browser",
             "offers": {
               "@type": "Offer",
@@ -106,17 +90,12 @@ export default function MetaTags({
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Calculator.net",
-              "url": "https://calculator.net"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "ratingCount": "1250"
+              "name": "Online Calculator.live",
+              "url": "https://onlinecalculator.live"
             }
           })
         }}
       />
-    </Head>
+    </>
   )
 }

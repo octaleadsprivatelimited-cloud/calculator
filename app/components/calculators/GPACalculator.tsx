@@ -14,6 +14,7 @@ export default function GPACalculator() {
     { name: 'Course 1', credits: 3, grade: 'A' }
   ])
   const [showResults, setShowResults] = useState(false)
+  const [error, setError] = useState<string>('')
 
   const gradeToPoints = (grade: string): number => {
     switch (grade.toUpperCase()) {
@@ -34,19 +35,45 @@ export default function GPACalculator() {
   }
 
   const calculateGPA = useCallback(() => {
-    let totalPoints = 0
-    let totalCredits = 0
+    try {
+      let totalPoints = 0
+      let totalCredits = 0
 
-    courses.forEach(course => {
-      const points = gradeToPoints(course.grade)
-      totalPoints += points * course.credits
-      totalCredits += course.credits
-    })
+      if (!courses || courses.length === 0) {
+        throw new Error('No courses available for calculation')
+      }
 
-    const gpa = totalCredits > 0 ? totalPoints / totalCredits : 0
-    const letterGrade = getLetterGrade(gpa)
+      courses.forEach((course, index) => {
+        if (!course || typeof course.credits !== 'number' || course.credits <= 0) {
+          throw new Error(`Invalid credits for course ${index + 1}`)
+        }
+        if (!course.grade || typeof course.grade !== 'string') {
+          throw new Error(`Invalid grade for course ${index + 1}`)
+        }
+        
+        const points = gradeToPoints(course.grade)
+        totalPoints += points * course.credits
+        totalCredits += course.credits
+      })
 
-    return { gpa, totalPoints, totalCredits, letterGrade }
+      if (totalCredits === 0) {
+        throw new Error('No valid courses found')
+      }
+
+      const gpa = totalPoints / totalCredits
+      
+      // Ensure GPA is a valid number
+      if (isNaN(gpa) || !isFinite(gpa)) {
+        throw new Error('Invalid GPA calculation result')
+      }
+      
+      const letterGrade = getLetterGrade(gpa)
+
+      return { gpa, totalPoints, totalCredits, letterGrade }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred while calculating GPA')
+      return { gpa: 0, totalPoints: 0, totalCredits: 0, letterGrade: '' }
+    }
   }, [courses])
 
   const getLetterGrade = (gpa: number): string => {
@@ -64,26 +91,71 @@ export default function GPACalculator() {
   }
 
   const addCourse = () => {
+    setError('') // Clear any previous errors
     setCourses([...courses, { name: `Course ${courses.length + 1}`, credits: 3, grade: 'A' }])
   }
 
   const removeCourse = (index: number) => {
     if (courses.length > 1) {
+      setError('') // Clear any previous errors
       setCourses(courses.filter((_, i) => i !== index))
     }
   }
 
   const updateCourse = (index: number, field: keyof Course, value: string | number) => {
+    setError('') // Clear any previous errors
     const newCourses = [...courses]
-    newCourses[index] = { ...newCourses[index], [field]: value }
+    
+    // Validate credits input
+    if (field === 'credits') {
+      const numValue = typeof value === 'number' ? value : parseInt(value as string)
+      if (isNaN(numValue) || numValue < 1 || numValue > 6) {
+        setError('Credits must be between 1 and 6')
+        return
+      }
+      newCourses[index] = { ...newCourses[index], credits: numValue }
+    } else if (field === 'name') {
+      // Validate course name
+      const nameValue = value as string
+      if (!nameValue.trim()) {
+        setError('Course name cannot be empty')
+        return
+      }
+      if (nameValue.length > 50) {
+        setError('Course name must be 50 characters or less')
+        return
+      }
+      newCourses[index] = { ...newCourses[index], name: nameValue.trim() }
+    } else if (field === 'grade') {
+      newCourses[index] = { ...newCourses[index], grade: value as string }
+    }
+    
     setCourses(newCourses)
   }
 
   const handleCalculate = () => {
+    setError('') // Clear any previous errors
+    
+    // Validate all courses before calculating
+    const invalidCourses = courses.filter(course => 
+      !course.name.trim() || course.credits <= 0 || course.credits > 6
+    )
+    
+    if (invalidCourses.length > 0) {
+      setError('Please fix all course information before calculating GPA')
+      return
+    }
+    
+    if (courses.length === 0) {
+      setError('Please add at least one course')
+      return
+    }
+    
     setShowResults(true)
   }
 
   const handleReset = () => {
+    setError('') // Clear any previous errors
     setCourses([{ name: 'Course 1', credits: 3, grade: 'A' }])
     setShowResults(false)
   }
@@ -118,19 +190,26 @@ export default function GPACalculator() {
             </button>
           </div>
 
+          {/* Error Display */}
+          {error && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+              <p className="text-red-700 text-sm">{error}</p>
+            </div>
+          )}
+
           <div className="space-y-4">
             {courses.map((course, index) => (
               <div key={index} className="grid md:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Course Name</label>
-                                     <input
-                     type="text"
-                     value={course.name}
-                     onChange={(e) => updateCourse(index, 'name', e.target.value)}
-                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                     placeholder="Course name"
-                     aria-label="Course name"
-                   />
+                  <input
+                    type="text"
+                    value={course.name}
+                    onChange={(e) => updateCourse(index, 'name', e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Course name"
+                    aria-label="Course name"
+                  />
                 </div>
                 
                 <div>
@@ -143,6 +222,7 @@ export default function GPACalculator() {
                     min="1"
                     max="6"
                     step="1"
+                    aria-label="Course credits"
                   />
                 </div>
                 
@@ -174,6 +254,7 @@ export default function GPACalculator() {
                     onClick={() => removeCourse(index)}
                     disabled={courses.length === 1}
                     className="w-full px-3 py-2 bg-red-600 hover:bg-red-700 disabled:bg-gray-400 text-white rounded-lg transition-colors duration-200"
+                    aria-label="Remove course"
                   >
                     Remove
                   </button>
@@ -192,7 +273,7 @@ export default function GPACalculator() {
           </button>
         </div>
 
-        {showResults && (
+        {showResults && !error && (
           <div className="space-y-6">
             <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">GPA Results</h3>

@@ -1,7 +1,7 @@
 {
-  "name": "Calculator.net - Free Online Calculators",
-  "short_name": "Calculator.net",
-  "description": "Free online calculators for math, finance, health, construction, education, and more. Over 200+ calculators including mortgage, BMI, scientific, unit conversion, and financial planning tools.",
+  "name": "Online Calculator.live - Free Online Calculators",
+  "short_name": "Online Calculator.live",
+  "description": "Free online calculators for math, finance, health, construction, and more",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -14,14 +14,12 @@
     {
       "src": "/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "type": "image/png"
     },
     {
       "src": "/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "type": "image/png"
     }
   ],
   "screenshots": [
