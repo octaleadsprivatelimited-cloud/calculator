@@ -361,7 +361,7 @@ Results:
                   <li><strong>Quick Presets:</strong> Common tip percentages (15%, 18%, 20%)</li>
                   <li><strong>Custom Tips:</strong> Enter any percentage you prefer</li>
                   <li><strong>Bill Splitting:</strong> Divide costs among multiple people</li>
-                  <strong>Rounding Options:</strong> Round up for convenience</li>
+                  <li><strong>Rounding Options:</strong> Round up for convenience</li>
                   <li><strong>Export Results:</strong> Download, share, or print calculations</li>
                 </ul>
               </div>

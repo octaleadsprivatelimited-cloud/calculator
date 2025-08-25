@@ -148,6 +148,92 @@ export default function LoanCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Loan Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive loan calculator helps you understand the true cost of borrowing money. Whether you're 
+              considering a personal loan, auto loan, home improvement loan, or any other type of financing, this tool 
+              provides accurate monthly payment calculations and total cost breakdowns.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Monthly Payment:</strong> Your fixed monthly loan payment amount</li>
+              <li><strong>Total Interest:</strong> Total interest paid over the loan term</li>
+              <li><strong>Total Payment:</strong> Principal + interest over the entire loan</li>
+              <li><strong>Loan Analysis:</strong> Smart recommendations based on your inputs</li>
+              <li><strong>Amortization:</strong> Payment breakdown and loan progression</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Types of Loans Supported</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Personal Loans</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Debt consolidation</li>
+                  <li>Home improvements</li>
+                  <li>Medical expenses</li>
+                  <li>Wedding costs</li>
+                  <li>Emergency funds</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Secured Loans</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Auto loans</li>
+                  <li>Home equity loans</li>
+                  <li>Secured personal loans</li>
+                  <li>Business loans</li>
+                  <li>Equipment financing</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your loan amount, annual interest rate, and loan term (in years or months). The calculator will 
+              instantly compute your monthly payment and provide a complete breakdown of costs, including total interest 
+              and recommendations for better loan terms.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Monthly Payment</h5>
+                <p className="text-green-700 text-sm">Fixed amount due each month</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Total Interest</h5>
+                <p className="text-blue-700 text-sm">Cost of borrowing the money</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Total Payment</h5>
+                <p className="text-purple-700 text-sm">Principal + all interest</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Loan Optimization Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Shorter Terms:</strong> Pay less interest but higher monthly payments</li>
+              <li><strong>Lower Rates:</strong> Shop around and improve your credit score</li>
+              <li><strong>Larger Down Payments:</strong> Reduce loan amount and interest costs</li>
+              <li><strong>Extra Payments:</strong> Pay off principal faster to save on interest</li>
+              <li><strong>Refinancing:</strong> Consider when rates drop significantly</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Always compare the total cost of loans, not just the monthly payment. A lower monthly payment with a 
+                longer term often means paying significantly more in total interest. Use this calculator to find the 
+                optimal balance between affordability and total cost.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

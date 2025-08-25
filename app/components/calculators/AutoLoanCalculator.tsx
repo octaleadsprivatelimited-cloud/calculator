@@ -165,6 +165,109 @@ export default function AutoLoanCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Auto Loan Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive auto loan calculator helps you understand the true cost of financing a vehicle. Whether 
+              you're buying a new car, used car, or refinancing an existing auto loan, this tool provides accurate 
+              monthly payment calculations and total cost breakdowns to help you make informed decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Monthly Payment:</strong> Your fixed monthly auto loan payment</li>
+              <li><strong>Loan Amount:</strong> Total amount financed after down payment</li>
+              <li><strong>Total Interest:</strong> Total interest paid over the loan term</li>
+              <li><strong>Total Payment:</strong> Principal + interest over the entire loan</li>
+              <li><strong>Loan Analysis:</strong> Smart recommendations for better terms</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Auto Loan Components</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Vehicle Costs</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Car price (MSRP or negotiated price)</li>
+                  <li>Sales tax and registration fees</li>
+                  <li>Dealer add-ons and warranties</li>
+                  <li>Trade-in value considerations</li>
+                  <li>Down payment amount</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Loan Terms</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Interest rate (APR)</li>
+                  <li>Loan duration (months/years)</li>
+                  <li>Credit score impact</li>
+                  <li>Lender requirements</li>
+                  <li>Prepayment penalties</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter the car price, down payment, interest rate, and loan term. The calculator will instantly compute 
+              your monthly payment and provide a complete breakdown of costs, including total interest and recommendations 
+              for optimizing your auto loan.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+                <h5 className="font-semibold text-red-800 mb-1">Monthly Payment</h5>
+                <p className="text-red-700 text-sm">Fixed amount due each month</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Total Interest</h5>
+                <p className="text-blue-700 text-sm">Cost of financing the vehicle</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Total Cost</h5>
+                <p className="text-green-700 text-sm">Car price + all interest</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Auto Loan Optimization Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Larger Down Payment:</strong> Reduces loan amount and interest costs</li>
+              <li><strong>Shorter Terms:</strong> Pay less interest but higher monthly payments</li>
+              <li><strong>Better Credit Score:</strong> Qualify for lower interest rates</li>
+              <li><strong>Shop Around:</strong> Compare rates from multiple lenders</li>
+              <li><strong>Consider Total Cost:</strong> Don't just focus on monthly payment</li>
+              <li><strong>Pre-approval:</strong> Get loan approval before car shopping</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Auto Loan Terms</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>APR:</strong> Annual Percentage Rate - total cost of borrowing</p>
+                  <p><strong>MSRP:</strong> Manufacturer's Suggested Retail Price</p>
+                  <p><strong>GAP Insurance:</strong> Covers difference if car is totaled</p>
+                </div>
+                <div>
+                  <p><strong>Pre-approval:</strong> Loan approval before car purchase</p>
+                  <p><strong>Refinancing:</strong> Replacing existing loan with better terms</p>
+                  <p><strong>Trade-in:</strong> Using old car value as down payment</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-red-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Always negotiate the car price first, then discuss financing. A lower purchase price will save you money 
+                on both the principal and interest. Consider getting pre-approved for a loan from your bank or credit union 
+                before visiting dealerships to have leverage in negotiations.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

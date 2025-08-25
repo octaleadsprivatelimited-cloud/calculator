@@ -161,6 +161,119 @@ export default function RetirementCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Retirement Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive retirement calculator helps you plan for your financial future by projecting your retirement 
+              savings and monthly income. Whether you're just starting to save or approaching retirement age, this tool 
+              provides valuable insights to help you achieve your retirement goals.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Total Retirement Savings:</strong> Projected nest egg at retirement age</li>
+              <li><strong>Years to Retirement:</strong> Time remaining until your target retirement</li>
+              <li><strong>Monthly Income:</strong> Estimated monthly income during retirement</li>
+              <li><strong>Savings Growth:</strong> How your money grows over time</li>
+              <li><strong>Personalized Recommendations:</strong> Tips to improve your retirement outlook</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Retirement Planning Components</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Current Financial Status</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Current age and retirement target</li>
+                  <li>Existing retirement savings</li>
+                  <li>Monthly contribution amount</li>
+                  <li>Expected investment returns</li>
+                  <li>Risk tolerance assessment</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Future Projections</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Compound growth calculations</li>
+                  <li>Inflation considerations</li>
+                  <li>Withdrawal rate strategies</li>
+                  <li>Life expectancy planning</li>
+                  <li>Healthcare cost estimates</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your current age, target retirement age, existing savings, monthly contribution amount, and expected 
+              annual return rate. The calculator will project your retirement savings and provide personalized recommendations 
+              to help you reach your retirement goals.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+                <h5 className="font-semibold text-emerald-800 mb-1">Total Savings</h5>
+                <p className="text-emerald-700 text-sm">Your projected retirement nest egg</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Monthly Income</h5>
+                <p className="text-blue-700 text-sm">Estimated monthly retirement income</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Years to Go</h5>
+                <p className="text-purple-700 text-sm">Time remaining until retirement</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Retirement Planning Strategies</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Start Early:</strong> Time is your greatest ally in retirement planning</li>
+              <li><strong>Increase Contributions:</strong> Boost savings as your income grows</li>
+              <li><strong>Diversify Investments:</strong> Spread risk across different asset classes</li>
+              <li><strong>Consider Tax Advantages:</strong> Maximize 401(k), IRA, and other tax-deferred accounts</li>
+              <li><strong>Plan for Healthcare:</strong> Account for medical expenses in retirement</li>
+              <li><strong>Review Regularly:</strong> Adjust your plan as circumstances change</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Retirement Accounts</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>401(k):</strong> Employer-sponsored retirement plan with potential matching</p>
+                  <p><strong>Traditional IRA:</strong> Tax-deferred individual retirement account</p>
+                  <p><strong>Roth IRA:</strong> Tax-free withdrawals in retirement</p>
+                </div>
+                <div>
+                  <p><strong>SEP IRA:</strong> Simplified employee pension for self-employed</p>
+                  <p><strong>403(b):</strong> Retirement plan for non-profit employees</p>
+                  <p><strong>Annuities:</strong> Insurance products providing guaranteed income</p>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Retirement Income Sources</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Social Security:</strong> Government retirement benefits</li>
+              <li><strong>Personal Savings:</strong> 401(k), IRA, and other investments</li>
+              <li><strong>Pension Plans:</strong> Employer-provided retirement income</li>
+              <li><strong>Part-time Work:</strong> Continued employment during retirement</li>
+              <li><strong>Real Estate:</strong> Rental income or reverse mortgages</li>
+              <li><strong>Business Ownership:</strong> Selling or continuing business operations</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                The earlier you start saving for retirement, the more time compound interest has to work in your favor. 
+                Even small monthly contributions can grow into substantial sums over decades. Consider increasing your 
+                contribution rate by 1% each year to gradually build your retirement savings without feeling the pinch.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
