@@ -432,6 +432,200 @@ export default function RoofingCalculator() {
           </div>
         </div>
 
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Roofing Calculator</h2>
+          
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <p className="text-gray-700 mb-3">
+                This comprehensive roofing calculator helps homeowners, contractors, and builders estimate the materials, 
+                costs, and requirements for various roofing projects. It calculates roof area, material quantities, 
+                waste factors, and total project costs based on roof type, dimensions, pitch, and material selection.
+              </p>
+              <p className="text-gray-700">
+                The calculator accounts for different roof types, material waste factors, underlayment requirements, 
+                and installation costs to provide accurate project estimates and budgeting information.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Roof Types & Characteristics</h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Gable Roof</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Two sloping sides meeting at ridge</li>
+                    <li>Simple construction and drainage</li>
+                    <li>Efficient material usage</li>
+                    <li>Good ventilation options</li>
+                    <li>Susceptible to wind damage</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Hip Roof</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Four sloping sides</li>
+                    <li>Better wind resistance</li>
+                    <li>More complex construction</li>
+                    <li>10-15% more material needed</li>
+                    <li>Excellent stability</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Flat Roof</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Minimal slope for drainage</li>
+                    <li>Easier maintenance access</li>
+                    <li>Lower material costs</li>
+                    <li>Drainage considerations critical</li>
+                    <li>Limited insulation options</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Roof Pitch & Calculations</h3>
+              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <h4 className="font-semibold text-gray-800 mb-2">Pitch Measurement</h4>
+                <p className="text-gray-700 mb-3">
+                  Roof pitch is measured as the vertical rise per 12 horizontal units (e.g., 4:12 means 4 inches 
+                  of rise for every 12 inches of horizontal run). Steeper pitches increase the actual roof surface 
+                  area and material requirements.
+                </p>
+                <div className="grid md:grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <p><strong>Low Pitch (2:12 - 4:12):</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Minimal material increase</li>
+                      <li>Good for modern homes</li>
+                      <li>Limited material options</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Medium Pitch (4:12 - 8:12):</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Standard residential pitch</li>
+                      <li>Good material compatibility</li>
+                      <li>Balanced aesthetics</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Steep Pitch (8:12+):</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Significant material increase</li>
+                      <li>Traditional appearance</li>
+                      <li>Better snow shedding</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Roofing Materials Overview</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Asphalt Shingles</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Cost:</strong> $25-35 per m²</li>
+                    <li><strong>Lifespan:</strong> 15-30 years</li>
+                    <li><strong>Waste Factor:</strong> 10-15%</li>
+                    <li><strong>Pros:</strong> Affordable, easy installation</li>
+                    <li><strong>Cons:</strong> Shorter lifespan, limited colors</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Metal Roofing</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Cost:</strong> $45-80 per m²</li>
+                    <li><strong>Lifespan:</strong> 40-70 years</li>
+                    <li><strong>Waste Factor:</strong> 5-8%</li>
+                    <li><strong>Pros:</strong> Durable, energy efficient</li>
+                    <li><strong>Cons:</strong> Higher initial cost, noise</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Cost Components Explained</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Material Costs:</strong> Roofing materials including shingles, tiles, or metal panels</li>
+                <li><strong>Underlayment:</strong> Waterproof barrier installed beneath roofing materials</li>
+                <li><strong>Installation:</strong> Labor costs for professional installation</li>
+                <li><strong>Waste Factor:</strong> Extra materials needed for cuts, overlaps, and mistakes</li>
+                <li><strong>Additional Materials:</strong> Flashing, vents, ridge caps, and fasteners</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Waste Factor Considerations</h3>
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h4 className="font-semibold text-gray-800 mb-2">Why Waste Factors Matter</h4>
+                <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm">
+                  <li><strong>Cutting Waste:</strong> Materials cut to fit roof edges and angles</li>
+                  <li><strong>Installation Errors:</strong> Mistakes during installation requiring replacement</li>
+                  <li><strong>Pattern Matching:</strong> Aligning patterns and colors properly</li>
+                  <li><strong>Future Repairs:</strong> Extra materials for maintenance and repairs</li>
+                  <li><strong>Complex Roofs:</strong> Hips, valleys, and dormers increase waste</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Installation Considerations</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Professional Installation</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Proper ventilation installation</li>
+                    <li>Correct flashing placement</li>
+                    <li>Warranty protection</li>
+                    <li>Building code compliance</li>
+                    <li>Quality workmanship</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">DIY Considerations</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Safety requirements</li>
+                    <li>Skill level assessment</li>
+                    <li>Tool and equipment needs</li>
+                    <li>Time commitment</li>
+                    <li>Permit requirements</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Maintenance & Longevity</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Regular Inspections:</strong> Check for damage, loose materials, and wear</li>
+                <li><strong>Gutter Maintenance:</strong> Keep gutters clean to prevent water damage</li>
+                <li><strong>Ventilation:</strong> Ensure proper attic ventilation for material longevity</li>
+                <li><strong>Repairs:</strong> Address minor issues before they become major problems</li>
+                <li><strong>Professional Assessment:</strong> Periodic professional inspections for complex roofs</li>
+              </ul>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Always add 10-15% to material calculations for waste and future repairs</li>
+                <li>• Consider energy efficiency - lighter colored roofs reflect more heat</li>
+                <li>• Check local building codes for minimum pitch and material requirements</li>
+                <li>• Factor in ventilation systems when calculating total project costs</li>
+                <li>• Get multiple quotes from licensed contractors for accurate pricing</li>
+                <li>• Consider the total cost of ownership, not just initial installation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center mt-12">
           <a
             href="/"

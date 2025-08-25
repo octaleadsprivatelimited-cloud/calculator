@@ -388,18 +388,182 @@ Conversion Details:
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-amber-600 mt-1 flex-shrink-0" />
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-amber-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Roman Numerals</h2>
+          
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Roman Numerals</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Roman numerals use letters to represent numbers: I=1, V=5, X=10, L=50, C=100, D=500, M=1000. 
-                Numbers are formed by combining these letters, with smaller values placed before larger ones 
-                to subtract (e.g., IV=4, IX=9). This system was used in ancient Rome and is still seen today 
-                in clock faces, book chapters, and movie credits.
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Historical Background</h3>
+              <p className="text-gray-700 mb-3">
+                Roman numerals originated in ancient Rome around 1000 BCE and were the primary number system 
+                used throughout the Roman Empire. This system uses letters from the Latin alphabet to represent 
+                numerical values, creating a unique and elegant way to express numbers that has endured for millennia.
               </p>
+              <p className="text-gray-700">
+                Despite the widespread adoption of Arabic numerals (0-9) in modern mathematics, Roman numerals 
+                continue to be used in specific contexts where tradition, aesthetics, or specific formatting requirements prevail.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Basic Roman Numeral Symbols</h3>
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                <div className="grid md:grid-cols-4 gap-4 text-sm">
+                  <div>
+                    <p><strong>I = 1</strong></p>
+                    <p><strong>V = 5</strong></p>
+                    <p><strong>X = 10</strong></p>
+                  </div>
+                  <div>
+                    <p><strong>L = 50</strong></p>
+                    <p><strong>C = 100</strong></p>
+                    <p><strong>D = 500</strong></p>
+                  </div>
+                  <div>
+                    <p><strong>M = 1,000</strong></p>
+                    <p><strong>ↁ = 5,000</strong></p>
+                    <p><strong>ↂ = 10,000</strong></p>
+                  </div>
+                  <div>
+                    <p><strong>ↇ = 50,000</strong></p>
+                    <p><strong>ↈ = 100,000</strong></p>
+                    <p><strong>∞ = 1,000,000</strong></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Roman Numeral Rules</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Addition Rule</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>When a smaller numeral follows a larger one, add them</li>
+                    <li>VI = 5 + 1 = 6</li>
+                    <li>XV = 10 + 5 = 15</li>
+                    <li>LXX = 50 + 10 + 10 = 70</li>
+                    <li>CC = 100 + 100 = 200</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Subtraction Rule</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>When a smaller numeral precedes a larger one, subtract</li>
+                    <li>IV = 5 - 1 = 4</li>
+                    <li>IX = 10 - 1 = 9</li>
+                    <li>XL = 50 - 10 = 40</li>
+                    <li>CM = 1000 - 100 = 900</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Modern Usage & Applications</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Traditional Uses</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Clock faces and watch dials</li>
+                    <li>Book chapters and sections</li>
+                    <li>Movie and TV show credits</li>
+                    <li>Monument inscriptions</li>
+                    <li>Academic paper numbering</li>
+                    <li>Legal document sections</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Contemporary Applications</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Software version numbering</li>
+                    <li>Sporting event numbering</li>
+                    <li>Monarch and pope numbering</li>
+                    <li>Chemical element groups</li>
+                    <li>Musical chord notation</li>
+                    <li>Design and typography</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Conversion Process</h3>
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h4 className="font-semibold text-gray-800 mb-2">Arabic to Roman Conversion</h4>
+                <ol className="list-decimal list-inside text-gray-700 space-y-2 text-sm">
+                  <li>Start with the largest Roman numeral value</li>
+                  <li>Divide the Arabic number by the Roman value</li>
+                  <li>Write the Roman numeral that many times</li>
+                  <li>Subtract the value from the Arabic number</li>
+                  <li>Repeat with the next largest Roman numeral</li>
+                  <li>Continue until the Arabic number is zero</li>
+                </ol>
+                <div className="mt-3 p-3 bg-amber-100 rounded border border-amber-300">
+                  <p className="text-sm"><strong>Example:</strong> 1984 = 1000 + 900 + 80 + 4 = M + CM + LXXX + IV = MCMLXXXIV</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Special Cases & Exceptions</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Zero:</strong> Roman numerals have no symbol for zero - it was represented by the absence of symbols</li>
+                <li><strong>Large Numbers:</strong> Very large numbers used special symbols and overlines for multiplication by 1000</li>
+                <li><strong>Fractions:</strong> Roman numerals could represent fractions using specific symbols</li>
+                <li><strong>Clock Faces:</strong> Traditional clocks often use IIII instead of IV for aesthetic balance</li>
+                <li><strong>Year Limitations:</strong> Standard Roman numerals are limited to 1-3,999, though extensions exist</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Educational Value</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Mathematical Skills</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Understanding place value</li>
+                    <li>Addition and subtraction logic</li>
+                    <li>Pattern recognition</li>
+                    <li>Historical number systems</li>
+                    <li>Cultural mathematics</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Cultural Knowledge</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Ancient Roman history</li>
+                    <li>Classical civilization</li>
+                    <li>Historical mathematics</li>
+                    <li>Cultural traditions</li>
+                    <li>Artistic applications</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Mistakes to Avoid</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Invalid Combinations:</strong> Using more than three of the same numeral in sequence</li>
+                <li><strong>Incorrect Subtraction:</strong> Only I, X, and C can be used for subtraction</li>
+                <li><strong>Order Errors:</strong> Placing larger numerals before smaller ones incorrectly</li>
+                <li><strong>Missing Symbols:</strong> Forgetting to include all necessary numerals</li>
+                <li><strong>Case Sensitivity:</strong> Roman numerals are traditionally uppercase</li>
+              </ul>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Remember the key rule: I can only subtract from V and X, X can only subtract from L and C</li>
+                <li>• For years, break them down into thousands, hundreds, tens, and ones</li>
+                <li>• Use the converter to verify your manual conversions</li>
+                <li>• Practice with common years and dates to build familiarity</li>
+                <li>• Roman numerals are read from left to right, largest to smallest</li>
+                <li>• When in doubt, use the addition rule rather than subtraction</li>
+              </ul>
             </div>
           </div>
         </div>

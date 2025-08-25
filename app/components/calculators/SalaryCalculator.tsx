@@ -370,6 +370,186 @@ export default function SalaryCalculator() {
           </div>
         </div>
 
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-green-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Salary Calculator</h2>
+          
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <p className="text-gray-700 mb-3">
+                This comprehensive salary calculator helps employees, job seekers, and HR professionals understand 
+                the complete picture of compensation by calculating take-home pay after all deductions. It provides 
+                detailed breakdowns of federal and state taxes, Social Security, Medicare, and other deductions.
+              </p>
+              <p className="text-gray-700">
+                The calculator converts annual salaries to various pay periods and helps users understand the 
+                true value of their compensation package for budgeting and financial planning purposes.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Understanding Your Paycheck</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Gross vs. Net Pay</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Gross Salary:</strong> Total compensation before any deductions</li>
+                    <li><strong>Net Salary:</strong> Take-home pay after all taxes and deductions</li>
+                    <li><strong>Tax Burden:</strong> Total percentage of income going to taxes</li>
+                    <li><strong>Effective Tax Rate:</strong> Average tax rate on total income</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Pay Period Conversions</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Monthly:</strong> Net salary ÷ 12 months</li>
+                    <li><strong>Bi-weekly:</strong> Net salary ÷ 26 pay periods</li>
+                    <li><strong>Weekly:</strong> Net salary ÷ 52 weeks</li>
+                    <li><strong>Daily:</strong> Weekly pay ÷ 5 working days</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Federal Tax System</h3>
+              <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                <h4 className="font-semibold text-gray-800 mb-2">2024 Federal Tax Brackets</h4>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p><strong>Single Filer:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>10%: $0 - $11,600</li>
+                      <li>12%: $11,601 - $47,150</li>
+                      <li>22%: $47,151 - $100,525</li>
+                      <li>24%: $100,526 - $191,950</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Higher Brackets:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>32%: $191,951 - $243,725</li>
+                      <li>35%: $243,726 - $609,350</li>
+                      <li>37%: $609,351+</li>
+                    </ul>
+                  </div>
+                </div>
+                <p className="text-gray-700 mt-3 text-sm">
+                  <strong>Note:</strong> Tax brackets are progressive, meaning only income within each bracket 
+                  is taxed at that rate, not your entire income.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Payroll Deductions Explained</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Mandatory Deductions</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Federal Income Tax:</strong> Progressive tax based on income level</li>
+                    <li><strong>State Income Tax:</strong> Varies by state (some states have no income tax)</li>
+                    <li><strong>Social Security:</strong> 6.2% up to $168,600 (2024 limit)</li>
+                    <li><strong>Medicare:</strong> 1.45% on all earnings (no limit)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Optional Deductions</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>401(k) Contributions:</strong> Pre-tax retirement savings</li>
+                    <li><strong>Health Insurance:</strong> Medical, dental, vision coverage</li>
+                    <li><strong>Life Insurance:</strong> Employer-provided or voluntary</li>
+                    <li><strong>Other Benefits:</strong> Disability, HSA, FSA contributions</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">State Tax Variations</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>No State Income Tax:</strong> Alaska, Florida, Nevada, South Dakota, Texas, Washington, Wyoming</li>
+                <li><strong>Flat Rate States:</strong> Colorado (4.4%), Illinois (4.95%), Indiana (3.23%)</li>
+                <li><strong>Progressive States:</strong> California, New York, Oregon have multiple brackets</li>
+                <li><strong>Local Taxes:</strong> Some cities add additional income taxes</li>
+                <li><strong>State-Specific Deductions:</strong> Vary significantly between states</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Financial Planning Considerations</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Budgeting</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Use net pay for monthly budgeting</li>
+                    <li>Account for irregular expenses</li>
+                    <li>Plan for tax refunds or payments</li>
+                    <li>Consider seasonal variations</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Tax Planning</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Adjust withholding as needed</li>
+                    <li>Maximize retirement contributions</li>
+                    <li>Consider tax-advantaged accounts</li>
+                    <li>Plan for major life changes</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Salary Negotiation Factors</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Total Compensation:</strong> Look beyond base salary to benefits and perks</li>
+                <li><strong>Tax Implications:</strong> Higher salary means higher tax bracket</li>
+                <li><strong>Cost of Living:</strong> Consider local tax rates and living expenses</li>
+                <li><strong>Benefits Value:</strong> Health insurance, retirement matching, etc.</li>
+                <li><strong>Growth Potential:</strong> Future raises and advancement opportunities</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Salary Calculator Uses</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Job Seekers</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Compare job offers</li>
+                    <li>Negotiate compensation</li>
+                    <li>Plan relocation costs</li>
+                    <li>Understand tax implications</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Current Employees</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Budget planning</li>
+                    <li>Tax preparation</li>
+                    <li>Retirement planning</li>
+                    <li>Benefits optimization</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Always negotiate based on total compensation, not just base salary</li>
+                <li>• Consider the value of benefits - they can add 20-40% to your total compensation</li>
+                <li>• Use this calculator to compare job offers in different states with different tax rates</li>
+                <li>• Remember that bonuses and overtime are typically taxed at higher rates</li>
+                <li>• Plan your withholding to avoid large tax bills or refunds at year-end</li>
+                <li>• Factor in cost of living differences when comparing salaries across locations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* Back to Calculators */}
         <div className="text-center mt-12">
           <a

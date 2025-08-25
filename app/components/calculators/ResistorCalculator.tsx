@@ -538,18 +538,168 @@ Circuit Analysis:
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-purple-600 mt-1 flex-shrink-0" />
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Resistor Calculator</h2>
+          
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Resistor Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This comprehensive resistor calculator computes total resistance, current, and power for series and parallel circuits. 
-                It automatically generates the standard 4-band color code for the calculated resistance value and provides detailed 
-                power analysis. The calculator handles both simple and complex circuit configurations, making it perfect for 
-                electronics projects, circuit design, and educational purposes. Always verify power ratings when selecting components.
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <p className="text-gray-700 mb-3">
+                This comprehensive resistor calculator is designed for electronics engineers, hobbyists, and students to 
+                analyze electrical circuits containing resistors. It calculates total resistance, current flow, power 
+                dissipation, and voltage distribution for series, parallel, and mixed circuit configurations.
               </p>
+              <p className="text-gray-700">
+                The calculator automatically generates standard 4-band color codes for resistance values and provides 
+                detailed power analysis to ensure safe component selection and circuit operation.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Electrical Circuit Fundamentals</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Series Circuits</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Current flows through each resistor sequentially</li>
+                    <li>Total resistance = R1 + R2 + R3 + ...</li>
+                    <li>Same current flows through all resistors</li>
+                    <li>Voltage divides across each resistor</li>
+                    <li>Power dissipation varies by resistance</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Parallel Circuits</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Current divides among parallel branches</li>
+                    <li>1/R_total = 1/R1 + 1/R2 + 1/R3 + ...</li>
+                    <li>Same voltage across all resistors</li>
+                    <li>Total current = sum of branch currents</li>
+                    <li>Lower total resistance than individual</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Key Calculations Explained</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Total Resistance:</strong> Effective resistance of the entire circuit configuration</li>
+                <li><strong>Current Flow:</strong> Total current drawn from the voltage source (I = V/R)</li>
+                <li><strong>Power Dissipation:</strong> Electrical power converted to heat in each resistor (P = I²R)</li>
+                <li><strong>Voltage Drop:</strong> Voltage across individual resistors in series circuits</li>
+                <li><strong>Color Code:</strong> Standard 4-band resistor color coding system</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Resistor Color Code System</h3>
+              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                <h4 className="font-semibold text-gray-800 mb-2">4-Band Color Code</h4>
+                <div className="grid md:grid-cols-4 gap-2 text-sm">
+                  <div>
+                    <p><strong>Band 1:</strong> First significant digit</p>
+                    <p><strong>Band 2:</strong> Second significant digit</p>
+                  </div>
+                  <div>
+                    <p><strong>Band 3:</strong> Multiplier (power of 10)</p>
+                    <p><strong>Band 4:</strong> Tolerance percentage</p>
+                  </div>
+                  <div>
+                    <p><strong>Example:</strong> Brown-Black-Red-Gold</p>
+                    <p><strong>Value:</strong> 10 × 100 = 1,000Ω ±5%</p>
+                  </div>
+                  <div>
+                    <p><strong>Common Tolerances:</strong></p>
+                    <p>Gold: ±5%, Silver: ±10%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Practical Applications</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Electronics Design</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Voltage divider circuits</li>
+                    <li>Current limiting applications</li>
+                    <li>Load matching and impedance</li>
+                    <li>Signal conditioning</li>
+                    <li>Power supply design</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Educational & Learning</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Circuit theory understanding</li>
+                    <li>Ohm's Law applications</li>
+                    <li>Power calculations</li>
+                    <li>Circuit analysis skills</li>
+                    <li>Component selection</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Safety Considerations</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Power Rating:</strong> Ensure resistors can handle calculated power dissipation</li>
+                <li><strong>Voltage Rating:</strong> Check maximum voltage ratings for high-voltage circuits</li>
+                <li><strong>Temperature Rise:</strong> Monitor for excessive heat generation</li>
+                <li><strong>Current Limits:</strong> Verify current ratings for high-current applications</li>
+                <li><strong>Circuit Protection:</strong> Include fuses or circuit breakers where appropriate</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Component Selection Guidelines</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Resistance Value</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Choose standard E12/E24 series values</li>
+                    <li>Consider tolerance requirements</li>
+                    <li>Account for temperature effects</li>
+                    <li>Use precision resistors for critical circuits</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Power Rating</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Select power rating 2x calculated dissipation</li>
+                    <li>Consider ambient temperature effects</li>
+                    <li>Account for mounting and ventilation</li>
+                    <li>Use heat sinks for high-power applications</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Mistakes to Avoid</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Power Rating:</strong> Underestimating power dissipation requirements</li>
+                <li><strong>Voltage Rating:</strong> Exceeding maximum voltage ratings</li>
+                <li><strong>Temperature Effects:</strong> Ignoring resistance changes with temperature</li>
+                <li><strong>Paralleling:</strong> Incorrectly calculating parallel resistance</li>
+                <li><strong>Color Code:</strong> Misreading resistor color bands</li>
+              </ul>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Always derate power ratings by 50% for reliable operation</li>
+                <li>• Use precision resistors (1% tolerance) for measurement circuits</li>
+                <li>• Consider temperature coefficient for precision applications</li>
+                <li>• Verify calculations with multimeter measurements</li>
+                <li>• Use appropriate wire gauge for high-current circuits</li>
+                <li>• Document your circuit design and component selections</li>
+              </ul>
             </div>
           </div>
         </div>
