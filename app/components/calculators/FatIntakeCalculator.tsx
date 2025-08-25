@@ -330,6 +330,256 @@ export default function FatIntakeCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Fat Intake Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive fat intake calculator helps individuals determine their optimal daily fat 
+              consumption based on personal health goals, activity levels, and dietary preferences. This 
+              essential nutrition tool provides personalized fat intake recommendations to support overall 
+              health, hormone production, and specific fitness objectives.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Daily Fat Requirements:</strong> Optimal fat intake in grams</li>
+              <li><strong>Fat Percentage:</strong> Percentage of total daily calories from fat</li>
+              <li><strong>Calorie Breakdown:</strong> Calories derived from fat intake</li>
+              <li><strong>Intake Ranges:</strong> Minimum, recommended, and maximum levels</li>
+              <li><strong>Goal-Specific Adjustments:</strong> Customized for different objectives</li>
+              <li><strong>Health Recommendations:</strong> Personalized dietary guidance</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Essential Fat Functions</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Hormone Production</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Testosterone and estrogen</li>
+                  <li>Thyroid hormones</li>
+                  <li>Stress hormones</li>
+                  <li>Insulin regulation</li>
+                  <li>Growth hormones</li>
+                  <li>Reproductive hormones</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Nutrient Absorption</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Fat-soluble vitamins (A, D, E, K)</li>
+                  <li>Carotenoids and antioxidants</li>
+                  <li>Omega-3 and omega-6 fatty acids</li>
+                  <li>Phytonutrients</li>
+                  <li>Mineral absorption</li>
+                  <li>Bioavailability enhancement</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Body Functions</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Brain health and cognition</li>
+                  <li>Cell membrane structure</li>
+                  <li>Energy storage and release</li>
+                  <li>Temperature regulation</li>
+                  <li>Organ protection</li>
+                  <li>Nerve signal transmission</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Goal-Specific Fat Intake</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Weight Loss</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Fat: 25-35% of total calories</li>
+                  <li>Focus on healthy fats</li>
+                  <li>Maintain satiety</li>
+                  <li>Preserve muscle mass</li>
+                  <li>Support hormone balance</li>
+                  <li>Avoid very low-fat diets</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Muscle Gain</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Fat: 20-25% of total calories</li>
+                  <li>Support testosterone production</li>
+                  <li>Provide energy for workouts</li>
+                  <li>Maintain hormone balance</li>
+                  <li>Support recovery</li>
+                  <li>Balance with protein and carbs</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Specialized Diet Fat Levels</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Ketogenic Diet</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Fat: 70-75% of total calories</li>
+                  <li>Induces ketosis</li>
+                  <li>Primary energy source</li>
+                  <li>High-fat foods essential</li>
+                  <li>Monitor ketone levels</li>
+                  <li>May aid weight loss</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Low Fat Diet</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Fat: 10-20% of total calories</li>
+                  <li>Focus on lean proteins</li>
+                  <li>Complex carbohydrates</li>
+                  <li>Heart health focus</li>
+                  <li>Monitor essential fats</li>
+                  <li>Professional guidance recommended</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                <h5 className="font-semibold text-yellow-800 mb-1">Daily Fat Intake</h5>
+                <p className="text-yellow-700 text-sm">Recommended grams per day</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Fat Percentage</h5>
+                <p className="text-orange-700 text-sm">% of total daily calories</p>
+              </div>
+              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+                <h5 className="font-semibold text-red-800 mb-1">Intake Ranges</h5>
+                <p className="text-red-700 text-sm">Min, recommended, max levels</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your age, gender, weight, height, activity level, and health goal. The calculator 
+              will provide your optimal daily fat intake in grams and as a percentage of total calories, 
+              along with personalized recommendations.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Healthy Fat Sources</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Monounsaturated Fats:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Olive oil and avocados</li>
+                    <li>Nuts (almonds, cashews)</li>
+                    <li>Peanut butter</li>
+                    <li>Canola oil</li>
+                    <li>Dark chocolate</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Polyunsaturated Fats:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Fatty fish (salmon, tuna)</li>
+                    <li>Flaxseeds and chia seeds</li>
+                    <li>Walnuts and sunflower seeds</li>
+                    <li>Soybean oil</li>
+                    <li>Corn oil</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Essential Fatty Acids</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Omega-3 Fatty Acids:</strong> EPA, DHA, ALA for brain and heart health</li>
+              <li><strong>Omega-6 Fatty Acids:</strong> LA, GLA for skin and hormone health</li>
+              <li><strong>Omega-9 Fatty Acids:</strong> Oleic acid for cardiovascular health</li>
+              <li><strong>Conjugated Linoleic Acid:</strong> CLA for body composition</li>
+              <li><strong>Medium-Chain Triglycerides:</strong> MCTs for quick energy</li>
+              <li><strong>Short-Chain Fatty Acids:</strong> SCFAs for gut health</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fat Intake Guidelines</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Minimum Fat Intake:</strong> 20% of total calories (essential functions)</li>
+              <li><strong>Recommended Range:</strong> 25-35% of total calories (general health)</li>
+              <li><strong>Maximum Fat Intake:</strong> 40% of total calories (unless ketogenic)</li>
+              <li><strong>Saturated Fat Limit:</strong> Less than 10% of total calories</li>
+              <li><strong>Trans Fat Limit:</strong> As close to 0% as possible</li>
+              <li><strong>Essential Fat Minimum:</strong> 3-5% of total calories</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Fat Intake Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Too Little Fat:</strong> Hormone imbalances, poor absorption</li>
+              <li><strong>Too Much Saturated Fat:</strong> Heart health concerns</li>
+              <li><strong>Ignoring Essential Fats:</strong> Omega-3 and omega-6 deficiency</li>
+              <li><strong>Processed Fats:</strong> Trans fats and hydrogenated oils</li>
+              <li><strong>Unbalanced Ratios:</strong> Too much omega-6 vs. omega-3</li>
+              <li><strong>Fat Phobia:</strong> Unnecessary restriction of healthy fats</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Adjust Fat Intake</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Energy Changes:</strong> Fatigue or excessive energy</li>
+              <li><strong>Hormone Issues:</strong> Irregular periods, low libido</li>
+              <li><strong>Skin Problems:</strong> Dry skin, poor wound healing</li>
+              <li><strong>Digestive Issues:</strong> Poor absorption, vitamin deficiencies</li>
+              <li><strong>Goal Changes:</strong> Switching between weight loss and maintenance</li>
+              <li><strong>Health Conditions:</strong> Heart disease, diabetes management</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fat Quality vs. Quantity</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>High-Quality Fats:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Cold-pressed oils</li>
+                    <li>Wild-caught fish</li>
+                    <li>Grass-fed meats</li>
+                    <li>Organic nuts and seeds</li>
+                    <li>Unrefined coconut oil</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Low-Quality Fats:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Refined vegetable oils</li>
+                    <li>Processed meats</li>
+                    <li>Hydrogenated oils</li>
+                    <li>Deep-fried foods</li>
+                    <li>Margarine and spreads</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fat Intake for Different Life Stages</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Children (2-18 years):</strong> 25-35% of calories for growth and development</li>
+              <li><strong>Adults (19-50 years):</strong> 20-35% of calories for maintenance</li>
+              <li><strong>Older Adults (51+ years):</strong> 20-35% of calories with focus on omega-3s</li>
+              <li><strong>Pregnancy:</strong> 20-35% of calories with increased omega-3s</li>
+              <li><strong>Breastfeeding:</strong> 20-35% of calories for milk production</li>
+              <li><strong>Athletes:</strong> 20-35% of calories based on training intensity</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Focus on fat quality over quantity. Choose whole food sources of healthy fats rather than 
+                processed oils. Aim for a balance of omega-3 and omega-6 fatty acids, with a ratio closer 
+                to 1:1 rather than the typical Western diet ratio of 1:15. Remember that fat is essential 
+                for health - don't fear it, but choose it wisely. Also, consider that your fat needs may 
+                vary seasonally (more in winter for warmth, less in summer) and with your menstrual cycle 
+                if you're a woman. Finally, fat intake should work in harmony with your protein and 
+                carbohydrate intake for optimal health and performance.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -319,6 +319,226 @@ export default function GFRCalculator() {
             )}
           </div>
         )}
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About GFR Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive GFR calculator helps healthcare professionals and patients understand 
+              kidney function using multiple validated formulas. This essential medical tool provides 
+              accurate Glomerular Filtration Rate calculations, kidney disease staging, and clinical 
+              recommendations for informed healthcare decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>GFR Values:</strong> Glomerular Filtration Rate in mL/min/1.73m²</li>
+              <li><strong>Kidney Disease Staging:</strong> CKD classification (1-5)</li>
+              <li><strong>Clinical Interpretation:</strong> Kidney function assessment</li>
+              <li><strong>Multiple Formulas:</strong> Cockcroft-Gault, MDRD, CKD-EPI</li>
+              <li><strong>Body Surface Area:</strong> BSA calculations for dosing</li>
+              <li><strong>Clinical Recommendations:</strong> Evidence-based guidance</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GFR Calculation Methods</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Cockcroft-Gault Formula</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Formula:</strong> [(140 - age) × weight] ÷ (72 × creatinine)</li>
+                  <li><strong>Gender Factor:</strong> × 0.85 for females</li>
+                  <li><strong>Advantages:</strong> Simple, widely used</li>
+                  <li><strong>Limitations:</strong> Less accurate in extremes</li>
+                  <li><strong>Best For:</strong> General screening</li>
+                  <li><strong>Units:</strong> mL/min (not adjusted for BSA)</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">MDRD Formula</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Formula:</strong> 175 × (creatinine)^-1.154 × (age)^-0.203</li>
+                  <li><strong>Gender Factor:</strong> × 0.742 for females</li>
+                  <li><strong>Race Factor:</strong> × 1.212 for Black patients</li>
+                  <li><strong>Advantages:</strong> More accurate than Cockcroft-Gault</li>
+                  <li><strong>Limitations:</strong> Less accurate at GFR &gt; 60</li>
+                  <li><strong>Best For:</strong> CKD patients</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-teal-50 p-3 rounded-lg border border-teal-200">
+                <h5 className="font-semibold text-teal-800 mb-1">GFR Value</h5>
+                <p className="text-teal-700 text-sm">Kidney function rate</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">CKD Stage</h5>
+                <p className="text-blue-700 text-sm">Disease classification</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Interpretation</h5>
+                <p className="text-green-700 text-sm">Clinical meaning</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Recommendations</h5>
+                <p className="text-purple-700 text-sm">Clinical guidance</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your age, gender, weight, height, serum creatinine level, and race. The calculator 
+              automatically computes GFR using multiple formulas, provides kidney disease staging, and 
+              offers clinical recommendations based on your results.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GFR Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>What is GFR:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Rate of fluid filtration through kidneys</li>
+                    <li>Primary measure of kidney function</li>
+                    <li>Normal range: 90-120 mL/min/1.73m²</li>
+                    <li>Decreases with age and kidney disease</li>
+                    <li>Used for medication dosing</li>
+                    <li>Critical for CKD management</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Clinical Importance:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Kidney disease diagnosis</li>
+                    <li>Disease progression monitoring</li>
+                    <li>Medication dose adjustment</li>
+                    <li>Dialysis timing decisions</li>
+                    <li>Transplant evaluation</li>
+                    <li>Risk stratification</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">CKD Staging System</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Early Stages</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Stage 1:</strong> GFR &ge; 90, kidney damage present</li>
+                  <li><strong>Stage 2:</strong> GFR 60-89, mild decrease</li>
+                  <li><strong>Stage 3a:</strong> GFR 45-59, moderate decrease</li>
+                  <li><strong>Stage 3b:</strong> GFR 30-44, moderate decrease</li>
+                  <li><strong>Management:</strong> Monitor, lifestyle changes</li>
+                  <li><strong>Prognosis:</strong> Generally good with treatment</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Advanced Stages</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Stage 4:</strong> GFR 15-29, severe decrease</li>
+                  <li><strong>Stage 5:</strong> GFR &lt; 15, kidney failure</li>
+                  <li><strong>Management:</strong> Nephrology referral</li>
+                  <li><strong>Treatment:</strong> Dialysis or transplant</li>
+                  <li><strong>Monitoring:</strong> Frequent assessments</li>
+                  <li><strong>Prognosis:</strong> Requires intervention</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting GFR</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Age:</strong> Natural decline with aging</li>
+              <li><strong>Gender:</strong> Generally lower in females</li>
+              <li><strong>Race:</strong> Genetic factors in Black patients</li>
+              <li><strong>Body Size:</strong> Weight and height considerations</li>
+              <li><strong>Creatinine Level:</strong> Primary indicator of kidney function</li>
+              <li><strong>Medical Conditions:</strong> Diabetes, hypertension, heart disease</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Creatinine Considerations</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Normal Ranges</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Adult Males:</strong> 0.7-1.3 mg/dL</li>
+                  <li><strong>Adult Females:</strong> 0.6-1.1 mg/dL</li>
+                  <li><strong>Elderly:</strong> May be lower due to muscle loss</li>
+                  <li><strong>Children:</strong> Varies by age and development</li>
+                  <li><strong>Athletes:</strong> May be higher due to muscle mass</li>
+                  <li><strong>Units:</strong> mg/dL (US) or μmol/L (international)</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Interpretation</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Elevated:</strong> May indicate kidney dysfunction</li>
+                  <li><strong>Normal:</strong> Kidney function likely adequate</li>
+                  <li><strong>Low:</strong> May indicate muscle wasting</li>
+                  <li><strong>Trends:</strong> Changes over time more important</li>
+                  <li><strong>Context:</strong> Consider age, gender, race</li>
+                  <li><strong>Limitations:</strong> Not always accurate indicator</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Clinical Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Medication Dosing:</strong> Adjust doses based on kidney function</li>
+              <li><strong>Contrast Administration:</strong> Assess risk for imaging studies</li>
+              <li><strong>Chemotherapy Planning:</strong> Determine safe drug doses</li>
+              <li><strong>Antibiotic Selection:</strong> Choose appropriate medications</li>
+              <li><strong>Blood Pressure Management:</strong> Guide antihypertensive therapy</li>
+              <li><strong>Diabetes Management:</strong> Monitor kidney complications</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GFR Calculation Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use Recent Values:</strong> Creatinine levels change over time</li>
+              <li><strong>Consider Context:</strong> Age, gender, race, body size</li>
+              <li><strong>Multiple Formulas:</strong> Compare different calculations</li>
+              <li><strong>Trend Analysis:</strong> Monitor changes over time</li>
+              <li><strong>Clinical Correlation:</strong> Combine with symptoms</li>
+              <li><strong>Professional Review:</strong> Discuss with healthcare provider</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common GFR Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Using Outdated Values:</strong> Creatinine changes over time</li>
+              <li><strong>Ignoring Race Factor:</strong> Important for accuracy</li>
+              <li><strong>Not Considering Age:</strong> Natural decline with aging</li>
+              <li><strong>Single Measurement:</strong> Trends more important</li>
+              <li><strong>Ignoring Context:</strong> Clinical symptoms matter</li>
+              <li><strong>Self-Diagnosis:</strong> Always consult healthcare provider</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced GFR Concepts</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Cystatin C:</strong> Alternative to creatinine</li>
+              <li><strong>Dynamic GFR:</strong> Real-time measurements</li>
+              <li><strong>Nuclear Medicine:</strong> Gold standard measurement</li>
+              <li><strong>Clearance Studies:</strong> Direct measurement methods</li>
+              <li><strong>Biomarkers:</strong> Emerging kidney function markers</li>
+              <li><strong>Machine Learning:</strong> AI-enhanced calculations</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-teal-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When interpreting GFR results, remember that these are estimates based on mathematical 
+                formulas, not direct measurements. Always consider the clinical context, including 
+                symptoms, medical history, and other laboratory values. GFR naturally declines with 
+                age, so a GFR of 60 in an 80-year-old may be normal, while the same value in a 
+                30-year-old requires investigation. Use multiple formulas when possible and track 
+                trends over time rather than relying on single measurements. Most importantly, 
+                discuss your results with your healthcare provider for proper interpretation and 
+                management recommendations.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

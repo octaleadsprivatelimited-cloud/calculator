@@ -137,6 +137,141 @@ export default function IRRCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About IRR Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our advanced IRR (Internal Rate of Return) calculator helps you evaluate investment profitability by calculating 
+              the annualized return rate that makes the net present value of all cash flows equal to zero. This essential 
+              tool is used by investors, financial analysts, and business professionals to compare investment opportunities 
+              and make informed financial decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Internal Rate of Return:</strong> Annualized return rate in percentage</li>
+              <li><strong>Net Present Value (NPV):</strong> Present value of all cash flows</li>
+              <li><strong>Investment Analysis:</strong> Comprehensive profitability assessment</li>
+              <li><strong>Cash Flow Evaluation:</strong> Analysis of income and expenses over time</li>
+              <li><strong>Return Comparison:</strong> Benchmark against other investment options</li>
+              <li><strong>Risk Assessment:</strong> Understanding investment performance metrics</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding IRR</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">What is IRR?</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Annualized return rate</li>
+                  <li>Makes NPV equal to zero</li>
+                  <li>Accounts for time value of money</li>
+                  <li>Measures investment efficiency</li>
+                  <li>Standardized comparison metric</li>
+                  <li>Used in capital budgeting</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">IRR Interpretation</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>IRR &gt; Cost of Capital: Profitable</li>
+                  <li>IRR = Cost of Capital: Break-even</li>
+                  <li>IRR &lt; Cost of Capital: Unprofitable</li>
+                  <li>Higher IRR = Better investment</li>
+                  <li>Compare with hurdle rates</li>
+                  <li>Consider risk factors</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-violet-50 p-3 rounded-lg border border-violet-200">
+                <h5 className="font-semibold text-violet-800 mb-1">IRR Percentage</h5>
+                <p className="text-violet-700 text-sm">Annual return rate</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">NPV Value</h5>
+                <p className="text-purple-700 text-sm">Present value of cash flows</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Investment Analysis</h5>
+                <p className="text-green-700 text-sm">Profitability assessment</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your initial investment amount and expected cash flows (positive values for income, separated by commas). 
+              The calculator will compute the IRR and NPV, providing a comprehensive analysis of your investment's profitability.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Real Estate Investment:</strong> Evaluate property purchase and rental income</li>
+              <li><strong>Business Projects:</strong> Assess new ventures and expansions</li>
+              <li><strong>Equipment Purchases:</strong> Analyze machinery and technology investments</li>
+              <li><strong>Stock Investments:</strong> Evaluate dividend-paying securities</li>
+              <li><strong>Bond Analysis:</strong> Assess fixed-income investments</li>
+              <li><strong>Capital Budgeting:</strong> Compare multiple investment options</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">IRR vs. Other Metrics</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>IRR Advantages:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Accounts for time value of money</li>
+                    <li>Expressed as percentage</li>
+                    <li>Easy to compare investments</li>
+                    <li>Considers all cash flows</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>IRR Limitations:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>May have multiple solutions</li>
+                    <li>Assumes reinvestment at IRR</li>
+                    <li>Doesn't show absolute returns</li>
+                    <li>Can be misleading for non-standard flows</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">IRR Benchmarks</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Excellent IRR:</strong> 15%+ - Highly profitable investments</li>
+              <li><strong>Good IRR:</strong> 10-15% - Solid investment returns</li>
+              <li><strong>Moderate IRR:</strong> 5-10% - Acceptable returns</li>
+              <li><strong>Low IRR:</strong> 0-5% - Minimal returns</li>
+              <li><strong>Negative IRR:</strong> Below 0% - Loss-making investments</li>
+              <li><strong>Hurdle Rate:</strong> Minimum acceptable IRR for your risk profile</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Investment Decision Framework</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Compare IRR:</strong> Higher IRR generally indicates better investment</li>
+              <li><strong>Consider Risk:</strong> Higher returns often come with higher risk</li>
+              <li><strong>Assess Liquidity:</strong> Consider how quickly you can exit the investment</li>
+              <li><strong>Evaluate Cash Flows:</strong> Ensure realistic income projections</li>
+              <li><strong>Review Assumptions:</strong> Verify all input parameters are accurate</li>
+              <li><strong>Diversify Portfolio:</strong> Don't put all funds in one investment type</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-violet-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                While IRR is a powerful metric, it should not be used in isolation. Always consider other factors such as 
+                risk, liquidity, market conditions, and your overall investment strategy. A high IRR investment with high 
+                risk may not be suitable for conservative investors, while a lower IRR investment with stable returns 
+                might be perfect for long-term wealth building.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

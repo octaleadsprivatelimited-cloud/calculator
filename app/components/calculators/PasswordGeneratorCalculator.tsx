@@ -539,17 +539,123 @@ Security Tips:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-purple-600 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Password Generator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This secure password generator creates random, strong passwords based on your specifications. 
-                It includes strength analysis, entropy calculations, and security recommendations. The generator 
-                uses cryptographically secure random number generation and provides customizable options for 
-                different security needs. Remember to use unique passwords for each account and consider 
-                using a password manager for better security.
+        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Password Generator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our advanced password generator creates cryptographically secure, random passwords tailored to your 
+              specific security requirements. Whether you need passwords for online accounts, applications, or 
+              system access, this tool provides strong, unique passwords with comprehensive security analysis.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Generates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Random Passwords:</strong> Cryptographically secure random generation</li>
+              <li><strong>Customizable Length:</strong> Adjustable password length (8-128 characters)</li>
+              <li><strong>Character Sets:</strong> Uppercase, lowercase, numbers, and symbols</li>
+              <li><strong>Strength Analysis:</strong> Comprehensive security assessment</li>
+              <li><strong>Entropy Calculation:</strong> Mathematical measure of randomness</li>
+              <li><strong>Security Recommendations:</strong> Expert advice for improvement</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Password Strength Levels</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Strong Passwords</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Very Weak: Easily guessable</li>
+                  <li>Weak: Basic dictionary attacks</li>
+                  <li>Fair: Some resistance to attacks</li>
+                  <li>Good: Strong against common attacks</li>
+                  <li>Strong: Excellent security</li>
+                  <li>Very Strong: Maximum security</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Security Features</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Cryptographic randomness</li>
+                  <li>Character variety</li>
+                  <li>Length optimization</li>
+                  <li>Pattern avoidance</li>
+                  <li>Entropy maximization</li>
+                  <li>Strength validation</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Strength Score</h5>
+                <p className="text-purple-700 text-sm">1-6 rating system</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Entropy</h5>
+                <p className="text-blue-700 text-sm">Randomness measure in bits</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Time to Crack</h5>
+                <p className="text-green-700 text-sm">Estimated cracking time</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Select your desired password length, choose which character types to include, and click generate. 
+              The tool will create a secure password and provide detailed analysis of its strength and security 
+              characteristics.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Password Security Best Practices</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use Unique Passwords:</strong> Never reuse passwords across accounts</li>
+              <li><strong>Minimum Length:</strong> Aim for at least 12 characters</li>
+              <li><strong>Character Variety:</strong> Include uppercase, lowercase, numbers, and symbols</li>
+              <li><strong>Avoid Patterns:</strong> Don't use sequential characters or common words</li>
+              <li><strong>Regular Updates:</strong> Change passwords periodically</li>
+              <li><strong>Password Manager:</strong> Use a secure password manager for storage</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Entropy and Security</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <p className="text-gray-700 text-sm mb-3">
+                <strong>What is Entropy?</strong> Entropy measures the randomness and unpredictability of a password. 
+                Higher entropy means the password is harder to guess or crack.
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Low Entropy (0-32 bits):</strong> Easily crackable</p>
+                  <p><strong>Medium Entropy (32-64 bits):</strong> Moderate security</p>
+                  <p><strong>High Entropy (64+ bits):</strong> Very secure</p>
+                </div>
+                <div>
+                  <p><strong>Calculation Factors:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Character set size</li>
+                    <li>Password length</li>
+                    <li>Randomness quality</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Password Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Personal Information:</strong> Names, birthdays, addresses</li>
+              <li><strong>Common Words:</strong> Dictionary words or phrases</li>
+              <li><strong>Sequential Characters:</strong> 12345, qwerty, abcdef</li>
+              <li><strong>Short Lengths:</strong> Passwords under 8 characters</li>
+              <li><strong>Pattern Repetition:</strong> Repeated character sequences</li>
+              <li><strong>Predictable Substitutions:</strong> Using @ for 'a', 3 for 'e'</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Consider using passphrases instead of passwords for better memorability and security. A passphrase 
+                like "correct horse battery staple" is much stronger than a complex but short password. Combine 
+                this with a password manager for the best of both worlds: strong security and easy access.
               </p>
             </div>
           </div>

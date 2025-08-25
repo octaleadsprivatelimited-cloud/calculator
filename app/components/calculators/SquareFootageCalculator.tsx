@@ -552,16 +552,112 @@ ${costPerSqFt ? `- Total Cost: $${formatNumber(result.cost)}` : ''}`
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Square Footage Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator helps you determine the total square footage of your space by adding up individual room areas. 
-                You can calculate areas for rectangles, circles, triangles, and L-shaped rooms. The calculator automatically 
-                converts between different area units and can estimate total costs if you provide a cost per square foot. 
-                Perfect for real estate professionals, contractors, and homeowners planning renovations.
+        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Square Footage Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive square footage calculator helps you determine the total area of any space by adding up 
+              individual room areas. Whether you're planning renovations, estimating construction costs, or evaluating 
+              real estate, this tool provides accurate area calculations with multiple unit conversions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Total Square Footage:</strong> Combined area of all rooms and spaces</li>
+              <li><strong>Multiple Unit Conversions:</strong> Square feet, meters, yards, and acres</li>
+              <li><strong>Cost Estimates:</strong> Total project cost based on area and cost per square foot</li>
+              <li><strong>Room-by-Room Breakdown:</strong> Individual area calculations for each space</li>
+              <li><strong>Complex Shapes:</strong> Support for rectangles, circles, triangles, and L-shapes</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Supported Room Shapes</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Basic Shapes</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Rectangular rooms (length × width)</li>
+                  <li>Square rooms (side × side)</li>
+                  <li>Circular rooms (π × radius²)</li>
+                  <li>Triangular rooms (½ × base × height)</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Complex Shapes</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>L-shaped rooms (multiple rectangles)</li>
+                  <li>Irregular shapes (decomposed into parts)</li>
+                  <li>Rooms with alcoves or cutouts</li>
+                  <li>Multi-level spaces</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Area Units</h5>
+                <p className="text-blue-700 text-sm">Square feet, meters, yards, and acres</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Cost Estimates</h5>
+                <p className="text-green-700 text-sm">Total project cost calculations</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Add rooms one by one, selecting the appropriate shape and entering dimensions. For irregular shapes, 
+              break them down into simpler geometric forms. The calculator will automatically sum all areas and 
+              provide conversions between different units.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Home Renovations:</strong> Calculate flooring, paint, and material needs</li>
+              <li><strong>Real Estate:</strong> Evaluate property size and value</li>
+              <li><strong>Construction:</strong> Estimate material quantities and costs</li>
+              <li><strong>Interior Design:</strong> Plan furniture layouts and space utilization</li>
+              <li><strong>Property Management:</strong> Track rental property dimensions</li>
+              <li><strong>Insurance:</strong> Determine coverage amounts based on area</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Area Conversion Factors</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>1 square foot =</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>0.0929 square meters</li>
+                    <li>0.1111 square yards</li>
+                    <li>0.000023 acres</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>1 square meter =</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>10.764 square feet</li>
+                    <li>1.196 square yards</li>
+                    <li>0.000247 acres</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Pro Tips for Accurate Measurements</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Measure Twice:</strong> Double-check all dimensions for accuracy</li>
+              <li><strong>Include All Spaces:</strong> Don't forget closets, hallways, and utility areas</li>
+              <li><strong>Account for Obstacles:</strong> Consider columns, built-ins, and structural elements</li>
+              <li><strong>Use Consistent Units:</strong> Stick to one unit system throughout</li>
+              <li><strong>Round Appropriately:</strong> Use reasonable precision for practical applications</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                For complex floor plans, break down irregular shapes into simple geometric forms. Measure from 
+                wall to wall at the widest points, and remember that square footage calculations are typically 
+                based on interior dimensions unless specified otherwise.
               </p>
             </div>
           </div>

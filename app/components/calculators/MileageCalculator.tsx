@@ -421,6 +421,225 @@ Results:
             </div>
           </div>
         </div>
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Mileage Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive mileage calculator helps drivers, businesses, and travelers 
+              understand fuel efficiency, trip costs, and mileage tracking. This essential 
+              tool provides accurate calculations for trip planning, fuel cost analysis, 
+              and business expense tracking, enabling informed decisions about transportation.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Trip Distance:</strong> Total miles or kilometers traveled</li>
+              <li><strong>Fuel Efficiency:</strong> Miles per gallon (MPG) or L/100km</li>
+              <li><strong>Fuel Consumption:</strong> Total fuel used for the trip</li>
+              <li><strong>Cost Analysis:</strong> Fuel costs and cost per mile</li>
+              <li><strong>Total Expenses:</strong> Complete trip cost breakdown</li>
+              <li><strong>Efficiency Tracking:</strong> Performance monitoring over time</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Modes</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Trip Planning Mode</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Purpose:</strong> Estimate costs for future journeys</li>
+                  <li><strong>Inputs:</strong> Distance, fuel price, vehicle MPG</li>
+                  <li><strong>Outputs:</strong> Estimated fuel cost and total expenses</li>
+                  <li><strong>Use Case:</strong> Budget planning and cost estimation</li>
+                  <li><strong>Benefits:</strong> Financial preparation for trips</li>
+                  <li><strong>Accuracy:</strong> Based on known vehicle efficiency</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Fuel Efficiency Mode</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Purpose:</strong> Calculate actual distance from fuel used</li>
+                  <li><strong>Inputs:</strong> Fuel consumed, fuel price, total cost</li>
+                  <li><strong>Outputs:</strong> Distance traveled and efficiency metrics</li>
+                  <li><strong>Use Case:</strong> Actual trip analysis and tracking</li>
+                  <li><strong>Benefits:</strong> Real performance measurement</li>
+                  <li><strong>Accuracy:</strong> Based on actual consumption data</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Distance</h5>
+                <p className="text-blue-700 text-sm">Total miles traveled</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">MPG</h5>
+                <p className="text-green-700 text-sm">Fuel efficiency rating</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Fuel Used</h5>
+                <p className="text-purple-700 text-sm">Gallons consumed</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Total Cost</h5>
+                <p className="text-orange-700 text-sm">Complete trip expense</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Select your calculation mode (Trip Planning or Fuel Efficiency), enter the required 
+              information including locations, distances, fuel prices, and vehicle efficiency. 
+              The calculator will provide comprehensive results including fuel consumption, 
+              cost analysis, and efficiency metrics for informed decision-making.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fuel Efficiency Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>MPG Calculation:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>MPG = Distance ÷ Fuel Used</li>
+                    <li>Higher MPG = Better efficiency</li>
+                    <li>Lower MPG = More fuel consumption</li>
+                    <li>City vs. Highway differences</li>
+                    <li>Seasonal variations</li>
+                    <li>Driving style impact</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Cost per Mile:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Cost per Mile = Fuel Cost ÷ Distance</li>
+                    <li>Lower cost = Better value</li>
+                    <li>Fuel price sensitivity</li>
+                    <li>Efficiency improvements</li>
+                    <li>Vehicle comparison tool</li>
+                    <li>Budget planning metric</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Fuel Efficiency</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Vehicle Factors</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Engine Size:</strong> Larger engines use more fuel</li>
+                  <li><strong>Vehicle Weight:</strong> Heavier vehicles less efficient</li>
+                  <li><strong>Aerodynamics:</strong> Wind resistance affects efficiency</li>
+                  <li><strong>Tire Pressure:</strong> Underinflated tires reduce MPG</li>
+                  <li><strong>Maintenance:</strong> Regular service improves efficiency</li>
+                  <li><strong>Age:</strong> Older vehicles may be less efficient</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Driving Factors</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Speed:</strong> Optimal speed for efficiency</li>
+                  <li><strong>Acceleration:</strong> Smooth driving saves fuel</li>
+                  <li><strong>Braking:</strong> Anticipatory driving reduces waste</li>
+                  <li><strong>Idling:</strong> Turn off engine when stopped</li>
+                  <li><strong>Route Choice:</strong> Avoid traffic and hills</li>
+                  <li><strong>Load:</strong> Remove unnecessary weight</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Business Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Expense Tracking:</strong> Monitor business travel costs</li>
+              <li><strong>Fleet Management:</strong> Track multiple vehicle efficiency</li>
+              <li><strong>Cost Allocation:</strong> Assign expenses to projects</li>
+              <li><strong>Budget Planning:</strong> Forecast transportation costs</li>
+              <li><strong>Tax Deductions:</strong> Document business mileage</li>
+              <li><strong>Performance Analysis:</strong> Compare driver efficiency</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Personal Finance Benefits</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Budget Management:</strong> Plan for transportation costs</li>
+              <li><strong>Vehicle Comparison:</strong> Evaluate different car options</li>
+              <li><strong>Fuel Cost Monitoring:</strong> Track spending over time</li>
+              <li><strong>Efficiency Improvements:</strong> Identify savings opportunities</li>
+              <li><strong>Trip Planning:</strong> Budget for vacations and travel</li>
+              <li><strong>Cost Awareness:</strong> Make informed driving decisions</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Environmental Considerations</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Carbon Footprint</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Fuel Consumption:</strong> Direct emissions impact</li>
+                  <li><strong>Efficiency Gains:</strong> Reduce environmental impact</li>
+                  <li><strong>Alternative Fuels:</strong> Consider cleaner options</li>
+                  <li><strong>Driving Habits:</strong> Eco-friendly practices</li>
+                  <li><strong>Vehicle Choice:</strong> Select efficient models</li>
+                  <li><strong>Maintenance:</strong> Keep vehicles running cleanly</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Sustainability</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Resource Conservation:</strong> Reduce fuel consumption</li>
+                  <li><strong>Cost Savings:</strong> Financial and environmental benefits</li>
+                  <li><strong>Future Planning:</strong> Consider electric vehicles</li>
+                  <li><strong>Public Transport:</strong> Alternative transportation</li>
+                  <li><strong>Carpooling:</strong> Share rides when possible</li>
+                  <li><strong>Walking/Cycling:</strong> Short distance alternatives</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Mileage Tracking Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Consistent Recording:</strong> Track every trip for accuracy</li>
+              <li><strong>Fuel Receipts:</strong> Keep all fuel purchase records</li>
+              <li><strong>Odometer Readings:</strong> Record start and end mileage</li>
+              <li><strong>Regular Updates:</strong> Update calculations monthly</li>
+              <li><strong>Multiple Vehicles:</strong> Track each vehicle separately</li>
+              <li><strong>Digital Tools:</strong> Use apps for automatic tracking</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Calculation Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Incorrect MPG:</strong> Using outdated efficiency ratings</li>
+              <li><strong>Fuel Price Errors:</strong> Using wrong fuel cost per gallon</li>
+              <li><strong>Distance Miscalculations:</strong> Route vs. straight-line distance</li>
+              <li><strong>Unit Confusion:</strong> Mixing miles and kilometers</li>
+              <li><strong>Missing Costs:</strong> Forgetting maintenance and depreciation</li>
+              <li><strong>Seasonal Variations:</strong> Not accounting for weather impact</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Mileage Analysis</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Trend Analysis:</strong> Monitor efficiency over time</li>
+              <li><strong>Comparative Studies:</strong> Compare different vehicles</li>
+              <li><strong>Route Optimization:</strong> Find most efficient paths</li>
+              <li><strong>Cost Projections:</strong> Forecast future expenses</li>
+              <li><strong>Efficiency Benchmarks:</strong> Compare to industry standards</li>
+              <li><strong>Maintenance Impact:</strong> Track service effect on MPG</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Track your mileage consistently for at least a month to get accurate baseline 
+                efficiency numbers. Consider factors like seasonal changes, driving conditions, 
+                and vehicle maintenance that can affect fuel efficiency. Use this data to make 
+                informed decisions about vehicle purchases, route planning, and driving habits. 
+                Remember that small improvements in efficiency can lead to significant cost 
+                savings over time, especially for high-mileage drivers.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

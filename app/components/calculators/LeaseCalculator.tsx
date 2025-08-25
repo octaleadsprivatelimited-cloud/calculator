@@ -171,6 +171,151 @@ export default function LeaseCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Lease Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive lease calculator helps you determine monthly lease payments and total costs for vehicle 
+              leasing. Whether you're considering leasing a car, truck, or other vehicle, this tool provides essential 
+              calculations including depreciation, interest costs, and total lease expenses to help you make informed 
+              leasing decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Monthly Payment:</strong> Regular lease payment amount</li>
+              <li><strong>Total Cost:</strong> Complete cost of leasing over the term</li>
+              <li><strong>Depreciation:</strong> Vehicle value loss during lease period</li>
+              <li><strong>Interest Costs:</strong> Money factor and financing charges</li>
+              <li><strong>Lease Analysis:</strong> Cost breakdown and comparison</li>
+              <li><strong>Payment Factors:</strong> How different terms affect payments</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Lease vs. Purchase Analysis</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Leasing Advantages</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Lower monthly payments</li>
+                  <li>Newer vehicles every few years</li>
+                  <li>Warranty coverage throughout lease</li>
+                  <li>No depreciation concerns</li>
+                  <li>Lower down payment requirements</li>
+                  <li>Tax benefits for business use</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Leasing Disadvantages</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>No equity building</li>
+                  <li>Mileage restrictions</li>
+                  <li>Wear and tear charges</li>
+                  <li>Early termination fees</li>
+                  <li>Higher long-term costs</li>
+                  <li>Limited customization options</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                <h5 className="font-semibold text-slate-800 mb-1">Monthly Payment</h5>
+                <p className="text-slate-700 text-sm">Regular lease amount</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Depreciation</h5>
+                <p className="text-blue-700 text-sm">Value loss during lease</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Total Cost</h5>
+                <p className="text-green-700 text-sm">Complete lease expense</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter the vehicle price, down payment, residual value, interest rate, and lease term. The calculator 
+              will compute your monthly payment, depreciation, and total lease costs to help evaluate the leasing option.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Lease Terms</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Capitalized Cost:</strong> Negotiated price of the vehicle</li>
+              <li><strong>Residual Value:</strong> Estimated value at lease end</li>
+              <li><strong>Money Factor:</strong> Interest rate expressed as decimal</li>
+              <li><strong>Lease Term:</strong> Duration of the lease agreement</li>
+              <li><strong>Mileage Allowance:</strong> Annual miles included in lease</li>
+              <li><strong>Acquisition Fee:</strong> One-time fee to start lease</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Lease Payment Components</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Depreciation Cost:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Vehicle price minus residual</li>
+                    <li>Divided by lease term</li>
+                    <li>Largest component of payment</li>
+                    <li>Affected by vehicle type</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Interest Cost:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Based on money factor</li>
+                    <li>Applied to average balance</li>
+                    <li>Higher with longer terms</li>
+                    <li>Affected by credit score</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Lease Payments</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Vehicle Price:</strong> Higher prices mean higher payments</li>
+              <li><strong>Residual Value:</strong> Higher residuals reduce payments</li>
+              <li><strong>Interest Rate:</strong> Lower rates reduce monthly costs</li>
+              <li><strong>Lease Term:</strong> Longer terms typically mean lower payments</li>
+              <li><strong>Down Payment:</strong> Larger down payments reduce monthly amounts</li>
+              <li><strong>Vehicle Type:</strong> Luxury vehicles have higher depreciation</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Lease Negotiation Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Negotiate Price:</strong> Focus on capitalized cost, not monthly payment</li>
+              <li><strong>Research Residuals:</strong> Compare residual values across lenders</li>
+              <li><strong>Shop Money Factors:</strong> Compare interest rates from multiple sources</li>
+            <li><strong>Consider Mileage:</strong> Choose appropriate annual mileage allowance</li>
+              <li><strong>Review Fees:</strong> Negotiate or eliminate unnecessary charges</li>
+              <li><strong>Compare Options:</strong> Evaluate lease vs. purchase carefully</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Lease Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Focusing Only on Payment:</strong> Consider total cost, not just monthly amount</li>
+              <li><strong>Ignoring Mileage Limits:</strong> Excess mileage charges can be expensive</li>
+              <li><strong>Overlooking Wear and Tear:</strong> Damage beyond normal wear may cost extra</li>
+              <li><strong>Not Reading Fine Print:</strong> Understand all terms and conditions</li>
+              <li><strong>Ignoring Early Termination:</strong> Breaking lease early can be costly</li>
+              <li><strong>Forgetting Insurance:</strong> Gap insurance may be required</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-slate-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Always negotiate the capitalized cost (vehicle price) first, then focus on the money factor (interest rate). 
+                A lower capitalized cost will reduce your monthly payment more than negotiating the interest rate alone. 
+                Also, consider your driving habits - if you drive more than 12,000-15,000 miles per year, leasing may not 
+                be the best option due to excess mileage charges.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

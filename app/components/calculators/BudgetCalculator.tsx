@@ -150,6 +150,182 @@ export default function BudgetCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Budget Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive budget calculator helps you create and maintain a balanced monthly budget using 
+              the proven 50/30/20 rule. This tool analyzes your income and expenses to provide personalized 
+              budgeting recommendations, helping you achieve financial stability, reduce debt, and build savings 
+              for your future goals.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Expense Percentages:</strong> How much of your income goes to each category</li>
+              <li><strong>Budget Balance:</strong> Remaining income after all expenses</li>
+              <li><strong>50/30/20 Analysis:</strong> Comparison with recommended budget ratios</li>
+              <li><strong>Expense Breakdown:</strong> Detailed analysis of spending patterns</li>
+              <li><strong>Budget Recommendations:</strong> Personalized suggestions for improvement</li>
+              <li><strong>Financial Health Assessment:</strong> Overall budget evaluation</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">The 50/30/20 Budget Rule</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">50% - Needs</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Housing (rent/mortgage)</li>
+                  <li>Transportation</li>
+                  <li>Food and groceries</li>
+                  <li>Utilities and insurance</li>
+                  <li>Basic clothing</li>
+                  <li>Minimum debt payments</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">30% - Wants</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Entertainment</li>
+                  <li>Dining out</li>
+                  <li>Hobbies and recreation</li>
+                  <li>Non-essential shopping</li>
+                  <li>Vacations and travel</li>
+                  <li>Luxury items</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">20% - Savings</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Emergency fund</li>
+                  <li>Retirement savings</li>
+                  <li>Investment accounts</li>
+                  <li>Debt repayment</li>
+                  <li>Major purchases</li>
+                  <li>Financial goals</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Budget Summary</h5>
+                <p className="text-blue-700 text-sm">Remaining income</p>
+              </div>
+              <div className="bg-cyan-50 p-3 rounded-lg border border-cyan-200">
+                <h5 className="font-semibold text-cyan-800 mb-1">Expense Breakdown</h5>
+                <p className="text-cyan-700 text-sm">Category percentages</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Recommendations</h5>
+                <p className="text-green-700 text-sm">Improvement suggestions</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your monthly income and current expenses for housing, transportation, food, utilities, and 
+              entertainment. The calculator will analyze your spending patterns and provide personalized 
+              recommendations to help you achieve a balanced budget.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budget Categories Explained</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Housing:</strong> Rent, mortgage, property taxes, insurance, maintenance</li>
+              <li><strong>Transportation:</strong> Car payments, gas, insurance, public transit, maintenance</li>
+              <li><strong>Food:</strong> Groceries, household supplies, basic necessities</li>
+              <li><strong>Utilities:</strong> Electricity, water, gas, internet, phone, garbage</li>
+              <li><strong>Entertainment:</strong> Movies, dining out, hobbies, recreation, non-essential items</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budgeting Best Practices</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Track Everything:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Record all income sources</li>
+                    <li>Log every expense</li>
+                    <li>Use budgeting apps</li>
+                    <li>Review monthly statements</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Set Priorities:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Pay yourself first</li>
+                    <li>Emergency fund priority</li>
+                    <li>High-interest debt first</li>
+                    <li>Long-term goals planning</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Budgeting Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Unrealistic Expectations:</strong> Setting budgets too low for essential expenses</li>
+              <li><strong>Forgetting Irregular Expenses:</strong> Annual costs like insurance and taxes</li>
+              <li><strong>No Emergency Fund:</strong> Failing to plan for unexpected expenses</li>
+              <li><strong>Ignoring Small Expenses:</strong> Daily coffee, snacks, and impulse purchases</li>
+              <li><strong>No Flexibility:</strong> Rigid budgets that don't allow for life changes</li>
+              <li><strong>Not Adjusting:</strong> Failing to review and modify budgets regularly</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budgeting Strategies</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Zero-Based Budgeting:</strong> Every dollar has a specific purpose</li>
+              <li><strong>Envelope Method:</strong> Physical cash for different categories</li>
+              <li><strong>50/30/20 Rule:</strong> Balanced approach to spending and saving</li>
+              <li><strong>Pay Yourself First:</strong> Save before spending on wants</li>
+              <li><strong>Automated Savings:</strong> Set up automatic transfers</li>
+              <li><strong>Regular Reviews:</strong> Monthly budget check-ins</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Saving Strategies</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Emergency Fund:</strong> 3-6 months of essential expenses</li>
+              <li><strong>Retirement Savings:</strong> 10-15% of income for retirement</li>
+              <li><strong>Debt Repayment:</strong> Focus on high-interest debt first</li>
+              <li><strong>Investment Accounts:</strong> Long-term wealth building</li>
+              <li><strong>Major Purchases:</strong> Save for cars, home improvements</li>
+              <li><strong>Financial Goals:</strong> Vacation, education, business startup</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budgeting Tools and Resources</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Budgeting Apps:</strong> Mint, YNAB, Personal Capital</li>
+              <li><strong>Spreadsheets:</strong> Excel, Google Sheets templates</li>
+              <li><strong>Banking Tools:</strong> Online banking and mobile apps</li>
+              <li><strong>Financial Advisors:</strong> Professional guidance and planning</li>
+              <li><strong>Online Resources:</strong> Financial education websites</li>
+              <li><strong>Community Support:</strong> Budgeting groups and forums</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budgeting for Different Life Stages</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Young Adults:</strong> Focus on building emergency fund and reducing debt</li>
+              <li><strong>Families:</strong> Include childcare, education, and family activities</li>
+              <li><strong>Mid-Career:</strong> Maximize retirement savings and investment contributions</li>
+              <li><strong>Pre-Retirement:</strong> Accelerate savings and reduce expenses</li>
+              <li><strong>Retirement:</strong> Focus on income generation and healthcare costs</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Start budgeting with your current spending patterns rather than trying to implement the perfect 
+                budget immediately. Track your expenses for a month to see where your money actually goes, then 
+                gradually adjust your spending to align with the 50/30/20 rule. Remember that budgeting is a 
+                process, not a one-time event. Review and adjust your budget monthly, and don't be discouraged 
+                by setbacks - every month is a new opportunity to improve your financial habits.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

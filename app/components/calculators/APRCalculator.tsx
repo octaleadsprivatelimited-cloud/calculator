@@ -144,6 +144,119 @@ export default function APRCalculator() {
           </div>
         )}
       </div>
+
+      {/* Calculator Description Section */}
+      <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <h3 className="text-xl font-semibold text-gray-800 mb-4">About APR Calculator</h3>
+        <div className="prose prose-gray max-w-none">
+          <p className="text-gray-700 mb-4">
+            Our comprehensive APR calculator helps borrowers understand the true cost of loans by 
+            calculating the Annual Percentage Rate, which includes both interest and fees. This 
+            essential financial tool provides accurate cost comparisons between different loan 
+            offers, helping you make informed borrowing decisions and avoid hidden costs.
+          </p>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Annual Percentage Rate (APR):</strong> True cost of borrowing including fees</li>
+            <li><strong>Total Cost:</strong> Complete amount paid over loan term</li>
+            <li><strong>Monthly Payment:</strong> Regular payment amount</li>
+            <li><strong>Interest vs. APR:</strong> Comparison of nominal rate vs. actual cost</li>
+            <li><strong>Fee Impact:</strong> How fees affect total borrowing cost</li>
+            <li><strong>Loan Analysis:</strong> Comprehensive cost breakdown</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">APR vs. Interest Rate</h4>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Interest Rate</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>Cost of borrowing money</li>
+                <li>Expressed as annual percentage</li>
+                <li>Doesn't include fees</li>
+                <li>Base rate for calculations</li>
+                <li>Advertised rate</li>
+                <li>Simple interest calculation</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">APR (Annual Percentage Rate)</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>True cost of borrowing</li>
+                <li>Includes interest + fees</li>
+                <li>Standardized comparison tool</li>
+                <li>Required by law disclosure</li>
+                <li>Higher than interest rate</li>
+                <li>Better cost comparison</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+          <div className="grid md:grid-cols-3 gap-4 mb-4">
+            <div className="bg-violet-50 p-3 rounded-lg border border-violet-200">
+              <h5 className="font-semibold text-violet-800 mb-1">APR</h5>
+              <p className="text-violet-700 text-sm">True borrowing cost</p>
+            </div>
+            <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <h5 className="font-semibold text-purple-800 mb-1">Total Cost</h5>
+              <p className="text-purple-700 text-sm">Complete loan cost</p>
+            </div>
+            <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+              <h5 className="font-semibold text-pink-800 mb-1">Monthly Payment</h5>
+              <p className="text-pink-700 text-sm">Regular payment amount</p>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+          <p className="text-gray-700 mb-4">
+            Enter your loan amount, interest rate, loan term, and any fees. The calculator will 
+            compute the APR, total cost, and monthly payments, providing a complete picture of 
+            your loan's true cost to help you compare different loan offers.
+          </p>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Types of Loan Fees</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Origination Fees:</strong> 1-6% of loan amount for processing</li>
+            <li><strong>Application Fees:</strong> One-time fee for loan application</li>
+            <li><strong>Underwriting Fees:</strong> Cost of loan evaluation and approval</li>
+            <li><strong>Documentation Fees:</strong> Cost of preparing loan documents</li>
+            <li><strong>Credit Report Fees:</strong> Cost of credit history check</li>
+            <li><strong>Appraisal Fees:</strong> Property valuation costs (for mortgages)</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Loan Type APR Ranges</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Mortgages:</strong> 3-8% APR (government-backed loans often lower)</li>
+            <li><strong>Auto Loans:</strong> 3-18% APR (new cars lower than used)</li>
+            <li><strong>Personal Loans:</strong> 6-36% APR (credit score dependent)</li>
+            <li><strong>Student Loans:</strong> 3-12% APR (federal vs. private)</li>
+            <li><strong>Business Loans:</strong> 7-30% APR (SBA loans often lower)</li>
+            <li><strong>Credit Cards:</strong> 12-30% APR (revolving credit)</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">APR Comparison Strategies</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Same Loan Type:</strong> Compare similar loan products</li>
+            <li><strong>Same Term Length:</strong> Equal repayment periods for fair comparison</li>
+            <li><strong>Fee Breakdown:</strong> Understand what fees are included</li>
+            <li><strong>Total Cost Analysis:</strong> Look beyond just the APR</li>
+            <li><strong>Prepayment Penalties:</strong> Consider early repayment costs</li>
+            <li><strong>Rate Changes:</strong> Fixed vs. variable rate implications</li>
+          </ul>
+          
+          <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-violet-500">
+            <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <p className="text-gray-700 text-sm">
+              When comparing loan offers, always look at the APR rather than just the interest rate, 
+              as APR gives you the true cost of borrowing. However, remember that APR is just one 
+              factor to consider. Also evaluate the total cost, monthly payment, loan term, and any 
+              prepayment penalties. For the most accurate comparison, get loan estimates from multiple 
+              lenders and compare them side by side.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

@@ -280,6 +280,239 @@ export default function MacroCalculator() {
             </div>
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Macro Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive macro calculator helps fitness enthusiasts, athletes, and health-conscious 
+              individuals determine their optimal daily macronutrient intake based on personal goals and 
+              lifestyle factors. This essential nutrition tool provides personalized macronutrient ratios 
+              to support weight management, muscle building, athletic performance, and overall health.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Daily Calorie Needs:</strong> Total energy requirements based on activity</li>
+              <li><strong>Protein Requirements:</strong> Essential for muscle building and repair</li>
+              <li><strong>Carbohydrate Needs:</strong> Primary energy source for daily activities</li>
+              <li><strong>Fat Intake:</strong> Essential for hormone production and absorption</li>
+              <li><strong>Macro Ratios:</strong> Optimal percentages for your specific goals</li>
+              <li><strong>Goal-Specific Adjustments:</strong> Customized for weight loss, muscle gain, etc.</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Macronutrient Functions</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Protein (4 cal/g)</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Muscle building and repair</li>
+                  <li>Enzyme and hormone production</li>
+                  <li>Immune system support</li>
+                  <li>Appetite control</li>
+                  <li>Thermic effect of food</li>
+                  <li>Essential amino acids</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Carbohydrates (4 cal/g)</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Primary energy source</li>
+                  <li>Brain and nervous system fuel</li>
+                  <li>Muscle glycogen storage</li>
+                  <li>Workout performance</li>
+                  <li>Fiber for digestion</li>
+                  <li>Quick energy availability</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Fat (9 cal/g)</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Hormone production</li>
+                  <li>Vitamin absorption</li>
+                  <li>Brain health</li>
+                  <li>Long-term energy storage</li>
+                  <li>Cell membrane structure</li>
+                  <li>Essential fatty acids</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Goal-Specific Macro Ratios</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Weight Loss</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Protein: 30-35% (preserves muscle)</li>
+                  <li>Carbs: 30-40% (maintains energy)</li>
+                  <li>Fat: 25-35% (satiety and hormones)</li>
+                  <li>Calorie deficit: 300-500 calories</li>
+                  <li>Focus on whole foods</li>
+                  <li>Regular exercise recommended</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Muscle Gain</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Protein: 25-30% (muscle synthesis)</li>
+                  <li>Carbs: 45-55% (workout fuel)</li>
+                  <li>Fat: 20-25% (hormone support)</li>
+                  <li>Calorie surplus: 200-300 calories</li>
+                  <li>Strength training essential</li>
+                  <li>Post-workout nutrition key</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Specialized Diets</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Ketogenic Diet</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Protein: 20-25% (moderate)</li>
+                  <li>Carbs: 5-10% (very low)</li>
+                  <li>Fat: 70-75% (very high)</li>
+                  <li>Induces ketosis</li>
+                  <li>May aid weight loss</li>
+                  <li>Monitor ketone levels</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Low Carb Diet</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Protein: 25-30% (increased)</li>
+                  <li>Carbs: 20-30% (reduced)</li>
+                  <li>Fat: 40-55% (increased)</li>
+                  <li>Moderate carb restriction</li>
+                  <li>Focus on complex carbs</li>
+                  <li>Good for blood sugar control</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Activity Level Impact</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Sedentary:</strong> Office work, minimal exercise (1.2x BMR)</li>
+              <li><strong>Light:</strong> Light exercise 1-3 days/week (1.375x BMR)</li>
+              <li><strong>Moderate:</strong> Moderate exercise 3-5 days/week (1.55x BMR)</li>
+              <li><strong>Active:</strong> Hard exercise 6-7 days/week (1.725x BMR)</li>
+              <li><strong>Very Active:</strong> Very hard exercise, physical job (1.9x BMR)</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+                <h5 className="font-semibold text-indigo-800 mb-1">Daily Calories</h5>
+                <p className="text-indigo-700 text-sm">Total energy needs</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Macro Grams</h5>
+                <p className="text-green-700 text-sm">Daily intake amounts</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Macro Percentages</h5>
+                <p className="text-purple-700 text-sm">Ratio distribution</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your age, gender, weight, height, activity level, and fitness goal. The calculator 
+              will provide your daily calorie needs and optimal macronutrient breakdown to support your 
+              specific objectives.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Macro Tracking Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use Food Scales:</strong> Accurate portion measurement</li>
+              <li><strong>Track Consistently:</strong> Daily logging for best results</li>
+              <li><strong>Focus on Protein First:</strong> Meet protein goals daily</li>
+              <li><strong>Adjust Gradually:</strong> Make small changes over time</li>
+              <li><strong>Consider Meal Timing:</strong> Pre/post workout nutrition</li>
+              <li><strong>Monitor Progress:</strong> Track weight, energy, and performance</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Quality Food Sources</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-3 gap-4 text-sm">
+                <div>
+                  <p><strong>Protein Sources:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Lean meats (chicken, turkey)</li>
+                    <li>Fish and seafood</li>
+                    <li>Eggs and dairy</li>
+                    <li>Legumes and beans</li>
+                    <li>Plant-based proteins</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Carb Sources:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Whole grains</li>
+                    <li>Fruits and vegetables</li>
+                    <li>Sweet potatoes</li>
+                    <li>Quinoa and oats</li>
+                    <li>Brown rice</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Healthy Fats:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Avocados and nuts</li>
+                    <li>Olive oil</li>
+                    <li>Fatty fish</li>
+                    <li>Seeds and nut butters</li>
+                    <li>Coconut products</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Macro Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Too Much Protein:</strong> Can strain kidneys, displace other nutrients</li>
+              <li><strong>Too Little Fat:</strong> Hormone imbalances, poor absorption</li>
+              <li><strong>Carbophobia:</strong> Fear of carbs can hurt performance</li>
+              <li><strong>Ignoring Fiber:</strong> Important for digestion and satiety</li>
+              <li><strong>Not Adjusting:</strong> Macros should change with goals and activity</li>
+              <li><strong>Focusing Only on Macros:</strong> Food quality matters too</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Adjust Macros</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Plateau in Progress:</strong> Weight loss or muscle gain stalls</li>
+              <li><strong>Energy Changes:</strong> Fatigue or excessive energy</li>
+              <li><strong>Performance Issues:</strong> Workout quality declines</li>
+              <li><strong>Goal Changes:</strong> Switching from weight loss to maintenance</li>
+              <li><strong>Activity Changes:</strong> Increasing or decreasing exercise</li>
+              <li><strong>Health Issues:</strong> Digestive problems or allergies</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Macro Calculation Methods</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>BMR Calculation:</strong> Basal metabolic rate using Mifflin-St Jeor</li>
+              <li><strong>Activity Multiplier:</strong> TDEE calculation based on lifestyle</li>
+              <li><strong>Goal Adjustment:</strong> Calorie surplus/deficit for specific goals</li>
+              <li><strong>Macro Distribution:</strong> Percentage-based nutrient allocation</li>
+              <li><strong>Protein Priority:</strong> Set protein first, then distribute remaining</li>
+              <li><strong>Flexibility Range:</strong> ±5% tolerance for daily adherence</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Start with the calculated macros for 2-3 weeks to establish a baseline, then adjust based 
+                on your progress and how you feel. Remember that consistency is more important than 
+                perfection - aim to hit your targets 80-90% of the time. Also, consider your individual 
+                response to different macro ratios; some people feel better with higher carbs, while 
+                others thrive on higher fat. Listen to your body and adjust accordingly. Finally, don't 
+                forget that hydration, sleep, and stress management are just as important as macronutrient 
+                balance for overall health and fitness success.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

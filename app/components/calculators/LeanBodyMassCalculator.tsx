@@ -317,6 +317,212 @@ export default function LeanBodyMassCalculator() {
             )}
           </div>
         )}
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Lean Body Mass Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive lean body mass calculator helps athletes, fitness enthusiasts, and health professionals 
+              understand body composition beyond simple weight measurements. This essential fitness tool provides 
+              accurate lean mass calculations using multiple scientific formulas, enabling precise body composition 
+              analysis and fitness goal planning.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Lean Body Mass:</strong> Fat-free mass including muscles, bones, organs</li>
+              <li><strong>Fat Mass:</strong> Total body fat weight and percentage</li>
+              <li><strong>Method Comparison:</strong> Results from multiple calculation formulas</li>
+              <li><strong>Body Composition:</strong> Detailed breakdown of body components</li>
+              <li><strong>Fitness Assessment:</strong> Performance and health evaluation</li>
+              <li><strong>Goal Tracking:</strong> Progress monitoring capabilities</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Methods</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Boer Formula</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Male:</strong> LBM = 0.407 × weight + 0.267 × height - 19.2</li>
+                  <li><strong>Female:</strong> LBM = 0.252 × weight + 0.473 × height - 48.3</li>
+                  <li><strong>Accuracy:</strong> Good for general population</li>
+                  <li><strong>Limitation:</strong> May overestimate in obese individuals</li>
+                  <li><strong>Use Case:</strong> Standard body composition assessment</li>
+                  <li><strong>Research:</strong> Widely validated in studies</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">James Formula</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Male:</strong> LBM = 1.1 × weight - 128 × (weight/height)²</li>
+                  <li><strong>Female:</strong> LBM = 1.07 × weight - 148 × (weight/height)²</li>
+                  <li><strong>Accuracy:</strong> Excellent for normal weight individuals</li>
+                  <li><strong>Advantage:</strong> Accounts for body proportions</li>
+                  <li><strong>Use Case:</strong> Athletic and fitness populations</li>
+                  <li><strong>Validation:</strong> WHO recommended formula</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Lean Body Mass</h5>
+                <p className="text-blue-700 text-sm">Fat-free mass</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Fat Mass</h5>
+                <p className="text-green-700 text-sm">Body fat weight</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Method Used</h5>
+                <p className="text-purple-700 text-sm">Calculation formula</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Comparison</h5>
+                <p className="text-orange-700 text-sm">All methods results</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your weight, height, age, gender, and optionally your body fat percentage. Select your preferred 
+              calculation method or let the calculator show results from all methods. The tool will compute your lean 
+              body mass, fat mass, and provide method comparisons for comprehensive analysis.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Lean Body Mass Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>What is Lean Body Mass:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Muscle tissue and organs</li>
+                    <li>Bones and connective tissue</li>
+                    <li>Water and essential fat</li>
+                    <li>Everything except storage fat</li>
+                    <li>Metabolically active tissue</li>
+                    <li>Key to fitness performance</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Why LBM Matters:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Metabolic rate determination</li>
+                    <li>Strength and power capacity</li>
+                    <li>Physical performance indicator</li>
+                    <li>Health and longevity marker</li>
+                    <li>Fitness goal measurement</li>
+                    <li>Body composition tracking</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Composition Analysis</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Essential Fat</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Male:</strong> 2-5% of total body weight</li>
+                  <li><strong>Female:</strong> 10-13% of total body weight</li>
+                  <li><strong>Function:</strong> Hormone production and organ protection</li>
+                  <li><strong>Location:</strong> Brain, nerves, bone marrow</li>
+                  <li><strong>Health:</strong> Critical for survival</li>
+                  <li><strong>Cannot Lose:</strong> Essential for body function</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Storage Fat</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Function:</strong> Energy storage and insulation</li>
+                  <li><strong>Location:</strong> Subcutaneous and visceral fat</li>
+                  <li><strong>Health Impact:</strong> Can be reduced safely</li>
+                  <li><strong>Exercise Response:</strong> Burns during activity</li>
+                  <li><strong>Storage Sites:</strong> Abdomen, thighs, arms</li>
+                  <li><strong>Metabolic Role:</strong> Energy reserve</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">LBM and Performance</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Athletic Performance:</strong> Higher LBM correlates with strength and power</li>
+              <li><strong>Endurance Sports:</strong> Optimal LBM for power-to-weight ratio</li>
+              <li><strong>Team Sports:</strong> Position-specific LBM requirements</li>
+              <li><strong>Combat Sports:</strong> Weight class optimization</li>
+              <li><strong>Recreational Fitness:</strong> Functional strength and mobility</li>
+              <li><strong>Health and Wellness:</strong> Metabolic health and longevity</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">LBM Optimization Strategies</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Training Methods</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Resistance Training:</strong> Progressive overload principles</li>
+                  <li><strong>Compound Movements:</strong> Multi-joint exercises</li>
+                  <li><strong>Progressive Resistance:</strong> Gradually increasing weights</li>
+                  <li><strong>Recovery Management:</strong> Adequate rest between sessions</li>
+                  <li><strong>Variation:</strong> Different training stimuli</li>
+                  <li><strong>Consistency:</strong> Regular training schedule</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Nutrition Support</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Protein Intake:</strong> 1.6-2.2g per kg body weight</li>
+                  <li><strong>Calorie Surplus:</strong> 200-500 calories above maintenance</li>
+                  <li><strong>Meal Timing:</strong> Protein around workouts</li>
+                  <li><strong>Hydration:</strong> Adequate water intake</li>
+                  <li><strong>Micronutrients:</strong> Vitamins and minerals</li>
+                  <li><strong>Quality Foods:</strong> Whole, unprocessed options</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">LBM Monitoring and Tracking</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Regular Measurements:</strong> Monthly or quarterly assessments</li>
+              <li><strong>Multiple Methods:</strong> Cross-reference different calculations</li>
+              <li><strong>Progress Photos:</strong> Visual body composition changes</li>
+              <li><strong>Performance Metrics:</strong> Strength and endurance improvements</li>
+              <li><strong>Body Measurements:</strong> Circumference and skinfold measurements</li>
+              <li><strong>Professional Assessment:</strong> DEXA scans or hydrostatic weighing</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common LBM Misconceptions</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Weight Loss = Fat Loss:</strong> May include muscle loss</li>
+              <li><strong>More Protein = More Muscle:</strong> Training stimulus required</li>
+              <li><strong>Cardio Burns Muscle:</strong> Moderate cardio preserves LBM</li>
+              <li><strong>Supplements Build Muscle:</strong> Foundation is training and nutrition</li>
+              <li><strong>LBM is Only Muscle:</strong> Includes bones, organs, water</li>
+              <li><strong>Genetics Determine All:</strong> Lifestyle factors significant</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Health Implications of LBM</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Metabolic Rate:</strong> Higher LBM increases BMR</li>
+              <li><strong>Insulin Sensitivity:</strong> Better glucose metabolism</li>
+              <li><strong>Bone Health:</strong> Stronger bones and reduced fracture risk</li>
+              <li><strong>Immune Function:</strong> Enhanced immune system response</li>
+              <li><strong>Cardiovascular Health:</strong> Better heart function and circulation</li>
+              <li><strong>Longevity:</strong> Increased life expectancy and quality</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Focus on building and maintaining lean body mass through consistent resistance training and proper nutrition. 
+                Remember that LBM includes more than just muscle - it's your body's metabolically active tissue that 
+                determines your overall health and fitness. Track your progress using multiple methods and celebrate 
+                improvements in strength, performance, and body composition rather than just weight changes.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

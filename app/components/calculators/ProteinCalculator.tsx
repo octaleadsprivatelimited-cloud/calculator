@@ -280,6 +280,268 @@ export default function ProteinCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Protein Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive protein calculator helps fitness enthusiasts, athletes, and health-conscious 
+              individuals determine their optimal daily protein intake based on body weight, activity level, 
+              and specific fitness goals. This essential nutrition tool provides personalized protein 
+              recommendations to support muscle building, recovery, weight management, and overall health.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Daily Protein Requirements:</strong> Optimal protein intake in grams</li>
+              <li><strong>Protein Ranges:</strong> Minimum, moderate, high, and very high levels</li>
+              <li><strong>Meal Distribution:</strong> Protein breakdown across daily meals</li>
+              <li><strong>Goal-Specific Adjustments:</strong> Customized for different objectives</li>
+              <li><strong>Activity Level Considerations:</strong> Protein needs based on exercise intensity</li>
+              <li><strong>Personalized Recommendations:</strong> Tailored dietary guidance</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein's Essential Functions</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Muscle Building</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Muscle protein synthesis</li>
+                  <li>Hypertrophy support</li>
+                  <li>Strength development</li>
+                  <li>Recovery enhancement</li>
+                  <li>Muscle repair</li>
+                  <li>Performance improvement</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Body Functions</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Enzyme production</li>
+                  <li>Hormone synthesis</li>
+                  <li>Immune system support</li>
+                  <li>Cell structure</li>
+                  <li>Transport molecules</li>
+                  <li>Energy production</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Health Benefits</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Satiety and appetite control</li>
+                  <li>Blood sugar regulation</li>
+                  <li>Bone health support</li>
+                  <li>Skin and hair health</li>
+                  <li>Wound healing</li>
+                  <li>Anti-aging effects</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Goal-Specific Protein Intake</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Weight Loss</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Protein: 1.6-2.2g per kg body weight</li>
+                  <li>Preserves lean muscle mass</li>
+                  <li>Increases satiety</li>
+                  <li>Boosts metabolism</li>
+                  <li>Supports fat loss</li>
+                  <li>Prevents muscle wasting</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Muscle Gain</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Protein: 1.6-2.4g per kg body weight</li>
+                  <li>Maximizes muscle synthesis</li>
+                  <li>Supports recovery</li>
+                  <li>Enhances performance</li>
+                  <li>Optimizes training adaptations</li>
+                  <li>Prevents overtraining</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Activity Level Impact</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Endurance Training</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Protein: 1.2-1.6g per kg body weight</li>
+                  <li>Muscle preservation</li>
+                  <li>Recovery support</li>
+                  <li>Immune function</li>
+                  <li>Energy production</li>
+                  <li>Performance maintenance</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Strength Training</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Protein: 1.6-2.4g per kg body weight</li>
+                  <li>Muscle hypertrophy</li>
+                  <li>Strength development</li>
+                  <li>Recovery optimization</li>
+                  <li>Performance enhancement</li>
+                  <li>Injury prevention</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                <h5 className="font-semibold text-amber-800 mb-1">Daily Protein Need</h5>
+                <p className="text-amber-700 text-sm">Recommended grams per day</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Protein Ranges</h5>
+                <p className="text-orange-700 text-sm">Min, moderate, high, very high</p>
+              </div>
+              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+                <h5 className="font-semibold text-red-800 mb-1">Meal Breakdown</h5>
+                <p className="text-red-700 text-sm">Protein per meal distribution</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your weight, activity level, and fitness goal. The calculator will provide your 
+              optimal daily protein intake in grams, protein ranges for different activity levels, and 
+              a meal-by-meal breakdown to help you distribute protein throughout the day.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein Timing Strategies</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Breakfast:</strong> 20-25% of daily protein (muscle preservation)</li>
+              <li><strong>Lunch:</strong> 25-30% of daily protein (sustained energy)</li>
+              <li><strong>Dinner:</strong> 25-30% of daily protein (recovery support)</li>
+              <li><strong>Snacks:</strong> 15-20% of daily protein (muscle maintenance)</li>
+              <li><strong>Pre-Workout:</strong> 15-20g protein 1-2 hours before exercise</li>
+              <li><strong>Post-Workout:</strong> 20-30g protein within 30 minutes</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Quality Protein Sources</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Animal Proteins:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Chicken breast (31g per 100g)</li>
+                    <li>Salmon (25g per 100g)</li>
+                    <li>Eggs (6g per large egg)</li>
+                    <li>Greek yogurt (17g per 170g)</li>
+                    <li>Lean beef (26g per 100g)</li>
+                    <li>Tuna (30g per 100g)</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Plant Proteins:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Lentils (9g per 100g cooked)</li>
+                    <li>Chickpeas (9g per 100g cooked)</li>
+                    <li>Quinoa (4g per 100g cooked)</li>
+                    <li>Tofu (8g per 100g)</li>
+                    <li>Edamame (11g per 100g)</li>
+                    <li>Hemp seeds (9g per 30g)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein Quality Factors</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Biological Value:</strong> How efficiently protein is used by the body</li>
+              <li><strong>Amino Acid Profile:</strong> Complete vs. incomplete proteins</li>
+              <li><strong>Digestibility:</strong> How easily protein is broken down and absorbed</li>
+              <li><strong>Leucine Content:</strong> Key amino acid for muscle protein synthesis</li>
+              <li><strong>Processing Method:</strong> Minimally processed vs. highly processed</li>
+              <li><strong>Source Quality:</strong> Grass-fed, wild-caught, organic options</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein Intake Guidelines</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Minimum Intake:</strong> 0.8g per kg body weight (basic health)</li>
+              <li><strong>General Health:</strong> 1.0-1.2g per kg body weight</li>
+              <li><strong>Active Adults:</strong> 1.2-1.6g per kg body weight</li>
+              <li><strong>Athletes:</strong> 1.6-2.4g per kg body weight</li>
+              <li><strong>Elderly:</strong> 1.0-1.2g per kg body weight (muscle preservation)</li>
+              <li><strong>Pregnancy:</strong> 1.1-1.3g per kg body weight (increased needs)</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Protein Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Too Much Protein:</strong> Can strain kidneys, displace other nutrients</li>
+              <li><strong>Too Little Protein:</strong> Muscle loss, poor recovery, weak immune system</li>
+              <li><strong>Poor Timing:</strong> Not consuming protein around workouts</li>
+              <li><strong>Low Quality Sources:</strong> Processed meats, fried foods</li>
+              <li><strong>Ignoring Distribution:</strong> All protein in one meal</li>
+              <li><strong>Not Adjusting for Goals:</strong> Same intake regardless of objectives</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Adjust Protein Intake</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Training Intensity Changes:</strong> Increased or decreased exercise</li>
+              <li><strong>Goal Changes:</strong> Switching from weight loss to muscle gain</li>
+              <li><strong>Recovery Issues:</strong> Poor muscle recovery, persistent soreness</li>
+              <li><strong>Performance Plateaus:</strong> Stalled progress in strength or endurance</li>
+              <li><strong>Body Composition Changes:</strong> Unwanted muscle loss or fat gain</li>
+              <li><strong>Health Conditions:</strong> Kidney issues, digestive problems</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein Supplementation</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Whey Protein:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Fast absorption</li>
+                    <li>High leucine content</li>
+                    <li>Post-workout ideal</li>
+                    <li>Complete amino acid profile</li>
+                    <li>Lactose sensitivity possible</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Casein Protein:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Slow absorption</li>
+                    <li>Nighttime use</li>
+                    <li>Muscle preservation</li>
+                    <li>Long-lasting amino acids</li>
+                    <li>Better for some digestive systems</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein for Different Populations</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Vegetarians/Vegans:</strong> Combine complementary proteins, consider supplements</li>
+              <li><strong>Older Adults:</strong> Higher protein needs to prevent sarcopenia</li>
+              <li><strong>Pregnant Women:</strong> Increased protein for fetal development</li>
+              <li><strong>Children/Teens:</strong> Adequate protein for growth and development</li>
+              <li><strong>Injured Athletes:</strong> Higher protein for tissue repair</li>
+              <li><strong>Illness Recovery:</strong> Increased protein for immune function</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Spread your protein intake evenly throughout the day rather than consuming most of it in 
+                one meal. Aim for 20-30g of protein per meal to maximize muscle protein synthesis. 
+                Remember that protein quality matters as much as quantity - choose lean, minimally 
+                processed sources. Also, consider your individual response to different protein levels; 
+                some people thrive on higher protein intakes while others may experience digestive 
+                issues. Finally, don't forget that adequate protein intake works best when combined with 
+                proper training, sufficient sleep, and overall good nutrition habits.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

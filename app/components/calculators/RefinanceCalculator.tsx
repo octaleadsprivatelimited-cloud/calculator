@@ -175,6 +175,156 @@ export default function RefinanceCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Refinance Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive refinance calculator helps you determine whether refinancing your mortgage makes financial 
+              sense by calculating monthly savings, break-even time, and total savings over the loan term. Whether you're 
+              looking to lower your interest rate, reduce monthly payments, or change loan terms, this tool provides 
+              essential analysis to make informed refinancing decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Monthly Savings:</strong> Reduction in monthly mortgage payment</li>
+              <li><strong>Break-even Time:</strong> Months to recover closing costs</li>
+              <li><strong>Total Savings:</strong> Cumulative savings over the loan term</li>
+              <li><strong>Payment Comparison:</strong> Current vs. new payment analysis</li>
+              <li><strong>Cost Analysis:</strong> Closing costs and fees breakdown</li>
+              <li><strong>Refinance Viability:</strong> Whether refinancing makes sense</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Refinancing Scenarios</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Rate Reduction</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Lower interest rates</li>
+                  <li>Reduced monthly payments</li>
+                  <li>Lower total interest costs</li>
+                  <li>Faster equity building</li>
+                  <li>Most common refinance reason</li>
+                  <li>Requires rate drop of 0.5%+</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Term Changes</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Shorter loan terms</li>
+                  <li>Faster debt payoff</li>
+                  <li>Higher monthly payments</li>
+                  <li>Lower total interest</li>
+                  <li>Build equity faster</li>
+                  <li>Good for higher income</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                <h5 className="font-semibold text-amber-800 mb-1">Monthly Savings</h5>
+                <p className="text-amber-700 text-sm">Reduced payment amount</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Break-even</h5>
+                <p className="text-orange-700 text-sm">Time to recover costs</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Total Savings</h5>
+                <p className="text-green-700 text-sm">Lifetime savings amount</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your current loan balance, current interest rate, new interest rate, remaining loan term, and 
+              estimated closing costs. The calculator will compute your monthly savings, break-even time, and total 
+              savings to help determine if refinancing is beneficial.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Consider Refinancing</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Interest Rate Drop:</strong> Current rates are 0.5-1% lower than your rate</li>
+              <li><strong>Improved Credit:</strong> Better credit score since original loan</li>
+              <li><strong>Market Changes:</strong> Significant drop in market rates</li>
+              <li><strong>Loan Type Change:</strong> Switch from ARM to fixed-rate</li>
+              <li><strong>Cash-out Refinance:</strong> Access home equity for other purposes</li>
+              <li><strong>Remove PMI:</strong> Eliminate private mortgage insurance</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Refinancing Costs</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Typical Closing Costs:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Application fees: $200-500</li>
+                    <li>Appraisal: $300-500</li>
+                    <li>Title search: $200-400</li>
+                    <li>Attorney fees: $500-1,000</li>
+                    <li>Recording fees: $50-200</li>
+                    <li>Total: 2-5% of loan amount</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Cost Reduction Strategies:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>No-closing-cost loans</li>
+                    <li>Lender credits</li>
+                    <li>Negotiate fees</li>
+                    <li>Compare multiple lenders</li>
+                    <li>Consider online lenders</li>
+                    <li>Bundle with other services</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Break-even Analysis</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Break-even Point:</strong> When monthly savings equal closing costs</li>
+              <li><strong>Short-term Ownership:</strong> May not benefit from refinancing</li>
+              <li><strong>Long-term Ownership:</strong> More likely to benefit from refinancing</li>
+              <li><strong>Rate Threshold:</strong> Typically need 0.5-1% rate reduction</li>
+              <li><strong>Cost Recovery:</strong> Consider how long you'll keep the property</li>
+              <li><strong>Alternative Uses:</strong> Compare with other investment opportunities</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Refinancing Types</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Rate and Term:</strong> Lower rate, same or different term</li>
+              <li><strong>Cash-out Refinance:</strong> Borrow against home equity</li>
+              <li><strong>Streamline Refinance:</strong> Simplified process for existing loans</li>
+              <li><strong>FHA Streamline:</strong> Special program for FHA loans</li>
+              <li><strong>VA IRRRL:</strong> Interest Rate Reduction Refinance Loan</li>
+              <li><strong>Conventional Refinance:</strong> Standard refinancing process</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors to Consider</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Credit Score:</strong> Better credit means better rates</li>
+              <li><strong>Loan-to-Value Ratio:</strong> Lower LTV means better terms</li>
+              <li><strong>Employment Stability:</strong> Stable income improves approval chances</li>
+              <li><strong>Property Value:</strong> Appreciation affects refinancing options</li>
+              <li><strong>Market Conditions:</strong> Interest rate environment matters</li>
+              <li><strong>Lender Competition:</strong> Shop around for best rates</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Don't just focus on monthly payment reduction - consider the total cost and long-term benefits. A 
+                refinance that saves $100 per month but costs $3,000 in closing costs takes 30 months to break even. 
+                If you plan to move within 2-3 years, the refinance may not be worth it. Always calculate the 
+                break-even point and consider your long-term plans before refinancing.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

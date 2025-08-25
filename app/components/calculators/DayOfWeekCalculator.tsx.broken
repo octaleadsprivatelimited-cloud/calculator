@@ -151,117 +151,116 @@ export default function DayOfWeekCalculator() {
             
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Use Cases</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
-              <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Personal Planning</h5>
-                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                  <li><strong>Event Planning:</strong> Choose optimal days for activities</li>
-                  <li><strong>Birthday Celebrations:</strong> Plan parties on weekends</li>
-                  <li><strong>Vacation Planning:</strong> Maximize weekend time</li>
-                  <li><strong>Appointment Scheduling:</strong> Avoid weekend conflicts</li>
-                  <li><strong>Social Events:</strong> Plan gatherings on free days</li>
-                  <li><strong>Personal Projects:</strong> Schedule on available days</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Professional Applications</h5>
-                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                  <li><strong>Meeting Scheduling:</strong> Find available weekdays</li>
-                  <li><strong>Project Deadlines:</strong> Avoid weekend deliveries</li>
-                  <li><strong>Client Appointments:</strong> Schedule during business hours</li>
-                  <li><strong>Event Coordination:</strong> Choose optimal event dates</li>
-                  <li><strong>Travel Planning:</strong> Plan business trips efficiently</li>
-                  <li><strong>Deadline Management:</strong> Account for weekend delays</li>
-                </ul>
-              </div>
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Personal Planning</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li><strong>Event Planning:</strong> Choose optimal days for activities</li>
+                <li><strong>Birthday Celebrations:</strong> Plan parties on weekends</li>
+                <li><strong>Vacation Planning:</strong> Maximize weekend time</li>
+                <li><strong>Appointment Scheduling:</strong> Avoid weekend conflicts</li>
+                <li><strong>Social Events:</strong> Plan gatherings on free days</li>
+                <li><strong>Personal Projects:</strong> Schedule on available days</li>
+              </ul>
             </div>
-            
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Professional Applications</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li><strong>Meeting Scheduling:</strong> Find available weekdays</li>
+                <li><strong>Project Deadlines:</strong> Avoid weekend deliveries</li>
+                <li><strong>Client Appointments:</strong> Schedule during business hours</li>
+                <li><strong>Event Coordination:</strong> Choose optimal event dates</li>
+                <li><strong>Travel Planning:</strong> Plan business trips efficiently</li>
+                <li><strong>Deadline Management:</strong> Account for weekend delays</li>
+              </ul>
+            </div>
+          </div>
+          
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Day of Week Patterns</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
-              <li><strong>7-Day Cycle:</strong> Repeats every week consistently</li>
-              <li><strong>Weekend Pattern:</strong> Saturday and Sunday are non-working days</li>
-              <li><strong>Weekday Pattern:</strong> Monday through Friday are working days</li>
-              <li><strong>Calendar Grid:</strong> Days align in weekly columns</li>
-              <li><strong>Month Variations:</strong> Different months start on different days</li>
-              <li><strong>Year Patterns:</strong> Leap years affect day alignment</li>
-            </ul>
-            
+            <li><strong>7-Day Cycle:</strong> Repeats every week consistently</li>
+            <li><strong>Weekend Pattern:</strong> Saturday and Sunday are non-working days</li>
+            <li><strong>Weekday Pattern:</strong> Monday through Friday are working days</li>
+            <li><strong>Calendar Grid:</strong> Days align in weekly columns</li>
+            <li><strong>Month Variations:</strong> Different months start on different days</li>
+            <li><strong>Year Patterns:</strong> Leap years affect day alignment</li>
+          </ul>
+          
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Calendar Mathematics</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
-              <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Basic Rules</h5>
-                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                  <li>7 days in a week</li>
-                  <li>52 weeks + 1-2 days per year</li>
-                  <li>Leap years add February 29</li>
-                  <li>Months have 28-31 days</li>
-                  <li>Year starts on specific day</li>
-                  <li>Pattern repeats every 400 years</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Advanced Concepts</h5>
-                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                  <li>Zeller's Congruence</li>
-                  <li>Doomsday Rule</li>
-                  <li>ISO week dates</li>
-                  <li>Julian calendar</li>
-                  <li>Gregorian calendar</li>
-                  <li>Calendar reform</li>
-                </ul>
-              </div>
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Basic Rules</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>7 days in a week</li>
+                <li>52 weeks + 1-2 days per year</li>
+                <li>Leap years add February 29</li>
+                <li>Months have 28-31 days</li>
+                <li>Year starts on specific day</li>
+                <li>Pattern repeats every 400 years</li>
+              </ul>
             </div>
-            
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Advanced Concepts</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>Zeller's Congruence</li>
+                <li>Doomsday Rule</li>
+                <li>ISO week dates</li>
+                <li>Julian calendar</li>
+                <li>Gregorian calendar</li>
+                <li>Calendar reform</li>
+              </ul>
+            </div>
+          </div>
+          
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Day of Week Applications</h4>
-            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
-              <li><strong>Event Planning:</strong> Choose optimal days for gatherings</li>
-              <li><strong>Business Scheduling:</strong> Plan meetings and deadlines</li>
-              <li><strong>Travel Coordination:</strong> Avoid weekend travel issues</li>
-              <li><strong>Appointment Booking:</strong> Schedule during available times</li>
-              <li><strong>Project Management:</strong> Account for working days</li>
-              <li><strong>Calendar Management:</strong> Organize weekly schedules</li>
-            </ul>
-            
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Event Planning:</strong> Choose optimal days for gatherings</li>
+            <li><strong>Business Scheduling:</strong> Plan meetings and deadlines</li>
+            <li><strong>Travel Coordination:</strong> Avoid weekend travel issues</li>
+            <li><strong>Appointment Booking:</strong> Schedule during available times</li>
+            <li><strong>Project Management:</strong> Account for working days</li>
+            <li><strong>Calendar Management:</strong> Organize weekly schedules</li>
+          </ul>
+          
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Day of Week Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
-              <li><strong>Remember Patterns:</strong> Days repeat every 7 days</li>
-              <li><strong>Account for Weekends:</strong> Plan accordingly for non-working days</li>
-              <li><strong>Consider Context:</strong> Business vs. personal scheduling</li>
-              <li><strong>Use for Planning:</strong> Choose optimal days for activities</li>
-              <li><strong>Account for Holidays:</strong> Additional non-working days</li>
-              <li><strong>Plan Buffer Time:</strong> Allow for unexpected delays</li>
-            </ul>
-            
+            <li><strong>Remember Patterns:</strong> Days repeat every 7 days</li>
+            <li><strong>Account for Weekends:</strong> Plan accordingly for non-working days</li>
+            <li><strong>Consider Context:</strong> Business vs. personal scheduling</li>
+            <li><strong>Use for Planning:</strong> Choose optimal days for activities</li>
+            <li><strong>Account for Holidays:</strong> Additional non-working days</li>
+            <li><strong>Plan Buffer Time:</strong> Allow for unexpected delays</li>
+          </ul>
+          
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Day of Week Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
-              <li><strong>Weekend Assumptions:</strong> Forgetting to check day of week</li>
-              <li><strong>Business Day Confusion:</strong> Planning weekend activities</li>
-              <li><strong>Pattern Ignorance:</strong> Not understanding weekly cycles</li>
-              <li><strong>Holiday Oversight:</strong> Forgetting additional non-working days</li>
-              <li><strong>Time Zone Issues:</strong> Day changes across locations</li>
-              <li><strong>Calendar Confusion:</strong> Mixing different calendar systems</li>
-            </ul>
-            
+            <li><strong>Weekend Assumptions:</strong> Forgetting to check day of week</li>
+            <li><strong>Business Day Confusion:</strong> Planning weekend activities</li>
+            <li><strong>Pattern Ignorance:</strong> Not understanding weekly cycles</li>
+            <li><strong>Holiday Oversight:</strong> Forgetting additional non-working days</li>
+            <li><strong>Time Zone Issues:</strong> Day changes across locations</li>
+            <li><strong>Calendar Confusion:</strong> Mixing different calendar systems</li>
+          </ul>
+          
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Day of Week Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
-              <li><strong>Zeller's Congruence:</strong> Mathematical day calculation formula</li>
-              <li><strong>Doomsday Rule:</strong> Quick mental day calculation method</li>
-              <li><strong>ISO Week Dates:</strong> International week numbering system</li>
-              <li><strong>Calendar Algorithms:</strong> Computer-based day calculations</li>
-              <li><strong>Historical Calendars:</strong> Different calendar systems</li>
-              <li><strong>Astronomical Calendars:</strong> Solar and lunar calendars</li>
-            </ul>
-            
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
-              <p className="text-gray-700 text-sm">
-                When planning important events or deadlines, always check the day of the week to ensure 
-                it falls on a working day if business-related, or on a weekend if it's a personal event. 
-                Remember that days of the week follow a predictable 7-day cycle, so you can easily 
-                calculate future dates by adding multiples of 7. For business planning, consider that 
-                Monday is often the best day for new initiatives, while Friday is good for wrapping up 
-                projects. Use this calculator to make informed scheduling decisions.
-              </p>
-            </div>
+            <li><strong>Zeller's Congruence:</strong> Mathematical day calculation formula</li>
+            <li><strong>Doomsday Rule:</strong> Quick mental day calculation method</li>
+            <li><strong>ISO Week Dates:</strong> International week numbering system</li>
+            <li><strong>Calendar Algorithms:</strong> Computer-based day calculations</li>
+            <li><strong>Historical Calendars:</strong> Different calendar systems</li>
+            <li><strong>Astronomical Calendars:</strong> Solar and lunar calendars</li>
+          </ul>
+          
+          <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
+            <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <p className="text-gray-700 text-sm">
+              When planning important events or deadlines, always check the day of the week to ensure 
+              it falls on a working day if business-related, or on a weekend if it's a personal event. 
+              Remember that days of the week follow a predictable 7-day cycle, so you can easily 
+              calculate future dates by adding multiples of 7. For business planning, consider that 
+              Monday is often the best day for new initiatives, while Friday is good for wrapping up 
+              projects. Use this calculator to make informed scheduling decisions.
+            </p>
           </div>
         </div>
       </div>

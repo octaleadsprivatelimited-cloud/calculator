@@ -404,6 +404,240 @@ export default function PaintCalculator() {
           </div>
         </div>
 
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Paint Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive Paint Calculator helps homeowners, contractors, and DIY enthusiasts accurately 
+              estimate paint requirements for various surfaces and projects. This essential tool provides precise 
+              calculations for paint quantity, cost estimation, and project planning, ensuring you purchase the 
+              right amount of paint for your painting needs.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Surface Area:</strong> Total area to be painted in square meters</li>
+              <li><strong>Paint Quantity:</strong> Amount of paint needed in liters and gallons</li>
+              <li><strong>Cost Estimation:</strong> Total project cost including paint and supplies</li>
+              <li><strong>Coverage Analysis:</strong> Paint efficiency and application rates</li>
+              <li><strong>Project Planning:</strong> Material requirements and budgeting</li>
+              <li><strong>Wastage Calculation:</strong> Extra paint for touch-ups and spills</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Surface Types and Calculations</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Wall Surfaces</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Rectangular Walls:</strong> Length × Height calculations</li>
+                  <li><strong>Door Deductions:</strong> Subtract door areas from total</li>
+                  <li><strong>Window Deductions:</strong> Subtract window areas from total</li>
+                  <li><strong>Multiple Walls:</strong> Add all wall areas together</li>
+                  <li><strong>Ceiling Areas:</strong> Length × Width calculations</li>
+                  <li><strong>Trim Areas:</strong> Baseboards, crown molding, door frames</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Complex Surfaces</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Irregular Shapes:</strong> Break down into simple shapes</li>
+                  <li><strong>Angled Surfaces:</strong> Use trigonometry for calculations</li>
+                  <li><strong>Curved Surfaces:</strong> Approximate with straight segments</li>
+                  <li><strong>Textured Surfaces:</strong> Add extra paint for texture</li>
+                  <li><strong>Porous Materials:</strong> Increase paint absorption</li>
+                  <li><strong>Metal Surfaces:</strong> Special primer requirements</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Surface Area</h5>
+                <p className="text-blue-700 text-sm">Total area to paint</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Paint Quantity</h5>
+                <p className="text-green-700 text-sm">Liters and gallons needed</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Coverage</h5>
+                <p className="text-purple-700 text-sm">Paint efficiency rate</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Total Cost</h5>
+                <p className="text-orange-700 text-sm">Project budget estimate</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Select the surface type you want to paint, enter the dimensions in meters, choose your paint type, 
+              specify the number of coats needed, and add wastage percentage. The calculator will automatically 
+              compute the total surface area, paint quantity required, and estimated project cost.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Paint Types and Coverage</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Interior Paints:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li><strong>Flat/Matte:</strong> 10-12 m²/L, best coverage</li>
+                    <li><strong>Eggshell:</strong> 8-10 m²/L, washable finish</li>
+                    <li><strong>Satin:</strong> 7-9 m²/L, durable finish</li>
+                    <li><strong>Semi-gloss:</strong> 6-8 m²/L, high durability</li>
+                    <li><strong>Gloss:</strong> 5-7 m²/L, maximum durability</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Exterior Paints:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li><strong>Acrylic Latex:</strong> 8-10 m²/L, weather resistant</li>
+                    <li><strong>Oil-based:</strong> 6-8 m²/L, long lasting</li>
+                    <li><strong>Elastomeric:</strong> 4-6 m²/L, waterproofing</li>
+                    <li><strong>Textured:</strong> 3-5 m²/L, decorative finish</li>
+                    <li><strong>Primer:</strong> 10-12 m²/L, surface preparation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Surface Preparation Factors</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Surface Condition</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>New Drywall:</strong> Requires primer coat</li>
+                  <li><strong>Previously Painted:</strong> May need light sanding</li>
+                  <li><strong>Stained Surfaces:</strong> Special primer required</li>
+                  <li><strong>Metal Surfaces:</strong> Rust-inhibiting primer</li>
+                  <li><strong>Wood Surfaces:</strong> Wood primer recommended</li>
+                  <li><strong>Concrete/Masonry:</strong> Masonry primer needed</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Environmental Factors</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Temperature:</strong> 10-30°C optimal range</li>
+                  <li><strong>Humidity:</strong> Below 70% recommended</li>
+                  <li><strong>Ventilation:</strong> Good air circulation needed</li>
+                  <li><strong>Lighting:</strong> Adequate light for application</li>
+                  <li><strong>Dust Control:</strong> Clean work environment</li>
+                  <li><strong>Drying Time:</strong> Allow proper curing</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Application Techniques</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Brush Application:</strong> Best for edges and small areas</li>
+              <li><strong>Roller Application:</strong> Efficient for large flat surfaces</li>
+              <li><strong>Spray Application:</strong> Fast coverage, requires skill</li>
+              <li><strong>Cutting In:</strong> Paint edges before rolling</li>
+              <li><strong>Wet Edge Technique:</strong> Maintain wet edge for smooth finish</li>
+              <li><strong>Multiple Coats:</strong> Thin coats better than thick ones</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Paint Quality Considerations</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Premium Paints</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Better Coverage:</strong> More area per liter</li>
+                  <li><strong>Durability:</strong> Longer lasting finish</li>
+                  <li><strong>Washability:</strong> Easier to clean</li>
+                  <li><strong>Color Retention:</strong> Fade resistance</li>
+                  <li><strong>Application:</strong> Smoother finish</li>
+                  <li><strong>Cost Efficiency:</strong> Better long-term value</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Budget Paints</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Lower Coverage:</strong> More paint needed</li>
+                  <li><strong>Shorter Lifespan:</strong> May need repainting sooner</li>
+                  <li><strong>Limited Washability:</strong> Harder to clean</li>
+                  <li><strong>Color Fading:</strong> May fade over time</li>
+                  <li><strong>Application Issues:</strong> May require more coats</li>
+                  <li><strong>Initial Savings:</strong> Lower upfront cost</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Project Planning Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Measure Twice:</strong> Double-check all dimensions</li>
+              <li><strong>Buy Extra:</strong> 10-15% additional paint recommended</li>
+              <li><strong>Color Matching:</strong> Keep paint codes for touch-ups</li>
+              <li><strong>Batch Numbers:</strong> Use same batch for consistency</li>
+              <li><strong>Storage Conditions:</strong> Store paint properly</li>
+              <li><strong>Disposal Planning:</strong> Plan for paint waste disposal</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Painting Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Insufficient Paint:</strong> Not buying enough paint</li>
+              <li><strong>Poor Preparation:</strong> Skipping surface preparation</li>
+              <li><strong>Wrong Tools:</strong> Using inappropriate brushes/rollers</li>
+              <li><strong>Rushing Application:</strong> Not allowing proper drying time</li>
+              <li><strong>Ignoring Weather:</strong> Painting in poor conditions</li>
+              <li><strong>Color Mismatch:</strong> Not testing colors first</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Safety Considerations</h4>
+            <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200 mb-4">
+              <h5 className="font-semibold text-yellow-800 mb-2">Important Safety Tips</h5>
+              <ul className="list-disc list-inside text-yellow-700 space-y-1 text-sm">
+                <li><strong>Ventilation:</strong> Ensure adequate air circulation</li>
+                <li><strong>Protective Equipment:</strong> Use masks, gloves, and goggles</li>
+                <li><strong>Chemical Safety:</strong> Handle solvents and cleaners carefully</li>
+                <li><strong>Fire Safety:</strong> Keep away from open flames</li>
+                <li><strong>Child Safety:</strong> Keep paint out of reach of children</li>
+                <li><strong>Disposal:</strong> Follow local hazardous waste guidelines</li>
+              </ul>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Cost Optimization Strategies</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Material Savings</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Bulk Purchasing:</strong> Buy larger containers</li>
+                  <li><strong>Quality Selection:</strong> Choose appropriate paint grade</li>
+                  <li><strong>Color Selection:</strong> Use standard colors when possible</li>
+                  <li><strong>Efficient Application:</strong> Minimize waste during painting</li>
+                  <li><strong>Proper Storage:</strong> Extend paint shelf life</li>
+                  <li><strong>Reuse Opportunities:</strong> Use leftover paint for touch-ups</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Labor Savings</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Proper Preparation:</strong> Reduce repainting needs</li>
+                  <li><strong>Efficient Techniques:</strong> Use appropriate tools</li>
+                  <li><strong>Batch Painting:</strong> Paint multiple areas together</li>
+                  <li><strong>Professional Help:</strong> Consider for complex projects</li>
+                  <li><strong>Maintenance Planning:</strong> Regular touch-ups extend life</li>
+                  <li><strong>DIY vs. Professional:</strong> Evaluate cost-benefit</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Always buy 10-15% more paint than calculated to account for touch-ups, spills, and future 
+                maintenance. Consider the surface texture and condition - rough or porous surfaces will require 
+                more paint than smooth ones. Test your paint color on a small area first, as colors can look 
+                different under various lighting conditions. Remember that proper surface preparation is crucial 
+                for a professional finish and can actually save paint by ensuring better coverage and adhesion.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center mt-12">
           <a
             href="/"

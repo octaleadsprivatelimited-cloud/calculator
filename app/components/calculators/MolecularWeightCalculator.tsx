@@ -384,6 +384,214 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
             </div>
           </div>
         </div>
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Molecular Weight Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive molecular weight calculator helps chemistry students, researchers, and 
+              laboratory professionals determine the molecular weights of chemical compounds with precision. 
+              This essential tool provides accurate calculations for stoichiometry, solution preparation, 
+              and chemical analysis, supporting both educational and professional chemistry applications.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Molecular Weight:</strong> Total mass of one mole of compound</li>
+              <li><strong>Element Composition:</strong> Individual element weights and percentages</li>
+              <li><strong>Atomic Counts:</strong> Number of each element in the formula</li>
+              <li><strong>Weight Distribution:</strong> How mass is distributed among elements</li>
+              <li><strong>Formula Validation:</strong> Checks for valid chemical formulas</li>
+              <li><strong>Precise Calculations:</strong> Accurate to multiple decimal places</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Molecular Weight Fundamentals</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Definition</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Molecular Weight:</strong> Sum of atomic weights in molecule</li>
+                  <li><strong>Units:</strong> Grams per mole (g/mol)</li>
+                  <li><strong>Calculation:</strong> Σ(atomic weight × number of atoms)</li>
+                  <li><strong>Significance:</strong> Mass of one mole of substance</li>
+                  <li><strong>Precision:</strong> Based on atomic mass units</li>
+                  <li><strong>Standardization:</strong> IUPAC recommended values</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Applications</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Stoichiometry:</strong> Chemical reaction calculations</li>
+                  <li><strong>Solution Preparation:</strong> Molarity and molality</li>
+                  <li><strong>Chemical Analysis:</strong> Quantitative measurements</li>
+                  <li><strong>Research:</strong> Laboratory calculations</li>
+                  <li><strong>Education:</strong> Chemistry learning and teaching</li>
+                  <li><strong>Industry:</strong> Chemical manufacturing</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-teal-50 p-3 rounded-lg border border-teal-200">
+                <h5 className="font-semibold text-teal-800 mb-1">Molecular Weight</h5>
+                <p className="text-teal-700 text-sm">Total compound mass</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Element Symbol</h5>
+                <p className="text-blue-700 text-sm">Chemical element</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Atomic Count</h5>
+                <p className="text-purple-700 text-sm">Number of atoms</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Weight %</h5>
+                <p className="text-green-700 text-sm">Mass percentage</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter the chemical formula using standard element symbols (e.g., H2O, CO2, C6H12O6). 
+              The calculator automatically parses the formula, calculates molecular weight, and provides 
+              detailed element composition breakdown. Use common molecule buttons for quick examples, 
+              or enter custom formulas for specific compounds.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Chemical Formula Rules</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Element Symbols:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Use standard periodic table symbols</li>
+                    <li>First letter capitalized, second lowercase</li>
+                    <li>Examples: H, He, Fe, Cu, Au</li>
+                    <li>No spaces between elements</li>
+                    <li>Subscripts for atom counts</li>
+                    <li>Parentheses for complex groups</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Formula Examples:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>H2O (water): 2 hydrogen, 1 oxygen</li>
+                    <li>CO2 (carbon dioxide): 1 carbon, 2 oxygen</li>
+                    <li>C6H12O6 (glucose): 6 carbon, 12 hydrogen, 6 oxygen</li>
+                    <li>Ca(OH)2 (calcium hydroxide)</li>
+                    <li>Fe2O3 (iron oxide): 2 iron, 3 oxygen</li>
+                    <li>H2SO4 (sulfuric acid)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Chemical Compounds</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Inorganic Compounds</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Water (H2O):</strong> 18.015 g/mol</li>
+                  <li><strong>Carbon Dioxide (CO2):</strong> 44.009 g/mol</li>
+                  <li><strong>Sodium Chloride (NaCl):</strong> 58.443 g/mol</li>
+                  <li><strong>Calcium Carbonate (CaCO3):</strong> 100.086 g/mol</li>
+                  <li><strong>Sulfuric Acid (H2SO4):</strong> 98.078 g/mol</li>
+                  <li><strong>Ammonia (NH3):</strong> 17.031 g/mol</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Organic Compounds</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Glucose (C6H12O6):</strong> 180.156 g/mol</li>
+                  <li><strong>Ethanol (C2H5OH):</strong> 46.068 g/mol</li>
+                  <li><strong>Methane (CH4):</strong> 16.043 g/mol</li>
+                  <li><strong>Benzene (C6H6):</strong> 78.114 g/mol</li>
+                  <li><strong>Acetic Acid (CH3COOH):</strong> 60.052 g/mol</li>
+                  <li><strong>Urea (CO(NH2)2):</strong> 60.056 g/mol</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Stoichiometry Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Balancing Equations:</strong> Determine reactant/product ratios</li>
+              <li><strong>Limiting Reagents:</strong> Calculate theoretical yields</li>
+              <li><strong>Solution Preparation:</strong> Make solutions of known concentration</li>
+              <li><strong>Gas Laws:</strong> Relate moles to volume and pressure</li>
+              <li><strong>Thermochemistry:</strong> Calculate heat of reactions</li>
+              <li><strong>Electrochemistry:</strong> Determine electron transfer</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Laboratory Calculations</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Solution Preparation</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Molarity (M):</strong> Moles per liter of solution</li>
+                  <li><strong>Molality (m):</strong> Moles per kilogram of solvent</li>
+                  <li><strong>Normality (N):</strong> Equivalents per liter</li>
+                  <li><strong>Weight Percent:</strong> Mass of solute per 100g solution</li>
+                  <li><strong>Parts Per Million:</strong> Mass ratio calculations</li>
+                  <li><strong>Dilution Series:</strong> Concentration adjustments</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Analytical Chemistry</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Titration Calculations:</strong> Determine concentrations</li>
+                  <li><strong>Gravimetric Analysis:</strong> Mass-based measurements</li>
+                  <li><strong>Spectrophotometry:</strong> Concentration from absorbance</li>
+                  <li><strong>Chromatography:</strong> Peak area to concentration</li>
+                  <li><strong>Electrochemistry:</strong> Current to concentration</li>
+                  <li><strong>Quality Control:</strong> Standard preparation</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Precision and Accuracy</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Atomic Mass Units:</strong> Based on carbon-12 standard</li>
+              <li><strong>Isotopic Composition:</strong> Natural abundance considered</li>
+              <li><strong>Significant Figures:</strong> Appropriate precision maintained</li>
+              <li><strong>Rounding Rules:</strong> Follow standard conventions</li>
+              <li><strong>Uncertainty:</strong> Consider measurement precision</li>
+              <li><strong>Validation:</strong> Cross-check with literature values</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Calculation Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Formula Errors:</strong> Incorrect element symbols or counts</li>
+              <li><strong>Atomic Weight Errors:</strong> Using wrong periodic table values</li>
+              <li><strong>Subscript Confusion:</strong> Misreading atom counts</li>
+              <li><strong>Parentheses Errors:</strong> Incorrect group multiplication</li>
+              <li><strong>Unit Confusion:</strong> Mixing grams and atomic mass units</li>
+              <li><strong>Rounding Errors:</strong> Over-precision or under-precision</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Polymer Chemistry:</strong> Calculate average molecular weights</li>
+              <li><strong>Biochemistry:</strong> Protein and nucleic acid analysis</li>
+              <li><strong>Pharmaceuticals:</strong> Drug formulation calculations</li>
+              <li><strong>Environmental Chemistry:</strong> Pollutant concentration analysis</li>
+              <li><strong>Materials Science:</strong> Compound stoichiometry</li>
+              <li><strong>Forensic Chemistry:</strong> Evidence analysis and identification</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-teal-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Always verify your chemical formulas before calculating molecular weights. Double-check 
+                element symbols, subscripts, and parentheses placement. For complex compounds, break down 
+                the formula into smaller parts and calculate step by step. Keep a reference of common 
+                molecular weights for quick verification, and remember that molecular weight is essential 
+                for accurate stoichiometric calculations in chemistry.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -408,17 +408,251 @@ export default function ElectricalCalculator() {
             </div>
           </div>
         </div>
-
-        <div className="text-center mt-12">
-          <a
-            href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-            title="Back to all calculators"
-            aria-label="Back to all calculators"
-          >
-            <Calculator className="w-5 h-5" />
-            Back to All Calculators
-          </a>
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Electrical Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive electrical calculator helps homeowners, electricians, and engineers 
+              analyze electrical loads, calculate power consumption, and estimate energy costs. This 
+              essential tool provides detailed electrical analysis for residential and commercial 
+              applications, helping optimize electrical systems and reduce energy expenses.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Power Consumption:</strong> Watts, kilowatts, and kilowatt-hours</li>
+              <li><strong>Electrical Loads:</strong> Current draw and circuit requirements</li>
+              <li><strong>Energy Costs:</strong> Monthly and annual electricity expenses</li>
+              <li><strong>Circuit Analysis:</strong> Breaker sizing and load distribution</li>
+              <li><strong>Efficiency Metrics:</strong> Power factor and energy optimization</li>
+              <li><strong>Appliance Management:</strong> Individual device power tracking</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Types</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Power Calculations</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Watts:</strong> Instantaneous power consumption</li>
+                  <li><strong>Kilowatts:</strong> Power in thousands of watts</li>
+                  <li><strong>Kilowatt-hours:</strong> Energy consumption over time</li>
+                  <li><strong>Daily Usage:</strong> 24-hour energy consumption</li>
+                  <li><strong>Monthly Usage:</strong> 30-day energy totals</li>
+                  <li><strong>Annual Usage:</strong> Yearly energy consumption</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Electrical Analysis</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Current Draw:</strong> Amperage requirements</li>
+                  <li><strong>Circuit Loading:</strong> Breaker capacity analysis</li>
+                  <li><strong>Power Factor:</strong> Efficiency of power usage</li>
+                  <li><strong>Voltage Drop:</strong> Line loss calculations</li>
+                  <li><strong>Load Balancing:</strong> Circuit distribution</li>
+                  <li><strong>Safety Factors:</strong> Overload protection</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                <h5 className="font-semibold text-yellow-800 mb-1">Power</h5>
+                <p className="text-yellow-700 text-sm">Watts and kilowatts</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Energy</h5>
+                <p className="text-blue-700 text-sm">Daily/monthly kWh</p>
+              </div>
+              <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                <h5 className="font-semibold text-amber-800 mb-1">Current</h5>
+                <p className="text-amber-700 text-sm">Amperage draw</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Cost</h5>
+                <p className="text-green-700 text-sm">Monthly expenses</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Add appliances with their power ratings (watts), daily usage hours, and quantities. 
+              The calculator automatically computes total power consumption, energy usage, current 
+              requirements, and estimated monthly costs. Use common appliance presets or create custom 
+              entries for specific devices.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electrical Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Power Relationships:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Power (W) = Voltage (V) × Current (A)</li>
+                    <li>Energy (kWh) = Power (kW) × Time (h)</li>
+                    <li>Current (A) = Power (W) ÷ Voltage (V)</li>
+                    <li>Power Factor = Real Power ÷ Apparent Power</li>
+                    <li>Efficiency = Output Power ÷ Input Power</li>
+                    <li>Cost = Energy (kWh) × Rate ($/kWh)</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Electrical Units:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Watt (W): Unit of power</li>
+                    <li>Kilowatt (kW): 1,000 watts</li>
+                    <li>Kilowatt-hour (kWh): Unit of energy</li>
+                    <li>Ampere (A): Unit of current</li>
+                    <li>Volt (V): Unit of voltage</li>
+                    <li>Power Factor: Efficiency ratio</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Appliance Power Ratings</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Low Power Devices</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>LED Bulbs:</strong> 5-15 watts</li>
+                  <li><strong>Phone Chargers:</strong> 5-25 watts</li>
+                  <li><strong>Laptops:</strong> 30-100 watts</li>
+                  <li><strong>Televisions:</strong> 50-400 watts</li>
+                  <li><strong>Refrigerators:</strong> 100-200 watts</li>
+                  <li><strong>Microwaves:</strong> 600-1,200 watts</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">High Power Devices</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Space Heaters:</strong> 1,000-1,500 watts</li>
+                  <li><strong>Air Conditioners:</strong> 1,000-3,500 watts</li>
+                  <li><strong>Electric Dryers:</strong> 2,000-5,000 watts</li>
+                  <li><strong>Electric Ranges:</strong> 2,000-5,000 watts</li>
+                  <li><strong>Water Heaters:</strong> 3,000-5,500 watts</li>
+                  <li><strong>Central AC:</strong> 3,500-5,000 watts</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electrical System Design</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Circuit Planning</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Load Calculation:</strong> Total power requirements</li>
+                  <li><strong>Breaker Sizing:</strong> Circuit protection rating</li>
+                  <li><strong>Wire Gauge:</strong> Conductor size selection</li>
+                  <li><strong>Voltage Drop:</strong> Line loss analysis</li>
+                  <li><strong>Load Balancing:</strong> Circuit distribution</li>
+                  <li><strong>Safety Factors:</strong> Overload protection</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Energy Management</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Peak Usage:</strong> Maximum demand periods</li>
+                  <li><strong>Load Shifting:</strong> Off-peak operation</li>
+                  <li><strong>Efficiency Upgrades:</strong> Energy-saving devices</li>
+                  <li><strong>Smart Controls:</strong> Automated management</li>
+                  <li><strong>Monitoring Systems:</strong> Real-time tracking</li>
+                  <li><strong>Cost Optimization:</strong> Rate-based usage</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Power Factor Considerations</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Definition:</strong> Ratio of real power to apparent power</li>
+              <li><strong>Ideal Value:</strong> 1.0 (100% efficient)</li>
+              <li><strong>Typical Values:</strong> 0.8-0.95 for most loads</li>
+              <li><strong>Inductive Loads:</strong> Motors, transformers, fluorescent lights</li>
+              <li><strong>Capacitive Loads:</strong> Capacitors, some electronics</li>
+              <li><strong>Correction Methods:</strong> Capacitor banks, power factor controllers</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Energy Cost Analysis</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Cost Factors</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Electricity Rate:</strong> Cost per kilowatt-hour</li>
+                  <li><strong>Usage Patterns:</strong> Daily and seasonal variations</li>
+                  <li><strong>Time-of-Use:</strong> Peak vs. off-peak rates</li>
+                  <li><strong>Demand Charges:</strong> Peak power costs</li>
+                  <li><strong>Taxes and Fees:</strong> Additional charges</li>
+                  <li><strong>Rate Changes:</strong> Seasonal adjustments</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Savings Strategies</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Energy Efficiency:</strong> High-efficiency appliances</li>
+                  <li><strong>Load Management:</strong> Off-peak operation</li>
+                  <li><strong>Smart Thermostats:</strong> Automated control</li>
+                  <li><strong>LED Lighting:</strong> Low-power alternatives</li>
+                  <li><strong>Insulation:</strong> Reduced heating/cooling needs</li>
+                  <li><strong>Renewable Energy:</strong> Solar and wind power</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electrical Safety Considerations</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Circuit Overloading:</strong> Never exceed breaker capacity</li>
+              <li><strong>Wire Sizing:</strong> Use appropriate conductor sizes</li>
+              <li><strong>Grounding:</strong> Proper electrical grounding</li>
+              <li><strong>Arc Fault Protection:</strong> AFCI breakers for bedrooms</li>
+              <li><strong>GFCI Protection:</strong> Ground fault protection for wet areas</li>
+              <li><strong>Professional Installation:</strong> Hire licensed electricians</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electrical Calculation Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use Realistic Hours:</strong> Actual daily usage patterns</li>
+              <li><strong>Consider Seasonal Changes:</strong> Heating and cooling variations</li>
+              <li><strong>Account for Standby Power:</strong> Phantom loads and standby modes</li>
+              <li><strong>Include All Devices:</strong> Don't forget small appliances</li>
+              <li><strong>Update Regularly:</strong> Recalculate as usage changes</li>
+              <li><strong>Compare Scenarios:</strong> Analyze different usage patterns</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Electrical Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Underestimating Usage:</strong> Not accounting for all devices</li>
+              <li><strong>Ignoring Power Factor:</strong> Not considering efficiency</li>
+              <li><strong>Overloading Circuits:</strong> Exceeding breaker capacity</li>
+              <li><strong>Poor Load Distribution:</strong> Uneven circuit loading</li>
+              <li><strong>Ignoring Safety Codes:</strong> Not following electrical standards</li>
+              <li><strong>DIY Electrical Work:</strong> Attempting complex installations</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Electrical Concepts</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Three-Phase Power:</strong> Commercial and industrial systems</li>
+              <li><strong>Harmonic Distortion:</strong> Non-linear load effects</li>
+              <li><strong>Power Quality:</strong> Voltage and frequency stability</li>
+              <li><strong>Demand Response:</strong> Load reduction programs</li>
+              <li><strong>Microgrids:</strong> Local power generation</li>
+              <li><strong>Smart Grid Technology:</strong> Advanced power management</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When analyzing electrical loads, always include a safety margin of 20-25% above your 
+                calculated requirements. This accounts for future additions, peak usage periods, and 
+                ensures your electrical system can handle unexpected loads safely. Remember that 
+                continuous loads (running 3+ hours) should not exceed 80% of circuit capacity. Use 
+                this calculator to identify energy-intensive appliances and develop strategies to 
+                reduce your electrical consumption and costs. Consider upgrading to energy-efficient 
+                devices and implementing smart controls for significant long-term savings.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

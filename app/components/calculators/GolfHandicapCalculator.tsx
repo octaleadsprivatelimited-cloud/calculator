@@ -402,16 +402,100 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Golf Handicap Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator computes your golf handicap index using the USGA formula. The handicap index 
-                represents your potential ability and is used to calculate course handicaps for different courses. 
-                You need at least 3 scores for a valid handicap, with 20 scores recommended for the most accurate 
-                calculation. The system automatically selects your best differentials based on the number of scores entered.
+        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Golf Handicap Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our professional golf handicap calculator helps you determine your USGA Handicap Index using the official 
+              World Handicap System (WHS) formula. Whether you're a beginner golfer or a seasoned player, this tool 
+              provides accurate handicap calculations to level the playing field in competitive golf.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Handicap Index:</strong> Your official USGA handicap based on your best scores</li>
+              <li><strong>Course Handicap:</strong> Specific handicap for the course you're playing</li>
+              <li><strong>Adjusted Gross Score:</strong> Total score after applying handicap adjustments</li>
+              <li><strong>Score Differentials:</strong> Individual round performance metrics</li>
+              <li><strong>Handicap Trends:</strong> Progress tracking over multiple rounds</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How the Handicap System Works</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Score Requirements</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Minimum 3 scores for initial handicap</li>
+                  <li>8 scores for established handicap</li>
+                  <li>20 scores for most accurate calculation</li>
+                  <li>Scores must be from different courses</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Calculation Method</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Uses best 8 of last 20 scores</li>
+                  <li>Applies course and slope ratings</li>
+                  <li>Accounts for playing conditions</li>
+                  <li>Updates after each new round</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Handicap Index</h5>
+                <p className="text-green-700 text-sm">Your official USGA handicap number</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Course Handicap</h5>
+                <p className="text-blue-700 text-sm">Handicap specific to the course you're playing</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Adjusted Score</h5>
+                <p className="text-purple-700 text-sm">Your score after handicap adjustments</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your golf scores, including the course rating and slope rating for each round. The calculator will 
+              automatically select your best differentials and compute your handicap index. You can add up to 20 scores 
+              for the most accurate calculation.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Golf Handicap Categories</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Scratch Golfer:</strong> Handicap of 0</p>
+                  <p><strong>Low Handicap:</strong> 1-10</p>
+                  <p><strong>Mid Handicap:</strong> 11-20</p>
+                </div>
+                <div>
+                  <p><strong>High Handicap:</strong> 21-30</p>
+                  <p><strong>Beginner:</strong> 30+</p>
+                  <p><strong>Professional:</strong> +1 to +4</p>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Benefits of a Handicap</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Fair Competition:</strong> Level playing field for players of different skill levels</li>
+              <li><strong>Progress Tracking:</strong> Monitor improvement over time</li>
+              <li><strong>Tournament Eligibility:</strong> Required for many competitive events</li>
+              <li><strong>Course Selection:</strong> Choose appropriate courses for your skill level</li>
+              <li><strong>Social Golf:</strong> Enjoy games with players of varying abilities</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Keep your handicap updated by entering scores from every round. The more scores you have, the more 
+                accurate your handicap becomes. Remember that your handicap represents your potential ability, not 
+                your average score.
               </p>
             </div>
           </div>

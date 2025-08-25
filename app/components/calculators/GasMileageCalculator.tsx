@@ -491,18 +491,338 @@ Results:
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-orange-600 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Gas Mileage Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator helps you determine your vehicle's fuel efficiency (MPG), calculate fuel costs per mile, 
-                and plan trips with accurate fuel cost estimates. It considers different vehicle types, fuel types, 
-                and driving conditions to provide realistic calculations. The calculator also compares your efficiency 
-                to vehicle averages and helps you understand the true cost of your driving. Perfect for budget planning, 
-                fleet management, and eco-conscious driving.
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Gas Mileage Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive gas mileage calculator helps drivers, fleet managers, and cost-conscious travelers 
+              understand their vehicle's fuel efficiency and optimize transportation costs. This essential tool 
+              provides accurate MPG calculations, cost analysis, and trip planning capabilities for informed 
+              driving decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Fuel Efficiency:</strong> Miles per gallon (MPG) and liters per 100km</li>
+              <li><strong>Cost Analysis:</strong> Cost per mile, cost per kilometer, total trip cost</li>
+              <li><strong>Trip Planning:</strong> Fuel requirements and cost estimates</li>
+              <li><strong>Efficiency Comparison:</strong> Performance vs. vehicle averages</li>
+              <li><strong>Metric Conversions:</strong> MPG to L/100km and vice versa</li>
+              <li><strong>Savings Analysis:</strong> Cost savings from improved efficiency</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">MPG Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>MPG Formula:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>MPG = Distance ÷ Fuel Used</li>
+                    <li>Higher MPG = Better efficiency</li>
+                    <li>Lower MPG = Higher fuel consumption</li>
+                    <li>Typical range: 15-50 MPG</li>
+                    <li>Hybrids: 40-60 MPG</li>
+                    <li>Electric: 100+ MPG equivalent</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Metric Conversion:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>L/100km = 235.214 ÷ MPG</li>
+                    <li>MPG = 235.214 ÷ L/100km</li>
+                    <li>Lower L/100km = Better efficiency</li>
+                    <li>Typical range: 2-15 L/100km</li>
+                    <li>Hybrids: 1-3 L/100km</li>
+                    <li>Electric: 0 L/100km</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Gas Mileage</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Vehicle Factors:</strong> Engine size, weight, aerodynamics, tires, transmission</li>
+              <li><strong>Driving Factors:</strong> Speed, acceleration, idling, route planning, maintenance</li>
+              <li><strong>Weather Conditions:</strong> Cold weather, hot weather, rain/snow, wind, altitude</li>
+              <li><strong>Traffic Conditions:</strong> Highway vs. city driving, traffic jams, hills</li>
+              <li><strong>Fuel Type:</strong> Gasoline grades, diesel, ethanol, electric, hybrid</li>
+              <li><strong>Maintenance:</strong> Regular tune-ups, tire pressure, oil changes</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Improving Gas Mileage</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Maintenance:</strong> Regular tune-ups, oil changes, air filter replacement</li>
+              <li><strong>Tire Care:</strong> Proper inflation, alignment, rotation</li>
+              <li><strong>Driving Habits:</strong> Smooth acceleration, coasting, avoiding idling</li>
+              <li><strong>Route Planning:</strong> Avoid traffic, choose efficient routes</li>
+              <li><strong>Vehicle Weight:</strong> Remove unnecessary items</li>
+              <li><strong>Fuel Quality:</strong> Use recommended fuel grade</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                For the most accurate MPG calculations, use the full tank method and track your efficiency 
+                over multiple fill-ups rather than relying on a single tank. Remember that your actual MPG 
+                will typically be 10-20% lower than EPA ratings due to real-world driving conditions. Focus 
+                on improving driving habits (smooth acceleration, proper tire pressure, regular maintenance) 
+                rather than just finding cheaper fuel, as these improvements can save more money in the long run.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Gas Mileage Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive gas mileage calculator helps drivers, fleet managers, and cost-conscious travelers 
+              understand their vehicle's fuel efficiency and optimize transportation costs. This essential tool 
+              provides accurate MPG calculations, cost analysis, and trip planning capabilities for informed 
+              driving decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Fuel Efficiency:</strong> Miles per gallon (MPG) and liters per 100km</li>
+              <li><strong>Cost Analysis:</strong> Cost per mile, cost per kilometer, total trip cost</li>
+              <li><strong>Trip Planning:</strong> Fuel requirements and cost estimates</li>
+              <li><strong>Efficiency Comparison:</strong> Performance vs. vehicle averages</li>
+              <li><strong>Metric Conversions:</strong> MPG to L/100km and vice versa</li>
+              <li><strong>Savings Analysis:</strong> Cost savings from improved efficiency</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Types</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">MPG Calculation</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Basic MPG:</strong> Distance ÷ fuel used</li>
+                  <li><strong>Metric Conversion:</strong> MPG to L/100km</li>
+                  <li><strong>Efficiency Rating:</strong> Performance classification</li>
+                  <li><strong>Comparison Analysis:</strong> vs. vehicle averages</li>
+                  <li><strong>Trend Tracking:</strong> Monitor efficiency over time</li>
+                  <li><strong>Fuel Type Impact:</strong> Different fuel efficiencies</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Cost Analysis</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Cost per Mile:</strong> Fuel cost ÷ MPG</li>
+                  <li><strong>Cost per Kilometer:</strong> Metric cost calculation</li>
+                  <li><strong>Total Trip Cost:</strong> Complete fuel expense</li>
+                  <li><strong>Savings Calculation:</strong> Efficiency improvements</li>
+                  <li><strong>Budget Planning:</strong> Monthly fuel costs</li>
+                  <li><strong>ROI Analysis:</strong> Investment in efficiency</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">MPG</h5>
+                <p className="text-orange-700 text-sm">Fuel efficiency</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">L/100km</h5>
+                <p className="text-blue-700 text-sm">Metric efficiency</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Cost/Mile</h5>
+                <p className="text-green-700 text-sm">Per-mile expense</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Total Cost</h5>
+                <p className="text-purple-700 text-sm">Trip fuel expense</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Select your calculation type (MPG, cost analysis, or trip planning), enter the required information 
+              such as distance, fuel used, and fuel cost. The calculator automatically computes efficiency metrics, 
+              cost breakdowns, and provides comparisons to help optimize your driving costs.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">MPG Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>MPG Formula:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>MPG = Distance ÷ Fuel Used</li>
+                    <li>Higher MPG = Better efficiency</li>
+                    <li>Lower MPG = Higher fuel consumption</li>
+                    <li>Typical range: 15-50 MPG</li>
+                    <li>Hybrids: 40-60 MPG</li>
+                    <li>Electric: 100+ MPG equivalent</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Metric Conversion:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>L/100km = 235.214 ÷ MPG</li>
+                    <li>MPG = 235.214 ÷ L/100km</li>
+                    <li>Lower L/100km = Better efficiency</li>
+                    <li>Typical range: 2-15 L/100km</li>
+                    <li>Hybrids: 1-3 L/100km</li>
+                    <li>Electric: 0 L/100km</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Vehicle Type Efficiency Ranges</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Passenger Vehicles</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Compact Cars:</strong> 25-35 MPG</li>
+                  <li><strong>Sedans:</strong> 20-30 MPG</li>
+                  <li><strong>SUVs:</strong> 15-25 MPG</li>
+                  <li><strong>Trucks:</strong> 15-22 MPG</li>
+                  <li><strong>Minivans:</strong> 18-25 MPG</li>
+                  <li><strong>Sports Cars:</strong> 15-25 MPG</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Alternative Fuel</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Hybrids:</strong> 40-60 MPG</li>
+                  <li><strong>Plug-in Hybrids:</strong> 50-100 MPG</li>
+                  <li><strong>Electric:</strong> 100+ MPG equivalent</li>
+                  <li><strong>Diesel:</strong> 25-35 MPG</li>
+                  <li><strong>Natural Gas:</strong> 20-30 MPG</li>
+                  <li><strong>Hydrogen:</strong> 60-70 MPG equivalent</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Gas Mileage</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Vehicle Factors</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Engine Size:</strong> Larger engines use more fuel</li>
+                  <li><strong>Vehicle Weight:</strong> Heavier vehicles less efficient</li>
+                  <li><strong>Aerodynamics:</strong> Wind resistance impact</li>
+                  <li><strong>Tire Type:</strong> Rolling resistance effects</li>
+                  <li><strong>Transmission:</strong> Manual vs. automatic efficiency</li>
+                  <li><strong>Drive Type:</strong> AWD vs. 2WD efficiency</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Driving Factors</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Speed:</strong> Optimal 55-65 mph for efficiency</li>
+                  <li><strong>Acceleration:</strong> Smooth driving saves fuel</li>
+                  <li><strong>Idling:</strong> Turn off engine when stopped</li>
+                  <li><strong>Route Planning:</strong> Avoid traffic and hills</li>
+                  <li><strong>Maintenance:</strong> Regular tune-ups improve MPG</li>
+                  <li><strong>Load:</strong> Remove unnecessary weight</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fuel Type Considerations</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Regular Gasoline:</strong> Standard 87 octane, typical efficiency</li>
+              <li><strong>Premium Gasoline:</strong> Higher octane, may improve performance</li>
+              <li><strong>Diesel:</strong> Higher efficiency, higher cost per gallon</li>
+              <li><strong>E85 Ethanol:</strong> Lower MPG, lower cost per gallon</li>
+              <li><strong>Electric:</strong> Cost per kWh analysis</li>
+              <li><strong>Hybrid:</strong> Combined gas and electric efficiency</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Driving Conditions Impact</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Weather Conditions</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Cold Weather:</strong> 10-20% efficiency reduction</li>
+                  <li><strong>Hot Weather:</strong> AC usage reduces efficiency</li>
+                  <li><strong>Rain/Snow:</strong> Wet roads increase resistance</li>
+                  <li><strong>Wind:</strong> Headwinds reduce efficiency</li>
+                  <li><strong>Altitude:</strong> High elevation affects performance</li>
+                  <li><strong>Humidity:</strong> Moisture impacts combustion</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Traffic Conditions</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Highway Driving:</strong> Most efficient (steady speed)</li>
+                  <li><strong>City Driving:</strong> Stop-and-go reduces efficiency</li>
+                  <li><strong>Traffic Jams:</strong> Idling wastes fuel</li>
+                  <li><strong>Hills:</strong> Climbing reduces efficiency</li>
+                  <li><strong>Construction:</strong> Detours increase distance</li>
+                  <li><strong>Rush Hour:</strong> Peak congestion periods</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Improving Gas Mileage</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Maintenance:</strong> Regular tune-ups, oil changes, air filter replacement</li>
+              <li><strong>Tire Care:</strong> Proper inflation, alignment, rotation</li>
+              <li><strong>Driving Habits:</strong> Smooth acceleration, coasting, avoiding idling</li>
+              <li><strong>Route Planning:</strong> Avoid traffic, choose efficient routes</li>
+              <li><strong>Vehicle Weight:</strong> Remove unnecessary items</li>
+              <li><strong>Fuel Quality:</strong> Use recommended fuel grade</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Cost Analysis Benefits</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Budget Planning:</strong> Accurate fuel cost estimates</li>
+              <li><strong>Vehicle Comparison:</strong> Efficiency vs. cost analysis</li>
+              <li><strong>Trip Planning:</strong> Fuel budget for travel</li>
+              <li><strong>Fleet Management:</strong> Cost per vehicle tracking</li>
+              <li><strong>ROI Calculation:</strong> Investment in efficiency improvements</li>
+              <li><strong>Environmental Impact:</strong> CO2 emissions tracking</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Gas Mileage Calculation Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use Full Tank Method:</strong> Fill up completely for accurate readings</li>
+              <li><strong>Reset Trip Odometer:</strong> Start fresh for each calculation</li>
+              <li><strong>Track Multiple Fill-ups:</strong> Average over several tanks</li>
+              <li><strong>Consider Driving Conditions:</strong> Separate city vs. highway MPG</li>
+              <li><strong>Account for Fuel Type:</strong> Different fuels have different efficiencies</li>
+              <li><strong>Monitor Trends:</strong> Track efficiency over time</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common MPG Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Partial Fill-ups:</strong> Inaccurate fuel consumption measurement</li>
+              <li><strong>Ignoring Conditions:</strong> Not accounting for weather/traffic</li>
+              <li><strong>Using EPA Ratings:</strong> Not real-world driving conditions</li>
+              <li><strong>Forgetting Maintenance:</strong> Poor maintenance reduces efficiency</li>
+              <li><strong>Ignoring Load:</strong> Not accounting for passengers/cargo</li>
+              <li><strong>Single Calculation:</strong> One tank doesn't represent average</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced MPG Analysis</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Trend Analysis:</strong> Monitor efficiency over time</li>
+              <li><strong>Condition Comparison:</strong> City vs. highway efficiency</li>
+              <li><strong>Seasonal Variations:</strong> Weather impact on efficiency</li>
+              <li><strong>Maintenance Correlation:</strong> Service impact on MPG</li>
+              <li><strong>Driver Comparison:</strong> Different driver efficiencies</li>
+              <li><strong>Route Optimization:</strong> Most efficient path planning</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                For the most accurate MPG calculations, use the full tank method and track your efficiency 
+                over multiple fill-ups rather than relying on a single tank. Remember that your actual MPG 
+                will typically be 10-20% lower than EPA ratings due to real-world driving conditions. Focus 
+                on improving driving habits (smooth acceleration, proper tire pressure, regular maintenance) 
+                rather than just finding cheaper fuel, as these improvements can save more money in the long run. 
+                Consider tracking your MPG in different conditions (city vs. highway, summer vs. winter) to 
+                better understand your vehicle's true efficiency profile.
               </p>
             </div>
           </div>

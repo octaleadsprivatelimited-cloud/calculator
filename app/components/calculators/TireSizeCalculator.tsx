@@ -471,15 +471,134 @@ Speedometer Analysis (at ${currentSpeed} mph):
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Tire Size Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator helps you compare different tire sizes and understand how they affect your vehicle's performance. 
-                It calculates circumference, revolutions per mile, sidewall height, and speedometer accuracy. 
-                Use it when upgrading wheels, changing tire sizes, or understanding tire specifications.
+        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Tire Size Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive tire size calculator helps you compare different tire dimensions and understand their impact 
+              on vehicle performance. Whether you're upgrading wheels, changing tire sizes, or analyzing tire specifications, 
+              this tool provides accurate calculations for circumference, speedometer accuracy, and performance characteristics.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Tire Dimensions:</strong> Width, aspect ratio, and diameter measurements</li>
+              <li><strong>Circumference:</strong> Distance around the tire's outer edge</li>
+              <li><strong>Revolutions per Mile:</strong> How many times the tire rotates per mile</li>
+              <li><strong>Sidewall Height:</strong> Distance from rim to tread surface</li>
+              <li><strong>Speedometer Accuracy:</strong> Impact on speed reading accuracy</li>
+              <li><strong>Performance Comparison:</strong> Side-by-side analysis of different sizes</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Tire Size Notation</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Metric System (P-Metric)</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>P215/65R15</li>
+                  <li>P = Passenger vehicle</li>
+                  <li>215 = Width in millimeters</li>
+                  <li>65 = Aspect ratio percentage</li>
+                  <li>R = Radial construction</li>
+                  <li>15 = Rim diameter in inches</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Imperial System</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>31x10.50R15</li>
+                  <li>31 = Overall diameter in inches</li>
+                  <li>10.50 = Width in inches</li>
+                  <li>R = Radial construction</li>
+                  <li>15 = Rim diameter in inches</li>
+                  <li>Common for off-road tires</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Circumference</h5>
+                <p className="text-blue-700 text-sm">Distance around tire</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Revolutions</h5>
+                <p className="text-green-700 text-sm">Rotations per mile</p>
+              </div>
+              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                <h5 className="font-semibold text-yellow-800 mb-1">Speedometer</h5>
+                <p className="text-yellow-700 text-sm">Accuracy impact</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your current tire size and the new tire size you want to compare. The calculator will show the 
+              differences in dimensions, performance characteristics, and how the change affects your speedometer accuracy.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Tire Size Impact on Performance</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Larger Tires:</strong> Better ground clearance, improved off-road capability</li>
+              <li><strong>Smaller Tires:</strong> Better fuel economy, improved acceleration</li>
+              <li><strong>Wider Tires:</strong> Better traction, improved cornering stability</li>
+              <li><strong>Narrower Tires:</strong> Better fuel efficiency, improved snow performance</li>
+              <li><strong>Lower Aspect Ratio:</strong> Better handling, stiffer ride</li>
+              <li><strong>Higher Aspect Ratio:</strong> Smoother ride, better comfort</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Speedometer Accuracy</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <p className="text-gray-700 text-sm mb-3">
+                <strong>Why Speedometer Accuracy Matters:</strong> Changing tire sizes affects how your speedometer reads. 
+                Larger tires make your speedometer read slower than actual speed, while smaller tires make it read faster.
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Larger Tires:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Speedometer reads slower</li>
+                    <li>Odometer reads fewer miles</li>
+                    <li>Risk of speeding tickets</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Smaller Tires:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Speedometer reads faster</li>
+                    <li>Odometer reads more miles</li>
+                    <li>May affect warranty</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Tire Size Changes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Plus Sizing:</strong> Increasing rim diameter while maintaining overall diameter</li>
+              <li><strong>Plus Zero:</strong> Changing width while maintaining overall diameter</li>
+              <li><strong>Plus One/Two:</strong> Increasing rim diameter by 1-2 inches</li>
+              <li><strong>Off-Road Upgrades:</strong> Larger tires for improved ground clearance</li>
+              <li><strong>Performance Upgrades:</strong> Lower profile tires for better handling</li>
+              <li><strong>Winter Tires:</strong> Smaller diameter for better snow performance</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Safety Considerations</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Clearance Issues:</strong> Ensure tires don't rub against vehicle components</li>
+              <li><strong>Load Capacity:</strong> Verify new tires can handle vehicle weight</li>
+              <li><strong>Speed Rating:</strong> Ensure tires meet or exceed vehicle requirements</li>
+              <li><strong>Legal Compliance:</strong> Check local regulations on tire modifications</li>
+              <li><strong>Professional Installation:</strong> Have changes made by qualified technicians</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When changing tire sizes, aim to keep the overall diameter within 3% of the original size to maintain 
+                proper speedometer accuracy and avoid potential issues with vehicle systems like ABS and traction control. 
+                Always consult your vehicle's manual and a qualified tire professional for guidance.
               </p>
             </div>
           </div>

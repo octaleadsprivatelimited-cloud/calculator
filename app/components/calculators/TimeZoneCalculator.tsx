@@ -405,17 +405,113 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Time Zone Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator helps you convert times between different time zones around the world. 
-                It displays current times in major cities and time zones, making it easy to schedule 
-                international meetings or plan travel. The calculator automatically handles daylight saving 
-                time considerations and provides accurate time differences between zones. Perfect for 
-                business professionals, travelers, and anyone working with global teams.
+        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Time Zone Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive time zone calculator helps you convert times between different time zones around the world. 
+              Whether you're scheduling international meetings, planning travel, or coordinating with global teams, 
+              this tool provides accurate time conversions with automatic daylight saving time handling.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Time Conversions:</strong> Convert any time between different time zones</li>
+              <li><strong>Current Times:</strong> Real-time display of major cities worldwide</li>
+              <li><strong>Time Differences:</strong> Calculate hours and minutes between zones</li>
+              <li><strong>DST Handling:</strong> Automatic daylight saving time adjustments</li>
+              <li><strong>Global Coverage:</strong> Support for all major time zones</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Major Time Zones</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">North America</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Eastern Time (ET): UTC-5/-4</li>
+                  <li>Central Time (CT): UTC-6/-5</li>
+                  <li>Mountain Time (MT): UTC-7/-6</li>
+                  <li>Pacific Time (PT): UTC-8/-7</li>
+                  <li>Alaska Time (AKT): UTC-9/-8</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">International</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Greenwich Mean Time (GMT): UTC+0</li>
+                  <li>Central European Time (CET): UTC+1/+2</li>
+                  <li>Japan Standard Time (JST): UTC+9</li>
+                  <li>Australian Eastern Time (AET): UTC+10/+11</li>
+                  <li>China Standard Time (CST): UTC+8</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-teal-50 p-3 rounded-lg border border-teal-200">
+                <h5 className="font-semibold text-teal-800 mb-1">Source Time</h5>
+                <p className="text-teal-700 text-sm">Original time in source time zone</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Converted Time</h5>
+                <p className="text-blue-700 text-sm">Equivalent time in target time zone</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Time Difference</h5>
+                <p className="text-green-700 text-sm">Hours and minutes between zones</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Select your source time zone, enter the time you want to convert, and choose your target time zone. 
+              The calculator will instantly show the converted time and the time difference between the zones.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Business Meetings:</strong> Schedule calls with international clients and teams</li>
+              <li><strong>Travel Planning:</strong> Coordinate flights, meetings, and activities abroad</li>
+              <li><strong>Remote Work:</strong> Manage schedules across different time zones</li>
+              <li><strong>Event Planning:</strong> Organize webinars and conferences globally</li>
+              <li><strong>Customer Support:</strong> Provide service across multiple time zones</li>
+              <li><strong>Social Coordination:</strong> Stay connected with friends and family worldwide</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Daylight Saving Time (DST)</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <p className="text-gray-700 text-sm mb-3">
+                <strong>What is DST?</strong> Daylight saving time is the practice of setting clocks forward by one hour 
+                during the warmer months to extend evening daylight.
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Spring Forward:</strong> Clocks move forward 1 hour (lose 1 hour)</p>
+                  <p><strong>Fall Back:</strong> Clocks move backward 1 hour (gain 1 hour)</p>
+                </div>
+                <div>
+                  <p><strong>Northern Hemisphere:</strong> March to November</p>
+                  <p><strong>Southern Hemisphere:</strong> September to April</p>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Pro Tips for Time Zone Management</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use 24-Hour Format:</strong> Avoid AM/PM confusion in international communications</li>
+              <li><strong>Consider DST:</strong> Always verify if daylight saving time is in effect</li>
+              <li><strong>Plan Buffer Time:</strong> Allow extra time for technical difficulties in virtual meetings</li>
+              <li><strong>Use UTC References:</strong> UTC provides a universal reference point</li>
+              <li><strong>Double-Check Times:</strong> Verify conversions, especially for important meetings</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-teal-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When scheduling international meetings, consider the local time of all participants and choose 
+                times that are reasonable for everyone. Early morning in one time zone might be late evening 
+                in another, so aim for business hours when possible.
               </p>
             </div>
           </div>

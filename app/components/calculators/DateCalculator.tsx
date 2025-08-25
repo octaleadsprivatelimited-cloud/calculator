@@ -467,6 +467,224 @@ export default function DateCalculator() {
           </div>
         </div>
 
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Date Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive date calculator helps you perform precise date calculations for planning, 
+              scheduling, and time management. This essential tool calculates date differences, adds or 
+              subtracts time periods, and provides accurate results accounting for leap years, month 
+              variations, and calendar complexities.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Date Differences:</strong> Time between two specific dates</li>
+              <li><strong>Date Operations:</strong> Add or subtract time periods</li>
+              <li><strong>Multiple Units:</strong> Years, months, weeks, and days</li>
+              <li><strong>Precise Calculations:</strong> Account for leap years and month lengths</li>
+              <li><strong>Calendar Navigation:</strong> Find future or past dates</li>
+              <li><strong>Time Planning:</strong> Project planning and scheduling support</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Types</h4>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Date Difference</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li><strong>Total Days:</strong> Complete days between dates</li>
+                <li><strong>Years:</strong> Full years elapsed</li>
+                <li><strong>Months:</strong> Remaining months after years</li>
+                <li><strong>Days:</strong> Remaining days after months</li>
+                <li><strong>Total Weeks:</strong> Complete weeks calculation</li>
+                <li><strong>Precise Timing:</strong> Account for leap years</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Date Operations</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li><strong>Add Time:</strong> Calculate future dates</li>
+                <li><strong>Subtract Time:</strong> Calculate past dates</li>
+                <li><strong>Flexible Units:</strong> Years, months, weeks, days</li>
+                <li><strong>Variable Amounts:</strong> Any number of units</li>
+                <li><strong>Calendar Aware:</strong> Handle month variations</li>
+                <li><strong>Leap Year Support:</strong> Accurate February calculations</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+          <div className="grid md:grid-cols-4 gap-4 mb-4">
+            <div className="bg-cyan-50 p-3 rounded-lg border border-cyan-200">
+              <h5 className="font-semibold text-cyan-800 mb-1">Total Days</h5>
+              <p className="text-cyan-700 text-sm">Complete day count</p>
+            </div>
+            <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <h5 className="font-semibold text-blue-800 mb-1">Years</h5>
+              <p className="text-blue-700 text-sm">Full years elapsed</p>
+            </div>
+            <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <h5 className="font-semibold text-green-800 mb-1">Months</h5>
+              <p className="text-green-700 text-sm">Remaining months</p>
+            </div>
+            <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <h5 className="font-semibold text-purple-800 mb-1">Days</h5>
+              <p className="text-purple-700 text-sm">Remaining days</p>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+          <p className="text-gray-700 mb-4">
+            Choose between "Date Difference" to find time between two dates, or "Add/Subtract" to 
+            calculate future or past dates. Enter your dates and time periods, and the calculator will 
+            provide precise results accounting for calendar complexities like leap years and varying month lengths.
+          </p>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Calendar Complexity Handling</h4>
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <p><strong>Leap Years:</strong></p>
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  <li>Every 4 years (except century years)</li>
+                  <li>February 29th added</li>
+                  <li>366 days instead of 365</li>
+                  <li>Automatic calculation</li>
+                  <li>Accurate year counting</li>
+                  <li>Calendar rule compliance</li>
+                </ul>
+              </div>
+              <div>
+                <p><strong>Month Variations:</strong></p>
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  <li>28-31 days per month</li>
+                  <li>February special handling</li>
+                  <li>Month-end date logic</li>
+                  <li>Year boundary crossing</li>
+                  <li>Accurate month counting</li>
+                  <li>Calendar month rules</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Use Cases</h4>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Personal Planning</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li><strong>Birthday Planning:</strong> Days until next birthday</li>
+                <li><strong>Vacation Countdown:</strong> Time until trip</li>
+                <li><strong>Anniversary Tracking:</strong> Years and months married</li>
+                <li><strong>Goal Deadlines:</strong> Time remaining for objectives</li>
+                <li><strong>Event Planning:</strong> Preparation time available</li>
+                <li><strong>Age Calculations:</strong> Precise age in various units</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Professional Applications</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li><strong>Project Planning:</strong> Timeline calculations</li>
+                <li><strong>Deadline Management:</strong> Days remaining for tasks</li>
+                <li><strong>Contract Terms:</strong> Duration calculations</li>
+                <li><strong>Billing Periods:</strong> Service duration tracking</li>
+                <li><strong>Warranty Periods:</strong> Coverage time remaining</li>
+                <li><strong>Subscription Renewals:</strong> Next billing dates</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Date Calculation Methods</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Gregorian Calendar:</strong> Standard international calendar system</li>
+            <li><strong>Leap Year Rules:</strong> Every 4 years, except century years not divisible by 400</li>
+            <li><strong>Month Length Handling:</strong> Account for 28, 29, 30, and 31-day months</li>
+            <li><strong>Year Boundary Logic:</strong> Proper handling of year transitions</li>
+            <li><strong>Date Validation:</strong> Ensure valid date inputs</li>
+            <li><strong>Precision Calculation:</strong> Accurate to the day level</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Time Unit Conversions</h4>
+          <div className="grid md:grid-cols-3 gap-4 mb-6">
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Standard Conversions</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>1 year = 365.25 days (leap year average)</li>
+                <li>1 month = 30.44 days (average)</li>
+                <li>1 week = 7 days</li>
+                <li>1 day = 24 hours</li>
+                <li>1 hour = 60 minutes</li>
+                <li>1 minute = 60 seconds</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Calendar Variations</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>February: 28/29 days</li>
+                <li>April, June, September, November: 30 days</li>
+                <li>January, March, May, July, August, October, December: 31 days</li>
+                <li>Leap years: 366 days</li>
+                <li>Common years: 365 days</li>
+                <li>Century rules apply</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Business Calculations</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>Business days: Monday-Friday</li>
+                <li>Weekend days: Saturday-Sunday</li>
+                <li>Holiday considerations</li>
+                <li>Working hours per day</li>
+                <li>Project milestones</li>
+                <li>Deadline tracking</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Date Calculation Tips</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Use Specific Dates:</strong> Avoid ambiguous date formats</li>
+            <li><strong>Consider Time Zones:</strong> Account for location differences</li>
+            <li><strong>Validate Inputs:</strong> Ensure dates are valid and logical</li>
+            <li><strong>Account for Leap Years:</strong> Remember February 29th</li>
+            <li><strong>Month End Logic:</strong> Handle month length variations</li>
+            <li><strong>Year Boundaries:</strong> Proper year transition handling</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Date Calculation Mistakes</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Ignoring Leap Years:</strong> February calculations can be off by one day</li>
+            <li><strong>Month Length Assumptions:</strong> Not all months have 30 days</li>
+            <li><strong>Year Boundary Errors:</strong> Incorrect handling of year transitions</li>
+            <li><strong>Time Zone Confusion:</strong> Date changes across time zones</li>
+            <li><strong>Format Inconsistencies:</strong> Different date format interpretations</li>
+            <li><strong>Business Day Assumptions:</strong> Including weekends in business calculations</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Date Concepts</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Julian Day Numbers:</strong> Continuous day counting system</li>
+            <li><strong>ISO 8601 Format:</strong> International date standard</li>
+            <li><strong>Week Numbers:</strong> ISO week numbering system</li>
+            <li><strong>Seasonal Calculations:</strong> Equinox and solstice dates</li>
+            <li><strong>Lunar Calendar Integration:</strong> Moon phase calculations</li>
+            <li><strong>Historical Date Systems:</strong> Julian to Gregorian conversion</li>
+          </ul>
+          
+          <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-cyan-500">
+            <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <p className="text-gray-700 text-sm">
+              When calculating date differences, always consider the context of your calculation. For 
+              business applications, you might need to exclude weekends and holidays. For personal 
+              planning, remember that months have different lengths and leap years affect February. 
+              Use the calculator's precise calculations to avoid common date-related errors, and 
+              always verify your results by checking a few known dates to ensure accuracy.
+            </p>
+          </div>
+        </div>
+      </div>
+
         <footer className="text-center mt-12 text-gray-500">
           <p>© 2024 Date Calculator. All rights reserved.</p>
         </footer>

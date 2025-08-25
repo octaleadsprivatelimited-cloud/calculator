@@ -339,6 +339,229 @@ export default function BodyTypeCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Body Type Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive body type calculator helps individuals determine their unique body 
+              structure and proportions using multiple anatomical measurements. This essential fitness 
+              and fashion tool provides personalized body type classification to support clothing 
+              selection, workout planning, and understanding your natural body characteristics.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Body Type Classification:</strong> Ectomorph, Mesomorph, Endomorph, or combination</li>
+              <li><strong>Body Proportions:</strong> Shoulder-to-waist and waist-to-hip ratios</li>
+              <li><strong>Confidence Score:</strong> Accuracy level of the classification</li>
+              <li><strong>Physical Characteristics:</strong> Typical traits of your body type</li>
+              <li><strong>Personalized Recommendations:</strong> Clothing and fitness guidance</li>
+              <li><strong>Measurement Analysis:</strong> Detailed proportion breakdown</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Type Categories</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Ectomorph</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Naturally thin and lean</li>
+                  <li>Long limbs and narrow frame</li>
+                  <li>Fast metabolism</li>
+                  <li>Difficulty gaining weight</li>
+                  <li>Naturally athletic</li>
+                  <li>Good endurance</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Mesomorph</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Naturally muscular build</li>
+                  <li>Medium bone structure</li>
+                  <li>Gains muscle easily</li>
+                  <li>Responds well to training</li>
+                  <li>Good strength potential</li>
+                  <li>Balanced metabolism</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Endomorph</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Naturally larger frame</li>
+                  <li>Wider bone structure</li>
+                  <li>Slower metabolism</li>
+                  <li>Gains weight easily</li>
+                  <li>Good strength potential</li>
+                  <li>Natural power athletes</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Proportions Analysis</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Shoulder-to-Waist Ratio</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Indicates upper body structure</li>
+                  <li>Higher ratios = broader shoulders</li>
+                  <li>Lower ratios = more balanced</li>
+                  <li>Affects clothing fit</li>
+                  <li>Influences workout focus</li>
+                  <li>Key for body type classification</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Waist-to-Hip Ratio</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Indicates lower body structure</li>
+                  <li>Health indicator</li>
+                  <li>Affects clothing selection</li>
+                  <li>Influences exercise focus</li>
+                  <li>Varies by gender</li>
+                  <li>Important for body type ID</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+                <h5 className="font-semibold text-indigo-800 mb-1">Body Type</h5>
+                <p className="text-indigo-700 text-sm">Your primary classification</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Confidence Score</h5>
+                <p className="text-purple-700 text-sm">Accuracy of classification</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Characteristics</h5>
+                <p className="text-blue-700 text-sm">Typical traits and features</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Measure your shoulder width, waist width, hip width, wrist circumference, and ankle 
+              circumference in centimeters. The calculator will analyze your proportions and classify 
+              your body type, providing personalized characteristics and recommendations.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Measurement Techniques</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Shoulder Width:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Measure across shoulder blades</li>
+                    <li>Keep arms relaxed</li>
+                    <li>Measure at widest point</li>
+                    <li>Use flexible tape measure</li>
+                    <li>Stand naturally</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Waist & Hip:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Waist at narrowest point</li>
+                    <li>Hips at widest point</li>
+                    <li>Don't pull tape tight</li>
+                    <li>Measure while standing</li>
+                    <li>Exhale normally</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Type Combinations</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Ecto-Mesomorph:</strong> Lean with some muscle definition</li>
+              <li><strong>Meso-Endomorph:</strong> Muscular with tendency to gain fat</li>
+              <li><strong>Ecto-Endomorph:</strong> Thin frame with fat storage tendency</li>
+              <li><strong>Balanced Types:</strong> Equal characteristics from multiple types</li>
+              <li><strong>Pure Types:</strong> Strong characteristics of one type</li>
+              <li><strong>Mixed Types:</strong> Combination of all three types</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fitness Implications</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Training Focus</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Ectomorphs:</strong> Strength training, compound movements</li>
+                  <li><strong>Mesomorphs:</strong> Balanced training, variety</li>
+                  <li><strong>Endomorphs:</strong> Cardio focus, calorie burning</li>
+                  <li><strong>Combinations:</strong> Mixed approach based on goals</li>
+                  <li><strong>Recovery:</strong> Varies by body type</li>
+                  <li><strong>Progression:</strong> Different rates for each type</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Nutrition Approach</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Ectomorphs:</strong> Higher calories, frequent meals</li>
+                  <li><strong>Mesomorphs:</strong> Balanced macros, moderate calories</li>
+                  <li><strong>Endomorphs:</strong> Lower calories, higher protein</li>
+                  <li><strong>Meal Timing:</strong> Important for all types</li>
+                  <li><strong>Supplements:</strong> Vary by body type needs</li>
+                  <li><strong>Hydration:</strong> Essential for all types</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Clothing and Style</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Ectomorphs:</strong> Layered looks, structured pieces</li>
+              <li><strong>Mesomorphs:</strong> Most styles work well</li>
+              <li><strong>Endomorphs:</strong> Vertical lines, proper fit</li>
+              <li><strong>Proportions:</strong> Balance top and bottom</li>
+              <li><strong>Colors:</strong> Use to enhance or minimize areas</li>
+              <li><strong>Fit:</strong> Proper sizing more important than style</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Type Myths</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Fixed Types:</strong> Body types can change over time</li>
+              <li><strong>One Size Fits All:</strong> Each type has variations</li>
+              <li><strong>Genetic Destiny:</strong> Lifestyle affects body type expression</li>
+              <li><strong>Perfect Type:</strong> All types have advantages</li>
+              <li><strong>No Overlap:</strong> Most people are combinations</li>
+              <li><strong>Static Classification:</strong> Body types evolve with age</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Improving Body Composition</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Ectomorphs:</strong> Focus on muscle building, adequate calories</li>
+              <li><strong>Mesomorphs:</strong> Balance strength and cardio, moderate diet</li>
+              <li><strong>Endomorphs:</strong> Emphasize fat loss, higher activity levels</li>
+              <li><strong>All Types:</strong> Consistency is key</li>
+              <li><strong>Progressive Overload:</strong> Gradually increase intensity</li>
+              <li><strong>Recovery:</strong> Adequate rest for all types</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">When Body Type Matters</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Fitness Planning:</strong> Tailor workouts to your type</li>
+              <li><strong>Clothing Shopping:</strong> Choose styles that flatter</li>
+              <li><strong>Goal Setting:</strong> Realistic expectations based on type</li>
+              <li><strong>Nutrition Planning:</strong> Adjust diet for your metabolism</li>
+              <li><strong>Progress Tracking:</strong> Compare to similar body types</li>
+              <li><strong>Motivation:</strong> Understand your natural advantages</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Remember that body type is just one factor in your fitness and style journey. While 
+                it provides useful insights, don't let it limit your goals or define your potential. 
+                Focus on working with your natural characteristics rather than fighting against them. 
+                Also, body types can change over time with consistent training and lifestyle changes. 
+                Use this information as a starting point for personalized approaches, but always 
+                prioritize what feels good and works for your individual body and goals.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

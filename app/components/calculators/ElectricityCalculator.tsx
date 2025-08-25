@@ -525,6 +525,241 @@ Energy Saving Tips:
             </div>
           </div>
         </div>
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Electricity Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive electricity calculator helps homeowners, businesses, and energy-conscious individuals 
+              understand their power consumption patterns, estimate energy costs, and assess environmental impact. 
+              This essential tool provides detailed analysis for energy efficiency planning, cost management, and 
+              sustainability assessment.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Power Consumption:</strong> Total watts and kilowatts used</li>
+              <li><strong>Energy Usage:</strong> Daily, monthly, and yearly kilowatt-hours</li>
+              <li><strong>Cost Analysis:</strong> Electricity expenses across time periods</li>
+              <li><strong>Environmental Impact:</strong> Carbon footprint and CO2 emissions</li>
+              <li><strong>Efficiency Rating:</strong> Energy consumption assessment</li>
+              <li><strong>Appliance Analysis:</strong> Individual device power tracking</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Types</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Energy Consumption</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Daily Usage:</strong> 24-hour energy consumption</li>
+                  <li><strong>Monthly Usage:</strong> 30-day energy totals</li>
+                  <li><strong>Yearly Usage:</strong> Annual energy consumption</li>
+                  <li><strong>Peak Usage:</strong> Maximum power requirements</li>
+                  <li><strong>Standby Power:</strong> Phantom load calculations</li>
+                  <li><strong>Seasonal Variations:</strong> Usage pattern analysis</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Cost Analysis</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Rate Variations:</strong> Different electricity pricing</li>
+                  <li><strong>Time-of-Use:</strong> Peak vs. off-peak rates</li>
+                  <li><strong>Demand Charges:</strong> Peak power costs</li>
+                  <li><strong>Taxes and Fees:</strong> Additional charges</li>
+                  <li><strong>Seasonal Rates:</strong> Variable pricing</li>
+                  <li><strong>Billing Cycles:</strong> Monthly cost projections</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+                <h5 className="font-semibold text-indigo-800 mb-1">Power</h5>
+                <p className="text-indigo-700 text-sm">Total watts used</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Energy</h5>
+                <p className="text-green-700 text-sm">Daily/monthly kWh</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Cost</h5>
+                <p className="text-blue-700 text-sm">Monthly expenses</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Impact</h5>
+                <p className="text-orange-700 text-sm">Carbon footprint</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Select your electricity rate from preset options or enter a custom rate. Add appliances with their 
+              power ratings (watts) and daily usage hours. The calculator automatically computes total consumption, 
+              energy costs, and environmental impact. Use the efficiency analysis to identify improvement opportunities.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electricity Rate Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Rate Components:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Generation costs</li>
+                    <li>Transmission fees</li>
+                    <li>Distribution charges</li>
+                    <li>Regulatory costs</li>
+                    <li>Taxes and surcharges</li>
+                    <li>Renewable energy credits</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Rate Types:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Fixed rates</li>
+                    <li>Variable rates</li>
+                    <li>Time-of-use rates</li>
+                    <li>Tiered pricing</li>
+                    <li>Demand charges</li>
+                    <li>Seasonal rates</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Appliance Power Ratings</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Low Power Devices</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>LED Bulbs:</strong> 5-15 watts</li>
+                  <li><strong>Phone Chargers:</strong> 5-25 watts</li>
+                  <li><strong>Laptops:</strong> 30-100 watts</li>
+                  <li><strong>Televisions:</strong> 50-400 watts</li>
+                  <li><strong>Refrigerators:</strong> 100-200 watts</li>
+                  <li><strong>Microwaves:</strong> 600-1,200 watts</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">High Power Devices</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Space Heaters:</strong> 1,000-1,500 watts</li>
+                  <li><strong>Air Conditioners:</strong> 1,000-3,500 watts</li>
+                  <li><strong>Electric Dryers:</strong> 2,000-5,000 watts</li>
+                  <li><strong>Electric Ranges:</strong> 2,000-5,000 watts</li>
+                  <li><strong>Water Heaters:</strong> 3,000-5,500 watts</li>
+                  <li><strong>Central AC:</strong> 3,500-5,000 watts</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Energy Efficiency Analysis</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Efficiency Ratings</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Excellent:</strong> Under 1,500 kWh/year</li>
+                  <li><strong>Good:</strong> 1,500-3,000 kWh/year</li>
+                  <li><strong>Moderate:</strong> 3,000-5,000 kWh/year</li>
+                  <li><strong>High:</strong> Over 5,000 kWh/year</li>
+                  <li><strong>Factors:</strong> Home size, appliances, habits</li>
+                  <li><strong>Comparisons:</strong> Regional averages</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Improvement Strategies</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Appliance Upgrades:</strong> Energy Star rated devices</li>
+                  <li><strong>Smart Controls:</strong> Programmable thermostats</li>
+                  <li><strong>Insulation:</strong> Better thermal performance</li>
+                  <li><strong>LED Lighting:</strong> Low-power alternatives</li>
+                  <li><strong>Behavior Changes:</strong> Usage habit optimization</li>
+                  <li><strong>Renewable Energy:</strong> Solar panel installation</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Environmental Impact</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Carbon Footprint:</strong> CO2 emissions from electricity generation</li>
+              <li><strong>Generation Mix:</strong> Coal, natural gas, nuclear, renewable sources</li>
+              <li><strong>Emission Factors:</strong> CO2 per kilowatt-hour varies by region</li>
+              <li><strong>Renewable Energy:</strong> Solar, wind, hydroelectric power</li>
+              <li><strong>Carbon Offsets:</strong> Compensating for emissions</li>
+              <li><strong>Sustainability Goals:</strong> Reducing environmental impact</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Cost Optimization Strategies</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Rate Optimization</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Time-of-Use:</strong> Shift usage to off-peak hours</li>
+                  <li><strong>Demand Response:</strong> Reduce peak usage</li>
+                  <li><strong>Rate Shopping:</strong> Compare utility providers</li>
+                  <li><strong>Special Programs:</strong> Energy efficiency incentives</li>
+                  <li><strong>Billing Analysis:</strong> Understand rate structures</li>
+                  <li><strong>Negotiation:</strong> Business rate optimization</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Usage Optimization</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Peak Shaving:</strong> Reduce high-demand usage</li>
+                  <li><strong>Load Balancing:</strong> Distribute usage evenly</li>
+                  <li><strong>Efficiency Upgrades:</strong> High-efficiency appliances</li>
+                  <li><strong>Smart Scheduling:</strong> Automated usage control</li>
+                  <li><strong>Energy Audits:</strong> Professional assessments</li>
+                  <li><strong>Monitoring Systems:</strong> Real-time usage tracking</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electricity Calculation Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use Realistic Hours:</strong> Actual daily usage patterns</li>
+              <li><strong>Include Standby Power:</strong> Phantom loads and standby modes</li>
+              <li><strong>Account for Seasons:</strong> Heating and cooling variations</li>
+              <li><strong>Consider Peak Times:</strong> High-demand periods</li>
+              <li><strong>Update Regularly:</strong> Recalculate as usage changes</li>
+              <li><strong>Compare Scenarios:</strong> Analyze different usage patterns</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Electricity Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Underestimating Usage:</strong> Not accounting for all devices</li>
+              <li><strong>Ignoring Standby Power:</strong> Phantom load calculations</li>
+              <li><strong>Using Average Rates:</strong> Not considering rate variations</li>
+              <li><strong>Forgetting Seasonal Changes:</strong> Heating/cooling variations</li>
+              <li><strong>Ignoring Peak Charges:</strong> Demand charge implications</li>
+              <li><strong>Not Monitoring Usage:</strong> Lack of real-time tracking</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Electricity Concepts</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Power Factor:</strong> Efficiency of power usage</li>
+              <li><strong>Harmonic Distortion:</strong> Non-linear load effects</li>
+              <li><strong>Voltage Drop:</strong> Line loss calculations</li>
+              <li><strong>Demand Charges:</strong> Peak power costs</li>
+              <li><strong>Load Factor:</strong> Average vs. peak usage</li>
+              <li><strong>Power Quality:</strong> Voltage and frequency stability</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When analyzing your electricity usage, focus on the biggest energy consumers first - typically 
+                heating, cooling, and major appliances. Small changes to these high-usage devices can have a 
+                significant impact on your overall consumption and costs. Use this calculator to identify your 
+                energy hotspots and develop targeted strategies for improvement. Remember that energy efficiency 
+                is often more cost-effective than generating new power, and the environmental benefits extend 
+                beyond just cost savings. Consider implementing a combination of behavioral changes, efficiency 
+                upgrades, and smart controls for maximum impact.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -192,6 +192,114 @@ export default function TakeHomePaycheckCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Take-Home Paycheck Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive take-home paycheck calculator helps you understand exactly how much money you'll 
+              receive after all deductions. Whether you're negotiating a new salary, planning your budget, or 
+              comparing job offers, this tool provides accurate net pay calculations and detailed breakdowns.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Net Take-Home Pay:</strong> Your actual paycheck amount after all deductions</li>
+              <li><strong>Total Deductions:</strong> Sum of all taxes and other withholdings</li>
+              <li><strong>Net Percentage:</strong> What percentage of gross pay you actually receive</li>
+              <li><strong>Detailed Breakdown:</strong> Itemized list of all deductions</li>
+              <li><strong>Tax Impact Analysis:</strong> How different factors affect your take-home pay</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Deductions Explained</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Federal Taxes</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Income tax based on your tax bracket</li>
+                  <li>Withholding allowances and exemptions</li>
+                  <li>Additional withholding for bonuses</li>
+                  <li>Tax credits and deductions</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">State & Local Taxes</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>State income tax rates vary by location</li>
+                  <li>Local city or county taxes</li>
+                  <li>State-specific deductions</li>
+                  <li>Residency requirements</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Take-Home Pay</h5>
+                <p className="text-green-700 text-sm">Your actual paycheck amount</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Net Percentage</h5>
+                <p className="text-blue-700 text-sm">% of gross pay you keep</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Total Deductions</h5>
+                <p className="text-purple-700 text-sm">Sum of all withholdings</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your gross pay and all applicable deductions. The calculator will compute your net take-home pay, 
+              show the percentage of gross pay you actually receive, and provide a detailed breakdown of all deductions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Take-Home Pay</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Filing Status:</strong> Single, married, head of household</li>
+              <li><strong>Dependents:</strong> Number of qualifying children</li>
+              <li><strong>Additional Income:</strong> Bonuses, overtime, side jobs</li>
+              <li><strong>Pre-tax Benefits:</strong> 401(k), health insurance, FSA</li>
+              <li><strong>State Residency:</strong> Different tax rates by location</li>
+              <li><strong>Pay Frequency:</strong> Weekly, bi-weekly, monthly</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Pre-Tax vs. Post-Tax Deductions</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Pre-Tax (Better):</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>401(k) contributions</li>
+                    <li>Health insurance premiums</li>
+                    <li>Flexible spending accounts</li>
+                    <li>Commuter benefits</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Post-Tax:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Roth 401(k) contributions</li>
+                    <li>Life insurance premiums</li>
+                    <li>Union dues</li>
+                    <li>Garnishments</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Maximize your take-home pay by taking advantage of pre-tax benefits like 401(k) contributions and 
+                flexible spending accounts. These reduce your taxable income, potentially putting you in a lower 
+                tax bracket and increasing your net pay.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

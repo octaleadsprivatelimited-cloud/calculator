@@ -254,6 +254,188 @@ export default function AverageReturnCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Average Return Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive average return calculator helps investors and financial analysts determine 
+              the average performance of investments over time using multiple calculation methods. This 
+              essential financial tool provides insights into investment performance, helping you compare 
+              different investment strategies and make informed decisions about portfolio management.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Arithmetic Mean:</strong> Simple average of returns</li>
+              <li><strong>Geometric Mean:</strong> Compound average return</li>
+              <li><strong>Time-Weighted Return:</strong> Performance independent of cash flows</li>
+              <li><strong>Dollar-Weighted Return:</strong> Performance considering investment timing</li>
+              <li><strong>Method Comparison:</strong> Side-by-side analysis of different approaches</li>
+              <li><strong>Performance Analysis:</strong> Investment strategy evaluation</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Methods Explained</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Arithmetic Mean</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Simple average of all returns</li>
+                  <li>Formula: Sum of returns ÷ Number of periods</li>
+                  <li>Doesn't account for compounding</li>
+                  <li>Good for short-term analysis</li>
+                  <li>Easier to understand</li>
+                  <li>May overstate long-term returns</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Geometric Mean</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Compound average return</li>
+                  <li>Accounts for investment growth</li>
+                  <li>More accurate for long periods</li>
+                  <li>Formula: (Product of (1 + returns))^(1/n) - 1</li>
+                  <li>Better for performance comparison</li>
+                  <li>Industry standard for mutual funds</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Return Methods</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Time-Weighted Return</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Eliminates cash flow impact</li>
+                  <li>Measures pure investment performance</li>
+                  <li>Good for fund manager evaluation</li>
+                  <li>Not affected by deposit timing</li>
+                  <li>Standard for mutual fund reporting</li>
+                  <li>Formula: Geometric mean of period returns</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Dollar-Weighted Return</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Considers investment timing</li>
+                  <li>Reflects actual investor experience</li>
+                  <li>Affected by cash flow timing</li>
+                  <li>Good for personal portfolio analysis</li>
+                  <li>Also called Internal Rate of Return</li>
+                  <li>Formula: Rate that makes NPV zero</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Average Return</h5>
+                <p className="text-green-700 text-sm">Selected method result</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Method Comparison</h5>
+                <p className="text-blue-700 text-sm">All calculation results</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Analysis</h5>
+                <p className="text-purple-700 text-sm">Performance insights</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your investment returns as percentages (e.g., 5.2 for 5.2%), separated by commas. 
+              Choose your preferred calculation method, and the calculator will show the average return 
+              along with comparisons of all methods.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Use Each Method</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Arithmetic Mean:</strong> Quick estimates, short-term analysis</li>
+              <li><strong>Geometric Mean:</strong> Long-term performance, compound growth</li>
+              <li><strong>Time-Weighted:</strong> Fund manager evaluation, pure performance</li>
+              <li><strong>Dollar-Weighted:</strong> Personal portfolio, actual experience</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Investment Performance Analysis</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>High Volatility Impact:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Arithmetic mean overstates returns</li>
+                    <li>Geometric mean shows true performance</li>
+                    <li>Volatility reduces compound returns</li>
+                    <li>Risk-adjusted returns matter more</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Cash Flow Timing:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Time-weighted ignores cash flows</li>
+                    <li>Dollar-weighted considers timing</li>
+                    <li>Market timing affects results</li>
+                    <li>Dollar-cost averaging impact</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Investment Scenarios</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Lump Sum Investment:</strong> All methods give similar results</li>
+              <li><strong>Regular Contributions:</strong> Dollar-weighted shows actual experience</li>
+              <li><strong>Market Timing:</strong> Dollar-weighted reflects strategy success</li>
+              <li><strong>Fund Comparison:</strong> Time-weighted for fair comparison</li>
+              <li><strong>Personal Planning:</strong> Dollar-weighted for realistic expectations</li>
+              <li><strong>Performance Reporting:</strong> Geometric mean for accuracy</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Return Calculation Best Practices</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use Consistent Periods:</strong> Monthly, quarterly, or annual returns</li>
+              <li><strong>Include All Returns:</strong> Don't omit negative periods</li>
+              <li><strong>Consider Time Period:</strong> Longer periods need geometric mean</li>
+              <li><strong>Account for Fees:</strong> Use net returns after expenses</li>
+              <li><strong>Compare Similar Assets:</strong> Same risk level and time period</li>
+              <li><strong>Use Multiple Methods:</strong> Get complete performance picture</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Performance Benchmarking</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Market Indices:</strong> S&P 500, Dow Jones, NASDAQ</li>
+              <li><strong>Peer Groups:</strong> Similar investment strategies</li>
+              <li><strong>Risk-Adjusted Returns:</strong> Sharpe ratio, Sortino ratio</li>
+              <li><strong>Absolute Returns:</strong> Target return goals</li>
+              <li><strong>Inflation-Adjusted:</strong> Real returns over time</li>
+              <li><strong>Tax-Adjusted:</strong> After-tax performance</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Calculation Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Using Arithmetic for Long Periods:</strong> Overstates compound returns</li>
+              <li><strong>Ignoring Negative Returns:</strong> Can't use geometric mean with negatives</li>
+              <li><strong>Mixing Return Types:</strong> Nominal vs. real returns</li>
+              <li><strong>Inconsistent Periods:</strong> Monthly vs. annual returns</li>
+              <li><strong>Excluding Fees:</strong> Gross vs. net returns</li>
+              <li><strong>Survivorship Bias:</strong> Only including successful investments</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                For most investment analysis, use the geometric mean as it provides the most accurate 
+                representation of compound growth over time. However, if you're evaluating your personal 
+                investment experience (especially with regular contributions), the dollar-weighted return 
+                will give you the most realistic picture of your actual performance. Remember that past 
+                performance doesn't guarantee future results, and always consider risk alongside returns 
+                when making investment decisions.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

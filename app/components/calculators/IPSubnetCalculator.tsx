@@ -487,17 +487,286 @@ Network Class: ${NETWORK_CLASSES.find(c => {
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About IP Subnet Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This IP subnet calculator provides comprehensive network information including network addresses, 
-                broadcast addresses, host ranges, and subnet masks. It supports both traditional subnet mask 
-                notation and modern CIDR prefix notation. Essential for network administrators, IT professionals, 
-                and anyone working with IP addressing and subnetting.
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About IP Subnet Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive IP subnet calculator helps network administrators and IT professionals 
+              understand and manage IP addressing schemes. This essential networking tool provides accurate 
+              subnet calculations, network ranges, and host addressing information for efficient network 
+              design and management.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Network Address:</strong> First address in the subnet</li>
+              <li><strong>Broadcast Address:</strong> Last address in the subnet</li>
+              <li><strong>Host Range:</strong> Usable IP addresses in the subnet</li>
+              <li><strong>Subnet Mask:</strong> Network portion identification</li>
+              <li><strong>CIDR Notation:</strong> Modern prefix length notation</li>
+              <li><strong>Host Count:</strong> Total and usable host addresses</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Network Classes</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Class A</h5>
+                <p className="text-blue-700 text-sm">1.0.0.0 - 126.255.255.255</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Class B</h5>
+                <p className="text-green-700 text-sm">128.0.0.0 - 191.255.255.255</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Class C</h5>
+                <p className="text-purple-700 text-sm">192.0.0.0 - 223.255.255.255</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter an IP address and either a subnet mask or CIDR notation. The calculator automatically 
+              computes the network address, broadcast address, first and last usable host addresses, 
+              and provides detailed subnet information including total and usable host counts.
+            </p>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When planning your network, always consider future growth and scalability. Use subnetting 
+                to create logical network segments that match your organizational structure. Remember that 
+                the network address and broadcast address are reserved and cannot be assigned to hosts. 
+                Document your subnet plan thoroughly for troubleshooting and network management.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About IP Subnet Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive IP subnet calculator helps network administrators and IT professionals 
+              understand and manage IP addressing schemes. This essential networking tool provides accurate 
+              subnet calculations, network ranges, and host addressing information for efficient network 
+              design and management.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Network Address:</strong> First address in the subnet</li>
+              <li><strong>Broadcast Address:</strong> Last address in the subnet</li>
+              <li><strong>Host Range:</strong> Usable IP addresses in the subnet</li>
+              <li><strong>Subnet Mask:</strong> Network portion identification</li>
+              <li><strong>CIDR Notation:</strong> Modern prefix length notation</li>
+              <li><strong>Host Count:</strong> Total and usable host addresses</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">IP Addressing Fundamentals</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">IPv4 Address Structure</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>32-bit Address:</strong> 4 octets of 8 bits each</li>
+                  <li><strong>Dotted Decimal:</strong> 192.168.1.1 format</li>
+                  <li><strong>Network Portion:</strong> Identifies the network</li>
+                  <li><strong>Host Portion:</strong> Identifies specific devices</li>
+                  <li><strong>Classful Addressing:</strong> A, B, C, D, E classes</li>
+                  <li><strong>Classless Addressing:</strong> CIDR and VLSM</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Subnet Mask Purpose</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Network Separation:</strong> Divides networks logically</li>
+                  <li><strong>Traffic Control:</strong> Determines routing decisions</li>
+                  <li><strong>Security:</strong> Isolates network segments</li>
+                  <li><strong>Efficiency:</strong> Optimizes network performance</li>
+                  <li><strong>Scalability:</strong> Supports network growth</li>
+                  <li><strong>Management:</strong> Simplifies network administration</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Network Address</h5>
+                <p className="text-blue-700 text-sm">Subnet identifier</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Broadcast Address</h5>
+                <p className="text-green-700 text-sm">All hosts destination</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Host Range</h5>
+                <p className="text-purple-700 text-sm">Usable addresses</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Subnet Mask</h5>
+                <p className="text-orange-700 text-sm">Network boundary</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter an IP address and either a subnet mask or CIDR notation. The calculator automatically 
+              computes the network address, broadcast address, first and last usable host addresses, 
+              and provides detailed subnet information including total and usable host counts.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Network Classes and Ranges</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Class A Networks:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Range: 1.0.0.0 - 126.255.255.255</li>
+                    <li>Default Mask: 255.0.0.0</li>
+                    <li>Hosts: 16,777,214 per network</li>
+                    <li>Use: Large organizations</li>
+                    <li>First Bit: 0</li>
+                    <li>Examples: 10.0.0.0, 172.16.0.0</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Class B Networks:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Range: 128.0.0.0 - 191.255.255.255</li>
+                    <li>Default Mask: 255.255.0.0</li>
+                    <li>Hosts: 65,534 per network</li>
+                    <li>Use: Medium organizations</li>
+                    <li>First Bits: 10</li>
+                    <li>Examples: 172.16.0.0, 192.168.0.0</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">CIDR and Subnetting</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">CIDR Notation</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Format:</strong> IP/prefix_length</li>
+                  <li><strong>Example:</strong> 192.168.1.0/24</li>
+                  <li><strong>Prefix Length:</strong> Number of network bits</li>
+                  <li><strong>Advantages:</strong> More flexible than classful</li>
+                  <li><strong>VLSM Support:</strong> Variable length subnet masks</li>
+                  <li><strong>Modern Standard:</strong> Current networking practice</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Subnetting Benefits</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Network Efficiency:</strong> Better resource utilization</li>
+                  <li><strong>Traffic Management:</strong> Reduced broadcast domains</li>
+                  <li><strong>Security:</strong> Isolated network segments</li>
+                  <li><strong>Performance:</strong> Optimized routing</li>
+                  <li><strong>Scalability:</strong> Support for growth</li>
+                  <li><strong>Management:</strong> Easier administration</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Subnet Masks</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>/24 (255.255.255.0):</strong> 256 addresses, 254 usable hosts</li>
+              <li><strong>/25 (255.255.255.128):</strong> 128 addresses, 126 usable hosts</li>
+              <li><strong>/26 (255.255.255.192):</strong> 64 addresses, 62 usable hosts</li>
+              <li><strong>/27 (255.255.255.224):</strong> 32 addresses, 30 usable hosts</li>
+              <li><strong>/28 (255.255.255.240):</strong> 16 addresses, 14 usable hosts</li>
+              <li><strong>/29 (255.255.255.248):</strong> 8 addresses, 6 usable hosts</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Network Address Calculation</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Binary Method</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Convert to Binary:</strong> IP and mask to binary</li>
+                  <li><strong>AND Operation:</strong> IP AND mask = network</li>
+                  <li><strong>Convert Back:</strong> Binary result to decimal</li>
+                  <li><strong>Accuracy:</strong> 100% precise calculation</li>
+                  <li><strong>Complexity:</strong> Requires binary knowledge</li>
+                  <li><strong>Use Case:</strong> Manual verification</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Decimal Method</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Octet Analysis:</strong> Work with each octet</li>
+                  <li><strong>Mask Application:</strong> Apply mask to IP</li>
+                  <li><strong>Network Result:</strong> Direct decimal calculation</li>
+                  <li><strong>Speed:</strong> Faster than binary</li>
+                  <li><strong>Understanding:</strong> Easier to comprehend</li>
+                  <li><strong>Use Case:</strong> Quick calculations</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Broadcast Address Calculation</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Network Address:</strong> Start with calculated network address</li>
+              <li><strong>Host Bits:</strong> Set all host bits to 1</li>
+              <li><strong>Result:</strong> Broadcast address for the subnet</li>
+              <li><strong>Purpose:</strong> Sends traffic to all hosts</li>
+              <li><strong>Limitation:</strong> Cannot be assigned to hosts</li>
+              <li><strong>Example:</strong> 192.168.1.0/24 → 192.168.1.255</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Host Address Range</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>First Host:</strong> Network address + 1</li>
+              <li><strong>Last Host:</strong> Broadcast address - 1</li>
+              <li><strong>Usable Range:</strong> First to last host addresses</li>
+              <li><strong>Reserved Addresses:</strong> Network and broadcast</li>
+              <li><strong>Host Count:</strong> 2^host_bits - 2</li>
+              <li><strong>Example:</strong> 192.168.1.1 - 192.168.1.254</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Subnet Calculation Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Verify Input:</strong> Ensure valid IP address format</li>
+              <li><strong>Check Mask:</strong> Validate subnet mask values</li>
+              <li><strong>Consider Growth:</strong> Plan for future expansion</li>
+              <li><strong>Document Results:</strong> Keep subnet information</li>
+              <li><strong>Test Connectivity:</strong> Verify network communication</li>
+              <li><strong>Follow Standards:</strong> Use industry best practices</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Subnetting Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Wrong Network Address:</strong> Incorrect calculation</li>
+              <li><strong>Invalid Host Range:</strong> Including reserved addresses</li>
+              <li><strong>Mask Confusion:</strong> Wrong subnet mask</li>
+              <li><strong>Overlap Issues:</strong> Subnets that conflict</li>
+              <li><strong>Size Mismatch:</strong> Too many or too few hosts</li>
+              <li><strong>Documentation Errors:</strong> Incorrect network records</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Subnetting Concepts</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Variable Length Subnet Masking (VLSM):</strong> Different subnet sizes</li>
+              <li><strong>Route Summarization:</strong> Combining multiple subnets</li>
+              <li><strong>Supernetting:</strong> Creating larger networks</li>
+              <li><strong>Private IP Ranges:</strong> RFC 1918 address spaces</li>
+              <li><strong>NAT Implementation:</strong> Network address translation</li>
+              <li><strong>IPv6 Planning:</strong> Future network considerations</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When planning your network, always consider future growth and scalability. Use subnetting 
+                to create logical network segments that match your organizational structure. Remember that 
+                the network address and broadcast address are reserved and cannot be assigned to hosts. 
+                Document your subnet plan thoroughly, including network addresses, subnet masks, and 
+                host ranges. This documentation will be invaluable for troubleshooting and network 
+                management. Consider using private IP address ranges (10.0.0.0/8, 172.16.0.0/12, 
+                192.168.0.0/16) for internal networks to avoid conflicts with public addressing.
               </p>
             </div>
           </div>

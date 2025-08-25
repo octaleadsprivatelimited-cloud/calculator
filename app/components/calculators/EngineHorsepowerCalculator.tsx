@@ -521,16 +521,148 @@ Engine Analysis:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-red-600 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Engine Horsepower Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This advanced calculator computes engine horsepower using displacement, compression ratios, and engine geometry. 
-                It calculates theoretical horsepower, actual horsepower considering volumetric efficiency, torque, BMEP (Brake Mean 
-                Effective Pressure), and efficiency metrics. The calculator accounts for real-world factors like compression ratios, 
-                cylinder count, and RPM limitations to provide accurate performance estimates for engine builders and tuners.
+        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Engine Horsepower Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our advanced engine horsepower calculator provides comprehensive performance analysis for internal combustion engines. 
+              Whether you're building, tuning, or analyzing engines for automotive, marine, or industrial applications, this tool 
+              delivers accurate horsepower estimates using proven engineering formulas and real-world efficiency factors.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Theoretical Horsepower:</strong> Maximum potential based on engine geometry</li>
+              <li><strong>Actual Horsepower:</strong> Real-world performance with efficiency factors</li>
+              <li><strong>Torque Output:</strong> Rotational force at specific RPM levels</li>
+              <li><strong>BMEP (Brake Mean Effective Pressure):</strong> Average pressure during power stroke</li>
+              <li><strong>Efficiency Metrics:</strong> Volumetric and thermal efficiency analysis</li>
+              <li><strong>Fuel Consumption:</strong> Estimated fuel usage at maximum power</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Engine Performance Factors</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Physical Parameters</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Engine displacement (cubic inches/cc)</li>
+                  <li>Number of cylinders</li>
+                  <li>Bore and stroke dimensions</li>
+                  <li>Compression ratio</li>
+                  <li>Valve configuration</li>
+                  <li>Engine speed (RPM)</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Efficiency Factors</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Volumetric efficiency</li>
+                  <li>Thermal efficiency</li>
+                  <li>Mechanical efficiency</li>
+                  <li>Air-fuel mixture quality</li>
+                  <li>Exhaust system design</li>
+                  <li>Cooling system effectiveness</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+                <h5 className="font-semibold text-red-800 mb-1">Theoretical HP</h5>
+                <p className="text-red-700 text-sm">Maximum potential output</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Actual HP</h5>
+                <p className="text-blue-700 text-sm">Real-world performance</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Efficiency</h5>
+                <p className="text-green-700 text-sm">Performance optimization</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your engine specifications including displacement, compression ratio, cylinder count, and RPM. 
+              The calculator will compute theoretical and actual horsepower, torque, efficiency metrics, and provide 
+              performance recommendations.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Automotive Performance:</strong> Engine building and tuning</li>
+              <li><strong>Racing Applications:</strong> Competition engine development</li>
+              <li><strong>Marine Engines:</strong> Boat and watercraft powerplants</li>
+              <li><strong>Industrial Equipment:</strong> Generator and pump engines</li>
+              <li><strong>Motorcycle Performance:</strong> Bike engine modifications</li>
+              <li><strong>Educational Purposes:</strong> Engineering and automotive studies</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Horsepower vs. Torque</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Horsepower:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Rate of work over time</li>
+                    <li>Peaks at higher RPM</li>
+                    <li>Determines top speed</li>
+                    <li>Formula: HP = (Torque × RPM) ÷ 5252</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Torque:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Rotational force</li>
+                    <li>Peaks at lower RPM</li>
+                    <li>Determines acceleration</li>
+                    <li>Measured in lb-ft or Nm</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Performance Optimization Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Increase Compression:</strong> Higher compression ratios improve thermal efficiency</li>
+              <li><strong>Optimize Airflow:</strong> Better intake and exhaust systems increase volumetric efficiency</li>
+              <li><strong>Reduce Friction:</strong> Quality bearings and lubricants improve mechanical efficiency</li>
+              <li><strong>Proper Tuning:</strong> Correct air-fuel mixture maximizes power output</li>
+              <li><strong>Cooling Management:</strong> Maintain optimal operating temperatures</li>
+              <li><strong>Regular Maintenance:</strong> Keep engine in peak condition</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Engine Types and Characteristics</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Naturally Aspirated:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Reliable and simple</li>
+                    <li>Lower power density</li>
+                    <li>Better fuel efficiency</li>
+                    <li>Easier maintenance</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Forced Induction:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Higher power output</li>
+                    <li>Increased complexity</li>
+                    <li>Higher fuel consumption</li>
+                    <li>More maintenance required</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-red-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Remember that horsepower is just one measure of engine performance. Consider the entire power curve, 
+                including torque characteristics across the RPM range. A well-balanced engine with good low-end torque 
+                and high-end horsepower often provides the best overall performance for most applications.
               </p>
             </div>
           </div>

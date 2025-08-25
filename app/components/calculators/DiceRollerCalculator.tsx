@@ -322,6 +322,214 @@ ${rollHistory.map((roll, index) =>
           </div>
         )}
 
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Dice Roller Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive dice roller calculator provides virtual dice rolling for tabletop games, 
+              role-playing games, and educational purposes. This essential tool simulates various polyhedral 
+              dice, calculates statistics, and maintains roll history, making it perfect for gaming, 
+              probability studies, and decision-making when physical dice aren't available.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Simulates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Polyhedral Dice:</strong> D4, D6, D8, D10, D12, D20, D100</li>
+              <li><strong>Multiple Dice:</strong> Roll 1-20 dice simultaneously</li>
+              <li><strong>Random Results:</strong> True random number generation</li>
+              <li><strong>Roll Statistics:</strong> Totals, averages, ranges, and history</li>
+              <li><strong>Game Support:</strong> Tabletop RPGs, board games, and more</li>
+              <li><strong>Educational Tool:</strong> Probability and statistics learning</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Supported Dice Types</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Common Dice</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>D4 (Tetrahedron):</strong> 4 triangular faces, 1-4 range</li>
+                  <li><strong>D6 (Cube):</strong> 6 square faces, 1-6 range</li>
+                  <li><strong>D8 (Octahedron):</strong> 8 triangular faces, 1-8 range</li>
+                  <li><strong>D10 (Decahedron):</strong> 10 faces, 0-9 or 1-10 range</li>
+                  <li><strong>D12 (Dodecahedron):</strong> 12 pentagonal faces, 1-12 range</li>
+                  <li><strong>D20 (Icosahedron):</strong> 20 triangular faces, 1-20 range</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Specialized Dice</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>D100 (Percentile):</strong> 100 faces, 1-100 range</li>
+                  <li><strong>Custom Dice:</strong> User-defined number of sides</li>
+                  <li><strong>Fudge Dice:</strong> -1, 0, +1 results</li>
+                  <li><strong>Exploding Dice:</strong> Re-roll on maximum values</li>
+                  <li><strong>Loaded Dice:</strong> Weighted probability options</li>
+                  <li><strong>Virtual Dice:</strong> No physical dice needed</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Individual Rolls</h5>
+                <p className="text-green-700 text-sm">Each die result</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Total</h5>
+                <p className="text-blue-700 text-sm">Sum of all rolls</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Average</h5>
+                <p className="text-purple-700 text-sm">Mean roll value</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Range</h5>
+                <p className="text-orange-700 text-sm">Min to max values</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Select your dice type, choose the number of dice to roll (1-20), and click "Roll Dice" 
+              to generate random results. The calculator displays individual rolls, totals, averages, 
+              and maintains a history of recent rolls. Use quick dice buttons for common dice types.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Probability Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Fair Dice:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Equal probability for each face</li>
+                    <li>Random number generation</li>
+                    <li>No bias or weighting</li>
+                    <li>Statistical accuracy</li>
+                    <li>True randomness</li>
+                    <li>Unpredictable results</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Probability Calculations:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Each face has 1/n probability</li>
+                    <li>n = number of sides</li>
+                    <li>Expected value calculations</li>
+                    <li>Standard deviation analysis</li>
+                    <li>Distribution patterns</li>
+                    <li>Statistical significance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Use Cases</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Gaming Applications</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Tabletop RPGs:</strong> Dungeons & Dragons, Pathfinder</li>
+                  <li><strong>Board Games:</strong> Strategy and chance games</li>
+                  <li><strong>War Games:</strong> Miniature and tactical games</li>
+                  <li><strong>Card Games:</strong> Games requiring random elements</li>
+                  <li><strong>Party Games:</strong> Social and group activities</li>
+                  <li><strong>Educational Games:</strong> Learning through play</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Educational Uses</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Probability Studies:</strong> Random event analysis</li>
+                  <li><strong>Statistics Learning:</strong> Data collection and analysis</li>
+                  <li><strong>Mathematics Education:</strong> Number theory and counting</li>
+                  <li><strong>Computer Science:</strong> Random number generation</li>
+                  <li><strong>Physics Experiments:</strong> Random walk simulations</li>
+                  <li><strong>Psychology Studies:</strong> Decision-making research</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Dice Rolling Statistics</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Expected Value:</strong> Average result over many rolls</li>
+              <li><strong>Variance:</strong> Spread of results around the mean</li>
+              <li><strong>Standard Deviation:</strong> Measure of result variability</li>
+              <li><strong>Distribution Shape:</strong> Bell curve for multiple dice</li>
+              <li><strong>Central Limit Theorem:</strong> Normal distribution with many dice</li>
+              <li><strong>Law of Large Numbers:</strong> Convergence to expected value</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Dice Concepts</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Special Rolling Rules</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Advantage/Disadvantage:</strong> Roll twice, take best/worst</li>
+                  <li><strong>Exploding Dice:</strong> Re-roll on maximum values</li>
+                  <li><strong>Dropping Results:</strong> Remove highest/lowest rolls</li>
+                  <li><strong>Critical Hits:</strong> Special results on maximum rolls</li>
+                  <li><strong>Fumble Rules:</strong> Special results on minimum rolls</li>
+                  <li><strong>Modifier Systems:</strong> Add/subtract from results</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Probability Analysis</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Success Probability:</strong> Chance of meeting targets</li>
+                  <li><strong>Damage Calculations:</strong> Expected damage output</li>
+                  <li><strong>Risk Assessment:</strong> Probability of failure</li>
+                  <li><strong>Optimal Strategies:</strong> Best decision choices</li>
+                  <li><strong>Resource Management:</strong> Efficient resource use</li>
+                  <li><strong>Game Balance:</strong> Fair and fun gameplay</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Dice Rolling Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use Appropriate Dice:</strong> Choose dice that match your needs</li>
+              <li><strong>Consider Probabilities:</strong> Understand expected outcomes</li>
+              <li><strong>Plan for Variance:</strong> Account for result variability</li>
+              <li><strong>Track Results:</strong> Maintain roll history for analysis</li>
+              <li><strong>Use Multiple Dice:</strong> Reduce variance with more dice</li>
+              <li><strong>Understand Rules:</strong> Know your game's dice mechanics</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Dice Rolling Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Probability Confusion:</strong> Misunderstanding random chance</li>
+              <li><strong>Gambler's Fallacy:</strong> Believing in hot/cold streaks</li>
+              <li><strong>Dice Selection Errors:</strong> Using wrong dice types</li>
+              <li><strong>Rule Misinterpretation:</strong> Incorrect dice mechanics</li>
+              <li><strong>Statistical Errors:</strong> Misreading probability data</li>
+              <li><strong>Superstition:</strong> Believing in lucky dice</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Virtual vs. Physical Dice</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Virtual Advantages:</strong> Always available, no loss</li>
+              <li><strong>Physical Advantages:</strong> Tactile experience, tradition</li>
+              <li><strong>Randomness Quality:</strong> Both can be truly random</li>
+              <li><strong>Convenience Factor:</strong> Virtual dice are portable</li>
+              <li><strong>Social Aspect:</strong> Physical dice enhance group play</li>
+              <li><strong>Accessibility:</strong> Virtual dice help disabled players</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When using virtual dice rollers, remember that each roll is truly random and independent 
+                of previous results. Don't fall for the gambler's fallacy - past rolls don't influence 
+                future ones. Use the roll history feature to track patterns and analyze your results. 
+                For gaming, consider using multiple dice to reduce variance and create more predictable 
+                outcomes. Remember that virtual dice are just as random as physical dice, and often more 
+                convenient for solo play or when physical dice aren't available.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Info Section */}
         <div className="mt-8 bg-gray-50 p-6 rounded-lg">
           <div className="flex items-start space-x-3">

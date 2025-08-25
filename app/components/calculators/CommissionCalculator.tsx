@@ -140,6 +140,174 @@ export default function CommissionCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Commission Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive commission calculator helps sales professionals, business owners, and managers 
+              determine commission amounts and net proceeds from sales transactions. Whether you're calculating 
+              percentage-based commissions, fixed amounts, or analyzing sales profitability, this tool provides 
+              essential calculations to help you understand earnings and make informed business decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Commission Amount:</strong> Total commission earned on the sale</li>
+              <li><strong>Net Amount:</strong> Sale proceeds after commission deduction</li>
+              <li><strong>Effective Rate:</strong> Commission as percentage of sale (for fixed amounts)</li>
+              <li><strong>Transaction Breakdown:</strong> Complete sale analysis</li>
+              <li><strong>Commission Analysis:</strong> Rate evaluation and recommendations</li>
+              <li><strong>Profitability Assessment:</strong> Impact on business margins</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Commission Types</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Percentage-Based Commissions</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Commission varies with sale amount</li>
+                  <li>Common in real estate and sales</li>
+                  <li>Scalable with business growth</li>
+                  <li>Motivates higher sales volumes</li>
+                  <li>Typical rates: 5-15%</li>
+                  <li>Easy to calculate and understand</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Fixed Amount Commissions</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Set commission regardless of sale size</li>
+                  <li>Common in service industries</li>
+                  <li>Predictable earnings</li>
+                  <li>May not scale with sales growth</li>
+                  <li>Good for consistent pricing</li>
+                  <li>Simplifies payroll calculations</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Commission</h5>
+                <p className="text-purple-700 text-sm">Amount earned</p>
+              </div>
+              <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+                <h5 className="font-semibold text-pink-800 mb-1">Net Amount</h5>
+                <p className="text-pink-700 text-sm">Proceeds after commission</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Effective Rate</h5>
+                <p className="text-green-700 text-sm">Commission percentage</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter the sale amount and commission rate or amount. Choose between percentage-based or fixed 
+              amount commissions, then click calculate to see your commission earnings, net proceeds, and 
+              complete transaction breakdown.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Commission Structures</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Real Estate:</strong> 5-6% of sale price (split between agents)</li>
+              <li><strong>Car Sales:</strong> 20-30% of gross profit per vehicle</li>
+              <li><strong>Insurance:</strong> 10-15% of first-year premium</li>
+              <li><strong>Financial Services:</strong> 1-3% of investment amount</li>
+              <li><strong>Retail Sales:</strong> 2-8% of sale amount</li>
+              <li><strong>Consulting:</strong> 10-25% of project value</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Commission Rate Guidelines</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Low Commission (2-8%):</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>High-volume, low-margin products</li>
+                    <li>Established brands and markets</li>
+                    <li>Recurring sales opportunities</li>
+                    <li>Team-based sales structures</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>High Commission (15-25%):</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Luxury goods and services</li>
+                    <li>Complex technical sales</li>
+                    <li>New market development</li>
+                    <li>High-risk sales situations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Commission Rates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Product Margins:</strong> Higher margins allow higher commissions</li>
+              <li><strong>Sales Difficulty:</strong> Complex sales justify higher rates</li>
+              <li><strong>Market Competition:</strong> Competitive markets may require higher rates</li>
+              <li><strong>Sales Volume:</strong> High-volume sales may have lower rates</li>
+              <li><strong>Experience Level:</strong> Senior salespeople often earn higher rates</li>
+              <li><strong>Industry Standards:</strong> Market norms influence commission structures</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Commission vs. Salary Structures</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Pure Commission:</strong> 100% performance-based earnings</li>
+              <li><strong>Base + Commission:</strong> Guaranteed salary plus performance bonus</li>
+              <li><strong>Draw Against Commission:</strong> Advance payment against future earnings</li>
+              <li><strong>Salary + Bonus:</strong> Fixed salary with performance incentives</li>
+              <li><strong>Profit Sharing:</strong> Percentage of company or team profits</li>
+              <li><strong>Residual Commissions:</strong> Ongoing payments for repeat business</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Commission Calculation Methods</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Straight Percentage:</strong> Fixed rate on total sale amount</li>
+              <li><strong>Tiered Commissions:</strong> Different rates for different sale levels</li>
+              <li><strong>Profit-Based:</strong> Commission on gross or net profit</li>
+              <li><strong>Volume Bonuses:</strong> Additional rewards for meeting targets</li>
+              <li><strong>Team Commissions:</strong> Shared commissions for collaborative sales</li>
+              <li><strong>Performance Multipliers:</strong> Rate adjustments based on metrics</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Commission Management Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Set Clear Expectations:</strong> Define commission structure upfront</li>
+              <li><strong>Document Everything:</strong> Keep detailed records of all sales</li>
+              <li><strong>Regular Reviews:</strong> Periodically evaluate commission structures</li>
+              <li><strong>Performance Metrics:</strong> Align commissions with business goals</li>
+              <li><strong>Fair Distribution:</strong> Ensure equitable commission allocation</li>
+              <li><strong>Legal Compliance:</strong> Follow labor laws and regulations</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Commission Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Unclear Structure:</strong> Vague commission terms lead to disputes</li>
+              <li><strong>Inconsistent Application:</strong> Different rates for similar sales</li>
+              <li><strong>Delayed Payments:</strong> Late commission payments hurt motivation</li>
+              <li><strong>Complex Calculations:</strong> Overly complicated formulas confuse staff</li>
+              <li><strong>Ignoring Market Rates:</strong> Below-market commissions hurt retention</li>
+              <li><strong>No Performance Reviews:</strong> Failing to adjust rates as needed</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When designing commission structures, consider both the salesperson's motivation and your 
+                business profitability. A well-balanced commission structure should incentivize the behaviors 
+                that drive business growth while maintaining healthy profit margins. Also, remember that 
+                commission structures should be reviewed and adjusted periodically to reflect changing market 
+                conditions, business goals, and individual performance. Consider implementing tiered commission 
+                structures that reward higher performance levels and encourage continuous improvement.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

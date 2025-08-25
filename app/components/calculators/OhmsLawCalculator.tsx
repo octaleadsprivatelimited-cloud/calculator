@@ -554,6 +554,210 @@ Safety Notes:
             </div>
           </div>
         </div>
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Ohms Law Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive Ohms Law calculator helps electronics enthusiasts, students, and electrical 
+              engineers solve circuit problems with precision and ease. This essential tool provides accurate 
+              calculations for voltage, current, resistance, and power, supporting both educational and 
+              professional electrical applications.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Voltage (V):</strong> Electrical potential difference in volts</li>
+              <li><strong>Current (I):</strong> Electrical current flow in amperes</li>
+              <li><strong>Resistance (R):</strong> Opposition to current flow in ohms</li>
+              <li><strong>Power (P):</strong> Electrical power consumption in watts</li>
+              <li><strong>Energy (E):</strong> Total energy consumed in joules</li>
+              <li><strong>Efficiency:</strong> Circuit efficiency percentage</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Ohms Law Fundamentals</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Basic Formula</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>V = I × R:</strong> Voltage equals current times resistance</li>
+                  <li><strong>I = V ÷ R:</strong> Current equals voltage divided by resistance</li>
+                  <li><strong>R = V ÷ I:</strong> Resistance equals voltage divided by current</li>
+                  <li><strong>Linear Relationship:</strong> Direct proportionality</li>
+                  <li><strong>Unit Consistency:</strong> Volts, amperes, and ohms</li>
+                  <li><strong>Fundamental Law:</strong> Basis of electrical engineering</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Power Formulas</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>P = V × I:</strong> Power equals voltage times current</li>
+                  <li><strong>P = V² ÷ R:</strong> Power equals voltage squared divided by resistance</li>
+                  <li><strong>P = I² × R:</strong> Power equals current squared times resistance</li>
+                  <li><strong>Energy = P × t:</strong> Energy equals power times time</li>
+                  <li><strong>Efficiency:</strong> Output power divided by input power</li>
+                  <li><strong>Power Loss:</strong> I²R losses in conductors</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Voltage</h5>
+                <p className="text-blue-700 text-sm">Electrical potential</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Current</h5>
+                <p className="text-green-700 text-sm">Electron flow rate</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Resistance</h5>
+                <p className="text-purple-700 text-sm">Flow opposition</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Power</h5>
+                <p className="text-orange-700 text-sm">Energy per second</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Select the calculation type (voltage, current, resistance, or power), enter the known values, 
+              and the calculator will automatically compute the missing quantities. The tool provides comprehensive 
+              results including power, energy, efficiency, and safety information for informed circuit design.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electrical Units and Prefixes</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Voltage Units:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>1 mV = 0.001 V (millivolt)</li>
+                    <li>1 V = 1 volt (base unit)</li>
+                    <li>1 kV = 1,000 V (kilovolt)</li>
+                    <li>1 MV = 1,000,000 V (megavolt)</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Current Units:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>1 μA = 0.000001 A (microampere)</li>
+                    <li>1 mA = 0.001 A (milliampere)</li>
+                    <li>1 A = 1 ampere (base unit)</li>
+                    <li>1 kA = 1,000 A (kiloampere)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Circuit Analysis Applications</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Series Circuits</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Current:</strong> Same through all components</li>
+                  <li><strong>Voltage:</strong> Divides across components</li>
+                  <li><strong>Resistance:</strong> Adds together (Rtotal = R1 + R2 + ...)</li>
+                  <li><strong>Power:</strong> Sum of individual power values</li>
+                  <li><strong>Voltage Drop:</strong> Proportional to resistance</li>
+                  <li><strong>Applications:</strong> LED strings, voltage dividers</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Parallel Circuits</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Voltage:</strong> Same across all components</li>
+                  <li><strong>Current:</strong> Divides among components</li>
+                  <li><strong>Resistance:</strong> Reciprocal sum (1/Rtotal = 1/R1 + 1/R2 + ...)</li>
+                  <li><strong>Power:</strong> Sum of individual power values</li>
+                  <li><strong>Current Division:</strong> Inversely proportional to resistance</li>
+                  <li><strong>Applications:</strong> Household wiring, power distribution</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Safety Considerations</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Low Voltage:</strong> Below 50V - generally safe for contact</li>
+              <li><strong>Medium Voltage:</strong> 50V to 1000V - requires caution</li>
+              <li><strong>High Voltage:</strong> Above 1000V - professional handling only</li>
+              <li><strong>Current Limits:</strong> 10mA can cause muscle contraction</li>
+              <li><strong>Power Ratings:</strong> Check component specifications</li>
+              <li><strong>Protection Devices:</strong> Use fuses and circuit breakers</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Circuit Components</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Resistors</h5>
+                <p className="text-blue-700 text-sm">Limit current flow</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Capacitors</h5>
+                <p className="text-green-700 text-sm">Store electrical charge</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Inductors</h5>
+                <p className="text-purple-700 text-sm">Store magnetic energy</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Practical Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>LED Circuits:</strong> Calculate current-limiting resistors</li>
+              <li><strong>Voltage Dividers:</strong> Create reference voltages</li>
+              <li><strong>Power Supplies:</strong> Determine component ratings</li>
+              <li><strong>Audio Systems:</strong> Impedance matching calculations</li>
+              <li><strong>Motor Control:</strong> Current and power requirements</li>
+              <li><strong>Battery Circuits:</strong> Load resistance and capacity</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Concepts</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>AC vs. DC:</strong> Ohms Law applies to both</li>
+              <li><strong>Impedance:</strong> Complex resistance in AC circuits</li>
+              <li><strong>Reactance:</strong> Frequency-dependent opposition</li>
+              <li><strong>Power Factor:</strong> Real vs. apparent power</li>
+              <li><strong>Skin Effect:</strong> High-frequency current distribution</li>
+              <li><strong>Temperature Effects:</strong> Resistance changes with heat</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Unit Consistency:</strong> Always use compatible units</li>
+              <li><strong>Significant Figures:</strong> Maintain appropriate precision</li>
+              <li><strong>Verification:</strong> Cross-check with known relationships</li>
+              <li><strong>Limits:</strong> Check for unrealistic values</li>
+              <li><strong>Context:</strong> Consider practical constraints</li>
+              <li><strong>Documentation:</strong> Keep calculation records</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Calculation Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Unit Confusion:</strong> Mixing volts, millivolts, etc.</li>
+              <li><strong>Formula Errors:</strong> Using wrong Ohms Law variant</li>
+              <li><strong>Sign Errors:</strong> Incorrect positive/negative values</li>
+              <li><strong>Precision Errors:</strong> Over-rounding or under-rounding</li>
+              <li><strong>Context Ignorance:</strong> Not considering circuit type</li>
+              <li><strong>Safety Neglect:</strong> Ignoring voltage/current limits</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Always verify your Ohms Law calculations by checking that the relationships make sense. 
+                Remember that power increases with both voltage and current, and resistance limits current 
+                flow. For safety, always check component ratings and use appropriate protection devices. 
+                When working with complex circuits, break them down into simpler parts and apply Ohms Law 
+                step by step. Keep a reference of common component values and always double-check your 
+                units and calculations.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -270,6 +270,243 @@ export default function CaloriesBurnedCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Calories Burned Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive calories burned calculator helps fitness enthusiasts, athletes, and 
+              health-conscious individuals estimate the energy expenditure of various physical activities. 
+              This essential fitness tool provides personalized calorie burn estimates based on body 
+              weight, activity type, intensity level, and duration to support workout planning and 
+              weight management goals.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Activity-Specific Calories:</strong> Energy burned for selected exercise</li>
+              <li><strong>Intensity Impact:</strong> How effort level affects calorie burn</li>
+              <li><strong>Duration Calculations:</strong> Calorie burn per minute and total</li>
+              <li><strong>Activity Comparison:</strong> Side-by-side calorie burn analysis</li>
+              <li><strong>Personalized Estimates:</strong> Based on your body weight</li>
+              <li><strong>Workout Planning:</strong> Calorie burn targets and recommendations</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Calorie Burn</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Body Composition</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Body weight (heavier = more calories)</li>
+                  <li>Muscle mass percentage</li>
+                  <li>Body fat percentage</li>
+                  <li>Metabolic rate</li>
+                  <li>Age and gender</li>
+                  <li>Fitness level</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Exercise Intensity</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Heart rate during activity</li>
+                  <li>Perceived exertion level</li>
+                  <li>Speed and resistance</li>
+                  <li>Movement complexity</li>
+                  <li>Rest periods</li>
+                  <li>Exercise form</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Activity Duration</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Total exercise time</li>
+                  <li>Continuous vs. interval</li>
+                  <li>Warm-up and cool-down</li>
+                  <li>Recovery periods</li>
+                  <li>Exercise frequency</li>
+                  <li>Daily activity patterns</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Activity-Specific Calorie Burn</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Cardiovascular Activities</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Walking:</strong> 3-6 calories per minute</li>
+                  <li><strong>Running:</strong> 8-15 calories per minute</li>
+                  <li><strong>Cycling:</strong> 5-12 calories per minute</li>
+                  <li><strong>Swimming:</strong> 6-14 calories per minute</li>
+                  <li><strong>Rowing:</strong> 7-13 calories per minute</li>
+                  <li><strong>Elliptical:</strong> 6-12 calories per minute</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Strength & Flexibility</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Strength Training:</strong> 4-8 calories per minute</li>
+                  <li><strong>Yoga:</strong> 2-6 calories per minute</li>
+                  <li><strong>Pilates:</strong> 3-7 calories per minute</li>
+                  <li><strong>Stretching:</strong> 2-4 calories per minute</li>
+                  <li><strong>Core Work:</strong> 4-8 calories per minute</li>
+                  <li><strong>Circuit Training:</strong> 6-12 calories per minute</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Intensity Level Impact</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Light/Slow Intensity</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Easy conversation possible</li>
+                  <li>Breathing remains normal</li>
+                  <li>Minimal sweating</li>
+                  <li>Recovery is quick</li>
+                  <li>Good for beginners</li>
+                  <li>Active recovery days</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Moderate Intensity</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Conversation possible but challenging</li>
+                  <li>Increased breathing rate</li>
+                  <li>Noticeable sweating</li>
+                  <li>Moderate effort required</li>
+                  <li>Most sustainable intensity</li>
+                  <li>Daily exercise target</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Calories Burned</h5>
+                <p className="text-orange-700 text-sm">Total energy expenditure</p>
+              </div>
+              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+                <h5 className="font-semibold text-red-800 mb-1">Activity Comparison</h5>
+                <p className="text-red-700 text-sm">All exercises side-by-side</p>
+              </div>
+              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                <h5 className="font-semibold text-yellow-800 mb-1">Recommendations</h5>
+                <p className="text-yellow-700 text-sm">Personalized guidance</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your weight, select your activity type, choose the intensity level, and specify 
+              the duration. The calculator will show your estimated calorie burn and compare it with 
+              other activities to help you make informed fitness decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calorie Burn Calculation Methods</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>MET Values:</strong> Metabolic equivalent of task measurements</li>
+              <li><strong>Heart Rate Zones:</strong> Based on percentage of max heart rate</li>
+              <li><strong>Perceived Exertion:</strong> Subjective effort level assessment</li>
+              <li><strong>Activity Multipliers:</strong> Standardized exercise intensity factors</li>
+              <li><strong>Body Weight Factors:</strong> Heavier individuals burn more calories</li>
+              <li><strong>Duration Calculations:</strong> Linear relationship with time</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Maximizing Calorie Burn</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>High-Intensity Training:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>HIIT workouts</li>
+                    <li>Tabata intervals</li>
+                    <li>Circuit training</li>
+                    <li>Sprint intervals</li>
+                    <li>Plyometric exercises</li>
+                    <li>Burpee variations</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Compound Movements:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Squats and deadlifts</li>
+                    <li>Push-ups and pull-ups</li>
+                    <li>Lunges and step-ups</li>
+                    <li>Mountain climbers</li>
+                    <li>Burpees and jumping jacks</li>
+                    <li>Plank variations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Activity-Specific Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Walking:</strong> Increase speed, add hills, use weights</li>
+              <li><strong>Running:</strong> Include intervals, vary terrain, increase distance</li>
+              <li><strong>Cycling:</strong> Add resistance, stand on pedals, increase cadence</li>
+              <li><strong>Swimming:</strong> Use different strokes, increase intensity, add equipment</li>
+              <li><strong>Strength Training:</strong> Reduce rest periods, use supersets, increase weight</li>
+              <li><strong>Yoga:</strong> Try power yoga, hold poses longer, add flow sequences</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calorie Burn Myths</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Spot Reduction:</strong> Can't target fat loss in specific areas</li>
+              <li><strong>More Sweat = More Calories:</strong> Sweat is about temperature regulation</li>
+              <li><strong>Cardio Only:</strong> Strength training burns calories too</li>
+              <li><strong>Exercise Alone:</strong> Diet is crucial for weight loss</li>
+              <li><strong>Longer Always Better:</strong> Intensity matters more than duration</li>
+              <li><strong>Morning Exercise Burns More:</strong> Total daily burn matters most</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Post-Exercise Calorie Burn</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>EPOC Effect:</strong> Excess post-exercise oxygen consumption</li>
+              <li><strong>Metabolic Boost:</strong> Increased calorie burn after workout</li>
+              <li><strong>Muscle Recovery:</strong> Energy needed for tissue repair</li>
+              <li><strong>Duration:</strong> Can last 2-48 hours depending on intensity</li>
+              <li><strong>Factors:</strong> Exercise type, intensity, duration, fitness level</li>
+              <li><strong>Maximization:</strong> High-intensity and strength training</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calorie Burn for Weight Management</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Weight Loss:</strong> Create 500-1000 calorie daily deficit</li>
+              <li><strong>Weight Maintenance:</strong> Balance calories in vs. calories out</li>
+              <li><strong>Weight Gain:</strong> Surplus of 300-500 calories daily</li>
+              <li><strong>Body Recomposition:</strong> Maintain calories while building muscle</li>
+              <li><strong>Plateau Breaking:</strong> Increase intensity or duration</li>
+              <li><strong>Long-term Success:</strong> Sustainable exercise habits</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Tracking and Monitoring</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Fitness Apps:</strong> Track workouts and calorie burn</li>
+              <li><strong>Wearable Devices:</strong> Heart rate and activity monitoring</li>
+              <li><strong>Workout Logs:</strong> Record exercises and progress</li>
+              <li><strong>Progress Photos:</strong> Visual tracking of changes</li>
+              <li><strong>Body Measurements:</strong> Track inches and body composition</li>
+              <li><strong>Performance Metrics:</strong> Speed, distance, weight lifted</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Remember that calorie burn estimates are just that - estimates. Individual factors like 
+                fitness level, muscle mass, and exercise efficiency can significantly impact actual 
+                calorie expenditure. Focus on consistency and progressive overload rather than just 
+                calorie numbers. Also, consider that the best exercise for calorie burn is the one you'll 
+                actually do consistently. Finally, don't forget that building muscle through strength 
+                training increases your resting metabolic rate, meaning you'll burn more calories even 
+                when not exercising.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

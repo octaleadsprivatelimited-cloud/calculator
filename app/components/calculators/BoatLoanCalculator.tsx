@@ -165,6 +165,160 @@ export default function BoatLoanCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Boat Loan Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive boat loan calculator helps you determine monthly payments and total costs for financing 
+              your dream boat. Whether you're purchasing a fishing boat, yacht, sailboat, or pontoon, this tool provides 
+              essential calculations including monthly payments, total interest, and complete cost breakdowns to help you 
+              make informed financing decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Monthly Payment:</strong> Regular boat loan payment amount</li>
+              <li><strong>Total Interest:</strong> Complete interest cost over loan term</li>
+              <li><strong>Total Payment:</strong> Principal plus all interest costs</li>
+              <li><strong>Loan Amount:</strong> Amount financed after down payment</li>
+              <li><strong>Payment Breakdown:</strong> Detailed cost analysis</li>
+              <li><strong>Financing Analysis:</strong> Whether the loan is affordable</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Boat Loan vs. Other Financing</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Boat Loan Characteristics</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Higher interest rates than auto loans</li>
+                  <li>Shorter loan terms (5-20 years)</li>
+                  <li>Larger down payment requirements</li>
+                  <li>Collateral-based lending</li>
+                  <li>Seasonal payment options</li>
+                  <li>Specialized boat lenders</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Alternative Financing</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Home equity loans</li>
+                  <li>Personal loans</li>
+                  <li>Credit card financing</li>
+                  <li>Dealer financing</li>
+                  <li>Manufacturer programs</li>
+                  <li>Credit union loans</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Monthly Payment</h5>
+                <p className="text-blue-700 text-sm">Regular loan amount</p>
+              </div>
+              <div className="bg-cyan-50 p-3 rounded-lg border border-cyan-200">
+                <h5 className="font-semibold text-cyan-800 mb-1">Total Interest</h5>
+                <p className="text-cyan-700 text-sm">Cost of borrowing</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Total Cost</h5>
+                <p className="text-green-700 text-sm">Complete boat cost</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter the boat price, down payment, interest rate, and loan term. Choose between years or months, then 
+              click calculate to see your monthly payment, total interest costs, and complete financing breakdown.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Boat Types and Financing</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Fishing Boats:</strong> Bass boats, center consoles, aluminum boats</li>
+              <li><strong>Pontoon Boats:</strong> Family-friendly, stable platforms</li>
+              <li><strong>Sailboats:</strong> Monohulls, catamarans, racing boats</li>
+              <li><strong>Yachts:</strong> Luxury vessels, motor yachts, trawlers</li>
+              <li><strong>Personal Watercraft:</strong> Jet skis, wave runners</li>
+              <li><strong>Commercial Vessels:</strong> Charter boats, fishing charters</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Boat Loan Requirements</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Credit Requirements:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Good to excellent credit (680+)</li>
+                    <li>Stable income history</li>
+                    <li>Low debt-to-income ratio</li>
+                    <li>Down payment (10-20%)</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Documentation Needed:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Proof of income</li>
+                    <li>Credit report</li>
+                    <li>Boat specifications</li>
+                    <li>Insurance information</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Boat Loan Rates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Credit Score:</strong> Better credit means lower rates</li>
+              <li><strong>Down Payment:</strong> Larger down payments reduce rates</li>
+              <li><strong>Loan Term:</strong> Shorter terms typically have lower rates</li>
+              <li><strong>Boat Age:</strong> Newer boats often get better rates</li>
+              <li><strong>Boat Type:</strong> Some vessels are considered higher risk</li>
+              <li><strong>Lender Type:</strong> Credit unions often offer better rates</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Additional Boat Ownership Costs</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Insurance:</strong> Hull, liability, and personal property coverage</li>
+              <li><strong>Storage:</strong> Marina fees, dry storage, or trailer storage</li>
+              <li><strong>Maintenance:</strong> Regular service, repairs, and winterization</li>
+              <li><strong>Fuel:</strong> Gasoline or diesel costs</li>
+              <li><strong>Registration:</strong> Annual state registration fees</li>
+              <li><strong>Safety Equipment:</strong> Life jackets, fire extinguishers, flares</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Boat Loan Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Shop Around:</strong> Compare rates from multiple lenders</li>
+              <li><strong>Consider Total Cost:</strong> Don't just focus on monthly payment</li>
+              <li><strong>Negotiate Price:</strong> Boat prices are often negotiable</li>
+              <li><strong>Factor in Operating Costs:</strong> Include all ownership expenses</li>
+              <li><strong>Check Boat History:</strong> Verify maintenance and accident history</li>
+              <li><strong>Plan for Seasonal Use:</strong> Consider seasonal payment options</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Seasonal Payment Options</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Year-round Payments:</strong> Consistent monthly payments</li>
+              <li><strong>Seasonal Payments:</strong> Higher payments during boating season</li>
+              <li><strong>Skip-a-Payment:</strong> Skip winter months (adds to loan term)</li>
+              <li><strong>Balloon Payments:</strong> Lower payments with large final payment</li>
+              <li><strong>Interest-only Periods:</strong> Pay only interest initially</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Consider the total cost of boat ownership, not just the loan payment. A $500 monthly payment might seem 
+                affordable, but when you add insurance ($100/month), storage ($200/month), maintenance ($100/month), and 
+                fuel ($150/month), your total monthly cost is $1,050. Also, boat loans typically have higher interest 
+                rates than auto loans, so shop around and consider using home equity if you have it available.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

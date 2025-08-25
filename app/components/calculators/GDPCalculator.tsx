@@ -507,18 +507,352 @@ Economic Indicators:
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About GDP Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator computes Gross Domestic Product using the expenditure approach (C + I + G + X-M). 
-                It includes consumption, investment, government spending, and net exports. The calculator also 
-                provides GDP per capita, real GDP (inflation-adjusted), and purchasing power parity calculations. 
-                Perfect for economics students, financial analysts, and anyone interested in understanding economic 
-                indicators and national income accounting.
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About GDP Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive GDP calculator helps economists, students, and financial analysts understand 
+              and calculate Gross Domestic Product using multiple approaches. This essential economic tool 
+              provides detailed analysis of national income, economic growth, and purchasing power parity 
+              for informed economic decision-making and analysis.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Total GDP:</strong> Gross Domestic Product in current dollars</li>
+              <li><strong>GDP per Capita:</strong> Economic output per person</li>
+              <li><strong>Real GDP:</strong> Inflation-adjusted economic output</li>
+              <li><strong>Nominal GDP:</strong> Current dollar value of output</li>
+              <li><strong>Purchasing Power Parity:</strong> International price comparisons</li>
+              <li><strong>GDP Growth:</strong> Economic expansion rates</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Calculation Approaches</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Expenditure Approach</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Consumption (C):</strong> Consumer spending on goods/services</li>
+                  <li><strong>Investment (I):</strong> Business capital expenditures</li>
+                  <li><strong>Government (G):</strong> Public sector spending</li>
+                  <li><strong>Net Exports (X-M):</strong> Exports minus imports</li>
+                  <li><strong>Formula:</strong> GDP = C + I + G + (X-M)</li>
+                  <li><strong>Most Common:</strong> Standard measurement method</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Income Approach</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Wages:</strong> Labor income and compensation</li>
+                  <li><strong>Profits:</strong> Corporate and business earnings</li>
+                  <li><strong>Interest:</strong> Returns on investments</li>
+                  <li><strong>Rent:</strong> Property and resource income</li>
+                  <li><strong>Formula:</strong> GDP = Wages + Profits + Interest + Rent</li>
+                  <li><strong>Alternative:</strong> Income distribution analysis</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Definition:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Total market value of goods/services</li>
+                    <li>Produced within a country's borders</li>
+                    <li>In a specific time period</li>
+                    <li>Primary measure of economic size</li>
+                    <li>Indicator of economic health</li>
+                    <li>Basis for international comparisons</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Importance:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Economic performance measurement</li>
+                    <li>Policy decision making</li>
+                    <li>Investment analysis</li>
+                    <li>International comparisons</li>
+                    <li>Business planning</li>
+                    <li>Academic research</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Real vs. Nominal GDP</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Nominal GDP:</strong> Current dollar values, includes inflation</li>
+              <li><strong>Real GDP:</strong> Constant dollar values, inflation-adjusted</li>
+              <li><strong>GDP Deflator:</strong> Price level measurement</li>
+              <li><strong>Inflation Impact:</strong> Price changes vs. real growth</li>
+              <li><strong>Economic Growth:</strong> Real GDP changes over time</li>
+              <li><strong>Policy Analysis:</strong> True economic performance</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When analyzing GDP, always consider both nominal and real values to distinguish between 
+                actual economic growth and inflation effects. Remember that GDP is just one measure of 
+                economic well-being - it doesn't capture income distribution, environmental quality, or 
+                quality of life factors. For international comparisons, use purchasing power parity 
+                adjustments rather than simple exchange rate conversions.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About GDP Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive GDP calculator helps economists, students, and financial analysts understand 
+              and calculate Gross Domestic Product using multiple approaches. This essential economic tool 
+              provides detailed analysis of national income, economic growth, and purchasing power parity 
+              for informed economic decision-making and analysis.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Total GDP:</strong> Gross Domestic Product in current dollars</li>
+              <li><strong>GDP per Capita:</strong> Economic output per person</li>
+              <li><strong>Real GDP:</strong> Inflation-adjusted economic output</li>
+              <li><strong>Nominal GDP:</strong> Current dollar value of output</li>
+              <li><strong>Purchasing Power Parity:</strong> International price comparisons</li>
+              <li><strong>GDP Growth:</strong> Economic expansion rates</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Calculation Approaches</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Expenditure Approach</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Consumption (C):</strong> Consumer spending on goods/services</li>
+                  <li><strong>Investment (I):</strong> Business capital expenditures</li>
+                  <li><strong>Government (G):</strong> Public sector spending</li>
+                  <li><strong>Net Exports (X-M):</strong> Exports minus imports</li>
+                  <li><strong>Formula:</strong> GDP = C + I + G + (X-M)</li>
+                  <li><strong>Most Common:</strong> Standard measurement method</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Income Approach</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Wages:</strong> Labor income and compensation</li>
+                  <li><strong>Profits:</strong> Corporate and business earnings</li>
+                  <li><strong>Interest:</strong> Returns on investments</li>
+                  <li><strong>Rent:</strong> Property and resource income</li>
+                  <li><strong>Formula:</strong> GDP = Wages + Profits + Interest + Rent</li>
+                  <li><strong>Alternative:</strong> Income distribution analysis</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+                <h5 className="font-semibold text-emerald-800 mb-1">Total GDP</h5>
+                <p className="text-emerald-700 text-sm">Economic output</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">GDP per Capita</h5>
+                <p className="text-blue-700 text-sm">Per-person output</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Real GDP</h5>
+                <p className="text-green-700 text-sm">Inflation-adjusted</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Select your calculation approach (expenditure, income, or production), enter the economic 
+              components, and specify the country and base year. The calculator automatically computes 
+              total GDP, per capita values, real GDP, and purchasing power parity for comprehensive 
+              economic analysis.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Definition:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Total market value of goods/services</li>
+                    <li>Produced within a country's borders</li>
+                    <li>In a specific time period</li>
+                    <li>Primary measure of economic size</li>
+                    <li>Indicator of economic health</li>
+                    <li>Basis for international comparisons</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Importance:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Economic performance measurement</li>
+                    <li>Policy decision making</li>
+                    <li>Investment analysis</li>
+                    <li>International comparisons</li>
+                    <li>Business planning</li>
+                    <li>Academic research</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Components Analysis</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Consumption (C)</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Durable Goods:</strong> Cars, appliances, furniture</li>
+                  <li><strong>Non-durable Goods:</strong> Food, clothing, fuel</li>
+                  <li><strong>Services:</strong> Healthcare, education, entertainment</li>
+                  <li><strong>Housing:</strong> Rent, utilities, maintenance</li>
+                  <li><strong>Largest Component:</strong> Typically 60-70% of GDP</li>
+                  <li><strong>Consumer Confidence:</strong> Economic sentiment indicator</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Investment (I)</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Business Investment:</strong> Equipment, machinery, buildings</li>
+                  <li><strong>Residential Construction:</strong> New homes, renovations</li>
+                  <li><strong>Inventory Changes:</strong> Stock accumulation/reduction</li>
+                  <li><strong>Research & Development:</strong> Innovation spending</li>
+                  <li><strong>Economic Growth Driver:</strong> Future productivity</li>
+                  <li><strong>Volatile Component:</strong> Business cycle sensitive</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Government and Trade</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Government Spending (G)</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Federal Spending:</strong> Defense, social programs</li>
+                  <li><strong>State & Local:</strong> Education, infrastructure</li>
+                  <li><strong>Public Services:</strong> Healthcare, law enforcement</li>
+                  <li><strong>Infrastructure:</strong> Roads, bridges, utilities</li>
+                  <li><strong>Policy Tool:</strong> Fiscal stimulus/contraction</li>
+                  <li><strong>Stable Component:</strong> Less volatile than others</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Net Exports (X-M)</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Exports (X):</strong> Goods/services sold abroad</li>
+                  <li><strong>Imports (M):</strong> Goods/services purchased abroad</li>
+                  <li><strong>Trade Balance:</strong> Surplus vs. deficit</li>
+                  <li><strong>Currency Impact:</strong> Exchange rate effects</li>
+                  <li><strong>Global Economy:</strong> International trade</li>
+                  <li><strong>Can Be Negative:</strong> Trade deficits common</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Real vs. Nominal GDP</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Nominal GDP:</strong> Current dollar values, includes inflation</li>
+              <li><strong>Real GDP:</strong> Constant dollar values, inflation-adjusted</li>
+              <li><strong>GDP Deflator:</strong> Price level measurement</li>
+              <li><strong>Inflation Impact:</strong> Price changes vs. real growth</li>
+              <li><strong>Economic Growth:</strong> Real GDP changes over time</li>
+              <li><strong>Policy Analysis:</strong> True economic performance</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP per Capita Analysis</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Calculation Method</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Formula:</strong> GDP ÷ Population</li>
+                  <li><strong>Standard of Living:</strong> Economic welfare indicator</li>
+                  <li><strong>International Comparison:</strong> Country wealth ranking</li>
+                  <li><strong>Population Impact:</strong> Large populations reduce per capita</li>
+                  <li><strong>Economic Development:</strong> Development stage indicator</li>
+                  <li><strong>Policy Focus:</strong> Per capita growth targets</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Interpretation</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>High Values:</strong> Developed economies</li>
+                  <li><strong>Low Values:</strong> Developing economies</li>
+                  <li><strong>Growth Trends:</strong> Economic progress</li>
+                  <li><strong>Inequality Consideration:</strong> Distribution matters</li>
+                  <li><strong>Quality of Life:</strong> Living standards proxy</li>
+                  <li><strong>Investment Decisions:</strong> Market attractiveness</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Purchasing Power Parity</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Definition:</strong> Price level equalization across countries</li>
+              <li><strong>Currency Adjustment:</strong> Real exchange rate calculation</li>
+              <li><strong>Cost of Living:</strong> International price comparisons</li>
+              <li><strong>Standard of Living:</strong> True economic welfare</li>
+              <li><strong>Big Mac Index:</strong> Informal PPP measurement</li>
+              <li><strong>Development Analysis:</strong> Economic progress assessment</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Growth Analysis</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Economic Expansion:</strong> Real GDP increase over time</li>
+              <li><strong>Business Cycles:</strong> Growth and contraction patterns</li>
+              <li><strong>Recession Indicators:</strong> Negative growth periods</li>
+              <li><strong>Recovery Patterns:</strong> Post-recession growth</li>
+              <li><strong>Long-term Trends:</strong> Economic development path</li>
+              <li><strong>Policy Effectiveness:</strong> Economic intervention results</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Calculation Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use Consistent Data:</strong> Same time period and currency</li>
+              <li><strong>Account for Inflation:</strong> Real vs. nominal considerations</li>
+              <li><strong>Consider Population:</strong> Per capita analysis</li>
+              <li><strong>International Comparison:</strong> PPP adjustments</li>
+              <li><strong>Data Sources:</strong> Reliable economic statistics</li>
+              <li><strong>Update Regularly:</strong> Economic data changes</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common GDP Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Double Counting:</strong> Including intermediate goods</li>
+              <li><strong>Transfer Payments:</strong> Social security, unemployment</li>
+              <li><strong>Illegal Activities:</strong> Underground economy</li>
+              <li><strong>Non-market Production:</strong> Household work, volunteerism</li>
+              <li><strong>Environmental Costs:</strong> Pollution, resource depletion</li>
+              <li><strong>Quality Changes:</strong> Technology improvements</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced GDP Concepts</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>GDP Deflator:</strong> Price level measurement</li>
+              <li><strong>Chain-weighted GDP:</strong> Improved measurement method</li>
+              <li><strong>Green GDP:</strong> Environmental cost inclusion</li>
+              <li><strong>Happiness Index:</strong> Beyond economic measures</li>
+              <li><strong>Human Development Index:</strong> Multi-dimensional development</li>
+              <li><strong>Genuine Progress Indicator:</strong> Alternative to GDP</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When analyzing GDP, always consider both nominal and real values to distinguish between 
+                actual economic growth and inflation effects. Remember that GDP is just one measure of 
+                economic well-being - it doesn't capture income distribution, environmental quality, or 
+                quality of life factors. For international comparisons, use purchasing power parity 
+                adjustments rather than simple exchange rate conversions. Focus on trends and growth rates 
+                rather than absolute values, and consider per capita measures for more meaningful 
+                comparisons between countries of different sizes. GDP analysis should be part of a 
+                broader economic assessment that includes employment, inflation, and other key indicators.
               </p>
             </div>
           </div>

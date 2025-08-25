@@ -427,17 +427,210 @@ export default function CountdownTimer() {
       </div>
 
       {/* Share Modal */}
-              {showShareModal && (
-          <ShareModal
-            isOpen={showShareModal}
-            onClose={() => setShowShareModal(false)}
-            calculation={{
-              expression: `${events.length} countdown events`,
-              result: `${events.filter(e => e.isActive).length} active events`,
-              timestamp: new Date()
-            }}
-          />
-        )}
+      {showShareModal && (
+        <ShareModal
+          isOpen={showShareModal}
+          onClose={() => setShowShareModal(false)}
+          calculation={{
+            expression: `${events.length} countdown events`,
+            result: `${events.filter(e => e.isActive).length} active events`,
+            timestamp: new Date()
+          }}
+        />
+      )}
+
+      {/* Calculator Description Section */}
+      <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <h3 className="text-xl font-semibold text-gray-800 mb-4">About Countdown Timer</h3>
+        <div className="prose prose-gray max-w-none">
+          <p className="text-gray-700 mb-4">
+            Our comprehensive countdown timer helps you track time until important events, deadlines, 
+            and milestones. This essential time management tool provides accurate countdowns, progress 
+            tracking, and event organization to help you stay motivated and prepared for upcoming 
+            occasions and deadlines.
+          </p>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Tracks</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Time Remaining:</strong> Days, hours, minutes, and seconds until events</li>
+            <li><strong>Event Management:</strong> Multiple countdown events with custom names</li>
+            <li><strong>Progress Visualization:</strong> Visual progress bars and time breakdowns</li>
+            <li><strong>Date & Time Support:</strong> Precise target dates and times</li>
+            <li><strong>Event Categories:</strong> Personal, professional, and special occasions</li>
+            <li><strong>Reminder System:</strong> Visual countdown for motivation</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Countdown Features</h4>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Time Display</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li><strong>Days:</strong> Complete days remaining</li>
+                <li><strong>Hours:</strong> Hours within current day</li>
+                <li><strong>Minutes:</strong> Minutes within current hour</li>
+                <li><strong>Seconds:</strong> Real-time countdown</li>
+                <li><strong>Progress Bars:</strong> Visual time representation</li>
+                <li><strong>Color Coding:</strong> Different colors for time units</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Event Management</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li><strong>Custom Names:</strong> Personal event titles</li>
+                <li><strong>Date Selection:</strong> Target date picker</li>
+                <li><strong>Time Selection:</strong> Specific time targets</li>
+                <li><strong>Quick Presets:</strong> Common event templates</li>
+                <li><strong>Event Editing:</strong> Modify existing countdowns</li>
+                <li><strong>Event Deletion:</strong> Remove completed events</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+          <div className="grid md:grid-cols-4 gap-4 mb-4">
+            <div className="bg-violet-50 p-3 rounded-lg border border-violet-200">
+              <h5 className="font-semibold text-violet-800 mb-1">Days</h5>
+              <p className="text-violet-700 text-sm">Complete days remaining</p>
+            </div>
+            <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <h5 className="font-semibold text-blue-800 mb-1">Hours</h5>
+              <p className="text-blue-700 text-sm">Hours within day</p>
+            </div>
+            <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <h5 className="font-semibold text-green-800 mb-1">Minutes</h5>
+              <p className="text-green-700 text-sm">Minutes within hour</p>
+            </div>
+            <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <h5 className="font-semibold text-orange-800 mb-1">Seconds</h5>
+              <p className="text-orange-700 text-sm">Real-time countdown</p>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+          <p className="text-gray-700 mb-4">
+            Enter your event name, select the target date and time, then click "Add Event" to create 
+            a countdown. Use quick presets for common events, or create custom countdowns for any 
+            occasion. The timer will automatically update in real-time, showing days, hours, minutes, 
+            and seconds remaining.
+          </p>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Use Cases</h4>
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <p><strong>Personal Events:</strong></p>
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  <li>Birthdays and anniversaries</li>
+                  <li>Vacations and trips</li>
+                  <li>Holiday celebrations</li>
+                  <li>Special occasions</li>
+                  <li>Personal milestones</li>
+                  <li>Countdown to goals</li>
+                </ul>
+              </div>
+              <div>
+                <p><strong>Professional Deadlines:</strong></p>
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  <li>Project deadlines</li>
+                  <li>Meeting preparations</li>
+                  <li>Report submissions</li>
+                  <li>Conference dates</li>
+                  <li>Training sessions</li>
+                  <li>Performance reviews</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Time Management Benefits</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Motivation:</strong> Visual countdown increases excitement and anticipation</li>
+            <li><strong>Planning:</strong> Better preparation for upcoming events</li>
+            <li><strong>Focus:</strong> Clear timeline helps prioritize tasks</li>
+            <li><strong>Stress Reduction:</strong> Organized approach to deadlines</li>
+            <li><strong>Goal Setting:</strong> Concrete timelines for achievement</li>
+            <li><strong>Productivity:</strong> Time awareness improves efficiency</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Progress Tracking Features</h4>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Visual Elements</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li><strong>Progress Bars:</strong> Visual representation of time remaining</li>
+                <li><strong>Color Coding:</strong> Different colors for different time units</li>
+                <li><strong>Time Breakdown:</strong> Clear separation of days, hours, minutes</li>
+                <li><strong>Event Status:</strong> Active vs. completed countdowns</li>
+                <li><strong>Real-time Updates:</strong> Live countdown with second precision</li>
+                <li><strong>Responsive Design:</strong> Works on all device sizes</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Data Management</h5>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li><strong>Event Storage:</strong> Save multiple countdown events</li>
+                <li><strong>Export Options:</strong> Download results as text files</li>
+                <li><strong>Sharing Features:</strong> Share countdowns with others</li>
+                <li><strong>Print Support:</strong> Print countdown information</li>
+                <li><strong>Event Editing:</strong> Modify existing countdowns</li>
+                <li><strong>Event Deletion:</strong> Remove completed events</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Countdown Psychology</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Anticipation Building:</strong> Countdowns increase excitement</li>
+            <li><strong>Motivation Boost:</strong> Visual progress encourages action</li>
+            <li><strong>Time Awareness:</strong> Better understanding of time passing</li>
+            <li><strong>Goal Visualization:</strong> Concrete representation of objectives</li>
+            <li><strong>Stress Management:</strong> Organized approach reduces anxiety</li>
+            <li><strong>Celebration Planning:</strong> Time to prepare for special events</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Event Planning Integration</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Preparation Timeline:</strong> Plan tasks leading up to events</li>
+            <li><strong>Milestone Tracking:</strong> Break large goals into smaller countdowns</li>
+            <li><strong>Team Coordination:</strong> Share countdowns for group projects</li>
+            <li><strong>Resource Planning:</strong> Allocate time and resources effectively</li>
+            <li><strong>Risk Management:</strong> Identify potential delays early</li>
+            <li><strong>Success Metrics:</strong> Track progress toward objectives</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Countdown Best Practices</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Set Realistic Deadlines:</strong> Allow adequate time for preparation</li>
+            <li><strong>Break Down Large Goals:</strong> Create multiple countdowns for milestones</li>
+            <li><strong>Regular Review:</strong> Check progress and adjust plans as needed</li>
+            <li><strong>Celebrate Progress:</strong> Acknowledge achievements along the way</li>
+            <li><strong>Stay Flexible:</strong> Adjust timelines when circumstances change</li>
+            <li><strong>Use for Motivation:</strong> Let countdowns inspire action, not stress</li>
+          </ul>
+          
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Technical Features</h4>
+          <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <li><strong>Real-time Updates:</strong> Live countdown with second precision</li>
+            <li><strong>Cross-platform:</strong> Works on desktop, tablet, and mobile</li>
+            <li><strong>Offline Functionality:</strong> Countdowns work without internet</li>
+            <li><strong>Data Persistence:</strong> Events saved between sessions</li>
+            <li><strong>Export Options:</strong> Download and share countdown data</li>
+            <li><strong>Responsive Design:</strong> Optimized for all screen sizes</li>
+          </ul>
+          
+          <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-violet-500">
+            <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <p className="text-gray-700 text-sm">
+              Use countdown timers strategically to boost motivation and productivity. Create countdowns 
+              for both short-term deadlines and long-term goals, breaking large projects into smaller 
+              milestones. Remember that countdowns are tools for planning and motivation - use them to 
+              stay organized and excited about upcoming events, not to create unnecessary stress. 
+              Consider creating countdowns for preparation tasks as well as final deadlines to ensure 
+              you have adequate time to complete everything successfully.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

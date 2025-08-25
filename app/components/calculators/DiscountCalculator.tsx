@@ -256,6 +256,216 @@ export default function DiscountCalculator() {
             )}
           </div>
         )}
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Discount Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive discount calculator helps shoppers, business owners, and financial 
+              planners determine savings, final prices, and discount percentages. This essential tool 
+              calculates various discount scenarios, providing clear breakdowns of original prices, 
+              savings amounts, and final costs to help make informed purchasing decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Discount Amount:</strong> Dollar value of savings</li>
+              <li><strong>Discount Percentage:</strong> Percentage off original price</li>
+              <li><strong>Final Price:</strong> Price after discount applied</li>
+              <li><strong>Savings Percentage:</strong> Percentage saved from original</li>
+              <li><strong>Price Breakdown:</strong> Complete cost analysis</li>
+              <li><strong>Purchase Recommendations:</strong> Smart shopping advice</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Types</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Percentage Discount</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Input:</strong> Original price + discount %</li>
+                  <li><strong>Output:</strong> Final price and savings</li>
+                  <li><strong>Use Case:</strong> Sale price calculations</li>
+                  <li><strong>Example:</strong> 20% off $100 item</li>
+                  <li><strong>Formula:</strong> Final = Original × (1 - %)</li>
+                  <li><strong>Common:</strong> Most retail discounts</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Fixed Amount Discount</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Input:</strong> Original price + discount amount</li>
+                  <li><strong>Output:</strong> Final price and discount %</li>
+                  <li><strong>Use Case:</strong> Dollar-off promotions</li>
+                  <li><strong>Example:</strong> $25 off $100 item</li>
+                  <li><strong>Formula:</strong> Final = Original - Amount</li>
+                  <li><strong>Common:</strong> Coupon and rebate offers</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Savings</h5>
+                <p className="text-orange-700 text-sm">Total money saved</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Discount %</h5>
+                <p className="text-blue-700 text-sm">Percentage off</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Final Price</h5>
+                <p className="text-green-700 text-sm">Price after discount</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Savings %</h5>
+                <p className="text-purple-700 text-sm">Percentage saved</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter any two values (original price, discount percentage, discount amount, or final price) 
+              and the calculator will automatically compute the remaining values. This flexible approach 
+              allows you to work with whatever information you have available, whether it's a sale 
+              percentage, dollar amount off, or final price.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Discount Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Basic Concepts:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Original price is 100%</li>
+                    <li>Discount reduces the price</li>
+                    <li>Final price is what you pay</li>
+                    <li>Savings is the difference</li>
+                    <li>Percentage is relative to original</li>
+                    <li>Amount is absolute dollar value</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Mathematical Relationships:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Final = Original - Discount</li>
+                    <li>Discount = Original - Final</li>
+                    <li>Discount % = (Discount/Original) × 100</li>
+                    <li>Savings % = (Savings/Original) × 100</li>
+                    <li>Final % = (Final/Original) × 100</li>
+                    <li>All percentages add to 100%</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Discount Scenarios</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Retail Shopping</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Seasonal Sales:</strong> End-of-season clearances</li>
+                  <li><strong>Holiday Promotions:</strong> Black Friday, Cyber Monday</li>
+                  <li><strong>Clearance Events:</strong> Overstock and discontinued items</li>
+                  <li><strong>Member Discounts:</strong> Loyalty program benefits</li>
+                  <li><strong>Bundle Offers:</strong> Buy more, save more deals</li>
+                  <li><strong>Flash Sales:</strong> Limited-time offers</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Business Applications</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Bulk Purchasing:</strong> Volume discount calculations</li>
+                  <li><strong>Contract Negotiations:</strong> Price reduction analysis</li>
+                  <li><strong>Competitive Pricing:</strong> Market rate adjustments</li>
+                  <li><strong>Promotional Campaigns:</strong> Marketing discount strategies</li>
+                  <li><strong>Inventory Management:</strong> Clearance pricing decisions</li>
+                  <li><strong>Customer Retention:</strong> Loyalty discount programs</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Discount Calculation Methods</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Percentage Method:</strong> Calculate discount as percentage of original</li>
+              <li><strong>Fixed Amount Method:</strong> Subtract specific dollar amount</li>
+              <li><strong>Reverse Calculation:</strong> Work backwards from final price</li>
+              <li><strong>Compound Discounts:</strong> Multiple discounts applied sequentially</li>
+              <li><strong>Stacking Discounts:</strong> Combine different discount types</li>
+              <li><strong>Threshold Discounts:</strong> Discounts based on purchase amount</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Smart Shopping Strategies</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Price Comparison</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Unit Price Analysis:</strong> Cost per unit comparison</li>
+                  <li><strong>Brand Comparison:</strong> Similar products across brands</li>
+                  <li><strong>Store Comparison:</strong> Same product at different retailers</li>
+                  <li><strong>Online vs. In-Store:</strong> Digital vs. physical pricing</li>
+                  <li><strong>Seasonal Timing:</strong> Best time to buy specific items</li>
+                  <li><strong>Historical Pricing:</strong> Track price trends over time</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Discount Optimization</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Coupon Stacking:</strong> Combine multiple discount offers</li>
+                  <li><strong>Cashback Programs:</strong> Additional savings through apps</li>
+                  <li><strong>Credit Card Rewards:</strong> Points and cashback benefits</li>
+                  <li><strong>Loyalty Programs:</strong> Member-exclusive discounts</li>
+                  <li><strong>Student/Employee Discounts:</strong> Special pricing programs</li>
+                  <li><strong>Bulk Purchase Savings:</strong> Volume discount opportunities</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Discount Calculation Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Always Compare:</strong> Check multiple retailers and prices</li>
+              <li><strong>Consider Total Cost:</strong> Include taxes, shipping, and fees</li>
+              <li><strong>Factor in Quality:</strong> Cheaper isn't always better value</li>
+              <li><strong>Timing Matters:</strong> Wait for better sales when possible</li>
+              <li><strong>Read Fine Print:</strong> Understand discount terms and conditions</li>
+              <li><strong>Track Your Savings:</strong> Monitor total money saved over time</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Discount Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Impulse Buying:</strong> Purchasing just because it's on sale</li>
+              <li><strong>Ignoring Quality:</strong> Focusing only on price reduction</li>
+              <li><strong>Missing Hidden Costs:</strong> Forgetting taxes, shipping, etc.</li>
+              <li><strong>Overlooking Better Deals:</strong> Not comparing multiple options</li>
+              <li><strong>Timing Errors:</strong> Buying before better sales</li>
+              <li><strong>Ignoring Return Policies:</strong> Not considering post-purchase options</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Discount Concepts</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Compound Discounts:</strong> Multiple percentage discounts applied</li>
+              <li><strong>Stacking Rules:</strong> How different discounts combine</li>
+              <li><strong>Threshold Discounts:</strong> Discounts based on purchase amount</li>
+              <li><strong>Seasonal Pricing:</strong> Time-based discount patterns</li>
+              <li><strong>Dynamic Pricing:</strong> Algorithm-based price adjustments</li>
+              <li><strong>Psychological Pricing:</strong> $9.99 vs. $10.00 effects</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                When calculating discounts, always consider the total cost of ownership, not just the 
+                initial price reduction. Factor in quality, durability, warranty, and long-term value. 
+                Use this calculator to compare different discount scenarios and determine which offers 
+                the best overall value. Remember that the highest percentage discount isn't always the 
+                best deal - sometimes a smaller discount on a higher-quality item provides better value. 
+                Always shop around and compare multiple retailers to ensure you're getting the best 
+                possible deal.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -231,6 +231,107 @@ export default function PaceCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Pace Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive pace calculator helps runners, cyclists, and athletes determine their pace, speed, 
+              and split times for various distances. Whether you're training for a race, tracking your fitness progress, 
+              or planning your workout strategy, this tool provides accurate pace calculations and conversions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Pace:</strong> Time per unit distance (e.g., minutes per mile)</li>
+              <li><strong>Speed:</strong> Distance per unit time (e.g., miles per hour)</li>
+              <li><strong>Split Times:</strong> Time for each segment of your distance</li>
+              <li><strong>Unit Conversions:</strong> Switch between miles and kilometers</li>
+              <li><strong>Training Paces:</strong> Different paces for various workout types</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Use Cases</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Running</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Marathon and half-marathon pacing</li>
+                  <li>5K and 10K race strategies</li>
+                  <li>Training run pace planning</li>
+                  <li>Interval workout timing</li>
+                  <li>Recovery run pacing</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Cycling</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Century ride planning</li>
+                  <li>Time trial pacing</li>
+                  <li>Group ride coordination</li>
+                  <li>Training zone calculations</li>
+                  <li>Race strategy development</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Pace</h5>
+                <p className="text-blue-700 text-sm">Time per mile or kilometer</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Speed</h5>
+                <p className="text-green-700 text-sm">Miles or kilometers per hour</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Splits</h5>
+                <p className="text-purple-700 text-sm">Time for each distance segment</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your distance, time, and select your preferred units. The calculator will compute your pace, 
+              provide speed conversions, and generate split times for training and race planning.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Pace Training Zones</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Easy Pace:</strong> 60-70% of race pace</p>
+                  <p><strong>Marathon Pace:</strong> 80-85% of race pace</p>
+                  <p><strong>Tempo Pace:</strong> 85-90% of race pace</p>
+                </div>
+                <div>
+                  <p><strong>Threshold Pace:</strong> 90-95% of race pace</p>
+                  <p><strong>Interval Pace:</strong> 95-100% of race pace</p>
+                  <p><strong>Race Pace:</strong> 100% of target race pace</p>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Training Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Race Pacing:</strong> Plan your race strategy with even splits</li>
+              <li><strong>Workout Planning:</strong> Calculate target paces for different training intensities</li>
+              <li><strong>Progress Tracking:</strong> Monitor improvements in your pace over time</li>
+              <li><strong>Group Training:</strong> Coordinate paces with training partners</li>
+              <li><strong>Recovery Management:</strong> Ensure easy days are truly easy</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Use negative splits (starting slower and finishing faster) for optimal race performance. Your pace 
+                calculator can help you plan these splits to ensure you don't start too fast and have energy left 
+                for the finish.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

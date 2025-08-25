@@ -150,6 +150,139 @@ export default function InterestCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Interest Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive interest calculator helps you understand the difference between simple and compound interest, 
+              and how they affect your investments and loans. Whether you're planning savings, evaluating loan options, 
+              or analyzing investment returns, this tool provides clear calculations and insights into interest growth.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Simple Interest:</strong> Interest earned only on the principal amount</li>
+              <li><strong>Compound Interest:</strong> Interest earned on principal plus accumulated interest</li>
+              <li><strong>Total Amount:</strong> Principal plus total interest earned</li>
+              <li><strong>Interest Comparison:</strong> Side-by-side analysis of both interest types</li>
+              <li><strong>Growth Analysis:</strong> How interest compounds over time</li>
+              <li><strong>Period Flexibility:</strong> Calculations in years or months</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Simple vs. Compound Interest</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Simple Interest</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Formula: I = P × r × t</li>
+                  <li>Interest earned only on principal</li>
+                  <li>Linear growth over time</li>
+                  <li>Common in short-term loans</li>
+                  <li>Easier to calculate</li>
+                  <li>Lower total returns</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Compound Interest</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Formula: A = P(1 + r)^t</li>
+                  <li>Interest earned on principal + interest</li>
+                  <li>Exponential growth over time</li>
+                  <li>Standard for investments</li>
+                  <li>More complex calculation</li>
+                  <li>Higher total returns</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                <h5 className="font-semibold text-yellow-800 mb-1">Simple Interest</h5>
+                <p className="text-yellow-700 text-sm">Basic interest calculation</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Compound Interest</h5>
+                <p className="text-orange-700 text-sm">Interest on interest growth</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Total Amount</h5>
+                <p className="text-green-700 text-sm">Principal plus all interest</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your principal amount, interest rate, and time period. Choose between years or months, then click 
+              calculate to see both simple and compound interest results, along with a detailed breakdown.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Applications</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Savings Accounts:</strong> Calculate interest earned on deposits</li>
+              <li><strong>Investment Planning:</strong> Project future investment growth</li>
+              <li><strong>Loan Analysis:</strong> Understand total loan costs</li>
+              <li><strong>Retirement Planning:</strong> Estimate long-term savings growth</li>
+              <li><strong>Business Finance:</strong> Evaluate investment opportunities</li>
+              <li><strong>Educational Purposes:</strong> Learn about interest concepts</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Interest Rate Considerations</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Annual Percentage Rate (APR):</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Includes all loan costs</li>
+                    <li>Standardized comparison tool</li>
+                    <li>Required by law for loans</li>
+                    <li>May include fees</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Annual Percentage Yield (APY):</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Effective annual rate</li>
+                    <li>Accounts for compounding</li>
+                    <li>Used for investments</li>
+                    <li>Higher than stated rate</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Interest Growth</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Principal Amount:</strong> Larger investments earn more interest</li>
+              <li><strong>Interest Rate:</strong> Higher rates accelerate growth</li>
+              <li><strong>Time Period:</strong> Longer periods maximize compound effects</li>
+              <li><strong>Compounding Frequency:</strong> More frequent compounding increases returns</li>
+              <li><strong>Tax Implications:</strong> Taxable interest reduces net returns</li>
+              <li><strong>Inflation:</strong> Reduces real purchasing power of returns</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Investment Strategies</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Start Early:</strong> Time is the most powerful factor in compound growth</li>
+              <li><strong>Regular Contributions:</strong> Consistent investing builds wealth over time</li>
+              <li><strong>Reinvest Interest:</strong> Let compound interest work for you</li>
+              <li><strong>Diversify:</strong> Spread risk across different investments</li>
+              <li><strong>Monitor Rates:</strong> Seek competitive interest rates</li>
+              <li><strong>Long-term Focus:</strong> Compound interest works best over decades</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                The power of compound interest is most evident over long periods. Even small differences in interest 
+                rates can result in dramatically different outcomes over 20-30 years. Start investing early and let 
+                compound interest work its magic - it's often called the "eighth wonder of the world" for good reason.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -198,6 +198,154 @@ export default function RentalPropertyCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Rental Property Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive rental property calculator helps you analyze the financial viability of real estate 
+              investments by calculating monthly cash flow, annual ROI, and capitalization rates. Whether you're a 
+              first-time investor or an experienced landlord, this tool provides essential metrics to evaluate 
+              potential rental properties and make informed investment decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Monthly Cash Flow:</strong> Net income after all expenses</li>
+              <li><strong>Annual ROI:</strong> Return on investment percentage</li>
+              <li><strong>Cap Rate:</strong> Net operating income relative to property value</li>
+              <li><strong>Monthly Expenses:</strong> Total monthly property costs</li>
+              <li><strong>Cash Flow Analysis:</strong> Profitability assessment</li>
+              <li><strong>Investment Metrics:</strong> Key performance indicators</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Rental Property Investment Components</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Income Sources</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Monthly rental income</li>
+                  <li>Additional fees (pet rent, parking)</li>
+                  <li>Laundry or vending income</li>
+                  <li>Storage unit rentals</li>
+                  <li>Late payment fees</li>
+                  <li>Application fees</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Monthly Expenses</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Mortgage payment (P&I)</li>
+                  <li>Property taxes</li>
+                  <li>Insurance premiums</li>
+                  <li>Maintenance costs</li>
+                  <li>Property management fees</li>
+                  <li>Utilities and HOA fees</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+                <h5 className="font-semibold text-emerald-800 mb-1">Monthly Cash Flow</h5>
+                <p className="text-emerald-700 text-sm">Net monthly profit/loss</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Annual ROI</h5>
+                <p className="text-green-700 text-sm">Return on investment</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Cap Rate</h5>
+                <p className="text-blue-700 text-sm">Capitalization rate</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter the property purchase price, down payment, loan terms, expected monthly rent, and all associated 
+              costs. The calculator will compute your monthly cash flow, annual ROI, and cap rate to help evaluate 
+              the investment's profitability.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Investment Metrics</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Cash Flow:</strong> Monthly income minus all expenses</li>
+              <li><strong>ROI:</strong> Annual return relative to total investment</li>
+              <li><strong>Cap Rate:</strong> NOI divided by property value</li>
+              <li><strong>Cash-on-Cash Return:</strong> Annual cash flow divided by cash invested</li>
+              <li><strong>Break-Even Analysis:</strong> When income equals expenses</li>
+              <li><strong>Appreciation Potential:</strong> Long-term property value growth</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Rental Property Types</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Residential Properties:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Single-family homes</li>
+                    <li>Multi-family units</li>
+                    <li>Condominiums</li>
+                    <li>Townhouses</li>
+                    <li>Student housing</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Commercial Properties:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Office buildings</li>
+                    <li>Retail spaces</li>
+                    <li>Industrial properties</li>
+                    <li>Mixed-use developments</li>
+                    <li>Storage facilities</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Rental Income</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Location:</strong> Desirable neighborhoods command higher rents</li>
+              <li><strong>Property Condition:</strong> Well-maintained properties rent for more</li>
+              <li><strong>Market Demand:</strong> Supply and demand affect rental rates</li>
+              <li><strong>Property Features:</strong> Amenities increase rental value</li>
+              <li><strong>Seasonal Factors:</strong> Rental demand varies throughout the year</li>
+              <li><strong>Economic Conditions:</strong> Job market affects rental demand</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Risk Management Strategies</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Diversification:</strong> Invest in different property types and locations</li>
+              <li><strong>Insurance Coverage:</strong> Adequate property and liability insurance</li>
+              <li><strong>Emergency Funds:</strong> Maintain reserves for unexpected expenses</li>
+              <li><strong>Tenant Screening:</strong> Thorough background and credit checks</li>
+              <li><strong>Property Management:</strong> Professional management for multiple properties</li>
+              <li><strong>Regular Maintenance:</strong> Preventative maintenance reduces costs</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Tax Considerations</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Depreciation:</strong> Tax deduction for property wear and tear</li>
+              <li><strong>Interest Deductions:</strong> Mortgage interest is typically deductible</li>
+              <li><strong>Property Tax Deductions:</strong> Annual property taxes are deductible</li>
+              <li><strong>Operating Expenses:</strong> Maintenance and management costs</li>
+              <li><strong>1031 Exchanges:</strong> Defer capital gains on property sales</li>
+              <li><strong>Passive Loss Rules:</strong> Limitations on rental property losses</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Aim for positive cash flow from day one, but don't overlook long-term appreciation potential. A property 
+                with modest monthly cash flow but strong appreciation potential can be an excellent investment. Also, 
+                consider the "1% rule" - monthly rent should be at least 1% of the purchase price for a good rental 
+                investment, though this varies by market and property type.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

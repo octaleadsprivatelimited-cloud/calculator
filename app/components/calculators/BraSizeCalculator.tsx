@@ -531,6 +531,230 @@ Measurement Tips:
           </div>
         )}
 
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Bra Size Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive bra size calculator helps individuals determine their accurate bra size 
+              using multiple measurement methods and international sizing standards. This essential 
+              fitting tool provides precise size calculations, sister size recommendations, and 
+              personalized fit guidance to ensure comfort and support for all body types.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Band Size:</strong> Numerical band measurement (30-44+)</li>
+              <li><strong>Cup Size:</strong> Letter cup measurement (AA-LL+)</li>
+              <li><strong>International Sizing:</strong> US, UK, EU, and AU conversions</li>
+              <li><strong>Sister Sizes:</strong> Alternative size options for better fit</li>
+              <li><strong>Fit Analysis:</strong> Personalized fit notes and recommendations</li>
+              <li><strong>Brand Guidance:</strong> Recommendations based on size range</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Measurement Methods</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Standard Method</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Under bust measurement</li>
+                  <li>Bust measurement at fullest point</li>
+                  <li>Most accurate for most people</li>
+                  <li>Industry standard approach</li>
+                  <li>Good for all body types</li>
+                  <li>Widely supported by brands</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Alternative Methods</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Modern fitting approaches</li>
+                  <li>Body shape considerations</li>
+                  <li>Comfort-focused sizing</li>
+                  <li>Specialty brand methods</li>
+                  <li>Professional fitting techniques</li>
+                  <li>Custom sizing approaches</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">International Sizing Systems</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">US Sizing</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Band sizes: 30-44+</li>
+                  <li>Cup sizes: AA, A, B, C, D, DD, DDD, G, H, I, J</li>
+                  <li>Most common in North America</li>
+                  <li>Standard retail sizing</li>
+                  <li>Easy to find in stores</li>
+                  <li>Good starting point</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">UK Sizing</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Band sizes: 28-46+</li>
+                  <li>Cup sizes: AA, A, B, C, D, DD, E, F, FF, G, GG, H, HH</li>
+                  <li>More cup size options</li>
+                  <li>Better for larger cup sizes</li>
+                  <li>Professional fitting standard</li>
+                  <li>Full-bust brand sizing</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+                <h5 className="font-semibold text-pink-800 mb-1">Band Size</h5>
+                <p className="text-pink-700 text-sm">Numerical measurement</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Cup Size</h5>
+                <p className="text-purple-700 text-sm">Letter measurement</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Sister Sizes</h5>
+                <p className="text-orange-700 text-sm">Alternative options</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Measure your under bust (ribcage) and bust (fullest point) in inches. Choose your 
+              preferred measurement method, and the calculator will provide your bra size in multiple 
+              international standards along with sister sizes and personalized recommendations.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Measurement Techniques</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Under Bust Measurement:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Measure around ribcage</li>
+                    <li>Below breast tissue</li>
+                    <li>Keep tape level and snug</li>
+                    <li>Don't compress skin</li>
+                    <li>Measure while standing</li>
+                    <li>Exhale normally</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Bust Measurement:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Measure at fullest point</li>
+                    <li>Keep tape level</li>
+                    <li>Don't compress breasts</li>
+                    <li>Measure without a bra</li>
+                    <li>Stand naturally</li>
+                    <li>Consider natural movement</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Sister Size System</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Band Size Changes:</strong> Go up band, down cup (32D → 34C)</li>
+              <li><strong>Cup Volume:</strong> Same cup volume, different band</li>
+              <li><strong>Fit Adjustments:</strong> When standard size doesn't fit</li>
+              <li><strong>Brand Variations:</strong> Different brands may fit differently</li>
+              <li><strong>Comfort Options:</strong> Alternative sizes for comfort</li>
+              <li><strong>Availability:</strong> More size options in stores</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Size Range Considerations</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Smaller Sizes</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Band sizes 28-32</li>
+                  <li>Cup sizes AA-B</li>
+                  <li>Junior sizes available</li>
+                  <li>Petite options</li>
+                  <li>Bralettes work well</li>
+                  <li>Wireless options</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Larger Sizes</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Band sizes 40+</li>
+                  <li>Cup sizes F+</li>
+                  <li>Plus-size brands</li>
+                  <li>Full-bust specialists</li>
+                  <li>Professional fitting</li>
+                  <li>Custom options</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Fitting Issues</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Band Too Tight:</strong> Red marks, difficulty breathing</li>
+              <li><strong>Band Too Loose:</strong> Riding up, no support</li>
+              <li><strong>Cup Too Small:</strong> Spillage, quad boob</li>
+              <li><strong>Cup Too Large:</strong> Gaping, wrinkling</li>
+              <li><strong>Straps Falling:</strong> Band too loose, wrong size</li>
+              <li><strong>Wire Issues:</strong> Wrong cup size or shape</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Brand and Style Considerations</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Brand Variations:</strong> Sizing can differ between brands</li>
+              <li><strong>Style Differences:</strong> Balcony, plunge, full-cup fit differently</li>
+              <li><strong>Material Impact:</strong> Stretch vs. non-stretch fabrics</li>
+              <li><strong>Seasonal Changes:</strong> Body changes throughout the year</li>
+              <li><strong>Age Considerations:</strong> Sizing needs change with age</li>
+              <li><strong>Body Changes:</strong> Weight, pregnancy, hormones affect size</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Professional Fitting</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>When to Get Fitted:</strong> Large cup sizes, unusual proportions</li>
+              <li><strong>Professional Benefits:</strong> Expert measurement, multiple brands</li>
+              <li><strong>Specialty Stores:</strong> Full-bust boutiques, lingerie specialists</li>
+              <li><strong>Department Stores:</strong> Trained fitters, multiple options</li>
+              <li><strong>Online Fitting:</strong> Virtual consultations, video calls</li>
+              <li><strong>Regular Check-ups:</strong> Re-measure every 6-12 months</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Shopping Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Try Multiple Sizes:</strong> Start with calculated size, adjust as needed</li>
+              <li><strong>Brand Research:</strong> Read reviews, check size charts</li>
+              <li><strong>Style Selection:</strong> Choose styles that work with your shape</li>
+              <li><strong>Comfort Priority:</strong> Support should feel comfortable</li>
+              <li><strong>Return Policies:</strong> Check return options before buying</li>
+              <li><strong>Professional Help:</strong> Don't hesitate to ask for assistance</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Shape Considerations</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Full on Top:</strong> Balcony, demi-cup styles work well</li>
+              <li><strong>Full on Bottom:</strong> Full-cup, plunge styles recommended</li>
+              <li><strong>Even Distribution:</strong> Most styles work well</li>
+              <li><strong>Wide Set:</strong> Side support, wider gore helpful</li>
+              <li><strong>Close Set:</strong> Narrow gore, plunge styles better</li>
+              <li><strong>Asymmetric:</strong> Adjustable straps, removable padding</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-pink-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Remember that bra sizing is both a science and an art. While this calculator provides 
+                an excellent starting point, the perfect fit may require trying a few sizes and styles. 
+                Don't be discouraged if the calculated size doesn't feel right - bra fitting varies 
+                significantly between brands and styles. Also, consider that your bra size may change 
+                throughout your life due to weight fluctuations, pregnancy, aging, and other factors. 
+                Regular re-measuring ensures you always have the best fit for comfort and support.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Info Section */}
         <div className="mt-8 bg-gray-50 p-6 rounded-lg">
           <div className="flex items-start space-x-3">

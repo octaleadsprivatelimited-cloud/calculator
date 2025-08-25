@@ -543,6 +543,199 @@ ${result.emoji} Love is in the air! ${result.emoji}`
             </div>
           </div>
         </div>
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Love Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive love calculator provides entertaining insights into relationship compatibility 
+              through a fun analysis of names, zodiac signs, birth dates, and personality traits. While designed 
+              for entertainment purposes, this tool offers interesting perspectives on relationship dynamics and 
+              can spark meaningful conversations about love and compatibility.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Analyzes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Name Compatibility:</strong> Letter patterns and numerical values</li>
+              <li><strong>Zodiac Signs:</strong> Astrological compatibility and elements</li>
+              <li><strong>Birth Dates:</strong> Numerological significance and timing</li>
+              <li><strong>Personality Traits:</strong> Character compatibility analysis</li>
+              <li><strong>Overall Score:</strong> Comprehensive compatibility percentage</li>
+              <li><strong>Personalized Advice:</strong> Relationship guidance and insights</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Compatibility Categories</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">High Compatibility</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>90-100%:</strong> Excellent Match - Very strong romantic potential</li>
+                  <li><strong>80-89%:</strong> Great Match - Strong foundation for love</li>
+                  <li><strong>70-79%:</strong> Good Match - Promising relationship ahead</li>
+                  <li><strong>Advantages:</strong> Natural chemistry and understanding</li>
+                  <li><strong>Challenges:</strong> Fewer, easier to overcome</li>
+                  <li><strong>Potential:</strong> High for long-term success</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Moderate Compatibility</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>60-69%:</strong> Moderate Match - Potential with some work</li>
+                  <li><strong>50-59%:</strong> Challenging Match - Requires significant effort</li>
+                  <li><strong>Below 50%:</strong> Difficult Match - May face major challenges</li>
+                  <li><strong>Advantages:</strong> Opportunity for growth and learning</li>
+                  <li><strong>Challenges:</strong> More communication and compromise needed</li>
+                  <li><strong>Potential:</strong> Depends on commitment and effort</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+                <h5 className="font-semibold text-pink-800 mb-1">Love Percentage</h5>
+                <p className="text-pink-700 text-sm">Overall compatibility score</p>
+              </div>
+              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+                <h5 className="font-semibold text-red-800 mb-1">Compatibility</h5>
+                <p className="text-red-700 text-sm">Relationship potential rating</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Description</h5>
+                <p className="text-purple-700 text-sm">Detailed compatibility explanation</p>
+              </div>
+              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                <h5 className="font-semibold text-orange-800 mb-1">Advice</h5>
+                <p className="text-orange-700 text-sm">Personalized relationship guidance</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter both names, select zodiac signs, input birth dates, and choose personality traits for both people. 
+              Click "Calculate Love" to receive a comprehensive compatibility analysis including percentage score, 
+              compatibility rating, description, and personalized advice for your relationship journey.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Zodiac Compatibility Factors</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Element Compatibility:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li><strong>Fire Signs:</strong> Aries, Leo, Sagittarius - Passionate and dynamic</li>
+                    <li><strong>Earth Signs:</strong> Taurus, Virgo, Capricorn - Stable and practical</li>
+                    <li><strong>Air Signs:</strong> Gemini, Libra, Aquarius - Intellectual and social</li>
+                    <li><strong>Water Signs:</strong> Cancer, Scorpio, Pisces - Emotional and intuitive</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Compatibility Patterns:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li><strong>Same Element:</strong> Natural understanding and harmony</li>
+                    <li><strong>Complementary Elements:</strong> Fire-Earth, Air-Water balance</li>
+                    <li><strong>Opposite Signs:</strong> Attraction and challenge dynamics</li>
+                    <li><strong>Trine Signs:</strong> Harmonious and supportive relationships</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Personality Trait Analysis</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Positive Traits</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Communication:</strong> Open, honest, and effective dialogue</li>
+                  <li><strong>Empathy:</strong> Understanding and emotional intelligence</li>
+                  <li><strong>Patience:</strong> Tolerance and long-term perspective</li>
+                  <li><strong>Loyalty:</strong> Commitment and faithfulness</li>
+                  <li><strong>Adaptability:</strong> Flexibility and growth mindset</li>
+                  <li><strong>Supportiveness:</strong> Encouragement and partnership</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Growth Areas</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Conflict Resolution:</strong> Healthy disagreement handling</li>
+                  <li><strong>Emotional Regulation:</strong> Managing feelings constructively</li>
+                  <li><strong>Independence:</strong> Maintaining individual identity</li>
+                  <li><strong>Trust Building:</strong> Developing mutual confidence</li>
+                  <li><strong>Shared Values:</strong> Aligning life goals and priorities</li>
+                  <li><strong>Quality Time:</strong> Meaningful connection and presence</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Numerological Influences</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Birth Date Numbers:</strong> Life path and destiny influences</li>
+              <li><strong>Name Numerology:</strong> Letter values and personality traits</li>
+              <li><strong>Compatibility Numbers:</strong> Relationship harmony indicators</li>
+              <li><strong>Timing Factors:</strong> Optimal periods for relationship development</li>
+              <li><strong>Life Cycles:</strong> Personal growth and relationship phases</li>
+              <li><strong>Karmic Connections:</strong> Past life and soul connection theories</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Relationship Development Stages</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+                <h5 className="font-semibold text-pink-800 mb-1">Initial Attraction</h5>
+                <p className="text-pink-700 text-sm">Chemistry and first impressions</p>
+              </div>
+              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+                <h5 className="font-semibold text-red-800 mb-1">Getting to Know</h5>
+                <p className="text-red-700 text-sm">Deepening understanding and connection</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Commitment</h5>
+                <p className="text-purple-700 text-sm">Long-term partnership and growth</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Compatibility Enhancement Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Open Communication:</strong> Share thoughts, feelings, and concerns honestly</li>
+              <li><strong>Active Listening:</strong> Truly hear and understand your partner</li>
+              <li><strong>Quality Time:</strong> Prioritize meaningful connection and shared experiences</li>
+              <li><strong>Mutual Respect:</strong> Honor each other's individuality and boundaries</li>
+              <li><strong>Shared Goals:</strong> Align on important life decisions and aspirations</li>
+              <li><strong>Growth Mindset:</strong> Embrace personal and relationship development</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Low Scores</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Not a Deal-Breaker:</strong> Low scores don't mean impossible relationships</li>
+              <li><strong>Growth Opportunity:</strong> Challenges can strengthen bonds</li>
+              <li><strong>Communication Key:</strong> Open dialogue can overcome differences</li>
+              <li><strong>Professional Help:</strong> Consider relationship counseling if needed</li>
+              <li><strong>Personal Development:</strong> Work on individual growth areas</li>
+              <li><strong>Realistic Expectations:</strong> Understand relationship dynamics</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Entertainment vs. Reality</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Fun Tool:</strong> Designed for entertainment and conversation</li>
+              <li><strong>Not Scientific:</strong> Based on fun algorithms, not research</li>
+              <li><strong>Conversation Starter:</strong> Use to discuss relationship topics</li>
+              <li><strong>Self-Reflection:</strong> Consider your own relationship goals</li>
+              <li><strong>Relationship Building:</strong> Focus on real communication and effort</li>
+              <li><strong>Love is Action:</strong> True compatibility comes from daily choices</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-pink-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Use this calculator as a fun conversation starter and relationship reflection tool, not as a definitive 
+                guide to your love life. True compatibility comes from mutual respect, open communication, shared values, 
+                and daily effort to nurture your relationship. While astrology and numerology can provide interesting 
+                insights, the most important factors in any successful relationship are genuine care, understanding, 
+                and commitment to each other's happiness and growth.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -373,6 +373,126 @@ export default function RealEstateCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Real Estate Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive real estate calculator helps you understand the true cost of homeownership by calculating 
+              total monthly payments including mortgage, taxes, insurance, and HOA fees. Whether you're buying your 
+              first home, investing in real estate, or refinancing, this tool provides accurate cost projections 
+              to help you make informed decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Total Monthly Payment:</strong> Complete cost of homeownership each month</li>
+              <li><strong>Principal & Interest:</strong> Core mortgage payment amount</li>
+              <li><strong>Property Taxes:</strong> Annual tax burden divided monthly</li>
+              <li><strong>Insurance Costs:</strong> Homeowners and mortgage insurance</li>
+              <li><strong>HOA Fees:</strong> Monthly association or maintenance costs</li>
+              <li><strong>Cost Breakdown:</strong> Detailed analysis of all expenses</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Components of Homeownership Costs</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Mortgage Costs</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Principal reduction</li>
+                  <li>Interest payments</li>
+                  <li>Private mortgage insurance (PMI)</li>
+                  <li>Escrow account funding</li>
+                  <li>Loan origination fees</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Additional Expenses</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Property taxes</li>
+                  <li>Homeowners insurance</li>
+                  <li>HOA or condo fees</li>
+                  <li>Maintenance costs</li>
+                  <li>Utility expenses</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+                <h5 className="font-semibold text-emerald-800 mb-1">Total Payment</h5>
+                <p className="text-emerald-700 text-sm">Complete monthly cost</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Principal & Interest</h5>
+                <p className="text-blue-700 text-sm">Core mortgage payment</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Additional Costs</h5>
+                <p className="text-purple-700 text-sm">Taxes, insurance, HOA</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter the purchase price, down payment, interest rate, loan term, and additional monthly costs. 
+              The calculator will compute your total monthly payment and provide a detailed breakdown of all 
+              homeownership expenses.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Factors Affecting Costs</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Down Payment:</strong> Larger down payments reduce monthly costs</li>
+              <li><strong>Interest Rate:</strong> Lower rates significantly reduce payments</li>
+              <li><strong>Loan Term:</strong> Shorter terms mean higher monthly payments but less total interest</li>
+              <li><strong>Property Taxes:</strong> Vary by location and property value</li>
+              <li><strong>Insurance Costs:</strong> Depend on coverage levels and property type</li>
+              <li><strong>HOA Fees:</strong> Can vary widely by community and amenities</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Real Estate Investment Considerations</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Cash Flow Analysis:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Rental income potential</li>
+                    <li>Monthly expense coverage</li>
+                    <li>Profit margin calculations</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Long-term Benefits:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Property appreciation</li>
+                    <li>Tax deductions</li>
+                    <li>Equity building</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Mistakes to Avoid</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Underestimating Costs:</strong> Don't forget maintenance and unexpected expenses</li>
+              <li><strong>Ignoring Tax Implications:</strong> Property taxes can increase over time</li>
+              <li><strong>Overlooking HOA Fees:</strong> These can be substantial and may increase</li>
+              <li><strong>Not Planning for Rate Changes:</strong> Consider future interest rate scenarios</li>
+              <li><strong>Forgetting Insurance:</strong> Adequate coverage is essential</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Aim to keep your total housing costs (including mortgage, taxes, insurance, and HOA) below 28% 
+                of your gross monthly income. This ensures you have enough money for other expenses and savings. 
+                Always factor in potential rate increases and property tax hikes when planning your budget.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

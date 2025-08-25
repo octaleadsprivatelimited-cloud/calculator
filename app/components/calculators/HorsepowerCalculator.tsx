@@ -544,6 +544,225 @@ Performance Analysis:
             </div>
           </div>
         </div>
+        
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Horsepower Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive horsepower calculator helps automotive enthusiasts, engineers, and mechanics 
+              understand engine performance through multiple calculation methods. This essential automotive tool 
+              provides accurate horsepower calculations, performance analysis, and power-to-weight ratios for 
+              informed vehicle assessment and tuning decisions.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Horsepower:</strong> Engine power output in HP and kilowatts</li>
+              <li><strong>Power-to-Weight Ratio:</strong> Performance potential assessment</li>
+              <li><strong>Acceleration Estimates:</strong> 0-60 mph time predictions</li>
+              <li><strong>Top Speed Estimates:</strong> Maximum velocity calculations</li>
+              <li><strong>Performance Classification:</strong> Vehicle capability ratings</li>
+              <li><strong>Multiple Calculation Types:</strong> Torque-based, dyno, and weight analysis</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Horsepower Calculation Methods</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Torque to Horsepower</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Formula:</strong> HP = (Torque × RPM) ÷ 5252</li>
+                  <li><strong>Torque Input:</strong> lb-ft or Nm measurements</li>
+                  <li><strong>RPM Range:</strong> Engine speed in revolutions per minute</li>
+                  <li><strong>Accuracy:</strong> ±2-5% in most conditions</li>
+                  <li><strong>Best For:</strong> Engine performance analysis</li>
+                  <li><strong>Limitations:</strong> Peak power at specific RPM</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Dyno Results Analysis</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Data Source:</strong> Dynamometer measurements</li>
+                  <li><strong>Real-World Testing:</strong> Actual performance data</li>
+                  <li><strong>Environmental Factors:</strong> Temperature, humidity, elevation</li>
+                  <li><strong>Correction Factors:</strong> SAE, DIN, or EEC standards</li>
+                  <li><strong>Advantages:</strong> Most accurate measurement</li>
+                  <li><strong>Cost:</strong> Professional testing required</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <div className="grid md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                <h5 className="font-semibold text-yellow-800 mb-1">Horsepower</h5>
+                <p className="text-yellow-700 text-sm">Engine power output</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Power-to-Weight</h5>
+                <p className="text-blue-700 text-sm">Performance ratio</p>
+              </div>
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">0-60 Time</h5>
+                <p className="text-green-700 text-sm">Acceleration estimate</p>
+              </div>
+              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <h5 className="font-semibold text-purple-800 mb-1">Top Speed</h5>
+                <p className="text-purple-700 text-sm">Maximum velocity</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Select your calculation type (torque to HP, dyno results, or power to weight), enter the required 
+              values, and choose your engine type and vehicle category. The calculator automatically computes 
+              horsepower, performance ratios, and provides acceleration and top speed estimates based on your inputs.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Horsepower Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>What is Horsepower:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Unit of power measurement</li>
+                    <li>1 HP = 550 foot-pounds per second</li>
+                    <li>1 HP = 745.7 watts</li>
+                    <li>Developed by James Watt</li>
+                    <li>Measures work done over time</li>
+                    <li>Critical for performance assessment</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Why It Matters:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Vehicle performance capability</li>
+                    <li>Engine efficiency assessment</li>
+                    <li>Tuning and modification planning</li>
+                    <li>Vehicle comparison and selection</li>
+                    <li>Racing and competition analysis</li>
+                    <li>Fuel economy considerations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Power-to-Weight Ratio Analysis</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Performance Categories</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Economy (0.05-0.10 HP/lb):</strong> Basic transportation</li>
+                  <li><strong>Standard (0.10-0.15 HP/lb):</strong> Average performance</li>
+                  <li><strong>Sport (0.15-0.25 HP/lb):</strong> Good acceleration</li>
+                  <li><strong>Performance (0.25-0.40 HP/lb):</strong> High performance</li>
+                  <li><strong>Supercar (0.40-0.60 HP/lb):</strong> Exceptional performance</li>
+                  <li><strong>Hypercar (0.60+ HP/lb):</strong> Ultimate performance</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Real-World Impact</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Acceleration:</strong> Higher ratios = faster 0-60 times</li>
+                  <li><strong>Handling:</strong> Better power delivery control</li>
+                  <li><strong>Fuel Economy:</strong> Efficiency vs. performance trade-off</li>
+                  <li><strong>Driving Experience:</strong> Responsive and engaging</li>
+                  <li><strong>Maintenance:</strong> Higher performance = more wear</li>
+                  <li><strong>Insurance:</strong> Performance affects rates</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Engine Types and Characteristics</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Gasoline:</strong> High power density, good efficiency</li>
+              <li><strong>Diesel:</strong> High torque, lower RPM range</li>
+              <li><strong>Electric:</strong> Instant torque, high efficiency</li>
+              <li><strong>Hybrid:</strong> Combined power sources</li>
+              <li><strong>Turbocharged:</strong> Forced induction benefits</li>
+              <li><strong>Naturally Aspirated:</strong> Linear power delivery</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Vehicle Categories and Performance</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Passenger Vehicles</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Compact Cars:</strong> 100-200 HP, 0.08-0.15 HP/lb</li>
+                  <li><strong>Sedans:</strong> 150-300 HP, 0.10-0.20 HP/lb</li>
+                  <li><strong>SUVs:</strong> 200-400 HP, 0.08-0.18 HP/lb</li>
+                  <li><strong>Trucks:</strong> 200-450 HP, 0.06-0.15 HP/lb</li>
+                  <li><strong>Minivans:</strong> 150-300 HP, 0.06-0.12 HP/lb</li>
+                  <li><strong>Sports Cars:</strong> 300-700 HP, 0.20-0.50 HP/lb</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Performance Vehicles</h5>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Hot Hatches:</strong> 200-400 HP, 0.15-0.30 HP/lb</li>
+                  <li><strong>Muscle Cars:</strong> 400-800 HP, 0.20-0.40 HP/lb</li>
+                  <li><strong>Supercars:</strong> 500-1000 HP, 0.30-0.60 HP/lb</li>
+                  <li><strong>Hypercars:</strong> 1000+ HP, 0.60+ HP/lb</li>
+                  <li><strong>Track Cars:</strong> 300-600 HP, 0.25-0.45 HP/lb</li>
+                  <li><strong>Rally Cars:</strong> 300-600 HP, 0.20-0.40 HP/lb</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Performance Estimation Factors</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Aerodynamics:</strong> Drag coefficient and frontal area</li>
+              <li><strong>Transmission:</strong> Gear ratios and efficiency</li>
+              <li><strong>Tire Grip:</strong> Traction and compound selection</li>
+              <li><strong>Weight Distribution:</strong> Front/rear balance</li>
+              <li><strong>Drivetrain Loss:</strong> Power transmission efficiency</li>
+              <li><strong>Environmental Conditions:</strong> Temperature, altitude, humidity</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Horsepower Calculation Tips</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Use Peak Values:</strong> Maximum torque and corresponding RPM</li>
+              <li><strong>Consider Engine Type:</strong> Different engines have different characteristics</li>
+              <li><strong>Account for Losses:</strong> Drivetrain and accessory power consumption</li>
+              <li><strong>Verify Units:</strong> Ensure consistent measurement units</li>
+              <li><strong>Multiple Measurements:</strong> Test at different RPM points</li>
+              <li><strong>Professional Validation:</strong> Compare with dyno results when possible</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Horsepower Calculation Mistakes</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Wrong RPM Values:</strong> Using incorrect engine speed</li>
+              <li><strong>Unit Confusion:</strong> Mixing lb-ft and Nm torque values</li>
+              <li><strong>Peak vs. Average:</strong> Using average instead of peak values</li>
+              <li><strong>Ignoring Losses:</strong> Not accounting for drivetrain efficiency</li>
+              <li><strong>Single Point Calculation:</strong> Not considering power curve</li>
+              <li><strong>Environmental Factors:</strong> Ignoring temperature and altitude effects</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Horsepower Concepts</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Brake Horsepower:</strong> Engine output before losses</li>
+              <li><strong>Wheel Horsepower:</strong> Power delivered to wheels</li>
+              <li><strong>SAE Correction:</strong> Standardized power measurement</li>
+              <li><strong>Dyno Types:</strong> Chassis vs. engine dynamometers</li>
+              <li><strong>Power Curves:</strong> Horsepower vs. RPM graphs</li>
+              <li><strong>Torque Curves:</strong> Torque vs. RPM characteristics</li>
+            </ul>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Remember that horsepower is just one aspect of vehicle performance. A car with high horsepower 
+                but poor power-to-weight ratio may not feel as fast as a lighter vehicle with less power. 
+                The magic number 5252 in the horsepower formula comes from the relationship between rotational 
+                speed and power - at 5252 RPM, torque and horsepower are numerically equal. For the most 
+                accurate results, use a dynamometer test, but our calculator provides excellent estimates 
+                for planning and comparison purposes. Always consider the complete performance picture, 
+                including handling, braking, and overall driving dynamics, not just straight-line speed.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
