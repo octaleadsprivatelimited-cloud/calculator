@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Calculator as CalculatorIcon, DollarSign, Heart, Clock, Car, Home, GraduationCap, Wrench, Globe, Plus, Minus, X, Divide } from 'lucide-react'
 
 interface CalculatorCategory {
@@ -137,6 +137,133 @@ const calculatorCategories: CalculatorCategory[] = [
 export default function PageCalculator() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  
+  // Calculator state
+  const [display, setDisplay] = useState('0')
+  const [previousValue, setPreviousValue] = useState<number | null>(null)
+  const [operation, setOperation] = useState<string | null>(null)
+  const [waitingForOperand, setWaitingForOperand] = useState(false)
+
+  // Calculator functions
+  const handleCalculatorInput = useCallback((input: string) => {
+    switch (input) {
+      case '0':
+      case '1':
+      case '2':
+      case '3':
+      case '4':
+      case '5':
+      case '6':
+      case '7':
+      case '8':
+      case '9':
+        if (waitingForOperand) {
+          setDisplay(input)
+          setWaitingForOperand(false)
+        } else {
+          setDisplay(display === '0' ? input : display + input)
+        }
+        break
+      
+      case '.':
+        if (waitingForOperand) {
+          setDisplay('0.')
+          setWaitingForOperand(false)
+        } else if (display.indexOf('.') === -1) {
+          setDisplay(display + '.')
+        }
+        break
+      
+      case 'C':
+        setDisplay('0')
+        setPreviousValue(null)
+        setOperation(null)
+        setWaitingForOperand(false)
+        break
+      
+      case '⌫':
+        if (display.length === 1) {
+          setDisplay('0')
+        } else {
+          setDisplay(display.slice(0, -1))
+        }
+        break
+      
+      case '+':
+      case '-':
+      case '×':
+      case '÷':
+        const inputValue = parseFloat(display)
+        
+        if (previousValue === null) {
+          setPreviousValue(inputValue)
+        } else if (operation) {
+          const result = performCalculation(previousValue, inputValue, operation)
+          setDisplay(String(result))
+          setPreviousValue(result)
+        }
+        
+        setWaitingForOperand(true)
+        setOperation(input)
+        break
+      
+      case '=':
+        if (previousValue !== null && operation) {
+          const inputValue = parseFloat(display)
+          const result = performCalculation(previousValue, inputValue, operation)
+          setDisplay(String(result))
+          setPreviousValue(null)
+          setOperation(null)
+          setWaitingForOperand(false)
+        }
+        break
+    }
+  }, [display, previousValue, operation, waitingForOperand])
+
+  const performCalculation = (firstValue: number, secondValue: number, op: string): number => {
+    switch (op) {
+      case '+':
+        return firstValue + secondValue
+      case '-':
+        return firstValue - secondValue
+      case '×':
+        return firstValue * secondValue
+      case '÷':
+        return secondValue !== 0 ? firstValue / secondValue : 0
+      default:
+        return secondValue
+    }
+  }
+
+  // Keyboard input support
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      const key = event.key
+      
+      if (key >= '0' && key <= '9') {
+        handleCalculatorInput(key)
+      } else if (key === '.') {
+        handleCalculatorInput('.')
+      } else if (key === '+') {
+        handleCalculatorInput('+')
+      } else if (key === '-') {
+        handleCalculatorInput('-')
+      } else if (key === '*') {
+        handleCalculatorInput('×')
+      } else if (key === '/') {
+        handleCalculatorInput('÷')
+      } else if (key === 'Enter' || key === '=') {
+        handleCalculatorInput('=')
+      } else if (key === 'Escape') {
+        handleCalculatorInput('C')
+      } else if (key === 'Backspace') {
+        handleCalculatorInput('⌫')
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [handleCalculatorInput])
 
   // Clear search and URL parameter
   const clearSearch = () => {
@@ -193,8 +320,139 @@ export default function PageCalculator() {
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
             Welcome to Calculator.net
           </h1>
-          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Free online calculators for finance, math, health, and more. Currently featuring over 50+ calculators to help you "do the math" quickly in various areas.
+          </p>
+          
+          {/* Simple Calculator */}
+          <div className="max-w-xs mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3">
+              <div className="text-right text-white font-mono text-lg min-h-[1.5rem] break-all">
+                {display}
+              </div>
+            </div>
+            <div className="p-3">
+              <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
+                {/* Calculator Buttons */}
+                <button
+                  onClick={() => handleCalculatorInput('C')}
+                  className="col-span-2 bg-red-500 hover:bg-red-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  AC
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('⌫')}
+                  className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  ⌫
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('÷')}
+                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  ÷
+                </button>
+                
+                <button
+                  onClick={() => handleCalculatorInput('7')}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  7
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('8')}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  8
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('9')}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  9
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('×')}
+                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  ×
+                </button>
+                
+                <button
+                  onClick={() => handleCalculatorInput('4')}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  4
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('5')}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  5
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('6')}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  6
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('-')}
+                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  -
+                </button>
+                
+                <button
+                  onClick={() => handleCalculatorInput('1')}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  1
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('2')}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  2
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('3')}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  3
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('+')}
+                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  +
+                </button>
+                
+                <button
+                  onClick={() => handleCalculatorInput('0')}
+                  className="col-span-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  0
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('.')}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  .
+                </button>
+                <button
+                  onClick={() => handleCalculatorInput('=')}
+                  className="bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                >
+                  =
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          {/* Calculator Instructions */}
+          <p className="text-sm text-gray-500 mt-3 max-w-xs mx-auto">
+            💡 Use keyboard: Numbers, +, -, *, /, Enter, Escape, Backspace
           </p>
         </div>
 
