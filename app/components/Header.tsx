@@ -40,13 +40,7 @@ const navigation: NavItem[] = [
       { name: 'Loan', href: '/loan-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Calculate loan payments' },
       { name: 'Auto Loan', href: '/auto-loan-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Calculate car loan payments' },
       { name: 'Investment', href: '/investment-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Investment returns' },
-      { name: 'Compound Interest', href: '/compound-interest-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Compound interest calculator' },
-      { name: 'Simple Interest', href: '/simple-interest-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Simple interest calculator' },
-      { name: 'Retirement', href: '/retirement-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Retirement planning' },
-      { name: 'Salary', href: '/calculators/salary', icon: <DollarSign className="w-4 h-4" />, description: 'Take-home pay calculator' },
-      { name: 'Income Tax', href: '/income-tax-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Tax liability calculator' },
-      { name: 'Discount', href: '/discount-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Discount calculator' },
-      { name: 'Tip', href: '/tip-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Tip calculator' }
+      { name: 'Compound Interest', href: '/compound-interest-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Compound interest calculator' }
     ]
   },
   {
@@ -58,12 +52,8 @@ const navigation: NavItem[] = [
       { name: 'Scientific', href: '/scientific-calculator', icon: <Calculator className="w-4 h-4" />, description: 'Advanced scientific functions' },
       { name: 'Fraction', href: '/fraction-calculator', icon: <Plus className="w-4 h-4" />, description: 'Fraction arithmetic' },
       { name: 'Percentage', href: '/percentage-calculator', icon: <Percent className="w-4 h-4" />, description: 'Percentage calculations' },
-      { name: 'Percentage Grade', href: '/percentage-grade-calculator', icon: <Percent className="w-4 h-4" />, description: 'Convert percentages to grades' },
-      { name: 'Triangle', href: '/triangle-calculator', icon: <Triangle className="w-4 h-4" />, description: 'Triangle properties' },
       { name: 'Area', href: '/area-calculator', icon: <Calculator className="w-4 h-4" />, description: 'Area calculations' },
-      { name: 'Volume', href: '/volume-calculator', icon: <Calculator className="w-4 h-4" />, description: 'Volume calculations' },
-      { name: 'Standard Deviation', href: '/standard-deviation-calculator', icon: <Calculator className="w-4 h-4" />, description: 'Statistical calculations' },
-      { name: 'Random Number', href: '/random-number-calculator', icon: <Calculator className="w-4 h-4" />, description: 'Random number generator' }
+      { name: 'Volume', href: '/volume-calculator', icon: <Calculator className="w-4 h-4" />, description: 'Volume calculations' }
     ]
   },
   {
@@ -76,24 +66,7 @@ const navigation: NavItem[] = [
       { name: 'Calorie', href: '/calorie-calculator', icon: <Heart className="w-4 h-4" />, description: 'Daily calorie needs' },
       { name: 'Body Fat', href: '/body-fat-calculator', icon: <Heart className="w-4 h-4" />, description: 'Body fat percentage' },
       { name: 'BMR', href: '/bmr-calculator', icon: <Heart className="w-4 h-4" />, description: 'Basal Metabolic Rate' },
-      { name: 'Ideal Weight', href: '/calculators/ideal-weight', icon: <Heart className="w-4 h-4" />, description: 'Ideal body weight' },
-      { name: 'Pregnancy', href: '/calculators/pregnancy', icon: <Heart className="w-4 h-4" />, description: 'Due date calculator' }
-    ]
-  },
-  {
-    name: 'Construction',
-    href: '/calculators/concrete',
-    icon: <Wrench className="w-5 h-5" />,
-    description: 'Building materials and costs',
-    subItems: [
-      { name: 'Concrete', href: '/calculators/concrete', icon: <Wrench className="w-4 h-4" />, description: 'Concrete volume calculator' },
-      { name: 'Paint', href: '/calculators/paint', icon: <Wrench className="w-4 h-4" />, description: 'Paint coverage calculator' },
-      { name: 'Flooring', href: '/calculators/flooring', icon: <Wrench className="w-4 h-4" />, description: 'Flooring materials' },
-      { name: 'Roofing', href: '/calculators/roofing', icon: <Wrench className="w-4 h-4" />, description: 'Roofing calculator' },
-      { name: 'Tile', href: '/tile-calculator', icon: <Wrench className="w-4 h-4" />, description: 'Tile materials calculator' },
-      { name: 'Mulch', href: '/mulch-calculator', icon: <Wrench className="w-4 h-4" />, description: 'Mulch coverage calculator' },
-      { name: 'Gravel', href: '/gravel-calculator', icon: <Wrench className="w-4 h-4" />, description: 'Gravel materials calculator' },
-      { name: 'Electrical', href: '/calculators/electrical', icon: <Wrench className="w-4 h-4" />, description: 'Electrical load calculator' }
+      { name: 'Ideal Weight', href: '/calculators/ideal-weight', icon: <Heart className="w-4 h-4" />, description: 'Ideal body weight' }
     ]
   },
   {
@@ -106,13 +79,7 @@ const navigation: NavItem[] = [
       { name: 'Weight', href: '/calculators/weight', icon: <Globe className="w-4 h-4" />, description: 'Weight unit converter' },
       { name: 'Temperature', href: '/calculators/temperature', icon: <Globe className="w-4 h-4" />, description: 'Temperature converter' },
       { name: 'Currency', href: '/calculators/currency', icon: <Globe className="w-4 h-4" />, description: 'Currency converter' },
-      { name: 'Area', href: '/area-calculator', icon: <Globe className="w-4 h-4" />, description: 'Area unit converter' },
-      { name: 'Volume', href: '/volume-calculator', icon: <Globe className="w-4 h-4" />, description: 'Volume unit converter' },
-      { name: 'Tire Size', href: '/tire-size-calculator', icon: <Globe className="w-4 h-4" />, description: 'Tire size converter' },
-      { name: 'Wind Chill', href: '/wind-chill-calculator', icon: <Globe className="w-4 h-4" />, description: 'Wind chill calculator' },
-      { name: 'Heat Index', href: '/heat-index-calculator', icon: <Globe className="w-4 h-4" />, description: 'Heat index calculator' },
-      { name: 'Dew Point', href: '/dew-point-calculator', icon: <Globe className="w-4 h-4" />, description: 'Dew point calculator' },
-      { name: 'Bandwidth', href: '/bandwidth-calculator', icon: <Globe className="w-4 h-4" />, description: 'Bandwidth calculator' }
+      { name: 'Area', href: '/area-calculator', icon: <Globe className="w-4 h-4" />, description: 'Area unit converter' }
     ]
   },
   {
@@ -125,44 +92,8 @@ const navigation: NavItem[] = [
       { name: 'Date', href: '/date-calculator', icon: <Clock className="w-4 h-4" />, description: 'Date calculations' },
       { name: 'Time', href: '/time-calculator', icon: <Clock className="w-4 h-4" />, description: 'Time calculations' },
       { name: 'Time Duration', href: '/time-duration-calculator', icon: <Clock className="w-4 h-4" />, description: 'Duration between dates' },
-      { name: 'Day Counter', href: '/day-counter-calculator', icon: <Clock className="w-4 h-4" />, description: 'Count days between dates' },
-      { name: 'Day of Week', href: '/day-of-week-calculator', icon: <Clock className="w-4 h-4" />, description: 'Find day of week' },
-      { name: 'Hours', href: '/calculators/hours', icon: <Clock className="w-4 h-4" />, description: 'Work hours calculator' },
-      { name: 'Countdown', href: '/calculators/countdown', icon: <Clock className="w-4 h-4" />, description: 'Countdown timer' }
+      { name: 'Day Counter', href: '/day-counter-calculator', icon: <Clock className="w-4 h-4" />, description: 'Count days between dates' }
     ]
-  },
-  {
-    name: 'Education',
-    href: '/gpa-calculator',
-    icon: <GraduationCap className="w-5 h-5" />,
-    description: 'Academic calculations and grades',
-    subItems: [
-      { name: 'GPA', href: '/gpa-calculator', icon: <GraduationCap className="w-4 h-4" />, description: 'Grade Point Average' },
-      { name: 'Grade', href: '/grade-calculator', icon: <GraduationCap className="w-4 h-4" />, description: 'Grade calculator' },
-      { name: 'Percentage Grade', href: '/percentage-grade-calculator', icon: <GraduationCap className="w-4 h-4" />, description: 'Convert percentages to grades' },
-      { name: 'Scholarship', href: '/calculators/scholarship', icon: <GraduationCap className="w-4 h-4" />, description: 'Scholarship eligibility' }
-    ]
-  },
-  {
-    name: 'Search',
-    href: '/search-calculator',
-    icon: <Search className="w-5 h-5" />,
-    description: 'Find the perfect calculator',
-    subItems: []
-  },
-  {
-    name: 'Compare',
-    href: '/compare-calculators',
-    icon: <BarChart3 className="w-5 h-5" />,
-    description: 'Compare calculators side by side',
-    subItems: []
-  },
-  {
-    name: 'History',
-    href: '/calculation-history',
-    icon: <History className="w-5 h-5" />,
-    description: 'View calculation history and usage',
-    subItems: []
   }
 ]
 
@@ -184,7 +115,7 @@ export default function Header() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     if (searchQuery.trim()) {
-      window.location.href = `/?search=${encodeURIComponent(searchQuery.trim())}`
+      window.location.href = `/search-calculator?q=${encodeURIComponent(searchQuery.trim())}`
     }
   }
 
@@ -300,7 +231,7 @@ export default function Header() {
                <form onSubmit={handleSearch} className="relative">
                  <input
                    type="text"
-                   placeholder="Search calculators..."
+                   placeholder="Search for calculators..."
                    value={searchQuery}
                    onChange={(e) => setSearchQuery(e.target.value)}
                    className="w-full px-3 py-2.5 pl-10 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-all duration-200"

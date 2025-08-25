@@ -103,6 +103,24 @@ export default function CalculatorSearch() {
   const [showFilters, setShowFilters] = useState(false)
   const [selectedTags, setSelectedTags] = useState<string[]>([])
 
+  // Handle search query from URL parameters
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const queryParam = urlParams.get('q')
+    if (queryParam) {
+      setSearchQuery(queryParam)
+    }
+  }, [])
+
+  // Update URL when search query changes
+  useEffect(() => {
+    if (searchQuery) {
+      const url = new URL(window.location.href)
+      url.searchParams.set('q', searchQuery)
+      window.history.replaceState({}, '', url.toString())
+    }
+  }, [searchQuery])
+
   // Get all unique tags
   const allTags = useMemo(() => {
     const tags = new Set<string>()
@@ -130,12 +148,13 @@ export default function CalculatorSearch() {
 
     // Search query
     if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase()
-      filtered = filtered.filter(calc =>
-        calc.name.toLowerCase().includes(query) ||
-        calc.description.toLowerCase().includes(query) ||
-        calc.tags.some(tag => tag.toLowerCase().includes(query))
-      )
+      const query = searchQuery.toLowerCase().trim()
+      filtered = filtered.filter(calc => {
+        const nameMatch = calc.name.toLowerCase().includes(query)
+        const descMatch = calc.description.toLowerCase().includes(query)
+        const tagMatch = calc.tags.some(tag => tag.toLowerCase().includes(query))
+        return nameMatch || descMatch || tagMatch
+      })
     }
 
     // Sort
@@ -182,6 +201,19 @@ export default function CalculatorSearch() {
     })
     setSelectedTags([])
     setSearchQuery('')
+    // Clear URL search parameter
+    const url = new URL(window.location.href)
+    url.searchParams.delete('q')
+    window.history.replaceState({}, '', url.toString())
+  }
+
+  // Clear search query
+  const clearSearch = () => {
+    setSearchQuery('')
+    // Clear URL search parameter
+    const url = new URL(window.location.href)
+    url.searchParams.delete('q')
+    window.history.replaceState({}, '', url.toString())
   }
 
   // Get popular calculators for suggestions
@@ -214,12 +246,22 @@ export default function CalculatorSearch() {
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
+              key="search-input"
               type="text"
               placeholder="Search calculators by name, description, or tags..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
+            {searchQuery && (
+              <button
+                onClick={clearSearch}
+                className="absolute right-20 top-1/2 transform -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 transition-colors"
+                aria-label="Clear search"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
           </div>
           
           {/* Filter Button */}

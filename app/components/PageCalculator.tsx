@@ -138,16 +138,33 @@ export default function PageCalculator() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
+  // Clear search and URL parameter
+  const clearSearch = () => {
+    setSearchTerm('')
+    // Clear URL search parameter
+    const url = new URL(window.location.href)
+    url.searchParams.delete('q')
+    url.searchParams.delete('search')
+    window.history.replaceState({}, '', url.toString())
+  }
+
   // Get search query from URL if present
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search)
-      const searchParam = urlParams.get('search')
-      if (searchParam) {
-        setSearchTerm(searchParam)
-      }
+    const urlParams = new URLSearchParams(window.location.search)
+    const searchParam = urlParams.get('q') || urlParams.get('search') // Support both 'q' and 'search' for backward compatibility
+    if (searchParam) {
+      setSearchTerm(searchParam)
     }
   }, [])
+
+  // Update URL when search term changes
+  useEffect(() => {
+    if (searchTerm) {
+      const url = new URL(window.location.href)
+      url.searchParams.set('q', searchTerm)
+      window.history.replaceState({}, '', url.toString())
+    }
+  }, [searchTerm])
 
   const filteredCategories = calculatorCategories.filter(category => {
     if (selectedCategory && category.id !== selectedCategory) return false
@@ -190,9 +207,18 @@ export default function PageCalculator() {
                 placeholder="Search calculators..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-2xl focus:border-blue-500 focus:outline-none shadow-lg"
+                className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-2xl focus:border-blue-500 focus:outline-none shadow-lg pr-12"
               />
-              <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+                {searchTerm && (
+                  <button
+                    onClick={clearSearch}
+                    className="p-1 text-gray-400 hover:text-gray-600 transition-colors"
+                    aria-label="Clear search"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                )}
                 <CalculatorIcon className="w-6 h-6 text-gray-400" />
               </div>
             </div>
@@ -234,21 +260,30 @@ export default function PageCalculator() {
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Search Results for "{searchTerm}"
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredCalculators.map(calculator => (
-                <div
-                  key={calculator.id}
-                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow cursor-pointer border-l-4 border-blue-500"
-                >
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    {calculator.name}
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    {calculator.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+            {filteredCalculators.length === 0 ? (
+              <div className="text-center py-12 bg-gray-50 rounded-2xl">
+                <CalculatorIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                <h3 className="text-lg font-medium text-gray-600 mb-2">No calculators found</h3>
+                <p className="text-gray-500">Try adjusting your search terms or browse categories below</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredCalculators.map(calculator => (
+                  <a
+                    key={calculator.id}
+                    href={calculator.url}
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow cursor-pointer border-l-4 border-blue-500 block"
+                  >
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                      {calculator.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {calculator.description}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
