@@ -306,17 +306,189 @@ Converted Sizes:
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-purple-600 mt-1 flex-shrink-0" />
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Shoe Size Conversion</h2>
+          
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Shoe Size Conversion</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This converter helps you translate between different international shoe sizing systems. 
-                US sizes typically range from 1-15, UK sizes from 0.5-14.5, EU sizes from 33-47, 
-                and measurements in centimeters (20.8-32.0) and inches (8.2-12.6).
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <p className="text-gray-700 mb-3">
+                This comprehensive shoe size converter helps you navigate between different international sizing systems 
+                used around the world. Whether you're shopping online from international retailers, traveling abroad, 
+                or simply need to understand size equivalents, this tool provides accurate conversions across all major systems.
               </p>
+              <p className="text-gray-700">
+                The converter handles US, UK, European, and metric measurements with precision, accounting for the 
+                subtle differences between sizing standards and providing interpolated values for sizes not in the standard chart.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">International Shoe Sizing Systems</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">US Sizing System</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Range:</strong> 1-15 (men's sizes)</li>
+                    <li><strong>Increment:</strong> 1 full size</li>
+                    <li><strong>Base:</strong> Barleycorn measurement (1/3 inch)</li>
+                    <li><strong>Usage:</strong> United States and Canada</li>
+                    <li><strong>Note:</strong> Women's sizes typically +1.5 to men's</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">UK Sizing System</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Range:</strong> 0.5-14.5</li>
+                    <li><strong>Increment:</strong> 1 full size</li>
+                    <li><strong>Base:</strong> Barleycorn measurement (1/3 inch)</li>
+                    <li><strong>Usage:</strong> United Kingdom and Commonwealth</li>
+                    <li><strong>Note:</strong> Starts at 0.5, not 0</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">European & Metric Systems</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">European Sizing (EU)</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Range:</strong> 33-47</li>
+                    <li><strong>Increment:</strong> 2/3 centimeter</li>
+                    <li><strong>Base:</strong> Paris point (2/3 cm)</li>
+                    <li><strong>Usage:</strong> Continental Europe</li>
+                    <li><strong>Note:</strong> Most precise metric-based system</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Metric Measurements</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Centimeters:</strong> 20.8-32.0 cm</li>
+                    <li><strong>Inches:</strong> 8.2-12.6 inches</li>
+                    <li><strong>Precision:</strong> Most accurate for fitting</li>
+                    <li><strong>Usage:</strong> Scientific and medical applications</li>
+                    <li><strong>Note:</strong> Direct foot measurement</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Size Conversion Methodology</h3>
+              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                <h4 className="font-semibold text-gray-800 mb-2">How Conversions Work</h4>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p><strong>Exact Matches:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Direct chart lookup</li>
+                      <li>Standard size equivalents</li>
+                      <li>Most common sizes</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Interpolation:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Between chart values</li>
+                      <li>Mathematical calculation</li>
+                      <li>Accurate intermediate sizes</li>
+                    </ul>
+                  </div>
+                </div>
+                <p className="text-gray-700 mt-3 text-sm">
+                  <strong>Note:</strong> The converter uses advanced interpolation algorithms to provide accurate 
+                  conversions for sizes not explicitly listed in the conversion chart.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Regional Size Variations</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>North America:</strong> US and Canadian sizing, typically whole numbers</li>
+                <li><strong>United Kingdom:</strong> UK sizing with half-size increments starting at 0.5</li>
+                <li><strong>Continental Europe:</strong> EU sizing based on Paris point measurement</li>
+                <li><strong>Asia:</strong> Often uses EU sizing or local variations</li>
+                <li><strong>Australia:</strong> Primarily UK sizing with some US influence</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Practical Applications</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Online Shopping</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>International retailers</li>
+                    <li>Cross-border purchases</li>
+                    <li>Size verification</li>
+                    <li>Return policy compliance</li>
+                    <li>Brand size differences</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Travel & International Use</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Local shoe shopping</li>
+                    <li>Emergency replacements</li>
+                    <li>Cultural understanding</li>
+                    <li>Size communication</li>
+                    <li>Brand familiarity</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Size Fitting Considerations</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Brand Variations:</strong> Different brands may fit differently even with same size</li>
+                <li><strong>Style Differences:</strong> Boots, sneakers, and dress shoes may have different fits</li>
+                <li><strong>Width Considerations:</strong> Length is only part of proper fit</li>
+                <li><strong>Time of Day:</strong> Feet swell throughout the day</li>
+                <li><strong>Seasonal Changes:</strong> Temperature affects foot size</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Measurement Best Practices</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Accurate Measurement</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Measure in afternoon/evening</li>
+                    <li>Stand on flat surface</li>
+                    <li>Use proper measuring tools</li>
+                    <li>Measure both feet</li>
+                    <li>Account for socks</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Professional Fitting</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Visit shoe stores</li>
+                    <li>Use Brannock device</li>
+                    <li>Professional consultation</li>
+                    <li>Multiple brand testing</li>
+                    <li>Comfort over size</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Always measure your feet in the afternoon when they're at their largest</li>
+                <li>• Consider ordering multiple sizes when shopping online internationally</li>
+                <li>• Remember that EU sizes are typically the most precise for metric measurements</li>
+                <li>• Don't rely solely on size conversion - consider brand-specific sizing charts</li>
+                <li>• When in doubt, size up rather than down for comfort</li>
+                <li>• Keep a record of your sizes in different systems for future reference</li>
+              </ul>
             </div>
           </div>
         </div>

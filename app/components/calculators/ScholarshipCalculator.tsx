@@ -486,6 +486,193 @@ export default function ScholarshipCalculator() {
           </div>
         </div>
 
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Scholarship Calculator</h2>
+          
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <p className="text-gray-700 mb-3">
+                This comprehensive scholarship calculator helps students identify and evaluate scholarship opportunities 
+                based on their academic profile, financial situation, and personal characteristics. It analyzes eligibility 
+                across multiple scholarship categories and provides personalized recommendations to maximize funding potential.
+              </p>
+              <p className="text-gray-700">
+                The calculator evaluates academic merit, financial need, special circumstances, and extracurricular 
+                activities to match students with the most suitable scholarship opportunities for their situation.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Scholarship Categories Explained</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Academic Scholarships</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Merit-Based:</strong> High GPA and academic achievement</li>
+                    <li><strong>Subject-Specific:</strong> STEM, humanities, arts focus</li>
+                    <li><strong>Test Scores:</strong> SAT, ACT, AP exam performance</li>
+                    <li><strong>Class Rank:</strong> Top percentile in graduating class</li>
+                    <li><strong>Research Projects:</strong> Academic research experience</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Need-Based Scholarships</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Income Requirements:</strong> Family financial situation</li>
+                    <li><strong>FAFSA Completion:</strong> Federal aid application</li>
+                    <li><strong>Financial Hardship:</strong> Special circumstances</li>
+                    <li><strong>Dependency Status:</strong> Independent vs. dependent student</li>
+                    <li><strong>Asset Considerations:</strong> Family assets and savings</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Special Category Scholarships</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Demographic & Background</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>First Generation:</strong> First in family to attend college</li>
+                    <li><strong>Minority Students:</strong> Underrepresented groups</li>
+                    <li><strong>Women in STEM:</strong> Gender-specific opportunities</li>
+                    <li><strong>Veterans:</strong> Military service recognition</li>
+                    <li><strong>International Students:</strong> Global diversity focus</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Activities & Interests</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Community Service:</strong> Volunteer work and leadership</li>
+                    <li><strong>Athletics:</strong> Sports participation and achievement</li>
+                    <li><strong>Arts & Music:</strong> Creative talent and performance</li>
+                    <li><strong>Leadership:</strong> Student government and clubs</li>
+                    <li><strong>Work Experience:</strong> Professional development</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Eligibility Scoring System</h3>
+              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <h4 className="font-semibold text-gray-800 mb-2">How Scores Are Calculated</h4>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p><strong>GPA Scoring:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Base requirement must be met</li>
+                      <li>Bonus points for exceeding minimum</li>
+                      <li>Higher GPA = higher scholarship potential</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Income Scoring:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Lower income = higher score</li>
+                      <li>Meets financial need criteria</li>
+                      <li>Demonstrates financial hardship</li>
+                    </ul>
+                  </div>
+                </div>
+                <p className="text-gray-700 mt-3 text-sm">
+                  <strong>Note:</strong> Each scholarship has specific requirements that must be met before scoring begins. 
+                  Meeting all requirements is essential for eligibility consideration.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Scholarship Application Strategy</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Application Timeline</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Early Bird:</strong> Apply 6-12 months in advance</li>
+                    <li><strong>Regular Deadlines:</strong> 3-6 months before school year</li>
+                    <li><strong>Rolling Applications:</strong> Apply anytime during cycle</li>
+                    <li><strong>Multiple Cycles:</strong> Some offer fall/spring terms</li>
+                    <li><strong>Renewal Deadlines:</strong> Maintain eligibility annually</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Application Components</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Personal Statement:</strong> Compelling narrative</li>
+                    <li><strong>Letters of Recommendation:</strong> Strong references</li>
+                    <li><strong>Transcripts:</strong> Academic record</li>
+                    <li><strong>Resume/CV:</strong> Activities and achievements</li>
+                    <li><strong>Financial Documents:</strong> Income verification</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Maximizing Scholarship Success</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Academic Excellence:</strong> Maintain high GPA and strong academic record</li>
+                <li><strong>Extracurricular Involvement:</strong> Participate in meaningful activities and leadership roles</li>
+                <li><strong>Community Service:</strong> Document volunteer hours and community impact</li>
+                <li><strong>Professional Development:</strong> Seek internships, research opportunities, and work experience</li>
+                <li><strong>Strong Applications:</strong> Write compelling essays and secure excellent recommendations</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Scholarship Sources</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Institutional Sources</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>University merit scholarships</li>
+                    <li>Department-specific awards</li>
+                    <li>Alumni association grants</li>
+                    <li>Honors program funding</li>
+                    <li>Transfer student scholarships</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">External Sources</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Private foundations</li>
+                    <li>Professional associations</li>
+                    <li>Community organizations</li>
+                    <li>Corporate sponsorships</li>
+                    <li>Government programs</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Financial Aid Integration</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>FAFSA Priority:</strong> Complete FAFSA early for maximum aid consideration</li>
+                <li><strong>Scholarship Coordination:</strong> Understand how scholarships affect other aid</li>
+                <li><strong>Package Optimization:</strong> Balance grants, loans, and scholarships</li>
+                <li><strong>Renewal Planning:</strong> Plan for multi-year funding sustainability</li>
+                <li><strong>Tax Implications:</strong> Understand scholarship taxability rules</li>
+              </ul>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Apply to 10-15 scholarships to maximize your chances of success</li>
+                <li>• Customize each application to match the specific scholarship requirements</li>
+                <li>• Keep detailed records of all activities, awards, and community service</li>
+                <li>• Start your scholarship search early - many deadlines are months before school starts</li>
+                <li>• Don't overlook smaller scholarships - they add up and have less competition</li>
+                <li>• Network with professors, advisors, and professionals for recommendation letters</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center mt-12">
           <a
             href="/"
