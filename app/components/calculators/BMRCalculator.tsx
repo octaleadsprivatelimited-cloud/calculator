@@ -235,6 +235,78 @@ export default function BMRCalculator() {
             </div>
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About BMR Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our Basal Metabolic Rate (BMR) calculator helps you determine the number of calories your body needs 
+              at rest to maintain basic life functions. This fundamental measurement is essential for weight management, 
+              nutrition planning, and understanding your body's energy requirements.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What is BMR?</h4>
+            <p className="text-gray-700 mb-4">
+              BMR represents the minimum number of calories your body needs to perform essential functions like breathing, 
+              circulation, cell production, nutrient processing, protein synthesis, and ion transport. It accounts for 
+              approximately 60-75% of your total daily calorie expenditure.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Available Formulas</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Mifflin-St Jeor</h5>
+                <p className="text-gray-700 text-sm">Most accurate for most people, accounts for age, gender, weight, and height</p>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Harris-Benedict</h5>
+                <p className="text-gray-700 text-sm">Classic formula, slightly less accurate but widely used</p>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Katch-McArdle</h5>
+                <p className="text-gray-700 text-sm">Best for those who know their body fat percentage</p>
+              </div>
+              <div>
+                <h5 className="font-semibold text-gray-800 mb-2">Cunningham</h5>
+                <p className="text-gray-700 text-sm">Ideal for athletes and very active individuals</p>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting BMR</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Age:</strong> BMR decreases with age due to muscle loss</li>
+              <li><strong>Gender:</strong> Men typically have higher BMR due to more muscle mass</li>
+              <li><strong>Body Composition:</strong> Muscle tissue burns more calories than fat</li>
+              <li><strong>Body Size:</strong> Larger bodies require more energy</li>
+              <li><strong>Hormones:</strong> Thyroid function significantly impacts BMR</li>
+              <li><strong>Genetics:</strong> Some people naturally have faster or slower metabolisms</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your age, gender, weight, height, and select the formula that best fits your situation. 
+              The calculator will compute your BMR and provide TDEE estimates for different activity levels, 
+              helping you set appropriate calorie goals.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">BMR vs TDEE</h4>
+            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200 mb-4">
+              <p className="text-purple-700 text-sm">
+                <strong>BMR:</strong> Calories needed at complete rest<br/>
+                <strong>TDEE:</strong> Total calories including activity (BMR × Activity Multiplier)
+              </p>
+            </div>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Use the Mifflin-St Jeor formula for the most accurate results. Your BMR is your metabolic baseline - 
+                never eat below this number for extended periods as it can slow your metabolism and cause health issues.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

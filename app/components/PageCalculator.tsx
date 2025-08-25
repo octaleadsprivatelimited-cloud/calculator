@@ -317,11 +317,8 @@ export default function PageCalculator() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Welcome Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-            Welcome to Online Calculator.live
-          </h1>
           <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Free online calculators for finance, math, health, and more. Currently featuring over 50+ calculators to help you "do the math" quickly in various areas.
+            200+ calculators
           </p>
           
           {/* Simple Calculator */}

@@ -307,6 +307,41 @@ export default function GPACalculator() {
             </div>
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About GPA Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our free GPA calculator helps you calculate your Grade Point Average (GPA) from course grades and credits. 
+              This essential tool is perfect for students tracking academic performance, applying to graduate schools, 
+              or maintaining scholarship requirements.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How GPA is Calculated</h4>
+            <p className="text-gray-700 mb-4">
+              GPA is calculated by dividing the total grade points earned by the total number of credit hours attempted. 
+              Each letter grade corresponds to a specific point value (A = 4.0, A- = 3.7, B+ = 3.3, etc.). 
+              The calculator automatically converts your grades to points and computes your cumulative GPA.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Features</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Add unlimited courses with custom names</li>
+              <li>Support for all standard grade scales (A+ to F)</li>
+              <li>Automatic GPA calculation and letter grade conversion</li>
+              <li>Real-time validation and error checking</li>
+              <li>Mobile-friendly design for on-the-go calculations</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Use</h4>
+            <p className="text-gray-700">
+              Use this GPA calculator to track your academic progress, prepare for graduate school applications, 
+              maintain scholarship eligibility, or simply monitor your performance throughout the semester. 
+              It's an essential tool for any student serious about their academic success.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )

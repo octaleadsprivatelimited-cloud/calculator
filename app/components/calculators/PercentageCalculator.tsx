@@ -281,6 +281,73 @@ export default function PercentageCalculator() {
           </div>
         </div>
 
+        {/* Calculator Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Percentage Calculator</h2>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-6 text-lg">
+              Our comprehensive percentage calculator handles all types of percentage calculations with ease and accuracy. 
+              Whether you're calculating discounts, markups, percentage changes, or finding parts of a whole, 
+              this tool provides instant results and clear explanations.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-6">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Calculation Types</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <li><strong>Basic Percentage:</strong> Find X% of a number</li>
+                  <li><strong>Percentage Change:</strong> Calculate increase/decrease</li>
+                  <li><strong>Percentage of Total:</strong> Find what % one number is of another</li>
+                  <li><strong>Increase/Decrease:</strong> Add or subtract percentages</li>
+                  <li><strong>Reverse Percentage:</strong> Find original value from result</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Common Applications</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <li><strong>Finance:</strong> Interest rates, discounts, markups</li>
+                  <li><strong>Business:</strong> Sales tax, profit margins, growth rates</li>
+                  <li><strong>Education:</strong> Test scores, grade calculations</li>
+                  <li><strong>Statistics:</strong> Data analysis, survey results</li>
+                  <li><strong>Everyday Life:</strong> Tips, sales, measurements</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Features</h3>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                <h4 className="font-semibold text-purple-800 mb-2">Multiple Types</h4>
+                <p className="text-purple-700 text-sm">Handle various percentage scenarios</p>
+              </div>
+              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <h4 className="font-semibold text-blue-800 mb-2">Step-by-Step</h4>
+                <p className="text-blue-700 text-sm">See exactly how calculations work</p>
+              </div>
+              <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                <h4 className="font-semibold text-green-800 mb-2">Quick Examples</h4>
+                <p className="text-green-700 text-sm">Learn with practical examples</p>
+              </div>
+            </div>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">How to Use</h3>
+            <p className="text-gray-700 mb-4">
+              Select the calculation type you need, enter your values, and click calculate. The calculator will 
+              show you the result along with a detailed explanation and the mathematical formula used. 
+              Use the quick examples to understand different percentage scenarios.
+            </p>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tip</h4>
+              <p className="text-gray-700 text-sm">
+                Remember that percentages are always out of 100. To find 25% of 200, think of it as 25/100 × 200 = 50. 
+                This mental math can help you verify your calculator results quickly.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Footer */}
         <footer className="text-center mt-12 text-gray-500">
           <p>© 2024 Percentage Calculator. All rights reserved.</p>

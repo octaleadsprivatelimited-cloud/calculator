@@ -151,6 +151,49 @@ export default function MortgageCalculator() {
             )}
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Mortgage Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our free mortgage calculator helps you estimate monthly mortgage payments, calculate total interest costs, 
+              and determine home affordability. This essential tool is perfect for first-time homebuyers, refinancing decisions, 
+              and understanding the true cost of homeownership.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How Mortgage Payments are Calculated</h4>
+            <p className="text-gray-700 mb-4">
+              Mortgage payments are calculated using the principal and interest formula, which considers your loan amount, 
+              interest rate, and loan term. The calculator automatically computes your monthly payment, total interest over 
+              the life of the loan, and the total amount you'll pay.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Factors Affecting Your Payment</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Home Price:</strong> The total cost of the property</li>
+              <li><strong>Down Payment:</strong> Initial payment that reduces your loan amount</li>
+              <li><strong>Interest Rate:</strong> Annual percentage rate charged by the lender</li>
+              <li><strong>Loan Term:</strong> Length of time to repay the loan (15, 20, or 30 years)</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Features</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Accurate monthly payment calculations</li>
+              <li>Total interest and payment breakdown</li>
+              <li>Multiple loan term options</li>
+              <li>Instant results and recommendations</li>
+              <li>Mobile-friendly design</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Use</h4>
+            <p className="text-gray-700">
+              Use this mortgage calculator to compare different loan scenarios, understand the impact of down payments 
+              and interest rates, plan your home purchase budget, or evaluate refinancing options. It's an essential 
+              tool for making informed decisions about one of life's biggest financial commitments.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -238,6 +238,64 @@ export default function TDEECalculator() {
             </div>
           </div>
         )}
+
+        {/* Calculator Description Section */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About TDEE Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our Total Daily Energy Expenditure (TDEE) calculator helps you determine how many calories your body needs 
+              each day based on your age, gender, weight, height, and activity level. This essential tool is perfect for 
+              weight management, fitness planning, and nutritional guidance.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">What is TDEE?</h4>
+            <p className="text-gray-700 mb-4">
+              TDEE represents the total number of calories your body burns in a day, including your basal metabolic rate (BMR) 
+              and calories burned through physical activity. It's the foundation for setting calorie goals for weight loss, 
+              maintenance, or muscle gain.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Components of TDEE</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>BMR (Basal Metabolic Rate):</strong> Calories burned at rest for basic bodily functions</li>
+              <li><strong>Physical Activity:</strong> Calories burned through exercise and daily movement</li>
+              <li><strong>Thermic Effect of Food:</strong> Calories burned digesting and processing food</li>
+              <li><strong>Non-Exercise Activity Thermogenesis (NEAT):</strong> Calories from daily activities</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Activity Level Guidelines</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Sedentary:</strong> Little or no exercise, desk job</li>
+              <li><strong>Light:</strong> Light exercise 1-3 days/week</li>
+              <li><strong>Moderate:</strong> Moderate exercise 3-5 days/week</li>
+              <li><strong>Active:</strong> Hard exercise 6-7 days/week</li>
+              <li><strong>Very Active:</strong> Very hard exercise, physical job</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your age, gender, weight, height, and select your activity level. The calculator will compute your BMR 
+              and TDEE, then provide calorie targets for different weight goals including weight loss, maintenance, and weight gain.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calorie Goals Explained</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li><strong>Weight Loss:</strong> 500 calorie deficit for 1 lb/week loss</li>
+              <li><strong>Mild Weight Loss:</strong> 250 calorie deficit for 0.5 lb/week loss</li>
+              <li><strong>Maintenance:</strong> Match your TDEE exactly</li>
+              <li><strong>Mild Weight Gain:</strong> 250 calorie surplus for 0.5 lb/week gain</li>
+              <li><strong>Weight Gain:</strong> 500 calorie surplus for 1 lb/week gain</li>
+            </ul>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Why TDEE Matters</h4>
+            <p className="text-gray-700">
+              Understanding your TDEE is crucial for effective weight management. Eating below your TDEE leads to weight loss, 
+              while eating above it leads to weight gain. This calculator helps you set realistic, sustainable calorie goals 
+              based on your individual needs and lifestyle.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )

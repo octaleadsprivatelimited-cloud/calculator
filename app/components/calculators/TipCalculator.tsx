@@ -334,15 +334,67 @@ Results:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Tip Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator helps you determine appropriate tips for various services. 
-                Standard tipping rates are 15-20% for restaurants, 15-18% for delivery, 
-                and 15-20% for personal services. Adjust based on service quality and local customs.
+        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Tip Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-4">
+              Our comprehensive tip calculator helps you calculate appropriate tips for restaurants, services, and group dining. 
+              Whether you're dining out, using delivery services, or receiving personal services, this tool ensures 
+              fair and accurate tip calculations every time.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-6">
+              <div>
+                <h4 className="text-lg font-semibold text-gray-800 mb-3">Standard Tipping Rates</h4>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <li><strong>Restaurants:</strong> 15-20% of pre-tax bill</li>
+                  <li><strong>Delivery Services:</strong> 15-18% of order total</li>
+                  <li><strong>Personal Services:</strong> 15-20% of service cost</li>
+                  <li><strong>Bartenders:</strong> $1-2 per drink or 15-20%</li>
+                  <li><strong>Taxi/Rideshare:</strong> 15-20% of fare</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="text-lg font-semibold text-gray-800 mb-3">Calculator Features</h4>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <li><strong>Quick Presets:</strong> Common tip percentages (15%, 18%, 20%)</li>
+                  <li><strong>Custom Tips:</strong> Enter any percentage you prefer</li>
+                  <li><strong>Bill Splitting:</strong> Divide costs among multiple people</li>
+                  <strong>Rounding Options:</strong> Round up for convenience</li>
+                  <li><strong>Export Results:</strong> Download, share, or print calculations</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-3">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Enter your bill amount, select a tip percentage (or enter a custom one), and specify the number of people 
+              if splitting the bill. The calculator will instantly show the tip amount, total bill, and per-person costs. 
+              Use the rounding feature to simplify cash payments.
+            </p>
+            
+            <h4 className="text-lg font-semibold text-gray-800 mb-3">Tipping Guidelines</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <h5 className="font-semibold text-green-800 mb-1">Excellent Service</h5>
+                <p className="text-green-700 text-sm">20% or more</p>
+              </div>
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                <h5 className="font-semibold text-blue-800 mb-1">Good Service</h5>
+                <p className="text-blue-700 text-sm">15-18%</p>
+              </div>
+              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                <h5 className="font-semibold text-yellow-800 mb-1">Poor Service</h5>
+                <p className="text-yellow-700 text-sm">10-15%</p>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Always tip on the pre-tax amount for restaurants. For delivery, consider tipping more during bad weather 
+                or peak hours. Remember that tips are often shared among staff, so your generosity supports the entire team.
               </p>
             </div>
           </div>

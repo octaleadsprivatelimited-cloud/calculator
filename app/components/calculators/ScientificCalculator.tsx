@@ -603,6 +603,73 @@ export default function ScientificCalculator() {
           </div>
         </div>
 
+        {/* Calculator Description Section */}
+        <div className="mt-12 p-6 bg-white rounded-2xl shadow-calculator border-2 border-gray-200">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-6 text-center">About Scientific Calculator</h3>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-6 text-lg">
+              Our advanced scientific calculator provides comprehensive mathematical functions for students, engineers, 
+              scientists, and professionals. This powerful tool handles complex calculations with precision and ease, 
+              making it perfect for academic work, engineering projects, and scientific research.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xl font-semibold text-gray-800 mb-4">Mathematical Functions</h4>
+                <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
+                  <li><strong>Trigonometric:</strong> sin, cos, tan, inverse functions</li>
+                  <li><strong>Logarithmic:</strong> log (base 10), ln (natural log)</li>
+                  <li><strong>Exponential:</strong> e^x, x^y, square root, cube root</li>
+                  <li><strong>Statistical:</strong> factorial, percentage calculations</li>
+                  <li><strong>Memory Functions:</strong> M+, M-, MR, MC for storing values</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="text-xl font-semibold text-gray-800 mb-4">Advanced Features</h4>
+                <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
+                  <li><strong>Angle Modes:</strong> Switch between degrees and radians</li>
+                  <li><strong>Calculation History:</strong> Track all your calculations</li>
+                  <li><strong>Keyboard Support:</strong> Full keyboard input compatibility</li>
+                  <li><strong>Precision:</strong> High-accuracy floating-point calculations</li>
+                  <li><strong>Responsive Design:</strong> Works on all devices</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h4 className="text-xl font-semibold text-gray-800 mb-4 mt-8">Perfect For</h4>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h5 className="font-semibold text-blue-800 mb-2">Students</h5>
+                <p className="text-blue-700 text-sm">Mathematics, physics, engineering courses</p>
+              </div>
+              <div className="bg-green-50 p-4 rounded-lg">
+                <h5 className="font-semibold text-green-800 mb-2">Engineers</h5>
+                <p className="text-green-700 text-sm">Technical calculations and design work</p>
+              </div>
+              <div className="bg-purple-50 p-4 rounded-lg">
+                <h5 className="font-semibold text-purple-800 mb-2">Scientists</h5>
+                <p className="text-purple-700 text-sm">Research and data analysis</p>
+              </div>
+            </div>
+            
+            <h4 className="text-xl font-semibold text-gray-800 mb-4">How to Use</h4>
+            <p className="text-gray-700 mb-4">
+              Simply click the buttons or use your keyboard to input calculations. The calculator supports standard 
+              mathematical notation and provides instant results. Use the memory functions to store intermediate 
+              values and the history feature to review your calculation steps.
+            </p>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+              <p className="text-gray-700 text-sm">
+                Use the angle mode toggle to switch between degrees and radians based on your calculation needs. 
+                Most scientific applications use radians, while everyday calculations often use degrees.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Footer */}
         <footer className="text-center mt-12 text-gray-500">
           <p>© 2024 Scientific Calculator. All rights reserved.</p>

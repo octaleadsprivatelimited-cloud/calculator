@@ -325,6 +325,77 @@ export default function InvestmentCalculator() {
           </div>
         )}
 
+        {/* Calculator Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Investment Calculator</h2>
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700 mb-6 text-lg">
+              Our comprehensive investment calculator helps you plan your financial future by projecting the growth 
+              of your investments over time. Whether you're saving for retirement, planning for major purchases, 
+              or building wealth, this tool provides accurate projections based on compound interest principles.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-6">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">What It Calculates</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <li><strong>Future Value:</strong> Total investment worth after specified period</li>
+                  <li><strong>Compound Interest:</strong> Interest earned on interest over time</li>
+                  <li><strong>Total Contributions:</strong> Sum of all money invested</li>
+                  <li><strong>Interest Growth:</strong> How much your money grows through compounding</li>
+                  <li><strong>Yearly Projections:</strong> Year-by-year breakdown of growth</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Investment Strategies</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <li><strong>Dollar-Cost Averaging:</strong> Regular contributions regardless of market conditions</li>
+                  <li><strong>Compound Growth:</strong> Reinvesting earnings for exponential growth</li>
+                  <li><strong>Long-term Planning:</strong> Time horizon impact on investment success</li>
+                  <li><strong>Risk Management:</strong> Understanding return rate assumptions</li>
+                  <li><strong>Portfolio Diversification:</strong> Spreading investments across assets</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Factors</h3>
+            <div className="grid md:grid-cols-4 gap-4 mb-6">
+              <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-200">
+                <h4 className="font-semibold text-emerald-800 mb-2">Initial Investment</h4>
+                <p className="text-emerald-700 text-sm">Starting amount to invest</p>
+              </div>
+              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <h4 className="font-semibold text-blue-800 mb-2">Regular Contributions</h4>
+                <p className="text-blue-700 text-sm">Ongoing investment amounts</p>
+              </div>
+              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                <h4 className="font-semibold text-purple-800 mb-2">Return Rate</h4>
+                <p className="text-purple-700 text-sm">Expected annual growth percentage</p>
+              </div>
+              <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                <h4 className="font-semibold text-orange-800 mb-2">Time Horizon</h4>
+                <p className="text-orange-700 text-sm">Length of investment period</p>
+              </div>
+            </div>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">How to Use</h3>
+            <p className="text-gray-700 mb-4">
+              Enter your initial investment amount, monthly/quarterly/annual contributions, expected annual return rate, 
+              and investment period. The calculator will show you the future value, total contributions, interest earned, 
+              and provide a detailed yearly projection to help you visualize your investment growth.
+            </p>
+            
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tip</h4>
+              <p className="text-gray-700 text-sm">
+                Start investing early and contribute regularly. Even small amounts can grow significantly over time 
+                thanks to compound interest. A $500 monthly contribution at 8% annual return can grow to over $1.4 million in 30 years!
+              </p>
+            </div>
+          </div>
+        </div>
+
         <footer className="text-center mt-12 text-gray-500">
           <p>© 2024 Investment Calculator. All rights reserved.</p>
         </footer>
