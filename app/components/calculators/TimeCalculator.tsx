@@ -158,6 +158,165 @@ export default function TimeCalculator() {
           </div>
         )}
       </div>
+
+      {/* Comprehensive Description Section */}
+      <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">About Time Calculator</h2>
+        
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+            <p className="text-gray-700 mb-3">
+              This comprehensive time calculator helps you convert between different time units including 
+              hours, minutes, seconds, and days. It's designed for professionals, students, and anyone 
+              who needs to work with time measurements in various contexts.
+            </p>
+            <p className="text-gray-700">
+              The calculator provides instant conversions and helps you understand the relationships 
+              between different time units for better time management and planning.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Time Unit Relationships</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Basic Conversions</h4>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>1 minute = 60 seconds</strong></li>
+                  <li><strong>1 hour = 60 minutes = 3,600 seconds</strong></li>
+                  <li><strong>1 day = 24 hours = 1,440 minutes = 86,400 seconds</strong></li>
+                  <li><strong>1 week = 7 days = 168 hours</strong></li>
+                  <li><strong>1 month ≈ 30.44 days (average)</strong></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Decimal Time</h4>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>0.5 hours = 30 minutes</strong></li>
+                  <li><strong>0.25 hours = 15 minutes</strong></li>
+                  <li><strong>0.1 hours = 6 minutes</strong></li>
+                  <li><strong>0.01 hours = 0.6 minutes = 36 seconds</strong></li>
+                  <li><strong>Decimal format useful for calculations</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Practical Applications</h3>
+            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+              <h4 className="font-semibold text-gray-800 mb-2">Common Use Cases</h4>
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Work & Productivity:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Time tracking and billing</li>
+                    <li>Project duration estimates</li>
+                    <li>Meeting scheduling</li>
+                    <li>Break time calculations</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Travel & Transportation:</strong></p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Journey time planning</li>
+                    <li>Flight duration calculations</li>
+                    <li>Commute time estimates</li>
+                    <li>Time zone conversions</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Time Measurement Systems</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">International System (SI)</h4>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Base Unit:</strong> Second (s)</li>
+                  <li><strong>Definition:</strong> Based on atomic clock</li>
+                  <li><strong>Precision:</strong> Extremely accurate</li>
+                  <li><strong>Use:</strong> Scientific and technical</li>
+                  <li><strong>Standards:</strong> International agreement</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Traditional Units</h4>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li><strong>Hours:</strong> 24-hour day division</li>
+                  <li><strong>Minutes:</strong> 60-minute hour division</li>
+                  <li><strong>Seconds:</strong> 60-second minute division</li>
+                  <li><strong>Days:</strong> Earth rotation period</li>
+                  <li><strong>Weeks:</strong> 7-day cycle</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Time Calculation Methods</h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <li><strong>Addition:</strong> Add time units together for total duration</li>
+              <li><strong>Subtraction:</strong> Calculate time differences between events</li>
+              <li><strong>Multiplication:</strong> Scale time by factors (e.g., 2.5 hours)</li>
+              <li><strong>Division:</strong> Split time into equal parts</li>
+              <li><strong>Conversion:</strong> Express same duration in different units</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Time Management Tips</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Planning & Scheduling</h4>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Break large tasks into time blocks</li>
+                  <li>Use time estimates for planning</li>
+                  <li>Account for breaks and transitions</li>
+                  <li>Buffer time for unexpected delays</li>
+                  <li>Track actual vs. estimated time</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Efficiency Strategies</h4>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                  <li>Time blocking for focused work</li>
+                  <li>Pomodoro technique (25-min sessions)</li>
+                  <li>Batch similar tasks together</li>
+                  <li>Eliminate time-wasting activities</li>
+                  <li>Use time tracking tools</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Professional Applications</h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <li><strong>Project Management:</strong> Estimate task durations and project timelines</li>
+              <li><strong>Human Resources:</strong> Calculate work hours, overtime, and leave time</li>
+              <li><strong>Finance:</strong> Time-based calculations for interest and investments</li>
+              <li><strong>Healthcare:</strong> Medication timing and treatment schedules</li>
+              <li><strong>Education:</strong> Class scheduling and study time allocation</li>
+            </ul>
+          </div>
+
+          <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+            <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <ul className="text-gray-700 space-y-1 text-sm">
+              <li>• Use decimal hours for easier calculations in spreadsheets and software</li>
+              <li>• Always round up time estimates to account for unexpected delays</li>
+              <li>• Break down complex time calculations into smaller, manageable steps</li>
+              <li>• Consider time zones when planning international activities</li>
+              <li>• Use this calculator to verify time calculations in other applications</li>
+              <li>• Remember that time perception varies - actual time may feel different</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

@@ -512,18 +512,162 @@ Pay Summary:
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-purple-600 mt-1 flex-shrink-0" />
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Time Card Calculator</h2>
+          
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Time Card Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator helps you track work hours and calculate pay including overtime. 
-                You can add multiple time entries, set break times, and configure overtime rates. 
-                The calculator automatically handles overnight shifts and applies overtime rules based on your threshold. 
-                Perfect for employees, freelancers, and anyone needing to track work hours and calculate earnings.
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <p className="text-gray-700 mb-3">
+                This comprehensive time card calculator helps employees, freelancers, and employers 
+                accurately track work hours and calculate pay including overtime. It handles complex 
+                scenarios like overnight shifts, multiple break periods, and various overtime rules.
               </p>
+              <p className="text-gray-700">
+                The calculator automatically processes multiple time entries, applies overtime thresholds, 
+                and provides detailed breakdowns of regular hours, overtime hours, and total compensation.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Overtime Calculations</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Standard Overtime</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>40-Hour Week:</strong> Most common overtime threshold</li>
+                    <li><strong>Time-and-a-Half:</strong> 1.5x regular rate for overtime</li>
+                    <li><strong>Double Time:</strong> 2x rate for holidays/weekends</li>
+                    <li><strong>Daily Overtime:</strong> After 8 hours in a day</li>
+                    <li><strong>Weekly Overtime:</strong> After 40 hours in a week</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Overtime Rules</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Federal Law:</strong> FLSA requires 1.5x after 40 hours</li>
+                    <li><strong>State Variations:</strong> Some states have stricter rules</li>
+                    <li><strong>Industry Standards:</strong> Construction, healthcare may differ</li>
+                    <li><strong>Union Contracts:</strong> May have different overtime rates</li>
+                    <li><strong>Exempt Employees:</strong> Salaried workers may not qualify</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Break Time Management</h3>
+              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                <h4 className="font-semibold text-gray-800 mb-2">Break Time Guidelines</h4>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p><strong>Paid vs. Unpaid Breaks:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Short breaks (5-20 min): Usually paid</li>
+                      <li>Lunch breaks (30+ min): Usually unpaid</li>
+                      <li>Rest periods: May be required by law</li>
+                      <li>Meal periods: Often 30-60 minutes</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Break Time Options:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>No break: 0 minutes</li>
+                      <li>Short rest: 15 minutes</li>
+                      <li>Standard lunch: 30 minutes</li>
+                      <li>Extended lunch: 45-60 minutes</li>
+                      <li>Split shifts: 90+ minutes</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Shift Types & Scheduling</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Common Shift Patterns</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Morning Shift:</strong> 8 AM - 4 PM (8 hours)</li>
+                    <li><strong>Afternoon Shift:</strong> 12 PM - 8 PM (8 hours)</li>
+                    <li><strong>Night Shift:</strong> 8 PM - 4 AM (8 hours)</li>
+                    <li><strong>Part Time:</strong> 5 hours or less</li>
+                    <li><strong>Full Time:</strong> 8+ hours per day</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Special Considerations</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Overnight Shifts:</strong> Cross midnight boundary</li>
+                    <li><strong>Split Shifts:</strong> Work periods with breaks</li>
+                    <li><strong>Rotating Shifts:</strong> Changing schedules</li>
+                    <li><strong>On-Call Time:</strong> May count as work time</li>
+                    <li><strong>Travel Time:</strong> Between job sites</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Pay Calculation Methods</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Regular Hours:</strong> Hours worked up to overtime threshold</li>
+                <li><strong>Overtime Hours:</strong> Hours worked beyond threshold</li>
+                <li><strong>Regular Pay:</strong> Regular hours × hourly rate</li>
+                <li><strong>Overtime Pay:</strong> Overtime hours × (hourly rate × 1.5)</li>
+                <li><strong>Total Pay:</strong> Regular pay + overtime pay</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Legal & Compliance</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Federal Requirements</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Fair Labor Standards Act (FLSA)</li>
+                    <li>Minimum wage requirements</li>
+                    <li>Overtime pay regulations</li>
+                    <li>Record keeping requirements</li>
+                    <li>Child labor restrictions</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">State Variations</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Higher minimum wages</li>
+                    <li>Stricter overtime rules</li>
+                    <li>Required break periods</li>
+                    <li>Meal period requirements</li>
+                    <li>Additional protections</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Best Practices</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Accurate Time Tracking:</strong> Record actual start/end times</li>
+                <li><strong>Break Documentation:</strong> Note all break periods taken</li>
+                <li><strong>Overtime Monitoring:</strong> Track hours approaching threshold</li>
+                <li><strong>Record Keeping:</strong> Maintain detailed time records</li>
+                <li><strong>Regular Reviews:</strong> Check calculations for accuracy</li>
+              </ul>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Always round up to the nearest quarter hour for fair compensation</li>
+                <li>• Keep detailed records of all time entries and break periods</li>
+                <li>• Understand your state's specific overtime and break time laws</li>
+                <li>• Use this calculator to verify pay calculations from your employer</li>
+                <li>• Consider using time tracking apps for more accurate records</li>
+                <li>• Remember that unpaid breaks don't count toward overtime calculations</li>
+              </ul>
             </div>
           </div>
         </div>
