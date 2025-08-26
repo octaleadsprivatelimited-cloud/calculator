@@ -107,7 +107,7 @@ export default function IRRCalculator() {
             <div className="p-4 bg-violet-50 rounded-lg border border-violet-200">
               <h3 className="text-lg font-semibold text-violet-800 mb-2">Internal Rate of Return</h3>
               <div className="text-center">
-                <div className="text-3xl font-bold text-violet-600 mb-2">{result.irr?.toFixed(2)}%</div>
+                <div className="text-3xl font-bold text-violet-600 mb-2">{result.irr.toFixed(2)}%</div>
                 <div className="text-violet-700">Annual return rate</div>
               </div>
             </div>
@@ -115,10 +115,10 @@ export default function IRRCalculator() {
             <div className="p-4 bg-violet-50 rounded-lg border border-violet-200">
               <h3 className="text-lg font-semibold text-violet-800 mb-3">Investment Analysis</h3>
               <div className="space-y-2">
-                <div className="flex justify-between"><span className="text-violet-700">Initial Investment:</span><span className="font-semibold text-violet-800">${result.details.initial?.toLocaleString()}</span></div>
-                <div className="flex justify-between"><span className="text-violet-700">Cash Flows:</span><span className="font-semibold text-violet-800">{result.details.flows?.map(f => `$${f.toLocaleString()}`).join(', ')}</span></div>
-                <div className="flex justify-between"><span className="text-violet-700">IRR:</span><span className="font-semibold text-violet-800">{result.irr?.toFixed(2)}%</span></div>
-                <div className="flex justify-between"><span className="text-violet-700">NPV:</span><span className="font-semibold text-violet-800">${result.npv?.toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-violet-700">Initial Investment:</span><span className="font-semibold text-violet-800">${result.details.initial.toLocaleString()}</span></div>
+                <div className="flex justify-between"><span className="text-violet-700">Cash Flows:</span><span className="font-semibold text-violet-800">{result.details.flows.map(f => `$${f.toLocaleString()}`).join(', ')}</span></div>
+                <div className="flex justify-between"><span className="text-violet-700">IRR:</span><span className="font-semibold text-violet-800">{result.irr.toFixed(2)}%</span></div>
+                <div className="flex justify-between"><span className="text-violet-700">NPV:</span><span className="font-semibold text-violet-800">${result.npv.toFixed(2)}</span></div>
               </div>
             </div>
 
