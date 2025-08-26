@@ -143,7 +143,7 @@ export default function PaintCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="w-full px-4 py-8">
         <header className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
             <Palette className="w-16 h-16 mr-4 text-blue-600" />

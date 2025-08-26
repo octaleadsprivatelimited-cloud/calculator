@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, CreditCard } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function LoanCalculator() {
   const [loanAmount, setLoanAmount] = useState('')
@@ -61,7 +62,7 @@ export default function LoanCalculator() {
   const result = showResults ? calculateLoan() : { monthlyPayment: 0, totalInterest: 0, totalPayment: 0, recommendations: [], details: { amount: 0, rate: 0, term: 0, termType: '' } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4">
         <div className="flex items-center">
           <CreditCard className="h-8 w-8 text-white mr-3" />
@@ -109,6 +110,25 @@ export default function LoanCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-green-200">
+              <ResultSharing
+                title="Loan Calculation Result"
+                inputs={[
+                  { label: "Loan Amount", value: `$${loanAmount}` },
+                  { label: "Interest Rate", value: `${interestRate}%` },
+                  { label: "Loan Term", value: `${loanTerm} ${termType}` }
+                ]}
+                result={{ 
+                  label: "Monthly Payment", 
+                  value: `$${result.monthlyPayment?.toFixed(2)}`,
+                  unit: ""
+                }}
+                calculatorName="Loan Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-green-50 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-2">Monthly Payment</h3>
               <div className="text-center">

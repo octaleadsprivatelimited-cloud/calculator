@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Box, Calculator as CalculatorIcon, RotateCcw, Ruler } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface VolumeResult {
   volume: number
@@ -121,6 +122,33 @@ export default function VolumeCalculator() {
     }
   }
 
+  const getDimensionsSummary = (): string => {
+    switch (selectedShape) {
+      case 'cube':
+        return `Side: ${dimensions.side || 0}${units}`
+      case 'rectangular-prism':
+        return `L: ${dimensions.length || 0}${units}, W: ${dimensions.width || 0}${units}, H: ${dimensions.height || 0}${units}`
+      case 'sphere':
+        return `Radius: ${dimensions.radius || 0}${units}`
+      case 'cylinder':
+        return `Radius: ${dimensions.radius || 0}${units}, Height: ${dimensions.height || 0}${units}`
+      case 'cone':
+        return `Radius: ${dimensions.radius || 0}${units}, Height: ${dimensions.height || 0}${units}`
+      case 'pyramid':
+        return `Base: ${dimensions.base || 0}${units}, Height: ${dimensions.height || 0}${units}`
+      case 'triangular-prism':
+        return `Base: ${dimensions.base || 0}${units}, Height: ${dimensions.height || 0}${units}, Length: ${dimensions.length || 0}${units}`
+      case 'torus':
+        return `Major Radius: ${dimensions.radius || 0}${units}, Minor Radius: ${dimensions.height || 0}${units}`
+      case 'ellipsoid':
+        return `X: ${dimensions.length || 0}${units}, Y: ${dimensions.width || 0}${units}, Z: ${dimensions.height || 0}${units}`
+      case 'hexagonal-prism':
+        return `Side: ${dimensions.side || 0}${units}, Height: ${dimensions.height || 0}${units}`
+      default:
+        return 'Dimensions not specified'
+    }
+  }
+
   const getRequiredFields = () => {
     switch (selectedShape) {
       case 'cube':
@@ -166,7 +194,7 @@ export default function VolumeCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-50 to-purple-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <Box className="w-12 h-12 mr-3 text-violet-600" />
@@ -357,6 +385,25 @@ export default function VolumeCalculator() {
           </div>
 
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
+              <ResultSharing
+                title="Volume Calculation Result"
+                inputs={[
+                  { label: "Shape", value: selectedShape.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) },
+                  { label: "Units", value: units },
+                  { label: "Dimensions", value: getDimensionsSummary() }
+                ]}
+                result={{ 
+                  label: "Volume", 
+                  value: result.volume.toString(),
+                  unit: `${units}³`
+                }}
+                calculatorName="Volume Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
               <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                 <Ruler className="w-6 h-6 mr-2 text-violet-600" />

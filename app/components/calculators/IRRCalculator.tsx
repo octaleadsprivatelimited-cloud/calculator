@@ -70,7 +70,7 @@ export default function IRRCalculator() {
   const result = showResults ? calculateIRR() : { irr: 0, npv: 0, recommendations: [], details: { initial: 0, flows: [] } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-violet-500 to-purple-500 px-6 py-4">
         <div className="flex items-center">
           <TrendingUp className="h-8 w-8 text-white mr-3" />

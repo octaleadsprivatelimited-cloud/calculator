@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react'
 import { Scale, Calculator, TrendingUp, Share2, Download, Printer, RotateCcw } from 'lucide-react'
 import ShareModal from '../ShareModal'
+import ResultSharing from '../ResultSharing'
 
 const weightUnits = [
   { name: 'Grams', symbol: 'g', toGrams: 1 },
@@ -62,7 +63,7 @@ export default function WeightConverter() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-100">
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="w-full px-4 py-8">
         <header className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
             <Scale className="w-16 h-16 mr-4 text-orange-600" />
@@ -159,6 +160,25 @@ export default function WeightConverter() {
 
           <div className="lg:col-span-2">
             <div className="space-y-6">
+              {/* Share Options - Moved to Top */}
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <ResultSharing
+                  title="Weight Conversion Result"
+                  inputs={[
+                    { label: "Input Value", value: `${inputValue} ${fromUnitData?.symbol}` },
+                    { label: "From Unit", value: `${fromUnitData?.name} (${fromUnit})` },
+                    { label: "To Unit", value: `${toUnitData?.name} (${toUnit})` }
+                  ]}
+                  result={{ 
+                    label: "Converted Value", 
+                    value: result.toFixed(4),
+                    unit: toUnitData?.symbol || ""
+                  }}
+                  calculatorName="Weight Converter"
+                  className="mb-0"
+                />
+              </div>
+
               <div className="bg-white rounded-2xl shadow-lg p-6">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                   <TrendingUp className="w-6 h-6 mr-2 text-orange-600" />

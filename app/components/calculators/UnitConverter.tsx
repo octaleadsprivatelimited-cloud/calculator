@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Ruler, Calculator as CalculatorIcon, RotateCcw, ArrowRight, Thermometer, Scale } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface ConversionCategory {
   id: string
@@ -149,7 +150,7 @@ export default function UnitConverter() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <Ruler className="w-12 h-12 mr-3 text-blue-600" />
@@ -272,6 +273,27 @@ export default function UnitConverter() {
                       </div>
                     </div>
                   </div>
+
+                  {/* Share Options - Moved to Top */}
+                  {toValue && (
+                    <div className="bg-white p-4 rounded-lg border border-blue-200">
+                      <ResultSharing
+                        title="Unit Conversion Result"
+                        inputs={[
+                          { label: "From", value: `${fromValue} ${currentCategory?.units.find(u => u.id === fromUnit)?.symbol || ''}` },
+                          { label: "To", value: currentCategory?.units.find(u => u.id === toUnit)?.name || '' },
+                          { label: "Category", value: currentCategory?.name || '' }
+                        ]}
+                        result={{ 
+                          label: "Converted Value", 
+                          value: toValue,
+                          unit: currentCategory?.units.find(u => u.id === toUnit)?.symbol || ""
+                        }}
+                        calculatorName="Unit Converter"
+                        className="mb-0"
+                      />
+                    </div>
+                  )}
 
                   <div className="flex gap-3 pt-4">
                     <button

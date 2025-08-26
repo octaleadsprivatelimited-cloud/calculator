@@ -44,7 +44,7 @@ export default function TimeCalculator() {
   const result = showResults ? calculateTime() : { totalSeconds: 0, totalMinutes: 0, totalHours: 0, days: 0, formatted: '00:00:00' }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>

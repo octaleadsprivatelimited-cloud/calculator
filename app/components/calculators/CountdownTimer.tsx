@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Clock, Calculator, TrendingUp, Share2, Download, Printer, Calendar, Play, Pause, RotateCcw } from 'lucide-react'
 import ShareModal from '../ShareModal'
+import ResultSharing from '../ResultSharing'
 
 interface CountdownEvent {
   id: string
@@ -142,7 +143,7 @@ export default function CountdownTimer() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-50 to-purple-100">
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="w-full px-4 py-8">
         {/* Header */}
         <header className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
@@ -322,6 +323,25 @@ export default function CountdownTimer() {
                           </div>
                         </div>
                         
+                        {/* Share Options - Moved to Top */}
+                        <div className="bg-white p-3 rounded-lg border border-gray-200 mb-3">
+                          <ResultSharing
+                            title="Countdown Timer Result"
+                            inputs={[
+                              { label: "Event Name", value: event.name },
+                              { label: "Target Date", value: event.targetDate },
+                              { label: "Target Time", value: event.targetTime }
+                            ]}
+                            result={{ 
+                              label: "Time Remaining", 
+                              value: isExpired ? "Event has arrived!" : `${formatTime(event.timeRemaining.days)}d ${formatTime(event.timeRemaining.hours)}h ${formatTime(event.timeRemaining.minutes)}m ${formatTime(event.timeRemaining.seconds)}s`,
+                              unit: ""
+                            }}
+                            calculatorName="Countdown Timer"
+                            className="mb-0"
+                          />
+                        </div>
+
                         <div className="text-center mb-3">
                           <div className="text-sm text-gray-600 mb-2">
                             {event.targetDate} at {event.targetTime}

@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { GraduationCap, Calculator as CalculatorIcon, RotateCcw, TrendingUp } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface GradeResult {
   percentage: number
@@ -122,7 +123,7 @@ export default function PercentageGradeCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <GraduationCap className="w-12 h-12 mr-3 text-indigo-600" />
@@ -222,6 +223,25 @@ export default function PercentageGradeCalculator() {
           </div>
 
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
+              <ResultSharing
+                title="Percentage to Grade Conversion Result"
+                inputs={[
+                  { label: "Percentage Score", value: `${result.percentage}%` },
+                  { label: "Grading System", value: currentSystem.name },
+                  { label: "Calculation Type", value: "Grade Conversion" }
+                ]}
+                result={{ 
+                  label: "Letter Grade", 
+                  value: result.letterGrade,
+                  unit: ""
+                }}
+                calculatorName="Percentage Grade Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
               <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                 <TrendingUp className="w-6 h-6 mr-2 text-indigo-600" />

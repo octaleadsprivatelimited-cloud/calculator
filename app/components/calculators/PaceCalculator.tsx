@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Timer } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function PaceCalculator() {
   const [distance, setDistance] = useState('')
@@ -96,7 +97,7 @@ export default function PaceCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
         <div className="flex items-center">
           <Timer className="h-8 w-8 text-white mr-3" />
@@ -180,6 +181,25 @@ export default function PaceCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="Pace Calculation Result"
+                inputs={[
+                  { label: "Distance", value: `${distance} ${distanceUnit}` },
+                  { label: "Time", value: `${time} ${timeUnit}` },
+                  { label: "Calculation Type", value: "Pace Analysis" }
+                ]}
+                result={{ 
+                  label: "Pace", 
+                  value: `${result.pace}`,
+                  unit: `per ${distanceUnit === 'miles' ? 'mile' : 'kilometer'}`
+                }}
+                calculatorName="Pace Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Your Pace</h3>
               <div className="text-center">

@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Calculator, Thermometer, Download, Share2, Printer, RotateCcw } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function HeatIndexCalculator() {
   const [temperature, setTemperature] = useState('90')
@@ -80,7 +81,7 @@ export default function HeatIndexCalculator() {
   const isCalculable = parseFloat(temperature) >= (unit === 'fahrenheit' ? 80 : 27)
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-red-600 to-orange-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -140,8 +141,28 @@ export default function HeatIndexCalculator() {
         </div>
 
         {showResults && (
-          <div className={`${category?.bg} p-6 rounded-lg border ${category?.border} text-center`}>
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Heat Index Results</h3>
+          <>
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-orange-200 mb-4">
+              <ResultSharing
+                title="Heat Index Calculation Result"
+                inputs={[
+                  { label: "Temperature", value: `${temperature}°${unit === 'fahrenheit' ? 'F' : 'C'}` },
+                  { label: "Humidity", value: `${humidity}%` },
+                  { label: "Calculation Type", value: "Heat Index" }
+                ]}
+                result={{ 
+                  label: "Heat Index", 
+                  value: `${heatIndex.toFixed(1)}°${unit === 'fahrenheit' ? 'F' : 'C'}`,
+                  unit: ""
+                }}
+                calculatorName="Heat Index Calculator"
+                className="mb-0"
+              />
+            </div>
+
+            <div className={`${category?.bg} p-6 rounded-lg border ${category?.border} text-center`}>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">Heat Index Results</h3>
             {isCalculable ? (
               <>
                 <div className={`text-3xl font-bold ${category?.color} mb-2`}>
@@ -162,6 +183,7 @@ export default function HeatIndexCalculator() {
               </button>
             </div>
           </div>
+          </>
         )}
         
         {/* Calculator Description Section */}

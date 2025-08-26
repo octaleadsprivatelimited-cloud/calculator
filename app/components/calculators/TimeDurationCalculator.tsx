@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Calculator, Clock, Calendar } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function TimeDurationCalculator() {
   const [startDate, setStartDate] = useState('')
@@ -36,7 +37,7 @@ export default function TimeDurationCalculator() {
   const duration = showResults ? calculateDuration() : null
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -101,32 +102,53 @@ export default function TimeDurationCalculator() {
         </div>
 
         {showResults && duration && (
-          <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200 text-center">
-            <h3 className="text-xl font-semibold text-indigo-800 mb-4">Duration Results</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-              <div>
-                <div className="text-2xl font-bold text-indigo-600">{duration.days}</div>
-                <div className="text-sm text-gray-600">Days</div>
+          <>
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-6 rounded-lg border border-indigo-200 mb-4">
+              <ResultSharing
+                title="Time Duration Calculation Result"
+                inputs={[
+                  { label: "Start Date & Time", value: `${startDate} ${startTime}` },
+                  { label: "End Date & Time", value: `${endDate} ${endTime}` },
+                  { label: "Calculation Type", value: "Duration" }
+                ]}
+                result={{ 
+                  label: "Total Duration", 
+                  value: `${duration.days}d ${duration.hours}h ${duration.minutes}m ${duration.seconds}s`,
+                  unit: ""
+                }}
+                calculatorName="Time Duration Calculator"
+                className="mb-0"
+              />
+            </div>
+
+            <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200 text-center">
+              <h3 className="text-xl font-semibold text-indigo-800 mb-4">Duration Results</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                <div>
+                  <div className="text-2xl font-bold text-indigo-600">{duration.days}</div>
+                  <div className="text-sm text-gray-600">Days</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-indigo-600">{duration.hours}</div>
+                  <div className="text-sm text-gray-600">Hours</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-indigo-600">{duration.minutes}</div>
+                  <div className="text-sm text-gray-600">Minutes</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-indigo-600">{duration.seconds}</div>
+                  <div className="text-sm text-gray-600">Seconds</div>
+                </div>
               </div>
-              <div>
-                <div className="text-2xl font-bold text-indigo-600">{duration.hours}</div>
-                <div className="text-sm text-gray-600">Hours</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-indigo-600">{duration.minutes}</div>
-                <div className="text-sm text-gray-600">Minutes</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-indigo-600">{duration.seconds}</div>
-                <div className="text-sm text-gray-600">Seconds</div>
+              <div className="mt-4">
+                <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+                  Reset
+                </button>
               </div>
             </div>
-            <div className="mt-4">
-              <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
-                Reset
-              </button>
-            </div>
-          </div>
+          </>
         )}
       </div>
 

@@ -58,7 +58,7 @@ export default function PresentValueCalculator() {
   const result = showResults ? calculatePV() : { presentValue: 0, discountFactor: 0, recommendations: [], details: { futureValue: 0, rate: 0, time: 0, periodType: '' } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-4">
         <div className="flex items-center">
           <TrendingDown className="h-8 w-8 text-white mr-3" />

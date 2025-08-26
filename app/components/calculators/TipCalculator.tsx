@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, DollarSign, Users } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface TipResult {
   tipAmount: number
@@ -127,7 +128,7 @@ Results:
   const result = showResults ? calculateTip() : { tipAmount: 0, totalAmount: 0, perPerson: 0, tipPerPerson: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -263,6 +264,26 @@ Results:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+              <ResultSharing
+                title="Tip Calculation Result"
+                inputs={[
+                  { label: "Bill Amount", value: formatCurrency(parseFloat(billAmount)) },
+                  { label: "Tip Percentage", value: `${tipPercentage}%` },
+                  { label: "Number of People", value: numberOfPeople },
+                  { label: "Round Up", value: roundUp ? "Yes" : "No" }
+                ]}
+                result={{ 
+                  label: "Total Amount", 
+                  value: formatCurrency(result.totalAmount),
+                  unit: ""
+                }}
+                calculatorName="Tip Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Summary */}
             <div className="bg-green-50 p-6 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-4">Tip Summary</h3>
@@ -299,35 +320,16 @@ Results:
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center">
-              <button
-                onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download</span>
-              </button>
-              <button
-                onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
-              >
-                <Share2 className="w-4 h-4" />
-                <span>Share</span>
-              </button>
-              <button
-                onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
-              >
-                <Printer className="w-4 h-4" />
-                <span>Print</span>
-              </button>
+
+
+            {/* Reset Button */}
+            <div className="text-center">
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 mx-auto"
               >
-                <RotateCcw className="w-4 h-4" />
-                <span>Reset</span>
+                <RotateCcw className="w-5 h-5" />
+                <span>Reset Calculator</span>
               </button>
             </div>
           </div>

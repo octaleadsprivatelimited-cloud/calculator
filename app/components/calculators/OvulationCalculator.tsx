@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Calendar } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function OvulationCalculator() {
   const [lastPeriod, setLastPeriod] = useState('')
@@ -75,7 +76,7 @@ export default function OvulationCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-4">
         <div className="flex items-center">
           <Calendar className="h-8 w-8 text-white mr-3" />
@@ -135,6 +136,25 @@ export default function OvulationCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-pink-200">
+              <ResultSharing
+                title="Ovulation Calculation Result"
+                inputs={[
+                  { label: "Last Period", value: lastPeriod },
+                  { label: "Cycle Length", value: `${cycleLength} days` },
+                  { label: "Calculation Type", value: "Ovulation Tracking" }
+                ]}
+                result={{ 
+                  label: "Ovulation Date", 
+                  value: result.ovulationDate,
+                  unit: ""
+                }}
+                calculatorName="Ovulation Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-pink-50 rounded-lg border border-pink-200">
               <h3 className="text-lg font-semibold text-pink-800 mb-2">Ovulation Date</h3>
               <div className="text-center">

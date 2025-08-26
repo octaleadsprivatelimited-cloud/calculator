@@ -278,7 +278,7 @@ Measurement Tips:
   const result = showResults ? calculateBraSize() : { bandSize: 0, cupSize: '', usSize: '', ukSize: '', euSize: '', auSize: '', sisterSizes: [], fitNotes: '', recommendations: [] }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-8 text-white">
         <div className="flex items-center justify-between">

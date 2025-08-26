@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Scale } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function OverweightCalculator() {
   const [weight, setWeight] = useState('')
@@ -157,7 +158,7 @@ export default function OverweightCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4">
         <div className="flex items-center">
           <Scale className="h-8 w-8 text-white mr-3" />
@@ -247,6 +248,25 @@ export default function OverweightCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-orange-200">
+              <ResultSharing
+                title="Overweight Assessment Result"
+                inputs={[
+                  { label: "Weight", value: `${weight} lbs` },
+                  { label: "Height", value: `${height} ${parseFloat(height) < 10 ? 'feet' : 'cm'}` },
+                  { label: "Age", value: `${age} years` }
+                ]}
+                result={{ 
+                  label: "BMI", 
+                  value: `${result.bmi.toFixed(1)}`,
+                  unit: ""
+                }}
+                calculatorName="Overweight Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
               <h3 className="text-lg font-semibold text-orange-800 mb-2">BMI Results</h3>
               <div className="text-center">

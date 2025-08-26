@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Calendar } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function PeriodCalculator() {
   const [lastPeriod, setLastPeriod] = useState('')
@@ -103,7 +104,7 @@ export default function PeriodCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-rose-500 to-pink-500 px-6 py-4">
         <div className="flex items-center">
           <Calendar className="h-8 w-8 text-white mr-3" />
@@ -163,6 +164,25 @@ export default function PeriodCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-rose-200">
+              <ResultSharing
+                title="Period Calculation Result"
+                inputs={[
+                  { label: "Last Period", value: lastPeriod },
+                  { label: "Cycle Length", value: `${cycleLength} days` },
+                  { label: "Calculation Type", value: "Period Tracking" }
+                ]}
+                result={{ 
+                  label: "Next Period", 
+                  value: result.nextPeriod,
+                  unit: ""
+                }}
+                calculatorName="Period Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-rose-50 rounded-lg border border-rose-200">
               <h3 className="text-lg font-semibold text-rose-800 mb-2">Next Period</h3>
               <div className="text-center">

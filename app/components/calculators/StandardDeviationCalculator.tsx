@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { BarChart3, Calculator as CalculatorIcon, RotateCcw, TrendingUp } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface StatisticsResult {
   mean: number
@@ -101,7 +102,7 @@ export default function StandardDeviationCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 to-blue-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <BarChart3 className="w-12 h-12 mr-3 text-cyan-600" />
@@ -165,6 +166,25 @@ export default function StandardDeviationCalculator() {
           <div className="space-y-6">
             {result && (
               <>
+                {/* Share Options - Moved to Top */}
+                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
+                  <ResultSharing
+                    title="Standard Deviation Calculation Result"
+                    inputs={[
+                      { label: "Data Points", value: `${result.count} numbers` },
+                      { label: "Data Range", value: `${result.min} to ${result.max}` },
+                      { label: "Calculation Type", value: "Statistical Analysis" }
+                    ]}
+                    result={{ 
+                      label: "Standard Deviation", 
+                      value: formatNumber(result.standardDeviation),
+                      unit: ""
+                    }}
+                    calculatorName="Standard Deviation Calculator"
+                    className="mb-0"
+                  />
+                </div>
+
                 <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
                   <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                     <TrendingUp className="w-6 h-6 mr-2 text-cyan-600" />

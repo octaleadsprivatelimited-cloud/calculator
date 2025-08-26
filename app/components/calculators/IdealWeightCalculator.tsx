@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Target } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function IdealWeightCalculator() {
   const [height, setHeight] = useState('')
@@ -119,7 +120,7 @@ export default function IdealWeightCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-4">
         <div className="flex items-center">
           <Target className="h-8 w-8 text-white mr-3" />
@@ -211,6 +212,25 @@ export default function IdealWeightCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+              <ResultSharing
+                title="Ideal Weight Calculation Result"
+                inputs={[
+                  { label: "Height", value: `${height} ${parseFloat(height) < 10 ? 'feet' : 'cm'}` },
+                  { label: "Gender", value: gender.charAt(0).toUpperCase() + gender.slice(1) },
+                  { label: "Body Frame", value: bodyFrame.charAt(0).toUpperCase() + bodyFrame.slice(1) }
+                ]}
+                result={{ 
+                  label: "Devine Formula Result", 
+                  value: `${result.formulas.devine?.[gender as keyof typeof result.formulas.devine]?.toFixed(1) || '0.0'} lbs`,
+                  unit: ""
+                }}
+                calculatorName="Ideal Weight Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">Ideal Weight Results (lbs)</h3>
               <div className="space-y-2">

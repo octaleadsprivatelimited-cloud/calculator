@@ -58,7 +58,7 @@ export default function FutureValueCalculator() {
   const result = showResults ? calculateFV() : { futureValue: 0, growthFactor: 0, recommendations: [], details: { presentValue: 0, rate: 0, time: 0, periodType: '' } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-emerald-500 to-green-500 px-6 py-4">
         <div className="flex items-center">
           <TrendingUp className="h-8 w-8 text-white mr-3" />

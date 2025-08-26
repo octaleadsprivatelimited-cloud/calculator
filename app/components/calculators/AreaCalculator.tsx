@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Square, Calculator as CalculatorIcon, RotateCcw, Ruler } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface AreaResult {
   area: number
@@ -118,6 +119,35 @@ export default function AreaCalculator() {
     }
   }
 
+  const getDimensionsSummary = (): string => {
+    switch (selectedShape) {
+      case 'rectangle':
+        return `L: ${dimensions.length || 0}${units}, W: ${dimensions.width || 0}${units}`
+      case 'square':
+        return `Side: ${dimensions.length || 0}${units}`
+      case 'circle':
+        return `Radius: ${dimensions.radius || 0}${units}`
+      case 'triangle':
+        return `Sides: ${dimensions.side1 || 0}${units}, ${dimensions.side2 || 0}${units}, ${dimensions.side3 || 0}${units}`
+      case 'right-triangle':
+        return `Base: ${dimensions.base || 0}${units}, Height: ${dimensions.height || 0}${units}`
+      case 'trapezoid':
+        return `Sides: ${dimensions.side1 || 0}${units}, ${dimensions.side2 || 0}${units}, Height: ${dimensions.height || 0}${units}`
+      case 'parallelogram':
+        return `Base: ${dimensions.base || 0}${units}, Height: ${dimensions.height || 0}${units}`
+      case 'rhombus':
+        return `Side: ${dimensions.side1 || 0}${units}, Diagonal: ${dimensions.diagonal || 0}${units}`
+      case 'ellipse':
+        return `Major: ${dimensions.length || 0}${units}, Minor: ${dimensions.width || 0}${units}`
+      case 'hexagon':
+        return `Side: ${dimensions.side1 || 0}${units}`
+      case 'octagon':
+        return `Side: ${dimensions.side1 || 0}${units}`
+      default:
+        return 'Dimensions not specified'
+    }
+  }
+
   const getRequiredFields = () => {
     switch (selectedShape) {
       case 'rectangle':
@@ -167,7 +197,7 @@ export default function AreaCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <Square className="w-12 h-12 mr-3 text-emerald-600" />
@@ -413,6 +443,25 @@ export default function AreaCalculator() {
           </div>
 
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
+              <ResultSharing
+                title="Area Calculation Result"
+                inputs={[
+                  { label: "Shape", value: selectedShape.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) },
+                  { label: "Units", value: units },
+                  { label: "Dimensions", value: getDimensionsSummary() }
+                ]}
+                result={{ 
+                  label: "Area", 
+                  value: result.area.toString(),
+                  unit: `${units}²`
+                }}
+                calculatorName="Area Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
               <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                 <Ruler className="w-6 h-6 mr-2 text-emerald-600" />

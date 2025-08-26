@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, User, Ruler } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function HeightCalculator() {
   const [inputHeight, setInputHeight] = useState('')
@@ -81,7 +82,7 @@ export default function HeightCalculator() {
   const result = showResults ? calculateHeight() : { feet: 0, inches: 0, centimeters: 0, meters: 0, comparison: '' }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-teal-600 to-blue-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -169,6 +170,25 @@ export default function HeightCalculator() {
 
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-teal-200">
+              <ResultSharing
+                title="Height Conversion Result"
+                inputs={[
+                  { label: "Input Height", value: `${inputHeight} ${inputUnit}` },
+                  { label: "Calculation Type", value: "Height Conversion" },
+                  { label: "Unit System", value: inputUnit === 'feet' || inputUnit === 'inches' ? 'Imperial' : 'Metric' }
+                ]}
+                result={{ 
+                  label: "Height in Feet & Inches", 
+                  value: `${result.feet}'${result.inches}"`,
+                  unit: ""
+                }}
+                calculatorName="Height Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-teal-50 p-6 rounded-lg border border-teal-200">
               <h3 className="text-lg font-semibold text-teal-800 mb-4">Height Conversion Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">

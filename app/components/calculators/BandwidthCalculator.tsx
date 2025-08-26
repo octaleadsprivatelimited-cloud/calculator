@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Calculator, Wifi, Download, Upload } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function BandwidthCalculator() {
   const [fileSize, setFileSize] = useState('100')
@@ -53,7 +54,7 @@ export default function BandwidthCalculator() {
   const time = showResults ? calculateTime() : 0
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -127,8 +128,28 @@ export default function BandwidthCalculator() {
         </div>
 
         {showResults && (
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200 text-center">
-            <h3 className="text-xl font-semibold text-purple-800 mb-4">Transfer Time Results</h3>
+          <>
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-6 rounded-lg border border-purple-200 mb-4">
+              <ResultSharing
+                title="Bandwidth Calculation Result"
+                inputs={[
+                  { label: "File Size", value: `${fileSize} ${fileSizeUnit}` },
+                  { label: "Connection Speed", value: `${speed} ${speedUnit}` },
+                  { label: "Calculation Type", value: "Transfer Time" }
+                ]}
+                result={{ 
+                  label: "Transfer Time", 
+                  value: formatTime(time),
+                  unit: ""
+                }}
+                calculatorName="Bandwidth Calculator"
+                className="mb-0"
+              />
+            </div>
+
+            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200 text-center">
+              <h3 className="text-xl font-semibold text-purple-800 mb-4">Transfer Time Results</h3>
             <div className="text-3xl font-bold text-purple-600 mb-2">
               {formatTime(time)}
             </div>
@@ -138,6 +159,7 @@ export default function BandwidthCalculator() {
               </button>
             </div>
           </div>
+          </>
         )}
       </div>
     </div>

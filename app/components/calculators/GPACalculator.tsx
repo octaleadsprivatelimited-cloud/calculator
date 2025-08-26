@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { GraduationCap } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface Course {
   name: string
@@ -163,7 +164,7 @@ export default function GPACalculator() {
   const result = showResults ? calculateGPA() : { gpa: 0, totalPoints: 0, totalCredits: 0, letterGrade: '' }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -275,6 +276,25 @@ export default function GPACalculator() {
 
         {showResults && !error && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="GPA Calculation Result"
+                inputs={[
+                  { label: "Total Credits", value: result.totalCredits.toString() },
+                  { label: "Total Points", value: result.totalPoints.toFixed(1) },
+                  { label: "Number of Courses", value: courses.length.toString() }
+                ]}
+                result={{ 
+                  label: "GPA", 
+                  value: result.gpa.toFixed(2),
+                  unit: `(${result.letterGrade})`
+                }}
+                calculatorName="GPA Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">GPA Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
@@ -297,7 +317,7 @@ export default function GPACalculator() {
               </div>
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-6">
               <button
                 onClick={handleReset}
                 className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
@@ -305,6 +325,8 @@ export default function GPACalculator() {
                 Reset
               </button>
             </div>
+
+
           </div>
         )}
 

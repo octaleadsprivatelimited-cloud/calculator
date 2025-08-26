@@ -48,7 +48,7 @@ export default function PaybackPeriodCalculator() {
   const result = showResults ? calculatePaybackPeriod() : { paybackPeriod: 0, monthlyPayback: 0, recommendations: [], details: { investment: 0, cashFlow: 0 } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-rose-500 to-pink-500 px-6 py-4">
         <div className="flex items-center">
           <Clock className="h-8 w-8 text-white mr-3" />

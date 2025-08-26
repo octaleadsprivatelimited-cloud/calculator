@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Beef } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function ProteinCalculator() {
   const [weight, setWeight] = useState('')
@@ -128,7 +129,7 @@ export default function ProteinCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-4">
         <div className="flex items-center">
           <Beef className="h-8 w-8 text-white mr-3" />
@@ -209,6 +210,25 @@ export default function ProteinCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-amber-200">
+              <ResultSharing
+                title="Protein Calculation Result"
+                inputs={[
+                  { label: "Weight", value: `${weight} lbs` },
+                  { label: "Activity Level", value: activityLevel.charAt(0).toUpperCase() + activityLevel.slice(1).replace('_', ' ') },
+                  { label: "Goal", value: goal.charAt(0).toUpperCase() + goal.slice(1).replace('_', ' ') }
+                ]}
+                result={{ 
+                  label: "Daily Protein Need", 
+                  value: `${result.dailyProtein.toFixed(1)}`,
+                  unit: "g"
+                }}
+                calculatorName="Protein Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
               <h3 className="text-lg font-semibold text-amber-800 mb-2">Daily Protein Need</h3>
               <div className="text-center">

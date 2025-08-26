@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Zap, Clock } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface SpeedResult {
   mph: number
@@ -198,7 +199,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
   const timeDistanceResult = showResults && calculationType !== 'conversion' ? calculateTimeDistance() : { time: 0, distance: 0, speed: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-cyan-600 to-blue-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -364,6 +365,25 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-6 rounded-lg border border-cyan-200">
+              <ResultSharing
+                title="Speed Calculation Result"
+                inputs={[
+                  { label: "Calculation Type", value: calculationType.charAt(0).toUpperCase() + calculationType.slice(1) },
+                  { label: "Input Value", value: `${inputValue} ${fromUnit}` },
+                  { label: "Additional Input", value: calculationType === 'conversion' ? 'Speed Conversion' : calculationType === 'time' ? `Distance: ${distance} miles` : `Time: ${time} hours` }
+                ]}
+                result={{ 
+                  label: calculationType === 'conversion' ? "Converted Speed" : calculationType === 'time' ? "Travel Time" : "Distance Traveled", 
+                  value: calculationType === 'conversion' ? `${formatNumber(speedResult.kmh)} km/h` : calculationType === 'time' ? formatTime(timeDistanceResult.time) : `${formatNumber(timeDistanceResult.distance)} miles`,
+                  unit: ""
+                }}
+                calculatorName="Speed Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {calculationType === 'conversion' ? (
               <div className="bg-cyan-50 p-6 rounded-lg border border-cyan-200">
                 <h3 className="text-lg font-semibold text-cyan-800 mb-4">Speed Conversions</h3>

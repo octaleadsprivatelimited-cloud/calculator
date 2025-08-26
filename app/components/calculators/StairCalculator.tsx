@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Ruler, Home, AlertTriangle } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface StairResult {
   totalRise: number
@@ -211,7 +212,7 @@ Safety Notes:
   const result = showResults ? calculateStairs() : { totalRise: 0, totalRun: 0, numberOfSteps: 0, riseHeight: 0, runDepth: 0, stringerLength: 0, angle: 0, compliance: '', safety: '' }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-teal-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -358,6 +359,27 @@ Safety Notes:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-green-200">
+              <ResultSharing
+                title="Stair Calculation Result"
+                inputs={[
+                  { label: "Stair Type", value: stairType },
+                  { label: "Floor Height", value: `${floorHeight} inches` },
+                  { label: "Floor Distance", value: `${floorDistance} inches` },
+                  { label: "Max Rise", value: `${maxRise} inches` },
+                  { label: "Min Run", value: `${minRun} inches` }
+                ]}
+                result={{ 
+                  label: "Total Steps", 
+                  value: result.numberOfSteps.toString(),
+                  unit: "steps"
+                }}
+                calculatorName="Stair Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Stair Results */}
             <div className="bg-green-50 p-6 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-4">Stair Calculation Results</h3>

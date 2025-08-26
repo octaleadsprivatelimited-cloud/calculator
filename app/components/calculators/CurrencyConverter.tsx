@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react'
 import { DollarSign, Calculator, TrendingUp, Share2, Download, Printer, RefreshCw, Globe } from 'lucide-react'
 import ShareModal from '../ShareModal'
+import ResultSharing from '../ResultSharing'
 
 interface CurrencyRate {
   code: string
@@ -182,7 +183,7 @@ export default function CurrencyConverter() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="w-full px-4 py-8">
         {/* Header */}
         <header className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
@@ -316,6 +317,25 @@ export default function CurrencyConverter() {
           <div className="lg:col-span-2">
             {result ? (
               <div className="space-y-6">
+                {/* Share Options - Moved to Top */}
+                <div className="bg-white rounded-2xl shadow-lg p-6">
+                  <ResultSharing
+                    title="Currency Conversion Result"
+                    inputs={[
+                      { label: "Amount", value: formatCurrency(result.fromAmount, result.fromCurrency) },
+                      { label: "From Currency", value: `${exchangeRates[result.fromCurrency]?.flag} ${result.fromCurrency}` },
+                      { label: "To Currency", value: `${exchangeRates[result.toCurrency]?.flag} ${result.toCurrency}` }
+                    ]}
+                    result={{ 
+                      label: "Converted Amount", 
+                      value: formatCurrency(result.toAmount, result.toCurrency),
+                      unit: ""
+                    }}
+                    calculatorName="Currency Converter"
+                    className="mb-0"
+                  />
+                </div>
+
                 {/* Conversion Result */}
                 <div className="bg-white rounded-2xl shadow-lg p-6">
                   <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">

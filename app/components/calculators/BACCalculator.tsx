@@ -129,7 +129,7 @@ export default function BACCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-4">
         <div className="flex items-center">
           <Wine className="h-8 w-8 text-white mr-3" />

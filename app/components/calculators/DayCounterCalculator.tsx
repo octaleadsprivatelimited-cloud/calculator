@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Calculator, Calendar, Target } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function DayCounterCalculator() {
   const [startDate, setStartDate] = useState('')
@@ -29,7 +30,7 @@ export default function DayCounterCalculator() {
   const days = showResults ? calculateDays() : null
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-green-600 to-teal-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -74,8 +75,28 @@ export default function DayCounterCalculator() {
         </div>
 
         {showResults && days !== null && (
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200 text-center">
-            <h3 className="text-xl font-semibold text-green-800 mb-4">Day Count Results</h3>
+          <>
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-6 rounded-lg border border-green-200 mb-4">
+              <ResultSharing
+                title="Day Count Calculation Result"
+                inputs={[
+                  { label: "Start Date", value: startDate },
+                  { label: "End Date", value: endDate },
+                  { label: "Calculation Type", value: "Day Count" }
+                ]}
+                result={{ 
+                  label: "Total Days", 
+                  value: `${days} ${days === 1 ? 'day' : 'days'}`,
+                  unit: ""
+                }}
+                calculatorName="Day Counter Calculator"
+                className="mb-0"
+              />
+            </div>
+
+            <div className="bg-green-50 p-6 rounded-lg border border-green-200 text-center">
+              <h3 className="text-xl font-semibold text-green-800 mb-4">Day Count Results</h3>
             <div className="text-3xl font-bold text-green-600 mb-2">
               {days} {days === 1 ? 'day' : 'days'}
             </div>
@@ -85,6 +106,7 @@ export default function DayCounterCalculator() {
               </button>
             </div>
           </div>
+          </>
         )}
         
         {/* Calculator Description Section */}

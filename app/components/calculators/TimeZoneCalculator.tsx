@@ -202,7 +202,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
   const result = showResults ? convertTime(sourceTime, sourceZone, targetZone) : { sourceTime: '', sourceZone: '', targetZone: '', convertedTime: '', timeDifference: '' }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-teal-600 to-blue-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">

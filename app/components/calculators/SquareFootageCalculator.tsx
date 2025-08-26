@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Square, Ruler, Home } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface AreaResult {
   squareFeet: number
@@ -344,7 +345,7 @@ ${costPerSqFt ? `- Total Cost: $${formatNumber(result.cost)}` : ''}`
   }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -485,6 +486,25 @@ ${costPerSqFt ? `- Total Cost: $${formatNumber(result.cost)}` : ''}`
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="Square Footage Calculation Result"
+                inputs={[
+                  { label: "Number of Rooms", value: `${rooms.length} rooms` },
+                  { label: "Total Area", value: `${formatNumber(result.squareFeet)} sq ft` },
+                  { label: "Cost per Sq Ft", value: costPerSqFt ? `$${costPerSqFt}` : "Not specified" }
+                ]}
+                result={{ 
+                  label: "Total Square Footage", 
+                  value: formatNumber(result.squareFeet),
+                  unit: "sq ft"
+                }}
+                calculatorName="Square Footage Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Area Results */}
             <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">Total Area Results</h3>

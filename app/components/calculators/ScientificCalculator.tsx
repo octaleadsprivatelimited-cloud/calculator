@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator as CalculatorIcon, RotateCcw, History, Trash2, Share2 } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface Calculation {
   expression: string
@@ -218,7 +219,7 @@ export default function ScientificCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         {/* Header */}
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">
@@ -229,6 +230,27 @@ export default function ScientificCalculator() {
             Advanced mathematical functions for students, engineers, and professionals
           </p>
         </header>
+
+        {/* Share Options - Moved to Top */}
+        {history.length > 0 && (
+          <div className="mb-6 bg-white rounded-2xl shadow-calculator p-6 border-2 border-gray-200">
+            <ResultSharing
+              title="Scientific Calculation Result"
+              inputs={[
+                { label: "Latest Expression", value: history[history.length - 1]?.expression || "" },
+                { label: "Angle Mode", value: angleMode },
+                { label: "Memory Value", value: memory.toFixed(8) }
+              ]}
+              result={{ 
+                label: "Result", 
+                value: history[history.length - 1]?.result || display,
+                unit: ""
+              }}
+              calculatorName="Scientific Calculator"
+              className="mb-0"
+            />
+          </div>
+        )}
 
         {/* Main Calculator Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -256,6 +278,8 @@ export default function ScientificCalculator() {
                     </button>
                   )}
                 </div>
+
+
               </div>
 
               {/* Scientific Functions Row */}

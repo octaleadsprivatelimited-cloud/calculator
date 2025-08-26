@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, DollarSign } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function TakeHomePaycheckCalculator() {
   const [grossPay, setGrossPay] = useState('')
@@ -97,7 +98,7 @@ export default function TakeHomePaycheckCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4">
         <div className="flex items-center">
           <DollarSign className="h-8 w-8 text-white mr-3" />
@@ -151,6 +152,25 @@ export default function TakeHomePaycheckCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-green-200">
+              <ResultSharing
+                title="Take-Home Paycheck Calculation Result"
+                inputs={[
+                  { label: "Gross Pay", value: `$${result.breakdown.gross?.toFixed(2)}` },
+                  { label: "Total Deductions", value: `$${result.breakdown.totalDeductions?.toFixed(2)}` },
+                  { label: "Calculation Type", value: "Paycheck Analysis" }
+                ]}
+                result={{ 
+                  label: "Take-Home Pay", 
+                  value: `$${result.takeHome.toFixed(2)}`,
+                  unit: ""
+                }}
+                calculatorName="Take-Home Paycheck Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-green-50 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-2">Take-Home Pay</h3>
               <div className="text-center">

@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Dice1, BarChart3, RefreshCw } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface DiceResult {
   rolls: number[]
@@ -130,7 +131,7 @@ ${rollHistory.map((roll, index) =>
   }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -246,6 +247,25 @@ ${rollHistory.map((roll, index) =>
         {/* Current Roll Results */}
         {currentRoll && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-6 rounded-lg border border-green-200">
+              <ResultSharing
+                title="Dice Roll Result"
+                inputs={[
+                  { label: "Dice Type", value: selectedDice },
+                  { label: "Number of Dice", value: numberOfDice.toString() },
+                  { label: "Roll Type", value: "Random Roll" }
+                ]}
+                result={{ 
+                  label: "Total Roll", 
+                  value: currentRoll.total.toString(),
+                  unit: ""
+                }}
+                calculatorName="Dice Roller Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Roll Results */}
             <div className="bg-green-50 p-6 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-4">Roll Results</h3>

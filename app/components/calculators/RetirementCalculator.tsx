@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, UserCheck } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function RetirementCalculator() {
   const [currentAge, setCurrentAge] = useState('')
@@ -77,7 +78,7 @@ export default function RetirementCalculator() {
   const result = showResults ? calculateRetirement() : { yearsToRetirement: 0, totalSavings: 0, monthlyIncome: 0, recommendations: [], details: { current: 0, retirement: 0, savings: 0, contribution: 0, returnRate: 0 } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-4">
         <div className="flex items-center">
           <UserCheck className="h-8 w-8 text-white mr-3" />
@@ -127,6 +128,27 @@ export default function RetirementCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+              <ResultSharing
+                title="Retirement Calculation Result"
+                inputs={[
+                  { label: "Current Age", value: `${currentAge} years` },
+                  { label: "Retirement Age", value: `${retirementAge} years` },
+                  { label: "Current Savings", value: `$${currentSavings}` },
+                  { label: "Monthly Contribution", value: `$${monthlyContribution}` },
+                  { label: "Expected Return", value: `${expectedReturn}%` }
+                ]}
+                result={{ 
+                  label: "Total Retirement Savings", 
+                  value: `$${result.totalSavings?.toLocaleString(undefined, {maximumFractionDigits: 0})}`,
+                  unit: ""
+                }}
+                calculatorName="Retirement Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
               <h3 className="text-lg font-semibold text-emerald-800 mb-2">Retirement Savings</h3>
               <div className="text-center">

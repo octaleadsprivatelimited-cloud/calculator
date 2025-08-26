@@ -56,7 +56,7 @@ export default function BudgetCalculator() {
   const result = showResults ? calculateBudget() : { totalExpenses: 0, remaining: 0, percentages: { housing: 0, transportation: 0, food: 0, utilities: 0, entertainment: 0 }, recommendations: [] }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
         <div className="flex items-center">
           <PieChart className="h-8 w-8 text-white mr-3" />

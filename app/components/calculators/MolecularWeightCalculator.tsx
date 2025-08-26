@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Atom } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface Element {
   symbol: string
@@ -218,7 +219,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
   const result = showResults ? parseFormula(formula) : { molecularWeight: 0, elements: [], totalWeight: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -305,6 +306,25 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-teal-200">
+              <ResultSharing
+                title="Molecular Weight Calculation Result"
+                inputs={[
+                  { label: "Chemical Formula", value: formula },
+                  { label: "Calculation Type", value: "Molecular Weight" },
+                  { label: "Elements", value: `${result.elements.length} elements` }
+                ]}
+                result={{ 
+                  label: "Molecular Weight", 
+                  value: `${formatNumber(result.molecularWeight)}`,
+                  unit: "g/mol"
+                }}
+                calculatorName="Molecular Weight Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Molecular Weight */}
             <div className="bg-teal-50 p-6 rounded-lg border border-teal-200">
               <h3 className="text-lg font-semibold text-teal-800 mb-4">Molecular Weight</h3>

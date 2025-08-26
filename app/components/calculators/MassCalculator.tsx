@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Scale, Zap } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface MassResult {
   grams: number
@@ -122,7 +123,7 @@ Converted Masses:
   const result = showResults ? convertMass(parseFloat(inputValue), fromUnit) : { grams: 0, kilograms: 0, pounds: 0, ounces: 0, milligrams: 0, tons: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-600 to-red-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -215,6 +216,25 @@ Converted Masses:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-orange-200">
+              <ResultSharing
+                title="Mass Conversion Result"
+                inputs={[
+                  { label: "Input Value", value: `${inputValue} ${MASS_UNITS[fromUnit as keyof typeof MASS_UNITS].name}` },
+                  { label: "Calculation Type", value: "Mass Conversion" },
+                  { label: "Unit System", value: fromUnit === 'g' || fromUnit === 'kg' || fromUnit === 'mg' || fromUnit === 't' ? 'Metric' : 'Imperial' }
+                ]}
+                result={{ 
+                  label: "Primary Result", 
+                  value: `${formatNumber(result.grams)}`,
+                  unit: "grams"
+                }}
+                calculatorName="Mass Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Mass Conversions */}
             <div className="bg-orange-50 p-6 rounded-lg border border-orange-200">
               <h3 className="text-lg font-semibold text-orange-800 mb-4">Mass Conversions</h3>

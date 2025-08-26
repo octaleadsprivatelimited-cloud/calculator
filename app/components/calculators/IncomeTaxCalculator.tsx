@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { DollarSign, Calculator as CalculatorIcon, RotateCcw, Receipt, TrendingDown } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface TaxResult {
   grossIncome: number
@@ -118,7 +119,7 @@ export default function IncomeTaxCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <Receipt className="w-12 h-12 mr-3 text-red-600" />
@@ -268,6 +269,25 @@ export default function IncomeTaxCalculator() {
           </div>
 
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-red-200">
+              <ResultSharing
+                title="Income Tax Calculation Result"
+                inputs={[
+                  { label: "Filing Status", value: filingStatus.charAt(0).toUpperCase() + filingStatus.slice(1) },
+                  { label: "Gross Income", value: formatCurrency(result.grossIncome) },
+                  { label: "State", value: state }
+                ]}
+                result={{ 
+                  label: "Total Taxes Owed", 
+                  value: formatCurrency(result.totalTax),
+                  unit: ""
+                }}
+                calculatorName="Income Tax Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-red-200">
               <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                 <TrendingDown className="w-6 h-6 mr-2 text-red-600" />

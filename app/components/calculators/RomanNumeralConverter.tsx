@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Hash, Clock } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface ConversionResult {
   arabic: number
@@ -226,7 +227,7 @@ Conversion Details:
   const result = showResults ? getResult() : { arabic: 0, roman: '', isValid: false }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-amber-600 to-orange-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -338,6 +339,25 @@ Conversion Details:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-amber-200">
+              <ResultSharing
+                title="Roman Numeral Conversion Result"
+                inputs={[
+                  { label: "Input Value", value: inputValue },
+                  { label: "Conversion Type", value: conversionType === 'arabic' ? 'Arabic to Roman' : 'Roman to Arabic' },
+                  { label: "Calculation Type", value: "Numeral Conversion" }
+                ]}
+                result={{ 
+                  label: conversionType === 'arabic' ? 'Roman Numeral' : 'Arabic Number', 
+                  value: conversionType === 'arabic' ? result.roman : result.arabic.toString(),
+                  unit: ""
+                }}
+                calculatorName="Roman Numeral Converter"
+                className="mb-0"
+              />
+            </div>
+
             {/* Conversion Result */}
             <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
               <h3 className="text-lg font-semibold text-amber-800 mb-4">Conversion Result</h3>

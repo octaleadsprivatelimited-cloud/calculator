@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, TrendingUp, DollarSign, Globe } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface GDPResult {
   gdp: number
@@ -220,7 +221,7 @@ Economic Indicators:
   const result = showResults ? calculateGDP() : { gdp: 0, gdpPerCapita: 0, gdpGrowth: 0, realGDP: 0, nominalGDP: 0, purchasingPower: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-emerald-600 to-green-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -442,6 +443,25 @@ Economic Indicators:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+              <ResultSharing
+                title="GDP Calculation Result"
+                inputs={[
+                  { label: "Country", value: country },
+                  { label: "Calculation Type", value: calculationType.charAt(0).toUpperCase() + calculationType.slice(1) },
+                  { label: "Base Year", value: baseYear }
+                ]}
+                result={{ 
+                  label: "Total GDP", 
+                  value: formatCurrency(result.gdp),
+                  unit: ""
+                }}
+                calculatorName="GDP Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* GDP Results */}
             <div className="bg-emerald-50 p-6 rounded-lg border border-emerald-200">
               <h3 className="text-lg font-semibold text-emerald-800 mb-4">GDP Calculation Results</h3>

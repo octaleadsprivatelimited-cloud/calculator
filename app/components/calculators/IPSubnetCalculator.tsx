@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Network, Cpu, Globe } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface SubnetResult {
   networkAddress: string
@@ -234,7 +235,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
   const result = showResults ? calculateSubnet() : { networkAddress: '', broadcastAddress: '', firstHost: '', lastHost: '', subnetMask: '', wildcardMask: '', totalHosts: 0, usableHosts: 0, networkBits: 0, hostBits: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -380,6 +381,25 @@ Network Class: ${NETWORK_CLASSES.find(c => {
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="IP Subnet Calculation Result"
+                inputs={[
+                  { label: "IP Address", value: ipAddress },
+                  { label: "Subnet Mask", value: subnetMask || `/${cidr}` },
+                  { label: "Calculation Type", value: "Subnet Analysis" }
+                ]}
+                result={{ 
+                  label: "Network Address", 
+                  value: result.networkAddress,
+                  unit: ""
+                }}
+                calculatorName="IP Subnet Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Network Information */}
             <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">Network Information</h3>

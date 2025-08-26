@@ -42,7 +42,7 @@ export default function BTUCalculator() {
   const result = showResults ? calculateBTU() : { heating: 0, cooling: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>

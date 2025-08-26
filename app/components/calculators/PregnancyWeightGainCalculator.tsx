@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Scale } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function PregnancyWeightGainCalculator() {
   const [prePregnancyWeight, setPrePregnancyWeight] = useState('')
@@ -119,7 +120,7 @@ export default function PregnancyWeightGainCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4">
         <div className="flex items-center">
           <Scale className="h-8 w-8 text-white mr-3" />
@@ -195,6 +196,25 @@ export default function PregnancyWeightGainCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <ResultSharing
+                title="Pregnancy Weight Gain Calculation Result"
+                inputs={[
+                  { label: "Pre-Pregnancy Weight", value: `${prePregnancyWeight} lbs` },
+                  { label: "Height", value: `${height} ${parseFloat(height) < 10 ? 'feet' : 'cm'}` },
+                  { label: "Current Week", value: `Week ${currentWeek}` }
+                ]}
+                result={{ 
+                  label: "Total Recommended Gain", 
+                  value: `${result.totalGain} lbs`,
+                  unit: ""
+                }}
+                calculatorName="Pregnancy Weight Gain Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-2">Your Profile</h3>
               <div className="space-y-2">

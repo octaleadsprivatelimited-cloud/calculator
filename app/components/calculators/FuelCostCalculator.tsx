@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Fuel, Car, DollarSign, MapPin } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface FuelResult {
   totalCost: number
@@ -226,7 +227,7 @@ Cost Comparison:
   const result = showResults ? calculateFuelCost() : { totalCost: 0, costPerMile: 0, costPerKm: 0, fuelNeeded: 0, efficiency: '', savings: 0, recommendations: [] }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-600 to-red-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -393,6 +394,25 @@ Cost Comparison:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-orange-200">
+              <ResultSharing
+                title="Fuel Cost Calculation Result"
+                inputs={[
+                  { label: "Distance", value: `${distance} miles` },
+                  { label: "Fuel Price", value: `$${fuelPrice}/gallon` },
+                  { label: "MPG", value: mpg }
+                ]}
+                result={{ 
+                  label: "Total Fuel Cost", 
+                  value: formatCurrency(result.totalCost),
+                  unit: ""
+                }}
+                calculatorName="Fuel Cost Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Cost Results */}
             <div className="bg-orange-50 p-6 rounded-lg border border-orange-200">
               <h3 className="text-lg font-semibold text-orange-800 mb-4">Fuel Cost Results</h3>

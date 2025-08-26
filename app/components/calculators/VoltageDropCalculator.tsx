@@ -227,7 +227,7 @@ Circuit Information:
   const result = showResults ? calculateVoltageDrop() : { voltageDrop: 0, voltageDropPercent: 0, remainingVoltage: 0, wireSize: '', maxDistance: 0, safetyLevel: '', recommendations: [] }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">

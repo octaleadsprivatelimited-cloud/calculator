@@ -64,7 +64,7 @@ export default function BusinessLoanCalculator() {
   const result = showResults ? calculateBusinessLoan() : { monthlyPayment: 0, totalInterest: 0, totalPayment: 0, recommendations: [], details: { amount: 0, rate: 0, term: 0, termType: '' } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-4">
         <div className="flex items-center">
           <Building2 className="h-8 w-8 text-white mr-3" />

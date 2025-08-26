@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Home } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function MortgageCalculator() {
   const [homePrice, setHomePrice] = useState('')
@@ -61,7 +62,7 @@ export default function MortgageCalculator() {
   const result = showResults ? calculateMortgage() : { loanAmount: 0, monthlyPayment: 0, totalInterest: 0, totalPayment: 0, recommendations: [], details: { price: 0, down: 0, rate: 0, term: 0 } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-500 to-indigo-500 px-6 py-4">
         <div className="flex items-center">
           <Home className="h-8 w-8 text-white mr-3" />
@@ -71,6 +72,27 @@ export default function MortgageCalculator() {
       </div>
 
       <div className="p-6">
+        {/* Share Options - Moved to Top */}
+        {showResults && (
+          <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <ResultSharing
+              title="Mortgage Calculator Result"
+              inputs={[
+                { label: "Home Price", value: `$${result.details.price.toLocaleString()}` },
+                { label: "Down Payment", value: `$${result.details.down.toLocaleString()}` },
+                { label: "Interest Rate", value: `${result.details.rate}%` },
+                { label: "Loan Term", value: `${result.details.term} years` }
+              ]}
+              result={{ 
+                label: "Monthly Payment", 
+                value: `$${result.monthlyPayment.toFixed(2)}`,
+                unit: ""
+              }}
+              calculatorName="Mortgage Calculator"
+              className="mb-0"
+            />
+          </div>
+        )}
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -149,6 +171,8 @@ export default function MortgageCalculator() {
                 </div>
               </div>
             )}
+
+
           </div>
         )}
 

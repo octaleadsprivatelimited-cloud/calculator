@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Zap, Gauge, Cpu } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface OhmsLawResult {
   voltage: number
@@ -234,7 +235,7 @@ Safety Notes:
   const result = showResults ? calculateOhmsLaw() : { voltage: 0, current: 0, resistance: 0, power: 0, energy: 0, efficiency: 0, safety: '' }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -444,6 +445,26 @@ Safety Notes:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="Ohms Law Calculation Result"
+                inputs={[
+                  { label: "Calculation Type", value: calculationType.charAt(0).toUpperCase() + calculationType.slice(1) },
+                  { label: "Voltage", value: voltage ? `${voltage}V` : "Not specified" },
+                  { label: "Current", value: current ? `${current}A` : "Not specified" },
+                  { label: "Resistance", value: resistance ? `${resistance}Ω` : "Not specified" }
+                ]}
+                result={{ 
+                  label: "Power", 
+                  value: `${formatUnit(result.power, 'W')}`,
+                  unit: ""
+                }}
+                calculatorName="Ohms Law Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Ohms Law Results */}
             <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">Ohms Law Calculation Results</h3>

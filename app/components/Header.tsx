@@ -119,15 +119,43 @@ export default function Header() {
     }
   }
 
-  const toggleDropdown = (name: string) => {
-    setActiveDropdown(activeDropdown === name ? null : name)
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null)
+
+  const handleMouseEnter = (name: string) => {
+    // Clear any existing timeout
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout)
+      setHoverTimeout(null)
+    }
+    setActiveDropdown(name)
+  }
+
+  const handleMouseLeave = () => {
+    // Set a small delay before closing to allow moving to dropdown content
+    const timeout = setTimeout(() => {
+      setActiveDropdown(null)
+    }, 150) // 150ms delay for smooth transition
+    setHoverTimeout(timeout)
   }
 
   const closeAllDropdowns = () => {
     setActiveDropdown(null)
     setIsMobileMenuOpen(false)
     setIsSearchOpen(false)
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout)
+      setHoverTimeout(null)
+    }
   }
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout)
+      }
+    }
+  }, [hoverTimeout])
 
   return (
     <>
@@ -161,9 +189,13 @@ export default function Header() {
                                          {/* Desktop Navigation */}
                 <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
                   {navigation.map((item) => (
-                    <div key={item.name} className="relative group">
+                    <div 
+                      key={item.name} 
+                      className="relative group"
+                      onMouseEnter={() => handleMouseEnter(item.name)}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       <button
-                        onClick={() => toggleDropdown(item.name)}
                         className="flex items-center space-x-1.5 px-2.5 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 text-xs font-medium header-nav-item"
                       >
                         <span className="scale-90 flex-shrink-0">{item.icon}</span>
@@ -175,7 +207,11 @@ export default function Header() {
 
                                      {/* Dropdown Menu */}
                    {activeDropdown === item.name && (
-                     <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-3 z-50">
+                     <div 
+                       className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-3 z-50"
+                       onMouseEnter={() => handleMouseEnter(item.name)}
+                       onMouseLeave={handleMouseLeave}
+                     >
                        <div className="px-3 pb-2 border-b border-gray-100">
                          <h3 className="text-sm font-semibold text-gray-900">{item.name}</h3>
                          <p className="text-xs text-gray-500">{item.description}</p>
@@ -190,8 +226,8 @@ export default function Header() {
                            >
                              <div className="text-blue-600 scale-90">{subItem.icon}</div>
                              <div className="flex-1 min-w-0">
-                               <p className="text-sm font-medium text-gray-900">{subItem.name}</p>
-                               <p className="text-xs text-gray-500 truncate">{subItem.description}</p>
+                               <div className="text-sm font-medium text-gray-900">{subItem.name}</div>
+                               <div className="text-xs text-gray-500 truncate">{subItem.description}</div>
                              </div>
                            </Link>
                          ))}
@@ -256,7 +292,7 @@ export default function Header() {
                {navigation.map((item) => (
                  <div key={item.name}>
                    <button
-                     onClick={() => toggleDropdown(item.name)}
+                     onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
                      className="flex items-center justify-between w-full p-2.5 text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
                    >
                      <div className="flex items-center space-x-2.5">
@@ -278,7 +314,7 @@ export default function Header() {
                            onClick={closeAllDropdowns}
                          >
                            <span className="scale-75">{subItem.icon}</span>
-                           <span className="text-sm">{subItem.name}</span>
+                           <div className="text-sm">{subItem.name}</div>
                          </Link>
                        ))}
                      </div>

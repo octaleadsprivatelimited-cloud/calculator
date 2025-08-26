@@ -78,7 +78,7 @@ export default function RefinanceCalculator() {
   const result = showResults ? calculateRefinance() : { currentPayment: 0, newPayment: 0, monthlySavings: 0, breakEvenMonths: 0, totalSavings: 0, recommendations: [], details: { balance: 0, oldRate: 0, newRate: 0, term: 0, termType: '', costs: 0 } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-4">
         <div className="flex items-center">
           <RefreshCw className="h-8 w-8 text-white mr-3" />

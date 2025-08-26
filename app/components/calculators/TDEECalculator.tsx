@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Zap } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function TDEECalculator() {
   const [age, setAge] = useState('')
@@ -89,7 +90,7 @@ export default function TDEECalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
         <div className="flex items-center">
           <Zap className="h-8 w-8 text-white mr-3" />
@@ -197,6 +198,25 @@ export default function TDEECalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="p-4 bg-white rounded-lg border border-blue-200">
+              <ResultSharing
+                title="TDEE Calculation Result"
+                inputs={[
+                  { label: "Age", value: `${age} years` },
+                  { label: "Gender", value: gender.charAt(0).toUpperCase() + gender.slice(1) },
+                  { label: "Activity Level", value: activityLevel.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase()) }
+                ]}
+                result={{ 
+                  label: "TDEE", 
+                  value: result.tdee.toFixed(0),
+                  unit: "calories"
+                }}
+                calculatorName="TDEE Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Results</h3>
               <div className="space-y-2">

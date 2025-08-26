@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Moon, Clock, Bed } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface SleepResult {
   wakeUpTime: string
@@ -176,7 +177,7 @@ ${SLEEP_TIPS.join('\n')}`
   const result = showResults ? calculateSleep() : { wakeUpTime: '', bedtimes: [], sleepCycles: 0, totalSleepHours: 0, sleepQuality: '' }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -327,6 +328,25 @@ ${SLEEP_TIPS.join('\n')}`
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-6 rounded-lg border border-indigo-200">
+              <ResultSharing
+                title="Sleep Schedule Calculation Result"
+                inputs={[
+                  { label: "Calculation Type", value: calculationType === 'wakeup' ? 'Wake-up Time' : 'Bedtime' },
+                  { label: "Target Time", value: targetTime },
+                  { label: "Sleep Hours", value: `${sleepHours} hours` }
+                ]}
+                result={{ 
+                  label: "Sleep Quality", 
+                  value: result.sleepQuality,
+                  unit: ""
+                }}
+                calculatorName="Sleep Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Sleep Results */}
             <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-4">Sleep Schedule</h3>

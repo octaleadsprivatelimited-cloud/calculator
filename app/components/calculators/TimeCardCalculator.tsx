@@ -227,7 +227,7 @@ Pay Summary:
   const result = showResults ? calculatePay() : { totalHours: 0, regularHours: 0, overtimeHours: 0, regularPay: 0, overtimePay: 0, totalPay: 0, breakTime: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">

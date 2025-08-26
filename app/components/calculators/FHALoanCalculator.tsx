@@ -66,7 +66,7 @@ export default function FHALoanCalculator() {
   const result = showResults ? calculateFHA() : { loanAmount: 0, monthlyPayment: 0, pmi: 0, totalPayment: 0, recommendations: [], details: { price: 0, down: 0, rate: 0, term: 0 } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-500 to-indigo-500 px-6 py-4">
         <div className="flex items-center">
           <Home className="h-8 w-8 text-white mr-3" />

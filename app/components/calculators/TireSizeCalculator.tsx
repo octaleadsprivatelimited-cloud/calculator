@@ -174,7 +174,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
   const speedDiff = showResults ? calculateSpeedometerDifference() : { actualSpeed: 0, difference: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">

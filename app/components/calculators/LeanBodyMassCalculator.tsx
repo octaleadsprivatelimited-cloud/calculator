@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Dumbbell } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function LeanBodyMassCalculator() {
   const [weight, setWeight] = useState('')
@@ -142,7 +143,7 @@ export default function LeanBodyMassCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
         <div className="flex items-center">
           <Dumbbell className="h-8 w-8 text-white mr-3" />
@@ -266,6 +267,25 @@ export default function LeanBodyMassCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="Lean Body Mass Calculation Result"
+                inputs={[
+                  { label: "Weight", value: `${weight} lbs` },
+                  { label: "Height", value: `${height} ${parseFloat(height) < 10 ? 'feet' : 'cm'}` },
+                  { label: "Method", value: method.charAt(0).toUpperCase() + method.slice(1) }
+                ]}
+                result={{ 
+                  label: "Lean Body Mass", 
+                  value: `${result.leanMass.toFixed(1)} kg`,
+                  unit: ""
+                }}
+                calculatorName="Lean Body Mass Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Results</h3>
               <div className="space-y-2">

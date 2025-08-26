@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calendar, Clock, Calculator as CalculatorIcon, RotateCcw, Gift } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface AgeResult {
   years: number
@@ -120,7 +121,7 @@ export default function AgeCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <Calendar className="w-12 h-12 mr-3 text-purple-600" />
@@ -221,6 +222,24 @@ export default function AgeCalculator() {
           <div className="space-y-6">
             {result && (
               <>
+                {/* Share Options - Moved to Top */}
+                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
+                  <ResultSharing
+                    title="Age Calculation Result"
+                    inputs={[
+                      { label: "Birth Date", value: new Date(birthDate).toLocaleDateString() },
+                      { label: "Target Date", value: new Date(targetDate).toLocaleDateString() }
+                    ]}
+                    result={{ 
+                      label: "Age", 
+                      value: `${result.years} years, ${result.months} months, ${result.days} days`,
+                      unit: ""
+                    }}
+                    calculatorName="Age Calculator"
+                    className="mb-0"
+                  />
+                </div>
+
                 <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
                   <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                     <Clock className="w-6 h-6 mr-2 text-purple-600" />
@@ -302,6 +321,8 @@ export default function AgeCalculator() {
                     </div>
                   </div>
                 </div>
+
+
               </>
             )}
 

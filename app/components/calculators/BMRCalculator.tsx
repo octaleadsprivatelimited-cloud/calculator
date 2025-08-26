@@ -87,7 +87,7 @@ export default function BMRCalculator() {
   const result = showResults ? calculateBMR() : { bmr: 0, formula: '', tdee: { sedentary: 0, light: 0, moderate: 0, active: 0, very_active: 0 } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-purple-500 to-indigo-500 px-6 py-4">
         <div className="flex items-center">
           <Zap className="h-8 w-8 text-white mr-3" />

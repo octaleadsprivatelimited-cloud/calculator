@@ -63,7 +63,7 @@ export default function APRCalculator() {
   const result = showResults ? calculateAPR() : { apr: 0, totalCost: 0, monthlyPayment: 0, recommendations: [], details: { principal: 0, rate: 0, term: 0, fees: 0 } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-violet-500 to-purple-500 px-6 py-4">
         <div className="flex items-center">
           <Percent className="h-8 w-8 text-white mr-3" />

@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Clock, Calendar, TrendingUp } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface TimeEntry {
   startTime: string
@@ -84,7 +85,7 @@ export default function HoursCalculator() {
   const result = calculateHours()
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
         <div className="flex items-center">
           <Clock className="h-8 w-8 text-white mr-3" />
@@ -193,8 +194,28 @@ export default function HoursCalculator() {
         )}
 
         {showResults && timeEntries.length > 0 && (
-          <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-            <h3 className="text-lg font-semibold text-green-800 mb-3">Summary</h3>
+          <>
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-green-200 mb-4">
+              <ResultSharing
+                title="Hours Calculation Result"
+                inputs={[
+                  { label: "Time Entries", value: `${timeEntries.length} entries` },
+                  { label: "Calculation Type", value: "Work Hours Tracking" },
+                  { label: "Break Time", value: `${timeEntries.reduce((sum, entry) => sum + entry.breakTime, 0)} minutes` }
+                ]}
+                result={{ 
+                  label: "Total Hours", 
+                  value: `${totalHoursFormatted}h ${totalMinutesFormatted}m`,
+                  unit: ""
+                }}
+                calculatorName="Hours Calculator"
+                className="mb-0"
+              />
+            </div>
+
+            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+              <h3 className="text-lg font-semibold text-green-800 mb-3">Summary</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 mb-2">
@@ -210,6 +231,7 @@ export default function HoursCalculator() {
               </div>
             </div>
           </div>
+          </>
         )}
         
         {/* Calculator Description Section */}

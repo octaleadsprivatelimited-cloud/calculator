@@ -198,7 +198,7 @@ Cost Breakdown:
   const result = showResults ? calculateTileNeeds() : null
 
   return (
-    <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-teal-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">

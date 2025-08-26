@@ -73,7 +73,7 @@ export default function LeaseCalculator() {
   const result = showResults ? calculateLease() : { monthlyPayment: 0, totalCost: 0, depreciation: 0, recommendations: [], details: { price: 0, down: 0, residual: 0, rate: 0, term: 0, termType: '' } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-slate-500 to-gray-500 px-6 py-4">
         <div className="flex items-center">
           <FileText className="h-8 w-8 text-white mr-3" />

@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Zap, Gauge, Car } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface HorsepowerResult {
   horsepower: number
@@ -217,7 +218,7 @@ Performance Analysis:
   const result = showResults ? calculateHorsepower() : { horsepower: 0, kilowatts: 0, torque: 0, powerToWeight: 0, acceleration: 0, topSpeed: 0, performance: '' }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-yellow-600 to-orange-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -423,6 +424,25 @@ Performance Analysis:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-yellow-200">
+              <ResultSharing
+                title="Horsepower Calculation Result"
+                inputs={[
+                  { label: "Calculation Type", value: calculationType === 'torque' ? 'Torque to Horsepower' : calculationType === 'dyno' ? 'Dyno Results' : 'Power to Weight' },
+                  { label: "Torque", value: `${torque} lb-ft` },
+                  { label: "RPM", value: rpm }
+                ]}
+                result={{ 
+                  label: "Horsepower", 
+                  value: formatNumber(result.horsepower),
+                  unit: "HP"
+                }}
+                calculatorName="Horsepower Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Horsepower Results */}
             <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
               <h3 className="text-lg font-semibold text-yellow-800 mb-4">Horsepower Calculation Results</h3>

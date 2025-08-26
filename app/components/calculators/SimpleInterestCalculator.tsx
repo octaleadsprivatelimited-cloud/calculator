@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { DollarSign, Calculator as CalculatorIcon, RotateCcw, TrendingUp } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface SimpleInterestResult {
   principal: number
@@ -72,7 +73,7 @@ export default function SimpleInterestCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <DollarSign className="w-12 h-12 mr-3 text-green-600" />
@@ -234,6 +235,25 @@ export default function SimpleInterestCalculator() {
           </div>
 
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-green-200">
+              <ResultSharing
+                title="Simple Interest Calculation Result"
+                inputs={[
+                  { label: "Principal Amount", value: formatCurrency(result.principal) },
+                  { label: "Interest Rate", value: formatPercentage(result.rate) },
+                  { label: "Time Period", value: `${result.time} ${result.timeUnit}` }
+                ]}
+                result={{ 
+                  label: "Interest Earned", 
+                  value: formatCurrency(result.interest),
+                  unit: ""
+                }}
+                calculatorName="Simple Interest Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-green-200">
               <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                 <TrendingUp className="w-6 h-6 mr-2 text-green-600" />

@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Zap, Palette, Cpu } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface ResistorResult {
   totalResistance: number
@@ -284,7 +285,7 @@ Circuit Analysis:
   const result = showResults ? calculateResistance() : { totalResistance: 0, totalCurrent: 0, totalPower: 0, voltageDrop: 0, powerDissipation: 0, tolerance: 0, colorCode: [] }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -418,6 +419,25 @@ Circuit Analysis:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <ResultSharing
+                title="Resistor Circuit Calculation Result"
+                inputs={[
+                  { label: "Circuit Type", value: circuitType },
+                  { label: "Resistors", value: resistors.filter(r => r.trim() !== '').join(', ') + ' Ω' },
+                  { label: "Voltage", value: voltage ? `${voltage}V` : "Not specified" }
+                ]}
+                result={{ 
+                  label: "Total Resistance", 
+                  value: formatResistance(result.totalResistance),
+                  unit: ""
+                }}
+                calculatorName="Resistor Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Circuit Results */}
             <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-4">Circuit Calculation Results</h3>

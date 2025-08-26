@@ -92,7 +92,7 @@ export default function RandomNumberGenerator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-50 to-purple-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <Shuffle className="w-12 h-12 mr-3 text-violet-600" />

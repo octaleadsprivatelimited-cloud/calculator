@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calendar, Calculator as CalculatorIcon, RotateCcw, Plus, Minus, Clock } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface DateResult {
   startDate: Date
@@ -156,7 +157,7 @@ export default function DateCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 to-blue-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <Calendar className="w-12 h-12 mr-3 text-cyan-600" />
@@ -376,6 +377,25 @@ export default function DateCalculator() {
           </div>
 
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-cyan-200">
+              <ResultSharing
+                title="Date Calculation Result"
+                inputs={[
+                  { label: "Start Date", value: startDate },
+                  { label: "End Date", value: endDate },
+                  { label: "Calculation Type", value: calculationType === 'difference' ? 'Date Difference' : 'Date Operation' }
+                ]}
+                result={{ 
+                  label: calculationType === 'difference' ? "Total Days" : "Result Date", 
+                  value: calculationType === 'difference' ? result.difference.totalDays.toString() : formatShortDate(result.resultDate),
+                  unit: calculationType === 'difference' ? "days" : ""
+                }}
+                calculatorName="Date Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {calculationType === 'difference' ? (
               <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
                 <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">

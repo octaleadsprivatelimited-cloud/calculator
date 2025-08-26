@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface ShoeSize {
   us: number
@@ -177,7 +178,7 @@ Converted Sizes:
   const result = showResults ? convertShoeSize(parseFloat(fromValue), fromSystem) : { us: 0, uk: 0, eu: 0, cm: 0, inches: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -246,6 +247,25 @@ Converted Sizes:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <ResultSharing
+                title="Shoe Size Conversion Result"
+                inputs={[
+                  { label: "From System", value: fromSystem.toUpperCase() },
+                  { label: "Input Value", value: fromValue },
+                  { label: "Calculation Type", value: "Size Conversion" }
+                ]}
+                result={{ 
+                  label: "Primary Result", 
+                  value: `${result.us} US / ${result.uk} UK / ${result.eu} EU`,
+                  unit: ""
+                }}
+                calculatorName="Shoe Size Converter"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-4">Converted Sizes</h3>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">

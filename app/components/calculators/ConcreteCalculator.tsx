@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Home } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function ConcreteCalculator() {
   const [length, setLength] = useState('')
@@ -40,7 +41,7 @@ export default function ConcreteCalculator() {
   const result = showResults ? calculateConcrete() : { volume: 0, weight: 0, bags: 0 }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-gray-600 to-gray-800 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -110,6 +111,25 @@ export default function ConcreteCalculator() {
 
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-gray-200">
+              <ResultSharing
+                title="Concrete Calculation Result"
+                inputs={[
+                  { label: "Length", value: `${length} feet` },
+                  { label: "Width", value: `${width} feet` },
+                  { label: "Height/Depth", value: `${height} feet` }
+                ]}
+                result={{ 
+                  label: "Concrete Needed", 
+                  value: `${result.volume.toFixed(2)} cubic yards`,
+                  unit: ""
+                }}
+                calculatorName="Concrete Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">Concrete Requirements</h3>
               <div className="grid md:grid-cols-3 gap-6 text-center">

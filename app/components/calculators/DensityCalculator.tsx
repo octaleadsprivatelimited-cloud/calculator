@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Scale } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function DensityCalculator() {
   const [calculationType, setCalculationType] = useState<'density' | 'mass' | 'volume'>('density')
@@ -47,7 +48,7 @@ export default function DensityCalculator() {
   const result = showResults ? calculateDensity() : 0
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -163,6 +164,25 @@ export default function DensityCalculator() {
 
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+              <ResultSharing
+                title="Density Calculation Result"
+                inputs={[
+                  { label: "Calculation Type", value: calculationType.charAt(0).toUpperCase() + calculationType.slice(1) },
+                  { label: calculationType === 'density' ? "Mass" : "Density", value: calculationType === 'density' ? `${mass} g` : `${density} g/cm³` },
+                  { label: calculationType === 'density' ? "Volume" : "Volume", value: `${volume} cm³` }
+                ]}
+                result={{ 
+                  label: "Result", 
+                  value: formatNumber(result),
+                  unit: calculationType === 'density' ? 'g/cm³' : calculationType === 'mass' ? 'g' : 'cm³'
+                }}
+                calculatorName="Density Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-4">Result</h3>
               <div className="text-center">

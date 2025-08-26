@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Percent, TrendingUp, TrendingDown, Calculator as CalculatorIcon, RotateCcw } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface PercentageResult {
   result: number
@@ -94,7 +95,7 @@ export default function PercentageCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         {/* Header */}
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
@@ -192,6 +193,27 @@ export default function PercentageCalculator() {
 
           {/* Results */}
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            {result && (
+              <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
+                <ResultSharing
+                  title="Percentage Calculation Result"
+                  inputs={[
+                    { label: "First Value", value: value1 },
+                    { label: "Second Value", value: value2 },
+                    { label: "Calculation Type", value: getCalculationTypeDescription(calculationType) }
+                  ]}
+                  result={{ 
+                    label: "Result", 
+                    value: formatNumber(result.result),
+                    unit: calculationType === 'basic' || calculationType === 'increase-decrease' ? '' : '%'
+                  }}
+                  calculatorName="Percentage Calculator"
+                  className="mb-0"
+                />
+              </div>
+            )}
+
             {/* Main Result */}
             {result && (
               <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
@@ -212,6 +234,8 @@ export default function PercentageCalculator() {
                   <h3 className="font-semibold text-gray-800 mb-2">Calculation</h3>
                   <p className="font-mono text-gray-700">{result.calculation}</p>
                 </div>
+
+
               </div>
             )}
 

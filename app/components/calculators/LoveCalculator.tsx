@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Heart, Sparkles, Star } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface LoveResult {
   percentage: number
@@ -283,7 +284,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
   const result = showResults ? calculateLove() : { percentage: 0, compatibility: '', description: '', advice: [], emoji: '' }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-pink-600 to-red-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -464,6 +465,25 @@ ${result.emoji} Love is in the air! ${result.emoji}`
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-6 rounded-lg border border-pink-200">
+              <ResultSharing
+                title="Love Compatibility Result"
+                inputs={[
+                  { label: "First Person", value: name1 },
+                  { label: "Second Person", value: name2 },
+                  { label: "Zodiac Signs", value: zodiac1 && zodiac2 ? `${zodiac1} & ${zodiac2}` : "Not specified" }
+                ]}
+                result={{ 
+                  label: "Love Compatibility", 
+                  value: `${result.percentage}%`,
+                  unit: ""
+                }}
+                calculatorName="Love Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Love Results */}
             <div className="bg-pink-50 p-6 rounded-lg border border-pink-200 text-center">
               <div className="text-6xl mb-4">{result.emoji}</div>

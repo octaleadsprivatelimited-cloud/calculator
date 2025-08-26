@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Scale } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function BMICalculator() {
   const [weight, setWeight] = useState('')
@@ -80,7 +81,7 @@ export default function BMICalculator() {
   const result = showResults ? calculateBMI() : { bmi: 0, category: '', healthRisk: '', idealWeight: { min: 0, max: 0 } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-500 to-indigo-500 px-6 py-4">
         <div className="flex items-center">
           <Scale className="h-8 w-8 text-white mr-3" />
@@ -90,6 +91,25 @@ export default function BMICalculator() {
       </div>
 
       <div className="p-6">
+        {/* Share Options - Moved to Top */}
+        {showResults && (
+          <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <ResultSharing
+              title="BMI Calculator Result"
+              inputs={[
+                { label: "Weight", value: `${weight} ${weightUnit}` },
+                { label: "Height", value: `${height} ${heightUnit}` }
+              ]}
+              result={{ 
+                label: "BMI", 
+                value: result.bmi.toFixed(1),
+                unit: ""
+              }}
+              calculatorName="BMI Calculator"
+              className="mb-0"
+            />
+          </div>
+        )}
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -187,6 +207,8 @@ export default function BMICalculator() {
                 </div>
               </div>
             </div>
+            
+
           </div>
         )}
 

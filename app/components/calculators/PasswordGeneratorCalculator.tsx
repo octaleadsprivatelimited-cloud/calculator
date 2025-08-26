@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Key, Copy, RefreshCw } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface PasswordResult {
   password: string
@@ -249,7 +250,7 @@ Security Tips:
   const result = showResults ? calculatePasswordStrength(generatedPassword) : { password: '', strength: '', strengthScore: 0, entropy: 0, timeToCrack: '', recommendations: [] }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -429,6 +430,25 @@ Security Tips:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <ResultSharing
+                title="Password Generation Result"
+                inputs={[
+                  { label: "Password Length", value: `${passwordLength} characters` },
+                  { label: "Character Types", value: `${useUppercase ? 'Uppercase, ' : ''}${useLowercase ? 'Lowercase, ' : ''}${useNumbers ? 'Numbers, ' : ''}${useSymbols ? 'Symbols' : ''}`.replace(/,\s*$/, '') },
+                  { label: "Strength", value: result.strength }
+                ]}
+                result={{ 
+                  label: "Generated Password", 
+                  value: result.password.substring(0, 20) + (result.password.length > 20 ? '...' : ''),
+                  unit: ""
+                }}
+                calculatorName="Password Generator Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Generated Password */}
             <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-4">Generated Password</h3>

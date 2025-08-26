@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Triangle, Calculator as CalculatorIcon, RotateCcw, Ruler } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface TriangleData {
   sideA: number
@@ -90,7 +91,7 @@ export default function TriangleCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
             <Triangle className="w-12 h-12 mr-3 text-indigo-600" />
@@ -188,6 +189,25 @@ export default function TriangleCalculator() {
           <div className="space-y-6">
             {result && (
               <>
+                {/* Share Options - Moved to Top */}
+                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
+                  <ResultSharing
+                    title="Triangle Calculation Result"
+                    inputs={[
+                      { label: "Side A", value: `${formatNumber(result.sideA)} units` },
+                      { label: "Side B", value: `${formatNumber(result.sideB)} units` },
+                      { label: "Side C", value: `${formatNumber(result.sideC)} units` }
+                    ]}
+                    result={{ 
+                      label: "Area", 
+                      value: formatNumber(result.area),
+                      unit: "square units"
+                    }}
+                    calculatorName="Triangle Calculator"
+                    className="mb-0"
+                  />
+                </div>
+
                 <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
                   <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                     <Triangle className="w-6 h-6 mr-2 text-indigo-600" />

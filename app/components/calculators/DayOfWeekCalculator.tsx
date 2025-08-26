@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Calculator, Calendar, Clock } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function DayOfWeekCalculator() {
   const [date, setDate] = useState('')
@@ -26,7 +27,7 @@ export default function DayOfWeekCalculator() {
   const dayInfo = showResults ? getDayOfWeek() : null
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -59,8 +60,28 @@ export default function DayOfWeekCalculator() {
         </div>
 
         {showResults && dayInfo && (
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200 text-center">
-            <h3 className="text-xl font-semibold text-purple-800 mb-4">Day of Week Results</h3>
+          <>
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-6 rounded-lg border border-purple-200 mb-4">
+              <ResultSharing
+                title="Day of Week Calculation Result"
+                inputs={[
+                  { label: "Selected Date", value: date },
+                  { label: "Calculation Type", value: "Day of Week" },
+                  { label: "Date Format", value: "Calendar Date" }
+                ]}
+                result={{ 
+                  label: "Day of Week", 
+                  value: dayInfo.dayName,
+                  unit: ""
+                }}
+                calculatorName="Day of Week Calculator"
+                className="mb-0"
+              />
+            </div>
+
+            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200 text-center">
+              <h3 className="text-xl font-semibold text-purple-800 mb-4">Day of Week Results</h3>
             <div className="text-3xl font-bold text-purple-600 mb-2">
               {dayInfo.dayName}
             </div>
@@ -76,6 +97,7 @@ export default function DayOfWeekCalculator() {
               </button>
             </div>
           </div>
+          </>
         )}
         
         {/* Calculator Description Section */}

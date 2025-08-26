@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Zap, DollarSign, Gauge } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface ElectricityResult {
   powerConsumption: number
@@ -226,7 +227,7 @@ Energy Saving Tips:
   const result = showResults ? calculateElectricity() : { powerConsumption: 0, dailyEnergy: 0, monthlyEnergy: 0, yearlyEnergy: 0, dailyCost: 0, monthlyCost: 0, yearlyCost: 0, carbonFootprint: 0, efficiency: '' }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -400,6 +401,25 @@ Energy Saving Tips:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+              <ResultSharing
+                title="Electricity Calculation Result"
+                inputs={[
+                  { label: "Appliances", value: `${appliances.filter(a => a.name && a.power && a.usage).length} devices` },
+                  { label: "Electricity Rate", value: `$${customRate || electricityRate}/kWh` },
+                  { label: "Calculation Type", value: "Energy Usage Analysis" }
+                ]}
+                result={{ 
+                  label: "Total Power Consumption", 
+                  value: `${result.powerConsumption} W`,
+                  unit: ""
+                }}
+                calculatorName="Electricity Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Energy Usage Results */}
             <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-4">Energy Usage Results</h3>

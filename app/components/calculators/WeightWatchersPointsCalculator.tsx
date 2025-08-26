@@ -107,7 +107,7 @@ export default function WeightWatchersPointsCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
         <div className="flex items-center">
           <Target className="h-8 w-8 text-white mr-3" />

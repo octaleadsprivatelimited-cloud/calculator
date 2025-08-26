@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Dumbbell } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function OneRepMaxCalculator() {
   const [weight, setWeight] = useState('')
@@ -99,7 +100,7 @@ export default function OneRepMaxCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-4">
         <div className="flex items-center">
           <Dumbbell className="h-8 w-8 text-white mr-3" />
@@ -179,6 +180,25 @@ export default function OneRepMaxCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <ResultSharing
+                title="One Rep Max Calculation Result"
+                inputs={[
+                  { label: "Weight Lifted", value: `${weight} lbs` },
+                  { label: "Reps Performed", value: `${reps} reps` },
+                  { label: "Formula Used", value: result.formulaName }
+                ]}
+                result={{ 
+                  label: "One Rep Max", 
+                  value: `${result.oneRepMax.toFixed(0)}`,
+                  unit: "lbs"
+                }}
+                calculatorName="One Rep Max Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-2">Your One Rep Max</h3>
               <div className="text-center">

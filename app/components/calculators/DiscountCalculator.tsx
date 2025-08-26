@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Tag } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function DiscountCalculator() {
   const [originalPrice, setOriginalPrice] = useState('')
@@ -112,7 +113,7 @@ export default function DiscountCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-orange-500 to-amber-500 px-6 py-4">
         <div className="flex items-center">
           <Tag className="h-8 w-8 text-white mr-3" />
@@ -203,6 +204,25 @@ export default function DiscountCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-orange-200">
+              <ResultSharing
+                title="Discount Calculation Result"
+                inputs={[
+                  { label: "Original Price", value: `$${result.details.originalPrice?.toFixed(2)}` },
+                  { label: "Discount", value: `${result.details.discountPercent?.toFixed(1)}%` },
+                  { label: "Calculation Type", value: "Discount Analysis" }
+                ]}
+                result={{ 
+                  label: "Total Savings", 
+                  value: `$${result.savings.toFixed(2)}`,
+                  unit: ""
+                }}
+                calculatorName="Discount Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
               <h3 className="text-lg font-semibold text-orange-800 mb-2">Your Savings</h3>
               <div className="text-center">

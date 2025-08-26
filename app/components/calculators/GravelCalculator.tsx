@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Calculator, Mountain, Package } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function GravelCalculator() {
   const [length, setLength] = useState('')
@@ -34,7 +35,7 @@ export default function GravelCalculator() {
   const gravel = showResults ? calculateGravel() : null
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-gray-600 to-slate-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -95,8 +96,28 @@ export default function GravelCalculator() {
         </div>
 
         {showResults && gravel && (
-          <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 text-center">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Gravel Calculation Results</h3>
+          <>
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-6 rounded-lg border border-gray-200 mb-4">
+              <ResultSharing
+                title="Gravel Calculation Result"
+                inputs={[
+                  { label: "Length", value: `${length} feet` },
+                  { label: "Width", value: `${width} feet` },
+                  { label: "Depth", value: `${depth} inches` }
+                ]}
+                result={{ 
+                  label: "Gravel Needed", 
+                  value: `${gravel.tons.toFixed(1)} tons`,
+                  unit: ""
+                }}
+                calculatorName="Gravel Calculator"
+                className="mb-0"
+              />
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 text-center">
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">Gravel Calculation Results</h3>
             <div className="grid md:grid-cols-2 gap-4 mb-4">
               <div>
                 <div className="text-2xl font-bold text-gray-600">{gravel.area.toFixed(1)}</div>
@@ -121,6 +142,7 @@ export default function GravelCalculator() {
               </button>
             </div>
           </div>
+          </>
         )}
       </div>
     </div>

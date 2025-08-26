@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Calculator, Droplets } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function DewPointCalculator() {
   const [temperature, setTemperature] = useState('75')
@@ -38,7 +39,7 @@ export default function DewPointCalculator() {
   const dewPoint = showResults ? calculateDewPoint() : 0
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -98,15 +99,36 @@ export default function DewPointCalculator() {
         </div>
 
         {showResults && (
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 text-center">
-            <h3 className="text-xl font-semibold text-blue-800 mb-4">Dew Point Results</h3>
-            <div className="text-3xl font-bold text-blue-600 mb-2">
-              {dewPoint.toFixed(1)}°{unit === 'fahrenheit' ? 'F' : 'C'}
+          <div className="space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="Dew Point Calculation Result"
+                inputs={[
+                  { label: "Temperature", value: `${temperature}°${unit === 'fahrenheit' ? 'F' : 'C'}` },
+                  { label: "Humidity", value: `${humidity}%` },
+                  { label: "Calculation Type", value: "Dew Point" }
+                ]}
+                result={{ 
+                  label: "Dew Point", 
+                  value: `${dewPoint.toFixed(1)}°${unit === 'fahrenheit' ? 'F' : 'C'}`,
+                  unit: ""
+                }}
+                calculatorName="Dew Point Calculator"
+                className="mb-0"
+              />
             </div>
-            <div className="mt-4">
-              <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
-                Reset
-              </button>
+
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 text-center">
+              <h3 className="text-xl font-semibold text-blue-800 mb-4">Dew Point Results</h3>
+              <div className="text-3xl font-bold text-blue-600 mb-2">
+                {dewPoint.toFixed(1)}°{unit === 'fahrenheit' ? 'F' : 'C'}
+              </div>
+              <div className="mt-4">
+                <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+                  Reset
+                </button>
+              </div>
             </div>
           </div>
         )}

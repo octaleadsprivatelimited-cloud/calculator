@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Baby } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function ConceptionCalculator() {
   const [dueDate, setDueDate] = useState('')
@@ -108,7 +109,7 @@ export default function ConceptionCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-4">
         <div className="flex items-center">
           <Baby className="h-8 w-8 text-white mr-3" />
@@ -152,6 +153,25 @@ export default function ConceptionCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="Conception Calculation Result"
+                inputs={[
+                  { label: "Due Date", value: dueDate },
+                  { label: "Calculation Type", value: "Conception Tracking" },
+                  { label: "Method", value: "Due Date Backward Calculation" }
+                ]}
+                result={{ 
+                  label: "Conception Date", 
+                  value: result.conceptionDate,
+                  unit: ""
+                }}
+                calculatorName="Conception Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Conception Date</h3>
               <div className="text-center">

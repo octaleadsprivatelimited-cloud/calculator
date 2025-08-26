@@ -56,7 +56,7 @@ export default function DownPaymentCalculator() {
   const result = showResults ? calculateDownPayment() : { downPayment: 0, loanAmount: 0, pmiRequired: false, recommendations: [], details: { price: 0, percent: 0 } }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4">
         <div className="flex items-center">
           <DollarSign className="h-8 w-8 text-white mr-3" />

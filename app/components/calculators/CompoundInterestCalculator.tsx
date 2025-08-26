@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { TrendingUp, DollarSign, Calculator as CalculatorIcon, RotateCcw, BarChart3 } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface CompoundResult {
   finalAmount: number
@@ -111,12 +112,33 @@ export default function CompoundInterestCalculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <header className="text-center mb-8">
           <p className="text-xl text-gray-600">
             Calculate the power of compound interest and investment growth over time
           </p>
         </header>
+
+        {/* Share Options - Moved to Top */}
+        <div className="mb-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
+          <ResultSharing
+            title="Compound Interest Calculation Result"
+            inputs={[
+              { label: "Initial Principal", value: formatCurrency(result.principal) },
+              { label: "Annual Rate", value: `${result.annualRate.toFixed(2)}%` },
+              { label: "Years", value: `${result.years} years` },
+              { label: "Additional Contribution", value: formatCurrency(parseFloat(additionalContribution)) },
+              { label: "Contribution Frequency", value: contributionFrequency }
+            ]}
+            result={{ 
+              label: "Final Amount", 
+              value: formatCurrency(result.finalAmount),
+              unit: ""
+            }}
+            calculatorName="Compound Interest Calculator"
+            className="mb-0"
+          />
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
@@ -317,6 +339,8 @@ export default function CompoundInterestCalculator() {
                 <p>• <strong>Be patient:</strong> Compound interest accelerates over time</p>
               </div>
             </div>
+
+
           </div>
         </div>
 

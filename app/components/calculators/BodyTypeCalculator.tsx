@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, User } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function BodyTypeCalculator() {
   const [shoulderWidth, setShoulderWidth] = useState('')
@@ -179,7 +180,7 @@ export default function BodyTypeCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-4">
         <div className="flex items-center">
           <User className="h-8 w-8 text-white mr-3" />
@@ -282,6 +283,25 @@ export default function BodyTypeCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+              <ResultSharing
+                title="Body Type Calculation Result"
+                inputs={[
+                  { label: "Shoulder Width", value: `${shoulderWidth} inches` },
+                  { label: "Waist Width", value: `${waistWidth} inches` },
+                  { label: "Hip Width", value: `${hipWidth} inches` }
+                ]}
+                result={{ 
+                  label: "Body Type", 
+                  value: result.bodyType,
+                  unit: ""
+                }}
+                calculatorName="Body Type Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-2">Your Body Type</h3>
               <div className="text-center">

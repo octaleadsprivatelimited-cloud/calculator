@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, ArrowLeftRight, Ruler, Scale, Thermometer } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface ConversionResult {
   fromValue: number
@@ -237,7 +238,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
   const currentUnits = getCurrentUnits()
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -354,6 +355,25 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+              <ResultSharing
+                title="Conversion Calculation Result"
+                inputs={[
+                  { label: "From Value", value: `${result.fromValue} ${result.fromUnit}` },
+                  { label: "To Unit", value: result.toUnit },
+                  { label: "Category", value: selectedCategory }
+                ]}
+                result={{ 
+                  label: "Converted Value", 
+                  value: formatNumber(result.toValue),
+                  unit: result.toUnit
+                }}
+                calculatorName="Conversion Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Conversion Results */}
             <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-4">Conversion Results</h3>

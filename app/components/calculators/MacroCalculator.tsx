@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, PieChart } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function MacroCalculator() {
   const [weight, setWeight] = useState('')
@@ -120,7 +121,7 @@ export default function MacroCalculator() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-4">
         <div className="flex items-center">
           <PieChart className="h-8 w-8 text-white mr-3" />
@@ -247,6 +248,25 @@ export default function MacroCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+              <ResultSharing
+                title="Macro Calculation Result"
+                inputs={[
+                  { label: "Weight", value: `${weight} lbs` },
+                  { label: "Height", value: `${height} ${parseFloat(height) < 10 ? 'feet' : 'cm'}` },
+                  { label: "Goal", value: goal.charAt(0).toUpperCase() + goal.slice(1).replace('_', ' ') }
+                ]}
+                result={{ 
+                  label: "Daily Calories", 
+                  value: `${result.calories.toFixed(0)}`,
+                  unit: "calories"
+                }}
+                calculatorName="Macro Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-2">Daily Calories</h3>
               <div className="text-2xl font-bold text-indigo-600">{result.calories.toFixed(0)} calories</div>
