@@ -491,17 +491,150 @@ Cost Breakdown:
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+        {/* Comprehensive Description Section */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-green-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Tile Calculator</h2>
+          
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Tile Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This calculator helps you estimate tile materials, costs, and waste for tiling projects. 
-                It accounts for multiple rooms, backsplashes, waste factors, and grout requirements. 
-                Perfect for planning kitchen, bathroom, or any tiling project.
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <p className="text-gray-700 mb-3">
+                This comprehensive tile calculator helps homeowners, contractors, and designers accurately 
+                estimate materials, costs, and waste for tiling projects. It handles complex layouts including 
+                multiple rooms, backsplashes, and different tile materials to provide precise project planning.
               </p>
+              <p className="text-gray-700">
+                The calculator automatically accounts for waste factors, grout requirements, and material 
+                costs to give you a complete project estimate.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Tile Material Types</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Ceramic & Porcelain</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Ceramic:</strong> Affordable, durable, easy to install</li>
+                    <li><strong>Porcelain:</strong> Premium ceramic, very low water absorption</li>
+                    <li><strong>Best For:</strong> Kitchens, bathrooms, high-traffic areas</li>
+                    <li><strong>Maintenance:</strong> Easy to clean, stain-resistant</li>
+                    <li><strong>Cost:</strong> $2.50-4.00 per sq ft</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Natural & Specialty</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Natural Stone:</strong> Marble, granite, travertine</li>
+                    <li><strong>Glass Tile:</strong> Modern, translucent, artistic</li>
+                    <li><strong>Mosaic:</strong> Small tiles, intricate patterns</li>
+                    <li><strong>Best For:</strong> Accent walls, artistic installations</li>
+                    <li><strong>Cost:</strong> $6.00-12.00+ per sq ft</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Project Planning Considerations</h3>
+              <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                <h4 className="font-semibold text-gray-800 mb-2">Room Measurements</h4>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p><strong>Floor Tiling:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Measure length × width</li>
+                      <li>Account for permanent fixtures</li>
+                      <li>Consider tile pattern direction</li>
+                      <li>Plan for expansion joints</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Wall Tiling:</strong></p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>Include backsplash areas</li>
+                      <li>Measure to ceiling height</li>
+                      <li>Account for windows/doors</li>
+                      <li>Plan for electrical outlets</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Waste Factor Calculations</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Why Waste Factors Matter</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Cuts & Trims:</strong> Tiles need cutting for edges</li>
+                    <li><strong>Pattern Matching:</strong> Aligning patterns requires extra</li>
+                    <li><strong>Breakage:</strong> Some tiles break during installation</li>
+                    <li><strong>Future Repairs:</strong> Keep extras for maintenance</li>
+                    <li><strong>Installation Errors:</strong> Account for mistakes</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Recommended Waste Factors</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li><strong>Ceramic:</strong> 10% - Standard installation</li>
+                    <li><strong>Porcelain:</strong> 12% - Harder to cut</li>
+                    <li><strong>Natural Stone:</strong> 15% - Irregular shapes</li>
+                    <li><strong>Glass Tile:</strong> 20% - Fragile material</li>
+                    <li><strong>Mosaic:</strong> 25% - Complex patterns</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Grout Selection & Application</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Standard Cement Grout:</strong> Affordable, easy to apply, requires sealing</li>
+                <li><strong>Epoxy Grout:</strong> Stain-resistant, waterproof, more expensive</li>
+                <li><strong>Urethane Grout:</strong> Flexible, crack-resistant, moderate cost</li>
+                <li><strong>Grout Spacing:</strong> 1/8" to 1/4" typical for floor tiles</li>
+                <li><strong>Color Selection:</strong> Match or contrast with tile color</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Installation Tips</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Preparation</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Ensure subfloor is level and stable</li>
+                    <li>Use proper underlayment materials</li>
+                    <li>Plan tile layout before starting</li>
+                    <li>Mix mortar to correct consistency</li>
+                    <li>Have all tools ready</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Installation</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                    <li>Start from center and work outward</li>
+                    <li>Use tile spacers for consistent joints</li>
+                    <li>Check level frequently</li>
+                    <li>Clean excess mortar immediately</li>
+                    <li>Allow proper curing time</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+              <ul className="text-gray-700 space-y-1 text-sm">
+                <li>• Always buy 10-15% more tile than calculated to account for waste</li>
+                <li>• Consider tile size - larger tiles show fewer grout lines but are harder to install</li>
+                <li>• Plan your layout to minimize cuts and waste</li>
+                <li>• Use the same batch numbers for consistent color matching</li>
+                <li>• Factor in underlayment and adhesive costs in your budget</li>
+                <li>• Remember that professional installation may cost 2-3x the material cost</li>
+              </ul>
             </div>
           </div>
         </div>
