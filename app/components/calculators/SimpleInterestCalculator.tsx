@@ -50,12 +50,7 @@ export default function SimpleInterestCalculator() {
   }, [principal, rate, time, timeUnit])
 
   const formatCurrency = (amount: number): string => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(amount)
+    return amount.toFixed(2)
   }
 
   const formatPercentage = (rate: number): string => {
@@ -174,10 +169,10 @@ export default function SimpleInterestCalculator() {
                       setTimeUnit('years')
                     }}
                     className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
-                    title="Set example: $10,000 at 4.5% for 5 years"
-                    aria-label="Set example: $10,000 at 4.5% for 5 years"
+                    title="Set example: 10,000 at 4.5% for 5 years"
+                    aria-label="Set example: 10,000 at 4.5% for 5 years"
                   >
-                    $10,000 at 4.5% for 5 years
+                    10,000 at 4.5% for 5 years
                   </button>
                   <button
                     onClick={() => {
@@ -187,10 +182,10 @@ export default function SimpleInterestCalculator() {
                       setTimeUnit('months')
                     }}
                     className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
-                    title="Set example: $5,000 at 6% for 18 months"
-                    aria-label="Set example: $5,000 at 6% for 18 months"
+                    title="Set example: 5,000 at 6% for 18 months"
+                    aria-label="Set example: 5,000 at 6% for 18 months"
                   >
-                    $5,000 at 6% for 18 months
+                    5,000 at 6% for 18 months
                   </button>
                   <button
                     onClick={() => {
@@ -200,10 +195,10 @@ export default function SimpleInterestCalculator() {
                       setTimeUnit('days')
                     }}
                     className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
-                    title="Set example: $2,500 at 3.25% for 90 days"
-                    aria-label="Set example: $2,500 at 3.25% for 90 days"
+                    title="Set example: 2,500 at 3.25% for 90 days"
+                    aria-label="Set example: 2,500 at 3.25% for 90 days"
                   >
-                    $2,500 at 3.25% for 90 days
+                    2,500 at 3.25% for 90 days
                   </button>
                   <button
                     onClick={() => {
@@ -213,10 +208,10 @@ export default function SimpleInterestCalculator() {
                       setTimeUnit('years')
                     }}
                     className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
-                    title="Set example: $15,000 at 7.5% for 3 years"
-                    aria-label="Set example: $15,000 at 7.5% for 3 years"
+                    title="Set example: 15,000 at 7.5% for 3 years"
+                    aria-label="Set example: 15,000 at 7.5% for 3 years"
                   >
-                    $15,000 at 7.5% for 3 years
+                    15,000 at 7.5% for 3 years
                   </button>
                 </div>
               </div>
