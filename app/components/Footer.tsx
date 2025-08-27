@@ -109,91 +109,32 @@ export default function Footer() {
 
         {/* Contact & Legal */}
         <div className="border-t border-gray-700 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Contact Info */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Information</h4>
-              <div className="space-y-2 text-gray-300">
-                <div className="flex items-center">
-                  <Mail className="w-4 h-4 mr-2" />
-                  <a href="mailto:support@onlinecalculator.live" className="hover:text-white transition-colors">
-                    support@onlinecalculator.live
-                  </a>
-                </div>
-                <div className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  <span>Online Services</span>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="w-4 h-4 mr-2" />
-                  <span>24/7 Support</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Legal Links */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Legal</h4>
-              <div className="space-y-2">
-                <Link href="/terms" className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <FileText className="w-4 h-4 mr-2" />
-                  Terms & Conditions
-                </Link>
-                <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <Shield className="w-4 h-4 mr-2" />
-                  Privacy Policy
-                </Link>
-              </div>
-            </div>
-
-            {/* Compliance */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Compliance</h4>
-              <div className="space-y-2">
-                <Link href="/gdpr-compliance" className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <Users className="w-4 h-4 mr-2" />
-                  GDPR Compliant
-                </Link>
-                <Link href="/ccpa-compliance" className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <Shield className="w-4 h-4 mr-2" />
-                  CCPA Compliant
-                </Link>
-                <Link href="/data-protection" className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <Lock className="w-4 h-4 mr-2" />
-                  Data Protected
-                </Link>
-              </div>
-            </div>
-
-            {/* Additional Resources */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Resources</h4>
-              <div className="space-y-2">
-                <Link href="/sitemap.xml" className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <FileText className="w-4 h-4 mr-2" />
-                  Sitemap
-                </Link>
-                <Link href="/robots.txt" className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <FileText className="w-4 h-4 mr-2" />
-                  Robots.txt
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Contact Information */}
-        <div className="border-t border-gray-700 mt-8 pt-8">
-          <div className="text-center mb-6">
-            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <p className="text-gray-300 mb-4">Get in touch for support and feedback</p>
-            <div className="flex justify-center space-x-6">
-              <a href="mailto:support@onlinecalculator.live" className="text-gray-400 hover:text-white transition-colors">
-                <Mail className="w-6 h-6" />
+          <div className="text-center">
+            <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-300">
+              <span className="font-semibold">Contact Information:</span>
+              <a href="mailto:support@onlinecalculator.live" className="hover:text-white transition-colors">
+                support@onlinecalculator.live
               </a>
+              <span>Online Services</span>
+              <span>24/7 Support</span>
+              
+              <span className="font-semibold">Legal:</span>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              
+              <span className="font-semibold">Compliance:</span>
+              <Link href="/gdpr-compliance" className="hover:text-white transition-colors">GDPR Compliant</Link>
+              <Link href="/ccpa-compliance" className="hover:text-white transition-colors">CCPA Compliant</Link>
+              <Link href="/data-protection" className="hover:text-white transition-colors">Data Protected</Link>
+              
+              <span className="font-semibold">Resources:</span>
+              <Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link>
+              <Link href="/robots.txt" className="hover:text-white transition-colors">Robots.txt</Link>
             </div>
           </div>
         </div>
+
+
 
         {/* Copyright */}
         <div className="border-t border-gray-700 pt-8 text-center">
