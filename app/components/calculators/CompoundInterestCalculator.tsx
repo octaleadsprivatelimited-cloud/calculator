@@ -99,12 +99,7 @@ export default function CompoundInterestCalculator() {
   }, [principal, annualRate, years, compoundFrequency, additionalContribution, contributionFrequency])
 
   const formatCurrency = (amount: number): string => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(amount)
+    return amount.toLocaleString()
   }
 
   const result = calculateCompoundInterest()
@@ -152,16 +147,13 @@ export default function CompoundInterestCalculator() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Initial Principal
                 </label>
-                <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="number"
-                    value={principal}
-                    onChange={(e) => setPrincipal(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                    placeholder="10000"
-                  />
-                </div>
+                <input
+                  type="number"
+                  value={principal}
+                  onChange={(e) => setPrincipal(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  placeholder="10000"
+                />
               </div>
 
               <div>
@@ -214,16 +206,13 @@ export default function CompoundInterestCalculator() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Additional Contribution
                 </label>
-                <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="number"
-                    value={additionalContribution}
-                    onChange={(e) => setAdditionalContribution(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                    placeholder="100"
-                  />
-                </div>
+                <input
+                  type="number"
+                  value={additionalContribution}
+                  onChange={(e) => setAdditionalContribution(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  placeholder="100"
+                />
               </div>
 
               <div>

@@ -27,11 +27,11 @@ export default function FutureValueCalculator() {
     const futureValue = pv * growthFactor
 
     const recommendations = []
-    recommendations.push(`Present value: $${pv.toLocaleString()}`)
+    recommendations.push(`Present value: ${pv.toLocaleString()}`)
     recommendations.push(`Interest rate: ${rate.toFixed(2)}%`)
     recommendations.push(`Time period: ${time} ${periodType}`)
     recommendations.push(`Growth factor: ${growthFactor.toFixed(4)}`)
-    recommendations.push(`Future value: $${futureValue.toLocaleString(undefined, {maximumFractionDigits: 2})}`)
+    recommendations.push(`Future value: ${futureValue.toLocaleString(undefined, {maximumFractionDigits: 2})}`)
 
     if (rate > 10) recommendations.push('High interest rate - significant growth potential')
     else if (rate > 5) recommendations.push('Moderate interest rate - steady growth')
@@ -71,7 +71,7 @@ export default function FutureValueCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Present Value ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Present Value</label>
               <input type="number" value={presentValue} onChange={(e) => setPresentValue(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter amount" step="100" />
             </div>
             <div>
@@ -109,7 +109,7 @@ export default function FutureValueCalculator() {
             <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
               <h3 className="text-lg font-semibold text-emerald-800 mb-2">Future Value</h3>
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600 mb-2">${result.futureValue?.toLocaleString(undefined, {maximumFractionDigits: 2})}</div>
+                <div className="text-3xl font-bold text-emerald-600 mb-2">{result.futureValue?.toLocaleString(undefined, {maximumFractionDigits: 2})}</div>
                 <div className="text-emerald-700">Future value of investment</div>
               </div>
             </div>
@@ -117,11 +117,11 @@ export default function FutureValueCalculator() {
             <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">Calculation Details</h3>
               <div className="space-y-2">
-                <div className="flex justify-between"><span className="text-emerald-700">Present Value:</span><span className="font-semibold text-emerald-800">${result.details.presentValue?.toLocaleString()}</span></div>
+                <div className="flex justify-between"><span className="text-emerald-700">Present Value:</span><span className="font-semibold text-emerald-800">{result.details.presentValue?.toLocaleString()}</span></div>
                 <div className="flex justify-between"><span className="text-emerald-700">Interest Rate:</span><span className="font-semibold text-emerald-800">{result.details.rate?.toFixed(2)}%</span></div>
                 <div className="flex justify-between"><span className="text-emerald-700">Time Period:</span><span className="font-semibold text-emerald-800">{result.details.time} {result.details.periodType}</span></div>
                 <div className="flex justify-between"><span className="text-emerald-700">Growth Factor:</span><span className="font-semibold text-emerald-800">{result.growthFactor?.toFixed(4)}</span></div>
-                <div className="flex justify-between"><span className="text-emerald-700">Future Value:</span><span className="font-semibold text-emerald-800">${result.futureValue?.toLocaleString(undefined, {maximumFractionDigits: 2})}</span></div>
+                <div className="flex justify-between"><span className="text-emerald-700">Future Value:</span><span className="font-semibold text-emerald-800">{result.futureValue?.toLocaleString(undefined, {maximumFractionDigits: 2})}</span></div>
               </div>
             </div>
 
