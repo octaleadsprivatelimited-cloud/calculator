@@ -34,12 +34,12 @@ export default function APRCalculator() {
     const apr = ((totalCost - principal) / principal) * (12 / term) * 100
 
     const recommendations = []
-    recommendations.push(`Loan amount: $${principal.toLocaleString()}`)
+    recommendations.push(`Loan amount: ${principal.toLocaleString()}`)
     recommendations.push(`Interest rate: ${rate.toFixed(2)}%`)
     recommendations.push(`Loan term: ${term} years`)
-    recommendations.push(`Fees: $${fee.toFixed(2)}`)
-    recommendations.push(`Monthly payment: $${monthlyPayment.toFixed(2)}`)
-    recommendations.push(`Total interest: $${totalInterest.toFixed(2)}`)
+    recommendations.push(`Fees: ${fee.toFixed(2)}`)
+    recommendations.push(`Monthly payment: ${monthlyPayment.toFixed(2)}`)
+    recommendations.push(`Total interest: ${totalInterest.toFixed(2)}`)
     recommendations.push(`APR: ${apr.toFixed(2)}%`)
 
     if (apr > rate + 2) recommendations.push('High APR - significant fees impact')
@@ -76,7 +76,7 @@ export default function APRCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount</label>
               <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Enter amount" step="100" />
             </div>
             <div>
@@ -91,7 +91,7 @@ export default function APRCalculator() {
               <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Enter term" step="0.5" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Fees ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Fees</label>
               <input type="number" value={fees} onChange={(e) => setFees(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Enter fees" step="10" />
             </div>
           </div>
@@ -119,12 +119,12 @@ export default function APRCalculator() {
             <div className="p-4 bg-violet-50 rounded-lg border border-violet-200">
               <h3 className="text-lg font-semibold text-violet-800 mb-3">Loan Summary</h3>
               <div className="space-y-2">
-                <div className="flex justify-between"><span className="text-violet-700">Principal:</span><span className="font-semibold text-violet-800">${Number(result.details.principal).toLocaleString()}</span></div>
+                <div className="flex justify-between"><span className="text-violet-700">Principal:</span><span className="font-semibold text-violet-800">{Number(result.details.principal).toLocaleString()}</span></div>
                 <div className="flex justify-between"><span className="text-violet-700">Interest Rate:</span><span className="font-semibold text-violet-800">{Number(result.details.rate).toFixed(2)}%</span></div>
                 <div className="flex justify-between"><span className="text-violet-700">Term:</span><span className="font-semibold text-violet-800">{result.details.term} years</span></div>
-                <div className="flex justify-between"><span className="text-violet-700">Fees:</span><span className="font-semibold text-violet-800">${Number(result.details.fees).toFixed(2)}</span></div>
-                <div className="flex justify-between"><span className="text-violet-700">Monthly Payment:</span><span className="font-semibold text-violet-800">${Number(result.monthlyPayment).toFixed(2)}</span></div>
-                <div className="flex justify-between"><span className="text-violet-700">Total Cost:</span><span className="font-semibold text-violet-800">${Number(result.totalCost).toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-violet-700">Fees:</span><span className="font-semibold text-violet-800">{Number(result.details.fees).toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-violet-700">Monthly Payment:</span><span className="font-semibold text-violet-800">{Number(result.monthlyPayment).toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-violet-700">Total Cost:</span><span className="font-semibold text-violet-800">{Number(result.totalCost).toFixed(2)}</span></div>
               </div>
             </div>
 

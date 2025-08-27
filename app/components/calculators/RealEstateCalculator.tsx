@@ -92,8 +92,8 @@ export default function RealEstateCalculator() {
       recommendations.push('Monthly payment is reasonable')
     }
 
-    recommendations.push(`Total monthly payment: $${totalMonthlyPayment.toFixed(2)}`)
-    recommendations.push(`Total interest paid: $${totalInterest.toLocaleString(undefined, {maximumFractionDigits: 0})}`)
+    recommendations.push(`Total monthly payment: ${totalMonthlyPayment.toFixed(2)}`)
+    recommendations.push(`Total interest paid: ${totalInterest.toLocaleString(undefined, {maximumFractionDigits: 0})}`)
 
     const details = {
       purchasePrice: price,
@@ -167,7 +167,7 @@ export default function RealEstateCalculator() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Purchase Price ($)
+                Purchase Price
               </label>
               <input
                 type="number"
@@ -181,7 +181,7 @@ export default function RealEstateCalculator() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Down Payment ($)
+                Down Payment
               </label>
               <input
                 type="number"
@@ -230,7 +230,7 @@ export default function RealEstateCalculator() {
           <div className="grid grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Annual Property Tax ($)
+                Annual Property Tax
               </label>
               <input
                 type="number"
@@ -244,7 +244,7 @@ export default function RealEstateCalculator() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Annual Insurance ($)
+                Annual Insurance
               </label>
               <input
                 type="number"
@@ -258,7 +258,7 @@ export default function RealEstateCalculator() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Monthly HOA ($)
+                Monthly HOA
               </label>
               <input
                 type="number"
@@ -296,7 +296,7 @@ export default function RealEstateCalculator() {
               <h3 className="text-lg font-semibold text-emerald-800 mb-2">Total Monthly Payment</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-emerald-600 mb-2">
-                  ${result.monthlyPayment.toFixed(2)}
+                  {result.monthlyPayment.toFixed(2)}
                 </div>
                 <div className="text-emerald-700">
                   Including all costs
@@ -309,24 +309,24 @@ export default function RealEstateCalculator() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-emerald-700">Principal & Interest:</span>
-                  <span className="font-semibold text-emerald-800">${result.breakdown.principal?.toFixed(2)}</span>
+                  <span className="font-semibold text-emerald-800">{result.breakdown.principal?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-emerald-700">Property Tax:</span>
-                  <span className="font-semibold text-emerald-800">${result.breakdown.tax?.toFixed(2)}</span>
+                  <span className="font-semibold text-emerald-800">{result.breakdown.tax?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-emerald-700">Insurance:</span>
-                  <span className="font-semibold text-emerald-800">${result.breakdown.insurance?.toFixed(2)}</span>
+                  <span className="font-semibold text-emerald-800">{result.breakdown.insurance?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-emerald-700">HOA:</span>
-                  <span className="font-semibold text-emerald-800">${result.breakdown.hoa?.toFixed(2)}</span>
+                  <span className="font-semibold text-emerald-800">{result.breakdown.hoa?.toFixed(2)}</span>
                 </div>
                 <div className="border-t border-emerald-200 pt-2 mt-2">
                   <div className="flex justify-between font-bold">
                     <span className="text-emerald-700">Total:</span>
-                    <span className="text-emerald-800">${result.breakdown.total?.toFixed(2)}</span>
+                    <span className="text-emerald-800">{result.breakdown.total?.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -337,15 +337,15 @@ export default function RealEstateCalculator() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-emerald-700">Purchase Price:</span>
-                  <span className="font-semibold text-emerald-800">${result.details.purchasePrice?.toLocaleString()}</span>
+                  <span className="font-semibold text-emerald-800">{result.details.purchasePrice?.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-emerald-700">Down Payment:</span>
-                  <span className="font-semibold text-emerald-800">${result.details.downPayment?.toLocaleString()}</span>
+                  <span className="font-semibold text-emerald-800">{result.details.downPayment?.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-emerald-700">Loan Amount:</span>
-                  <span className="font-semibold text-emerald-800">${result.details.loanAmount?.toLocaleString()}</span>
+                  <span className="font-semibold text-emerald-800">{result.details.loanAmount?.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-emerald-700">Interest Rate:</span>
