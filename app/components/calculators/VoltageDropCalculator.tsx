@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Zap, Cpu, AlertTriangle } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface VoltageDropResult {
   voltageDrop: number
@@ -415,6 +416,27 @@ Circuit Information:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="Voltage Drop Calculation Result"
+                inputs={[
+                  { label: "Voltage", value: `${voltage}V` },
+                  { label: "Current", value: `${current}A` },
+                  { label: "Distance", value: `${distance} feet` },
+                  { label: "Wire Type", value: wireType },
+                  { label: "Circuit Type", value: circuitType }
+                ]}
+                result={{ 
+                  label: "Voltage Drop", 
+                  value: `${formatNumber(result.voltageDrop)}V`,
+                  unit: ""
+                }}
+                calculatorName="Voltage Drop Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Voltage Drop Results */}
             <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">Voltage Drop Results</h3>

@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Globe, Clock, MapPin } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface TimeZone {
   name: string
@@ -346,6 +347,26 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-teal-200">
+              <ResultSharing
+                title="Time Zone Conversion Result"
+                inputs={[
+                  { label: "Source Time", value: formatTime(result.sourceTime) },
+                  { label: "Source Zone", value: result.sourceZone },
+                  { label: "Target Zone", value: result.targetZone },
+                  { label: "Calculation Type", value: "Time Zone Conversion" }
+                ]}
+                result={{ 
+                  label: "Converted Time", 
+                  value: formatTime(result.convertedTime),
+                  unit: result.targetZone
+                }}
+                calculatorName="Time Zone Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Conversion Results */}
             <div className="bg-teal-50 p-6 rounded-lg border border-teal-200">
               <h3 className="text-lg font-semibold text-teal-800 mb-4">Time Conversion Results</h3>

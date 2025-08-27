@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Wind } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function WindChillCalculator() {
   const [temperature, setTemperature] = useState('32')
@@ -98,21 +99,42 @@ export default function WindChillCalculator() {
         </div>
 
         {showResults && (
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 text-center">
-            <h3 className="text-xl font-semibold text-blue-800 mb-4">Wind Chill Results</h3>
-            {isCalculable ? (
-              <div className="text-3xl font-bold text-blue-600 mb-2">
-                {windChill.toFixed(1)}°{unit === 'fahrenheit' ? 'F' : 'C'}
+          <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="Wind Chill Calculation Result"
+                inputs={[
+                  { label: "Temperature", value: `${temperature}°${unit === 'fahrenheit' ? 'F' : 'C'}` },
+                  { label: "Wind Speed", value: `${windSpeed} ${unit === 'fahrenheit' ? 'mph' : 'm/s'}` },
+                  { label: "Units", value: unit === 'fahrenheit' ? 'Fahrenheit' : 'Celsius' }
+                ]}
+                result={{ 
+                  label: "Wind Chill", 
+                  value: isCalculable ? windChill.toFixed(1) : "N/A",
+                  unit: `°${unit === 'fahrenheit' ? 'F' : 'C'}`
+                }}
+                calculatorName="Wind Chill Calculator"
+                className="mb-0"
+              />
+            </div>
+
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 text-center">
+              <h3 className="text-xl font-semibold text-blue-800 mb-4">Wind Chill Results</h3>
+              {isCalculable ? (
+                <div className="text-3xl font-bold text-blue-600 mb-2">
+                  {windChill.toFixed(1)}°{unit === 'fahrenheit' ? 'F' : 'C'}
+                </div>
+              ) : (
+                <div className="text-lg text-gray-600">
+                  Wind chill calculation not applicable for these conditions
+                </div>
+              )}
+              <div className="mt-4">
+                <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+                  Reset
+                </button>
               </div>
-            ) : (
-              <div className="text-lg text-gray-600">
-                Wind chill calculation not applicable for these conditions
-              </div>
-            )}
-            <div className="mt-4">
-              <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
-                Reset
-              </button>
             </div>
           </div>
         )}

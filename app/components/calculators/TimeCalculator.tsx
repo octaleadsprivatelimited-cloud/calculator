@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Clock } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function TimeCalculator() {
   const [hours, setHours] = useState('')
@@ -115,6 +116,26 @@ export default function TimeCalculator() {
 
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <ResultSharing
+                title="Time Calculation Result"
+                inputs={[
+                  { label: "Hours", value: hours || "0" },
+                  { label: "Minutes", value: minutes || "0" },
+                  { label: "Seconds", value: seconds || "0" },
+                  { label: "Calculation Type", value: "Time Conversion" }
+                ]}
+                result={{ 
+                  label: "Total Time", 
+                  value: result.formatted,
+                  unit: ""
+                }}
+                calculatorName="Time Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-4">Time Conversion Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">

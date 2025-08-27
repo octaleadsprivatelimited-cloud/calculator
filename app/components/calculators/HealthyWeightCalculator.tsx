@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Heart } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function HealthyWeightCalculator() {
   const [height, setHeight] = useState('')
@@ -256,6 +257,27 @@ export default function HealthyWeightCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+              <ResultSharing
+                title="Healthy Weight Calculation Result"
+                inputs={[
+                  { label: "Height", value: `${height} ${parseFloat(height) < 10 ? 'feet' : 'cm'}` },
+                  { label: "Age", value: `${age} years` },
+                  { label: "Gender", value: gender.charAt(0).toUpperCase() + gender.slice(1) },
+                  { label: "Body Frame", value: bodyFrame.charAt(0).toUpperCase() + bodyFrame.slice(1) },
+                  { label: "Activity Level", value: activityLevel.charAt(0).toUpperCase() + activityLevel.slice(1).replace('_', ' ') }
+                ]}
+                result={{ 
+                  label: "Health Score", 
+                  value: result.healthScore.toString(),
+                  unit: "/100"
+                }}
+                calculatorName="Healthy Weight Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
               <h3 className="text-lg font-semibold text-emerald-800 mb-2">Health Score</h3>
               <div className="text-center">

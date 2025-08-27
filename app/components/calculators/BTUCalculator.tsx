@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Thermometer } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function BTUCalculator() {
   const [length, setLength] = useState('')
@@ -112,6 +113,26 @@ export default function BTUCalculator() {
 
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+              <ResultSharing
+                title="BTU Calculation Result"
+                inputs={[
+                  { label: "Length", value: `${length} feet` },
+                  { label: "Width", value: `${width} feet` },
+                  { label: "Height", value: `${height} feet` },
+                  { label: "Room Area", value: `${(parseFloat(length) * parseFloat(width)).toFixed(1)} sq ft` }
+                ]}
+                result={{ 
+                  label: "Cooling BTU", 
+                  value: result.cooling.toLocaleString(),
+                  unit: "BTU"
+                }}
+                calculatorName="BTU Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-emerald-50 p-6 rounded-lg border border-emerald-200">
               <h3 className="text-lg font-semibold text-emerald-800 mb-4">BTU Requirements</h3>
               <div className="grid md:grid-cols-2 gap-6 text-center">

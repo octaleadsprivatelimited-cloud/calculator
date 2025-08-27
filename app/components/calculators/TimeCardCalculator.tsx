@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Clock, DollarSign, Calendar } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface TimeEntry {
   id: string
@@ -440,6 +441,26 @@ Pay Summary:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <ResultSharing
+                title="Time Card Calculation Result"
+                inputs={[
+                  { label: "Number of Entries", value: `${timeEntries.length} time entries` },
+                  { label: "Hourly Rate", value: `$${hourlyRate}/hour` },
+                  { label: "Overtime Rate", value: `$${overtimeRate}/hour` },
+                  { label: "Overtime Threshold", value: `${overtimeThreshold} hours` }
+                ]}
+                result={{ 
+                  label: "Total Pay", 
+                  value: `$${formatNumber(result.totalPay)}`,
+                  unit: ""
+                }}
+                calculatorName="Time Card Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Pay Results */}
             <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-4">Pay Calculation Results</h3>

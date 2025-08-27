@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Heart } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function TargetHeartRateCalculator() {
   const [age, setAge] = useState('')
@@ -179,6 +180,25 @@ export default function TargetHeartRateCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-red-200">
+              <ResultSharing
+                title="Target Heart Rate Calculation Result"
+                inputs={[
+                  { label: "Age", value: `${age} years` },
+                  { label: "Resting Heart Rate", value: `${restingHR} BPM` },
+                  { label: "Calculation Method", value: result.methodName }
+                ]}
+                result={{ 
+                  label: "Maximum Heart Rate", 
+                  value: result.maxHR.toString(),
+                  unit: "BPM"
+                }}
+                calculatorName="Target Heart Rate Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-red-50 rounded-lg border border-red-200">
               <h3 className="text-lg font-semibold text-red-800 mb-2">Maximum Heart Rate</h3>
               <div className="text-center">

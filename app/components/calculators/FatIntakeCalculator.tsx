@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Droplets } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function FatIntakeCalculator() {
   const [weight, setWeight] = useState('')
@@ -281,6 +282,28 @@ export default function FatIntakeCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-yellow-200">
+              <ResultSharing
+                title="Fat Intake Calculation Result"
+                inputs={[
+                  { label: "Weight", value: `${weight} lbs` },
+                  { label: "Height", value: `${height} ${parseFloat(height) < 10 ? 'feet' : 'cm'}` },
+                  { label: "Age", value: `${age} years` },
+                  { label: "Gender", value: gender.charAt(0).toUpperCase() + gender.slice(1) },
+                  { label: "Activity Level", value: activityLevel.charAt(0).toUpperCase() + activityLevel.slice(1).replace('_', ' ') },
+                  { label: "Goal", value: goal.charAt(0).toUpperCase() + goal.slice(1).replace('_', ' ') }
+                ]}
+                result={{ 
+                  label: "Daily Fat Intake", 
+                  value: result.dailyFat.toFixed(1),
+                  unit: "g"
+                }}
+                calculatorName="Fat Intake Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
               <h3 className="text-lg font-semibold text-yellow-800 mb-2">Daily Fat Intake</h3>
               <div className="text-center">

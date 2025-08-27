@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Heart, Ruler, User } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface BraSizeResult {
   bandSize: number
@@ -406,6 +407,26 @@ Measurement Tips:
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-pink-200">
+              <ResultSharing
+                title="Bra Size Calculation Result"
+                inputs={[
+                  { label: "Under Bust", value: `${underBust} inches` },
+                  { label: "Bust", value: `${bust} inches` },
+                  { label: "Measurement Method", value: measurementMethod },
+                  { label: "Calculation Type", value: "Bra Size Fitting" }
+                ]}
+                result={{ 
+                  label: "US Size", 
+                  value: result.usSize,
+                  unit: ""
+                }}
+                calculatorName="Bra Size Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Bra Size Results */}
             <div className="bg-pink-50 p-6 rounded-lg border border-pink-200">
               <h3 className="text-lg font-semibold text-pink-800 mb-4">Your Bra Size Results</h3>

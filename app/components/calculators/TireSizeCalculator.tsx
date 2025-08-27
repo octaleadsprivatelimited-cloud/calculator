@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, AlertCircle, CheckCircle } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface TireSize {
   width: number
@@ -362,6 +363,26 @@ Speedometer Analysis (at ${currentSpeed} mph):
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-green-200">
+              <ResultSharing
+                title="Tire Size Calculation Result"
+                inputs={[
+                  { label: "Current Tire", value: `${currentTire.width}/${currentTire.aspectRatio}R${currentTire.diameter}` },
+                  { label: "New Tire", value: `${newTire.width}/${newTire.aspectRatio}R${newTire.diameter}` },
+                  { label: "Current Speed", value: `${currentSpeed} mph` },
+                  { label: "Calculation Type", value: "Tire Size Comparison" }
+                ]}
+                result={{ 
+                  label: "Speed Difference", 
+                  value: `${speedDiff.difference >= 0 ? '+' : ''}${formatNumber(speedDiff.difference)}`,
+                  unit: "mph"
+                }}
+                calculatorName="Tire Size Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Success Message */}
             <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
               <div className="flex items-center justify-center space-x-2 text-green-800">

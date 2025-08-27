@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Shuffle, Calculator as CalculatorIcon, RotateCcw, Dice1 } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface RandomResult {
   numbers: number[]
@@ -194,6 +195,26 @@ export default function RandomNumberGenerator() {
           <div className="space-y-6">
             {result && (
               <>
+                {/* Share Options - Moved to Top */}
+                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
+                  <ResultSharing
+                    title="Random Number Generation Result"
+                    inputs={[
+                      { label: "Range", value: `${result.min} to ${result.max}` },
+                      { label: "Count", value: `${result.count} numbers` },
+                      { label: "Duplicates", value: allowDuplicates ? "Allowed" : "Not Allowed" },
+                      { label: "Generation Type", value: "Random Number Generation" }
+                    ]}
+                    result={{ 
+                      label: "Generated Numbers", 
+                      value: result.numbers.slice(0, 5).join(', ') + (result.numbers.length > 5 ? '...' : ''),
+                      unit: ""
+                    }}
+                    calculatorName="Random Number Generator"
+                    className="mb-0"
+                  />
+                </div>
+
                 <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
                   <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                     <Dice1 className="w-6 h-6 mr-2 text-violet-600" />

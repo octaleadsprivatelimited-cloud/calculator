@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, BookOpen } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function GradeCalculator() {
   const [currentGrade, setCurrentGrade] = useState('')
@@ -111,6 +112,26 @@ export default function GradeCalculator() {
 
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-green-200">
+              <ResultSharing
+                title="Grade Calculation Result"
+                inputs={[
+                  { label: "Current Grade", value: `${currentGrade}%` },
+                  { label: "Final Weight", value: `${finalWeight}%` },
+                  { label: "Desired Grade", value: `${desiredGrade}%` },
+                  { label: "Calculation Type", value: "Final Exam Grade Requirement" }
+                ]}
+                result={{ 
+                  label: "Grade Needed on Final", 
+                  value: result.needed.toFixed(1),
+                  unit: "%"
+                }}
+                calculatorName="Grade Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="bg-green-50 p-6 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-4">Grade Calculation Results</h3>
               <div className="text-center">

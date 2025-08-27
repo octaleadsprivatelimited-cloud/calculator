@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Flame } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function CaloriesBurnedCalculator() {
   const [weight, setWeight] = useState('')
@@ -231,6 +232,26 @@ export default function CaloriesBurnedCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-orange-200">
+              <ResultSharing
+                title="Calories Burned Calculation Result"
+                inputs={[
+                  { label: "Weight", value: `${weight} lbs` },
+                  { label: "Duration", value: `${duration} minutes` },
+                  { label: "Activity", value: formatActivityName(activity) },
+                  { label: "Intensity", value: intensity.charAt(0).toUpperCase() + intensity.slice(1) }
+                ]}
+                result={{ 
+                  label: "Calories Burned", 
+                  value: result.calories.toFixed(0),
+                  unit: "calories"
+                }}
+                calculatorName="Calories Burned Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
               <h3 className="text-lg font-semibold text-orange-800 mb-2">Calories Burned</h3>
               <div className="text-center">

@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Target } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface Score {
   id: string
@@ -348,6 +349,27 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
         {/* Results */}
         {showResults && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-green-200">
+              <ResultSharing
+                title="Golf Handicap Calculation Result"
+                inputs={[
+                  { label: "Number of Scores", value: `${scores.length} scores` },
+                  { label: "Course Rating", value: courseRating },
+                  { label: "Slope Rating", value: slopeRating },
+                  { label: "Par", value: par },
+                  { label: "Calculation Type", value: "USGA Handicap Index" }
+                ]}
+                result={{ 
+                  label: "Handicap Index", 
+                  value: formatNumber(result.handicapIndex),
+                  unit: ""
+                }}
+                calculatorName="Golf Handicap Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Handicap Results */}
             <div className="bg-green-50 p-6 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-4">Handicap Results</h3>

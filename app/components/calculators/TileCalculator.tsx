@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { Calculator, Download, Share2, Printer, RotateCcw, Info, Square } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 interface TileMaterial {
   name: string
@@ -391,6 +392,26 @@ Cost Breakdown:
         {/* Results */}
         {result && (
           <div className="space-y-6">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-green-200">
+              <ResultSharing
+                title="Tile Calculation Result"
+                inputs={[
+                  { label: "Tile Material", value: tileMaterials[selectedMaterial]?.name },
+                  { label: "Number of Rooms", value: `${rooms.length} rooms` },
+                  { label: "Total Floor Area", value: `${formatNumber(result.totalArea)} sq ft` },
+                  { label: "Grout Price", value: `${formatCurrency(groutPrice)}/sq ft` }
+                ]}
+                result={{ 
+                  label: "Total Project Cost", 
+                  value: formatCurrency(result.totalProjectCost),
+                  unit: ""
+                }}
+                calculatorName="Tile Calculator"
+                className="mb-0"
+              />
+            </div>
+
             {/* Summary */}
             <div className="bg-green-50 p-6 rounded-lg border border-green-200">
               <h3 className="text-xl font-semibold text-green-800 mb-4">Project Summary</h3>

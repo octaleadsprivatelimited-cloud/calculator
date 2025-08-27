@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Calculator, RotateCcw, Target } from 'lucide-react'
+import ResultSharing from '../ResultSharing'
 
 export default function WeightWatchersPointsCalculator() {
   const [calories, setCalories] = useState('')
@@ -214,6 +215,27 @@ export default function WeightWatchersPointsCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
+            {/* Share Options - Moved to Top */}
+            <div className="bg-white p-4 rounded-lg border border-blue-200">
+              <ResultSharing
+                title="Weight Watchers Points Calculation Result"
+                inputs={[
+                  { label: "Calories", value: `${calories} cal` },
+                  { label: "Saturated Fat", value: `${saturatedFat}g` },
+                  { label: "Sugar", value: `${sugar}g` },
+                  { label: "Protein", value: `${protein}g` },
+                  { label: "Fiber", value: `${fiber}g` }
+                ]}
+                result={{ 
+                  label: "SmartPoints", 
+                  value: result.points.toFixed(1),
+                  unit: "points"
+                }}
+                calculatorName="Weight Watchers Points Calculator"
+                className="mb-0"
+              />
+            </div>
+
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">SmartPoints Result</h3>
               <div className="text-center">
