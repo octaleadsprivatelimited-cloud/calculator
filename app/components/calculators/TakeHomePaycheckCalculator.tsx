@@ -53,9 +53,9 @@ export default function TakeHomePaycheckCalculator() {
     }
 
     const recommendations = []
-    recommendations.push(`Gross pay: $${gross.toFixed(2)}`)
-    recommendations.push(`Total deductions: $${totalDeductions.toFixed(2)}`)
-    recommendations.push(`Take-home pay: $${takeHome.toFixed(2)}`)
+    recommendations.push(`Gross pay: ${gross.toFixed(2)}`)
+    recommendations.push(`Total deductions: ${totalDeductions.toFixed(2)}`)
+    recommendations.push(`Take-home pay: ${takeHome.toFixed(2)}`)
     recommendations.push(`Net percentage: ${netPercentage.toFixed(1)}%`)
 
     if (netPercentage < 60) {
@@ -110,32 +110,32 @@ export default function TakeHomePaycheckCalculator() {
       <div className="p-6">
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Gross Pay ($)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Gross Pay</label>
             <input type="number" value={grossPay} onChange={(e) => setGrossPay(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter gross pay" step="0.01" />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Federal Tax ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Federal Tax</label>
               <input type="number" value={federalTax} onChange={(e) => setFederalTax(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter federal tax" step="0.01" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">State Tax ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">State Tax</label>
               <input type="number" value={stateTax} onChange={(e) => setStateTax(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter state tax" step="0.01" />
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Social Security ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Social Security</label>
               <input type="number" value={socialSecurity} onChange={(e) => setSocialSecurity(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter SS tax" step="0.01" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Medicare ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Medicare</label>
               <input type="number" value={medicare} onChange={(e) => setMedicare(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter Medicare" step="0.01" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Other ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Other</label>
               <input type="number" value={otherDeductions} onChange={(e) => setOtherDeductions(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter other" step="0.01" />
             </div>
           </div>
@@ -157,13 +157,13 @@ export default function TakeHomePaycheckCalculator() {
               <ResultSharing
                 title="Take-Home Paycheck Calculation Result"
                 inputs={[
-                  { label: "Gross Pay", value: `$${result.breakdown.gross?.toFixed(2)}` },
-                  { label: "Total Deductions", value: `$${result.breakdown.totalDeductions?.toFixed(2)}` },
+                  { label: "Gross Pay", value: `${result.breakdown.gross?.toFixed(2)}` },
+                  { label: "Total Deductions", value: `${result.breakdown.totalDeductions?.toFixed(2)}` },
                   { label: "Calculation Type", value: "Paycheck Analysis" }
                 ]}
                 result={{ 
                   label: "Take-Home Pay", 
-                  value: `$${result.takeHome.toFixed(2)}`,
+                  value: `${result.takeHome.toFixed(2)}`,
                   unit: ""
                 }}
                 calculatorName="Take-Home Paycheck Calculator"
@@ -174,7 +174,7 @@ export default function TakeHomePaycheckCalculator() {
             <div className="p-4 bg-green-50 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-2">Take-Home Pay</h3>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">${result.takeHome.toFixed(2)}</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">{result.takeHome.toFixed(2)}</div>
                 <div className="text-green-700">{result.netPercentage.toFixed(1)}% of gross pay</div>
               </div>
             </div>
@@ -182,16 +182,16 @@ export default function TakeHomePaycheckCalculator() {
             <div className="p-4 bg-green-50 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-3">Paycheck Breakdown</h3>
               <div className="space-y-2">
-                <div className="flex justify-between"><span className="text-green-700">Gross Pay:</span><span className="font-semibold text-green-800">${result.breakdown.gross?.toFixed(2)}</span></div>
-                <div className="flex justify-between"><span className="text-green-700">Federal Tax:</span><span className="font-semibold text-green-800">${result.breakdown.federal?.toFixed(2)}</span></div>
-                <div className="flex justify-between"><span className="text-green-700">State Tax:</span><span className="font-semibold text-green-800">${result.breakdown.state?.toFixed(2)}</span></div>
-                <div className="flex justify-between"><span className="text-green-700">Social Security:</span><span className="font-semibold text-green-800">${result.breakdown.socialSecurity?.toFixed(2)}</span></div>
-                <div className="flex justify-between"><span className="text-green-700">Medicare:</span><span className="font-semibold text-green-800">${result.breakdown.medicare?.toFixed(2)}</span></div>
-                <div className="flex justify-between"><span className="text-green-700">Other:</span><span className="font-semibold text-green-800">${result.breakdown.other?.toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-green-700">Gross Pay:</span><span className="font-semibold text-green-800">{result.breakdown.gross?.toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-green-700">Federal Tax:</span><span className="font-semibold text-green-800">{result.breakdown.federal?.toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-green-700">State Tax:</span><span className="font-semibold text-green-800">{result.breakdown.state?.toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-green-700">Social Security:</span><span className="font-semibold text-green-800">{result.breakdown.socialSecurity?.toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-green-700">Medicare:</span><span className="font-semibold text-green-800">{result.breakdown.medicare?.toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-green-700">Other:</span><span className="font-semibold text-green-800">{result.breakdown.other?.toFixed(2)}</span></div>
                 <div className="border-t border-green-200 pt-2 mt-2">
                   <div className="flex justify-between font-bold">
                     <span className="text-green-700">Total Deductions:</span>
-                    <span className="text-green-800">${result.breakdown.totalDeductions?.toFixed(2)}</span>
+                    <span className="text-green-800">{result.breakdown.totalDeductions?.toFixed(2)}</span>
                   </div>
                 </div>
               </div>

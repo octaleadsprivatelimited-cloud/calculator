@@ -162,7 +162,7 @@ export default function MarginCalculator() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Revenue ($)
+                Revenue
               </label>
               <input
                 type="number"
@@ -176,7 +176,7 @@ export default function MarginCalculator() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Total Cost ($)
+                Total Cost
               </label>
               <input
                 type="number"
@@ -193,7 +193,7 @@ export default function MarginCalculator() {
           <div className="grid grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Price per Unit ($)
+                Price per Unit
               </label>
               <input
                 type="number"
@@ -207,7 +207,7 @@ export default function MarginCalculator() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Cost per Unit ($)
+                Cost per Unit
               </label>
               <input
                 type="number"
@@ -258,7 +258,7 @@ export default function MarginCalculator() {
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Gross Margin</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-600 mb-2">
-                  ${result.grossMargin.toFixed(2)}
+                  {result.grossMargin.toFixed(2)}
                 </div>
                 <div className="text-blue-700">
                   {result.grossMarginPercent.toFixed(1)}% of revenue
@@ -271,7 +271,7 @@ export default function MarginCalculator() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-blue-700">Gross Margin:</span>
-                  <span className="font-semibold text-blue-800">${result.grossMargin.toFixed(2)}</span>
+                  <span className="font-semibold text-blue-800">{result.grossMargin.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-blue-700">Gross Margin %:</span>
@@ -279,7 +279,7 @@ export default function MarginCalculator() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-blue-700">Net Margin:</span>
-                  <span className="font-semibold text-blue-800">${result.netMargin.toFixed(2)}</span>
+                  <span className="font-semibold text-blue-800">{result.netMargin.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-blue-700">Net Margin %:</span>
@@ -287,7 +287,7 @@ export default function MarginCalculator() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-blue-700">Markup:</span>
-                  <span className="font-semibold text-blue-800">${result.markup.toFixed(2)}</span>
+                  <span className="font-semibold text-blue-800">{result.markup.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-blue-700">Markup %:</span>
@@ -301,15 +301,15 @@ export default function MarginCalculator() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-blue-700">Total Revenue:</span>
-                  <span className="font-semibold text-blue-800">${result.details.revenue?.toFixed(2)}</span>
+                  <span className="font-semibold text-blue-800">{result.details.revenue?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-blue-700">Total Cost:</span>
-                  <span className="font-semibold text-blue-800">${result.details.cost?.toFixed(2)}</span>
+                  <span className="font-semibold text-blue-800">{result.details.cost?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-blue-700">Operating Expenses:</span>
-                  <span className="font-semibold text-blue-800">${result.details.operatingExpenses?.toFixed(2)}</span>
+                  <span className="font-semibold text-blue-800">{result.details.operatingExpenses?.toFixed(2)}</span>
                 </div>
               </div>
             </div>

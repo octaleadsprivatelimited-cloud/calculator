@@ -151,13 +151,8 @@ export default function GasMileageCalculator() {
   }
 
   const formatCurrency = (num: number) => {
-    if (isNaN(num) || !isFinite(num)) return '$0.00'
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(num)
+    if (isNaN(num) || !isFinite(num)) return '0.00'
+    return num.toFixed(2)
   }
 
   const downloadResults = () => {
