@@ -6,6 +6,8 @@ import CalculatorFavorites from './components/CalculatorFavorites'
 import Footer from './components/Footer'
 import GoogleAnalytics from './components/GoogleAnalytics'
 import SEOOptimizer from './components/SEOOptimizer'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -289,6 +291,8 @@ export default function RootLayout({
         {children}
         <CalculatorFavorites />
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
