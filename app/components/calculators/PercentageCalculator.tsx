@@ -98,9 +98,9 @@ export default function PercentageCalculator() {
       <div className="w-full">
         {/* Header */}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           {/* Input Form */}
-          <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
+          <div className="xl:col-span-2 bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
             <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
               <CalculatorIcon className="w-5 h-5 mr-2 text-purple-600" />
               Calculation Type
@@ -207,7 +207,7 @@ export default function PercentageCalculator() {
 
             {/* Main Result */}
             {result && (
-              <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
+              <div className="xl:col-span-1 bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
                 <h2 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
                   <TrendingUp className="w-5 h-5 mr-2 text-purple-600" />
                   Result

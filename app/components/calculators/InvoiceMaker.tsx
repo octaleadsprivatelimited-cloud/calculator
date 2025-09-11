@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useState, useRef, useCallback } from 'react'
-import { 
-  Upload, Plus, Trash2, Download, Eye, FileText, Building2, User, 
+import {
+  Upload, Plus, Trash2, Download, Eye, FileText, Building2, User,
   Calculator, RotateCcw, Image as ImageIcon, Palette, Layout, Settings,
   Save, Copy, Share2, Printer, Mail, Calendar, DollarSign, Check, Star
 } from 'lucide-react'
@@ -80,7 +80,7 @@ const invoiceTemplates: InvoiceTemplate[] = [
   { id: 'modern-4', name: 'Modern Orange', category: 'Modern', colors: { primary: '#F59E0B', secondary: '#D97706', accent: '#FBBF24', background: '#FFFFFF' }},
   { id: 'modern-5', name: 'Modern Red', category: 'Modern', colors: { primary: '#EF4444', secondary: '#DC2626', accent: '#F87171', background: '#FFFFFF' }},
   { id: 'modern-6', name: 'Modern Teal', category: 'Modern', colors: { primary: '#14B8A6', secondary: '#0D9488', accent: '#5EEAD4', background: '#FFFFFF' }},
-  
+
   // Classic Templates (6)
   { id: 'classic-1', name: 'Classic Black', category: 'Classic', colors: { primary: '#000000', secondary: '#374151', accent: '#6B7280', background: '#FFFFFF' }},
   { id: 'classic-2', name: 'Classic Navy', category: 'Classic', colors: { primary: '#1E3A8A', secondary: '#1E40AF', accent: '#3B82F6', background: '#FFFFFF' }},
@@ -88,7 +88,7 @@ const invoiceTemplates: InvoiceTemplate[] = [
   { id: 'classic-4', name: 'Classic Brown', category: 'Classic', colors: { primary: '#92400E', secondary: '#78350F', accent: '#D97706', background: '#FFFFFF' }},
   { id: 'classic-5', name: 'Classic Maroon', category: 'Classic', colors: { primary: '#7F1D1D', secondary: '#991B1B', accent: '#DC2626', background: '#FFFFFF' }},
   { id: 'classic-6', name: 'Classic Forest', category: 'Classic', colors: { primary: '#14532D', secondary: '#166534', accent: '#22C55E', background: '#FFFFFF' }},
-  
+
   // Minimal Templates (6)
   { id: 'minimal-1', name: 'Minimal White', category: 'Minimal', colors: { primary: '#000000', secondary: '#6B7280', accent: '#9CA3AF', background: '#FFFFFF' }},
   { id: 'minimal-2', name: 'Minimal Gray', category: 'Minimal', colors: { primary: '#374151', secondary: '#6B7280', accent: '#D1D5DB', background: '#F9FAFB' }},
@@ -96,7 +96,7 @@ const invoiceTemplates: InvoiceTemplate[] = [
   { id: 'minimal-4', name: 'Minimal Green', category: 'Minimal', colors: { primary: '#10B981', secondary: '#6B7280', accent: '#D1FAE5', background: '#FFFFFF' }},
   { id: 'minimal-5', name: 'Minimal Purple', category: 'Minimal', colors: { primary: '#8B5CF6', secondary: '#6B7280', accent: '#EDE9FE', background: '#FFFFFF' }},
   { id: 'minimal-6', name: 'Minimal Rose', category: 'Minimal', colors: { primary: '#F43F5E', secondary: '#6B7280', accent: '#FCE7F3', background: '#FFFFFF' }},
-  
+
   // Corporate Templates (6)
   { id: 'corporate-1', name: 'Corporate Blue', category: 'Corporate', colors: { primary: '#1E40AF', secondary: '#1E3A8A', accent: '#3B82F6', background: '#FFFFFF' }},
   { id: 'corporate-2', name: 'Corporate Dark', category: 'Corporate', colors: { primary: '#111827', secondary: '#374151', accent: '#6B7280', background: '#FFFFFF' }},
@@ -104,7 +104,7 @@ const invoiceTemplates: InvoiceTemplate[] = [
   { id: 'corporate-4', name: 'Corporate Red', category: 'Corporate', colors: { primary: '#DC2626', secondary: '#B91C1C', accent: '#EF4444', background: '#FFFFFF' }},
   { id: 'corporate-5', name: 'Corporate Gold', category: 'Corporate', colors: { primary: '#D97706', secondary: '#B45309', accent: '#F59E0B', background: '#FFFFFF' }},
   { id: 'corporate-6', name: 'Corporate Silver', category: 'Corporate', colors: { primary: '#6B7280', secondary: '#4B5563', accent: '#9CA3AF', background: '#FFFFFF' }},
-  
+
   // Creative Templates (6)
   { id: 'creative-1', name: 'Creative Gradient', category: 'Creative', colors: { primary: '#8B5CF6', secondary: '#3B82F6', accent: '#06B6D4', background: '#FFFFFF' }},
   { id: 'creative-2', name: 'Creative Sunset', category: 'Creative', colors: { primary: '#F59E0B', secondary: '#EF4444', accent: '#8B5CF6', background: '#FFFFFF' }},
@@ -250,26 +250,26 @@ export default function InvoiceMaker() {
           useCORS: true,
           allowTaint: true
         })
-        
+
         const imgData = canvas.toDataURL('image/png')
         const pdf = new jsPDF()
         const imgWidth = 210
         const pageHeight = 295
         const imgHeight = (canvas.height * imgWidth) / canvas.width
         let heightLeft = imgHeight
-        
+
         let position = 0
-        
+
         pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
         heightLeft -= pageHeight
-        
+
         while (heightLeft >= 0) {
           position = heightLeft - imgHeight
           pdf.addPage()
           pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
           heightLeft -= pageHeight
         }
-        
+
         pdf.save(`invoice-${invoiceData.invoiceNumber}.pdf`)
       } catch (error) {
         console.error('Error generating PDF:', error)
@@ -373,7 +373,7 @@ export default function InvoiceMaker() {
                 >
                   <div className="p-4">
                     {/* Template Preview */}
-                    <div 
+                    <div
                       className="w-full h-32 rounded-lg mb-3 relative overflow-hidden"
                       style={{ backgroundColor: template.colors.background }}
                     >
@@ -404,15 +404,15 @@ export default function InvoiceMaker() {
 
                     {/* Color Palette */}
                     <div className="flex space-x-1 mt-3">
-                      <div 
+                      <div
                         className="w-4 h-4 rounded-full border border-gray-200"
                         style={{ backgroundColor: template.colors.primary }}
                       ></div>
-                      <div 
+                      <div
                         className="w-4 h-4 rounded-full border border-gray-200"
                         style={{ backgroundColor: template.colors.secondary }}
                       ></div>
-                      <div 
+                      <div
                         className="w-4 h-4 rounded-full border border-gray-200"
                         style={{ backgroundColor: template.colors.accent }}
                       ></div>
@@ -519,7 +519,7 @@ export default function InvoiceMaker() {
                     <Building2 className="w-5 h-5 mr-2 text-blue-600" />
                     Your Company
                   </h3>
-                  
+
                   {/* Logo Upload */}
                   <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700 mb-2">Company Logo</label>
@@ -832,12 +832,12 @@ export default function InvoiceMaker() {
 
             {/* Invoice Preview */}
             <div className="bg-white rounded-xl shadow-lg border">
-              <div 
+              <div
                 ref={invoiceRef}
                 className="p-8"
-                style={{ 
+                style={{
                   backgroundColor: currentTemplate.colors.background,
-                  color: currentTemplate.colors.primary 
+                  color: currentTemplate.colors.primary
                 }}
               >
                 {/* Invoice Header */}
@@ -847,7 +847,7 @@ export default function InvoiceMaker() {
                       <img src={invoiceData.logo} alt="Logo" className="w-16 h-16 object-contain" />
                     )}
                     <div>
-                      <h1 
+                      <h1
                         className="text-3xl font-bold"
                         style={{ color: currentTemplate.colors.primary }}
                       >
@@ -865,7 +865,7 @@ export default function InvoiceMaker() {
                 {/* Company & Client Info */}
                 <div className="grid grid-cols-2 gap-8 mb-8">
                   <div>
-                    <h3 
+                    <h3
                       className="font-semibold mb-2"
                       style={{ color: currentTemplate.colors.secondary }}
                     >
@@ -880,7 +880,7 @@ export default function InvoiceMaker() {
                     </div>
                   </div>
                   <div>
-                    <h3 
+                    <h3
                       className="font-semibold mb-2"
                       style={{ color: currentTemplate.colors.secondary }}
                     >
@@ -900,7 +900,7 @@ export default function InvoiceMaker() {
                 <div className="mb-8">
                   <table className="w-full">
                     <thead>
-                      <tr 
+                      <tr
                         className="border-b-2"
                         style={{ borderColor: currentTemplate.colors.primary }}
                       >
@@ -941,7 +941,7 @@ export default function InvoiceMaker() {
                         <span>Tax ({invoiceData.taxRate}%):</span>
                         <span>{getCurrencySymbol(invoiceData.currency)}{invoiceData.taxAmount.toFixed(2)}</span>
                       </div>
-                      <div 
+                      <div
                         className="flex justify-between border-t-2 pt-2 font-bold text-lg"
                         style={{ borderColor: currentTemplate.colors.primary }}
                       >
