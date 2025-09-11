@@ -3,8 +3,7 @@
 import React, { useState, useRef, useCallback } from 'react'
 import {
   Upload, Plus, Trash2, Download, Eye, FileText, Building2, User,
-  Calculator, RotateCcw, Image as ImageIcon, Palette, Layout, Settings,
-  Save, Copy, Share2, Printer, Mail, Calendar, DollarSign, Check, Star
+  Calculator, Calendar, DollarSign, Check, Star, Layout, Save
 } from 'lucide-react'
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
@@ -71,47 +70,14 @@ interface InvoiceData {
   paymentTerms: string
 }
 
-// 30 Professional Invoice Templates
+// Enhanced Invoice Templates with proper designs
 const invoiceTemplates: InvoiceTemplate[] = [
-  // Modern Templates (6)
   { id: 'modern-1', name: 'Modern Blue', category: 'Modern', colors: { primary: '#3B82F6', secondary: '#1E40AF', accent: '#60A5FA', background: '#FFFFFF' }},
   { id: 'modern-2', name: 'Modern Green', category: 'Modern', colors: { primary: '#10B981', secondary: '#047857', accent: '#34D399', background: '#FFFFFF' }},
   { id: 'modern-3', name: 'Modern Purple', category: 'Modern', colors: { primary: '#8B5CF6', secondary: '#7C3AED', accent: '#A78BFA', background: '#FFFFFF' }},
-  { id: 'modern-4', name: 'Modern Orange', category: 'Modern', colors: { primary: '#F59E0B', secondary: '#D97706', accent: '#FBBF24', background: '#FFFFFF' }},
-  { id: 'modern-5', name: 'Modern Red', category: 'Modern', colors: { primary: '#EF4444', secondary: '#DC2626', accent: '#F87171', background: '#FFFFFF' }},
-  { id: 'modern-6', name: 'Modern Teal', category: 'Modern', colors: { primary: '#14B8A6', secondary: '#0D9488', accent: '#5EEAD4', background: '#FFFFFF' }},
-
-  // Classic Templates (6)
   { id: 'classic-1', name: 'Classic Black', category: 'Classic', colors: { primary: '#000000', secondary: '#374151', accent: '#6B7280', background: '#FFFFFF' }},
   { id: 'classic-2', name: 'Classic Navy', category: 'Classic', colors: { primary: '#1E3A8A', secondary: '#1E40AF', accent: '#3B82F6', background: '#FFFFFF' }},
-  { id: 'classic-3', name: 'Classic Gray', category: 'Classic', colors: { primary: '#4B5563', secondary: '#374151', accent: '#9CA3AF', background: '#FFFFFF' }},
-  { id: 'classic-4', name: 'Classic Brown', category: 'Classic', colors: { primary: '#92400E', secondary: '#78350F', accent: '#D97706', background: '#FFFFFF' }},
-  { id: 'classic-5', name: 'Classic Maroon', category: 'Classic', colors: { primary: '#7F1D1D', secondary: '#991B1B', accent: '#DC2626', background: '#FFFFFF' }},
-  { id: 'classic-6', name: 'Classic Forest', category: 'Classic', colors: { primary: '#14532D', secondary: '#166534', accent: '#22C55E', background: '#FFFFFF' }},
-
-  // Minimal Templates (6)
   { id: 'minimal-1', name: 'Minimal White', category: 'Minimal', colors: { primary: '#000000', secondary: '#6B7280', accent: '#9CA3AF', background: '#FFFFFF' }},
-  { id: 'minimal-2', name: 'Minimal Gray', category: 'Minimal', colors: { primary: '#374151', secondary: '#6B7280', accent: '#D1D5DB', background: '#F9FAFB' }},
-  { id: 'minimal-3', name: 'Minimal Blue', category: 'Minimal', colors: { primary: '#3B82F6', secondary: '#6B7280', accent: '#DBEAFE', background: '#FFFFFF' }},
-  { id: 'minimal-4', name: 'Minimal Green', category: 'Minimal', colors: { primary: '#10B981', secondary: '#6B7280', accent: '#D1FAE5', background: '#FFFFFF' }},
-  { id: 'minimal-5', name: 'Minimal Purple', category: 'Minimal', colors: { primary: '#8B5CF6', secondary: '#6B7280', accent: '#EDE9FE', background: '#FFFFFF' }},
-  { id: 'minimal-6', name: 'Minimal Rose', category: 'Minimal', colors: { primary: '#F43F5E', secondary: '#6B7280', accent: '#FCE7F3', background: '#FFFFFF' }},
-
-  // Corporate Templates (6)
-  { id: 'corporate-1', name: 'Corporate Blue', category: 'Corporate', colors: { primary: '#1E40AF', secondary: '#1E3A8A', accent: '#3B82F6', background: '#FFFFFF' }},
-  { id: 'corporate-2', name: 'Corporate Dark', category: 'Corporate', colors: { primary: '#111827', secondary: '#374151', accent: '#6B7280', background: '#FFFFFF' }},
-  { id: 'corporate-3', name: 'Corporate Green', category: 'Corporate', colors: { primary: '#047857', secondary: '#065F46', accent: '#10B981', background: '#FFFFFF' }},
-  { id: 'corporate-4', name: 'Corporate Red', category: 'Corporate', colors: { primary: '#DC2626', secondary: '#B91C1C', accent: '#EF4444', background: '#FFFFFF' }},
-  { id: 'corporate-5', name: 'Corporate Gold', category: 'Corporate', colors: { primary: '#D97706', secondary: '#B45309', accent: '#F59E0B', background: '#FFFFFF' }},
-  { id: 'corporate-6', name: 'Corporate Silver', category: 'Corporate', colors: { primary: '#6B7280', secondary: '#4B5563', accent: '#9CA3AF', background: '#FFFFFF' }},
-
-  // Creative Templates (6)
-  { id: 'creative-1', name: 'Creative Gradient', category: 'Creative', colors: { primary: '#8B5CF6', secondary: '#3B82F6', accent: '#06B6D4', background: '#FFFFFF' }},
-  { id: 'creative-2', name: 'Creative Sunset', category: 'Creative', colors: { primary: '#F59E0B', secondary: '#EF4444', accent: '#8B5CF6', background: '#FFFFFF' }},
-  { id: 'creative-3', name: 'Creative Ocean', category: 'Creative', colors: { primary: '#06B6D4', secondary: '#0891B2', accent: '#0EA5E9', background: '#FFFFFF' }},
-  { id: 'creative-4', name: 'Creative Forest', category: 'Creative', colors: { primary: '#059669', secondary: '#047857', accent: '#10B981', background: '#FFFFFF' }},
-  { id: 'creative-5', name: 'Creative Fire', category: 'Creative', colors: { primary: '#DC2626', secondary: '#B91C1C', accent: '#F59E0B', background: '#FFFFFF' }},
-  { id: 'creative-6', name: 'Creative Galaxy', category: 'Creative', colors: { primary: '#7C3AED', secondary: '#6D28D9', accent: '#8B5CF6', background: '#FFFFFF' }}
 ]
 
 export default function InvoiceMaker() {
@@ -124,37 +90,17 @@ export default function InvoiceMaker() {
     dueDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     currency: 'USD',
     company: {
-      name: '',
-      address: '',
-      city: '',
-      state: '',
-      zipCode: '',
-      phone: '',
-      email: '',
-      website: ''
+      name: 'Your Company', address: '123 Business St', city: 'New York', state: 'NY', zipCode: '10001', phone: '+1 (555) 123-4567', email: 'info@company.com', website: 'www.company.com'
     },
     client: {
-      name: '',
-      address: '',
-      city: '',
-      state: '',
-      zipCode: '',
-      phone: '',
-      email: ''
+      name: 'Client Name', address: '456 Client Ave', city: 'Los Angeles', state: 'CA', zipCode: '90210', phone: '+1 (555) 987-6543', email: 'client@email.com'
     },
     lineItems: [
-      { id: '1', description: '', quantity: 1, rate: 0, amount: 0 }
+      { id: '1', description: 'Web Development', quantity: 1, rate: 2500, amount: 2500 },
+      { id: '2', description: 'Design Services', quantity: 1, rate: 800, amount: 800 }
     ],
-    subtotal: 0,
-    taxRate: 0,
-    taxAmount: 0,
-    discountRate: 0,
-    discountAmount: 0,
-    total: 0,
-    notes: '',
-    terms: 'Payment is due within 30 days of invoice date.',
-    logo: null,
-    paymentTerms: 'Net 30'
+    subtotal: 3300, taxRate: 8, taxAmount: 264, discountRate: 0, discountAmount: 0, total: 3564,
+    notes: 'Thank you for your business!', terms: 'Payment is due within 30 days of invoice date.', logo: null, paymentTerms: 'Net 30'
   })
 
   const invoiceRef = useRef<HTMLDivElement>(null)
@@ -279,646 +225,650 @@ export default function InvoiceMaker() {
 
   const currentTemplate = invoiceTemplates.find(t => t.id === selectedTemplate) || invoiceTemplates[0]
 
-  return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 bg-blue-600 rounded-lg">
-                <FileText className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">Invoice Maker</h1>
-                <p className="text-sm text-gray-500">Create professional invoices in minutes</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-2">
-              <button title="Save" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
-                <Save className="w-5 h-5" />
-              </button>
-              <button title="Share" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
-                <Share2 className="w-5 h-5" />
-              </button>
-              <button title="Settings" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
-                <Settings className="w-5 h-5" />
-              </button>
-            </div>
+  const handleSave = useCallback(() => {
+    console.log('Saving invoice data:', invoiceData)
+  }, [invoiceData])
+
+  const handleDownload = useCallback(() => {
+    console.log('Downloading invoice...')
+  }, [])
+
+  // Template Preview Component
+  const TemplatePreview = ({ template }: { template: InvoiceTemplate }) => (
+    <div className="w-full h-48 p-3 bg-gray-50 rounded-lg overflow-hidden">
+      <div 
+        className="w-full h-full rounded-lg shadow-sm relative overflow-hidden"
+        style={{ backgroundColor: template.colors.background }}
+      >
+        {/* Header */}
+        <div 
+          className="h-8 rounded-t-lg flex items-center px-3"
+          style={{ backgroundColor: template.colors.primary }}
+        >
+          <div className="w-3 h-3 bg-white rounded-full opacity-80"></div>
+          <div className="w-2 h-2 bg-white rounded-full opacity-60 ml-2"></div>
+          <div className="w-2 h-2 bg-white rounded-full opacity-60 ml-1"></div>
+        </div>
+        
+        {/* Invoice Header */}
+        <div className="px-3 py-2">
+          <div 
+            className="h-4 rounded mb-1"
+            style={{ backgroundColor: template.colors.secondary, width: '60%' }}
+          ></div>
+          <div 
+            className="h-2 rounded mb-2"
+            style={{ backgroundColor: template.colors.accent, width: '40%' }}
+          ></div>
+        </div>
+
+        {/* Company Info */}
+        <div className="px-3 pb-2">
+          <div 
+            className="h-2 rounded mb-1"
+            style={{ backgroundColor: template.colors.accent, width: '80%' }}
+          ></div>
+          <div 
+            className="h-2 rounded mb-1"
+            style={{ backgroundColor: template.colors.accent, width: '70%' }}
+          ></div>
+          <div 
+            className="h-2 rounded mb-2"
+            style={{ backgroundColor: template.colors.accent, width: '60%' }}
+          ></div>
+        </div>
+
+        {/* Table */}
+        <div className="px-3 pb-2">
+          <div 
+            className="h-3 rounded mb-1"
+            style={{ backgroundColor: template.colors.primary }}
+          ></div>
+          <div className="space-y-1">
+            <div 
+              className="h-1.5 rounded"
+              style={{ backgroundColor: template.colors.accent, width: '90%' }}
+            ></div>
+            <div 
+              className="h-1.5 rounded"
+              style={{ backgroundColor: template.colors.accent, width: '85%' }}
+            ></div>
+            <div 
+              className="h-1.5 rounded"
+              style={{ backgroundColor: template.colors.accent, width: '80%' }}
+            ></div>
           </div>
         </div>
+
+        {/* Footer */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 h-6 rounded-b-lg flex items-center justify-between px-3"
+          style={{ backgroundColor: template.colors.secondary }}
+        >
+          <div 
+            className="h-2 rounded"
+            style={{ backgroundColor: template.colors.accent, width: '30%' }}
+          ></div>
+          <div 
+            className="h-2 rounded"
+            style={{ backgroundColor: template.colors.accent, width: '25%' }}
+          ></div>
+        </div>
+      </div>
+    </div>
+  )
+
+  return (
+    <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
+      {/* Background Decorations */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Navigation Tabs */}
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex space-x-8">
+      <div className="relative z-10 w-full p-4 lg:p-6 max-w-7xl mx-auto">
+        {/* Enhanced Navigation Tabs */}
+        <div className="w-full bg-white/90 backdrop-blur-sm border-b border-gray-200/50 rounded-xl mb-6 shadow-lg">
+          <div className="flex space-x-1 p-2">
             {[
-              { id: 'templates', name: 'Templates', icon: Layout },
-              { id: 'details', name: 'Invoice Details', icon: FileText },
-              { id: 'preview', name: 'Preview', icon: Eye }
+              { id: 'templates', label: 'Templates', icon: Layout, color: 'from-blue-500 to-blue-600' },
+              { id: 'details', label: 'Invoice Details', icon: FileText, color: 'from-green-500 to-green-600' },
+              { id: 'preview', label: 'Preview', icon: Eye, color: 'from-purple-500 to-purple-600' }
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm ${
+                onClick={() => setActiveTab(tab.id as 'templates' | 'details' | 'preview')}
+                className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 relative ${
                   activeTab === tab.id
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    ? `bg-gradient-to-r ${tab.color} text-white shadow-lg transform scale-105`
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 <tab.icon className="w-4 h-4" />
-                <span>{tab.name}</span>
+                <span className="text-sm">{tab.label}</span>
+                {activeTab === tab.id && (
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                )}
               </button>
             ))}
-          </nav>
+          </div>
         </div>
-      </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Templates Section */}
         {activeTab === 'templates' && (
           <div className="space-y-6">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Choose Your Template</h2>
-              <p className="text-lg text-gray-600">Select from 30+ professional invoice templates</p>
+            {/* Hero Section */}
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+                <Layout className="w-8 h-8 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">
+                Choose Your Perfect Template
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Select from our collection of professionally designed invoice templates with realistic previews.
+              </p>
             </div>
 
             {/* Template Categories */}
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {['All', 'Modern', 'Classic', 'Minimal', 'Corporate', 'Creative'].map((category) => (
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
+              {['All', 'Modern', 'Classic', 'Minimal'].map((category) => (
                 <button
                   key={category}
-                  className="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full font-medium hover:bg-white hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:border-blue-300 flex items-center space-x-2 text-sm"
                 >
-                  {category}
+                  <span>{category}</span>
+                  <span className="bg-gray-200 text-gray-600 px-2 py-1 rounded-full text-xs">
+                    {category === 'All' ? '6' : category === 'Modern' ? '3' : '1'}
+                  </span>
                 </button>
               ))}
             </div>
 
-            {/* Template Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {/* Enhanced Template Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {invoiceTemplates.map((template) => (
                 <div
                   key={template.id}
+                  className={`group bg-white rounded-2xl border-2 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 cursor-pointer relative overflow-hidden shadow-lg hover:shadow-2xl ${
+                    selectedTemplate === template.id
+                      ? 'border-blue-500 shadow-2xl shadow-blue-500/25 ring-4 ring-blue-500/20'
+                      : 'border-gray-200 hover:border-blue-300'
+                  }`}
                   onClick={() => {
                     setSelectedTemplate(template.id)
                     setInvoiceData(prev => ({ ...prev, template: template.id }))
+                    setTimeout(() => {
+                      setActiveTab('details')
+                      const notification = document.createElement('div')
+                      notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg flex items-center z-50'
+                      notification.innerHTML = '<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Template selected! Moving to details...'
+                      document.body.appendChild(notification)
+                      setTimeout(() => notification.remove(), 3000)
+                    }, 300)
                   }}
-                  className={`relative cursor-pointer group rounded-xl border-2 transition-all duration-200 ${
-                    selectedTemplate === template.id
-                      ? 'border-blue-500 ring-2 ring-blue-200'
-                      : 'border-gray-200 hover:border-gray-300'
-                  }`}
                 >
+                  {/* Template Preview */}
+                  <TemplatePreview template={template} />
+
+                  {/* Template Info */}
                   <div className="p-4">
-                    {/* Template Preview */}
-                    <div
-                      className="w-full h-32 rounded-lg mb-3 relative overflow-hidden"
-                      style={{ backgroundColor: template.colors.background }}
-                    >
-                      <div className="absolute inset-0 p-3">
-                        <div className="h-full border rounded" style={{ borderColor: template.colors.primary }}>
-                          <div className="p-2">
-                            <div className="h-2 rounded mb-1" style={{ backgroundColor: template.colors.primary }}></div>
-                            <div className="h-1 rounded mb-1" style={{ backgroundColor: template.colors.accent }}></div>
-                            <div className="h-1 rounded mb-1" style={{ backgroundColor: template.colors.accent }}></div>
-                            <div className="h-1 rounded" style={{ backgroundColor: template.colors.accent }}></div>
-                          </div>
-                        </div>
-                      </div>
+                    <h3 className="font-bold text-gray-900 mb-2 text-lg group-hover:text-blue-600 transition-colors duration-200">
+                      {template.name}
+                    </h3>
+                    <div className="flex items-center justify-between">
+                      <span 
+                        className="inline-block px-3 py-1 rounded-full text-xs font-medium text-white"
+                        style={{ backgroundColor: template.colors.primary }}
+                      >
+                        {template.category}
+                      </span>
                       {selectedTemplate === template.id && (
-                        <div className="absolute top-2 right-2">
-                          <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                            <Check className="w-4 h-4 text-white" />
-                          </div>
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                          <Check className="w-4 h-4 text-white" />
                         </div>
                       )}
-                    </div>
-
-                    {/* Template Info */}
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-sm">{template.name}</h3>
-                      <p className="text-xs text-gray-500 mt-1">{template.category}</p>
-                    </div>
-
-                    {/* Color Palette */}
-                    <div className="flex space-x-1 mt-3">
-                      <div
-                        className="w-4 h-4 rounded-full border border-gray-200"
-                        style={{ backgroundColor: template.colors.primary }}
-                      ></div>
-                      <div
-                        className="w-4 h-4 rounded-full border border-gray-200"
-                        style={{ backgroundColor: template.colors.secondary }}
-                      ></div>
-                      <div
-                        className="w-4 h-4 rounded-full border border-gray-200"
-                        style={{ backgroundColor: template.colors.accent }}
-                      ></div>
                     </div>
                   </div>
 
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-blue-500 bg-opacity-0 group-hover:bg-opacity-10 rounded-xl transition-all duration-200"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
                 </div>
               ))}
             </div>
-
-            {/* Continue Button */}
-            <div className="text-center pt-8">
-              <button
-                onClick={() => setActiveTab('details')}
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-              >
-                <span>Continue to Details</span>
-                <Star className="w-4 h-4 ml-2" />
-              </button>
-            </div>
           </div>
         )}
 
+        {/* Invoice Details Section */}
         {activeTab === 'details' && (
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-            {/* Invoice Form */}
-            <div className="xl:col-span-2 space-y-6">
-              {/* Quick Actions */}
-              <div className="bg-white rounded-xl shadow-sm border p-4">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-gray-900">Invoice Details</h2>
-                  <div className="flex items-center space-x-2">
-                    <button title="Copy" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
-                      <Copy className="w-4 h-4" />
-                    </button>
-                    <button title="Print" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
-                      <Printer className="w-4 h-4" />
-                    </button>
-                    <button title="Email" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
-                      <Mail className="w-4 h-4" />
-                    </button>
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {/* Company Information */}
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-2">
+                    <Building2 className="w-5 h-5 text-white" />
                   </div>
-                </div>
-              </div>
-
-              {/* Invoice Header */}
-              <div className="bg-white rounded-xl shadow-sm border p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Calendar className="w-5 h-5 mr-2 text-blue-600" />
-                  Invoice Information
+                  Your Company
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Invoice Number</label>
-                    <input
-                      type="text"
-                      value={invoiceData.invoiceNumber}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, invoiceNumber: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
-                    <input
-                      type="date"
-                      value={invoiceData.date}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, date: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Due Date</label>
-                    <input
-                      type="date"
-                      value={invoiceData.dueDate}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, dueDate: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Currency</label>
-                    <select
-                      value={invoiceData.currency}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, currency: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    >
-                      {currencies.map(currency => (
-                        <option key={currency.code} value={currency.code}>
-                          {currency.symbol} {currency.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              {/* Company & Client Info */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Company Info */}
-                <div className="bg-white rounded-xl shadow-sm border p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <Building2 className="w-5 h-5 mr-2 text-blue-600" />
-                    Your Company
-                  </h3>
-
-                  {/* Logo Upload */}
-                  <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Company Logo</label>
-                    <div className="flex items-center space-x-4">
-                      {invoiceData.logo ? (
-                        <img src={invoiceData.logo} alt="Logo" className="w-16 h-16 object-contain rounded border" />
-                      ) : (
-                        <div className="w-16 h-16 border-2 border-dashed border-gray-300 rounded flex items-center justify-center">
-                          <ImageIcon className="w-6 h-6 text-gray-400" />
-                        </div>
-                      )}
-                      <button
-                        onClick={() => fileInputRef.current?.click()}
-                        className="flex items-center px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 text-sm font-medium"
-                      >
-                        <Upload className="w-4 h-4 mr-2" />
-                        Upload Logo
-                      </button>
-                      <input
-                        ref={fileInputRef}
-                        type="file"
-                        accept="image/*"
-                        onChange={handleLogoUpload}
-                        className="hidden"
-                        title="Upload company logo"
-                        aria-label="Upload company logo"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <input
-                      type="text"
-                      placeholder="Company Name"
-                      value={invoiceData.company.name}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, name: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Address"
-                      value={invoiceData.company.address}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, address: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                    <div className="grid grid-cols-2 gap-3">
-                      <input
-                        type="text"
-                        placeholder="City"
-                        value={invoiceData.company.city}
-                        onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, city: e.target.value } }))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      />
-                      <input
-                        type="text"
-                        placeholder="State"
-                        value={invoiceData.company.state}
-                        onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, state: e.target.value } }))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      />
-                    </div>
-                    <input
-                      type="text"
-                      placeholder="Phone"
-                      value={invoiceData.company.phone}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, phone: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      value={invoiceData.company.email}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, email: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-                </div>
-
-                {/* Client Info */}
-                <div className="bg-white rounded-xl shadow-sm border p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <User className="w-5 h-5 mr-2 text-blue-600" />
-                    Bill To
-                  </h3>
-                  <div className="space-y-3">
-                    <input
-                      type="text"
-                      placeholder="Client Name"
-                      value={invoiceData.client.name}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, name: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Address"
-                      value={invoiceData.client.address}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, address: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                    <div className="grid grid-cols-2 gap-3">
-                      <input
-                        type="text"
-                        placeholder="City"
-                        value={invoiceData.client.city}
-                        onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, city: e.target.value } }))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      />
-                      <input
-                        type="text"
-                        placeholder="State"
-                        value={invoiceData.client.state}
-                        onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, state: e.target.value } }))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      />
-                    </div>
-                    <input
-                      type="text"
-                      placeholder="Phone"
-                      value={invoiceData.client.phone}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, phone: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      value={invoiceData.client.email}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, email: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Line Items */}
-              <div className="bg-white rounded-xl shadow-sm border p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-                    <Calculator className="w-5 h-5 mr-2 text-blue-600" />
-                    Line Items
-                  </h3>
-                  <button
-                    onClick={addLineItem}
-                    className="flex items-center px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 text-sm font-medium"
-                  >
-                    <Plus className="w-4 h-4 mr-1" />
-                    Add Item
-                  </button>
-                </div>
-
                 <div className="space-y-3">
-                  {invoiceData.lineItems.map((item, index) => (
-                    <div key={item.id} className="grid grid-cols-12 gap-3 items-center p-3 bg-gray-50 rounded-lg">
-                      <div className="col-span-5">
-                        <input
-                          type="text"
-                          placeholder="Description"
-                          value={item.description}
-                          onChange={(e) => updateLineItem(item.id, 'description', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        />
-                      </div>
-                      <div className="col-span-2">
-                        <input
-                          type="number"
-                          placeholder="Qty"
-                          value={item.quantity}
-                          onChange={(e) => updateLineItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        />
-                      </div>
-                      <div className="col-span-2">
-                        <input
-                          type="number"
-                          placeholder="Rate"
-                          value={item.rate}
-                          onChange={(e) => updateLineItem(item.id, 'rate', parseFloat(e.target.value) || 0)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        />
-                      </div>
-                      <div className="col-span-2">
-                        <div className="px-3 py-2 bg-white border rounded-lg text-sm font-medium">
-                          {getCurrencySymbol(invoiceData.currency)}{item.amount.toFixed(2)}
-                        </div>
-                      </div>
-                      <div className="col-span-1">
-                        <button
-                          onClick={() => removeLineItem(item.id)}
-                          title="Remove item"
-                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
+                  <input
+                    type="text"
+                    placeholder="Company Name"
+                    value={invoiceData.company.name}
+                    onChange={(e) => setInvoiceData(prev => ({
+                      ...prev,
+                      company: { ...prev.company, name: e.target.value }
+                    }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    value={invoiceData.company.address}
+                    onChange={(e) => setInvoiceData(prev => ({
+                      ...prev,
+                      company: { ...prev.company, address: e.target.value }
+                    }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                  />
+                  <div className="grid grid-cols-2 gap-2">
+                    <input
+                      type="text"
+                      placeholder="City"
+                      value={invoiceData.company.city}
+                      onChange={(e) => setInvoiceData(prev => ({
+                        ...prev,
+                        company: { ...prev.company, city: e.target.value }
+                      }))}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    />
+                    <input
+                      type="text"
+                      placeholder="State"
+                      value={invoiceData.company.state}
+                      onChange={(e) => setInvoiceData(prev => ({
+                        ...prev,
+                        company: { ...prev.company, state: e.target.value }
+                      }))}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    />
+                  </div>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={invoiceData.company.email}
+                    onChange={(e) => setInvoiceData(prev => ({
+                      ...prev,
+                      company: { ...prev.company, email: e.target.value }
+                    }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    value={invoiceData.company.phone}
+                    onChange={(e) => setInvoiceData(prev => ({
+                      ...prev,
+                      company: { ...prev.company, phone: e.target.value }
+                    }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                  />
                 </div>
+              </div>
+
+              {/* Client Information */}
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-2">
+                    <User className="w-5 h-5 text-white" />
+                  </div>
+                  Bill To
+                </h3>
+                <div className="space-y-3">
+                  <input
+                    type="text"
+                    placeholder="Client Name"
+                    value={invoiceData.client.name}
+                    onChange={(e) => setInvoiceData(prev => ({
+                      ...prev,
+                      client: { ...prev.client, name: e.target.value }
+                    }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    value={invoiceData.client.address}
+                    onChange={(e) => setInvoiceData(prev => ({
+                      ...prev,
+                      client: { ...prev.client, address: e.target.value }
+                    }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                  />
+                  <div className="grid grid-cols-2 gap-2">
+                    <input
+                      type="text"
+                      placeholder="City"
+                      value={invoiceData.client.city}
+                      onChange={(e) => setInvoiceData(prev => ({
+                        ...prev,
+                        client: { ...prev.client, city: e.target.value }
+                      }))}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                    />
+                    <input
+                      type="text"
+                      placeholder="State"
+                      value={invoiceData.client.state}
+                      onChange={(e) => setInvoiceData(prev => ({
+                        ...prev,
+                        client: { ...prev.client, state: e.target.value }
+                      }))}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                    />
+                  </div>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={invoiceData.client.email}
+                    onChange={(e) => setInvoiceData(prev => ({
+                      ...prev,
+                      client: { ...prev.client, email: e.target.value }
+                    }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    value={invoiceData.client.phone}
+                    onChange={(e) => setInvoiceData(prev => ({
+                      ...prev,
+                      client: { ...prev.client, phone: e.target.value }
+                    }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Invoice Information */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4">
+              <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-2">
+                  <Calendar className="w-5 h-5 text-white" />
+                </div>
+                Invoice Information
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Invoice Number</label>
+                  <input
+                    type="text"
+                    value={invoiceData.invoiceNumber}
+                    onChange={(e) => setInvoiceData(prev => ({ ...prev, invoiceNumber: e.target.value }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Date</label>
+                  <input
+                    type="date"
+                    value={invoiceData.date}
+                    onChange={(e) => setInvoiceData(prev => ({ ...prev, date: e.target.value }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Due Date</label>
+                  <input
+                    type="date"
+                    value={invoiceData.dueDate}
+                    onChange={(e) => setInvoiceData(prev => ({ ...prev, dueDate: e.target.value }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Currency</label>
+                  <select
+                    value={invoiceData.currency}
+                    onChange={(e) => setInvoiceData(prev => ({ ...prev, currency: e.target.value }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                  >
+                    {currencies.map(currency => (
+                      <option key={currency.code} value={currency.code}>
+                        {currency.symbol} {currency.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Line Items */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-bold text-gray-900 flex items-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-2">
+                    <Calculator className="w-5 h-5 text-white" />
+                  </div>
+                  Line Items
+                </h3>
+                <button
+                  onClick={addLineItem}
+                  className="px-3 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-medium hover:from-green-600 hover:to-green-700 transition-all duration-200 flex items-center space-x-2 text-sm"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Add Item</span>
+                </button>
+              </div>
+
+              <div className="space-y-3">
+                {invoiceData.lineItems.map((item, index) => (
+                  <div key={item.id} className="grid grid-cols-1 md:grid-cols-6 gap-2 p-3 bg-gray-50 rounded-lg">
+                    <div className="md:col-span-2">
+                      <input
+                        type="text"
+                        value={item.description}
+                        onChange={(e) => updateLineItem(item.id, 'description', e.target.value)}
+                        placeholder="Item description"
+                        className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="number"
+                        value={item.quantity}
+                        onChange={(e) => updateLineItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
+                        className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="number"
+                        step="0.01"
+                        value={item.rate}
+                        onChange={(e) => updateLineItem(item.id, 'rate', parseFloat(e.target.value) || 0)}
+                        className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="number"
+                        value={item.amount}
+                        readOnly
+                        className="w-full px-2 py-2 border border-gray-300 rounded-lg bg-gray-100 text-sm"
+                      />
+                    </div>
+                    <div className="flex items-center">
+                      <button
+                        onClick={() => removeLineItem(item.id)}
+                        className="p-1 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                        disabled={invoiceData.lineItems.length === 1}
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               {/* Totals */}
-              <div className="bg-white rounded-xl shadow-sm border p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <DollarSign className="w-5 h-5 mr-2 text-blue-600" />
-                  Calculations
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
+              <div className="mt-4 border-t pt-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Tax Rate (%)</label>
+                    <label className="block text-xs font-medium text-gray-700 mb-1">Tax Rate (%)</label>
                     <input
                       type="number"
+                      step="0.01"
                       value={invoiceData.taxRate}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, taxRate: parseFloat(e.target.value) || 0 }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Discount (%)</label>
+                    <label className="block text-xs font-medium text-gray-700 mb-1">Discount Rate (%)</label>
                     <input
                       type="number"
+                      step="0.01"
                       value={invoiceData.discountRate}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, discountRate: parseFloat(e.target.value) || 0 }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
                     />
+                  </div>
+                  <div className="flex items-end">
+                    <button
+                      onClick={calculateTotals}
+                      className="w-full px-3 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-200 flex items-center justify-center space-x-2 text-sm"
+                    >
+                      <Calculator className="w-4 h-4" />
+                      <span>Calculate</span>
+                    </button>
                   </div>
                 </div>
-                <button
-                  onClick={calculateTotals}
-                  className="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 font-medium"
-                >
-                  Calculate Totals
-                </button>
-              </div>
 
-              {/* Notes */}
-              <div className="bg-white rounded-xl shadow-sm border p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Notes & Terms</h3>
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Notes</label>
-                    <textarea
-                      value={invoiceData.notes}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, notes: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      rows={3}
-                      placeholder="Additional notes..."
-                    />
+                <div className="space-y-1 text-sm">
+                  <div className="flex justify-between">
+                    <span>Subtotal:</span>
+                    <span>{getCurrencySymbol(invoiceData.currency)}{invoiceData.subtotal.toFixed(2)}</span>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Payment Terms</label>
-                    <input
-                      type="text"
-                      value={invoiceData.paymentTerms}
-                      onChange={(e) => setInvoiceData(prev => ({ ...prev, paymentTerms: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Net 30"
-                    />
+                  <div className="flex justify-between">
+                    <span>Discount:</span>
+                    <span>-{getCurrencySymbol(invoiceData.currency)}{invoiceData.discountAmount.toFixed(2)}</span>
                   </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex space-x-4">
-                <button
-                  onClick={() => setActiveTab('preview')}
-                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 font-medium flex items-center justify-center"
-                >
-                  <Eye className="w-4 h-4 mr-2" />
-                  Preview Invoice
-                </button>
-                <button
-                  onClick={downloadPDF}
-                  className="flex-1 bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 font-medium flex items-center justify-center"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download PDF
-                </button>
-              </div>
-            </div>
-
-            {/* Live Preview Sidebar */}
-            <div className="xl:col-span-1">
-              <div className="bg-white rounded-xl shadow-sm border p-6 sticky top-8">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Live Preview</h3>
-                <div className="text-center text-gray-500 py-8">
-                  <Eye className="w-12 h-12 mx-auto mb-2 text-gray-300" />
-                  <p>Click "Preview Invoice" to see your invoice</p>
+                  <div className="flex justify-between">
+                    <span>Tax:</span>
+                    <span>{getCurrencySymbol(invoiceData.currency)}{invoiceData.taxAmount.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between font-bold text-base border-t pt-1">
+                    <span>Total:</span>
+                    <span>{getCurrencySymbol(invoiceData.currency)}{invoiceData.total.toFixed(2)}</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         )}
 
+        {/* Preview Section */}
         {activeTab === 'preview' && (
-          <div className="space-y-6">
+          <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-900">Invoice Preview</h2>
-              <div className="flex space-x-3">
+              <h2 className="text-xl font-bold text-gray-900">Invoice Preview</h2>
+              <div className="flex space-x-2">
                 <button
                   onClick={() => setActiveTab('details')}
-                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 font-medium"
+                  className="px-3 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors text-sm"
                 >
                   Edit Details
                 </button>
                 <button
                   onClick={downloadPDF}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium flex items-center"
+                  className="px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center space-x-2 text-sm"
                 >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download PDF
+                  <Download className="w-4 h-4" />
+                  <span>Download PDF</span>
                 </button>
               </div>
             </div>
 
             {/* Invoice Preview */}
-            <div className="bg-white rounded-xl shadow-lg border">
-              <div
-                ref={invoiceRef}
-                className="p-8"
-                style={{
+            <div className="bg-white rounded-lg shadow-lg p-4" ref={invoiceRef}>
+              <div 
+                className="max-w-4xl mx-auto"
+                style={{ 
                   backgroundColor: currentTemplate.colors.background,
-                  color: currentTemplate.colors.primary
+                  color: currentTemplate.colors.primary 
                 }}
               >
                 {/* Invoice Header */}
-                <div className="flex justify-between items-start mb-8">
-                  <div className="flex items-center space-x-4">
+                <div className="flex justify-between items-start mb-6">
+                  <div>
                     {invoiceData.logo && (
-                      <img src={invoiceData.logo} alt="Logo" className="w-16 h-16 object-contain" />
+                      <img src={invoiceData.logo} alt="Company Logo" className="h-12 mb-2" />
                     )}
-                    <div>
-                      <h1
-                        className="text-3xl font-bold"
-                        style={{ color: currentTemplate.colors.primary }}
-                      >
-                        INVOICE
-                      </h1>
-                      <p className="text-gray-600">#{invoiceData.invoiceNumber}</p>
-                    </div>
+                    <h1 
+                      className="text-3xl font-bold mb-1"
+                      style={{ color: currentTemplate.colors.primary }}
+                    >
+                      INVOICE
+                    </h1>
+                    <p className="text-sm">#{invoiceData.invoiceNumber}</p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm text-gray-600">Date: {invoiceData.date}</p>
-                    <p className="text-sm text-gray-600">Due: {invoiceData.dueDate}</p>
+                  <div className="text-right text-sm">
+                    <h2 className="text-lg font-bold mb-1">{invoiceData.company.name}</h2>
+                    <p>{invoiceData.company.address}</p>
+                    <p>{invoiceData.company.city}, {invoiceData.company.state} {invoiceData.company.zipCode}</p>
+                    <p>{invoiceData.company.phone}</p>
+                    <p>{invoiceData.company.email}</p>
                   </div>
                 </div>
 
-                {/* Company & Client Info */}
-                <div className="grid grid-cols-2 gap-8 mb-8">
+                {/* Invoice Details */}
+                <div className="grid grid-cols-2 gap-6 mb-6">
                   <div>
-                    <h3
-                      className="font-semibold mb-2"
-                      style={{ color: currentTemplate.colors.secondary }}
-                    >
-                      From:
-                    </h3>
-                    <div className="text-sm space-y-1">
-                      <p className="font-medium">{invoiceData.company.name}</p>
-                      <p>{invoiceData.company.address}</p>
-                      <p>{invoiceData.company.city}, {invoiceData.company.state}</p>
-                      <p>{invoiceData.company.phone}</p>
-                      <p>{invoiceData.company.email}</p>
-                    </div>
-                  </div>
-                  <div>
-                    <h3
-                      className="font-semibold mb-2"
+                    <h3 
+                      className="text-sm font-bold mb-2"
                       style={{ color: currentTemplate.colors.secondary }}
                     >
                       Bill To:
                     </h3>
-                    <div className="text-sm space-y-1">
-                      <p className="font-medium">{invoiceData.client.name}</p>
-                      <p>{invoiceData.client.address}</p>
-                      <p>{invoiceData.client.city}, {invoiceData.client.state}</p>
-                      <p>{invoiceData.client.phone}</p>
-                      <p>{invoiceData.client.email}</p>
+                    <p className="font-semibold text-sm">{invoiceData.client.name}</p>
+                    <p className="text-sm">{invoiceData.client.address}</p>
+                    <p className="text-sm">{invoiceData.client.city}, {invoiceData.client.state} {invoiceData.client.zipCode}</p>
+                    <p className="text-sm">{invoiceData.client.phone}</p>
+                    <p className="text-sm">{invoiceData.client.email}</p>
+                  </div>
+                  <div>
+                    <div className="mb-2 text-sm">
+                      <p><strong>Invoice Date:</strong> {invoiceData.date}</p>
+                      <p><strong>Due Date:</strong> {invoiceData.dueDate}</p>
+                      <p><strong>Payment Terms:</strong> {invoiceData.paymentTerms}</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Line Items */}
-                <div className="mb-8">
-                  <table className="w-full">
+                {/* Line Items Table */}
+                <div className="mb-6">
+                  <table className="w-full text-sm">
                     <thead>
-                      <tr
+                      <tr 
                         className="border-b-2"
-                        style={{ borderColor: currentTemplate.colors.primary }}
+                        style={{ borderColor: currentTemplate.colors.accent }}
                       >
-                        <th className="text-left py-2 font-semibold">Description</th>
-                        <th className="text-center py-2 font-semibold">Qty</th>
-                        <th className="text-center py-2 font-semibold">Rate</th>
-                        <th className="text-right py-2 font-semibold">Amount</th>
+                        <th className="text-left py-2">Description</th>
+                        <th className="text-right py-2">Qty</th>
+                        <th className="text-right py-2">Rate</th>
+                        <th className="text-right py-2">Amount</th>
                       </tr>
                     </thead>
                     <tbody>
                       {invoiceData.lineItems.map((item) => (
-                        <tr key={item.id} className="border-b border-gray-200">
-                          <td className="py-3">{item.description}</td>
-                          <td className="py-3 text-center">{item.quantity}</td>
-                          <td className="py-3 text-center">{getCurrencySymbol(invoiceData.currency)}{item.rate.toFixed(2)}</td>
-                          <td className="py-3 text-right">{getCurrencySymbol(invoiceData.currency)}{item.amount.toFixed(2)}</td>
+                        <tr key={item.id} className="border-b">
+                          <td className="py-2">{item.description}</td>
+                          <td className="text-right py-2">{item.quantity}</td>
+                          <td className="text-right py-2">{getCurrencySymbol(invoiceData.currency)}{item.rate.toFixed(2)}</td>
+                          <td className="text-right py-2">{getCurrencySymbol(invoiceData.currency)}{item.amount.toFixed(2)}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -926,53 +876,47 @@ export default function InvoiceMaker() {
                 </div>
 
                 {/* Totals */}
-                <div className="flex justify-end mb-8">
-                  <div className="w-64">
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span>Subtotal:</span>
-                        <span>{getCurrencySymbol(invoiceData.currency)}{invoiceData.subtotal.toFixed(2)}</span>
+                <div className="flex justify-end mb-6">
+                  <div className="w-48">
+                    <div className="flex justify-between py-1 text-sm">
+                      <span>Subtotal:</span>
+                      <span>{getCurrencySymbol(invoiceData.currency)}{invoiceData.subtotal.toFixed(2)}</span>
+                    </div>
+                    {invoiceData.discountRate > 0 && (
+                      <div className="flex justify-between py-1 text-sm">
+                        <span>Discount ({invoiceData.discountRate}%):</span>
+                        <span>-{getCurrencySymbol(invoiceData.currency)}{invoiceData.discountAmount.toFixed(2)}</span>
                       </div>
-                      {invoiceData.discountRate > 0 && (
-                        <div className="flex justify-between">
-                          <span>Discount ({invoiceData.discountRate}%):</span>
-                          <span>-{getCurrencySymbol(invoiceData.currency)}{invoiceData.discountAmount.toFixed(2)}</span>
-                        </div>
-                      )}
-                      <div className="flex justify-between">
+                    )}
+                    {invoiceData.taxRate > 0 && (
+                      <div className="flex justify-between py-1 text-sm">
                         <span>Tax ({invoiceData.taxRate}%):</span>
                         <span>{getCurrencySymbol(invoiceData.currency)}{invoiceData.taxAmount.toFixed(2)}</span>
                       </div>
-                      <div
-                        className="flex justify-between border-t-2 pt-2 font-bold text-lg"
-                        style={{ borderColor: currentTemplate.colors.primary }}
-                      >
-                        <span>Total:</span>
-                        <span>{getCurrencySymbol(invoiceData.currency)}{invoiceData.total.toFixed(2)}</span>
-                      </div>
+                    )}
+                    <div 
+                      className="flex justify-between py-2 border-t-2 font-bold text-lg"
+                      style={{ borderColor: currentTemplate.colors.accent }}
+                    >
+                      <span>Total:</span>
+                      <span>{getCurrencySymbol(invoiceData.currency)}{invoiceData.total.toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Notes & Terms */}
-                {(invoiceData.notes || invoiceData.terms || invoiceData.paymentTerms) && (
-                  <div className="border-t pt-6 space-y-4">
+                {/* Notes and Terms */}
+                {(invoiceData.notes || invoiceData.terms) && (
+                  <div className="border-t pt-4 text-sm">
                     {invoiceData.notes && (
-                      <div>
-                        <h4 className="font-semibold mb-2">Notes:</h4>
-                        <p className="text-sm text-gray-600">{invoiceData.notes}</p>
-                      </div>
-                    )}
-                    {invoiceData.paymentTerms && (
-                      <div>
-                        <h4 className="font-semibold mb-2">Payment Terms:</h4>
-                        <p className="text-sm text-gray-600">{invoiceData.paymentTerms}</p>
+                      <div className="mb-2">
+                        <h4 className="font-bold mb-1">Notes:</h4>
+                        <p>{invoiceData.notes}</p>
                       </div>
                     )}
                     {invoiceData.terms && (
                       <div>
-                        <h4 className="font-semibold mb-2">Terms & Conditions:</h4>
-                        <p className="text-sm text-gray-600">{invoiceData.terms}</p>
+                        <h4 className="font-bold mb-1">Terms & Conditions:</h4>
+                        <p>{invoiceData.terms}</p>
                       </div>
                     )}
                   </div>
