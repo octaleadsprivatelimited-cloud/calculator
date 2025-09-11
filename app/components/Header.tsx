@@ -163,10 +163,10 @@ export default function Header() {
   return (
     <>
       {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#003366] ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
-          : 'bg-white/90 backdrop-blur-sm'
+          ? 'shadow-lg border-b border-blue-800' 
+          : ''
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 lg:h-15 xl:h-16">
@@ -181,10 +181,10 @@ export default function Header() {
                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
                  </div>
                                  <div className="hidden sm:block">
-                  <h1 className="text-base lg:text-lg xl:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent whitespace-nowrap">
+                  <h1 className="text-base lg:text-lg xl:text-xl font-bold text-white whitespace-nowrap">
                     Online Calculator.live
                   </h1>
-                  <p className="text-xs text-gray-500 hidden xl:block">Free Online Calculators</p>
+                  <p className="text-xs text-gray-300 hidden xl:block">Free Online Calculators</p>
                 </div>
                </Link>
              </div>
@@ -199,7 +199,7 @@ export default function Header() {
                       onMouseLeave={handleMouseLeave}
                     >
                       <button
-                        className="flex items-center space-x-1.5 px-2.5 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 text-xs font-medium header-nav-item"
+                        className="flex items-center space-x-1.5 px-2.5 py-2 rounded-lg text-white hover:text-blue-200 hover:bg-white/10 transition-all duration-200 text-xs font-medium header-nav-item"
                       >
                         <span className="header-nav-text">{item.name}</span>
                         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 flex-shrink-0 ${
@@ -256,7 +256,7 @@ export default function Header() {
               {/* Search Button */}
               <button
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                className="p-2 text-white hover:text-blue-200 hover:bg-white/10 rounded-lg transition-colors duration-200"
                 aria-label="Search calculators"
               >
                 <Search className="w-5 h-5" />
@@ -265,7 +265,7 @@ export default function Header() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                className="lg:hidden p-2 text-white hover:text-blue-200 hover:bg-white/10 rounded-lg transition-colors duration-200"
                 aria-label="Toggle mobile menu"
               >
                 {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -299,7 +299,7 @@ export default function Header() {
 
                  {/* Mobile Menu */}
          {isMobileMenuOpen && (
-           <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
+           <div className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-blue-800 shadow-lg">
              <div className="px-4 py-4 space-y-2">
                {/* Mobile Invoice Maker Button */}
                <Link
@@ -316,7 +316,7 @@ export default function Header() {
                  <div key={item.name}>
                    <button
                      onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                     className="flex items-center justify-between w-full p-2.5 text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                     className="flex items-center justify-between w-full p-2.5 text-left text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
                    >
                      <div className="flex items-center space-x-2.5">
                        <span className="text-sm font-medium">{item.name}</span>
