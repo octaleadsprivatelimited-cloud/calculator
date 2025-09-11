@@ -181,50 +181,50 @@ export default function QuotationGenerator() {
   return (
     <div className="w-full">
       {/* Header */}
-      <div className={`bg-gradient-to-r ${getTemplateStyles()} rounded-xl shadow-lg mb-6 p-4 sm:p-6`}>
-        <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-            <FileText className="w-6 h-6 text-white" />
+      <div className={`bg-gradient-to-r ${getTemplateStyles()} rounded-lg shadow-lg mb-4 p-3`}>
+        <div className="flex items-center space-x-2">
+          <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+            <FileText className="w-4 h-4 text-white" />
           </div>
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-white">Quotation Generator</h1>
-            <p className="text-white/80 text-sm sm:text-base">Create professional quotations in minutes</p>
+            <h1 className="text-lg font-bold text-white">Quotation Generator</h1>
+            <p className="text-white/80 text-xs">Create professional quotations in minutes</p>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Settings Panel */}
-        <div className="lg:col-span-1 space-y-6">
+        <div className="lg:col-span-1 space-y-4">
           {/* Template Selection */}
-          <div className="bg-white rounded-lg shadow-lg p-4">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-800 flex items-center">
-                <Settings className="w-5 h-5 mr-2" />
+          <div className="bg-white rounded-lg shadow-lg p-3">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-semibold text-gray-800 flex items-center">
+                <Settings className="w-4 h-4 mr-1" />
                 Template
               </h3>
               <button
                 onClick={() => setShowTemplates(!showTemplates)}
-                className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+                className="text-blue-600 hover:text-blue-800 text-xs font-medium"
               >
                 {showTemplates ? 'Hide' : 'Change'}
               </button>
             </div>
             
             {showTemplates && (
-              <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="grid grid-cols-2 gap-2 mb-3">
                 {templates.map(template => (
                   <button
                     key={template.id}
                     onClick={() => setSelectedTemplate(template.id)}
-                    className={`p-3 rounded-lg border-2 transition-all ${
+                    className={`p-2 rounded-lg border-2 transition-all ${
                       selectedTemplate === template.id
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
-                    <div className={`w-full h-8 rounded ${template.preview} mb-2`}></div>
-                    <span className="text-sm font-medium text-gray-700">{template.name}</span>
+                    <div className={`w-full h-6 rounded ${template.preview} mb-1`}></div>
+                    <span className="text-xs font-medium text-gray-700">{template.name}</span>
                   </button>
                 ))}
               </div>
@@ -232,15 +232,15 @@ export default function QuotationGenerator() {
           </div>
 
           {/* Company Information */}
-          <div className="bg-white rounded-lg shadow-lg p-4">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-              <Building className="w-5 h-5 mr-2" />
+          <div className="bg-white rounded-lg shadow-lg p-3">
+            <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
+              <Building className="w-4 h-4 mr-1" />
               Company Details
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {Object.entries(companyInfo).map(([key, value]) => (
                 <div key={key}>
-                  <label className="block text-sm font-medium text-gray-700 mb-1 capitalize">
+                  <label className="block text-xs font-medium text-gray-700 mb-1 capitalize">
                     {key.replace(/([A-Z])/g, ' $1').trim()}
                   </label>
                   {isEditing && editingField === key ? (
@@ -249,7 +249,7 @@ export default function QuotationGenerator() {
                         type={key === 'email' || key === 'website' ? 'text' : 'text'}
                         value={value}
                         onChange={(e) => setCompanyInfo(prev => ({ ...prev, [key]: e.target.value }))}
-                        className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="flex-1 px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
                         autoFocus
                         title={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
                         aria-label={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
@@ -286,15 +286,15 @@ export default function QuotationGenerator() {
           </div>
 
           {/* Client Information */}
-          <div className="bg-white rounded-lg shadow-lg p-4">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-              <User className="w-5 h-5 mr-2" />
+          <div className="bg-white rounded-lg shadow-lg p-3">
+            <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
+              <User className="w-4 h-4 mr-1" />
               Client Details
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {Object.entries(clientInfo).map(([key, value]) => (
                 <div key={key}>
-                  <label className="block text-sm font-medium text-gray-700 mb-1 capitalize">
+                  <label className="block text-xs font-medium text-gray-700 mb-1 capitalize">
                     {key.replace(/([A-Z])/g, ' $1').trim()}
                   </label>
                   <input
@@ -302,7 +302,7 @@ export default function QuotationGenerator() {
                     value={value}
                     onChange={(e) => setClientInfo(prev => ({ ...prev, [key]: e.target.value }))}
                     placeholder={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
                     title={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
                     aria-label={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
                   />
@@ -312,14 +312,14 @@ export default function QuotationGenerator() {
           </div>
 
           {/* Quote Details */}
-          <div className="bg-white rounded-lg shadow-lg p-4">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-              <Hash className="w-5 h-5 mr-2" />
+          <div className="bg-white rounded-lg shadow-lg p-3">
+            <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
+              <Hash className="w-4 h-4 mr-1" />
               Quote Details
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-2">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Quote Number</label>
+                <label className="block text-xs font-medium text-gray-700 mb-1">Quote Number</label>
                 <input
                   type="text"
                   value={quoteDetails.quoteNumber}
@@ -330,7 +330,7 @@ export default function QuotationGenerator() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                <label className="block text-xs font-medium text-gray-700 mb-1">Date</label>
                 <input
                   type="date"
                   value={quoteDetails.date}
@@ -341,7 +341,7 @@ export default function QuotationGenerator() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Valid Until</label>
+                <label className="block text-xs font-medium text-gray-700 mb-1">Valid Until</label>
                 <input
                   type="date"
                   value={quoteDetails.validUntil}
@@ -352,7 +352,7 @@ export default function QuotationGenerator() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Tax Rate (%)</label>
+                <label className="block text-xs font-medium text-gray-700 mb-1">Tax Rate (%)</label>
                 <input
                   type="number"
                   value={taxRate}
@@ -368,29 +368,29 @@ export default function QuotationGenerator() {
 
         {/* Quote Preview */}
         <div className="lg:col-span-2">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-semibold text-gray-800">Quote Preview</h3>
+          <div className="bg-white rounded-lg shadow-lg p-4">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-sm font-semibold text-gray-800">Quote Preview</h3>
               <div className="flex space-x-2">
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center">
-                  <Save className="w-4 h-4 mr-2" />
+                <button className="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center text-xs">
+                  <Save className="w-3 h-3 mr-1" />
                   Save
                 </button>
-                <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center">
-                  <Copy className="w-4 h-4 mr-2" />
+                <button className="px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center text-xs">
+                  <Copy className="w-3 h-3 mr-1" />
                   Copy
                 </button>
               </div>
             </div>
 
-            <div ref={quoteRef} className="bg-gray-50 rounded-lg p-6">
+            <div ref={quoteRef} className="bg-gray-50 rounded-lg p-4">
               {/* Quote Header */}
-              <div className="flex justify-between items-start mb-8">
+              <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h2 className={`text-2xl font-bold bg-gradient-to-r ${getTemplateStyles()} bg-clip-text text-transparent mb-2`}>
+                  <h2 className={`text-lg font-bold bg-gradient-to-r ${getTemplateStyles()} bg-clip-text text-transparent mb-1`}>
                     {companyInfo.name}
                   </h2>
-                  <div className="text-gray-600 text-sm space-y-1">
+                  <div className="text-gray-600 text-xs space-y-0.5">
                     <p>{companyInfo.address}</p>
                     <p>{companyInfo.city}, {companyInfo.state} {companyInfo.zipCode}</p>
                     <p>{companyInfo.phone}</p>
@@ -399,8 +399,8 @@ export default function QuotationGenerator() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <h1 className="text-3xl font-bold text-gray-800 mb-2">QUOTATION</h1>
-                  <div className="text-gray-600 text-sm space-y-1">
+                  <h1 className="text-xl font-bold text-gray-800 mb-1">QUOTATION</h1>
+                  <div className="text-gray-600 text-xs space-y-0.5">
                     <p><span className="font-semibold">Quote #:</span> {quoteDetails.quoteNumber}</p>
                     <p><span className="font-semibold">Date:</span> {quoteDetails.date}</p>
                     <p><span className="font-semibold">Valid Until:</span> {quoteDetails.validUntil}</p>
@@ -409,9 +409,9 @@ export default function QuotationGenerator() {
               </div>
 
               {/* Client Information */}
-              <div className="mb-8">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Bill To:</h3>
-                <div className="text-gray-600">
+              <div className="mb-4">
+                <h3 className="text-sm font-semibold text-gray-800 mb-2">Bill To:</h3>
+                <div className="text-gray-600 text-xs">
                   <p className="font-semibold">{clientInfo.name || 'Client Name'}</p>
                   <p>{clientInfo.company || 'Company Name'}</p>
                   <p>{clientInfo.email || 'client@email.com'}</p>
@@ -421,62 +421,62 @@ export default function QuotationGenerator() {
               </div>
 
               {/* Items Table */}
-              <div className="mb-8">
+              <div className="mb-4">
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="border-b-2 border-gray-300">
-                      <th className="text-left py-3 px-2 font-semibold text-gray-800">Description</th>
-                      <th className="text-right py-3 px-2 font-semibold text-gray-800">Qty</th>
-                      <th className="text-right py-3 px-2 font-semibold text-gray-800">Unit Price</th>
-                      <th className="text-right py-3 px-2 font-semibold text-gray-800">Discount</th>
-                      <th className="text-right py-3 px-2 font-semibold text-gray-800">Total</th>
+                      <th className="text-left py-2 px-1 font-semibold text-gray-800 text-xs">Description</th>
+                      <th className="text-right py-2 px-1 font-semibold text-gray-800 text-xs">Qty</th>
+                      <th className="text-right py-2 px-1 font-semibold text-gray-800 text-xs">Unit Price</th>
+                      <th className="text-right py-2 px-1 font-semibold text-gray-800 text-xs">Discount</th>
+                      <th className="text-right py-2 px-1 font-semibold text-gray-800 text-xs">Total</th>
                     </tr>
                   </thead>
                   <tbody>
                     {items.map((item, index) => (
                       <tr key={item.id} className="border-b border-gray-200">
-                        <td className="py-3 px-2">
+                        <td className="py-2 px-1">
                           <input
                             type="text"
                             value={item.description}
                             onChange={(e) => updateItem(item.id, 'description', e.target.value)}
-                            className="w-full border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1"
+                            className="w-full border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
                             placeholder="Item description"
                             title="Item description"
                             aria-label="Item description"
                           />
                         </td>
-                        <td className="py-3 px-2">
+                        <td className="py-2 px-1">
                           <input
                             type="number"
                             value={item.quantity}
                             onChange={(e) => updateItem(item.id, 'quantity', Number(e.target.value))}
-                            className="w-20 text-right border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1"
+                            className="w-16 text-right border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
                             title="Quantity"
                             aria-label="Quantity"
                           />
                         </td>
-                        <td className="py-3 px-2">
+                        <td className="py-2 px-1">
                           <input
                             type="number"
                             value={item.unitPrice}
                             onChange={(e) => updateItem(item.id, 'unitPrice', Number(e.target.value))}
-                            className="w-24 text-right border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1"
+                            className="w-20 text-right border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
                             title="Unit price"
                             aria-label="Unit price"
                           />
                         </td>
-                        <td className="py-3 px-2">
+                        <td className="py-2 px-1">
                           <input
                             type="number"
                             value={item.discount}
                             onChange={(e) => updateItem(item.id, 'discount', Number(e.target.value))}
-                            className="w-20 text-right border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1"
+                            className="w-16 text-right border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
                             title="Discount amount"
                             aria-label="Discount amount"
                           />
                         </td>
-                        <td className="py-3 px-2 text-right font-semibold">
+                        <td className="py-2 px-1 text-right font-semibold text-xs">
                           ${item.total.toFixed(2)}
                         </td>
                       </tr>
@@ -487,26 +487,26 @@ export default function QuotationGenerator() {
                 <div className="mt-4">
                   <button
                     onClick={addItem}
-                    className="flex items-center text-blue-600 hover:text-blue-800 font-medium"
+                    className="flex items-center text-blue-600 hover:text-blue-800 font-medium text-xs"
                   >
-                    <Plus className="w-4 h-4 mr-2" />
+                    <Plus className="w-3 h-3 mr-1" />
                     Add Item
                   </button>
                 </div>
               </div>
 
               {/* Totals */}
-              <div className="flex justify-end mb-8">
-                <div className="w-64">
-                  <div className="flex justify-between py-2 border-b border-gray-300">
+              <div className="flex justify-end mb-4">
+                <div className="w-48">
+                  <div className="flex justify-between py-1 border-b border-gray-300 text-xs">
                     <span className="font-semibold">Subtotal:</span>
                     <span>${subtotal.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-gray-300">
+                  <div className="flex justify-between py-1 border-b border-gray-300 text-xs">
                     <span className="font-semibold">Tax ({taxRate}%):</span>
                     <span>${taxAmount.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between py-3 text-lg font-bold">
+                  <div className="flex justify-between py-2 text-sm font-bold">
                     <span>Total:</span>
                     <span>${total.toFixed(2)}</span>
                   </div>
@@ -514,26 +514,26 @@ export default function QuotationGenerator() {
               </div>
 
               {/* Notes and Terms */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Notes</label>
+                  <label className="block text-xs font-medium text-gray-700 mb-1">Notes</label>
                   <textarea
                     value={quoteDetails.notes}
                     onChange={(e) => setQuoteDetails(prev => ({ ...prev, notes: e.target.value }))}
                     placeholder="Additional notes or comments..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    rows={3}
+                    className="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                    rows={2}
                     title="Additional notes"
                     aria-label="Additional notes"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Terms & Conditions</label>
+                  <label className="block text-xs font-medium text-gray-700 mb-1">Terms & Conditions</label>
                   <textarea
                     value={quoteDetails.terms}
                     onChange={(e) => setQuoteDetails(prev => ({ ...prev, terms: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    rows={3}
+                    className="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                    rows={2}
                     title="Terms and conditions"
                     aria-label="Terms and conditions"
                   />
@@ -543,28 +543,32 @@ export default function QuotationGenerator() {
           </div>
 
           {/* Action Buttons */}
-          <div className="mt-6 flex flex-wrap gap-3">
-            <button className="flex-1 min-w-[200px] bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 flex items-center justify-center font-medium">
-              <Download className="w-5 h-5 mr-2" />
+          <div className="mt-4 flex flex-wrap gap-2">
+            <button className="flex-1 min-w-[150px] bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 flex items-center justify-center font-medium text-xs">
+              <Download className="w-4 h-4 mr-1" />
               Download PDF
             </button>
-            <button className="flex-1 min-w-[200px] bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 flex items-center justify-center font-medium">
-              <Printer className="w-5 h-5 mr-2" />
+            <button className="flex-1 min-w-[150px] bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 flex items-center justify-center font-medium text-xs">
+              <Printer className="w-4 h-4 mr-1" />
               Print Quote
             </button>
-            <button className="flex-1 min-w-[200px] bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 flex items-center justify-center font-medium">
-              <Mail className="w-5 h-5 mr-2" />
+            <button className="flex-1 min-w-[150px] bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 flex items-center justify-center font-medium text-xs">
+              <Mail className="w-4 h-4 mr-1" />
               Email Quote
             </button>
           </div>
 
           {/* Result Sharing */}
-          <div className="mt-8">
+          <div className="mt-4">
             <ResultSharing 
               title="Quotation Generator"
-              description={`Generated professional quotation ${quoteDetails.quoteNumber} for ${clientInfo.name || 'Client'}`}
-              result={`Total Amount: $${total.toFixed(2)}`}
-              type="quotation"
+              inputs={[
+                { label: "Quote Number", value: quoteDetails.quoteNumber },
+                { label: "Client", value: clientInfo.name || 'Client' },
+                { label: "Items", value: items.length }
+              ]}
+              result={{ label: "Total Amount", value: total.toFixed(2), unit: "$" }}
+              calculatorName="Quotation Generator"
             />
           </div>
         </div>
