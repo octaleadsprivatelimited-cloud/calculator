@@ -45,6 +45,7 @@ const calculatorCategories: CalculatorCategory[] = [
     description: 'Advanced mathematical calculations and functions',
     calculators: [
       { id: 'scientific', name: 'Scientific Calculator', description: 'Advanced scientific functions', url: '/scientific-calculator' },
+      { id: 'binary', name: 'Binary Calculator', description: 'Binary arithmetic and bitwise operations', url: '/binary-calculator' },
       { id: 'fraction', name: 'Fraction Calculator', description: 'Fraction arithmetic and conversion', url: '/fraction-calculator' },
       { id: 'percentage', name: 'Percentage Calculator', description: 'Calculate percentages and changes', url: '/percentage-calculator' },
       { id: 'triangle', name: 'Triangle Calculator', description: 'Calculate triangle properties', url: '/triangle-calculator' },

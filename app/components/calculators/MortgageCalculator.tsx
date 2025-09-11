@@ -63,6 +63,18 @@ export default function MortgageCalculator() {
 
   return (
     <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-green-600 to-green-700 px-4 sm:px-6 py-4">
+        <div className="flex items-center space-x-3">
+          <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+            <Home className="w-6 h-6 text-white" />
+          </div>
+          <div>
+            <h1 className="text-xl sm:text-2xl font-bold text-white">Mortgage Calculator</h1>
+            <p className="text-green-100 text-sm">Calculate your monthly mortgage payments</p>
+          </div>
+        </div>
+      </div>
 
       <div className="p-4 sm:p-6">
         {/* Share Options - Moved to Top */}

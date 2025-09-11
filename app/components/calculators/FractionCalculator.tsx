@@ -110,6 +110,17 @@ export default function FractionCalculator() {
   return (
     <div className="w-full">
       {/* Header */}
+      <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl shadow-lg mb-6 p-4 sm:p-6">
+        <div className="flex items-center space-x-3">
+          <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+            <CalculatorIcon className="w-7 h-7 text-white" />
+          </div>
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-white">Fraction Calculator</h1>
+            <p className="text-orange-100 text-sm sm:text-base">Add, subtract, multiply, and divide fractions with ease</p>
+          </div>
+        </div>
+      </div>
 
       {/* Main Calculator Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">

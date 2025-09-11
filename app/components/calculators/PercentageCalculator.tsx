@@ -97,6 +97,17 @@ export default function PercentageCalculator() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-2 sm:p-4">
       <div className="w-full">
         {/* Header */}
+        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl shadow-lg mb-6 p-4 sm:p-6">
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+              <Percent className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-bold text-white">Percentage Calculator</h1>
+              <p className="text-purple-100 text-sm sm:text-base">Calculate percentages, percentage changes, and more</p>
+            </div>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           {/* Input Form */}

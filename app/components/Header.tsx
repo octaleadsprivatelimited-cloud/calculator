@@ -33,7 +33,7 @@ interface NavItem {
 const navigation: NavItem[] = [
   {
     name: 'Financial',
-    href: '/',
+    href: '#',
     icon: null,
     description: 'Loans, mortgages, investments',
     subItems: [
@@ -48,11 +48,12 @@ const navigation: NavItem[] = [
   },
   {
     name: 'Math & Science',
-    href: '/scientific-calculator',
+    href: '#',
     icon: null,
     description: 'Scientific and mathematical tools',
     subItems: [
       { name: 'Scientific', href: '/scientific-calculator', icon: null, description: 'Advanced scientific functions' },
+      { name: 'Binary', href: '/binary-calculator', icon: null, description: 'Binary arithmetic and bitwise operations' },
       { name: 'Fraction', href: '/fraction-calculator', icon: null, description: 'Fraction arithmetic' },
       { name: 'Percentage', href: '/percentage-calculator', icon: null, description: 'Percentage calculations' },
       { name: 'Area', href: '/area-calculator', icon: null, description: 'Area calculations' },
@@ -61,7 +62,7 @@ const navigation: NavItem[] = [
   },
   {
     name: 'Health & Fitness',
-    href: '/bmi-calculator',
+    href: '#',
     icon: null,
     description: 'BMI, calories, body metrics',
     subItems: [
@@ -74,7 +75,7 @@ const navigation: NavItem[] = [
   },
   {
     name: 'Conversions',
-    href: '/calculators/length',
+    href: '#',
     icon: null,
     description: 'Unit and currency converters',
     subItems: [
@@ -87,7 +88,7 @@ const navigation: NavItem[] = [
   },
   {
     name: 'Time & Date',
-    href: '/age-calculator',
+    href: '#',
     icon: null,
     description: 'Time calculations and dates',
     subItems: [
@@ -198,14 +199,27 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter(item.name)}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <button
-                        className="flex items-center space-x-1.5 px-2.5 py-2 rounded-lg text-white hover:text-blue-200 hover:bg-white/10 transition-all duration-200 text-xs font-medium header-nav-item"
-                      >
-                        <span className="header-nav-text">{item.name}</span>
-                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 flex-shrink-0 ${
-                          activeDropdown === item.name ? 'rotate-180' : ''
-                        }`} />
-                      </button>
+                      {item.href === '#' ? (
+                        <button
+                          className="flex items-center space-x-1.5 px-2.5 py-2 rounded-lg text-white hover:text-blue-200 hover:bg-white/10 transition-all duration-200 text-xs font-medium header-nav-item"
+                        >
+                          <span className="header-nav-text">{item.name}</span>
+                          <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 flex-shrink-0 ${
+                            activeDropdown === item.name ? 'rotate-180' : ''
+                          }`} />
+                        </button>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="flex items-center space-x-1.5 px-2.5 py-2 rounded-lg text-white hover:text-blue-200 hover:bg-white/10 transition-all duration-200 text-xs font-medium header-nav-item"
+                          onClick={closeAllDropdowns}
+                        >
+                          <span className="header-nav-text">{item.name}</span>
+                          <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 flex-shrink-0 ${
+                            activeDropdown === item.name ? 'rotate-180' : ''
+                          }`} />
+                        </Link>
+                      )}
 
                                      {/* Dropdown Menu */}
                    {activeDropdown === item.name && (
@@ -314,17 +328,32 @@ export default function Header() {
                
                {navigation.map((item) => (
                  <div key={item.name}>
-                   <button
-                     onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                     className="flex items-center justify-between w-full p-2.5 text-left text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
-                   >
-                     <div className="flex items-center space-x-2.5">
-                       <span className="text-sm font-medium">{item.name}</span>
-                     </div>
-                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                       activeDropdown === item.name ? 'rotate-180' : ''
-                     }`} />
-                   </button>
+                   {item.href === '#' ? (
+                     <button
+                       onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
+                       className="flex items-center justify-between w-full p-2.5 text-left text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                     >
+                       <div className="flex items-center space-x-2.5">
+                         <span className="text-sm font-medium">{item.name}</span>
+                       </div>
+                       <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                         activeDropdown === item.name ? 'rotate-180' : ''
+                       }`} />
+                     </button>
+                   ) : (
+                     <Link
+                       href={item.href}
+                       onClick={closeAllDropdowns}
+                       className="flex items-center justify-between w-full p-2.5 text-left text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                     >
+                       <div className="flex items-center space-x-2.5">
+                         <span className="text-sm font-medium">{item.name}</span>
+                       </div>
+                       <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                         activeDropdown === item.name ? 'rotate-180' : ''
+                       }`} />
+                     </Link>
+                   )}
                    
                    {activeDropdown === item.name && (
                      <div className="ml-6 mt-1 space-y-1">
