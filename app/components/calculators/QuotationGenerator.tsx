@@ -187,7 +187,11 @@ export default function QuotationGenerator() {
       const canvas = await html2canvas(quoteRef.current, {
         scale: 2,
         useCORS: true,
-        allowTaint: true
+        allowTaint: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+        width: quoteRef.current.scrollWidth,
+        height: quoteRef.current.scrollHeight
       })
       
       const imgData = canvas.toDataURL('image/png')
@@ -279,7 +283,11 @@ export default function QuotationGenerator() {
       const canvas = await html2canvas(quoteRef.current, {
         scale: 2,
         useCORS: true,
-        allowTaint: true
+        allowTaint: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+        width: quoteRef.current.scrollWidth,
+        height: quoteRef.current.scrollHeight
       })
       
       canvas.toBlob(async (blob) => {
@@ -575,7 +583,7 @@ export default function QuotationGenerator() {
                             type="text"
                             value={item.description}
                             onChange={(e) => updateItem(item.id, 'description', e.target.value)}
-                            className="w-full border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
+                            className="w-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
                             placeholder="Item description"
                             title="Item description"
                             aria-label="Item description"
@@ -586,7 +594,7 @@ export default function QuotationGenerator() {
                             type="number"
                             value={item.quantity}
                             onChange={(e) => updateItem(item.id, 'quantity', Number(e.target.value))}
-                            className="w-16 text-right border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
+                            className="w-16 text-right border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
                             title="Quantity"
                             aria-label="Quantity"
                           />
@@ -596,7 +604,7 @@ export default function QuotationGenerator() {
                             type="number"
                             value={item.unitPrice}
                             onChange={(e) => updateItem(item.id, 'unitPrice', Number(e.target.value))}
-                            className="w-20 text-right border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
+                            className="w-20 text-right border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
                             title="Unit price"
                             aria-label="Unit price"
                           />
@@ -606,7 +614,7 @@ export default function QuotationGenerator() {
                             type="number"
                             value={item.discount}
                             onChange={(e) => updateItem(item.id, 'discount', Number(e.target.value))}
-                            className="w-16 text-right border-none bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
+                            className="w-16 text-right border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1 text-xs"
                             title="Discount amount"
                             aria-label="Discount amount"
                           />
