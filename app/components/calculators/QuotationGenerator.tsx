@@ -181,24 +181,24 @@ export default function QuotationGenerator() {
   return (
     <div className="w-full">
       {/* Header */}
-      <div className={`bg-gradient-to-r ${getTemplateStyles()} rounded-lg shadow-lg mb-4 p-3`}>
+      <div className={`bg-gradient-to-r ${getTemplateStyles()} rounded-lg shadow-lg mb-2 p-2`}>
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-            <FileText className="w-4 h-4 text-white" />
+          <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center">
+            <FileText className="w-3 h-3 text-white" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-white">Quotation Generator</h1>
+            <h1 className="text-sm font-bold text-white">Quotation Generator</h1>
             <p className="text-white/80 text-xs">Create professional quotations in minutes</p>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
         {/* Settings Panel */}
-        <div className="lg:col-span-1 space-y-4">
+        <div className="lg:col-span-1 space-y-3">
           {/* Template Selection */}
-          <div className="bg-white rounded-lg shadow-lg p-3">
-            <div className="flex items-center justify-between mb-3">
+          <div className="bg-white rounded-lg shadow-lg p-2">
+            <div className="flex items-center justify-between mb-2">
               <h3 className="text-sm font-semibold text-gray-800 flex items-center">
                 <Settings className="w-4 h-4 mr-1" />
                 Template
@@ -212,7 +212,7 @@ export default function QuotationGenerator() {
             </div>
             
             {showTemplates && (
-              <div className="grid grid-cols-2 gap-2 mb-3">
+              <div className="grid grid-cols-2 gap-2 mb-2">
                 {templates.map(template => (
                   <button
                     key={template.id}
@@ -232,12 +232,12 @@ export default function QuotationGenerator() {
           </div>
 
           {/* Company Information */}
-          <div className="bg-white rounded-lg shadow-lg p-3">
+          <div className="bg-white rounded-lg shadow-lg p-2">
             <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
               <Building className="w-4 h-4 mr-1" />
               Company Details
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-1">
               {Object.entries(companyInfo).map(([key, value]) => (
                 <div key={key}>
                   <label className="block text-xs font-medium text-gray-700 mb-1 capitalize">
@@ -286,12 +286,12 @@ export default function QuotationGenerator() {
           </div>
 
           {/* Client Information */}
-          <div className="bg-white rounded-lg shadow-lg p-3">
+          <div className="bg-white rounded-lg shadow-lg p-2">
             <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
               <User className="w-4 h-4 mr-1" />
               Client Details
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-1">
               {Object.entries(clientInfo).map(([key, value]) => (
                 <div key={key}>
                   <label className="block text-xs font-medium text-gray-700 mb-1 capitalize">
@@ -312,12 +312,12 @@ export default function QuotationGenerator() {
           </div>
 
           {/* Quote Details */}
-          <div className="bg-white rounded-lg shadow-lg p-3">
+          <div className="bg-white rounded-lg shadow-lg p-2">
             <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
               <Hash className="w-4 h-4 mr-1" />
               Quote Details
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-1">
               <div>
                 <label className="block text-xs font-medium text-gray-700 mb-1">Quote Number</label>
                 <input
