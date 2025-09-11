@@ -18,7 +18,8 @@ import {
   Triangle,
   GraduationCap,
   BarChart3,
-  History
+  History,
+  FileText
 } from 'lucide-react'
 
 interface NavItem {
@@ -40,7 +41,8 @@ const navigation: NavItem[] = [
       { name: 'Loan', href: '/loan-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Calculate loan payments' },
       { name: 'Auto Loan', href: '/auto-loan-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Calculate car loan payments' },
       { name: 'Investment', href: '/investment-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Investment returns' },
-      { name: 'Compound Interest', href: '/compound-interest-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Compound interest calculator' }
+      { name: 'Compound Interest', href: '/compound-interest-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Compound interest calculator' },
+      { name: 'Invoice Maker', href: '/invoice-maker', icon: <FileText className="w-4 h-4" />, description: 'Create professional invoices' }
     ]
   },
   {
@@ -241,6 +243,17 @@ export default function Header() {
             {/* Right Side Actions */}
             <div className="flex items-center space-x-3">
               
+              {/* Invoice Maker Button */}
+              <Link
+                href="/invoice-maker"
+                className="hidden sm:flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-md hover:shadow-lg"
+                onClick={closeAllDropdowns}
+              >
+                <FileText className="w-4 h-4" />
+                <span className="text-sm font-medium">Invoice Maker</span>
+                <span className="px-1.5 py-0.5 bg-white/20 text-xs rounded-full">NEW</span>
+              </Link>
+
               {/* Search Button */}
               <button
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
@@ -289,6 +302,17 @@ export default function Header() {
          {isMobileMenuOpen && (
            <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
              <div className="px-4 py-4 space-y-2">
+               {/* Mobile Invoice Maker Button */}
+               <Link
+                 href="/invoice-maker"
+                 className="flex items-center space-x-2 p-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-md"
+                 onClick={closeAllDropdowns}
+               >
+                 <FileText className="w-5 h-5" />
+                 <span className="font-medium">Invoice Maker</span>
+                 <span className="px-2 py-0.5 bg-white/20 text-xs rounded-full">NEW</span>
+               </Link>
+               
                {navigation.map((item) => (
                  <div key={item.name}>
                    <button
