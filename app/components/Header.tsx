@@ -7,18 +7,6 @@ import {
   Menu,
   X,
   Search,
-  ChevronDown,
-  DollarSign,
-  Heart,
-  Clock,
-  Wrench,
-  Globe,
-  Plus,
-  Percent,
-  Triangle,
-  GraduationCap,
-  BarChart3,
-  History,
   FileText
 } from 'lucide-react'
 
@@ -27,84 +15,40 @@ interface NavItem {
   href: string
   icon: React.ReactNode
   description: string
-  subItems?: NavItem[]
 }
 
 const navigation: NavItem[] = [
-  {
-    name: 'Financial',
-    href: '/',
-    icon: null,
-    description: 'Loans, mortgages, investments',
-    subItems: [
-      { name: 'Mortgage', href: '/mortgage-calculator', icon: null, description: 'Calculate mortgage payments' },
-      { name: 'Loan', href: '/loan-calculator', icon: null, description: 'Calculate loan payments' },
-      { name: 'Auto Loan', href: '/auto-loan-calculator', icon: null, description: 'Calculate car loan payments' },
-      { name: 'Investment', href: '/investment-calculator', icon: null, description: 'Investment returns' },
-      { name: 'Compound Interest', href: '/compound-interest-calculator', icon: null, description: 'Compound interest calculator' },
-      { name: 'SIP Calculator', href: '/sip-calculator', icon: null, description: 'Calculate SIP returns' },
-      { name: 'Invoice Maker', href: '/invoice-maker', icon: null, description: 'Create professional invoices' }
-    ]
-  },
-  {
-    name: 'Math & Science',
-    href: '/scientific-calculator',
-    icon: null,
-    description: 'Scientific and mathematical tools',
-    subItems: [
-      { name: 'Scientific', href: '/scientific-calculator', icon: null, description: 'Advanced scientific functions' },
-      { name: 'Fraction', href: '/fraction-calculator', icon: null, description: 'Fraction arithmetic' },
-      { name: 'Percentage', href: '/percentage-calculator', icon: null, description: 'Percentage calculations' },
-      { name: 'Area', href: '/area-calculator', icon: null, description: 'Area calculations' },
-      { name: 'Volume', href: '/volume-calculator', icon: null, description: 'Volume calculations' }
-    ]
-  },
-  {
-    name: 'Health & Fitness',
-    href: '/bmi-calculator',
-    icon: null,
-    description: 'BMI, calories, body metrics',
-    subItems: [
-      { name: 'BMI', href: '/bmi-calculator', icon: null, description: 'Body Mass Index' },
-      { name: 'Calorie', href: '/calorie-calculator', icon: null, description: 'Daily calorie needs' },
-      { name: 'Body Fat', href: '/body-fat-calculator', icon: null, description: 'Body fat percentage' },
-      { name: 'BMR', href: '/bmr-calculator', icon: null, description: 'Basal Metabolic Rate' },
-      { name: 'Ideal Weight', href: '/calculators/ideal-weight', icon: null, description: 'Ideal body weight' }
-    ]
-  },
-  {
-    name: 'Conversions',
-    href: '/calculators/length',
-    icon: null,
-    description: 'Unit and currency converters',
-    subItems: [
-      { name: 'Length', href: '/calculators/length', icon: null, description: 'Length unit converter' },
-      { name: 'Weight', href: '/calculators/weight', icon: null, description: 'Weight unit converter' },
-      { name: 'Temperature', href: '/calculators/temperature', icon: null, description: 'Temperature converter' },
-      { name: 'Currency', href: '/calculators/currency', icon: null, description: 'Currency converter' },
-      { name: 'Area', href: '/area-calculator', icon: null, description: 'Area unit converter' }
-    ]
-  },
-  {
-    name: 'Time & Date',
-    href: '/age-calculator',
-    icon: null,
-    description: 'Time calculations and dates',
-    subItems: [
-      { name: 'Age', href: '/age-calculator', icon: null, description: 'Age calculator' },
-      { name: 'Date', href: '/date-calculator', icon: null, description: 'Date calculations' },
-      { name: 'Time', href: '/time-calculator', icon: null, description: 'Time calculations' },
-      { name: 'Time Duration', href: '/time-duration-calculator', icon: null, description: 'Duration between dates' },
-      { name: 'Day Counter', href: '/day-counter-calculator', icon: null, description: 'Count days between dates' }
-    ]
-  }
+  { name: 'Scientific', href: '/scientific-calculator', icon: null, description: 'Advanced scientific functions' },
+  { name: 'Fraction', href: '/fraction-calculator', icon: null, description: 'Fraction arithmetic' },
+  { name: 'Percentage', href: '/percentage-calculator', icon: null, description: 'Percentage calculations' },
+  { name: 'Area', href: '/area-calculator', icon: null, description: 'Area calculations' },
+  { name: 'Volume', href: '/volume-calculator', icon: null, description: 'Volume calculations' },
+  { name: 'BMI', href: '/bmi-calculator', icon: null, description: 'Body Mass Index' },
+  { name: 'Calorie', href: '/calorie-calculator', icon: null, description: 'Daily calorie needs' },
+  { name: 'Body Fat', href: '/body-fat-calculator', icon: null, description: 'Body fat percentage' },
+  { name: 'BMR', href: '/bmr-calculator', icon: null, description: 'Basal Metabolic Rate' },
+  { name: 'Ideal Weight', href: '/calculators/ideal-weight', icon: null, description: 'Ideal body weight' },
+  { name: 'Length', href: '/calculators/length', icon: null, description: 'Length unit converter' },
+  { name: 'Weight', href: '/calculators/weight', icon: null, description: 'Weight unit converter' },
+  { name: 'Temperature', href: '/calculators/temperature', icon: null, description: 'Temperature converter' },
+  { name: 'Currency', href: '/calculators/currency', icon: null, description: 'Currency converter' },
+  { name: 'Age', href: '/age-calculator', icon: null, description: 'Age calculator' },
+  { name: 'Date', href: '/date-calculator', icon: null, description: 'Date calculations' },
+  { name: 'Time', href: '/time-calculator', icon: null, description: 'Time calculations' },
+  { name: 'Time Duration', href: '/time-duration-calculator', icon: null, description: 'Duration between dates' },
+  { name: 'Day Counter', href: '/day-counter-calculator', icon: null, description: 'Count days between dates' },
+  { name: 'Mortgage', href: '/mortgage-calculator', icon: null, description: 'Calculate mortgage payments' },
+  { name: 'Loan', href: '/loan-calculator', icon: null, description: 'Calculate loan payments' },
+  { name: 'Auto Loan', href: '/auto-loan-calculator', icon: null, description: 'Calculate car loan payments' },
+  { name: 'Investment', href: '/investment-calculator', icon: null, description: 'Investment returns' },
+  { name: 'Compound Interest', href: '/compound-interest-calculator', icon: null, description: 'Compound interest calculator' },
+  { name: 'SIP Calculator', href: '/sip-calculator', icon: null, description: 'Calculate SIP returns' }
 ]
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -122,43 +66,10 @@ export default function Header() {
     }
   }
 
-  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null)
-
-  const handleMouseEnter = (name: string) => {
-    // Clear any existing timeout
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout)
-      setHoverTimeout(null)
-    }
-    setActiveDropdown(name)
-  }
-
-  const handleMouseLeave = () => {
-    // Set a small delay before closing to allow moving to dropdown content
-    const timeout = setTimeout(() => {
-      setActiveDropdown(null)
-    }, 150) // 150ms delay for smooth transition
-    setHoverTimeout(timeout)
-  }
-
   const closeAllDropdowns = () => {
-    setActiveDropdown(null)
     setIsMobileMenuOpen(false)
     setIsSearchOpen(false)
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout)
-      setHoverTimeout(null)
-    }
   }
-
-  // Cleanup timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (hoverTimeout) {
-        clearTimeout(hoverTimeout)
-      }
-    }
-  }, [hoverTimeout])
 
   return (
     <>
@@ -190,54 +101,18 @@ export default function Header() {
              </div>
 
                                          {/* Desktop Navigation */}
-                <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
+                <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 overflow-x-auto">
                   {navigation.map((item) => (
-                    <div 
-                      key={item.name} 
-                      className="relative group"
-                      onMouseEnter={() => handleMouseEnter(item.name)}
-                      onMouseLeave={handleMouseLeave}
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="flex items-center px-2.5 py-2 rounded-lg text-white hover:text-blue-200 hover:bg-white/10 transition-all duration-200 text-xs font-medium whitespace-nowrap"
+                      onClick={closeAllDropdowns}
                     >
-                      <button
-                        className="flex items-center space-x-1.5 px-2.5 py-2 rounded-lg text-white hover:text-blue-200 hover:bg-white/10 transition-all duration-200 text-xs font-medium header-nav-item"
-                      >
-                        <span className="header-nav-text">{item.name}</span>
-                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 flex-shrink-0 ${
-                          activeDropdown === item.name ? 'rotate-180' : ''
-                        }`} />
-                      </button>
-
-                                     {/* Dropdown Menu */}
-                   {activeDropdown === item.name && (
-                     <div 
-                       className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-3 z-50"
-                       onMouseEnter={() => handleMouseEnter(item.name)}
-                       onMouseLeave={handleMouseLeave}
-                     >
-                       <div className="px-3 pb-2 border-b border-gray-100">
-                         <h3 className="text-sm font-semibold text-gray-900">{item.name}</h3>
-                         <p className="text-xs text-gray-500">{item.description}</p>
-                       </div>
-                       <div className="grid grid-cols-1 gap-0.5 p-1">
-                         {item.subItems?.map((subItem) => (
-                           <Link
-                             key={subItem.name}
-                             href={subItem.href}
-                             className="flex items-center space-x-2.5 p-2.5 rounded-md hover:bg-gray-50 transition-colors duration-150"
-                             onClick={closeAllDropdowns}
-                           >
-                             <div className="flex-1 min-w-0">
-                               <div className="text-sm font-medium text-gray-900">{subItem.name}</div>
-                               <div className="text-xs text-gray-500 truncate">{subItem.description}</div>
-                             </div>
-                           </Link>
-                         ))}
-                       </div>
-                     </div>
-                   )}
-                </div>
-              ))}
-            </nav>
+                      <span>{item.name}</span>
+                    </Link>
+                  ))}
+                </nav>
 
             {/* Right Side Actions */}
             <div className="flex items-center space-x-3">
@@ -313,34 +188,14 @@ export default function Header() {
                </Link>
                
                {navigation.map((item) => (
-                 <div key={item.name}>
-                   <button
-                     onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                     className="flex items-center justify-between w-full p-2.5 text-left text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
-                   >
-                     <div className="flex items-center space-x-2.5">
-                       <span className="text-sm font-medium">{item.name}</span>
-                     </div>
-                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                       activeDropdown === item.name ? 'rotate-180' : ''
-                     }`} />
-                   </button>
-                   
-                   {activeDropdown === item.name && (
-                     <div className="ml-6 mt-1 space-y-1">
-                       {item.subItems?.map((subItem) => (
-                         <Link
-                           key={subItem.name}
-                           href={subItem.href}
-                           className="flex items-center space-x-2.5 p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200"
-                           onClick={closeAllDropdowns}
-                         >
-                           <div className="text-sm">{subItem.name}</div>
-                         </Link>
-                       ))}
-                     </div>
-                   )}
-                 </div>
+                 <Link
+                   key={item.name}
+                   href={item.href}
+                   className="flex items-center space-x-2.5 p-2.5 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                   onClick={closeAllDropdowns}
+                 >
+                   <span className="text-sm font-medium">{item.name}</span>
+                 </Link>
                ))}
              </div>
            </div>
