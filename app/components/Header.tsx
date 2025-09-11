@@ -34,67 +34,67 @@ const navigation: NavItem[] = [
   {
     name: 'Financial',
     href: '/',
-    icon: <DollarSign className="w-5 h-5" />,
+    icon: null,
     description: 'Loans, mortgages, investments',
     subItems: [
-      { name: 'Mortgage', href: '/mortgage-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Calculate mortgage payments' },
-      { name: 'Loan', href: '/loan-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Calculate loan payments' },
-      { name: 'Auto Loan', href: '/auto-loan-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Calculate car loan payments' },
-      { name: 'Investment', href: '/investment-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Investment returns' },
-      { name: 'Compound Interest', href: '/compound-interest-calculator', icon: <DollarSign className="w-4 h-4" />, description: 'Compound interest calculator' },
-      { name: 'Invoice Maker', href: '/invoice-maker', icon: <FileText className="w-4 h-4" />, description: 'Create professional invoices' }
+      { name: 'Mortgage', href: '/mortgage-calculator', icon: null, description: 'Calculate mortgage payments' },
+      { name: 'Loan', href: '/loan-calculator', icon: null, description: 'Calculate loan payments' },
+      { name: 'Auto Loan', href: '/auto-loan-calculator', icon: null, description: 'Calculate car loan payments' },
+      { name: 'Investment', href: '/investment-calculator', icon: null, description: 'Investment returns' },
+      { name: 'Compound Interest', href: '/compound-interest-calculator', icon: null, description: 'Compound interest calculator' },
+      { name: 'Invoice Maker', href: '/invoice-maker', icon: null, description: 'Create professional invoices' }
     ]
   },
   {
     name: 'Math & Science',
     href: '/scientific-calculator',
-    icon: <Calculator className="w-5 h-5" />,
+    icon: null,
     description: 'Scientific and mathematical tools',
     subItems: [
-      { name: 'Scientific', href: '/scientific-calculator', icon: <Calculator className="w-4 h-4" />, description: 'Advanced scientific functions' },
-      { name: 'Fraction', href: '/fraction-calculator', icon: <Plus className="w-4 h-4" />, description: 'Fraction arithmetic' },
-      { name: 'Percentage', href: '/percentage-calculator', icon: <Percent className="w-4 h-4" />, description: 'Percentage calculations' },
-      { name: 'Area', href: '/area-calculator', icon: <Calculator className="w-4 h-4" />, description: 'Area calculations' },
-      { name: 'Volume', href: '/volume-calculator', icon: <Calculator className="w-4 h-4" />, description: 'Volume calculations' }
+      { name: 'Scientific', href: '/scientific-calculator', icon: null, description: 'Advanced scientific functions' },
+      { name: 'Fraction', href: '/fraction-calculator', icon: null, description: 'Fraction arithmetic' },
+      { name: 'Percentage', href: '/percentage-calculator', icon: null, description: 'Percentage calculations' },
+      { name: 'Area', href: '/area-calculator', icon: null, description: 'Area calculations' },
+      { name: 'Volume', href: '/volume-calculator', icon: null, description: 'Volume calculations' }
     ]
   },
   {
     name: 'Health & Fitness',
     href: '/bmi-calculator',
-    icon: <Heart className="w-5 h-5" />,
+    icon: null,
     description: 'BMI, calories, body metrics',
     subItems: [
-      { name: 'BMI', href: '/bmi-calculator', icon: <Heart className="w-4 h-4" />, description: 'Body Mass Index' },
-      { name: 'Calorie', href: '/calorie-calculator', icon: <Heart className="w-4 h-4" />, description: 'Daily calorie needs' },
-      { name: 'Body Fat', href: '/body-fat-calculator', icon: <Heart className="w-4 h-4" />, description: 'Body fat percentage' },
-      { name: 'BMR', href: '/bmr-calculator', icon: <Heart className="w-4 h-4" />, description: 'Basal Metabolic Rate' },
-      { name: 'Ideal Weight', href: '/calculators/ideal-weight', icon: <Heart className="w-4 h-4" />, description: 'Ideal body weight' }
+      { name: 'BMI', href: '/bmi-calculator', icon: null, description: 'Body Mass Index' },
+      { name: 'Calorie', href: '/calorie-calculator', icon: null, description: 'Daily calorie needs' },
+      { name: 'Body Fat', href: '/body-fat-calculator', icon: null, description: 'Body fat percentage' },
+      { name: 'BMR', href: '/bmr-calculator', icon: null, description: 'Basal Metabolic Rate' },
+      { name: 'Ideal Weight', href: '/calculators/ideal-weight', icon: null, description: 'Ideal body weight' }
     ]
   },
   {
     name: 'Conversions',
     href: '/calculators/length',
-    icon: <Globe className="w-5 h-5" />,
+    icon: null,
     description: 'Unit and currency converters',
     subItems: [
-      { name: 'Length', href: '/calculators/length', icon: <Globe className="w-4 h-4" />, description: 'Length unit converter' },
-      { name: 'Weight', href: '/calculators/weight', icon: <Globe className="w-4 h-4" />, description: 'Weight unit converter' },
-      { name: 'Temperature', href: '/calculators/temperature', icon: <Globe className="w-4 h-4" />, description: 'Temperature converter' },
-      { name: 'Currency', href: '/calculators/currency', icon: <Globe className="w-4 h-4" />, description: 'Currency converter' },
-      { name: 'Area', href: '/area-calculator', icon: <Globe className="w-4 h-4" />, description: 'Area unit converter' }
+      { name: 'Length', href: '/calculators/length', icon: null, description: 'Length unit converter' },
+      { name: 'Weight', href: '/calculators/weight', icon: null, description: 'Weight unit converter' },
+      { name: 'Temperature', href: '/calculators/temperature', icon: null, description: 'Temperature converter' },
+      { name: 'Currency', href: '/calculators/currency', icon: null, description: 'Currency converter' },
+      { name: 'Area', href: '/area-calculator', icon: null, description: 'Area unit converter' }
     ]
   },
   {
     name: 'Time & Date',
     href: '/age-calculator',
-    icon: <Clock className="w-5 h-5" />,
+    icon: null,
     description: 'Time calculations and dates',
     subItems: [
-      { name: 'Age', href: '/age-calculator', icon: <Clock className="w-4 h-4" />, description: 'Age calculator' },
-      { name: 'Date', href: '/date-calculator', icon: <Clock className="w-4 h-4" />, description: 'Date calculations' },
-      { name: 'Time', href: '/time-calculator', icon: <Clock className="w-4 h-4" />, description: 'Time calculations' },
-      { name: 'Time Duration', href: '/time-duration-calculator', icon: <Clock className="w-4 h-4" />, description: 'Duration between dates' },
-      { name: 'Day Counter', href: '/day-counter-calculator', icon: <Clock className="w-4 h-4" />, description: 'Count days between dates' }
+      { name: 'Age', href: '/age-calculator', icon: null, description: 'Age calculator' },
+      { name: 'Date', href: '/date-calculator', icon: null, description: 'Date calculations' },
+      { name: 'Time', href: '/time-calculator', icon: null, description: 'Time calculations' },
+      { name: 'Time Duration', href: '/time-duration-calculator', icon: null, description: 'Duration between dates' },
+      { name: 'Day Counter', href: '/day-counter-calculator', icon: null, description: 'Count days between dates' }
     ]
   }
 ]
@@ -200,7 +200,6 @@ export default function Header() {
                       <button
                         className="flex items-center space-x-1.5 px-2.5 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 text-xs font-medium header-nav-item"
                       >
-                        <span className="scale-90 flex-shrink-0">{item.icon}</span>
                         <span className="header-nav-text">{item.name}</span>
                         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 flex-shrink-0 ${
                           activeDropdown === item.name ? 'rotate-180' : ''
@@ -226,7 +225,6 @@ export default function Header() {
                              className="flex items-center space-x-2.5 p-2.5 rounded-md hover:bg-gray-50 transition-colors duration-150"
                              onClick={closeAllDropdowns}
                            >
-                             <div className="text-blue-600 scale-90">{subItem.icon}</div>
                              <div className="flex-1 min-w-0">
                                <div className="text-sm font-medium text-gray-900">{subItem.name}</div>
                                <div className="text-xs text-gray-500 truncate">{subItem.description}</div>
@@ -320,7 +318,6 @@ export default function Header() {
                      className="flex items-center justify-between w-full p-2.5 text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
                    >
                      <div className="flex items-center space-x-2.5">
-                       <span className="scale-90">{item.icon}</span>
                        <span className="text-sm font-medium">{item.name}</span>
                      </div>
                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
@@ -337,7 +334,6 @@ export default function Header() {
                            className="flex items-center space-x-2.5 p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200"
                            onClick={closeAllDropdowns}
                          >
-                           <span className="scale-75">{subItem.icon}</span>
                            <div className="text-sm">{subItem.name}</div>
                          </Link>
                        ))}
