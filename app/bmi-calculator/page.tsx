@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
-import BMICalculator from '../components/calculators/BMICalculator';
+import BMICalculator from '../components/calculators/BMICalculator'
+import CalculatorWithAds from '../components/CalculatorWithAds'
 
 export const metadata: Metadata = {
   title: 'BMI Calculator - Calculate Body Mass Index | Online Calculator.live',
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
 
 export default function BMIPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 py-8">
-      <div className="max-w-4xl mx-auto px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
+      <CalculatorWithAds>
         <BMICalculator />
         
         <div className="mt-12 bg-white rounded-lg shadow-lg p-6">
@@ -77,7 +78,7 @@ export default function BMIPage() {
             </ul>
           </div>
         </div>
-      </div>
+      </CalculatorWithAds>
     </div>
   );
 }

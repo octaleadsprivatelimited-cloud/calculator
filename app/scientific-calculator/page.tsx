@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
-import ScientificCalculator from '../components/calculators/ScientificCalculator';
+import ScientificCalculator from '../components/calculators/ScientificCalculator'
+import CalculatorWithAds from '../components/CalculatorWithAds'
 
 export const metadata: Metadata = {
   title: 'Scientific Calculator - Advanced Math Functions Online | Online Calculator.live',
@@ -34,15 +35,15 @@ export const metadata: Metadata = {
 
 export default function ScientificCalculatorPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-indigo-100 py-8">
-      <div className="max-w-7xl mx-auto px-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-indigo-100">
+      <CalculatorWithAds>
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Scientific Calculator
           </h1>
         </div>
         <ScientificCalculator />
-      </div>
+      </CalculatorWithAds>
     </div>
   );
 }
