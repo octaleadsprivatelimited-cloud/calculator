@@ -42,6 +42,7 @@ const navigation: NavItem[] = [
       { name: 'Auto Loan', href: '/auto-loan-calculator', icon: null, description: 'Calculate car loan payments' },
       { name: 'Investment', href: '/investment-calculator', icon: null, description: 'Investment returns' },
       { name: 'Compound Interest', href: '/compound-interest-calculator', icon: null, description: 'Compound interest calculator' },
+      { name: 'SIP Calculator', href: '/sip-calculator', icon: null, description: 'Calculate SIP returns' },
       { name: 'Invoice Maker', href: '/invoice-maker', icon: null, description: 'Create professional invoices' }
     ]
   },

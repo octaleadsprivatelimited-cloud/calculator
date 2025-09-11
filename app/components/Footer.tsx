@@ -184,30 +184,78 @@ export default function Footer() {
         {/* Essential Links - Mobile Optimized */}
         <div className="border-t border-gray-700 pt-6 mb-6">
           <div className="text-center">
-            {/* Mobile: Stacked layout */}
-            <div className="lg:hidden space-y-3">
-              <div className="flex flex-wrap justify-center gap-4 text-xs">
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms</Link>
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy</Link>
-                <a href="mailto:support@onlinecalculator.live" className="text-gray-400 hover:text-white transition-colors flex items-center">
-                  <Mail className="w-3 h-3 mr-1" />
-                  Support
-                </a>
+            {/* Mobile: Compact collapsible sections */}
+            <div className="lg:hidden space-y-4">
+              {/* Contact Information */}
+              <div className="bg-gray-800/30 rounded-lg p-3">
+                <h5 className="text-sm font-semibold text-gray-200 mb-2">Contact Information</h5>
+                <div className="flex flex-wrap justify-center gap-3 text-xs">
+                  <a href="mailto:support@onlinecalculator.live" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                    <Mail className="w-3 h-3 mr-1" />
+                    support@onlinecalculator.live
+                  </a>
+                  <span className="text-gray-400">Online Services</span>
+                  <span className="text-gray-400">24/7 Support</span>
+                </div>
+              </div>
+
+              {/* Legal & Compliance */}
+              <div className="bg-gray-800/30 rounded-lg p-3">
+                <h5 className="text-sm font-semibold text-gray-200 mb-2">Legal & Compliance</h5>
+                <div className="flex flex-wrap justify-center gap-3 text-xs">
+                  <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms & Conditions</Link>
+                  <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
+                  <Link href="/gdpr-compliance" className="text-gray-400 hover:text-white transition-colors">GDPR Compliant</Link>
+                  <Link href="/ccpa-compliance" className="text-gray-400 hover:text-white transition-colors">CCPA Compliant</Link>
+                  <Link href="/data-protection" className="text-gray-400 hover:text-white transition-colors">Data Protected</Link>
+                </div>
+              </div>
+
+              {/* Resources */}
+              <div className="bg-gray-800/30 rounded-lg p-3">
+                <h5 className="text-sm font-semibold text-gray-200 mb-2">Resources</h5>
+                <div className="flex flex-wrap justify-center gap-3 text-xs">
+                  <Link href="/sitemap.xml" className="text-gray-400 hover:text-white transition-colors">Sitemap</Link>
+                  <Link href="/robots.txt" className="text-gray-400 hover:text-white transition-colors">Robots.txt</Link>
+                </div>
               </div>
             </div>
 
-            {/* Desktop: Horizontal layout */}
+            {/* Desktop: Full horizontal layout */}
             <div className="hidden lg:block">
-              <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-300">
-                <span className="font-semibold">Legal:</span>
-                <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
-                <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-                
-                <span className="font-semibold ml-4">Contact:</span>
-                <a href="mailto:support@onlinecalculator.live" className="hover:text-white transition-colors flex items-center">
-                  <Mail className="w-4 h-4 mr-1" />
-                  support@onlinecalculator.live
-                </a>
+              <div className="space-y-4">
+                {/* Contact Information */}
+                <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-300">
+                  <span className="font-semibold text-gray-200">Contact Information:</span>
+                  <a href="mailto:support@onlinecalculator.live" className="hover:text-white transition-colors flex items-center">
+                    <Mail className="w-4 h-4 mr-1" />
+                    support@onlinecalculator.live
+                  </a>
+                  <span>Online Services</span>
+                  <span>24/7 Support</span>
+                </div>
+
+                {/* Legal */}
+                <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-300">
+                  <span className="font-semibold text-gray-200">Legal:</span>
+                  <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+                  <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                </div>
+
+                {/* Compliance */}
+                <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-300">
+                  <span className="font-semibold text-gray-200">Compliance:</span>
+                  <Link href="/gdpr-compliance" className="hover:text-white transition-colors">GDPR Compliant</Link>
+                  <Link href="/ccpa-compliance" className="hover:text-white transition-colors">CCPA Compliant</Link>
+                  <Link href="/data-protection" className="hover:text-white transition-colors">Data Protected</Link>
+                </div>
+
+                {/* Resources */}
+                <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-300">
+                  <span className="font-semibold text-gray-200">Resources:</span>
+                  <Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link>
+                  <Link href="/robots.txt" className="hover:text-white transition-colors">Robots.txt</Link>
+                </div>
               </div>
             </div>
           </div>
