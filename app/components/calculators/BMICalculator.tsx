@@ -212,47 +212,6 @@ export default function BMICalculator() {
           </div>
         )}
 
-        {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About BMI Calculator</h3>
-          <div className="prose prose-gray max-w-none">
-            <p className="text-gray-700 mb-4">
-              Our free BMI calculator helps you determine your Body Mass Index (BMI) and understand what it means for your health. 
-              BMI is a simple measure that uses your height and weight to work out if your weight is healthy.
-            </p>
-            
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What is BMI?</h4>
-            <p className="text-gray-700 mb-4">
-              Body Mass Index (BMI) is a number calculated from your weight and height. It provides a reliable indicator 
-              of body fatness for most people and is used to screen for weight categories that may lead to health problems.
-            </p>
-            
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">BMI Categories</h4>
-            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
-              <li><strong>Underweight:</strong> BMI less than 18.5</li>
-              <li><strong>Normal weight:</strong> BMI 18.5 to 24.9</li>
-              <li><strong>Overweight:</strong> BMI 25 to 29.9</li>
-              <li><strong>Obese Class I:</strong> BMI 30 to 34.9</li>
-              <li><strong>Obese Class II:</strong> BMI 35 to 39.9</li>
-              <li><strong>Obese Class III:</strong> BMI 40 or greater</li>
-            </ul>
-            
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Features</h4>
-            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
-              <li>Multiple unit support (lbs/kg, ft/in/cm)</li>
-              <li>Instant BMI calculation and categorization</li>
-              <li>Health risk assessment</li>
-              <li>Ideal weight range calculation</li>
-              <li>Mobile-friendly design</li>
-            </ul>
-            
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Important Note</h4>
-            <p className="text-gray-700">
-              While BMI is a useful screening tool, it doesn't measure body fat directly or account for factors like muscle mass, 
-              bone density, age, sex, and ethnicity. For a complete health assessment, consult with a healthcare professional.
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   )
