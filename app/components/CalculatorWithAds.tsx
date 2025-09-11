@@ -15,23 +15,15 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
         <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
           <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
           {/* Google AdSense Ad Unit - Top Banner */}
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center h-24 text-white">
-            <div className="text-center">
-              <div className="text-lg font-bold mb-1">🚀 Premium Calculator Tools</div>
-              <div className="text-sm opacity-90">Get Advanced Features - Try Now!</div>
-              <div className="text-xs opacity-75 mt-1">728x90 Banner Ad</div>
-            </div>
-          </div>
-          {/* AdSense Script - Uncomment when you have your ad unit ID */}
-          {/* <ins className="adsbygoogle"
+          <ins className="adsbygoogle"
                style={{display:'block'}}
-               data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-               data-ad-slot="YOUR_TOP_BANNER_AD_SLOT_ID"
+               data-ad-client="ca-pub-1234567890123456"
+               data-ad-slot="1234567890"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
-          </script> */}
+          </script>
         </div>
       </div>
 
@@ -42,53 +34,31 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
             {/* Left Ad 1 */}
             <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
               <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-              <div className="bg-gradient-to-b from-green-400 to-blue-500 rounded-lg flex flex-col items-center justify-center h-80 text-white p-4">
-                <div className="text-center">
-                  <div className="text-2xl mb-3">💰</div>
-                  <div className="text-lg font-bold mb-2">Earn Money Online</div>
-                  <div className="text-sm mb-3 opacity-90">Start Your Side Hustle Today</div>
-                  <div className="bg-white text-green-600 px-4 py-2 rounded-full text-sm font-semibold">
-                    Learn More
-                  </div>
-                  <div className="text-xs opacity-75 mt-3">160x600 Ad</div>
-                </div>
-              </div>
-              {/* AdSense Script */}
-              {/* <ins className="adsbygoogle"
+              {/* Google AdSense Ad Unit - Left Sidebar */}
+              <ins className="adsbygoogle"
                    style={{display:'block'}}
-                   data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-                   data-ad-slot="YOUR_LEFT_AD_SLOT_ID"
+                   data-ad-client="ca-pub-1234567890123456"
+                   data-ad-slot="2345678901"
                    data-ad-format="auto"
                    data-full-width-responsive="true"></ins>
               <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
-              </script> */}
+              </script>
             </div>
 
             {/* Left Ad 2 */}
             <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
               <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-              <div className="bg-gradient-to-b from-orange-400 to-red-500 rounded-lg flex flex-col items-center justify-center h-80 text-white p-4">
-                <div className="text-center">
-                  <div className="text-2xl mb-3">🏠</div>
-                  <div className="text-lg font-bold mb-2">Buy Your Dream Home</div>
-                  <div className="text-sm mb-3 opacity-90">Lowest Interest Rates</div>
-                  <div className="bg-white text-orange-600 px-4 py-2 rounded-full text-sm font-semibold">
-                    Get Quote
-                  </div>
-                  <div className="text-xs opacity-75 mt-3">160x600 Ad</div>
-                </div>
-              </div>
-              {/* AdSense Script */}
-              {/* <ins className="adsbygoogle"
+              {/* Google AdSense Ad Unit - Left Sidebar 2 */}
+              <ins className="adsbygoogle"
                    style={{display:'block'}}
-                   data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-                   data-ad-slot="YOUR_LEFT_AD2_SLOT_ID"
+                   data-ad-client="ca-pub-1234567890123456"
+                   data-ad-slot="3456789012"
                    data-ad-format="auto"
                    data-full-width-responsive="true"></ins>
               <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
-              </script> */}
+              </script>
             </div>
           </div>
         </div>
@@ -104,53 +74,31 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
             {/* Right Ad 1 */}
             <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
               <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-              <div className="bg-gradient-to-b from-purple-500 to-pink-500 rounded-lg flex flex-col items-center justify-center h-80 text-white p-4">
-                <div className="text-center">
-                  <div className="text-2xl mb-3">💳</div>
-                  <div className="text-lg font-bold mb-2">Credit Card Offers</div>
-                  <div className="text-sm mb-3 opacity-90">0% APR for 18 Months</div>
-                  <div className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold">
-                    Apply Now
-                  </div>
-                  <div className="text-xs opacity-75 mt-3">160x600 Ad</div>
-                </div>
-              </div>
-              {/* AdSense Script */}
-              {/* <ins className="adsbygoogle"
+              {/* Google AdSense Ad Unit - Right Sidebar */}
+              <ins className="adsbygoogle"
                    style={{display:'block'}}
-                   data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-                   data-ad-slot="YOUR_RIGHT_AD_SLOT_ID"
+                   data-ad-client="ca-pub-1234567890123456"
+                   data-ad-slot="4567890123"
                    data-ad-format="auto"
                    data-full-width-responsive="true"></ins>
               <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
-              </script> */}
+              </script>
             </div>
 
             {/* Right Ad 2 */}
             <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
               <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-              <div className="bg-gradient-to-b from-teal-400 to-blue-500 rounded-lg flex flex-col items-center justify-center h-80 text-white p-4">
-                <div className="text-center">
-                  <div className="text-2xl mb-3">📱</div>
-                  <div className="text-lg font-bold mb-2">New Smartphone</div>
-                  <div className="text-sm mb-3 opacity-90">50% Off Today Only</div>
-                  <div className="bg-white text-teal-600 px-4 py-2 rounded-full text-sm font-semibold">
-                    Shop Now
-                  </div>
-                  <div className="text-xs opacity-75 mt-3">160x600 Ad</div>
-                </div>
-              </div>
-              {/* AdSense Script */}
-              {/* <ins className="adsbygoogle"
+              {/* Google AdSense Ad Unit - Right Sidebar 2 */}
+              <ins className="adsbygoogle"
                    style={{display:'block'}}
-                   data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-                   data-ad-slot="YOUR_RIGHT_AD2_SLOT_ID"
+                   data-ad-client="ca-pub-1234567890123456"
+                   data-ad-slot="5678901234"
                    data-ad-format="auto"
                    data-full-width-responsive="true"></ins>
               <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
-              </script> */}
+              </script>
             </div>
           </div>
         </div>
@@ -161,34 +109,46 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
         {/* Mobile Ad 1 */}
         <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
           <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-          <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center h-24 text-white">
-            <div className="text-center">
-              <div className="text-lg font-bold mb-1">💎 Premium Tools</div>
-              <div className="text-sm opacity-90">Unlock Advanced Features</div>
-            </div>
-          </div>
+          {/* Google AdSense Ad Unit - Mobile Banner 1 */}
+          <ins className="adsbygoogle"
+               style={{display:'block'}}
+               data-ad-client="ca-pub-1234567890123456"
+               data-ad-slot="6789012345"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
 
         {/* Mobile Ad 2 */}
         <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
           <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-          <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center h-24 text-white">
-            <div className="text-center">
-              <div className="text-lg font-bold mb-1">💰 Earn Money</div>
-              <div className="text-sm opacity-90">Start Your Business Today</div>
-            </div>
-          </div>
+          {/* Google AdSense Ad Unit - Mobile Banner 2 */}
+          <ins className="adsbygoogle"
+               style={{display:'block'}}
+               data-ad-client="ca-pub-1234567890123456"
+               data-ad-slot="7890123456"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
 
         {/* Mobile Ad 3 */}
         <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
           <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-          <div className="bg-gradient-to-r from-rose-500 to-pink-600 rounded-lg flex items-center justify-center h-24 text-white">
-            <div className="text-center">
-              <div className="text-lg font-bold mb-1">🏠 Home Loans</div>
-              <div className="text-sm opacity-90">Best Rates Available</div>
-            </div>
-          </div>
+          {/* Google AdSense Ad Unit - Mobile Banner 3 */}
+          <ins className="adsbygoogle"
+               style={{display:'block'}}
+               data-ad-client="ca-pub-1234567890123456"
+               data-ad-slot="8901234567"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
       </div>
     </div>
