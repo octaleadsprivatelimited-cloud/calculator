@@ -233,7 +233,7 @@ export default function QuotationGenerator() {
 
           {/* Company Information */}
           <div className="bg-white rounded-lg shadow-lg p-2">
-            <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
+            <h3 className="text-base font-medium text-gray-800 mb-3 flex items-center">
               <Building className="w-4 h-4 mr-1" />
               Company Details
             </h3>
@@ -287,7 +287,7 @@ export default function QuotationGenerator() {
 
           {/* Client Information */}
           <div className="bg-white rounded-lg shadow-lg p-2">
-            <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
+            <h3 className="text-base font-medium text-gray-800 mb-3 flex items-center">
               <User className="w-4 h-4 mr-1" />
               Client Details
             </h3>
@@ -313,7 +313,7 @@ export default function QuotationGenerator() {
 
           {/* Quote Details */}
           <div className="bg-white rounded-lg shadow-lg p-2">
-            <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
+            <h3 className="text-base font-medium text-gray-800 mb-3 flex items-center">
               <Hash className="w-4 h-4 mr-1" />
               Quote Details
             </h3>
