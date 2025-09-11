@@ -63,18 +63,11 @@ export default function MortgageCalculator() {
 
   return (
     <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-500 to-indigo-500 px-6 py-4">
-        <div className="flex items-center">
-          <Home className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Mortgage Calculator</h2>
-        </div>
-        <p className="text-blue-100 mt-1">Calculate mortgage payments and costs</p>
-      </div>
 
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Share Options - Moved to Top */}
         {showResults && (
-          <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <div className="mb-4 p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-200">
             <ResultSharing
               title="Mortgage Calculator Result"
               inputs={[
@@ -93,26 +86,26 @@ export default function MortgageCalculator() {
             />
           </div>
         )}
-        <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Home Price ($)</label>
-              <input type="number" value={homePrice} onChange={(e) => setHomePrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter price" step="1000" />
+              <label className="block text-xs font-medium text-gray-700 mb-2">Home Price ($)</label>
+              <input type="number" value={homePrice} onChange={(e) => setHomePrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base" placeholder="Enter price" step="1000" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ($)</label>
-              <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter down payment" step="1000" />
+              <label className="block text-xs font-medium text-gray-700 mb-2">Down Payment ($)</label>
+              <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base" placeholder="Enter down payment" step="1000" />
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Interest Rate (%)</label>
-              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter rate" step="0.1" />
+              <label className="block text-xs font-medium text-gray-700 mb-2">Interest Rate (%)</label>
+              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base" placeholder="Enter rate" step="0.1" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Loan Term</label>
-              <select value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Select loan term">
+              <label className="block text-xs font-medium text-gray-700 mb-2">Loan Term</label>
+              <select value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base" aria-label="Select loan term">
                 <option value="15">15 years</option>
                 <option value="20">20 years</option>
                 <option value="30">30 years</option>
@@ -120,29 +113,29 @@ export default function MortgageCalculator() {
             </div>
           </div>
 
-          <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
-              <Calculator className="h-5 w-5 inline mr-2" />Calculate
+          <div className="flex space-x-2 sm:space-x-3">
+            <button onClick={handleCalculate} className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-3 sm:px-4 rounded-lg transition-colors text-sm sm:text-base">
+              <Calculator className="h-4 w-4 sm:h-5 sm:w-5 inline mr-1 sm:mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
-              <RotateCcw className="h-5 w-5 inline mr-2" />Reset
+            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-3 sm:px-4 rounded-lg transition-colors text-sm sm:text-base">
+              <RotateCcw className="h-4 w-4 sm:h-5 sm:w-5 inline mr-1 sm:mr-2" />Reset
             </button>
           </div>
         </div>
 
         {showResults && (
-          <div className="mt-6 space-y-4">
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <h3 className="text-lg font-semibold text-blue-800 mb-2">Monthly Payment</h3>
+          <div className="mt-4 space-y-3">
+            <div className="p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <h3 className="text-base font-semibold text-blue-800 mb-2">Monthly Payment</h3>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">${result.monthlyPayment?.toFixed(2)}</div>
-                <div className="text-blue-700">Monthly mortgage payment</div>
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">${result.monthlyPayment?.toFixed(2)}</div>
+                <div className="text-blue-700 text-sm sm:text-base">Monthly mortgage payment</div>
               </div>
             </div>
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <h3 className="text-lg font-semibold text-blue-800 mb-3">Mortgage Summary</h3>
-              <div className="space-y-2">
+            <div className="p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <h3 className="text-base font-semibold text-blue-800 mb-2">Mortgage Summary</h3>
+              <div className="space-y-1 sm:space-y-2 text-sm sm:text-base">
                 <div className="flex justify-between"><span className="text-blue-700">Home Price:</span><span className="font-semibold text-blue-800">${result.details.price?.toLocaleString()}</span></div>
                 <div className="flex justify-between"><span className="text-blue-700">Down Payment:</span><span className="font-semibold text-blue-800">${result.details.down?.toLocaleString()}</span></div>
                 <div className="flex justify-between"><span className="text-blue-700">Loan Amount:</span><span className="font-semibold text-blue-800">${result.loanAmount?.toLocaleString()}</span></div>
@@ -177,32 +170,31 @@ export default function MortgageCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Mortgage Calculator</h3>
+        <div className="mt-4 p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
           <div className="prose prose-gray max-w-none">
-            <p className="text-gray-700 mb-4">
+            <p className="text-gray-700 mb-3 text-sm sm:text-base">
               Our free mortgage calculator helps you estimate monthly mortgage payments, calculate total interest costs, 
               and determine home affordability. This essential tool is perfect for first-time homebuyers, refinancing decisions, 
               and understanding the true cost of homeownership.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How Mortgage Payments are Calculated</h4>
-            <p className="text-gray-700 mb-4">
+            <h4 className="text-base font-semibold text-gray-800 mb-2">How Mortgage Payments are Calculated</h4>
+            <p className="text-gray-700 mb-3 text-sm sm:text-base">
               Mortgage payments are calculated using the principal and interest formula, which considers your loan amount, 
               interest rate, and loan term. The calculator automatically computes your monthly payment, total interest over 
               the life of the loan, and the total amount you'll pay.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Factors Affecting Your Payment</h4>
-            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <h4 className="text-base font-semibold text-gray-800 mb-2">Key Factors Affecting Your Payment</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-3 space-y-1 text-sm sm:text-base">
               <li><strong>Home Price:</strong> The total cost of the property</li>
               <li><strong>Down Payment:</strong> Initial payment that reduces your loan amount</li>
               <li><strong>Interest Rate:</strong> Annual percentage rate charged by the lender</li>
               <li><strong>Loan Term:</strong> Length of time to repay the loan (15, 20, or 30 years)</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Features</h4>
-            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+            <h4 className="text-base font-semibold text-gray-800 mb-2">Features</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-3 space-y-1 text-sm sm:text-base">
               <li>Accurate monthly payment calculations</li>
               <li>Total interest and payment breakdown</li>
               <li>Multiple loan term options</li>

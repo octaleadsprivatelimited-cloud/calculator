@@ -8,7 +8,8 @@ import {
   FileText, 
   Copy, 
   Check,
-  Printer
+  Printer,
+  FileImage
 } from 'lucide-react'
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
@@ -68,10 +69,34 @@ export default function ResultSharing({
     try {
       console.log('Generating image with data:', { title, inputs, result, calculatorName })
       
-      // Wait a bit for DOM to be ready
-      await new Promise(resolve => setTimeout(resolve, 100))
+      // Temporarily make the hidden result display visible and properly positioned
+      const element = resultRef.current
+      const originalStyles = {
+        position: element.style.position,
+        left: element.style.left,
+        top: element.style.top,
+        visibility: element.style.visibility,
+        pointerEvents: element.style.pointerEvents,
+        zIndex: element.style.zIndex
+      }
       
-      const canvas = await html2canvas(resultRef.current, {
+      // Position the element in a way that html2canvas can capture it
+      element.style.position = 'fixed'
+      element.style.left = '0'
+      element.style.top = '0'
+      element.style.visibility = 'visible'
+      element.style.pointerEvents = 'auto'
+      element.style.zIndex = '10000'
+      element.style.backgroundColor = '#ffffff'
+      element.style.width = '600px'
+      element.style.height = '800px'
+      element.style.overflow = 'visible'
+      
+      // Wait a bit for DOM to be ready
+      await new Promise(resolve => setTimeout(resolve, 200))
+      
+      console.log('Starting html2canvas capture...')
+      const canvas = await html2canvas(element, {
         backgroundColor: '#ffffff',
         scale: 2,
         useCORS: true,
@@ -83,14 +108,42 @@ export default function ResultSharing({
         scrollY: 0
       })
       
+      console.log('Canvas generated successfully:', canvas)
+      console.log('Canvas dimensions:', { width: canvas.width, height: canvas.height })
+      
+      // Restore original styles
+      element.style.position = originalStyles.position
+      element.style.left = originalStyles.left
+      element.style.top = originalStyles.top
+      element.style.visibility = originalStyles.visibility
+      element.style.pointerEvents = originalStyles.pointerEvents
+      element.style.zIndex = originalStyles.zIndex
+      element.style.width = ''
+      element.style.height = ''
+      element.style.overflow = ''
+      
       const link = document.createElement('a')
       link.download = `${calculatorName}-result.png`
       link.href = canvas.toDataURL('image/png', 1.0)
       link.click()
       
-      console.log('Image generated successfully')
+      console.log('Image download initiated')
     } catch (error) {
       console.error('Error generating image:', error)
+      // Ensure styles are restored even if there's an error
+      if (resultRef.current) {
+        const element = resultRef.current
+        element.style.position = 'absolute'
+        element.style.left = '-9999px'
+        element.style.top = '-9999px'
+        element.style.visibility = 'hidden'
+        element.style.pointerEvents = 'none'
+        element.style.zIndex = '-1'
+        element.style.width = ''
+        element.style.height = ''
+        element.style.overflow = ''
+      }
+      alert('Failed to generate image. Please check the console for details.')
     } finally {
       setIsGenerating(false)
     }
@@ -343,100 +396,78 @@ export default function ResultSharing({
   return (
     <div className={`${className}`}>
       {/* Share Options Header */}
-      <div className="mb-3">
-        <h3 className="text-base font-semibold text-gray-800 mb-2 flex items-center">
-          <Share2 className="w-4 h-4 mr-2 text-blue-600" />
+      <div className="mb-1">
+        <h3 className="text-sm font-semibold text-gray-800 mb-2 flex items-center">
+          <Share2 className="w-3 h-3 mr-1 text-blue-600" />
           Share Result
         </h3>
       </div>
 
       {/* Share Options - Always Visible */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+        <div className="flex flex-wrap gap-1 justify-center">
             {/* WhatsApp Share */}
             <button
               onClick={handleWhatsAppShare}
-              className="flex flex-col items-center p-2 bg-green-50 hover:bg-green-100 rounded-md border border-green-200 transition-colors duration-200 text-center"
+              className="flex items-center justify-center p-1.5 bg-green-50 hover:bg-green-100 rounded-md border border-green-200 transition-colors duration-200"
+              title="Share on WhatsApp"
             >
-              <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mb-1">
-                <MessageCircle className="w-4 h-4 text-white" />
+              <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                <MessageCircle className="w-3 h-3 text-white" />
               </div>
-              <div className="font-medium text-green-800 text-xs">WhatsApp</div>
             </button>
 
             {/* Download as Image */}
             <button
               onClick={generateImage}
               disabled={isGenerating}
-              className="flex flex-col items-center p-2 bg-blue-50 hover:bg-blue-100 rounded-md border border-blue-200 transition-colors duration-200 text-center disabled:opacity-50"
+              className="flex items-center justify-center p-1.5 bg-blue-50 hover:bg-blue-100 rounded-md border border-blue-200 transition-colors duration-200 disabled:opacity-50"
+              title="Download as PNG Image"
             >
-              <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mb-1">
-                <Download className="w-4 h-4 text-white" />
+              <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                <FileImage className="w-3 h-3 text-white" />
               </div>
-              <div className="font-medium text-blue-800 text-xs">Image</div>
             </button>
 
             {/* Download as PDF */}
             <button
               onClick={generatePDF}
               disabled={isGenerating}
-              className="flex flex-col items-center p-2 bg-red-50 hover:bg-red-100 rounded-md border border-red-200 transition-colors duration-200 text-center disabled:opacity-50"
-              title="Download PDF with calculation results as text (searchable and copyable)"
+              className="flex items-center justify-center p-1.5 bg-red-50 hover:bg-red-100 rounded-md border border-red-200 transition-colors duration-200 disabled:opacity-50"
+              title="Download as PDF Document"
             >
-              <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mb-1">
-                <FileText className="w-4 h-4 text-white" />
+              <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                <FileText className="w-3 h-3 text-white" />
               </div>
-              <div className="font-medium text-red-800 text-xs">PDF</div>
             </button>
 
             {/* Copy to Clipboard */}
             <button
               onClick={handleCopyToClipboard}
-              className="flex flex-col items-center p-2 bg-purple-50 hover:bg-purple-100 rounded-md border border-purple-200 transition-colors duration-200 text-center"
+              className="flex items-center justify-center p-1.5 bg-purple-50 hover:bg-purple-100 rounded-md border border-purple-200 transition-colors duration-200"
+              title="Copy to Clipboard"
             >
-              <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mb-1">
+              <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
                 {copied ? (
-                  <Check className="w-4 h-4 text-white" />
+                  <Check className="w-3 h-3 text-white" />
                 ) : (
-                  <Copy className="w-4 h-4 text-white" />
+                  <Copy className="w-3 h-3 text-white" />
                 )}
-              </div>
-              <div className="font-medium text-purple-800 text-xs">
-                {copied ? 'Copied!' : 'Copy'}
               </div>
             </button>
 
             {/* Print */}
             <button
               onClick={handlePrint}
-              className="flex flex-col items-center p-2 bg-orange-50 hover:bg-orange-100 rounded-md border border-orange-200 transition-colors duration-200 text-center"
+              className="flex items-center justify-center p-1.5 bg-orange-50 hover:bg-orange-100 rounded-md border border-orange-200 transition-colors duration-200"
+              title="Print Result"
             >
-              <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mb-1">
-                <Printer className="w-4 h-4 text-white" />
+              <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                <Printer className="w-3 h-3 text-white" />
               </div>
-              <div className="font-medium text-orange-800 text-xs">Print</div>
             </button>
             </div>
 
-            {/* Debug Button - Temporary for testing */}
-            <button
-              onClick={() => {
-                if (resultRef.current) {
-                  resultRef.current.style.position = 'relative'
-                  resultRef.current.style.left = '0'
-                  resultRef.current.style.top = '0'
-                  resultRef.current.style.zIndex = '1000'
-                  resultRef.current.style.backgroundColor = '#fff'
-                  resultRef.current.style.border = '2px solid red'
-                  resultRef.current.style.boxShadow = '0 0 20px rgba(0,0,0,0.3)'
-                  resultRef.current.style.visibility = 'visible'
-                  resultRef.current.style.pointerEvents = 'auto'
-                }
-                console.log('Debug - Current data:', { title, inputs, result, calculatorName })
-              }}
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-            >
-              Show Hidden Result (Debug)
-            </button>
+
 
       {/* Hidden Result Display for Image/PDF Generation */}
       <div 

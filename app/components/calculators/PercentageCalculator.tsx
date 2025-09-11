@@ -94,37 +94,28 @@ export default function PercentageCalculator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-2 sm:p-4">
       <div className="w-full">
         {/* Header */}
-        <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
-            <Percent className="w-12 h-12 mr-3 text-purple-600" />
-            Percentage Calculator
-          </h1>
-          <p className="text-xl text-gray-600">
-            Calculate percentages, percentage changes, and more with ease
-          </p>
-        </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Input Form */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <CalculatorIcon className="w-6 h-6 mr-2 text-purple-600" />
+          <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
+            <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
+              <CalculatorIcon className="w-5 h-5 mr-2 text-purple-600" />
               Calculation Type
             </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {/* Calculation Type Selection */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs font-medium text-gray-700 mb-2">
                   What do you want to calculate?
                 </label>
                 <select
                   value={calculationType}
                   onChange={(e) => setCalculationType(e.target.value as any)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-sm sm:text-base"
                   aria-label="Calculation type selection"
                   title="Select calculation type"
                 >
@@ -140,7 +131,7 @@ export default function PercentageCalculator() {
 
               {/* First Value Input */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs font-medium text-gray-700 mb-2">
                   {calculationType === 'basic' ? 'Number' : 
                    calculationType === 'change' ? 'Original Value' :
                    calculationType === 'percentage-of' ? 'First Number' : 'Number'}
@@ -149,7 +140,7 @@ export default function PercentageCalculator() {
                   type="number"
                   value={value1}
                   onChange={(e) => setValue1(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-sm sm:text-base"
                   placeholder="100"
                   step="any"
                 />
@@ -157,7 +148,7 @@ export default function PercentageCalculator() {
 
               {/* Second Value Input */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs font-medium text-gray-700 mb-2">
                   {calculationType === 'basic' ? 'Percentage' : 
                    calculationType === 'change' ? 'New Value' :
                    calculationType === 'percentage-of' ? 'Second Number' : 'Percentage'}
@@ -166,36 +157,36 @@ export default function PercentageCalculator() {
                   type="number"
                   value={value2}
                   onChange={(e) => setValue2(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-sm sm:text-base"
                   placeholder="25"
                   step="any"
                 />
               </div>
 
               {/* Action Buttons */}
-              <div className="flex gap-3 pt-4">
+              <div className="flex gap-2 sm:gap-3 pt-2">
                 <button
                   onClick={calculatePercentage}
-                  className="flex-1 bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors font-medium"
+                  className="flex-1 bg-purple-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm sm:text-base"
                 >
                   Calculate
                 </button>
                 <button
                   onClick={clearAll}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="px-4 sm:px-6 py-2 sm:py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
                   title="Clear all values"
                 >
-                  <RotateCcw className="w-5 h-5" />
+                  <RotateCcw className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
             </div>
           </div>
 
           {/* Results */}
-          <div className="space-y-6">
+          <div className="space-y-3">
             {/* Share Options - Moved to Top */}
             {result && (
-              <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
+              <div className="bg-white rounded-xl shadow-md p-3 sm:p-4 border-2 border-purple-200">
                 <ResultSharing
                   title="Percentage Calculation Result"
                   inputs={[
@@ -216,14 +207,14 @@ export default function PercentageCalculator() {
 
             {/* Main Result */}
             {result && (
-              <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                  <TrendingUp className="w-6 h-6 mr-2 text-purple-600" />
+              <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
+                <h2 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                  <TrendingUp className="w-5 h-5 mr-2 text-purple-600" />
                   Result
                 </h2>
                 
-                <div className="text-center mb-6">
-                  <div className="text-4xl font-bold text-purple-600 mb-2">
+                <div className="text-center mb-4">
+                  <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-2">
                     {formatNumber(result.result)}
                     {calculationType === 'basic' || calculationType === 'increase-decrease' ? '' : '%'}
                   </div>
@@ -306,19 +297,18 @@ export default function PercentageCalculator() {
         </div>
 
         {/* Calculator Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Percentage Calculator</h2>
+        <div className="mt-4 bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
           <div className="prose prose-gray max-w-none">
-            <p className="text-gray-700 mb-6 text-lg">
+            <p className="text-gray-700 mb-4 text-sm sm:text-base">
               Our comprehensive percentage calculator handles all types of percentage calculations with ease and accuracy. 
               Whether you're calculating discounts, markups, percentage changes, or finding parts of a whole, 
               this tool provides instant results and clear explanations.
             </p>
             
-            <div className="grid md:grid-cols-2 gap-8 mb-6">
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Calculation Types</h3>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">Calculation Types</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm sm:text-base">
                   <li><strong>Basic Percentage:</strong> Find X% of a number</li>
                   <li><strong>Percentage Change:</strong> Calculate increase/decrease</li>
                   <li><strong>Percentage of Total:</strong> Find what % one number is of another</li>

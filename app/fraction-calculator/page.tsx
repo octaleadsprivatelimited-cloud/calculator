@@ -2,11 +2,8 @@ import FractionCalculator from '../components/calculators/FractionCalculator';
 
 export default function FractionPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-          Fraction Calculator
-        </h1>
+    <div className="min-h-screen bg-gray-50 py-4">
+      <div className="max-w-2xl mx-auto px-2 sm:px-4">
         <FractionCalculator />
       </div>
     </div>

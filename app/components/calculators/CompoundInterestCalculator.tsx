@@ -14,11 +14,11 @@ interface CompoundResult {
 }
 
 export default function CompoundInterestCalculator() {
-  const [principal, setPrincipal] = useState('10000')
-  const [annualRate, setAnnualRate] = useState('5')
-  const [years, setYears] = useState('10')
+  const [principal, setPrincipal] = useState('')
+  const [annualRate, setAnnualRate] = useState('')
+  const [years, setYears] = useState('')
   const [compoundFrequency, setCompoundFrequency] = useState('12')
-  const [additionalContribution, setAdditionalContribution] = useState('100')
+  const [additionalContribution, setAdditionalContribution] = useState('')
   const [contributionFrequency, setContributionFrequency] = useState('monthly')
   const [showYearlyBreakdown, setShowYearlyBreakdown] = useState(false)
 
@@ -106,16 +106,16 @@ export default function CompoundInterestCalculator() {
   const yearlyBreakdown = calculateYearlyBreakdown()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-2 sm:p-4">
       <div className="w-full">
-        <header className="text-center mb-8">
-          <p className="text-xl text-gray-600">
+        <header className="text-center mb-4">
+          <p className="text-sm sm:text-base text-gray-600">
             Calculate the power of compound interest and investment growth over time
           </p>
         </header>
 
         {/* Share Options - Moved to Top */}
-        <div className="mb-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
+        <div className="mb-4 bg-white rounded-xl shadow-md p-3 sm:p-4 border-2 border-blue-200">
           <ResultSharing
             title="Compound Interest Calculation Result"
             inputs={[
@@ -135,29 +135,29 @@ export default function CompoundInterestCalculator() {
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <CalculatorIcon className="w-6 h-6 mr-2 text-blue-600" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-blue-200">
+            <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
+              <CalculatorIcon className="w-5 h-5 mr-2 text-blue-600" />
               Investment Parameters
             </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs font-medium text-gray-700 mb-2">
                   Initial Principal
                 </label>
                 <input
                   type="number"
                   value={principal}
                   onChange={(e) => setPrincipal(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                  placeholder="10000"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  placeholder="0"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs font-medium text-gray-700 mb-2">
                   Annual Interest Rate (%)
                 </label>
                 <input
@@ -165,32 +165,32 @@ export default function CompoundInterestCalculator() {
                   step="0.01"
                   value={annualRate}
                   onChange={(e) => setAnnualRate(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                  placeholder="5"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  placeholder="0"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs font-medium text-gray-700 mb-2">
                   Time Period (Years)
                 </label>
                 <input
                   type="number"
                   value={years}
                   onChange={(e) => setYears(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                  placeholder="10"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  placeholder="0"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs font-medium text-gray-700 mb-2">
                   Compounding Frequency
                 </label>
                 <select
                   value={compoundFrequency}
                   onChange={(e) => setCompoundFrequency(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
                   aria-label="Compounding frequency"
                   title="Select compounding frequency"
                 >
@@ -203,26 +203,26 @@ export default function CompoundInterestCalculator() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs font-medium text-gray-700 mb-2">
                   Additional Contribution
                 </label>
                 <input
                   type="number"
                   value={additionalContribution}
                   onChange={(e) => setAdditionalContribution(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                  placeholder="100"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  placeholder="0"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs font-medium text-gray-700 mb-2">
                   Contribution Frequency
                 </label>
                 <select
                   value={contributionFrequency}
                   onChange={(e) => setContributionFrequency(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
                   aria-label="Contribution frequency"
                   title="Select contribution frequency"
                 >
@@ -232,59 +232,59 @@ export default function CompoundInterestCalculator() {
                 </select>
               </div>
 
-              <div className="flex gap-3 pt-4">
+              <div className="flex gap-2 sm:gap-3 pt-2">
                 <button
                   onClick={() => setShowYearlyBreakdown(!showYearlyBreakdown)}
-                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                  className="flex-1 bg-blue-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm sm:text-base"
                 >
                   {showYearlyBreakdown ? 'Hide' : 'Show'} Yearly Breakdown
                 </button>
                 <button
                   onClick={() => {
-                    setPrincipal('10000')
-                    setAnnualRate('5')
-                    setYears('10')
+                    setPrincipal('')
+                    setAnnualRate('')
+                    setYears('')
                     setCompoundFrequency('12')
-                    setAdditionalContribution('100')
+                    setAdditionalContribution('')
                     setContributionFrequency('monthly')
                   }}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="px-4 sm:px-6 py-2 sm:py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
                   title="Reset to defaults"
                 >
-                  <RotateCcw className="w-5 h-5" />
+                  <RotateCcw className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                <BarChart3 className="w-6 h-6 mr-2 text-blue-600" />
+          <div className="space-y-3">
+            <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-blue-200">
+              <h2 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                <BarChart3 className="w-5 h-5 mr-2 text-blue-600" />
                 Final Amount
               </h2>
               
-              <div className="text-center mb-6">
-                <div className="text-4xl font-bold text-blue-600">
+              <div className="text-center mb-4">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600">
                   {formatCurrency(result.finalAmount)}
                 </div>
-                <p className="text-gray-600">after {result.years} years</p>
+                <p className="text-gray-600 text-sm sm:text-base">after {result.years} years</p>
               </div>
 
-              <div className="space-y-3">
-                <div className="flex justify-between py-2 border-b border-gray-100">
+              <div className="space-y-2">
+                <div className="flex justify-between py-1 sm:py-2 border-b border-gray-100 text-sm sm:text-base">
                   <span className="text-gray-600">Initial Principal</span>
                   <span className="font-semibold">{formatCurrency(result.principal)}</span>
                 </div>
-                <div className="flex justify-between py-2 border-b border-gray-100">
+                <div className="flex justify-between py-1 sm:py-2 border-b border-gray-100 text-sm sm:text-base">
                   <span className="text-gray-600">Total Contributions</span>
                   <span className="font-semibold text-green-600">{formatCurrency(result.totalContributions)}</span>
                 </div>
-                <div className="flex justify-between py-2 border-b border-gray-100">
+                <div className="flex justify-between py-1 sm:py-2 border-b border-gray-100 text-sm sm:text-base">
                   <span className="text-gray-600">Interest Earned</span>
                   <span className="font-semibold text-blue-600">{formatCurrency(result.totalInterest)}</span>
                 </div>
-                <div className="flex justify-between py-2 border-b border-gray-100">
+                <div className="flex justify-between py-1 sm:py-2 border-b border-gray-100 text-sm sm:text-base">
                   <span className="text-gray-600">Annual Rate</span>
                   <span className="font-semibold">{result.annualRate.toFixed(2)}%</span>
                 </div>
@@ -474,7 +474,6 @@ export default function CompoundInterestCalculator() {
         </div>
 
         <footer className="text-center mt-12 text-gray-500">
-          <p>© 2024 Compound Interest Calculator. All rights reserved.</p>
         </footer>
       </div>
     </div>

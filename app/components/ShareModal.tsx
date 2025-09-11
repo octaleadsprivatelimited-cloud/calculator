@@ -43,41 +43,151 @@ export default function ShareModal({ isOpen, onClose, calculation }: ShareModalP
   }
 
   const generateImage = async () => {
-    if (!shareRef.current) return
+    if (!shareRef.current) {
+      console.error('ShareRef is not available')
+      return
+    }
     
     setGeneratingImage(true)
     try {
-      const canvas = await html2canvas(shareRef.current, {
-        backgroundColor: '#ffffff',
-        scale: 2,
-        width: 600,
-        height: 400
-      })
+      console.log('Starting image generation...')
+      console.log('ShareRef element:', shareRef.current)
       
-      const link = document.createElement('a')
-      link.download = `calculator-result-${Date.now()}.png`
-      link.href = canvas.toDataURL()
-      link.click()
+      // Ensure the element is visible and has dimensions
+      const element = shareRef.current
+      const rect = element.getBoundingClientRect()
+      console.log('Element dimensions:', rect)
+      
+      if (rect.width === 0 || rect.height === 0) {
+        console.error('Element has no dimensions')
+        return
+      }
+      
+      // Try html2canvas first
+      try {
+        const canvas = await html2canvas(element, {
+          backgroundColor: '#ffffff',
+          scale: 2,
+          width: Math.max(600, rect.width),
+          height: Math.max(400, rect.height),
+          useCORS: true,
+          allowTaint: true,
+          logging: true, // Enable logging for debugging
+          onclone: (clonedDoc) => {
+            // Ensure the cloned element is properly styled
+            const clonedElement = clonedDoc.querySelector('[data-share-content]')
+            if (clonedElement) {
+              clonedElement.style.width = '600px'
+              clonedElement.style.height = '400px'
+              clonedElement.style.position = 'relative'
+              clonedElement.style.overflow = 'visible'
+            }
+          }
+        })
+        
+        console.log('Canvas generated:', canvas)
+        
+        // Create download link
+        const link = document.createElement('a')
+        link.download = `calculator-result-${Date.now()}.png`
+        link.href = canvas.toDataURL('image/png', 1.0)
+        
+        // Trigger download
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        
+        console.log('Image download initiated')
+      } catch (html2canvasError) {
+        console.warn('html2canvas failed, trying fallback method:', html2canvasError)
+        
+        // Fallback: Create a simple canvas with text
+        const fallbackCanvas = document.createElement('canvas')
+        const ctx = fallbackCanvas.getContext('2d')
+        if (ctx) {
+          fallbackCanvas.width = 600
+          fallbackCanvas.height = 400
+          
+          // Fill background
+          ctx.fillStyle = '#f8fafc'
+          ctx.fillRect(0, 0, 600, 400)
+          
+          // Add border
+          ctx.strokeStyle = '#3b82f6'
+          ctx.lineWidth = 4
+          ctx.strokeRect(2, 2, 596, 396)
+          
+          // Add title
+          ctx.fillStyle = '#1e293b'
+          ctx.font = 'bold 24px Arial'
+          ctx.textAlign = 'center'
+          ctx.fillText('🔢 Scientific Calculator Result', 300, 60)
+          
+          // Add calculation
+          ctx.font = 'bold 32px Arial'
+          ctx.fillStyle = '#3b82f6'
+          ctx.fillText(`${calculation.expression} = ${calculation.result}`, 300, 140)
+          
+          // Add timestamp
+          ctx.font = '16px Arial'
+          ctx.fillStyle = '#64748b'
+          ctx.fillText(`Calculated on: ${calculation.timestamp.toLocaleString()}`, 300, 200)
+          
+          // Add website
+          ctx.font = 'bold 18px Arial'
+          ctx.fillStyle = '#1e293b'
+          ctx.fillText(`Try it yourself at: ${websiteUrl}`, 300, 250)
+          
+          // Download fallback image
+          const link = document.createElement('a')
+          link.download = `calculator-result-${Date.now()}.png`
+          link.href = fallbackCanvas.toDataURL('image/png', 1.0)
+          
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+          
+          console.log('Fallback image generated and downloaded')
+        }
+      }
     } catch (error) {
       console.error('Error generating image:', error)
+      alert('Failed to generate image. Please try again.')
     } finally {
       setGeneratingImage(false)
     }
   }
 
   const generatePDF = async () => {
-    if (!shareRef.current) return
+    if (!shareRef.current) {
+      console.error('ShareRef is not available')
+      return
+    }
     
     setGeneratingPDF(true)
     try {
-      const canvas = await html2canvas(shareRef.current, {
+      console.log('Starting PDF generation...')
+      
+      const element = shareRef.current
+      const rect = element.getBoundingClientRect()
+      
+      if (rect.width === 0 || rect.height === 0) {
+        console.error('Element has no dimensions')
+        return
+      }
+      
+      const canvas = await html2canvas(element, {
         backgroundColor: '#ffffff',
         scale: 2,
-        width: 600,
-        height: 400
+        width: Math.max(600, rect.width),
+        height: Math.max(400, rect.height),
+        useCORS: true,
+        allowTaint: true
       })
       
-      const imgData = canvas.toDataURL('image/png')
+      console.log('Canvas generated for PDF:', canvas)
+      
+      const imgData = canvas.toDataURL('image/png', 1.0)
       const pdf = new jsPDF('p', 'mm', 'a4')
       const imgWidth = 210
       const pageHeight = 295
@@ -97,8 +207,10 @@ export default function ShareModal({ isOpen, onClose, calculation }: ShareModalP
       }
 
       pdf.save(`calculator-result-${Date.now()}.pdf`)
+      console.log('PDF download initiated')
     } catch (error) {
       console.error('Error generating PDF:', error)
+      alert('Failed to generate PDF. Please try again.')
     } finally {
       setGeneratingPDF(false)
     }
@@ -169,6 +281,7 @@ export default function ShareModal({ isOpen, onClose, calculation }: ShareModalP
         <div className="p-6">
           <div 
             ref={shareRef}
+            data-share-content
             className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6 text-center border-2 border-blue-200"
           >
             <h4 className="text-lg font-semibold text-gray-800 mb-4">
@@ -203,6 +316,18 @@ export default function ShareModal({ isOpen, onClose, calculation }: ShareModalP
           >
             <Image className="w-5 h-5" />
             {generatingImage ? 'Generating...' : 'Download as Image'}
+          </button>
+          
+          {/* Debug button - remove after testing */}
+          <button
+            onClick={() => {
+              console.log('Debug: ShareRef current:', shareRef.current)
+              console.log('Debug: ShareRef dimensions:', shareRef.current?.getBoundingClientRect())
+              console.log('Debug: Calculation data:', calculation)
+            }}
+            className="w-full flex items-center justify-center gap-3 p-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition-colors text-sm"
+          >
+            🐛 Debug Info
           </button>
 
           <button

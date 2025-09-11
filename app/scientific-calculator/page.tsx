@@ -40,9 +40,6 @@ export default function ScientificCalculatorPage() {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Scientific Calculator
           </h1>
-          <p className="text-lg text-gray-600">
-            Advanced mathematical functions for complex calculations and scientific computations
-          </p>
         </div>
         <ScientificCalculator />
         

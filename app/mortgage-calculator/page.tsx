@@ -34,46 +34,38 @@ export const metadata: Metadata = {
 
 export default function MortgagePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 py-8">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Mortgage Calculator
-          </h1>
-          <p className="text-lg text-gray-600">
-            Calculate monthly mortgage payments, interest costs, and loan terms
-          </p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 py-4">
+      <div className="max-w-2xl mx-auto px-2 sm:px-4">
         <MortgageCalculator />
         
-        <div className="mt-12 bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        <div className="mt-6 bg-white rounded-lg shadow-lg p-4 sm:p-6">
+          <h2 className="text-lg font-semibold text-gray-800 mb-3">
             About Mortgage Calculations
           </h2>
           <div className="prose prose-gray max-w-none">
-            <p className="mb-4">
+            <p className="mb-3 text-sm sm:text-base">
               A mortgage calculator helps you estimate the monthly payments and total costs 
               associated with a home loan. Understanding these costs is crucial for budgeting 
               and making informed decisions about homeownership.
             </p>
-            <h3 className="text-xl font-semibold mb-2">Key Components:</h3>
-            <ul className="list-disc pl-6 mb-4">
+            <h3 className="text-lg font-semibold mb-2">Key Components:</h3>
+            <ul className="list-disc pl-4 mb-3 text-sm sm:text-base space-y-1">
               <li><strong>Principal:</strong> The amount borrowed to purchase the home</li>
               <li><strong>Interest Rate:</strong> Annual percentage rate charged by the lender</li>
               <li><strong>Loan Term:</strong> Length of time to repay the loan (typically 15-30 years)</li>
               <li><strong>Property Taxes:</strong> Annual taxes assessed by local government</li>
               <li><strong>Insurance:</strong> Homeowner's insurance and PMI if applicable</li>
             </ul>
-            <h3 className="text-xl font-semibold mb-2">Benefits of Using a Mortgage Calculator:</h3>
-            <ul className="list-disc pl-6 mb-4">
+            <h3 className="text-lg font-semibold mb-2">Benefits of Using a Mortgage Calculator:</h3>
+            <ul className="list-disc pl-4 mb-3 text-sm sm:text-base space-y-1">
               <li>Compare different loan scenarios and terms</li>
               <li>Understand the true cost of homeownership</li>
               <li>Plan your budget and monthly expenses</li>
               <li>Evaluate refinancing opportunities</li>
               <li>Make informed decisions about down payments</li>
             </ul>
-            <h3 className="text-xl font-semibold mb-2">Tips for Homebuyers:</h3>
-            <ul className="list-disc pl-6">
+            <h3 className="text-lg font-semibold mb-2">Tips for Homebuyers:</h3>
+            <ul className="list-disc pl-4 text-sm sm:text-base space-y-1">
               <li>Consider your total monthly budget, not just the mortgage payment</li>
               <li>Factor in maintenance costs and emergency funds</li>
               <li>Shop around for the best interest rates and terms</li>
