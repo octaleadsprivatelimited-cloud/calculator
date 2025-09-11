@@ -43,7 +43,8 @@ const navigation: NavItem[] = [
       { name: 'Investment', href: '/investment-calculator', icon: null, description: 'Investment returns' },
       { name: 'Compound Interest', href: '/compound-interest-calculator', icon: null, description: 'Compound interest calculator' },
       { name: 'SIP Calculator', href: '/sip-calculator', icon: null, description: 'Calculate SIP returns' },
-      { name: 'Invoice Maker', href: '/invoice-maker', icon: null, description: 'Create professional invoices' }
+      { name: 'Invoice Maker', href: '/invoice-maker', icon: null, description: 'Create professional invoices' },
+      { name: 'Quotation Generator', href: '/quotation-generator', icon: null, description: 'Generate professional quotes' }
     ]
   },
   {
