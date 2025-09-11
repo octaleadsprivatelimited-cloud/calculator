@@ -15,11 +15,11 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
         <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
           <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
           {/* Google AdSense Ad Unit - Top Banner */}
-          <div className="bg-gray-100 rounded-lg flex items-center justify-center h-24">
-            <div className="text-center text-gray-400">
-              <div className="text-lg font-semibold mb-1">Google Ad 1</div>
-              <div className="text-sm">728x90</div>
-              <div className="text-xs">Top Banner</div>
+          <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center h-24 text-white">
+            <div className="text-center">
+              <div className="text-lg font-bold mb-1">🚀 Premium Calculator Tools</div>
+              <div className="text-sm opacity-90">Get Advanced Features - Try Now!</div>
+              <div className="text-xs opacity-75 mt-1">728x90 Banner Ad</div>
             </div>
           </div>
           {/* AdSense Script - Uncomment when you have your ad unit ID */}
@@ -42,11 +42,15 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
             {/* Left Ad 1 */}
             <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
               <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-              <div className="bg-gray-100 rounded-lg flex items-center justify-center h-80">
-                <div className="text-center text-gray-400">
-                  <div className="text-lg font-semibold mb-2">Google Ad 2</div>
-                  <div className="text-sm">160x600</div>
-                  <div className="text-xs mt-1">Left Sidebar</div>
+              <div className="bg-gradient-to-b from-green-400 to-blue-500 rounded-lg flex flex-col items-center justify-center h-80 text-white p-4">
+                <div className="text-center">
+                  <div className="text-2xl mb-3">💰</div>
+                  <div className="text-lg font-bold mb-2">Earn Money Online</div>
+                  <div className="text-sm mb-3 opacity-90">Start Your Side Hustle Today</div>
+                  <div className="bg-white text-green-600 px-4 py-2 rounded-full text-sm font-semibold">
+                    Learn More
+                  </div>
+                  <div className="text-xs opacity-75 mt-3">160x600 Ad</div>
                 </div>
               </div>
               {/* AdSense Script */}
@@ -64,11 +68,15 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
             {/* Left Ad 2 */}
             <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
               <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-              <div className="bg-gray-100 rounded-lg flex items-center justify-center h-80">
-                <div className="text-center text-gray-400">
-                  <div className="text-lg font-semibold mb-2">Google Ad 3</div>
-                  <div className="text-sm">160x600</div>
-                  <div className="text-xs mt-1">Left Sidebar 2</div>
+              <div className="bg-gradient-to-b from-orange-400 to-red-500 rounded-lg flex flex-col items-center justify-center h-80 text-white p-4">
+                <div className="text-center">
+                  <div className="text-2xl mb-3">🏠</div>
+                  <div className="text-lg font-bold mb-2">Buy Your Dream Home</div>
+                  <div className="text-sm mb-3 opacity-90">Lowest Interest Rates</div>
+                  <div className="bg-white text-orange-600 px-4 py-2 rounded-full text-sm font-semibold">
+                    Get Quote
+                  </div>
+                  <div className="text-xs opacity-75 mt-3">160x600 Ad</div>
                 </div>
               </div>
               {/* AdSense Script */}
@@ -96,11 +104,15 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
             {/* Right Ad 1 */}
             <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
               <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-              <div className="bg-gray-100 rounded-lg flex items-center justify-center h-80">
-                <div className="text-center text-gray-400">
-                  <div className="text-lg font-semibold mb-2">Google Ad 4</div>
-                  <div className="text-sm">160x600</div>
-                  <div className="text-xs mt-1">Right Sidebar</div>
+              <div className="bg-gradient-to-b from-purple-500 to-pink-500 rounded-lg flex flex-col items-center justify-center h-80 text-white p-4">
+                <div className="text-center">
+                  <div className="text-2xl mb-3">💳</div>
+                  <div className="text-lg font-bold mb-2">Credit Card Offers</div>
+                  <div className="text-sm mb-3 opacity-90">0% APR for 18 Months</div>
+                  <div className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold">
+                    Apply Now
+                  </div>
+                  <div className="text-xs opacity-75 mt-3">160x600 Ad</div>
                 </div>
               </div>
               {/* AdSense Script */}
@@ -118,11 +130,15 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
             {/* Right Ad 2 */}
             <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
               <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-              <div className="bg-gray-100 rounded-lg flex items-center justify-center h-80">
-                <div className="text-center text-gray-400">
-                  <div className="text-lg font-semibold mb-2">Google Ad 5</div>
-                  <div className="text-sm">160x600</div>
-                  <div className="text-xs mt-1">Right Sidebar 2</div>
+              <div className="bg-gradient-to-b from-teal-400 to-blue-500 rounded-lg flex flex-col items-center justify-center h-80 text-white p-4">
+                <div className="text-center">
+                  <div className="text-2xl mb-3">📱</div>
+                  <div className="text-lg font-bold mb-2">New Smartphone</div>
+                  <div className="text-sm mb-3 opacity-90">50% Off Today Only</div>
+                  <div className="bg-white text-teal-600 px-4 py-2 rounded-full text-sm font-semibold">
+                    Shop Now
+                  </div>
+                  <div className="text-xs opacity-75 mt-3">160x600 Ad</div>
                 </div>
               </div>
               {/* AdSense Script */}
@@ -145,11 +161,10 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
         {/* Mobile Ad 1 */}
         <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
           <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-          <div className="bg-gray-100 rounded-lg flex items-center justify-center h-24">
-            <div className="text-center text-gray-400">
-              <div className="text-lg font-semibold mb-1">Google Ad 1</div>
-              <div className="text-sm">728x90</div>
-              <div className="text-xs">Mobile Banner</div>
+          <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center h-24 text-white">
+            <div className="text-center">
+              <div className="text-lg font-bold mb-1">💎 Premium Tools</div>
+              <div className="text-sm opacity-90">Unlock Advanced Features</div>
             </div>
           </div>
         </div>
@@ -157,11 +172,10 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
         {/* Mobile Ad 2 */}
         <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
           <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-          <div className="bg-gray-100 rounded-lg flex items-center justify-center h-24">
-            <div className="text-center text-gray-400">
-              <div className="text-lg font-semibold mb-1">Google Ad 2</div>
-              <div className="text-sm">728x90</div>
-              <div className="text-xs">Mobile Banner 2</div>
+          <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center h-24 text-white">
+            <div className="text-center">
+              <div className="text-lg font-bold mb-1">💰 Earn Money</div>
+              <div className="text-sm opacity-90">Start Your Business Today</div>
             </div>
           </div>
         </div>
@@ -169,11 +183,10 @@ export default function CalculatorWithAds({ children, className = '' }: Calculat
         {/* Mobile Ad 3 */}
         <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-200">
           <div className="text-center text-sm text-gray-500 mb-3">Advertisement</div>
-          <div className="bg-gray-100 rounded-lg flex items-center justify-center h-24">
-            <div className="text-center text-gray-400">
-              <div className="text-lg font-semibold mb-1">Google Ad 3</div>
-              <div className="text-sm">728x90</div>
-              <div className="text-xs">Mobile Banner 3</div>
+          <div className="bg-gradient-to-r from-rose-500 to-pink-600 rounded-lg flex items-center justify-center h-24 text-white">
+            <div className="text-center">
+              <div className="text-lg font-bold mb-1">🏠 Home Loans</div>
+              <div className="text-sm opacity-90">Best Rates Available</div>
             </div>
           </div>
         </div>
