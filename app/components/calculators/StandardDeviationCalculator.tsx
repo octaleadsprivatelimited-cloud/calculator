@@ -450,7 +450,6 @@ export default function StandardDeviationCalculator() {
         </div>
 
         <footer className="text-center mt-12 text-gray-500">
-          <p>© 2024 Standard Deviation Calculator. All rights reserved.</p>
         </footer>
       </div>
     </div>

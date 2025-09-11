@@ -551,7 +551,6 @@ export default function PercentageGradeCalculator() {
         </div>
 
         <footer className="text-center mt-12 text-gray-500">
-          <p>© 2024 Percentage to Grade Calculator. All rights reserved.</p>
         </footer>
       </div>
     </div>

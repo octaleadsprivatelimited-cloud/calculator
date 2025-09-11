@@ -323,7 +323,6 @@ export default function UnitConverter() {
         </div>
 
         <footer className="text-center mt-12 text-gray-500">
-          <p>© 2024 Unit Converter. All rights reserved.</p>
         </footer>
       </div>
     </div>

@@ -297,7 +297,6 @@ export default function TriangleCalculator() {
         </div>
 
         <footer className="text-center mt-12 text-gray-500">
-          <p>© 2024 Triangle Calculator. All rights reserved.</p>
         </footer>
       </div>
     </div>

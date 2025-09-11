@@ -544,6 +544,8 @@ export default function InvoiceMaker() {
                         accept="image/*"
                         onChange={handleLogoUpload}
                         className="hidden"
+                        title="Upload company logo"
+                        aria-label="Upload company logo"
                       />
                     </div>
                   </div>
