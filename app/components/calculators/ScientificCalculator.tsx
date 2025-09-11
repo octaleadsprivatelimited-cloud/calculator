@@ -479,7 +479,7 @@ export default function ScientificCalculator() {
         ? 'bg-gradient-to-br from-gray-900 to-gray-800' 
         : 'bg-gradient-to-br from-blue-50 to-indigo-100'
     }`}>
-      <div className="max-w-2xl mx-auto px-2 py-2">
+      <div className="max-w-6xl mx-auto px-2 py-2">
         {/* Modern Header */}
         <header className="mb-2">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

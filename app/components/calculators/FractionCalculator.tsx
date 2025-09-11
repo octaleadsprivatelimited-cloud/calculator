@@ -277,24 +277,6 @@ export default function FractionCalculator() {
             </div>
           )}
 
-          {/* Quick Examples */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
-            <h2 className="text-xl font-bold text-gray-800 mb-4 text-center">Quick Examples</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200 text-center">
-                <h3 className="font-semibold text-blue-800 mb-2">Addition</h3>
-                <p className="text-blue-600 text-sm">1/2 + 1/4 = 3/4 = 0.75</p>
-              </div>
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200 text-center">
-                <h3 className="font-semibold text-blue-800 mb-2">Multiplication</h3>
-                <p className="text-blue-600 text-sm">1/2 × 1/3 = 1/6 ≈ 0.167</p>
-              </div>
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200 text-center">
-                <h3 className="font-semibold text-blue-800 mb-2">Division</h3>
-                <p className="text-blue-600 text-sm">1/2 ÷ 1/4 = 2</p>
-              </div>
-            </div>
-          </div>
 
           {/* Fraction Tips */}
           <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
@@ -361,15 +343,6 @@ export default function FractionCalculator() {
             </div>
           </div>
           
-          <div className="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
-            <h5 className="font-semibold text-gray-800 mb-3">Pro Tip</h5>
-            <p className="text-gray-700">
-              When working with fractions, always think about the relationship between the numbers rather 
-              than just memorizing rules. Understanding that fractions represent parts of a whole helps 
-              visualize operations. Always simplify your final answers and check your work by converting 
-              to decimals or using estimation.
-            </p>
-          </div>
         </div>
       </div>
     </div>
