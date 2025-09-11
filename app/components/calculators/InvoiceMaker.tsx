@@ -608,6 +608,9 @@ export default function InvoiceMaker() {
                     value={invoiceData.invoiceNumber}
                     onChange={(e) => setInvoiceData(prev => ({ ...prev, invoiceNumber: e.target.value }))}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    placeholder="Enter invoice number"
+                    title="Invoice number"
+                    aria-label="Invoice number"
                   />
                 </div>
                 <div>
@@ -617,6 +620,8 @@ export default function InvoiceMaker() {
                     value={invoiceData.date}
                     onChange={(e) => setInvoiceData(prev => ({ ...prev, date: e.target.value }))}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    title="Invoice date"
+                    aria-label="Invoice date"
                   />
                 </div>
                 <div>
@@ -626,6 +631,8 @@ export default function InvoiceMaker() {
                     value={invoiceData.dueDate}
                     onChange={(e) => setInvoiceData(prev => ({ ...prev, dueDate: e.target.value }))}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    title="Due date"
+                    aria-label="Due date"
                   />
                 </div>
                 <div>
@@ -634,6 +641,8 @@ export default function InvoiceMaker() {
                     value={invoiceData.currency}
                     onChange={(e) => setInvoiceData(prev => ({ ...prev, currency: e.target.value }))}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    title="Select currency"
+                    aria-label="Select currency"
                   >
                     {currencies.map(currency => (
                       <option key={currency.code} value={currency.code}>
@@ -673,6 +682,8 @@ export default function InvoiceMaker() {
                         onChange={(e) => updateLineItem(item.id, 'description', e.target.value)}
                         placeholder="Item description"
                         className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+                        title="Item description"
+                        aria-label="Item description"
                       />
                     </div>
                     <div>
@@ -681,6 +692,9 @@ export default function InvoiceMaker() {
                         value={item.quantity}
                         onChange={(e) => updateLineItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
                         className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+                        placeholder="Quantity"
+                        title="Quantity"
+                        aria-label="Quantity"
                       />
                     </div>
                     <div>
@@ -690,6 +704,9 @@ export default function InvoiceMaker() {
                         value={item.rate}
                         onChange={(e) => updateLineItem(item.id, 'rate', parseFloat(e.target.value) || 0)}
                         className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+                        placeholder="Rate"
+                        title="Rate per unit"
+                        aria-label="Rate per unit"
                       />
                     </div>
                     <div>
@@ -698,6 +715,8 @@ export default function InvoiceMaker() {
                         value={item.amount}
                         readOnly
                         className="w-full px-2 py-2 border border-gray-300 rounded-lg bg-gray-100 text-sm"
+                        title="Total amount"
+                        aria-label="Total amount"
                       />
                     </div>
                     <div className="flex items-center">
@@ -705,6 +724,8 @@ export default function InvoiceMaker() {
                         onClick={() => removeLineItem(item.id)}
                         className="p-1 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                         disabled={invoiceData.lineItems.length === 1}
+                        title="Remove item"
+                        aria-label="Remove item"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -724,6 +745,9 @@ export default function InvoiceMaker() {
                       value={invoiceData.taxRate}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, taxRate: parseFloat(e.target.value) || 0 }))}
                       className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                      placeholder="Tax rate"
+                      title="Tax rate percentage"
+                      aria-label="Tax rate percentage"
                     />
                   </div>
                   <div>
@@ -734,12 +758,17 @@ export default function InvoiceMaker() {
                       value={invoiceData.discountRate}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, discountRate: parseFloat(e.target.value) || 0 }))}
                       className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                      placeholder="Discount rate"
+                      title="Discount rate percentage"
+                      aria-label="Discount rate percentage"
                     />
                   </div>
                   <div className="flex items-end">
                     <button
                       onClick={calculateTotals}
                       className="w-full px-3 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-200 flex items-center justify-center space-x-2 text-sm"
+                      title="Calculate totals"
+                      aria-label="Calculate totals"
                     >
                       <Calculator className="w-4 h-4" />
                       <span>Calculate</span>
