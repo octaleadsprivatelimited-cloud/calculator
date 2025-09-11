@@ -13,7 +13,7 @@ export default function BinaryCalculatorSimple() {
     const num1 = parseInt(input1, 2)
     const num2 = parseInt(input2, 2)
     let res = 0
-
+    
     switch (operation) {
       case 'add':
         res = num1 + num2
@@ -83,38 +83,36 @@ export default function BinaryCalculatorSimple() {
                 value={operation}
                 onChange={(e) => setOperation(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                title="Select binary operation"
-                aria-label="Select binary operation"
               >
-                  <option value="add">Addition (+)</option>
-                  <option value="subtract">Subtraction (-)</option>
-                  <option value="multiply">Multiplication (×)</option>
-                  <option value="divide">Division (÷)</option>
-                  <option value="and">AND (&)</option>
-                  <option value="or">OR (|)</option>
-                  <option value="xor">XOR (^)</option>
+                <option value="add">Addition (+)</option>
+                <option value="subtract">Subtraction (-)</option>
+                <option value="multiply">Multiplication (×)</option>
+                <option value="divide">Division (÷)</option>
+                <option value="and">AND (&)</option>
+                <option value="or">OR (|)</option>
+                <option value="xor">XOR (^)</option>
               </select>
             </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Second Binary Number
-                </label>
-                <input
-                  type="text"
-                  value={input2}
-                  onChange={(e) => setInput2(e.target.value)}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Second Binary Number
+              </label>
+              <input
+                type="text"
+                value={input2}
+                onChange={(e) => setInput2(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                  placeholder="1100"
+                placeholder="1100"
               />
-              </div>
+            </div>
 
-                <button
+            <button
               onClick={calculate}
               className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 focus:ring-2 focus:ring-purple-500"
             >
               Calculate
-                </button>
+            </button>
           </div>
         </div>
 
@@ -124,12 +122,12 @@ export default function BinaryCalculatorSimple() {
           {result && (
             <div className="space-y-4">
               <div className="bg-purple-50 rounded-lg p-4">
-                  <span className="text-sm font-medium text-purple-700">Binary Result:</span>
+                <span className="text-sm font-medium text-purple-700">Binary Result:</span>
                 <div className="font-mono text-lg font-bold text-purple-900">
                   {result}
                 </div>
               </div>
-
+              
               <div className="bg-gray-50 rounded-lg p-4">
                 <span className="text-sm font-medium text-gray-700">Decimal Result:</span>
                 <div className="font-mono text-lg font-bold text-gray-900">

@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
-import MortgageCalculator from '../components/calculators/MortgageCalculator';
+import MortgageCalculator from '../components/calculators/MortgageCalculator'
+import CalculatorWithAds from '../components/CalculatorWithAds'
 
 export const metadata: Metadata = {
   title: 'Mortgage Calculator - Calculate Monthly Payments | Online Calculator.live',
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
 
 export default function MortgagePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 py-4">
-      <div className="max-w-2xl mx-auto px-2 sm:px-4">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100">
+      <CalculatorWithAds>
         <MortgageCalculator />
         
         <div className="mt-6 bg-white rounded-lg shadow-lg p-4 sm:p-6">
@@ -74,7 +75,7 @@ export default function MortgagePage() {
             </ul>
           </div>
         </div>
-      </div>
+      </CalculatorWithAds>
     </div>
   );
 }
