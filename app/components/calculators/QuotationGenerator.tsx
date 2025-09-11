@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState, useRef } from 'react'
+import html2canvas from 'html2canvas'
+import jsPDF from 'jspdf'
 import { 
   FileText, 
   Download, 
@@ -175,6 +177,129 @@ export default function QuotationGenerator() {
         return 'from-slate-600 to-gray-700'
       default:
         return 'from-blue-600 to-purple-700'
+    }
+  }
+
+  const downloadPDF = async () => {
+    if (!quoteRef.current) return
+    
+    try {
+      const canvas = await html2canvas(quoteRef.current, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true
+      })
+      
+      const imgData = canvas.toDataURL('image/png')
+      const pdf = new jsPDF('p', 'mm', 'a4')
+      
+      const imgWidth = 210
+      const pageHeight = 295
+      const imgHeight = (canvas.height * imgWidth) / canvas.width
+      let heightLeft = imgHeight
+      
+      let position = 0
+      
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
+      heightLeft -= pageHeight
+      
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight
+        pdf.addPage()
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
+        heightLeft -= pageHeight
+      }
+      
+      pdf.save(`quotation-${quoteDetails.quoteNumber}.pdf`)
+    } catch (error) {
+      console.error('Error generating PDF:', error)
+      alert('Error generating PDF. Please try again.')
+    }
+  }
+
+  const printQuote = () => {
+    if (!quoteRef.current) return
+    
+    const printWindow = window.open('', '_blank')
+    if (printWindow) {
+      printWindow.document.write(`
+        <html>
+          <head>
+            <title>Print Quote</title>
+            <style>
+              body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+              @media print { body { margin: 0; padding: 0; } }
+            </style>
+          </head>
+          <body>
+            ${quoteRef.current.innerHTML}
+          </body>
+        </html>
+      `)
+      printWindow.document.close()
+      printWindow.print()
+    }
+  }
+
+  const emailQuote = () => {
+    const subject = `Quotation ${quoteDetails.quoteNumber}`
+    const body = `Please find attached the quotation ${quoteDetails.quoteNumber} for your review.`
+    const mailtoLink = `mailto:${clientInfo.email || ''}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.open(mailtoLink)
+  }
+
+  const saveQuote = () => {
+    const quoteData = {
+      companyInfo,
+      clientInfo,
+      quoteDetails,
+      items,
+      subtotal,
+      taxAmount,
+      total
+    }
+    
+    const dataStr = JSON.stringify(quoteData, null, 2)
+    const dataBlob = new Blob([dataStr], { type: 'application/json' })
+    const url = URL.createObjectURL(dataBlob)
+    
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `quotation-${quoteDetails.quoteNumber}.json`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  }
+
+  const copyQuote = async () => {
+    if (!quoteRef.current) return
+    
+    try {
+      const canvas = await html2canvas(quoteRef.current, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true
+      })
+      
+      canvas.toBlob(async (blob) => {
+        if (blob) {
+          try {
+            await navigator.clipboard.write([
+              new ClipboardItem({
+                'image/png': blob
+              })
+            ])
+            alert('Quote copied to clipboard!')
+          } catch (error) {
+            console.error('Error copying to clipboard:', error)
+            alert('Error copying quote. Please try downloading instead.')
+          }
+        }
+      }, 'image/png')
+    } catch (error) {
+      console.error('Error generating image:', error)
+      alert('Error copying quote. Please try downloading instead.')
     }
   }
 
@@ -372,11 +497,21 @@ export default function QuotationGenerator() {
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-sm font-semibold text-gray-800">Quote Preview</h3>
               <div className="flex space-x-2">
-                <button className="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center text-xs">
+                <button 
+                  onClick={saveQuote}
+                  className="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center text-xs"
+                  title="Save Quote"
+                  aria-label="Save Quote"
+                >
                   <Save className="w-3 h-3 mr-1" />
                   Save
                 </button>
-                <button className="px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center text-xs">
+                <button 
+                  onClick={copyQuote}
+                  className="px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center text-xs"
+                  title="Copy Quote"
+                  aria-label="Copy Quote"
+                >
                   <Copy className="w-3 h-3 mr-1" />
                   Copy
                 </button>
@@ -544,15 +679,30 @@ export default function QuotationGenerator() {
 
           {/* Action Buttons */}
           <div className="mt-4 flex flex-wrap gap-2">
-            <button className="flex-1 min-w-[150px] bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 flex items-center justify-center font-medium text-xs">
+            <button 
+              onClick={downloadPDF}
+              className="flex-1 min-w-[150px] bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 flex items-center justify-center font-medium text-xs"
+              title="Download PDF"
+              aria-label="Download PDF"
+            >
               <Download className="w-4 h-4 mr-1" />
               Download PDF
             </button>
-            <button className="flex-1 min-w-[150px] bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 flex items-center justify-center font-medium text-xs">
+            <button 
+              onClick={printQuote}
+              className="flex-1 min-w-[150px] bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 flex items-center justify-center font-medium text-xs"
+              title="Print Quote"
+              aria-label="Print Quote"
+            >
               <Printer className="w-4 h-4 mr-1" />
               Print Quote
             </button>
-            <button className="flex-1 min-w-[150px] bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 flex items-center justify-center font-medium text-xs">
+            <button 
+              onClick={emailQuote}
+              className="flex-1 min-w-[150px] bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 flex items-center justify-center font-medium text-xs"
+              title="Email Quote"
+              aria-label="Email Quote"
+            >
               <Mail className="w-4 h-4 mr-1" />
               Email Quote
             </button>
