@@ -237,44 +237,44 @@ export default function QuotationGenerator() {
               <Building className="w-4 h-4 mr-1" />
               Company Details
             </h3>
-            <div className="space-y-1">
+            <div className="space-y-0.5">
               {Object.entries(companyInfo).map(([key, value]) => (
                 <div key={key}>
-                  <label className="block text-xs font-medium text-gray-700 mb-1 capitalize">
+                  <label className="block text-xs font-medium text-gray-700 mb-0.5 capitalize">
                     {key.replace(/([A-Z])/g, ' $1').trim()}
                   </label>
                   {isEditing && editingField === key ? (
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-1">
                       <input
                         type={key === 'email' || key === 'website' ? 'text' : 'text'}
                         value={value}
                         onChange={(e) => setCompanyInfo(prev => ({ ...prev, [key]: e.target.value }))}
-                        className="flex-1 px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                        className="flex-1 px-2 py-0.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
                         autoFocus
                         title={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
                         aria-label={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
                       />
                       <button
                         onClick={saveEdit}
-                        className="p-2 text-green-600 hover:bg-green-50 rounded-lg"
+                        className="p-1 text-green-600 hover:bg-green-50 rounded-lg"
                         title="Save changes"
                         aria-label="Save changes"
                       >
-                        <Check className="w-4 h-4" />
+                        <Check className="w-3 h-3" />
                       </button>
                       <button
                         onClick={cancelEdit}
-                        className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                        className="p-1 text-red-600 hover:bg-red-50 rounded-lg"
                         title="Cancel editing"
                         aria-label="Cancel editing"
                       >
-                        <X className="w-4 h-4" />
+                        <X className="w-3 h-3" />
                       </button>
                     </div>
                   ) : (
                     <div
                       onClick={() => startEdit(key)}
-                      className="px-3 py-2 border border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 flex items-center justify-between"
+                      className="px-2 py-1 border border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 flex items-center justify-between"
                     >
                       <span className="text-gray-700">{value}</span>
                       <Edit className="w-4 h-4 text-gray-400" />
@@ -291,10 +291,10 @@ export default function QuotationGenerator() {
               <User className="w-4 h-4 mr-1" />
               Client Details
             </h3>
-            <div className="space-y-1">
+            <div className="space-y-0.5">
               {Object.entries(clientInfo).map(([key, value]) => (
                 <div key={key}>
-                  <label className="block text-xs font-medium text-gray-700 mb-1 capitalize">
+                  <label className="block text-xs font-medium text-gray-700 mb-0.5 capitalize">
                     {key.replace(/([A-Z])/g, ' $1').trim()}
                   </label>
                   <input
@@ -302,7 +302,7 @@ export default function QuotationGenerator() {
                     value={value}
                     onChange={(e) => setClientInfo(prev => ({ ...prev, [key]: e.target.value }))}
                     placeholder={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
-                    className="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                    className="w-full px-2 py-0.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
                     title={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
                     aria-label={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
                   />
@@ -317,9 +317,9 @@ export default function QuotationGenerator() {
               <Hash className="w-4 h-4 mr-1" />
               Quote Details
             </h3>
-            <div className="space-y-1">
+            <div className="space-y-0.5">
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Quote Number</label>
+                <label className="block text-xs font-medium text-gray-700 mb-0.5">Quote Number</label>
                 <input
                   type="text"
                   value={quoteDetails.quoteNumber}
@@ -330,7 +330,7 @@ export default function QuotationGenerator() {
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Date</label>
+                <label className="block text-xs font-medium text-gray-700 mb-0.5">Date</label>
                 <input
                   type="date"
                   value={quoteDetails.date}
@@ -341,7 +341,7 @@ export default function QuotationGenerator() {
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Valid Until</label>
+                <label className="block text-xs font-medium text-gray-700 mb-0.5">Valid Until</label>
                 <input
                   type="date"
                   value={quoteDetails.validUntil}
@@ -352,7 +352,7 @@ export default function QuotationGenerator() {
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Tax Rate (%)</label>
+                <label className="block text-xs font-medium text-gray-700 mb-0.5">Tax Rate (%)</label>
                 <input
                   type="number"
                   value={taxRate}
