@@ -75,7 +75,7 @@ export default function ShareModal({ isOpen, onClose, calculation }: ShareModalP
           logging: true, // Enable logging for debugging
           onclone: (clonedDoc) => {
             // Ensure the cloned element is properly styled
-            const clonedElement = clonedDoc.querySelector('[data-share-content]')
+            const clonedElement = clonedDoc.querySelector('[data-share-content]') as HTMLElement
             if (clonedElement) {
               clonedElement.style.width = '600px'
               clonedElement.style.height = '400px'
