@@ -131,6 +131,17 @@ const calculatorCategories: CalculatorCategory[] = [
       { id: 'percentage-grade', name: 'Percentage to Grade', description: 'Convert percentages to letter grades', url: '/percentage-grade-calculator' },
       { id: 'scholarship', name: 'Scholarship Calculator', description: 'Calculate scholarship eligibility', url: '/calculators/scholarship' }
     ]
+  },
+  {
+    id: 'lifestyle',
+    name: 'Lifestyle & Social',
+    icon: <Heart className="w-8 h-8 text-pink-600" />,
+    description: 'Generators and calculators for social and lifestyle needs',
+    calculators: [
+      { id: 'marriage-biodata', name: 'Marriage Biodata Generator', description: 'Create professional matrimony resumes', url: '/marriage-biodata-generator' },
+      { id: 'love', name: 'Love Calculator', description: 'Calculate compatibility between two people', url: '/love-calculator' },
+      { id: 'quotation', name: 'Quotation Generator', description: 'Generate professional business quotes', url: '/quotation-generator' }
+    ]
   }
 ]
 

@@ -173,6 +173,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/calculators/concrete`, lastModified: currentDate, changeFrequency: 'weekly' as const, priority: 0.8 },
     { url: `${baseUrl}/calculators/countdown`, lastModified: currentDate, changeFrequency: 'weekly' as const, priority: 0.8 },
     { url: `${baseUrl}/calculators/hours`, lastModified: currentDate, changeFrequency: 'weekly' as const, priority: 0.8 },
+    { url: `${baseUrl}/marriage-biodata-generator`, lastModified: currentDate, changeFrequency: 'weekly' as const, priority: 0.8 },
+    { url: `${baseUrl}/quotation-generator`, lastModified: currentDate, changeFrequency: 'weekly' as const, priority: 0.8 },
   ]
 
   // Lower-priority calculators
