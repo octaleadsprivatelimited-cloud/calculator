@@ -15,8 +15,8 @@ interface CurrencyRate {
 interface ConversionResult {
   fromAmount: number
   toAmount: number
-  from
-  to
+  fromCurrency: string
+  toCurrency: string
   rate: number
   inverseRate: number
 }
@@ -172,7 +172,7 @@ export default function CurrencyConverter() {
     URL.revokeObjectURL(url)
   }
 
-  const formatCurrency = (amount: number, ) => {
+  const formatCurrency = (amount: number, code: string) => {
     return new Intl.NumberFormat('en-US', {
       style: 'decimal',
       

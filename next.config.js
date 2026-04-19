@@ -28,7 +28,6 @@ const securityHeaders = [
 ]
 
 const nextConfig = {
-  swcMinify: true,
   compress: true,
   reactStrictMode: true,
 

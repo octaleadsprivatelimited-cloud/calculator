@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Binary } from 'lucide-react'
+import {  Binary , Calculator } from 'lucide-react'
 
 export default function BinaryCalculatorSimple() {
   const [input1, setInput1] = useState('1010')
@@ -197,6 +197,7 @@ export default function BinaryCalculatorSimple() {
     </div>
   )
 }
+
 
 
 

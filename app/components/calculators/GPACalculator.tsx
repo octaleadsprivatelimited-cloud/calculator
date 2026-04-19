@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { GraduationCap } from 'lucide-react'
+import {  GraduationCap , Calculator } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface Course {
@@ -368,6 +368,7 @@ export default function GPACalculator() {
     </div>
   )
 }
+
 
 
 
