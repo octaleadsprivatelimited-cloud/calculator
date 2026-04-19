@@ -131,12 +131,7 @@ export default function ArmyBodyFatCalculator() {
 
   return (
     <div className="w-full google-card overflow-hidden">
-      <div className="bg-gradient-to-r from-green-600 to-green-800 px-6 py-4">
-        <div className="flex items-center">
-          <Shield className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Army Body Fat Calculator</h2>
-        </div>
-        
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Army Body Fat Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
 
       <div className="p-6">
         <div className="space-y-4">

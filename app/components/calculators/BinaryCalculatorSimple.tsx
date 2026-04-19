@@ -45,7 +45,7 @@ export default function BinaryCalculatorSimple() {
 
   return (
     <div className="w-full">
-      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl shadow-google mb-6 p-4 sm:p-6">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div>
         <div className="flex items-center space-x-3">
           <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
             <Binary className="w-7 h-7 text-white" />
@@ -195,5 +195,6 @@ export default function BinaryCalculatorSimple() {
     </div>
   )
 }
+
 
 

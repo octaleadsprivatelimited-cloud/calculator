@@ -182,7 +182,7 @@ export default function SIPCalculator() {
               <div className="space-y-6">
                 {/* Summary Cards */}
                 <div className="grid grid-cols-1 gap-4">
-                  <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-3xl p-4 border border-blue-200">
+                  <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div>
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-medium text-blue-700">Total Investment</p>
@@ -192,7 +192,7 @@ export default function SIPCalculator() {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-3xl p-4 border border-green-200">
+                  <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div>
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-medium text-green-700">Total Returns</p>
@@ -202,7 +202,7 @@ export default function SIPCalculator() {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-3xl p-4 border border-purple-200">
+                  <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div>
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-medium text-purple-700">Final Amount</p>
@@ -316,6 +316,7 @@ export default function SIPCalculator() {
     </div>
   )
 }
+
 
 
 

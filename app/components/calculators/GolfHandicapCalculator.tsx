@@ -195,7 +195,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
   return (
     <div className="w-full google-card overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-8 text-white">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div>
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold mb-2">Golf Handicap Calculator</h1>
@@ -526,6 +526,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
     </div>
   )
 }
+
 
 
 
