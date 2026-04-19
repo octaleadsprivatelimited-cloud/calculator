@@ -230,7 +230,7 @@ Engine Analysis:
   const result = showResults ? calculateEngineHorsepower() : { theoreticalHp: 0, actualHp: 0, torque: 0, bmep: 0, volumetricEfficiency: 0, thermalEfficiency: 0, fuelConsumption: 0, performance: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-red-600 to-orange-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -250,13 +250,13 @@ Engine Analysis:
       <div className="p-6">
         {/* Engine Configuration Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Engine Presets</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Engine Presets</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {ENGINE_CONFIGS.map((engine, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickEngine(engine)}
-                className="p-4 bg-red-50 hover:bg-red-100 rounded-lg border border-red-200 transition-colors text-left"
+                className="p-4 bg-red-50 hover:bg-red-100 rounded-2xl border border-red-200 transition-colors text-left"
               >
                 <div className="font-semibold text-red-800">{engine.name}</div>
                 <div className="text-sm text-red-600">{engine.displacement}L, {engine.cylinders} cyl</div>
@@ -278,7 +278,7 @@ Engine Analysis:
                 type="number"
                 value={displacement}
                 onChange={(e) => setDisplacement(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="5.7"
                 min="0.5"
                 max="20"
@@ -295,7 +295,7 @@ Engine Analysis:
                 type="number"
                 value={cylinders}
                 onChange={(e) => setCylinders(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="8"
                 min="1"
                 max="16"
@@ -312,7 +312,7 @@ Engine Analysis:
                 type="number"
                 value={maxRpm}
                 onChange={(e) => setMaxRpm(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="6500"
                 min="2000"
                 max="15000"
@@ -332,7 +332,7 @@ Engine Analysis:
                 type="number"
                 value={bore}
                 onChange={(e) => setBore(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="4.0"
                 min="2"
                 max="8"
@@ -349,7 +349,7 @@ Engine Analysis:
                 type="number"
                 value={stroke}
                 onChange={(e) => setStroke(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="3.48"
                 min="2"
                 max="8"
@@ -366,7 +366,7 @@ Engine Analysis:
                 type="number"
                 value={compressionRatio}
                 onChange={(e) => setCompressionRatio(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="10.5"
                 min="6"
                 max="25"
@@ -379,13 +379,13 @@ Engine Analysis:
 
         {/* Fuel Type Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Fuel Type</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Fuel Type</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {FUEL_TYPES.map((fuel, index) => (
               <button
                 key={index}
                 onClick={() => setFuelType(fuel.name)}
-                className={`p-3 rounded-lg border transition-colors text-sm text-center ${
+                className={`p-3 rounded-2xl border transition-colors text-sm text-center ${
                   fuelType === fuel.name
                     ? 'bg-red-600 text-white border-red-600'
                     : 'bg-gray-50 hover:bg-gray-100 border-gray-200 text-gray-700'
@@ -403,7 +403,7 @@ Engine Analysis:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Engine Horsepower</span>
@@ -415,7 +415,7 @@ Engine Analysis:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-red-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Engine Horsepower Calculation Result"
                 inputs={[
@@ -434,48 +434,48 @@ Engine Analysis:
             </div>
 
             {/* Horsepower Results */}
-            <div className="bg-red-50 p-6 rounded-lg border border-red-200">
+            <div className="bg-red-50 p-6 rounded-2xl border border-red-200">
               <h3 className="text-lg font-semibold text-red-800 mb-4">Engine Horsepower Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-red-700">{formatNumber(result.actualHp)}</div>
-                  <div className="text-sm text-gray-600">Actual HP</div>
+                  <div className="text-sm text-google-gray">Actual HP</div>
                   <div className="text-xs text-red-600">{result.performance}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{formatNumber(result.theoreticalHp)}</div>
-                  <div className="text-sm text-gray-600">Theoretical HP</div>
+                  <div className="text-sm text-google-gray">Theoretical HP</div>
                   <div className="text-xs text-orange-600">Ideal conditions</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.torque)}</div>
-                  <div className="text-sm text-gray-600">Torque (lb-ft)</div>
-                  <div className="text-xs text-blue-600">At max RPM</div>
+                  <div className="text-sm text-google-gray">Torque (lb-ft)</div>
+                  <div className="text-xs text-google-blue">At max RPM</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{formatNumber(result.bmep)}</div>
-                  <div className="text-sm text-gray-600">BMEP (PSI)</div>
+                  <div className="text-sm text-google-gray">BMEP (PSI)</div>
                   <div className="text-xs text-green-600">Cylinder pressure</div>
                 </div>
               </div>
             </div>
 
             {/* Efficiency Analysis */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Engine Efficiency Analysis</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Engine Efficiency Analysis</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Efficiency Metrics</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Efficiency Metrics</h4>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Volumetric Efficiency:</span>
+                      <span className="text-google-gray">Volumetric Efficiency:</span>
                       <div className="text-right">
                         <div className="font-semibold text-red-700">{formatNumber(result.volumetricEfficiency * 100)}%</div>
                         <div className="text-xs text-gray-500">Air intake efficiency</div>
                       </div>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Thermal Efficiency:</span>
+                      <span className="text-google-gray">Thermal Efficiency:</span>
                       <div className="text-right">
                         <div className="font-semibold text-orange-700">{formatNumber(result.thermalEfficiency * 100)}%</div>
                         <div className="text-xs text-gray-500">Fuel energy conversion</div>
@@ -485,17 +485,17 @@ Engine Analysis:
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Performance Data</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Performance Data</h4>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Fuel Consumption:</span>
+                      <span className="text-google-gray">Fuel Consumption:</span>
                       <div className="text-right">
                         <div className="font-semibold text-blue-700">{formatNumber(result.fuelConsumption)} gal/hr</div>
                         <div className="text-xs text-gray-500">At maximum power</div>
                       </div>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Performance Level:</span>
+                      <span className="text-google-gray">Performance Level:</span>
                       <div className="text-right">
                         <div className="font-semibold text-green-700">{result.performance}</div>
                         <div className="text-xs text-gray-500">Based on actual HP</div>
@@ -510,28 +510,28 @@ Engine Analysis:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -541,8 +541,8 @@ Engine Analysis:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Engine Horsepower Calculator</h3>
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-200">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Engine Horsepower Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our advanced engine horsepower calculator provides comprehensive performance analysis for internal combustion engines. 
@@ -550,7 +550,7 @@ Engine Analysis:
               delivers accurate horsepower estimates using proven engineering formulas and real-world efficiency factors.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Theoretical Horsepower:</strong> Maximum potential based on engine geometry</li>
               <li><strong>Actual Horsepower:</strong> Real-world performance with efficiency factors</li>
@@ -560,10 +560,10 @@ Engine Analysis:
               <li><strong>Fuel Consumption:</strong> Estimated fuel usage at maximum power</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Engine Performance Factors</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Engine Performance Factors</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Physical Parameters</h5>
+                <h5 className="font-semibold text-google-text mb-2">Physical Parameters</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Engine displacement (cubic inches/cc)</li>
                   <li>Number of cylinders</li>
@@ -574,7 +574,7 @@ Engine Analysis:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Efficiency Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Efficiency Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Volumetric efficiency</li>
                   <li>Thermal efficiency</li>
@@ -586,30 +586,30 @@ Engine Analysis:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+              <div className="bg-red-50 p-3 rounded-2xl border border-red-200">
                 <h5 className="font-semibold text-red-800 mb-1">Theoretical HP</h5>
                 <p className="text-red-700 text-sm">Maximum potential output</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Actual HP</h5>
                 <p className="text-blue-700 text-sm">Real-world performance</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Efficiency</h5>
                 <p className="text-green-700 text-sm">Performance optimization</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your engine specifications including displacement, compression ratio, cylinder count, and RPM. 
               The calculator will compute theoretical and actual horsepower, torque, efficiency metrics, and provide 
               performance recommendations.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Automotive Performance:</strong> Engine building and tuning</li>
               <li><strong>Racing Applications:</strong> Competition engine development</li>
@@ -619,8 +619,8 @@ Engine Analysis:
               <li><strong>Educational Purposes:</strong> Engineering and automotive studies</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Horsepower vs. Torque</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Horsepower vs. Torque</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Horsepower:</strong></p>
@@ -643,7 +643,7 @@ Engine Analysis:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Performance Optimization Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Performance Optimization Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Increase Compression:</strong> Higher compression ratios improve thermal efficiency</li>
               <li><strong>Optimize Airflow:</strong> Better intake and exhaust systems increase volumetric efficiency</li>
@@ -653,8 +653,8 @@ Engine Analysis:
               <li><strong>Regular Maintenance:</strong> Keep engine in peak condition</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Engine Types and Characteristics</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Engine Types and Characteristics</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Naturally Aspirated:</strong></p>
@@ -677,8 +677,8 @@ Engine Analysis:
               </div>
             </div>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-red-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-red-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that horsepower is just one measure of engine performance. Consider the entire power curve, 
                 including torque characteristics across the RPM range. A well-balanced engine with good low-end torque 
@@ -691,3 +691,8 @@ Engine Analysis:
     </div>
   )
 }
+
+
+
+
+

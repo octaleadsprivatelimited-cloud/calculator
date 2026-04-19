@@ -120,21 +120,21 @@ export default function AgeCalculator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
             <Calendar className="w-12 h-12 mr-3 text-purple-600" />
             Age Calculator
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Calculate your exact age in years, months, days, and more
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
               <Calculator className="w-6 h-6 mr-2 text-purple-600" />
               Date Information
             </h2>
@@ -148,7 +148,7 @@ export default function AgeCalculator() {
                   type="date"
                   value={birthDate}
                   onChange={(e) => setBirthDate(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
                   title="Select birth date"
                   aria-label="Birth date"
                 />
@@ -162,7 +162,7 @@ export default function AgeCalculator() {
                   type="date"
                   value={targetDate}
                   onChange={(e) => setTargetDate(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
                   title="Select target date for age calculation"
                   aria-label="Target date for age calculation"
                 />
@@ -171,7 +171,7 @@ export default function AgeCalculator() {
               <div className="flex gap-3 pt-4">
                 <button
                   onClick={calculateAge}
-                  className="flex-1 bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors font-medium"
+                  className="flex-1 google-button-primary transition-colors font-medium"
                   title="Calculate exact age"
                   aria-label="Calculate exact age"
                 >
@@ -183,7 +183,7 @@ export default function AgeCalculator() {
                     setTargetDate(new Date().toISOString().split('T')[0])
                     setResult(null)
                   }}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="google-button-secondary transition-colors font-medium"
                   title="Reset to defaults"
                   aria-label="Reset to defaults"
                 >
@@ -192,7 +192,7 @@ export default function AgeCalculator() {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="mt-6 p-4 google-result-card">
               <h3 className="font-semibold text-purple-800 mb-2">Quick Options</h3>
               <div className="space-y-2 text-sm">
                 <button
@@ -223,7 +223,7 @@ export default function AgeCalculator() {
             {result && (
               <>
                 {/* Share Options - Moved to Top */}
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
+                <div className="google-card overflow-hidden p-6 border border-google-border">
                   <ResultSharing
                     title="Age Calculation Result"
                     inputs={[
@@ -240,8 +240,8 @@ export default function AgeCalculator() {
                   />
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                     <Clock className="w-6 h-6 mr-2 text-purple-600" />
                     Exact Age
                   </h2>
@@ -250,49 +250,49 @@ export default function AgeCalculator() {
                     <div className="text-4xl font-bold text-purple-600 mb-2">
                       {result.years} years
                     </div>
-                    <p className="text-gray-600">
+                    <p className="text-google-gray">
                       {result.months} months and {result.days} days
                     </p>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-3 bg-purple-50 rounded-lg">
+                    <div className="text-center p-3 bg-purple-50 rounded-2xl">
                       <div className="text-2xl font-bold text-purple-600">{formatNumber(result.totalDays)}</div>
-                      <div className="text-sm text-gray-600">Total Days</div>
+                      <div className="text-sm text-google-gray">Total Days</div>
                     </div>
-                    <div className="text-center p-3 bg-purple-50 rounded-lg">
+                    <div className="text-center p-3 bg-purple-50 rounded-2xl">
                       <div className="text-2xl font-bold text-purple-600">{formatNumber(result.totalWeeks)}</div>
-                      <div className="text-sm text-gray-600">Total Weeks</div>
+                      <div className="text-sm text-google-gray">Total Weeks</div>
                     </div>
-                    <div className="text-center p-3 bg-purple-50 rounded-lg">
+                    <div className="text-center p-3 bg-purple-50 rounded-2xl">
                       <div className="text-2xl font-bold text-purple-600">{formatNumber(result.totalMonths)}</div>
-                      <div className="text-sm text-gray-600">Total Months</div>
+                      <div className="text-sm text-google-gray">Total Months</div>
                     </div>
-                    <div className="text-center p-3 bg-purple-50 rounded-lg">
+                    <div className="text-center p-3 bg-purple-50 rounded-2xl">
                       <div className="text-2xl font-bold text-purple-600">{formatNumber(result.hours)}</div>
-                      <div className="text-sm text-gray-600">Total Hours</div>
+                      <div className="text-sm text-google-gray">Total Hours</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">Time Breakdown</h2>
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4">Time Breakdown</h2>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Minutes Lived</span>
-                      <span className="font-semibold text-blue-600">{formatNumber(result.minutes)}</span>
+                      <span className="text-google-gray">Minutes Lived</span>
+                      <span className="font-semibold text-google-blue">{formatNumber(result.minutes)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Seconds Lived</span>
+                      <span className="text-google-gray">Seconds Lived</span>
                       <span className="font-semibold text-green-600">{formatNumber(result.seconds)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Days Until Next Birthday</span>
+                      <span className="text-google-gray">Days Until Next Birthday</span>
                       <span className="font-semibold text-orange-600">{result.daysUntilBirthday}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Next Birthday</span>
+                      <span className="text-google-gray">Next Birthday</span>
                       <span className="font-semibold text-purple-600">
                         {result.nextBirthday.toLocaleDateString()}
                       </span>
@@ -300,23 +300,23 @@ export default function AgeCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                     <Gift className="w-6 h-6 mr-2 text-purple-600" />
                     Birth Information
                   </h2>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Birth Day of Week</span>
+                      <span className="text-google-gray">Birth Day of Week</span>
                       <span className="font-semibold text-purple-600">{result.birthDayOfWeek}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Zodiac Sign</span>
+                      <span className="text-google-gray">Zodiac Sign</span>
                       <span className="font-semibold text-pink-600">{result.zodiacSign}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Birth Date</span>
+                      <span className="text-google-gray">Birth Date</span>
                       <span className="font-semibold">{new Date(birthDate).toLocaleDateString()}</span>
                     </div>
                   </div>
@@ -326,9 +326,9 @@ export default function AgeCalculator() {
               </>
             )}
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Age Facts</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Age Facts</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Life expectancy:</strong> Average is around 75-80 years globally</p>
                 <p>• <strong>Age milestones:</strong> 18 (legal adult), 21 (drinking age in US)</p>
                 <p>• <strong>Retirement:</strong> Typically 62-67 years depending on country</p>
@@ -344,4 +344,7 @@ export default function AgeCalculator() {
     </div>
   )
 }
+
+
+
 

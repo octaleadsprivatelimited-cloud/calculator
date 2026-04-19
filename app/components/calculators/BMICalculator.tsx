@@ -79,7 +79,7 @@ export default function BMICalculator() {
       {/* Title Bar */}
       <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white">
         <div className="flex items-center space-x-3">
-          <div className="p-2 bg-google-blueLight rounded-xl">
+          <div className="p-2 bg-google-blueLight rounded-3xl">
             <Scale className="w-5 h-5 text-google-blue" />
           </div>
           <div>
@@ -222,3 +222,4 @@ export default function BMICalculator() {
     </div>
   )
 }
+

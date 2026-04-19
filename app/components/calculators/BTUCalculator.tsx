@@ -43,7 +43,7 @@ export default function BTUCalculator() {
   const result = showResults ? calculateBTU() : { heating: 0, cooling: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -66,7 +66,7 @@ export default function BTUCalculator() {
               type="number"
               value={length}
               onChange={(e) => setLength(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="google-input"
               placeholder="20"
               min="1"
               step="0.5"
@@ -79,7 +79,7 @@ export default function BTUCalculator() {
               type="number"
               value={width}
               onChange={(e) => setWidth(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="google-input"
               placeholder="15"
               min="1"
               step="0.5"
@@ -92,7 +92,7 @@ export default function BTUCalculator() {
               type="number"
               value={height}
               onChange={(e) => setHeight(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="google-input"
               placeholder="8"
               min="6"
               step="0.5"
@@ -104,7 +104,7 @@ export default function BTUCalculator() {
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
             >
               Calculate BTU Requirements
             </button>
@@ -114,7 +114,7 @@ export default function BTUCalculator() {
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="BTU Calculation Result"
                 inputs={[
@@ -133,16 +133,16 @@ export default function BTUCalculator() {
               />
             </div>
 
-            <div className="bg-emerald-50 p-6 rounded-lg border border-emerald-200">
+            <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-200">
               <h3 className="text-lg font-semibold text-emerald-800 mb-4">BTU Requirements</h3>
               <div className="grid md:grid-cols-2 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-emerald-700">{result.heating.toLocaleString()}</div>
-                  <div className="text-sm text-gray-600">Heating BTU</div>
+                  <div className="text-sm text-google-gray">Heating BTU</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{result.cooling.toLocaleString()}</div>
-                  <div className="text-sm text-gray-600">Cooling BTU</div>
+                  <div className="text-sm text-google-gray">Cooling BTU</div>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function BTUCalculator() {
             <div className="flex justify-center">
               <button
                 onClick={handleReset}
-                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 Reset
               </button>
@@ -160,8 +160,8 @@ export default function BTUCalculator() {
       </div>
 
       {/* Calculator Description Section */}
-      <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">About BTU Calculator</h3>
+      <div className="mt-8 p-6 google-result-card">
+        <h3 className="text-xl font-semibold text-google-text mb-4">About BTU Calculator</h3>
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 mb-4">
             Our comprehensive BTU calculator helps homeowners, contractors, and HVAC professionals 
@@ -170,7 +170,7 @@ export default function BTUCalculator() {
             efficiency, and optimal comfort in residential and commercial spaces.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Heating BTU Requirements:</strong> Energy needed for heating (20 BTU/sq ft)</li>
             <li><strong>Cooling BTU Requirements:</strong> Energy needed for cooling (25 BTU/sq ft)</li>
@@ -180,10 +180,10 @@ export default function BTUCalculator() {
             <li><strong>Energy Planning:</strong> Heating and cooling load estimates</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">BTU Fundamentals</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">BTU Fundamentals</h4>
           <div className="grid md:grid-cols-3 gap-4 mb-6">
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">What is BTU?</h5>
+              <h5 className="font-semibold text-google-text mb-2">What is BTU?</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>British Thermal Unit</li>
                 <li>Standard energy measurement</li>
@@ -194,7 +194,7 @@ export default function BTUCalculator() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Heating vs. Cooling</h5>
+              <h5 className="font-semibold text-google-text mb-2">Heating vs. Cooling</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>Heating: 20 BTU per sq ft</li>
                 <li>Cooling: 25 BTU per sq ft</li>
@@ -205,7 +205,7 @@ export default function BTUCalculator() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Room Factors</h5>
+              <h5 className="font-semibold text-google-text mb-2">Room Factors</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>Square footage</li>
                 <li>Ceiling height</li>
@@ -217,27 +217,27 @@ export default function BTUCalculator() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
           <div className="grid md:grid-cols-2 gap-4 mb-4">
-            <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+            <div className="bg-emerald-50 p-3 rounded-2xl border border-emerald-200">
               <h5 className="font-semibold text-emerald-800 mb-1">Heating BTU</h5>
               <p className="text-emerald-700 text-sm">Energy needed for heating</p>
             </div>
-            <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
               <h5 className="font-semibold text-blue-800 mb-1">Cooling BTU</h5>
               <p className="text-blue-700 text-sm">Energy needed for cooling</p>
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
           <p className="text-gray-700 mb-4">
             Enter the length, width, and height of your room in feet. The calculator will provide 
             the heating and cooling BTU requirements based on standard industry calculations, helping 
             you determine the appropriate HVAC system size for your space.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">BTU Calculation Methods</h4>
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+          <h4 className="text-lg font-semibold text-google-text mb-2">BTU Calculation Methods</h4>
+          <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <p><strong>Basic Method (This Calculator):</strong></p>
@@ -264,7 +264,7 @@ export default function BTUCalculator() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting BTU Requirements</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting BTU Requirements</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Climate Zone:</strong> Hot climates need more cooling, cold climates need more heating</li>
             <li><strong>Insulation Quality:</strong> Better insulation reduces BTU requirements</li>
@@ -274,10 +274,10 @@ export default function BTUCalculator() {
             <li><strong>Air Infiltration:</strong> Drafty rooms need more heating/cooling</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Room Type Considerations</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Room Type Considerations</h4>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Residential Spaces</h5>
+              <h5 className="font-semibold text-google-text mb-2">Residential Spaces</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Bedrooms:</strong> Standard calculations work well</li>
                 <li><strong>Living Rooms:</strong> May need extra capacity for gatherings</li>
@@ -288,7 +288,7 @@ export default function BTUCalculator() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Commercial Spaces</h5>
+              <h5 className="font-semibold text-google-text mb-2">Commercial Spaces</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Offices:</strong> Consider occupancy and equipment</li>
                 <li><strong>Retail:</strong> Lighting and customer traffic affect loads</li>
@@ -300,7 +300,7 @@ export default function BTUCalculator() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">System Sizing Guidelines</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">System Sizing Guidelines</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Undersizing:</strong> System can't meet demand, poor comfort, high energy bills</li>
             <li><strong>Oversizing:</strong> Short cycling, poor efficiency, reduced lifespan</li>
@@ -310,7 +310,7 @@ export default function BTUCalculator() {
             <li><strong>Future Considerations:</strong> Plan for potential additions or changes</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Energy Efficiency Tips</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Energy Efficiency Tips</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Proper Insulation:</strong> Reduce heat transfer through walls and ceilings</li>
             <li><strong>Energy-Efficient Windows:</strong> Double or triple-pane with low-E coatings</li>
@@ -320,7 +320,7 @@ export default function BTUCalculator() {
             <li><strong>Zoning Systems:</strong> Control different areas independently</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Use Professional Calculations</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">When to Use Professional Calculations</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Complex Spaces:</strong> Multiple rooms, open floor plans, cathedral ceilings</li>
             <li><strong>Commercial Buildings:</strong> High occupancy, specialized equipment</li>
@@ -330,7 +330,7 @@ export default function BTUCalculator() {
             <li><strong>Historical Buildings:</strong> Unique construction and materials</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Common BTU Calculation Mistakes</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Common BTU Calculation Mistakes</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Ignoring Height:</strong> Only using square footage without considering volume</li>
             <li><strong>Forgetting Climate:</strong> Using same calculations for all regions</li>
@@ -340,7 +340,7 @@ export default function BTUCalculator() {
             <li><strong>Ignoring Future Needs:</strong> Not planning for additions or changes</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">BTU to Equipment Sizing</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">BTU to Equipment Sizing</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Window Units:</strong> 5,000-25,000 BTU range</li>
             <li><strong>Portable AC:</strong> 8,000-14,000 BTU range</li>
@@ -350,8 +350,8 @@ export default function BTUCalculator() {
             <li><strong>Furnaces:</strong> 40,000-200,000+ BTU range</li>
           </ul>
           
-          <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
-            <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+          <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-emerald-500">
+            <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
             <p className="text-gray-700 text-sm">
               While this calculator provides a good starting point for BTU requirements, remember that 
               proper HVAC sizing involves many factors beyond just room dimensions. Consider consulting 
@@ -366,3 +366,8 @@ export default function BTUCalculator() {
     </div>
   )
 }
+
+
+
+
+

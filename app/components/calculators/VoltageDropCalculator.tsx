@@ -48,7 +48,7 @@ const CIRCUIT_TYPES: CircuitType[] = [
 
 const SAFETY_LEVELS = [
   { name: 'Excellent', color: 'text-green-600', bgColor: 'bg-green-100', maxDrop: 2, description: 'Very safe operation' },
-  { name: 'Good', color: 'text-blue-600', bgColor: 'bg-blue-100', maxDrop: 3, description: 'Safe operation' },
+  { name: 'Good', color: 'text-google-blue', bgColor: 'bg-blue-100', maxDrop: 3, description: 'Safe operation' },
   { name: 'Acceptable', color: 'text-yellow-600', bgColor: 'bg-yellow-100', maxDrop: 5, description: 'Within limits' },
   { name: 'Caution', color: 'text-orange-600', bgColor: 'bg-orange-100', maxDrop: 8, description: 'Approaching limits' },
   { name: 'Warning', color: 'text-red-600', bgColor: 'bg-red-100', maxDrop: 10, description: 'Exceeds recommendations' }
@@ -228,7 +228,7 @@ Circuit Information:
   const result = showResults ? calculateVoltageDrop() : { voltageDrop: 0, voltageDropPercent: 0, remainingVoltage: 0, wireSize: '', maxDistance: 0, safetyLevel: '', recommendations: [] }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -248,16 +248,16 @@ Circuit Information:
       <div className="p-6">
         {/* Quick Wire Types */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Wire Selection</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Wire Selection</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {WIRE_TYPES.map((wire, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickWire(wire)}
-                className={`p-4 rounded-lg border transition-colors text-left ${
+                className={`p-4 rounded-2xl border transition-colors text-left ${
                   wireType === wire.name
-                    ? 'bg-blue-500 text-white border-blue-500'
-                    : 'bg-blue-50 hover:bg-blue-100 border-blue-200 text-gray-700'
+                    ? 'bg-google-blueLight0 text-white border-blue-500'
+                    : 'bg-google-blueLight hover:bg-blue-100 border-blue-200 text-gray-700'
                 }`}
               >
                 <div className="font-semibold">{wire.name}</div>
@@ -271,13 +271,13 @@ Circuit Information:
 
         {/* Quick Circuit Types */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Circuit Types</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Circuit Types</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {CIRCUIT_TYPES.map((circuit, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickCircuit(circuit)}
-                className={`p-4 rounded-lg border transition-colors text-left ${
+                className={`p-4 rounded-2xl border transition-colors text-left ${
                   circuitType === circuit.name
                     ? 'bg-cyan-500 text-white border-cyan-500'
                     : 'bg-cyan-50 hover:bg-cyan-100 border-cyan-200 text-gray-700'
@@ -296,7 +296,7 @@ Circuit Information:
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Circuit Parameters */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-gray-800">Circuit Parameters</h3>
+            <h3 className="text-lg font-semibold text-google-text">Circuit Parameters</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Source Voltage (V)
@@ -305,7 +305,7 @@ Circuit Information:
                 type="number"
                 value={voltage}
                 onChange={(e) => setVoltage(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="120"
                 min="12"
                 max="480"
@@ -322,7 +322,7 @@ Circuit Information:
                 type="number"
                 value={current}
                 onChange={(e) => setCurrent(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="15"
                 min="0.1"
                 max="100"
@@ -339,7 +339,7 @@ Circuit Information:
                 type="number"
                 value={distance}
                 onChange={(e) => setDistance(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="100"
                 min="1"
                 max="1000"
@@ -351,7 +351,7 @@ Circuit Information:
 
           {/* Circuit Information */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-gray-800">Circuit Information</h3>
+            <h3 className="text-lg font-semibold text-google-text">Circuit Information</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Wire Type
@@ -359,7 +359,7 @@ Circuit Information:
               <select
                 value={wireType}
                 onChange={(e) => setWireType(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 aria-label="Select wire type"
               >
                 {WIRE_TYPES.map(wire => (
@@ -377,7 +377,7 @@ Circuit Information:
               <select
                 value={circuitType}
                 onChange={(e) => setCircuitType(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 aria-label="Select circuit type"
               >
                 {CIRCUIT_TYPES.map(circuit => (
@@ -388,7 +388,7 @@ Circuit Information:
               </select>
             </div>
             
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-4 rounded-2xl border border-blue-200">
               <h4 className="font-semibold text-blue-800 mb-2">Current Selection</h4>
               <div className="text-sm text-blue-700 space-y-1">
                 <div>Wire: {wireType}</div>
@@ -405,7 +405,7 @@ Circuit Information:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="bg-google-blue hover:bg-google-blueHover text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Voltage Drop</span>
@@ -417,7 +417,7 @@ Circuit Information:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-blue-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Voltage Drop Calculation Result"
                 inputs={[
@@ -438,61 +438,61 @@ Circuit Information:
             </div>
 
             {/* Voltage Drop Results */}
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-6 rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">Voltage Drop Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.voltageDrop)}</div>
-                  <div className="text-sm text-gray-600">Voltage Drop</div>
-                  <div className="text-xs text-blue-600">Volts lost</div>
+                  <div className="text-sm text-google-gray">Voltage Drop</div>
+                  <div className="text-xs text-google-blue">Volts lost</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{formatNumber(result.voltageDropPercent)}%</div>
-                  <div className="text-sm text-gray-600">Drop Percentage</div>
+                  <div className="text-sm text-google-gray">Drop Percentage</div>
                   <div className="text-xs text-green-600">% of source voltage</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{formatNumber(result.remainingVoltage)}</div>
-                  <div className="text-sm text-gray-600">Remaining Voltage</div>
+                  <div className="text-sm text-google-gray">Remaining Voltage</div>
                   <div className="text-xs text-purple-600">Volts at load</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{formatNumber(result.maxDistance)}</div>
-                  <div className="text-sm text-gray-600">Max Safe Distance</div>
+                  <div className="text-sm text-google-gray">Max Safe Distance</div>
                   <div className="text-xs text-orange-600">Feet for safe operation</div>
                 </div>
               </div>
             </div>
 
             {/* Safety Assessment */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Safety Assessment</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Safety Assessment</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Safety Level</h4>
-                  <div className={`text-lg font-semibold p-3 rounded-lg ${SAFETY_LEVELS.find(s => s.name === result.safetyLevel)?.bgColor}`}>
+                  <h4 className="font-semibold text-google-text mb-3">Safety Level</h4>
+                  <div className={`text-lg font-semibold p-3 rounded-2xl ${SAFETY_LEVELS.find(s => s.name === result.safetyLevel)?.bgColor}`}>
                     <span className={SAFETY_LEVELS.find(s => s.name === result.safetyLevel)?.color}>
                       {result.safetyLevel}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-600 mt-1">
+                  <p className="text-sm text-google-gray mt-1">
                     {SAFETY_LEVELS.find(s => s.name === result.safetyLevel)?.description}
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Circuit Analysis</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Circuit Analysis</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Wire Size:</span>
+                      <span className="text-google-gray">Wire Size:</span>
                       <span className="font-semibold text-blue-700">{result.wireSize}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Circuit Type:</span>
+                      <span className="text-google-gray">Circuit Type:</span>
                       <span className="font-semibold text-green-700">{circuitType}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Max Allowed Drop:</span>
+                      <span className="text-google-gray">Max Allowed Drop:</span>
                       <span className="font-semibold text-purple-700">
                         {CIRCUIT_TYPES.find(c => c.name === circuitType)?.maxVoltageDrop}%
                       </span>
@@ -504,8 +504,8 @@ Circuit Information:
 
             {/* Recommendations */}
             {result.recommendations.length > 0 && (
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">Recommendations</h3>
+              <div className="bg-gray-50 p-6 rounded-2xl">
+                <h3 className="text-lg font-semibold text-google-text mb-4">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
                     <div key={index} className="flex items-start space-x-2">
@@ -521,28 +521,28 @@ Circuit Information:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -552,12 +552,12 @@ Circuit Information:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+            <Info className="w-6 h-6 text-google-blue mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Voltage Drop Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Voltage Drop Calculator</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 This voltage drop calculator helps electrical engineers, electricians, and DIY enthusiasts 
                 determine voltage drop in electrical circuits. It considers wire resistance, current, 
                 distance, and circuit type to provide accurate calculations and safety recommendations. 
@@ -570,3 +570,8 @@ Circuit Information:
     </div>
   )
 }
+
+
+
+
+

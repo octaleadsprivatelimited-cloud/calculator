@@ -78,40 +78,35 @@ export default function RefinanceCalculator() {
   const result = showResults ? calculateRefinance() : { currentPayment: 0, newPayment: 0, monthlySavings: 0, breakEvenMonths: 0, totalSavings: 0, recommendations: [], details: { balance: 0, oldRate: 0, newRate: 0, term: 0, termType: '', costs: 0 } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-4">
-        <div className="flex items-center">
-          <RefreshCw className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Refinance Calculator</h2>
-        </div>
-        <p className="text-amber-100 mt-1">Calculate refinancing savings and break-even</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Current Balance ()</label>
-              <input type="number" value={currentBalance} onChange={(e) => setCurrentBalance(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Enter balance" step="1000" />
+              <input type="number" value={currentBalance} onChange={(e) => setCurrentBalance(e.target.value)} className="google-input" placeholder="Enter balance" step="1000" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Current Rate (%)</label>
-              <input type="number" value={currentRate} onChange={(e) => setCurrentRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Enter rate" step="0.1" />
+              <input type="number" value={currentRate} onChange={(e) => setCurrentRate(e.target.value)} className="google-input" placeholder="Enter rate" step="0.1" />
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">New Rate (%)</label>
-              <input type="number" value={newRate} onChange={(e) => setNewRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Enter new rate" step="0.1" />
+              <input type="number" value={newRate} onChange={(e) => setNewRate(e.target.value)} className="google-input" placeholder="Enter new rate" step="0.1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Remaining Term</label>
-              <input type="number" value={remainingTerm} onChange={(e) => setRemainingTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Enter term" step="0.1" />
+              <input type="number" value={remainingTerm} onChange={(e) => setRemainingTerm(e.target.value)} className="google-input" placeholder="Enter term" step="0.1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Term Type</label>
-              <select value={termType} onChange={(e) => setTermType(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" aria-label="Select term type">
+              <select value={termType} onChange={(e) => setTermType(e.target.value)} className="google-input" aria-label="Select term type">
                 <option value="years">Years</option>
                 <option value="months">Months</option>
               </select>
@@ -120,14 +115,14 @@ export default function RefinanceCalculator() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Closing Costs ()</label>
-            <input type="number" value={closingCosts} onChange={(e) => setClosingCosts(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Enter closing costs" step="100" />
+            <input type="number" value={closingCosts} onChange={(e) => setClosingCosts(e.target.value)} className="google-input" placeholder="Enter closing costs" step="100" />
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -135,7 +130,7 @@ export default function RefinanceCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-amber-800 mb-2">Monthly Savings</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-amber-600 mb-2">${result.monthlySavings?.toFixed(2)}</div>
@@ -143,7 +138,7 @@ export default function RefinanceCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-amber-800 mb-3">Refinance Analysis</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-amber-700">Current Payment:</span><span className="font-semibold text-amber-800">${result.currentPayment?.toFixed(2)}</span></div>
@@ -161,7 +156,7 @@ export default function RefinanceCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-amber-800 mb-3">Summary</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -177,8 +172,8 @@ export default function RefinanceCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Refinance Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Refinance Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive refinance calculator helps you determine whether refinancing your mortgage makes financial 
@@ -187,7 +182,7 @@ export default function RefinanceCalculator() {
               essential analysis to make informed refinancing decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Monthly Savings:</strong> Reduction in monthly mortgage payment</li>
               <li><strong>Break-even Time:</strong> Months to recover closing costs</li>
@@ -197,10 +192,10 @@ export default function RefinanceCalculator() {
               <li><strong>Refinance Viability:</strong> Whether refinancing makes sense</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Refinancing Scenarios</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Refinancing Scenarios</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Rate Reduction</h5>
+                <h5 className="font-semibold text-google-text mb-2">Rate Reduction</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Lower interest rates</li>
                   <li>Reduced monthly payments</li>
@@ -211,7 +206,7 @@ export default function RefinanceCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Term Changes</h5>
+                <h5 className="font-semibold text-google-text mb-2">Term Changes</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Shorter loan terms</li>
                   <li>Faster debt payoff</li>
@@ -223,30 +218,30 @@ export default function RefinanceCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
+              <div className="bg-amber-50 p-3 rounded-2xl border border-amber-200">
                 <h5 className="font-semibold text-amber-800 mb-1">Monthly Savings</h5>
                 <p className="text-amber-700 text-sm">Reduced payment amount</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Break-even</h5>
                 <p className="text-orange-700 text-sm">Time to recover costs</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Total Savings</h5>
                 <p className="text-green-700 text-sm">Lifetime savings amount</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your current loan balance, current interest rate, new interest rate, remaining loan term, and 
               estimated closing costs. The calculator will compute your monthly savings, break-even time, and total 
               savings to help determine if refinancing is beneficial.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Consider Refinancing</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Consider Refinancing</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Interest Rate Drop:</strong> Current rates are 0.5-1% lower than your rate</li>
               <li><strong>Improved Credit:</strong> Better credit score since original loan</li>
@@ -256,8 +251,8 @@ export default function RefinanceCalculator() {
               <li><strong>Remove PMI:</strong> Eliminate private mortgage insurance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Refinancing Costs</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Refinancing Costs</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Typical Closing Costs:</strong></p>
@@ -284,7 +279,7 @@ export default function RefinanceCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Break-even Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Break-even Analysis</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Break-even Point:</strong> When monthly savings equal closing costs</li>
               <li><strong>Short-term Ownership:</strong> May not benefit from refinancing</li>
@@ -294,7 +289,7 @@ export default function RefinanceCalculator() {
               <li><strong>Alternative Uses:</strong> Compare with other investment opportunities</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Refinancing Types</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Refinancing Types</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Rate and Term:</strong> Lower rate, same or different term</li>
               <li><strong>Cash-out Refinance:</strong> Borrow against home equity</li>
@@ -304,7 +299,7 @@ export default function RefinanceCalculator() {
               <li><strong>Conventional Refinance:</strong> Standard refinancing process</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors to Consider</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors to Consider</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Credit Score:</strong> Better credit means better rates</li>
               <li><strong>Loan-to-Value Ratio:</strong> Lower LTV means better terms</li>
@@ -314,8 +309,8 @@ export default function RefinanceCalculator() {
               <li><strong>Lender Competition:</strong> Shop around for best rates</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Don't just focus on monthly payment reduction - consider the total cost and long-term benefits. A 
                 refinance that saves 100 per month but costs 3,000 in closing costs takes 30 months to break even. 
@@ -329,4 +324,9 @@ export default function RefinanceCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

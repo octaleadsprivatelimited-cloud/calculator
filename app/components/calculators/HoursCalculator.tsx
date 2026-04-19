@@ -85,14 +85,13 @@ export default function HoursCalculator() {
   const result = calculateHours()
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
         <div className="flex items-center">
           <Clock className="h-8 w-8 text-white mr-3" />
           <h2 className="text-2xl font-bold text-white">Hours Calculator</h2>
         </div>
-        <p className="text-blue-100 mt-1">Calculate work hours, time tracking, and schedules</p>
-      </div>
+        
 
       <div className="p-6">
         <div className="grid md:grid-cols-3 gap-4 mb-6">
@@ -102,7 +101,7 @@ export default function HoursCalculator() {
               type="time"
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="google-input"
               aria-label="Start time"
             />
           </div>
@@ -112,7 +111,7 @@ export default function HoursCalculator() {
               type="time"
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="google-input"
               aria-label="End time"
             />
           </div>
@@ -122,7 +121,7 @@ export default function HoursCalculator() {
               type="number"
               value={breakTime}
               onChange={(e) => setBreakTime(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="google-input"
               placeholder="0"
               min="0"
               step="5"
@@ -135,32 +134,32 @@ export default function HoursCalculator() {
           <button
             onClick={addTimeEntry}
             disabled={!startTime || !endTime}
-            className="flex-1 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+            className="flex-1 bg-google-blueLight0 hover:bg-google-blue disabled:bg-gray-400 text-white font-medium py-2 px-4 rounded-2xl transition-colors"
           >
             <Calculator className="h-5 w-5 inline mr-2" />Add Entry
           </button>
           <button
             onClick={handleReset}
-            className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+            className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
           >
             <RotateCcw className="h-5 w-5 inline mr-2" />Reset All
           </button>
         </div>
 
         {result && (
-          <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <div className="mb-6 p-4 bg-google-blueLight rounded-2xl border border-blue-200">
             <h3 className="text-lg font-semibold text-blue-800 mb-2">Current Calculation</h3>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600">{result.hours}h {result.minutes}m</div>
+                <div className="text-2xl font-bold text-google-blue">{result.hours}h {result.minutes}m</div>
                 <div className="text-blue-700">Net Time</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600">{Math.round(result.totalHours * 100) / 100}</div>
+                <div className="text-2xl font-bold text-google-blue">{Math.round(result.totalHours * 100) / 100}</div>
                 <div className="text-blue-700">Total Hours</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600">{result.totalMinutes}</div>
+                <div className="text-2xl font-bold text-google-blue">{result.totalMinutes}</div>
                 <div className="text-blue-700">Total Minutes</div>
               </div>
             </div>
@@ -169,10 +168,10 @@ export default function HoursCalculator() {
 
         {timeEntries.length > 0 && (
           <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Time Entries</h3>
+            <h3 className="text-lg font-semibold text-google-text mb-4">Time Entries</h3>
             <div className="space-y-3">
               {timeEntries.map((entry, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <div key={index} className="flex items-center justify-between p-3 google-result-card">
                   <div className="flex-1">
                     <div className="grid md:grid-cols-4 gap-4 text-sm">
                       <div><span className="font-medium">Start:</span> {entry.startTime}</div>
@@ -183,7 +182,7 @@ export default function HoursCalculator() {
                   </div>
                   <button
                     onClick={() => removeEntry(index)}
-                    className="ml-4 px-3 py-1 bg-red-500 hover:bg-red-600 text-white text-sm rounded-lg transition-colors"
+                    className="ml-4 px-3 py-1 google-button-primary text-white text-sm rounded-2xl transition-colors"
                   >
                     Remove
                   </button>
@@ -196,7 +195,7 @@ export default function HoursCalculator() {
         {showResults && timeEntries.length > 0 && (
           <>
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-green-200 mb-4">
+            <div className="google-result-card mb-4">
               <ResultSharing
                 title="Hours Calculation Result"
                 inputs={[
@@ -214,7 +213,7 @@ export default function HoursCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-3">Summary</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="text-center">
@@ -235,8 +234,8 @@ export default function HoursCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Hours Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Hours Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive Hours Calculator helps you track work hours, calculate time differences, 
@@ -245,7 +244,7 @@ export default function HoursCalculator() {
               time tracking for personal and professional use.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Time Differences:</strong> Hours and minutes between start and end times</li>
               <li><strong>Break Deductions:</strong> Subtract break time from total hours</li>
@@ -255,34 +254,34 @@ export default function HoursCalculator() {
               <li><strong>Time Formatting:</strong> Display in hours and minutes</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Net Time</h5>
                 <p className="text-blue-700 text-sm">Time minus breaks</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Total Hours</h5>
                 <p className="text-green-700 text-sm">Sum of all entries</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Break Time</h5>
                 <p className="text-purple-700 text-sm">Deductions applied</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Entries</h5>
                 <p className="text-orange-700 text-sm">Number of time periods</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your start time, end time, and any break time taken. Click "Add Entry" to add the 
               time period to your list. You can add multiple entries to track different work periods. 
               The calculator automatically handles overnight shifts and provides a summary of total hours worked.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Use Cases</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Use Cases</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Work Time Tracking:</strong> Calculate daily and weekly work hours</li>
               <li><strong>Payroll Calculations:</strong> Determine hours for payment processing</li>
@@ -292,10 +291,10 @@ export default function HoursCalculator() {
               <li><strong>Break Time Management:</strong> Ensure proper break time deductions</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Time Calculation Features</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Time Calculation Features</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Overnight Shift Support</h5>
+                <h5 className="font-semibold text-google-text mb-2">Overnight Shift Support</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Automatically handles shifts past midnight</li>
                   <li>Calculates correct duration for night work</li>
@@ -304,7 +303,7 @@ export default function HoursCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Break Time Management</h5>
+                <h5 className="font-semibold text-google-text mb-2">Break Time Management</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Subtract lunch breaks and rest periods</li>
                   <li>Account for multiple break periods</li>
@@ -314,7 +313,7 @@ export default function HoursCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Professional Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Professional Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Human Resources:</strong> Employee time tracking and payroll</li>
               <li><strong>Project Management:</strong> Task time allocation and tracking</li>
@@ -324,7 +323,7 @@ export default function HoursCalculator() {
               <li><strong>Retail:</strong> Employee shift scheduling and tracking</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Time Management Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Time Management Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Consistent Tracking:</strong> Record time entries regularly</li>
               <li><strong>Break Documentation:</strong> Note all break periods taken</li>
@@ -334,8 +333,8 @@ export default function HoursCalculator() {
               <li><strong>Efficiency Analysis:</strong> Identify time optimization opportunities</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 For accurate time tracking, record your start and end times as they happen rather than 
                 estimating later. This ensures precise calculations and helps identify patterns in your 
@@ -349,3 +348,8 @@ export default function HoursCalculator() {
     </div>
   )
 }
+
+
+
+
+

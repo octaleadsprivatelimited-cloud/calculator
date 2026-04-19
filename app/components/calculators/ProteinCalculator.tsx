@@ -129,14 +129,9 @@ export default function ProteinCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-4">
-        <div className="flex items-center">
-          <Beef className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Protein Calculator</h2>
-        </div>
-        <p className="text-amber-100 mt-1">Calculate your daily protein needs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -148,7 +143,7 @@ export default function ProteinCalculator() {
               type="number"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="google-input"
               placeholder="Enter weight"
               aria-label="Weight in pounds"
             />
@@ -162,7 +157,7 @@ export default function ProteinCalculator() {
               <select
                 value={activityLevel}
                 onChange={(e) => setActivityLevel(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="google-input"
                 aria-label="Select activity level"
               >
                 <option value="sedentary">Sedentary</option>
@@ -179,7 +174,7 @@ export default function ProteinCalculator() {
               <select
                 value={goal}
                 onChange={(e) => setGoal(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="google-input"
                 aria-label="Select goal"
               >
                 <option value="maintenance">Maintenance</option>
@@ -193,14 +188,14 @@ export default function ProteinCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -211,7 +206,7 @@ export default function ProteinCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-amber-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Protein Calculation Result"
                 inputs={[
@@ -229,7 +224,7 @@ export default function ProteinCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-amber-800 mb-2">Daily Protein Need</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-amber-600 mb-2">
@@ -241,7 +236,7 @@ export default function ProteinCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-amber-800 mb-3">Protein Ranges (g/day)</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -263,7 +258,7 @@ export default function ProteinCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-amber-800 mb-3">Meal Breakdown</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -286,7 +281,7 @@ export default function ProteinCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-amber-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -302,8 +297,8 @@ export default function ProteinCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Protein Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Protein Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive protein calculator helps fitness enthusiasts, athletes, and health-conscious 
@@ -312,7 +307,7 @@ export default function ProteinCalculator() {
               recommendations to support muscle building, recovery, weight management, and overall health.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Daily Protein Requirements:</strong> Optimal protein intake in grams</li>
               <li><strong>Protein Ranges:</strong> Minimum, moderate, high, and very high levels</li>
@@ -322,10 +317,10 @@ export default function ProteinCalculator() {
               <li><strong>Personalized Recommendations:</strong> Tailored dietary guidance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein's Essential Functions</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Protein's Essential Functions</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Muscle Building</h5>
+                <h5 className="font-semibold text-google-text mb-2">Muscle Building</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Muscle protein synthesis</li>
                   <li>Hypertrophy support</li>
@@ -336,7 +331,7 @@ export default function ProteinCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Body Functions</h5>
+                <h5 className="font-semibold text-google-text mb-2">Body Functions</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Enzyme production</li>
                   <li>Hormone synthesis</li>
@@ -347,7 +342,7 @@ export default function ProteinCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Health Benefits</h5>
+                <h5 className="font-semibold text-google-text mb-2">Health Benefits</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Satiety and appetite control</li>
                   <li>Blood sugar regulation</li>
@@ -359,10 +354,10 @@ export default function ProteinCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Goal-Specific Protein Intake</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Goal-Specific Protein Intake</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Weight Loss</h5>
+                <h5 className="font-semibold text-google-text mb-2">Weight Loss</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Protein: 1.6-2.2g per kg body weight</li>
                   <li>Preserves lean muscle mass</li>
@@ -373,7 +368,7 @@ export default function ProteinCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Muscle Gain</h5>
+                <h5 className="font-semibold text-google-text mb-2">Muscle Gain</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Protein: 1.6-2.4g per kg body weight</li>
                   <li>Maximizes muscle synthesis</li>
@@ -385,10 +380,10 @@ export default function ProteinCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Activity Level Impact</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Activity Level Impact</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Endurance Training</h5>
+                <h5 className="font-semibold text-google-text mb-2">Endurance Training</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Protein: 1.2-1.6g per kg body weight</li>
                   <li>Muscle preservation</li>
@@ -399,7 +394,7 @@ export default function ProteinCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Strength Training</h5>
+                <h5 className="font-semibold text-google-text mb-2">Strength Training</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Protein: 1.6-2.4g per kg body weight</li>
                   <li>Muscle hypertrophy</li>
@@ -411,30 +406,30 @@ export default function ProteinCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
+              <div className="bg-amber-50 p-3 rounded-2xl border border-amber-200">
                 <h5 className="font-semibold text-amber-800 mb-1">Daily Protein Need</h5>
                 <p className="text-amber-700 text-sm">Recommended grams per day</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Protein Ranges</h5>
                 <p className="text-orange-700 text-sm">Min, moderate, high, very high</p>
               </div>
-              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+              <div className="bg-red-50 p-3 rounded-2xl border border-red-200">
                 <h5 className="font-semibold text-red-800 mb-1">Meal Breakdown</h5>
                 <p className="text-red-700 text-sm">Protein per meal distribution</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your weight, activity level, and fitness goal. The calculator will provide your 
               optimal daily protein intake in grams, protein ranges for different activity levels, and 
               a meal-by-meal breakdown to help you distribute protein throughout the day.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein Timing Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Protein Timing Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Breakfast:</strong> 20-25% of daily protein (muscle preservation)</li>
               <li><strong>Lunch:</strong> 25-30% of daily protein (sustained energy)</li>
@@ -444,8 +439,8 @@ export default function ProteinCalculator() {
               <li><strong>Post-Workout:</strong> 20-30g protein within 30 minutes</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Quality Protein Sources</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Quality Protein Sources</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Animal Proteins:</strong></p>
@@ -472,7 +467,7 @@ export default function ProteinCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein Quality Factors</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Protein Quality Factors</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Biological Value:</strong> How efficiently protein is used by the body</li>
               <li><strong>Amino Acid Profile:</strong> Complete vs. incomplete proteins</li>
@@ -482,7 +477,7 @@ export default function ProteinCalculator() {
               <li><strong>Source Quality:</strong> Grass-fed, wild-caught, organic options</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein Intake Guidelines</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Protein Intake Guidelines</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Minimum Intake:</strong> 0.8g per kg body weight (basic health)</li>
               <li><strong>General Health:</strong> 1.0-1.2g per kg body weight</li>
@@ -492,7 +487,7 @@ export default function ProteinCalculator() {
               <li><strong>Pregnancy:</strong> 1.1-1.3g per kg body weight (increased needs)</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Protein Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Protein Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Too Much Protein:</strong> Can strain kidneys, displace other nutrients</li>
               <li><strong>Too Little Protein:</strong> Muscle loss, poor recovery, weak immune system</li>
@@ -502,7 +497,7 @@ export default function ProteinCalculator() {
               <li><strong>Not Adjusting for Goals:</strong> Same intake regardless of objectives</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Adjust Protein Intake</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Adjust Protein Intake</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Training Intensity Changes:</strong> Increased or decreased exercise</li>
               <li><strong>Goal Changes:</strong> Switching from weight loss to muscle gain</li>
@@ -512,8 +507,8 @@ export default function ProteinCalculator() {
               <li><strong>Health Conditions:</strong> Kidney issues, digestive problems</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein Supplementation</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Protein Supplementation</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Whey Protein:</strong></p>
@@ -538,7 +533,7 @@ export default function ProteinCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Protein for Different Populations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Protein for Different Populations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Vegetarians/Vegans:</strong> Combine complementary proteins, consider supplements</li>
               <li><strong>Older Adults:</strong> Higher protein needs to prevent sarcopenia</li>
@@ -548,8 +543,8 @@ export default function ProteinCalculator() {
               <li><strong>Illness Recovery:</strong> Increased protein for immune function</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Spread your protein intake evenly throughout the day rather than consuming most of it in 
                 one meal. Aim for 20-30g of protein per meal to maximize muscle protein synthesis. 
@@ -566,3 +561,8 @@ export default function ProteinCalculator() {
     </div>
   )
 }
+
+
+
+
+

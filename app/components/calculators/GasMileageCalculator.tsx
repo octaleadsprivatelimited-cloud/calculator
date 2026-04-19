@@ -22,7 +22,7 @@ interface FuelType {
 }
 
 const FUEL_TYPES: FuelType[] = [
-  { name: 'Regular Gasoline', price: 3.50, efficiency: 1.0, color: 'bg-blue-500' },
+  { name: 'Regular Gasoline', price: 3.50, efficiency: 1.0, color: 'bg-google-blueLight0' },
   { name: 'Premium Gasoline', price: 4.00, efficiency: 0.95, color: 'bg-purple-500' },
   { name: 'Diesel', price: 3.80, efficiency: 1.2, color: 'bg-green-500' },
   { name: 'E85 Ethanol', price: 2.80, efficiency: 0.75, color: 'bg-yellow-500' },
@@ -212,7 +212,7 @@ Results:
   const result = showResults ? calculateMileage() : { mpg: 0, l100km: 0, costPerMile: 0, costPerKm: 0, totalCost: 0, fuelEfficiency: '', savings: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-600 to-red-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -232,7 +232,7 @@ Results:
       <div className="p-6">
         {/* Calculation Type Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">What would you like to calculate?</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">What would you like to calculate?</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { key: 'mpg', label: 'MPG Calculation', description: 'Calculate fuel efficiency' },
@@ -242,7 +242,7 @@ Results:
               <button
                 key={key}
                 onClick={() => setCalculationType(key as any)}
-                className={`p-4 rounded-lg font-medium transition-colors text-center ${
+                className={`p-4 rounded-2xl font-medium transition-colors text-center ${
                   calculationType === key
                     ? 'bg-orange-600 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -258,8 +258,8 @@ Results:
         {/* Vehicle and Fuel Selection */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Vehicle Type */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Vehicle Information</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Vehicle Information</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -268,7 +268,7 @@ Results:
                 <select
                   value={vehicleType}
                   onChange={(e) => setVehicleType(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="google-input"
                   aria-label="Select vehicle type"
                 >
                   {VEHICLE_TYPES.map(vehicle => (
@@ -286,7 +286,7 @@ Results:
                 <select
                   value={drivingCondition}
                   onChange={(e) => setDrivingCondition(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="google-input"
                   aria-label="Select driving condition"
                 >
                   {DRIVING_CONDITIONS.map(condition => (
@@ -300,8 +300,8 @@ Results:
           </div>
 
           {/* Fuel Type */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Fuel Information</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Fuel Information</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -310,7 +310,7 @@ Results:
                 <select
                   value={fuelType}
                   onChange={(e) => handleFuelTypeChange(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="google-input"
                   aria-label="Select fuel type"
                 >
                   {FUEL_TYPES.map(fuel => (
@@ -329,7 +329,7 @@ Results:
                   type="number"
                   value={fuelCost}
                   onChange={(e) => setFuelCost(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="google-input"
                   placeholder="3.50"
                   min="0"
                   step="0.01"
@@ -344,8 +344,8 @@ Results:
         {/* Input Section */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Distance and Fuel */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Trip Details</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Trip Details</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -355,7 +355,7 @@ Results:
                   type="number"
                   value={distance}
                   onChange={(e) => setDistance(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="google-input"
                   placeholder="100"
                   min="0"
                   step="0.1"
@@ -371,7 +371,7 @@ Results:
                   type="number"
                   value={fuelUsed}
                   onChange={(e) => setFuelUsed(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="google-input"
                   placeholder="4.5"
                   min="0"
                   step="0.1"
@@ -382,14 +382,14 @@ Results:
           </div>
 
           {/* Quick Trip Distances */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Trip Distances</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Quick Trip Distances</h3>
             <div className="grid grid-cols-2 gap-3">
               {[25, 50, 100, 200, 300, 500].map((miles) => (
                 <button
                   key={miles}
                   onClick={() => handleQuickTrip(miles)}
-                  className="p-3 bg-orange-50 hover:bg-orange-100 rounded-lg border border-orange-200 transition-colors text-sm text-center"
+                  className="p-3 bg-orange-50 hover:bg-orange-100 rounded-2xl border border-orange-200 transition-colors text-sm text-center"
                 >
                   <div className="font-medium text-orange-800">{miles} miles</div>
                   <div className="text-orange-600">${formatCurrency(calculateTripCost(miles))}</div>
@@ -404,7 +404,7 @@ Results:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Mileage</span>
@@ -416,7 +416,7 @@ Results:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-orange-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Gas Mileage Calculation Result"
                 inputs={[
@@ -435,27 +435,27 @@ Results:
             </div>
 
             {/* Mileage Results */}
-            <div className="bg-orange-50 p-6 rounded-lg border border-orange-200">
+            <div className="bg-orange-50 p-6 rounded-2xl border border-orange-200">
               <h3 className="text-lg font-semibold text-orange-800 mb-4">Fuel Efficiency Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{formatNumber(result.mpg)}</div>
-                  <div className="text-sm text-gray-600">MPG</div>
+                  <div className="text-sm text-google-gray">MPG</div>
                   <div className="text-xs text-orange-600">{result.fuelEfficiency}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{formatNumber(result.l100km)}</div>
-                  <div className="text-sm text-gray-600">L/100km</div>
+                  <div className="text-sm text-google-gray">L/100km</div>
                   <div className="text-xs text-orange-600">Metric</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{formatCurrency(result.costPerMile)}</div>
-                  <div className="text-sm text-gray-600">Cost per Mile</div>
+                  <div className="text-sm text-google-gray">Cost per Mile</div>
                   <div className="text-xs text-orange-600">Fuel cost</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{formatCurrency(result.totalCost)}</div>
-                  <div className="text-sm text-gray-600">Total Cost</div>
+                  <div className="text-sm text-google-gray">Total Cost</div>
                   <div className="text-xs text-green-600">For this trip</div>
                 </div>
               </div>
@@ -465,7 +465,7 @@ Results:
                   <div className={`text-lg font-semibold ${result.savings > 0 ? 'text-green-700' : 'text-red-700'}`}>
                     {result.savings > 0 ? '+' : ''}{formatNumber(result.savings)}% vs {vehicleType} average
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-google-gray">
                     {result.savings > 0 ? 'Better than average efficiency' : 'Below average efficiency'}
                   </div>
                 </div>
@@ -476,28 +476,28 @@ Results:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -507,8 +507,8 @@ Results:
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Gas Mileage Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Gas Mileage Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive gas mileage calculator helps drivers, fleet managers, and cost-conscious travelers 
@@ -517,7 +517,7 @@ Results:
               driving decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Fuel Efficiency:</strong> Miles per gallon (MPG) and liters per 100km</li>
               <li><strong>Cost Analysis:</strong> Cost per mile, cost per kilometer, total trip cost</li>
@@ -527,8 +527,8 @@ Results:
               <li><strong>Savings Analysis:</strong> Cost savings from improved efficiency</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">MPG Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">MPG Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>MPG Formula:</strong></p>
@@ -555,7 +555,7 @@ Results:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Gas Mileage</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Gas Mileage</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Vehicle Factors:</strong> Engine size, weight, aerodynamics, tires, transmission</li>
               <li><strong>Driving Factors:</strong> Speed, acceleration, idling, route planning, maintenance</li>
@@ -565,7 +565,7 @@ Results:
               <li><strong>Maintenance:</strong> Regular tune-ups, tire pressure, oil changes</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Improving Gas Mileage</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Improving Gas Mileage</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Maintenance:</strong> Regular tune-ups, oil changes, air filter replacement</li>
               <li><strong>Tire Care:</strong> Proper inflation, alignment, rotation</li>
@@ -575,8 +575,8 @@ Results:
               <li><strong>Fuel Quality:</strong> Use recommended fuel grade</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-orange-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 For the most accurate MPG calculations, use the full tank method and track your efficiency 
                 over multiple fill-ups rather than relying on a single tank. Remember that your actual MPG 
@@ -589,8 +589,8 @@ Results:
         </div>
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Gas Mileage Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Gas Mileage Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive gas mileage calculator helps drivers, fleet managers, and cost-conscious travelers 
@@ -599,7 +599,7 @@ Results:
               driving decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Fuel Efficiency:</strong> Miles per gallon (MPG) and liters per 100km</li>
               <li><strong>Cost Analysis:</strong> Cost per mile, cost per kilometer, total trip cost</li>
@@ -609,10 +609,10 @@ Results:
               <li><strong>Savings Analysis:</strong> Cost savings from improved efficiency</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Types</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Calculation Types</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">MPG Calculation</h5>
+                <h5 className="font-semibold text-google-text mb-2">MPG Calculation</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Basic MPG:</strong> Distance ÷ fuel used</li>
                   <li><strong>Metric Conversion:</strong> MPG to L/100km</li>
@@ -623,7 +623,7 @@ Results:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Cost Analysis</h5>
+                <h5 className="font-semibold text-google-text mb-2">Cost Analysis</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Cost per Mile:</strong> Fuel cost ÷ MPG</li>
                   <li><strong>Cost per Kilometer:</strong> Metric cost calculation</li>
@@ -635,35 +635,35 @@ Results:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">MPG</h5>
                 <p className="text-orange-700 text-sm">Fuel efficiency</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">L/100km</h5>
                 <p className="text-blue-700 text-sm">Metric efficiency</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Cost/Mile</h5>
                 <p className="text-green-700 text-sm">Per-mile expense</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Total Cost</h5>
                 <p className="text-purple-700 text-sm">Trip fuel expense</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Select your calculation type (MPG, cost analysis, or trip planning), enter the required information 
               such as distance, fuel used, and fuel cost. The calculator automatically computes efficiency metrics, 
               cost breakdowns, and provides comparisons to help optimize your driving costs.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">MPG Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">MPG Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>MPG Formula:</strong></p>
@@ -690,10 +690,10 @@ Results:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Vehicle Type Efficiency Ranges</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Vehicle Type Efficiency Ranges</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Passenger Vehicles</h5>
+                <h5 className="font-semibold text-google-text mb-2">Passenger Vehicles</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Compact Cars:</strong> 25-35 MPG</li>
                   <li><strong>Sedans:</strong> 20-30 MPG</li>
@@ -704,7 +704,7 @@ Results:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Alternative Fuel</h5>
+                <h5 className="font-semibold text-google-text mb-2">Alternative Fuel</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Hybrids:</strong> 40-60 MPG</li>
                   <li><strong>Plug-in Hybrids:</strong> 50-100 MPG</li>
@@ -716,10 +716,10 @@ Results:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Gas Mileage</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Gas Mileage</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Vehicle Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Vehicle Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Engine Size:</strong> Larger engines use more fuel</li>
                   <li><strong>Vehicle Weight:</strong> Heavier vehicles less efficient</li>
@@ -730,7 +730,7 @@ Results:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Driving Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Driving Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Speed:</strong> Optimal 55-65 mph for efficiency</li>
                   <li><strong>Acceleration:</strong> Smooth driving saves fuel</li>
@@ -742,7 +742,7 @@ Results:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fuel Type Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Fuel Type Considerations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Regular Gasoline:</strong> Standard 87 octane, typical efficiency</li>
               <li><strong>Premium Gasoline:</strong> Higher octane, may improve performance</li>
@@ -752,10 +752,10 @@ Results:
               <li><strong>Hybrid:</strong> Combined gas and electric efficiency</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Driving Conditions Impact</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Driving Conditions Impact</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Weather Conditions</h5>
+                <h5 className="font-semibold text-google-text mb-2">Weather Conditions</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Cold Weather:</strong> 10-20% efficiency reduction</li>
                   <li><strong>Hot Weather:</strong> AC usage reduces efficiency</li>
@@ -766,7 +766,7 @@ Results:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Traffic Conditions</h5>
+                <h5 className="font-semibold text-google-text mb-2">Traffic Conditions</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Highway Driving:</strong> Most efficient (steady speed)</li>
                   <li><strong>City Driving:</strong> Stop-and-go reduces efficiency</li>
@@ -778,7 +778,7 @@ Results:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Improving Gas Mileage</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Improving Gas Mileage</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Maintenance:</strong> Regular tune-ups, oil changes, air filter replacement</li>
               <li><strong>Tire Care:</strong> Proper inflation, alignment, rotation</li>
@@ -788,7 +788,7 @@ Results:
               <li><strong>Fuel Quality:</strong> Use recommended fuel grade</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Cost Analysis Benefits</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Cost Analysis Benefits</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Budget Planning:</strong> Accurate fuel cost estimates</li>
               <li><strong>Vehicle Comparison:</strong> Efficiency vs. cost analysis</li>
@@ -798,7 +798,7 @@ Results:
               <li><strong>Environmental Impact:</strong> CO2 emissions tracking</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Gas Mileage Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Gas Mileage Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Full Tank Method:</strong> Fill up completely for accurate readings</li>
               <li><strong>Reset Trip Odometer:</strong> Start fresh for each calculation</li>
@@ -808,7 +808,7 @@ Results:
               <li><strong>Monitor Trends:</strong> Track efficiency over time</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common MPG Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common MPG Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Partial Fill-ups:</strong> Inaccurate fuel consumption measurement</li>
               <li><strong>Ignoring Conditions:</strong> Not accounting for weather/traffic</li>
@@ -818,7 +818,7 @@ Results:
               <li><strong>Single Calculation:</strong> One tank doesn't represent average</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced MPG Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced MPG Analysis</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Trend Analysis:</strong> Monitor efficiency over time</li>
               <li><strong>Condition Comparison:</strong> City vs. highway efficiency</li>
@@ -828,8 +828,8 @@ Results:
               <li><strong>Route Optimization:</strong> Most efficient path planning</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-orange-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 For the most accurate MPG calculations, use the full tank method and track your efficiency 
                 over multiple fill-ups rather than relying on a single tank. Remember that your actual MPG 
@@ -846,4 +846,9 @@ Results:
     </div>
   )
 }
+
+
+
+
+
 

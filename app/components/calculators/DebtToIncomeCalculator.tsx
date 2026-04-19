@@ -113,14 +113,9 @@ export default function DebtToIncomeCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-red-500 to-pink-500 px-6 py-4">
-        <div className="flex items-center">
-          <CreditCard className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Debt-to-Income Ratio Calculator</h2>
-        </div>
-        <p className="text-red-100 mt-1">Calculate your debt-to-income ratio for loan qualification</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -133,7 +128,7 @@ export default function DebtToIncomeCalculator() {
                 type="number"
                 value={monthlyIncome}
                 onChange={(e) => setMonthlyIncome(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="Enter monthly income"
                 step="100"
                 aria-label="Monthly income in dollars"
@@ -147,7 +142,7 @@ export default function DebtToIncomeCalculator() {
                 type="number"
                 value={monthlyDebt}
                 onChange={(e) => setMonthlyDebt(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="Enter monthly debt"
                 step="100"
                 aria-label="Monthly debt payments in dollars"
@@ -158,14 +153,14 @@ export default function DebtToIncomeCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -175,7 +170,7 @@ export default function DebtToIncomeCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-red-50 rounded-lg border border-red-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-red-800 mb-2">DTI Ratio</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-red-600 mb-2">
@@ -187,7 +182,7 @@ export default function DebtToIncomeCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-red-50 rounded-lg border border-red-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-red-800 mb-3">Financial Summary</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -210,7 +205,7 @@ export default function DebtToIncomeCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-red-50 rounded-lg border border-red-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-red-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -226,8 +221,8 @@ export default function DebtToIncomeCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Debt-to-Income Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Debt-to-Income Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our free debt-to-income (DTI) calculator helps you assess your financial health by measuring the ratio 
@@ -235,13 +230,13 @@ export default function DebtToIncomeCalculator() {
               loan applications and determine your borrowing capacity.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What is DTI Ratio?</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What is DTI Ratio?</h4>
             <p className="text-gray-700 mb-4">
               The debt-to-income ratio is a percentage that shows how much of your monthly income goes toward debt payments. 
               It's calculated by dividing your total monthly debt payments by your gross monthly income, then multiplying by 100.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">DTI Categories</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">DTI Categories</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Excellent (0-20%):</strong> Very low debt burden, excellent borrowing capacity</li>
               <li><strong>Good (21-35%):</strong> Manageable debt, good for most loan types</li>
@@ -250,7 +245,7 @@ export default function DebtToIncomeCalculator() {
               <li><strong>Very Poor (50%+):</strong> Excessive debt, likely to be denied loans</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What Counts as Debt?</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What Counts as Debt?</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li>Credit card payments</li>
               <li>Student loans</li>
@@ -260,13 +255,13 @@ export default function DebtToIncomeCalculator() {
               <li>Other installment loans</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your monthly income and total monthly debt payments. The calculator will automatically compute your DTI ratio, 
               categorize your financial health, and provide personalized recommendations for improvement.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Why DTI Matters</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Why DTI Matters</h4>
             <p className="text-gray-700">
               Lenders use DTI to assess your ability to take on additional debt. A lower DTI ratio typically means better loan terms, 
               lower interest rates, and higher loan amounts. Monitoring your DTI helps you make informed financial decisions 
@@ -278,4 +273,8 @@ export default function DebtToIncomeCalculator() {
     </div>
   )
 }
+
+
+
+
 

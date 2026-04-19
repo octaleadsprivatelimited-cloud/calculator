@@ -41,7 +41,7 @@ export default function GradeCalculator() {
   const result = showResults ? calculateGrade() : { needed: 0, possible: false }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -64,7 +64,7 @@ export default function GradeCalculator() {
               type="number"
               value={currentGrade}
               onChange={(e) => setCurrentGrade(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="google-input"
               placeholder="85"
               min="0"
               max="100"
@@ -78,7 +78,7 @@ export default function GradeCalculator() {
               type="number"
               value={finalWeight}
               onChange={(e) => setFinalWeight(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="google-input"
               placeholder="30"
               min="0"
               max="100"
@@ -92,7 +92,7 @@ export default function GradeCalculator() {
               type="number"
               value={desiredGrade}
               onChange={(e) => setDesiredGrade(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="google-input"
               placeholder="90"
               min="0"
               max="100"
@@ -104,7 +104,7 @@ export default function GradeCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Calculate Grade Needed
           </button>
@@ -113,7 +113,7 @@ export default function GradeCalculator() {
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-green-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Grade Calculation Result"
                 inputs={[
@@ -132,7 +132,7 @@ export default function GradeCalculator() {
               />
             </div>
 
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-4">Grade Calculation Results</h3>
               <div className="text-center">
                 {result.possible ? (
@@ -162,7 +162,7 @@ export default function GradeCalculator() {
             <div className="flex justify-center">
               <button
                 onClick={handleReset}
-                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 Reset
               </button>
@@ -172,8 +172,8 @@ export default function GradeCalculator() {
       </div>
 
       {/* Calculator Description Section */}
-      <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">About Grade Calculator</h3>
+      <div className="mt-8 p-6 google-result-card">
+        <h3 className="text-xl font-semibold text-google-text mb-4">About Grade Calculator</h3>
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 mb-4">
             Our comprehensive grade calculator helps students determine what score they need on their final 
@@ -182,7 +182,7 @@ export default function GradeCalculator() {
             effectively to reach your target grade.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Required Final Exam Score:</strong> Grade needed to achieve target</li>
             <li><strong>Goal Feasibility:</strong> Whether your target grade is achievable</li>
@@ -192,10 +192,10 @@ export default function GradeCalculator() {
             <li><strong>Goal Setting:</strong> Realistic academic target determination</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Grade Calculation Methods</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Grade Calculation Methods</h4>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Weighted Grade System</h5>
+              <h5 className="font-semibold text-google-text mb-2">Weighted Grade System</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>Final exam has specific weight</li>
                 <li>Current grade has remaining weight</li>
@@ -206,7 +206,7 @@ export default function GradeCalculator() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Alternative Systems</h5>
+              <h5 className="font-semibold text-google-text mb-2">Alternative Systems</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>Point-based grading</li>
                 <li>Curved grading systems</li>
@@ -218,29 +218,29 @@ export default function GradeCalculator() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
           <div className="grid md:grid-cols-3 gap-4 mb-4">
-            <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
               <h5 className="font-semibold text-green-800 mb-1">Required Score</h5>
               <p className="text-green-700 text-sm">Grade needed on final</p>
             </div>
-            <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
               <h5 className="font-semibold text-blue-800 mb-1">Goal Feasibility</h5>
               <p className="text-blue-700 text-sm">Whether target is achievable</p>
             </div>
-            <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+            <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
               <h5 className="font-semibold text-purple-800 mb-1">Study Focus</h5>
               <p className="text-purple-700 text-sm">Preparation guidance</p>
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
           <p className="text-gray-700 mb-4">
             Enter your current grade percentage, the weight of your final exam, and your desired final grade. 
             The calculator will show you exactly what score you need on the final exam to reach your goal.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Final Exam Weights</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Common Final Exam Weights</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>High School:</strong> 10-20% of final grade</li>
             <li><strong>College Courses:</strong> 20-40% of final grade</li>
@@ -250,8 +250,8 @@ export default function GradeCalculator() {
             <li><strong>Lab Courses:</strong> 25-35% of final grade</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Grade Planning Strategies</h4>
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+          <h4 className="text-lg font-semibold text-google-text mb-2">Grade Planning Strategies</h4>
+          <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <p><strong>Conservative Approach:</strong></p>
@@ -274,7 +274,7 @@ export default function GradeCalculator() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Study Planning Based on Results</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Study Planning Based on Results</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>High Required Score (80%+):</strong> Intensive study, consider tutoring</li>
             <li><strong>Moderate Required Score (60-79%):</strong> Regular study sessions, practice tests</li>
@@ -283,7 +283,7 @@ export default function GradeCalculator() {
             <li><strong>Unachievable Score (Above 100%):</strong> Adjust goals or improve current performance</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Academic Success Tips</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Academic Success Tips</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Start Early:</strong> Begin studying well before the exam</li>
             <li><strong>Understand Weighting:</strong> Know how each component affects your grade</li>
@@ -293,7 +293,7 @@ export default function GradeCalculator() {
             <li><strong>Time Management:</strong> Balance study time across all subjects</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Grading Systems</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Common Grading Systems</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Percentage System:</strong> 0-100% scale (most common)</li>
             <li><strong>Letter Grades:</strong> A, B, C, D, F with plus/minus variations</li>
@@ -303,7 +303,7 @@ export default function GradeCalculator() {
             <li><strong>Curved Grading:</strong> Relative performance-based grading</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Use This Calculator</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">When to Use This Calculator</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Course Planning:</strong> Set realistic grade targets early</li>
             <li><strong>Study Planning:</strong> Determine required effort for final exam</li>
@@ -313,7 +313,7 @@ export default function GradeCalculator() {
             <li><strong>Academic Advising:</strong> Plan course loads and schedules</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Grade Improvement Strategies</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Grade Improvement Strategies</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Attend All Classes:</strong> Don't miss important information</li>
             <li><strong>Take Good Notes:</strong> Develop effective note-taking skills</li>
@@ -323,8 +323,8 @@ export default function GradeCalculator() {
             <li><strong>Seek Feedback:</strong> Learn from mistakes and improve</li>
           </ul>
           
-          <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-            <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+          <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-green-500">
+            <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
             <p className="text-gray-700 text-sm">
               Use this calculator early in the semester to set realistic goals and plan your study strategy. 
               If you need a very high score on the final exam, consider whether your goal is realistic or if 
@@ -339,3 +339,8 @@ export default function GradeCalculator() {
     </div>
   )
 }
+
+
+
+
+

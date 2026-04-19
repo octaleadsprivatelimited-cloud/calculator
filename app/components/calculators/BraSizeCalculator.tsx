@@ -279,9 +279,9 @@ Measurement Tips:
   const result = showResults ? calculateBraSize() : { bandSize: 0, cupSize: '', usSize: '', ukSize: '', euSize: '', auSize: '', sisterSizes: [], fitNotes: '', recommendations: [] }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-8 text-white">
+      <div className="bg-white border-b border-google-border px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold mb-2">Bra Size Calculator</h1>
@@ -299,13 +299,13 @@ Measurement Tips:
       <div className="p-6">
         {/* Measurement Methods */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Measurement Methods</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Measurement Methods</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {MEASUREMENT_METHODS.map((method, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickMethod(method)}
-                className={`p-4 rounded-lg border transition-colors text-left ${
+                className={`p-4 rounded-2xl border transition-colors text-left ${
                   measurementMethod === method.name
                     ? 'bg-pink-500 text-white border-pink-500'
                     : 'bg-pink-50 hover:bg-pink-100 border-pink-200 text-gray-700'
@@ -327,7 +327,7 @@ Measurement Tips:
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Measurements */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-gray-800">Your Measurements</h3>
+            <h3 className="text-lg font-semibold text-google-text">Your Measurements</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Under Bust (inches)
@@ -336,7 +336,7 @@ Measurement Tips:
                 type="number"
                 value={underBust}
                 onChange={(e) => setUnderBust(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="google-input"
                 placeholder="32"
                 min="20"
                 max="60"
@@ -354,7 +354,7 @@ Measurement Tips:
                 type="number"
                 value={bust}
                 onChange={(e) => setBust(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="google-input"
                 placeholder="36"
                 min="24"
                 max="80"
@@ -367,8 +367,8 @@ Measurement Tips:
 
           {/* Measurement Tips */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-800">Measurement Tips</h3>
-            <div className="bg-pink-50 p-4 rounded-lg border border-pink-200">
+            <h3 className="text-lg font-semibold text-google-text">Measurement Tips</h3>
+            <div className="bg-pink-50 p-4 rounded-2xl border border-pink-200">
               <h4 className="font-semibold text-pink-800 mb-2">How to Measure</h4>
               <div className="text-sm text-pink-700 space-y-2">
                 <div>• Measure without a bra on</div>
@@ -379,9 +379,9 @@ Measurement Tips:
               </div>
             </div>
             
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-gray-800 mb-2">Current Method</h4>
-              <div className="text-sm text-gray-600">
+            <div className="bg-gray-50 p-4 rounded-2xl">
+              <h4 className="font-semibold text-google-text mb-2">Current Method</h4>
+              <div className="text-sm text-google-gray">
                 <div className="font-medium">{measurementMethod}</div>
                 <div className="text-xs text-gray-500 mt-1">
                   {MEASUREMENT_METHODS.find(m => m.name === measurementMethod)?.description}
@@ -396,7 +396,7 @@ Measurement Tips:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Bra Size</span>
@@ -408,7 +408,7 @@ Measurement Tips:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-pink-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Bra Size Calculation Result"
                 inputs={[
@@ -428,65 +428,65 @@ Measurement Tips:
             </div>
 
             {/* Bra Size Results */}
-            <div className="bg-pink-50 p-6 rounded-lg border border-pink-200">
+            <div className="bg-pink-50 p-6 rounded-2xl border border-pink-200">
               <h3 className="text-lg font-semibold text-pink-800 mb-4">Your Bra Size Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-pink-700">{result.bandSize}</div>
-                  <div className="text-sm text-gray-600">Band Size</div>
+                  <div className="text-sm text-google-gray">Band Size</div>
                   <div className="text-xs text-pink-600">Ribcage measurement</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{result.cupSize}</div>
-                  <div className="text-sm text-gray-600">Cup Size</div>
-                  <div className="text-xs text-blue-600">Bust volume</div>
+                  <div className="text-sm text-google-gray">Cup Size</div>
+                  <div className="text-xs text-google-blue">Bust volume</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{result.usSize}</div>
-                  <div className="text-sm text-gray-600">US Size</div>
+                  <div className="text-sm text-google-gray">US Size</div>
                   <div className="text-xs text-green-600">Primary size</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{result.ukSize}</div>
-                  <div className="text-sm text-gray-600">UK Size</div>
+                  <div className="text-sm text-google-gray">UK Size</div>
                   <div className="text-xs text-purple-600">International</div>
                 </div>
               </div>
             </div>
 
             {/* International Sizes */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">International Sizing</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">International Sizing</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Size Conversions</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Size Conversions</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">US Size:</span>
+                      <span className="text-google-gray">US Size:</span>
                       <span className="font-semibold text-pink-700">{result.usSize}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">UK Size:</span>
+                      <span className="text-google-gray">UK Size:</span>
                       <span className="font-semibold text-blue-700">{result.ukSize}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">EU Size:</span>
+                      <span className="text-google-gray">EU Size:</span>
                       <span className="font-semibold text-green-700">{result.euSize}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">AU Size:</span>
+                      <span className="text-google-gray">AU Size:</span>
                       <span className="font-semibold text-purple-700">{result.auSize}</span>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Sister Sizes</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Sister Sizes</h4>
                   <div className="space-y-2 text-sm">
                     {result.sisterSizes.length > 0 ? (
                       result.sisterSizes.map((size, index) => (
                         <div key={index} className="flex justify-between">
-                          <span className="text-gray-600">Alternative {index + 1}:</span>
+                          <span className="text-google-gray">Alternative {index + 1}:</span>
                           <span className="font-semibold text-orange-700">{size}</span>
                         </div>
                       ))
@@ -499,16 +499,16 @@ Measurement Tips:
             </div>
 
             {/* Fit Information */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Fit Information</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Fit Information</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Fit Notes</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Fit Notes</h4>
                   <div className="text-sm text-gray-700">{result.fitNotes}</div>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Recommendations</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Recommendations</h4>
                   <div className="space-y-1 text-sm">
                     {result.recommendations.map((rec, index) => (
                       <div key={index} className="text-gray-700">• {rec}</div>
@@ -522,28 +522,28 @@ Measurement Tips:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -553,8 +553,8 @@ Measurement Tips:
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Bra Size Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Bra Size Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive bra size calculator helps individuals determine their accurate bra size 
@@ -563,7 +563,7 @@ Measurement Tips:
               personalized fit guidance to ensure comfort and support for all body types.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Band Size:</strong> Numerical band measurement (30-44+)</li>
               <li><strong>Cup Size:</strong> Letter cup measurement (AA-LL+)</li>
@@ -573,10 +573,10 @@ Measurement Tips:
               <li><strong>Brand Guidance:</strong> Recommendations based on size range</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Measurement Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Measurement Methods</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Standard Method</h5>
+                <h5 className="font-semibold text-google-text mb-2">Standard Method</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Under bust measurement</li>
                   <li>Bust measurement at fullest point</li>
@@ -587,7 +587,7 @@ Measurement Tips:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Alternative Methods</h5>
+                <h5 className="font-semibold text-google-text mb-2">Alternative Methods</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Modern fitting approaches</li>
                   <li>Body shape considerations</li>
@@ -599,10 +599,10 @@ Measurement Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">International Sizing Systems</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">International Sizing Systems</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">US Sizing</h5>
+                <h5 className="font-semibold text-google-text mb-2">US Sizing</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Band sizes: 30-44+</li>
                   <li>Cup sizes: AA, A, B, C, D, DD, DDD, G, H, I, J</li>
@@ -613,7 +613,7 @@ Measurement Tips:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">UK Sizing</h5>
+                <h5 className="font-semibold text-google-text mb-2">UK Sizing</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Band sizes: 28-46+</li>
                   <li>Cup sizes: AA, A, B, C, D, DD, E, F, FF, G, GG, H, HH</li>
@@ -625,31 +625,31 @@ Measurement Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+              <div className="bg-pink-50 p-3 rounded-2xl border border-pink-200">
                 <h5 className="font-semibold text-pink-800 mb-1">Band Size</h5>
                 <p className="text-pink-700 text-sm">Numerical measurement</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Cup Size</h5>
                 <p className="text-purple-700 text-sm">Letter measurement</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Sister Sizes</h5>
                 <p className="text-orange-700 text-sm">Alternative options</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Measure your under bust (ribcage) and bust (fullest point) in inches. Choose your 
               preferred measurement method, and the calculator will provide your bra size in multiple 
               international standards along with sister sizes and personalized recommendations.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Measurement Techniques</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Measurement Techniques</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Under Bust Measurement:</strong></p>
@@ -676,7 +676,7 @@ Measurement Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Sister Size System</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Sister Size System</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Band Size Changes:</strong> Go up band, down cup (32D → 34C)</li>
               <li><strong>Cup Volume:</strong> Same cup volume, different band</li>
@@ -686,10 +686,10 @@ Measurement Tips:
               <li><strong>Availability:</strong> More size options in stores</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Size Range Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Size Range Considerations</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Smaller Sizes</h5>
+                <h5 className="font-semibold text-google-text mb-2">Smaller Sizes</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Band sizes 28-32</li>
                   <li>Cup sizes AA-B</li>
@@ -700,7 +700,7 @@ Measurement Tips:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Larger Sizes</h5>
+                <h5 className="font-semibold text-google-text mb-2">Larger Sizes</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Band sizes 40+</li>
                   <li>Cup sizes F+</li>
@@ -712,7 +712,7 @@ Measurement Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Fitting Issues</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Fitting Issues</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Band Too Tight:</strong> Red marks, difficulty breathing</li>
               <li><strong>Band Too Loose:</strong> Riding up, no support</li>
@@ -722,7 +722,7 @@ Measurement Tips:
               <li><strong>Wire Issues:</strong> Wrong cup size or shape</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Brand and Style Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Brand and Style Considerations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Brand Variations:</strong> Sizing can differ between brands</li>
               <li><strong>Style Differences:</strong> Balcony, plunge, full-cup fit differently</li>
@@ -732,7 +732,7 @@ Measurement Tips:
               <li><strong>Body Changes:</strong> Weight, pregnancy, hormones affect size</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Professional Fitting</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Professional Fitting</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>When to Get Fitted:</strong> Large cup sizes, unusual proportions</li>
               <li><strong>Professional Benefits:</strong> Expert measurement, multiple brands</li>
@@ -742,7 +742,7 @@ Measurement Tips:
               <li><strong>Regular Check-ups:</strong> Re-measure every 6-12 months</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Shopping Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Shopping Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Try Multiple Sizes:</strong> Start with calculated size, adjust as needed</li>
               <li><strong>Brand Research:</strong> Read reviews, check size charts</li>
@@ -752,7 +752,7 @@ Measurement Tips:
               <li><strong>Professional Help:</strong> Don't hesitate to ask for assistance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Shape Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Body Shape Considerations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Full on Top:</strong> Balcony, demi-cup styles work well</li>
               <li><strong>Full on Bottom:</strong> Full-cup, plunge styles recommended</li>
@@ -762,8 +762,8 @@ Measurement Tips:
               <li><strong>Asymmetric:</strong> Adjustable straps, removable padding</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-pink-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-pink-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that bra sizing is both a science and an art. While this calculator provides 
                 an excellent starting point, the perfect fit may require trying a few sizes and styles. 
@@ -777,12 +777,12 @@ Measurement Tips:
         </div>
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
             <Info className="w-6 h-6 text-pink-600 mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Bra Size Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Bra Size Calculator</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 This comprehensive bra size calculator uses accurate measurement methods to determine your perfect bra size. 
                 It provides international sizing conversions, sister size recommendations, and fit guidance. The calculator 
                 supports both traditional and modern fitting approaches, making it suitable for various body types and 
@@ -795,3 +795,8 @@ Measurement Tips:
     </div>
   )
 }
+
+
+
+
+

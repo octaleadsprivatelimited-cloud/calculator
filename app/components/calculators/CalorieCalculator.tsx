@@ -98,14 +98,9 @@ export default function CalorieCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4">
-        <div className="flex items-center">
-          <Flame className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Calorie Calculator</h2>
-        </div>
-        <p className="text-orange-100 mt-1">Calculate your daily calorie needs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -118,7 +113,7 @@ export default function CalorieCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="google-input"
                 placeholder="Age"
                 aria-label="Age in years"
               />
@@ -130,7 +125,7 @@ export default function CalorieCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -148,7 +143,7 @@ export default function CalorieCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="google-input"
                 placeholder="Weight"
                 aria-label="Weight in pounds"
               />
@@ -161,7 +156,7 @@ export default function CalorieCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="google-input"
                 placeholder="Height"
                 aria-label="Height in feet or cm"
               />
@@ -175,7 +170,7 @@ export default function CalorieCalculator() {
             <select
               value={activityLevel}
               onChange={(e) => setActivityLevel(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="google-input"
               aria-label="Select activity level"
             >
               <option value="sedentary">Sedentary (little or no exercise)</option>
@@ -189,14 +184,14 @@ export default function CalorieCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -207,7 +202,7 @@ export default function CalorieCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="p-4 bg-white rounded-lg border border-orange-200">
+            <div className="p-4 bg-white rounded-2xl border border-orange-200">
               <ResultSharing
                 title="Calorie Calculation Result"
                 inputs={[
@@ -225,7 +220,7 @@ export default function CalorieCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-orange-800 mb-2">Results</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -239,7 +234,7 @@ export default function CalorieCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-orange-800 mb-3">Daily Calorie Goals</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -276,8 +271,8 @@ export default function CalorieCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Calorie Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Calorie Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive calorie calculator helps you determine your daily calorie needs for various weight goals. 
@@ -290,3 +285,7 @@ export default function CalorieCalculator() {
     </div>
   )
 }
+
+
+
+

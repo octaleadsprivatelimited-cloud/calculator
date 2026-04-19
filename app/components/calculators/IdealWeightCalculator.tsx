@@ -120,14 +120,9 @@ export default function IdealWeightCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-4">
-        <div className="flex items-center">
-          <Target className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Ideal Weight Calculator</h2>
-        </div>
-        <p className="text-emerald-100 mt-1">Calculate your ideal weight using multiple formulas</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -140,7 +135,7 @@ export default function IdealWeightCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -152,7 +147,7 @@ export default function IdealWeightCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -170,7 +165,7 @@ export default function IdealWeightCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="Enter age"
                 aria-label="Age in years"
               />
@@ -182,7 +177,7 @@ export default function IdealWeightCalculator() {
               <select
                 value={bodyFrame}
                 onChange={(e) => setBodyFrame(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 aria-label="Select body frame"
               >
                 <option value="small">Small</option>
@@ -195,14 +190,14 @@ export default function IdealWeightCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -213,7 +208,7 @@ export default function IdealWeightCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Ideal Weight Calculation Result"
                 inputs={[
@@ -231,7 +226,7 @@ export default function IdealWeightCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">Ideal Weight Results (lbs)</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -267,7 +262,7 @@ export default function IdealWeightCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">Healthy BMI Range</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -285,7 +280,7 @@ export default function IdealWeightCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">Recommendations</h3>
               <div className="space-y-2">
                 {result.recommendations.map((rec, index) => (
@@ -300,8 +295,8 @@ export default function IdealWeightCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Ideal Weight Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Ideal Weight Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive ideal weight calculator helps individuals determine healthy weight ranges 
@@ -310,7 +305,7 @@ export default function IdealWeightCalculator() {
               informed health and fitness planning.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Ideal Weight:</strong> Multiple formula-based calculations</li>
               <li><strong>BMI Range:</strong> Healthy weight boundaries</li>
@@ -320,10 +315,10 @@ export default function IdealWeightCalculator() {
               <li><strong>Weight Categories:</strong> Underweight to obese classifications</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Ideal Weight Calculation Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Ideal Weight Calculation Methods</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Classic Formulas</h5>
+                <h5 className="font-semibold text-google-text mb-2">Classic Formulas</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Devine Formula:</strong> 1974, pharmaceutical dosing</li>
                   <li><strong>Robinson Formula:</strong> 1983, improved accuracy</li>
@@ -334,7 +329,7 @@ export default function IdealWeightCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Formula Characteristics</h5>
+                <h5 className="font-semibold text-google-text mb-2">Formula Characteristics</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Base Height:</strong> 5 feet (60 inches)</li>
                   <li><strong>Gender Factors:</strong> Different for males/females</li>
@@ -346,35 +341,35 @@ export default function IdealWeightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+              <div className="bg-emerald-50 p-3 rounded-2xl border border-emerald-200">
                 <h5 className="font-semibold text-emerald-800 mb-1">Devine</h5>
                 <p className="text-emerald-700 text-sm">Pharmaceutical standard</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Robinson</h5>
                 <p className="text-blue-700 text-sm">Improved accuracy</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Miller</h5>
                 <p className="text-green-700 text-sm">Gender-specific</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Hamwi</h5>
                 <p className="text-purple-700 text-sm">Clinical practice</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your height, age, gender, and body frame size. The calculator automatically computes 
               ideal weight using multiple formulas, provides healthy BMI ranges, and offers personalized 
               recommendations based on your specific characteristics.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Ideal Weight Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Ideal Weight Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>What is Ideal Weight:</strong></p>
@@ -401,10 +396,10 @@ export default function IdealWeightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Frame Size Assessment</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Body Frame Size Assessment</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Small Frame</h5>
+                <h5 className="font-semibold text-google-text mb-2">Small Frame</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Wrist Circumference:</strong> &lt; 6.25" (men), &lt; 5.75" (women)</li>
                   <li><strong>Elbow Breadth:</strong> &lt; 2.5" (men), &lt; 2.25" (women)</li>
@@ -415,7 +410,7 @@ export default function IdealWeightCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Medium Frame</h5>
+                <h5 className="font-semibold text-google-text mb-2">Medium Frame</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Wrist Circumference:</strong> 6.25-6.75" (men), 5.75-6.25" (women)</li>
                   <li><strong>Elbow Breadth:</strong> 2.5-2.75" (men), 2.25-2.5" (women)</li>
@@ -426,7 +421,7 @@ export default function IdealWeightCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Large Frame</h5>
+                <h5 className="font-semibold text-google-text mb-2">Large Frame</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Wrist Circumference:</strong> &gt; 6.75" (men), &gt; 6.25" (women)</li>
                   <li><strong>Elbow Breadth:</strong> &gt; 2.75" (men), &gt; 2.5" (women)</li>
@@ -438,7 +433,7 @@ export default function IdealWeightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">BMI and Health Categories</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">BMI and Health Categories</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Underweight:</strong> BMI &lt; 18.5, health risks from low weight</li>
               <li><strong>Normal Weight:</strong> BMI 18.5-24.9, optimal health range</li>
@@ -448,10 +443,10 @@ export default function IdealWeightCalculator() {
               <li><strong>Obesity Class III:</strong> BMI ≥ 40.0, extreme health risks</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Formula-Specific Details</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Formula-Specific Details</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Devine Formula (1974)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Devine Formula (1974)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Origin:</strong> Pharmaceutical dosing</li>
                   <li><strong>Base Weight:</strong> 110 lbs (women), 120 lbs (men)</li>
@@ -462,7 +457,7 @@ export default function IdealWeightCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Robinson Formula (1983)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Robinson Formula (1983)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Origin:</strong> Improved Devine formula</li>
                   <li><strong>Base Weight:</strong> 100 lbs (women), 110 lbs (men)</li>
@@ -474,7 +469,7 @@ export default function IdealWeightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Ideal Weight</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Ideal Weight</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Height:</strong> Primary determinant of ideal weight</li>
               <li><strong>Gender:</strong> Different standards for males/females</li>
@@ -484,7 +479,7 @@ export default function IdealWeightCalculator() {
               <li><strong>Health Status:</strong> Medical conditions affect weight</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Ideal Weight Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Ideal Weight Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Multiple Formulas:</strong> Compare different calculations</li>
               <li><strong>Consider Body Frame:</strong> Assess your actual frame size</li>
@@ -494,7 +489,7 @@ export default function IdealWeightCalculator() {
               <li><strong>Focus on Health:</strong> Weight is one health indicator</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Ideal Weight Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Ideal Weight Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Ignoring Body Frame:</strong> Not adjusting for build</li>
               <li><strong>Single Formula Reliance:</strong> Using only one method</li>
@@ -504,7 +499,7 @@ export default function IdealWeightCalculator() {
               <li><strong>Ignoring Health Context:</strong> Weight without health focus</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Ideal Weight Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Ideal Weight Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Body Composition:</strong> Fat vs. muscle distribution</li>
               <li><strong>Metabolic Health:</strong> Beyond weight numbers</li>
@@ -514,8 +509,8 @@ export default function IdealWeightCalculator() {
               <li><strong>Functional Fitness:</strong> Performance over appearance</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that ideal weight is a range, not a single number. The various formulas provide 
                 different perspectives, and your actual ideal weight may fall anywhere within these ranges. 
@@ -532,3 +527,8 @@ export default function IdealWeightCalculator() {
     </div>
   )
 }
+
+
+
+
+

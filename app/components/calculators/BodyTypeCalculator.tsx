@@ -180,14 +180,9 @@ export default function BodyTypeCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-4">
-        <div className="flex items-center">
-          <User className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Body Type Calculator</h2>
-        </div>
-        <p className="text-indigo-100 mt-1">Determine your body type and get personalized recommendations</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -200,7 +195,7 @@ export default function BodyTypeCalculator() {
                 type="number"
                 value={shoulderWidth}
                 onChange={(e) => setShoulderWidth(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="google-input"
                 placeholder="Enter width"
                 aria-label="Shoulder width in cm"
               />
@@ -213,7 +208,7 @@ export default function BodyTypeCalculator() {
                 type="number"
                 value={waistWidth}
                 onChange={(e) => setWaistWidth(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="google-input"
                 placeholder="Enter width"
                 aria-label="Waist width in cm"
               />
@@ -229,7 +224,7 @@ export default function BodyTypeCalculator() {
                 type="number"
                 value={hipWidth}
                 onChange={(e) => setHipWidth(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="google-input"
                 placeholder="Enter width"
                 aria-label="Hip width in cm"
               />
@@ -242,7 +237,7 @@ export default function BodyTypeCalculator() {
                 type="number"
                 value={wristCircumference}
                 onChange={(e) => setWristCircumference(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="google-input"
                 placeholder="Enter circumference"
                 aria-label="Wrist circumference in cm"
               />
@@ -257,7 +252,7 @@ export default function BodyTypeCalculator() {
               type="number"
               value={ankleCircumference}
               onChange={(e) => setAnkleCircumference(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="google-input"
               placeholder="Enter circumference"
               aria-label="Ankle circumference in cm"
             />
@@ -266,14 +261,14 @@ export default function BodyTypeCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -284,7 +279,7 @@ export default function BodyTypeCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Body Type Calculation Result"
                 inputs={[
@@ -302,7 +297,7 @@ export default function BodyTypeCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-indigo-800 mb-2">Your Body Type</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-indigo-600 mb-2">
@@ -314,7 +309,7 @@ export default function BodyTypeCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-indigo-800 mb-3">Characteristics</h3>
               <div className="space-y-2">
                 {result.characteristics.map((char, index) => (
@@ -326,7 +321,7 @@ export default function BodyTypeCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-indigo-800 mb-3">Measurements & Ratios</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -345,7 +340,7 @@ export default function BodyTypeCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-indigo-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -361,8 +356,8 @@ export default function BodyTypeCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Body Type Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Body Type Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive body type calculator helps individuals determine their unique body 
@@ -371,7 +366,7 @@ export default function BodyTypeCalculator() {
               selection, workout planning, and understanding your natural body characteristics.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Body Type Classification:</strong> Ectomorph, Mesomorph, Endomorph, or combination</li>
               <li><strong>Body Proportions:</strong> Shoulder-to-waist and waist-to-hip ratios</li>
@@ -381,10 +376,10 @@ export default function BodyTypeCalculator() {
               <li><strong>Measurement Analysis:</strong> Detailed proportion breakdown</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Type Categories</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Body Type Categories</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Ectomorph</h5>
+                <h5 className="font-semibold text-google-text mb-2">Ectomorph</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Naturally thin and lean</li>
                   <li>Long limbs and narrow frame</li>
@@ -395,7 +390,7 @@ export default function BodyTypeCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Mesomorph</h5>
+                <h5 className="font-semibold text-google-text mb-2">Mesomorph</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Naturally muscular build</li>
                   <li>Medium bone structure</li>
@@ -406,7 +401,7 @@ export default function BodyTypeCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Endomorph</h5>
+                <h5 className="font-semibold text-google-text mb-2">Endomorph</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Naturally larger frame</li>
                   <li>Wider bone structure</li>
@@ -418,10 +413,10 @@ export default function BodyTypeCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Proportions Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Body Proportions Analysis</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Shoulder-to-Waist Ratio</h5>
+                <h5 className="font-semibold text-google-text mb-2">Shoulder-to-Waist Ratio</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Indicates upper body structure</li>
                   <li>Higher ratios = broader shoulders</li>
@@ -432,7 +427,7 @@ export default function BodyTypeCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Waist-to-Hip Ratio</h5>
+                <h5 className="font-semibold text-google-text mb-2">Waist-to-Hip Ratio</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Indicates lower body structure</li>
                   <li>Health indicator</li>
@@ -444,31 +439,31 @@ export default function BodyTypeCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+              <div className="bg-indigo-50 p-3 rounded-2xl border border-indigo-200">
                 <h5 className="font-semibold text-indigo-800 mb-1">Body Type</h5>
                 <p className="text-indigo-700 text-sm">Your primary classification</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Confidence Score</h5>
                 <p className="text-purple-700 text-sm">Accuracy of classification</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Characteristics</h5>
                 <p className="text-blue-700 text-sm">Typical traits and features</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Measure your shoulder width, waist width, hip width, wrist circumference, and ankle 
               circumference in centimeters. The calculator will analyze your proportions and classify 
               your body type, providing personalized characteristics and recommendations.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Measurement Techniques</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Measurement Techniques</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Shoulder Width:</strong></p>
@@ -493,7 +488,7 @@ export default function BodyTypeCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Type Combinations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Body Type Combinations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Ecto-Mesomorph:</strong> Lean with some muscle definition</li>
               <li><strong>Meso-Endomorph:</strong> Muscular with tendency to gain fat</li>
@@ -503,10 +498,10 @@ export default function BodyTypeCalculator() {
               <li><strong>Mixed Types:</strong> Combination of all three types</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fitness Implications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Fitness Implications</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Training Focus</h5>
+                <h5 className="font-semibold text-google-text mb-2">Training Focus</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Ectomorphs:</strong> Strength training, compound movements</li>
                   <li><strong>Mesomorphs:</strong> Balanced training, variety</li>
@@ -517,7 +512,7 @@ export default function BodyTypeCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Nutrition Approach</h5>
+                <h5 className="font-semibold text-google-text mb-2">Nutrition Approach</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Ectomorphs:</strong> Higher calories, frequent meals</li>
                   <li><strong>Mesomorphs:</strong> Balanced macros, moderate calories</li>
@@ -529,7 +524,7 @@ export default function BodyTypeCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Clothing and Style</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Clothing and Style</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Ectomorphs:</strong> Layered looks, structured pieces</li>
               <li><strong>Mesomorphs:</strong> Most styles work well</li>
@@ -539,7 +534,7 @@ export default function BodyTypeCalculator() {
               <li><strong>Fit:</strong> Proper sizing more important than style</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Type Myths</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Body Type Myths</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Fixed Types:</strong> Body types can change over time</li>
               <li><strong>One Size Fits All:</strong> Each type has variations</li>
@@ -549,7 +544,7 @@ export default function BodyTypeCalculator() {
               <li><strong>Static Classification:</strong> Body types evolve with age</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Improving Body Composition</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Improving Body Composition</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Ectomorphs:</strong> Focus on muscle building, adequate calories</li>
               <li><strong>Mesomorphs:</strong> Balance strength and cardio, moderate diet</li>
@@ -559,7 +554,7 @@ export default function BodyTypeCalculator() {
               <li><strong>Recovery:</strong> Adequate rest for all types</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When Body Type Matters</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When Body Type Matters</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Fitness Planning:</strong> Tailor workouts to your type</li>
               <li><strong>Clothing Shopping:</strong> Choose styles that flatter</li>
@@ -569,8 +564,8 @@ export default function BodyTypeCalculator() {
               <li><strong>Motivation:</strong> Understand your natural advantages</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-indigo-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that body type is just one factor in your fitness and style journey. While 
                 it provides useful insights, don't let it limit your goals or define your potential. 
@@ -586,3 +581,8 @@ export default function BodyTypeCalculator() {
     </div>
   )
 }
+
+
+
+
+

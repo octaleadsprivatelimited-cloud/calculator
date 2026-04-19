@@ -35,7 +35,7 @@ const STRENGTH_LEVELS = [
   { name: 'Very Weak', color: 'text-red-600', bgColor: 'bg-red-100', score: 1, description: 'Easily cracked' },
   { name: 'Weak', color: 'text-orange-600', bgColor: 'bg-orange-100', score: 2, description: 'Vulnerable' },
   { name: 'Fair', color: 'text-yellow-600', bgColor: 'bg-yellow-100', score: 3, description: 'Moderate security' },
-  { name: 'Good', color: 'text-blue-600', bgColor: 'bg-blue-100', score: 4, description: 'Secure' },
+  { name: 'Good', color: 'text-google-blue', bgColor: 'bg-blue-100', score: 4, description: 'Secure' },
   { name: 'Strong', color: 'text-green-600', bgColor: 'bg-green-100', score: 5, description: 'Very secure' },
   { name: 'Very Strong', color: 'text-emerald-600', bgColor: 'bg-emerald-100', score: 6, description: 'Excellent security' }
 ]
@@ -250,7 +250,7 @@ Security Tips:
   const result = showResults ? calculatePasswordStrength(generatedPassword) : { password: '', strength: '', strengthScore: 0, entropy: 0, timeToCrack: '', recommendations: [] }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -270,13 +270,13 @@ Security Tips:
       <div className="p-6">
         {/* Quick Presets */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Password Presets</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Password Presets</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {PASSWORD_PRESETS.map((preset, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickPreset(preset)}
-                className="p-4 bg-purple-50 hover:bg-purple-100 rounded-lg border border-purple-200 transition-colors text-left"
+                className="p-4 bg-purple-50 hover:bg-purple-100 rounded-2xl border border-purple-200 transition-colors text-left"
               >
                 <div className="font-semibold text-purple-800">{preset.name}</div>
                 <div className="text-sm text-purple-600">{preset.length} characters</div>
@@ -296,7 +296,7 @@ Security Tips:
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Basic Settings */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-gray-800">Password Settings</h3>
+            <h3 className="text-lg font-semibold text-google-text">Password Settings</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Password Length: {passwordLength} characters
@@ -307,7 +307,7 @@ Security Tips:
                 max="64"
                 value={passwordLength}
                 onChange={(e) => setPasswordLength(parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                className="w-full h-2 bg-gray-200 rounded-2xl appearance-none cursor-pointer"
                 aria-label="Password length slider"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
@@ -367,7 +367,7 @@ Security Tips:
 
           {/* Advanced Options */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-gray-800">Advanced Options</h3>
+            <h3 className="text-lg font-semibold text-google-text">Advanced Options</h3>
             <div className="space-y-3">
               <label className="flex items-center">
                 <input
@@ -392,7 +392,7 @@ Security Tips:
               </label>
             </div>
             
-            <div className="bg-purple-50 p-4 rounded-lg">
+            <div className="bg-purple-50 p-4 rounded-2xl">
               <h4 className="font-semibold text-purple-800 mb-2">Current Settings</h4>
               <div className="text-sm text-purple-700 space-y-1">
                 <div>Length: {passwordLength} characters</div>
@@ -420,7 +420,7 @@ Security Tips:
         <div className="text-center mb-8">
           <button
             onClick={handleGenerate}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
           >
             <RefreshCw className="w-5 h-5" />
             <span>Generate Password</span>
@@ -431,7 +431,7 @@ Security Tips:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-purple-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Password Generation Result"
                 inputs={[
@@ -450,22 +450,22 @@ Security Tips:
             </div>
 
             {/* Generated Password */}
-            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+            <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-4">Generated Password</h3>
-              <div className="bg-white p-4 rounded-lg border border-purple-300 mb-4">
+              <div className="bg-white p-4 rounded-2xl border border-purple-300 mb-4">
                 <div className="text-2xl font-mono text-center break-all">{result.password}</div>
               </div>
               <div className="flex justify-center space-x-4">
                 <button
                   onClick={copyToClipboard}
-                  className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                  className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
                 >
                   <Copy className="w-4 h-4" />
                   <span>Copy Password</span>
                 </button>
                 <button
                   onClick={handleGenerate}
-                  className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                  className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
                 >
                   <RefreshCw className="w-4 h-4" />
                   <span>Generate New</span>
@@ -474,34 +474,34 @@ Security Tips:
             </div>
 
             {/* Strength Analysis */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Password Strength Analysis</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Password Strength Analysis</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Strength Rating</h4>
-                  <div className={`text-lg font-semibold p-3 rounded-lg ${STRENGTH_LEVELS.find(s => s.name === result.strength)?.bgColor}`}>
+                  <h4 className="font-semibold text-google-text mb-3">Strength Rating</h4>
+                  <div className={`text-lg font-semibold p-3 rounded-2xl ${STRENGTH_LEVELS.find(s => s.name === result.strength)?.bgColor}`}>
                     <span className={STRENGTH_LEVELS.find(s => s.name === result.strength)?.color}>
                       {result.strength}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-600 mt-1">
+                  <p className="text-sm text-google-gray mt-1">
                     {STRENGTH_LEVELS.find(s => s.name === result.strength)?.description}
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Security Metrics</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Security Metrics</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Strength Score:</span>
+                      <span className="text-google-gray">Strength Score:</span>
                       <span className="font-semibold text-purple-700">{result.strengthScore}/6</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Entropy:</span>
+                      <span className="text-google-gray">Entropy:</span>
                       <span className="font-semibold text-blue-700">{result.entropy.toFixed(2)} bits</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Time to Crack:</span>
+                      <span className="text-google-gray">Time to Crack:</span>
                       <span className="font-semibold text-green-700">{result.timeToCrack}</span>
                     </div>
                   </div>
@@ -511,8 +511,8 @@ Security Tips:
 
             {/* Recommendations */}
             {result.recommendations.length > 0 && (
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">Security Recommendations</h3>
+              <div className="bg-gray-50 p-6 rounded-2xl">
+                <h3 className="text-lg font-semibold text-google-text mb-4">Security Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
                     <div key={index} className="flex items-start space-x-2">
@@ -528,28 +528,28 @@ Security Tips:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -559,8 +559,8 @@ Security Tips:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Password Generator</h3>
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-200">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Password Generator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our advanced password generator creates cryptographically secure, random passwords tailored to your 
@@ -568,7 +568,7 @@ Security Tips:
               system access, this tool provides strong, unique passwords with comprehensive security analysis.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Generates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Generates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Random Passwords:</strong> Cryptographically secure random generation</li>
               <li><strong>Customizable Length:</strong> Adjustable password length (8-128 characters)</li>
@@ -578,10 +578,10 @@ Security Tips:
               <li><strong>Security Recommendations:</strong> Expert advice for improvement</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Password Strength Levels</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Password Strength Levels</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Strong Passwords</h5>
+                <h5 className="font-semibold text-google-text mb-2">Strong Passwords</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Very Weak: Easily guessable</li>
                   <li>Weak: Basic dictionary attacks</li>
@@ -592,7 +592,7 @@ Security Tips:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Security Features</h5>
+                <h5 className="font-semibold text-google-text mb-2">Security Features</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Cryptographic randomness</li>
                   <li>Character variety</li>
@@ -604,30 +604,30 @@ Security Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Strength Score</h5>
                 <p className="text-purple-700 text-sm">1-6 rating system</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Entropy</h5>
                 <p className="text-blue-700 text-sm">Randomness measure in bits</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Time to Crack</h5>
                 <p className="text-green-700 text-sm">Estimated cracking time</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Select your desired password length, choose which character types to include, and click generate. 
               The tool will create a secure password and provide detailed analysis of its strength and security 
               characteristics.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Password Security Best Practices</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Password Security Best Practices</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Unique Passwords:</strong> Never reuse passwords across accounts</li>
               <li><strong>Minimum Length:</strong> Aim for at least 12 characters</li>
@@ -637,8 +637,8 @@ Security Tips:
               <li><strong>Password Manager:</strong> Use a secure password manager for storage</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Entropy and Security</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Entropy and Security</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <p className="text-gray-700 text-sm mb-3">
                 <strong>What is Entropy?</strong> Entropy measures the randomness and unpredictability of a password. 
                 Higher entropy means the password is harder to guess or crack.
@@ -660,7 +660,7 @@ Security Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Password Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Password Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Personal Information:</strong> Names, birthdays, addresses</li>
               <li><strong>Common Words:</strong> Dictionary words or phrases</li>
@@ -670,8 +670,8 @@ Security Tips:
               <li><strong>Predictable Substitutions:</strong> Using @ for 'a', 3 for 'e'</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-purple-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Consider using passphrases instead of passwords for better memorability and security. A passphrase 
                 like "correct horse battery staple" is much stronger than a complex but short password. Combine 
@@ -684,4 +684,8 @@ Security Tips:
     </div>
   )
 }
+
+
+
+
 

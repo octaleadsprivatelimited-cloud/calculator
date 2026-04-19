@@ -78,49 +78,44 @@ export default function RetirementCalculator() {
   const result = showResults ? calculateRetirement() : { yearsToRetirement: 0, totalSavings: 0, monthlyIncome: 0, recommendations: [], details: { current: 0, retirement: 0, savings: 0, contribution: 0, returnRate: 0 } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-4">
-        <div className="flex items-center">
-          <UserCheck className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Retirement Calculator</h2>
-        </div>
-        <p className="text-emerald-100 mt-1">Calculate retirement savings and income</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Current Age</label>
-              <input type="number" value={currentAge} onChange={(e) => setCurrentAge(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter age" step="1" />
+              <input type="number" value={currentAge} onChange={(e) => setCurrentAge(e.target.value)} className="google-input" placeholder="Enter age" step="1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Retirement Age</label>
-              <input type="number" value={retirementAge} onChange={(e) => setRetirementAge(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter age" step="1" />
+              <input type="number" value={retirementAge} onChange={(e) => setRetirementAge(e.target.value)} className="google-input" placeholder="Enter age" step="1" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Current Savings ()</label>
-              <input type="number" value={currentSavings} onChange={(e) => setCurrentSavings(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter savings" step="1000" />
+              <input type="number" value={currentSavings} onChange={(e) => setCurrentSavings(e.target.value)} className="google-input" placeholder="Enter savings" step="1000" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Monthly Contribution ()</label>
-              <input type="number" value={monthlyContribution} onChange={(e) => setMonthlyContribution(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter contribution" step="100" />
+              <input type="number" value={monthlyContribution} onChange={(e) => setMonthlyContribution(e.target.value)} className="google-input" placeholder="Enter contribution" step="100" />
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Expected Annual Return (%)</label>
-            <input type="number" value={expectedReturn} onChange={(e) => setExpectedReturn(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter return rate" step="0.1" />
+            <input type="number" value={expectedReturn} onChange={(e) => setExpectedReturn(e.target.value)} className="google-input" placeholder="Enter return rate" step="0.1" />
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -129,7 +124,7 @@ export default function RetirementCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Retirement Calculation Result"
                 inputs={[
@@ -149,7 +144,7 @@ export default function RetirementCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-2">Retirement Savings</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-emerald-600 mb-2">${result.totalSavings?.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
@@ -157,7 +152,7 @@ export default function RetirementCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">Retirement Analysis</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-emerald-700">Years to Retirement:</span><span className="font-semibold text-emerald-800">{result.yearsToRetirement} years</span></div>
@@ -169,7 +164,7 @@ export default function RetirementCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-emerald-800 mb-3">Summary</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -185,8 +180,8 @@ export default function RetirementCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Retirement Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Retirement Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive retirement calculator helps you plan for your financial future by projecting your retirement 
@@ -194,7 +189,7 @@ export default function RetirementCalculator() {
               provides valuable insights to help you achieve your retirement goals.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Total Retirement Savings:</strong> Projected nest egg at retirement age</li>
               <li><strong>Years to Retirement:</strong> Time remaining until your target retirement</li>
@@ -203,10 +198,10 @@ export default function RetirementCalculator() {
               <li><strong>Personalized Recommendations:</strong> Tips to improve your retirement outlook</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Retirement Planning Components</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Retirement Planning Components</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Current Financial Status</h5>
+                <h5 className="font-semibold text-google-text mb-2">Current Financial Status</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Current age and retirement target</li>
                   <li>Existing retirement savings</li>
@@ -216,7 +211,7 @@ export default function RetirementCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Future Projections</h5>
+                <h5 className="font-semibold text-google-text mb-2">Future Projections</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Compound growth calculations</li>
                   <li>Inflation considerations</li>
@@ -227,30 +222,30 @@ export default function RetirementCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your current age, target retirement age, existing savings, monthly contribution amount, and expected 
               annual return rate. The calculator will project your retirement savings and provide personalized recommendations 
               to help you reach your retirement goals.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+              <div className="bg-emerald-50 p-3 rounded-2xl border border-emerald-200">
                 <h5 className="font-semibold text-emerald-800 mb-1">Total Savings</h5>
                 <p className="text-emerald-700 text-sm">Your projected retirement nest egg</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Monthly Income</h5>
                 <p className="text-blue-700 text-sm">Estimated monthly retirement income</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Years to Go</h5>
                 <p className="text-purple-700 text-sm">Time remaining until retirement</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Retirement Planning Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Retirement Planning Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Start Early:</strong> Time is your greatest ally in retirement planning</li>
               <li><strong>Increase Contributions:</strong> Boost savings as your income grows</li>
@@ -260,8 +255,8 @@ export default function RetirementCalculator() {
               <li><strong>Review Regularly:</strong> Adjust your plan as circumstances change</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Retirement Accounts</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Retirement Accounts</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>401(k):</strong> Employer-sponsored retirement plan with potential matching</p>
@@ -276,7 +271,7 @@ export default function RetirementCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Retirement Income Sources</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Retirement Income Sources</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Social Security:</strong> Government retirement benefits</li>
               <li><strong>Personal Savings:</strong> 401(k), IRA, and other investments</li>
@@ -286,8 +281,8 @@ export default function RetirementCalculator() {
               <li><strong>Business Ownership:</strong> Selling or continuing business operations</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 The earlier you start saving for retirement, the more time compound interest has to work in your favor. 
                 Even small monthly contributions can grow into substantial sums over decades. Consider increasing your 
@@ -300,4 +295,9 @@ export default function RetirementCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

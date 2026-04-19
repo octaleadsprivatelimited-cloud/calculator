@@ -48,7 +48,7 @@ export default function DensityCalculator() {
   const result = showResults ? calculateDensity() : 0
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -65,13 +65,13 @@ export default function DensityCalculator() {
 
       <div className="p-6">
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Calculation Type</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Calculation Type</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {['density', 'mass', 'volume'].map((type) => (
               <button
                 key={type}
                 onClick={() => setCalculationType(type as any)}
-                className={`p-4 rounded-lg font-medium transition-colors ${
+                className={`p-4 rounded-2xl font-medium transition-colors ${
                   calculationType === type
                     ? 'bg-indigo-600 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -86,13 +86,13 @@ export default function DensityCalculator() {
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <div className="space-y-6">
             {calculationType !== 'density' && (
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Density</h3>
+              <div className="bg-gray-50 p-6 rounded-2xl">
+                <h3 className="text-xl font-semibold text-google-text mb-4">Density</h3>
                 <input
                   type="number"
                   value={density}
                   onChange={(e) => setDensity(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="google-input"
                   placeholder="Enter density"
                   min="0"
                   step="0.001"
@@ -100,13 +100,13 @@ export default function DensityCalculator() {
               </div>
             )}
             {calculationType !== 'mass' && (
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Mass</h3>
+              <div className="bg-gray-50 p-6 rounded-2xl">
+                <h3 className="text-xl font-semibold text-google-text mb-4">Mass</h3>
                 <input
                   type="number"
                   value={mass}
                   onChange={(e) => setMass(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="google-input"
                   placeholder="Enter mass"
                   min="0"
                   step="0.001"
@@ -114,13 +114,13 @@ export default function DensityCalculator() {
               </div>
             )}
             {calculationType !== 'volume' && (
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Volume</h3>
+              <div className="bg-gray-50 p-6 rounded-2xl">
+                <h3 className="text-xl font-semibold text-google-text mb-4">Volume</h3>
                 <input
                   type="number"
                   value={volume}
                   onChange={(e) => setVolume(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="google-input"
                   placeholder="Enter volume"
                   min="0"
                   step="0.001"
@@ -129,23 +129,23 @@ export default function DensityCalculator() {
             )}
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Common Densities</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Common Densities</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-600">Water:</span>
+                <span className="text-google-gray">Water:</span>
                 <span className="font-semibold">1.00 g/cm³</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Aluminum:</span>
+                <span className="text-google-gray">Aluminum:</span>
                 <span className="font-semibold">2.70 g/cm³</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Iron:</span>
+                <span className="text-google-gray">Iron:</span>
                 <span className="font-semibold">7.87 g/cm³</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Gold:</span>
+                <span className="text-google-gray">Gold:</span>
                 <span className="font-semibold">19.32 g/cm³</span>
               </div>
             </div>
@@ -155,7 +155,7 @@ export default function DensityCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
           >
             <Calculator className="w-5 h-5" />
             <span>Calculate</span>
@@ -165,7 +165,7 @@ export default function DensityCalculator() {
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Density Calculation Result"
                 inputs={[
@@ -183,11 +183,11 @@ export default function DensityCalculator() {
               />
             </div>
 
-            <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+            <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-4">Result</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-indigo-700">{formatNumber(result)}</div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-google-gray">
                   {calculationType === 'density' ? 'g/cm³' : calculationType === 'mass' ? 'g' : 'cm³'}
                 </div>
               </div>
@@ -196,7 +196,7 @@ export default function DensityCalculator() {
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -206,8 +206,8 @@ export default function DensityCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Density Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Density Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive density calculator helps students, scientists, and engineers solve 
@@ -216,7 +216,7 @@ export default function DensityCalculator() {
               work, material analysis, and educational purposes.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Density:</strong> Mass per unit volume (g/cm³, kg/m³, lb/ft³)</li>
               <li><strong>Mass:</strong> Weight of a substance given density and volume</li>
@@ -226,10 +226,10 @@ export default function DensityCalculator() {
               <li><strong>Scientific Accuracy:</strong> Precise calculations for experiments</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Types</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Calculation Types</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Density Calculation</h5>
+                <h5 className="font-semibold text-google-text mb-2">Density Calculation</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Formula:</strong> ρ = m/V</li>
                   <li><strong>Inputs:</strong> Mass and volume</li>
@@ -240,7 +240,7 @@ export default function DensityCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Mass Calculation</h5>
+                <h5 className="font-semibold text-google-text mb-2">Mass Calculation</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Formula:</strong> m = ρ × V</li>
                   <li><strong>Inputs:</strong> Density and volume</li>
@@ -251,7 +251,7 @@ export default function DensityCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Volume Calculation</h5>
+                <h5 className="font-semibold text-google-text mb-2">Volume Calculation</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Formula:</strong> V = m/ρ</li>
                   <li><strong>Inputs:</strong> Mass and density</li>
@@ -263,23 +263,23 @@ export default function DensityCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+              <div className="bg-indigo-50 p-3 rounded-2xl border border-indigo-200">
                 <h5 className="font-semibold text-indigo-800 mb-1">Density</h5>
                 <p className="text-indigo-700 text-sm">Mass per unit volume</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Mass</h5>
                 <p className="text-blue-700 text-sm">Weight of substance</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Volume</h5>
                 <p className="text-green-700 text-sm">Space occupied</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Select the calculation type (density, mass, or volume), enter the known values, and 
               click "Calculate" to get your result. The calculator automatically handles the math and 
@@ -287,8 +287,8 @@ export default function DensityCalculator() {
               identification and comparison.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Density Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Density Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Physical Property:</strong></p>
@@ -315,10 +315,10 @@ export default function DensityCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Material Densities</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Material Densities</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Low Density Materials</h5>
+                <h5 className="font-semibold text-google-text mb-2">Low Density Materials</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Air:</strong> 0.001225 g/cm³</li>
                   <li><strong>Styrofoam:</strong> 0.05 g/cm³</li>
@@ -329,7 +329,7 @@ export default function DensityCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">High Density Materials</h5>
+                <h5 className="font-semibold text-google-text mb-2">High Density Materials</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Aluminum:</strong> 2.70 g/cm³</li>
                   <li><strong>Iron:</strong> 7.87 g/cm³</li>
@@ -341,10 +341,10 @@ export default function DensityCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Practical Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Practical Applications</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Scientific Research</h5>
+                <h5 className="font-semibold text-google-text mb-2">Scientific Research</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Material Science:</strong> Substance identification</li>
                   <li><strong>Chemistry:</strong> Solution concentration</li>
@@ -355,7 +355,7 @@ export default function DensityCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Industrial Uses</h5>
+                <h5 className="font-semibold text-google-text mb-2">Industrial Uses</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Manufacturing:</strong> Quality control</li>
                   <li><strong>Construction:</strong> Material specifications</li>
@@ -367,7 +367,7 @@ export default function DensityCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Density Calculation Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Density Calculation Methods</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Direct Measurement:</strong> Mass and volume determination</li>
               <li><strong>Displacement Method:</strong> Volume by water displacement</li>
@@ -377,10 +377,10 @@ export default function DensityCalculator() {
               <li><strong>Ultrasonic Method:</strong> Sound wave analysis</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Density</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Density</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Temperature Effects</h5>
+                <h5 className="font-semibold text-google-text mb-2">Temperature Effects</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Thermal Expansion:</strong> Volume changes with temperature</li>
                   <li><strong>Phase Changes:</strong> Solid, liquid, gas transitions</li>
@@ -391,7 +391,7 @@ export default function DensityCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Pressure Effects</h5>
+                <h5 className="font-semibold text-google-text mb-2">Pressure Effects</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Compression:</strong> Volume reduction under pressure</li>
                   <li><strong>Gas Behavior:</strong> Ideal gas law effects</li>
@@ -403,7 +403,7 @@ export default function DensityCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Density in Different States</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Density in Different States</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Solids:</strong> Highest density, fixed volume and shape</li>
               <li><strong>Liquids:</strong> Medium density, fixed volume, variable shape</li>
@@ -413,7 +413,7 @@ export default function DensityCalculator() {
               <li><strong>Phase Transitions:</strong> Density changes at critical points</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Density Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Density Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Consistent Units:</strong> Match mass and volume units</li>
               <li><strong>Account for Temperature:</strong> Consider thermal effects</li>
@@ -423,7 +423,7 @@ export default function DensityCalculator() {
               <li><strong>Verify Results:</strong> Compare with known values</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Density Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Density Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Unit Confusion:</strong> Mixing different measurement systems</li>
               <li><strong>Temperature Ignorance:</strong> Not accounting for thermal effects</li>
@@ -433,7 +433,7 @@ export default function DensityCalculator() {
               <li><strong>Formula Errors:</strong> Incorrect mathematical operations</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Density Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Density Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Relative Density:</strong> Comparison to reference substance</li>
               <li><strong>Bulk Density:</strong> Including void spaces</li>
@@ -443,8 +443,8 @@ export default function DensityCalculator() {
               <li><strong>Tap Density:</strong> Packed material density</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-indigo-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When working with density calculations, always ensure your units are consistent and 
                 appropriate for your application. Remember that density varies with temperature and 
@@ -458,12 +458,12 @@ export default function DensityCalculator() {
           </div>
         </div>
 
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
             <Info className="w-6 h-6 text-indigo-600 mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Density Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Density Calculator</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 Calculate density (mass/volume), mass (density × volume), or volume (mass/density) 
                 when you know two of the three values. Perfect for science experiments and material analysis.
               </p>
@@ -474,3 +474,8 @@ export default function DensityCalculator() {
     </div>
   )
 }
+
+
+
+
+

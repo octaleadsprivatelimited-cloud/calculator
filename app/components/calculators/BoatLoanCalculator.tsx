@@ -72,40 +72,35 @@ export default function BoatLoanCalculator() {
   const result = showResults ? calculateBoatLoan() : { loanAmount: 0, monthlyPayment: 0, totalInterest: 0, totalPayment: 0, recommendations: [], details: { price: 0, down: 0, rate: 0, term: 0, termType: '' } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
-        <div className="flex items-center">
-          <Anchor className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Boat Loan Calculator</h2>
-        </div>
-        <p className="text-blue-100 mt-1">Calculate boat loan payments and costs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Boat Price ()</label>
-              <input type="number" value={boatPrice} onChange={(e) => setBoatPrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter price" step="1000" />
+              <input type="number" value={boatPrice} onChange={(e) => setBoatPrice(e.target.value)} className="google-input" placeholder="Enter price" step="1000" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ()</label>
-              <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter down payment" step="1000" />
+              <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="google-input" placeholder="Enter down payment" step="1000" />
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Interest Rate (%)</label>
-              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter rate" step="0.1" />
+              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="google-input" placeholder="Enter rate" step="0.1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Loan Term</label>
-              <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter term" step="0.1" />
+              <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="google-input" placeholder="Enter term" step="0.1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Term Type</label>
-              <select value={termType} onChange={(e) => setTermType(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Select term type">
+              <select value={termType} onChange={(e) => setTermType(e.target.value)} className="google-input" aria-label="Select term type">
                 <option value="years">Years</option>
                 <option value="months">Months</option>
               </select>
@@ -113,10 +108,10 @@ export default function BoatLoanCalculator() {
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 bg-google-blueLight0 hover:bg-google-blue text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -124,15 +119,15 @@ export default function BoatLoanCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Monthly Payment</h3>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">${result.monthlyPayment?.toFixed(2)}</div>
+                <div className="text-3xl font-bold text-google-blue mb-2">${result.monthlyPayment?.toFixed(2)}</div>
                 <div className="text-blue-700">Monthly boat loan payment</div>
               </div>
             </div>
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-3">Loan Summary</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-blue-700">Boat Price:</span><span className="font-semibold text-blue-800">${result.details.price?.toLocaleString()}</span></div>
@@ -151,12 +146,12 @@ export default function BoatLoanCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
                 <h3 className="text-lg font-semibold text-blue-800 mb-3">Analysis</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
                     <div key={index} className="flex items-start">
-                      <span className="text-blue-600 mr-2">•</span>
+                      <span className="text-google-blue mr-2">•</span>
                       <span className="text-blue-700">{rec}</span>
                     </div>
                   ))}
@@ -167,8 +162,8 @@ export default function BoatLoanCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Boat Loan Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Boat Loan Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive boat loan calculator helps you determine monthly payments and total costs for financing 
@@ -177,7 +172,7 @@ export default function BoatLoanCalculator() {
               make informed financing decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Monthly Payment:</strong> Regular boat loan payment amount</li>
               <li><strong>Total Interest:</strong> Complete interest cost over loan term</li>
@@ -187,10 +182,10 @@ export default function BoatLoanCalculator() {
               <li><strong>Financing Analysis:</strong> Whether the loan is affordable</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Boat Loan vs. Other Financing</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Boat Loan vs. Other Financing</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Boat Loan Characteristics</h5>
+                <h5 className="font-semibold text-google-text mb-2">Boat Loan Characteristics</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Higher interest rates than auto loans</li>
                   <li>Shorter loan terms (5-20 years)</li>
@@ -201,7 +196,7 @@ export default function BoatLoanCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Alternative Financing</h5>
+                <h5 className="font-semibold text-google-text mb-2">Alternative Financing</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Home equity loans</li>
                   <li>Personal loans</li>
@@ -213,29 +208,29 @@ export default function BoatLoanCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Monthly Payment</h5>
                 <p className="text-blue-700 text-sm">Regular loan amount</p>
               </div>
-              <div className="bg-cyan-50 p-3 rounded-lg border border-cyan-200">
+              <div className="bg-cyan-50 p-3 rounded-2xl border border-cyan-200">
                 <h5 className="font-semibold text-cyan-800 mb-1">Total Interest</h5>
                 <p className="text-cyan-700 text-sm">Cost of borrowing</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Total Cost</h5>
                 <p className="text-green-700 text-sm">Complete boat cost</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the boat price, down payment, interest rate, and loan term. Choose between years or months, then 
               click calculate to see your monthly payment, total interest costs, and complete financing breakdown.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Boat Types and Financing</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Boat Types and Financing</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Fishing Boats:</strong> Bass boats, center consoles, aluminum boats</li>
               <li><strong>Pontoon Boats:</strong> Family-friendly, stable platforms</li>
@@ -245,8 +240,8 @@ export default function BoatLoanCalculator() {
               <li><strong>Commercial Vessels:</strong> Charter boats, fishing charters</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Boat Loan Requirements</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Boat Loan Requirements</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Credit Requirements:</strong></p>
@@ -269,7 +264,7 @@ export default function BoatLoanCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Boat Loan Rates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Boat Loan Rates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Credit Score:</strong> Better credit means lower rates</li>
               <li><strong>Down Payment:</strong> Larger down payments reduce rates</li>
@@ -279,7 +274,7 @@ export default function BoatLoanCalculator() {
               <li><strong>Lender Type:</strong> Credit unions often offer better rates</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Additional Boat Ownership Costs</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Additional Boat Ownership Costs</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Insurance:</strong> Hull, liability, and personal property coverage</li>
               <li><strong>Storage:</strong> Marina fees, dry storage, or trailer storage</li>
@@ -289,7 +284,7 @@ export default function BoatLoanCalculator() {
               <li><strong>Safety Equipment:</strong> Life jackets, fire extinguishers, flares</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Boat Loan Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Boat Loan Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Shop Around:</strong> Compare rates from multiple lenders</li>
               <li><strong>Consider Total Cost:</strong> Don't just focus on monthly payment</li>
@@ -299,7 +294,7 @@ export default function BoatLoanCalculator() {
               <li><strong>Plan for Seasonal Use:</strong> Consider seasonal payment options</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Seasonal Payment Options</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Seasonal Payment Options</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Year-round Payments:</strong> Consistent monthly payments</li>
               <li><strong>Seasonal Payments:</strong> Higher payments during boating season</li>
@@ -308,8 +303,8 @@ export default function BoatLoanCalculator() {
               <li><strong>Interest-only Periods:</strong> Pay only interest initially</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Consider the total cost of boat ownership, not just the loan payment. A 500 monthly payment might seem 
                 affordable, but when you add insurance (100/month), storage (200/month), maintenance (100/month), and 
@@ -323,4 +318,9 @@ export default function BoatLoanCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

@@ -156,21 +156,21 @@ export default function DateCalculator() {
   const result = calculationType === 'difference' ? calculateDateDifference() : calculateDateOperation()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-50 to-blue-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
             <Calendar className="w-12 h-12 mr-3 text-cyan-600" />
             Date Calculator
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Calculate date differences, add or subtract time periods
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
               <Calculator className="w-6 h-6 mr-2 text-cyan-600" />
               Date Calculation
             </h2>
@@ -183,7 +183,7 @@ export default function DateCalculator() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => setCalculationType('difference')}
-                    className={`flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${
+                    className={`flex-1 py-2 px-4 rounded-2xl font-medium transition-colors ${
                       calculationType === 'difference'
                         ? 'bg-cyan-600 text-white'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -193,7 +193,7 @@ export default function DateCalculator() {
                   </button>
                   <button
                     onClick={() => setCalculationType('operation')}
-                    className={`flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${
+                    className={`flex-1 py-2 px-4 rounded-2xl font-medium transition-colors ${
                       calculationType === 'operation'
                         ? 'bg-cyan-600 text-white'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -214,7 +214,7 @@ export default function DateCalculator() {
                       type="date"
                       value={startDate}
                       onChange={(e) => setStartDate(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200"
                       title="Select start date"
                       aria-label="Start date"
                     />
@@ -228,7 +228,7 @@ export default function DateCalculator() {
                       type="date"
                       value={endDate}
                       onChange={(e) => setEndDate(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200"
                       title="Select end date"
                       aria-label="End date"
                     />
@@ -244,7 +244,7 @@ export default function DateCalculator() {
                       type="date"
                       value={startDate}
                       onChange={(e) => setStartDate(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200"
                       title="Select start date"
                       aria-label="Start date"
                     />
@@ -291,7 +291,7 @@ export default function DateCalculator() {
                        type="number"
                        value={amount}
                        onChange={(e) => setAmount(e.target.value)}
-                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200"
+                       className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200"
                        placeholder="30"
                        title="Enter amount of time"
                        aria-label="Time amount"
@@ -305,7 +305,7 @@ export default function DateCalculator() {
                       <select
                         value={unit}
                         onChange={(e) => setUnit(e.target.value as 'days' | 'weeks' | 'months' | 'years')}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200"
                         aria-label="Time unit"
                         title="Select time unit"
                       >
@@ -324,7 +324,7 @@ export default function DateCalculator() {
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     onClick={() => setStartDate(quickDates.today.toISOString().split('T')[0])}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                     title="Set start date to today"
                     aria-label="Set start date to today"
                   >
@@ -332,7 +332,7 @@ export default function DateCalculator() {
                   </button>
                   <button
                     onClick={() => setStartDate(quickDates.tomorrow.toISOString().split('T')[0])}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                     title="Set start date to tomorrow"
                     aria-label="Set start date to tomorrow"
                   >
@@ -340,7 +340,7 @@ export default function DateCalculator() {
                   </button>
                   <button
                     onClick={() => setStartDate(quickDates.nextWeek.toISOString().split('T')[0])}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                     title="Set start date to next week"
                     aria-label="Set start date to next week"
                   >
@@ -348,7 +348,7 @@ export default function DateCalculator() {
                   </button>
                   <button
                     onClick={() => setStartDate(quickDates.nextMonth.toISOString().split('T')[0])}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                     title="Set start date to next month"
                     aria-label="Set start date to next month"
                   >
@@ -367,7 +367,7 @@ export default function DateCalculator() {
                     setUnit('days')
                     setCalculationType('difference')
                   }}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="google-button-secondary transition-colors font-medium"
                   title="Reset to defaults"
                 >
                   <RotateCcw className="w-5 h-5" />
@@ -378,7 +378,7 @@ export default function DateCalculator() {
 
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-cyan-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Date Calculation Result"
                 inputs={[
@@ -397,8 +397,8 @@ export default function DateCalculator() {
             </div>
 
             {calculationType === 'difference' ? (
-              <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+              <div className="google-card overflow-hidden p-6 border border-google-border">
+                <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                   <Clock className="w-6 h-6 mr-2 text-cyan-600" />
                   Date Difference
                 </h2>
@@ -407,39 +407,39 @@ export default function DateCalculator() {
                   <div className="text-4xl font-bold text-cyan-600 mb-2">
                     {result.difference.totalDays}
                   </div>
-                  <p className="text-gray-600">total days</p>
+                  <p className="text-google-gray">total days</p>
                 </div>
 
                 <div className="space-y-3">
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Start Date</span>
+                    <span className="text-google-gray">Start Date</span>
                     <span className="font-semibold">{formatDate(result.startDate)}</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">End Date</span>
+                    <span className="text-google-gray">End Date</span>
                     <span className="font-semibold">{formatDate(result.endDate)}</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Years</span>
-                    <span className="font-semibold text-blue-600">{result.difference.years}</span>
+                    <span className="text-google-gray">Years</span>
+                    <span className="font-semibold text-google-blue">{result.difference.years}</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Months</span>
+                    <span className="text-google-gray">Months</span>
                     <span className="font-semibold text-green-600">{result.difference.months}</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Days</span>
+                    <span className="text-google-gray">Days</span>
                     <span className="font-semibold text-purple-600">{result.difference.days}</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Total Weeks</span>
+                    <span className="text-google-gray">Total Weeks</span>
                     <span className="font-semibold text-orange-600">{result.difference.totalWeeks}</span>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+              <div className="google-card overflow-hidden p-6 border border-google-border">
+                <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                   <Clock className="w-6 h-6 mr-2 text-cyan-600" />
                   Date Result
                 </h2>
@@ -448,18 +448,18 @@ export default function DateCalculator() {
                   <div className="text-4xl font-bold text-cyan-600 mb-2">
                     {formatShortDate(result.resultDate)}
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-google-gray">
                     {operation === 'add' ? 'after adding' : 'after subtracting'} {amount} {unit}
                   </p>
                 </div>
 
                 <div className="space-y-3">
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Start Date</span>
+                    <span className="text-google-gray">Start Date</span>
                     <span className="font-semibold">{formatDate(result.startDate)}</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Operation</span>
+                    <span className="text-google-gray">Operation</span>
                     <span className={`font-semibold ${
                       operation === 'add' ? 'text-green-600' : 'text-red-600'
                     }`}>
@@ -467,16 +467,16 @@ export default function DateCalculator() {
                     </span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Result Date</span>
-                    <span className="font-semibold text-blue-600">{formatDate(result.resultDate)}</span>
+                    <span className="text-google-gray">Result Date</span>
+                    <span className="font-semibold text-google-blue">{formatDate(result.resultDate)}</span>
                   </div>
                 </div>
               </div>
             )}
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Date Tips</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Date Tips</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Date Difference:</strong> Calculate time between two dates</p>
                 <p>• <strong>Add/Subtract:</strong> Find future or past dates</p>
                 <p>• <strong>Leap Years:</strong> Automatically accounted for</p>
@@ -494,4 +494,8 @@ export default function DateCalculator() {
     </div>
   )
 }
+
+
+
+
 

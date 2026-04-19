@@ -106,12 +106,12 @@ export default function CompoundInterestCalculator() {
   const yearlyBreakdown = calculateYearlyBreakdown()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-2 sm:p-4">
+    <div className="min-h-screen bg-google-bg p-2 sm:p-4">
       <div className="w-full">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg mb-6 p-4 sm:p-6">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl shadow-google mb-6 p-4 sm:p-6">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
               <TrendingUp className="w-7 h-7 text-white" />
             </div>
             <div>
@@ -122,7 +122,7 @@ export default function CompoundInterestCalculator() {
         </div>
 
         {/* Share Options - Moved to Top */}
-        <div className="mb-4 bg-white rounded-xl shadow-md p-3 sm:p-4 border-2 border-blue-200">
+        <div className="mb-4 bg-white rounded-3xl shadow-md p-3 sm:p-4 border border-google-border">
           <ResultSharing
             title="Compound Interest Calculation Result"
             inputs={[
@@ -143,9 +143,9 @@ export default function CompoundInterestCalculator() {
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6">
-          <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-blue-200">
-            <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
-              <Calculator className="w-5 h-5 mr-2 text-blue-600" />
+          <div className="bg-white rounded-3xl shadow-md p-4 sm:p-6 border border-google-border">
+            <h2 className="text-lg font-bold text-google-text mb-4 flex items-center">
+              <Calculator className="w-5 h-5 mr-2 text-google-blue" />
               Investment Parameters
             </h2>
 
@@ -158,7 +158,7 @@ export default function CompoundInterestCalculator() {
                   type="number"
                   value={principal}
                   onChange={(e) => setPrincipal(e.target.value)}
-                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-2xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
                   placeholder="0"
                 />
               </div>
@@ -172,7 +172,7 @@ export default function CompoundInterestCalculator() {
                   step="0.01"
                   value={annualRate}
                   onChange={(e) => setAnnualRate(e.target.value)}
-                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-2xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
                   placeholder="0"
                 />
               </div>
@@ -185,7 +185,7 @@ export default function CompoundInterestCalculator() {
                   type="number"
                   value={years}
                   onChange={(e) => setYears(e.target.value)}
-                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-2xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
                   placeholder="0"
                 />
               </div>
@@ -197,7 +197,7 @@ export default function CompoundInterestCalculator() {
                 <select
                   value={compoundFrequency}
                   onChange={(e) => setCompoundFrequency(e.target.value)}
-                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-2xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
                   aria-label="Compounding frequency"
                   title="Select compounding frequency"
                 >
@@ -217,7 +217,7 @@ export default function CompoundInterestCalculator() {
                   type="number"
                   value={additionalContribution}
                   onChange={(e) => setAdditionalContribution(e.target.value)}
-                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-2xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
                   placeholder="0"
                 />
               </div>
@@ -229,7 +229,7 @@ export default function CompoundInterestCalculator() {
                 <select
                   value={contributionFrequency}
                   onChange={(e) => setContributionFrequency(e.target.value)}
-                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-2xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
                   aria-label="Contribution frequency"
                   title="Select contribution frequency"
                 >
@@ -242,7 +242,7 @@ export default function CompoundInterestCalculator() {
               <div className="flex gap-2 sm:gap-3 pt-2">
                 <button
                   onClick={() => setShowYearlyBreakdown(!showYearlyBreakdown)}
-                  className="flex-1 bg-blue-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm sm:text-base"
+                  className="flex-1 bg-google-blue text-white py-2 sm:py-3 px-4 sm:px-6 rounded-2xl hover:bg-google-blueHover transition-colors font-medium text-sm sm:text-base"
                 >
                   {showYearlyBreakdown ? 'Hide' : 'Show'} Yearly Breakdown
                 </button>
@@ -255,7 +255,7 @@ export default function CompoundInterestCalculator() {
                     setAdditionalContribution('')
                     setContributionFrequency('monthly')
                   }}
-                  className="px-4 sm:px-6 py-2 sm:py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="px-4 sm:px-6 py-2 sm:py-3 border border-gray-300 text-gray-700 rounded-2xl hover:bg-gray-50 transition-colors font-medium"
                   title="Reset to defaults"
                 >
                   <RotateCcw className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -265,57 +265,57 @@ export default function CompoundInterestCalculator() {
           </div>
 
           <div className="space-y-3">
-            <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-blue-200">
-              <h2 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
-                <BarChart3 className="w-5 h-5 mr-2 text-blue-600" />
+            <div className="bg-white rounded-3xl shadow-md p-4 sm:p-6 border border-google-border">
+              <h2 className="text-lg font-bold text-google-text mb-3 flex items-center">
+                <BarChart3 className="w-5 h-5 mr-2 text-google-blue" />
                 Final Amount
               </h2>
               
               <div className="text-center mb-4">
-                <div className="text-2xl sm:text-3xl font-bold text-blue-600">
+                <div className="text-2xl sm:text-3xl font-bold text-google-blue">
                   {formatCurrency(result.finalAmount)}
                 </div>
-                <p className="text-gray-600 text-sm sm:text-base">after {result.years} years</p>
+                <p className="text-google-gray text-sm sm:text-base">after {result.years} years</p>
               </div>
 
               <div className="space-y-2">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-gray-100 text-sm sm:text-base">
-                  <span className="text-gray-600">Initial Principal</span>
+                  <span className="text-google-gray">Initial Principal</span>
                   <span className="font-semibold">{formatCurrency(result.principal)}</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-gray-100 text-sm sm:text-base">
-                  <span className="text-gray-600">Total Contributions</span>
+                  <span className="text-google-gray">Total Contributions</span>
                   <span className="font-semibold text-green-600">{formatCurrency(result.totalContributions)}</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-gray-100 text-sm sm:text-base">
-                  <span className="text-gray-600">Interest Earned</span>
-                  <span className="font-semibold text-blue-600">{formatCurrency(result.totalInterest)}</span>
+                  <span className="text-google-gray">Interest Earned</span>
+                  <span className="font-semibold text-google-blue">{formatCurrency(result.totalInterest)}</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-gray-100 text-sm sm:text-base">
-                  <span className="text-gray-600">Annual Rate</span>
+                  <span className="text-google-gray">Annual Rate</span>
                   <span className="font-semibold">{result.annualRate.toFixed(2)}%</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Growth Breakdown</h2>
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Growth Breakdown</h2>
               
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Total Growth</span>
+                  <span className="text-google-gray">Total Growth</span>
                   <span className="font-semibold text-green-600">
                     {(((result.finalAmount - result.principal) / result.principal) * 100).toFixed(1)}%
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Interest vs Principal</span>
+                  <span className="text-google-gray">Interest vs Principal</span>
                   <span className="font-semibold text-purple-600">
                     {((result.totalInterest / result.totalContributions) * 100).toFixed(1)}%
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Compounding</span>
+                  <span className="text-google-gray">Compounding</span>
                   <span className="font-semibold capitalize">
                     {compoundFrequency === '1' ? 'Annually' :
                      compoundFrequency === '2' ? 'Semi-annually' :
@@ -326,9 +326,9 @@ export default function CompoundInterestCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Compound Interest Tips</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Compound Interest Tips</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Start early:</strong> Time is the most powerful factor</p>
                 <p>• <strong>Regular contributions:</strong> Consistent investing builds wealth</p>
                 <p>• <strong>Higher frequency:</strong> More compounding = more growth</p>
@@ -341,8 +341,8 @@ export default function CompoundInterestCalculator() {
         </div>
 
         {showYearlyBreakdown && (
-          <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Yearly Growth Breakdown</h2>
+          <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6">Yearly Growth Breakdown</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -360,7 +360,7 @@ export default function CompoundInterestCalculator() {
                       <td className="py-2 px-2">{row.year}</td>
                       <td className="text-right py-2 px-2">{formatCurrency(row.balance)}</td>
                       <td className="text-right py-2 px-2">{formatCurrency(row.contributions)}</td>
-                      <td className="text-right py-2 px-2 text-blue-600">{formatCurrency(row.interestEarned)}</td>
+                      <td className="text-right py-2 px-2 text-google-blue">{formatCurrency(row.interestEarned)}</td>
                       <td className="text-right py-2 px-2">{formatCurrency(row.totalContributed)}</td>
                     </tr>
                   ))}
@@ -377,5 +377,8 @@ export default function CompoundInterestCalculator() {
     </div>
   )
 }
+
+
+
 
 

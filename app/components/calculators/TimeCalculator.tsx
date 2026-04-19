@@ -45,7 +45,7 @@ export default function TimeCalculator() {
   const result = showResults ? calculateTime() : { totalSeconds: 0, totalMinutes: 0, totalHours: 0, days: 0, formatted: '00:00:00' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -68,7 +68,7 @@ export default function TimeCalculator() {
               type="number"
               value={hours}
               onChange={(e) => setHours(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="google-input"
               placeholder="0"
               min="0"
               max="999"
@@ -82,7 +82,7 @@ export default function TimeCalculator() {
               type="number"
               value={minutes}
               onChange={(e) => setMinutes(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="google-input"
               placeholder="0"
               min="0"
               max="59"
@@ -96,7 +96,7 @@ export default function TimeCalculator() {
               type="number"
               value={seconds}
               onChange={(e) => setSeconds(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="google-input"
               placeholder="0"
               min="0"
               max="59"
@@ -108,7 +108,7 @@ export default function TimeCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Calculate Time
           </button>
@@ -117,7 +117,7 @@ export default function TimeCalculator() {
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-purple-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Time Calculation Result"
                 inputs={[
@@ -136,42 +136,42 @@ export default function TimeCalculator() {
               />
             </div>
 
-            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+            <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-4">Time Conversion Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{result.formatted}</div>
-                  <div className="text-sm text-gray-600">Time Format</div>
+                  <div className="text-sm text-google-gray">Time Format</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{result.totalSeconds.toLocaleString()}</div>
-                  <div className="text-sm text-gray-600">Total Seconds</div>
+                  <div className="text-sm text-google-gray">Total Seconds</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{result.totalMinutes.toFixed(2)}</div>
-                  <div className="text-sm text-gray-600">Total Minutes</div>
+                  <div className="text-sm text-google-gray">Total Minutes</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{result.totalHours.toFixed(2)}</div>
-                  <div className="text-sm text-gray-600">Total Hours</div>
+                  <div className="text-sm text-google-gray">Total Hours</div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Additional Conversions</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Additional Conversions</h3>
               <div className="text-center">
                 <div className="text-2xl font-bold text-purple-700 mb-2">
                   {result.days.toFixed(2)} days
                 </div>
-                <div className="text-sm text-gray-600">Total Days</div>
+                <div className="text-sm text-google-gray">Total Days</div>
               </div>
             </div>
 
             <div className="flex justify-center">
               <button
                 onClick={handleReset}
-                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 Reset
               </button>
@@ -181,8 +181,8 @@ export default function TimeCalculator() {
       </div>
 
       {/* Calculator Description Section */}
-      <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">About Time Calculator</h3>
+      <div className="mt-8 p-6 google-result-card">
+        <h3 className="text-xl font-semibold text-google-text mb-4">About Time Calculator</h3>
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 mb-4">
             Our time calculator helps you convert between different time units including hours, minutes, 
@@ -194,3 +194,8 @@ export default function TimeCalculator() {
     </div>
   )
 }
+
+
+
+
+

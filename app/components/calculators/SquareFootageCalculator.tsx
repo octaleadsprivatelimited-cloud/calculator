@@ -213,7 +213,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
         return (
           <div className="grid grid-cols-2 gap-2">
             <div>
-              <label className="block text-xs text-gray-600 mb-1">Length (ft)</label>
+              <label className="block text-xs text-google-gray mb-1">Length (ft)</label>
               <input
                 type="number"
                 value={dimensions.length || ''}
@@ -225,7 +225,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               />
             </div>
             <div>
-              <label className="block text-xs text-gray-600 mb-1">Width (ft)</label>
+              <label className="block text-xs text-google-gray mb-1">Width (ft)</label>
               <input
                 type="number"
                 value={dimensions.width || ''}
@@ -242,7 +242,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
       case 'circle':
         return (
           <div>
-            <label className="block text-xs text-gray-600 mb-1">Radius (ft)</label>
+            <label className="block text-xs text-google-gray mb-1">Radius (ft)</label>
             <input
               type="number"
               value={dimensions.radius || ''}
@@ -259,7 +259,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
         return (
           <div className="grid grid-cols-2 gap-2">
             <div>
-              <label className="block text-xs text-gray-600 mb-1">Base (ft)</label>
+              <label className="block text-xs text-google-gray mb-1">Base (ft)</label>
               <input
                 type="number"
                 value={dimensions.base || ''}
@@ -271,7 +271,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               />
             </div>
             <div>
-              <label className="block text-xs text-gray-600 mb-1">Height (ft)</label>
+              <label className="block text-xs text-google-gray mb-1">Height (ft)</label>
               <input
                 type="number"
                 value={dimensions.height || ''}
@@ -289,7 +289,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
         return (
           <div className="grid grid-cols-2 gap-2">
             <div>
-              <label className="block text-xs text-gray-600 mb-1">L1 (ft)</label>
+              <label className="block text-xs text-google-gray mb-1">L1 (ft)</label>
               <input
                 type="number"
                 value={dimensions.l1 || ''}
@@ -301,7 +301,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               />
             </div>
             <div>
-              <label className="block text-xs text-gray-600 mb-1">W1 (ft)</label>
+              <label className="block text-xs text-google-gray mb-1">W1 (ft)</label>
               <input
                 type="number"
                 value={dimensions.w1 || ''}
@@ -313,7 +313,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               />
             </div>
             <div>
-              <label className="block text-xs text-gray-600 mb-1">L2 (ft)</label>
+              <label className="block text-xs text-google-gray mb-1">L2 (ft)</label>
               <input
                 type="number"
                 value={dimensions.l2 || ''}
@@ -325,7 +325,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               />
             </div>
             <div>
-              <label className="block text-xs text-gray-600 mb-1">W2 (ft)</label>
+              <label className="block text-xs text-google-gray mb-1">W2 (ft)</label>
               <input
                 type="number"
                 value={dimensions.w2 || ''}
@@ -345,7 +345,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -365,16 +365,16 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
       <div className="p-6">
         {/* Quick Room Sizes */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Room Sizes</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Room Sizes</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {COMMON_ROOM_SIZES.map((roomSize, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickRoom(roomSize)}
-                className="p-3 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 transition-colors text-sm text-left"
+                className="p-3 bg-google-blueLight hover:bg-blue-100 rounded-2xl border border-blue-200 transition-colors text-sm text-left"
               >
                 <div className="font-medium text-blue-800">{roomSize.name}</div>
-                <div className="text-blue-600">{roomSize.length}' × {roomSize.width}'</div>
+                <div className="text-google-blue">{roomSize.length}' × {roomSize.width}'</div>
               </button>
             ))}
           </div>
@@ -383,16 +383,16 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
         {/* Room Management */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Add Room */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Add New Room</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Add New Room</h3>
             <button
               onClick={addRoom}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg transition-colors duration-200"
+              className="w-full bg-google-blue hover:bg-google-blueHover text-white py-3 px-4 rounded-2xl transition-colors duration-200"
             >
               Add Room
             </button>
             
-            <div className="mt-4 text-sm text-gray-600">
+            <div className="mt-4 text-sm text-google-gray">
               <p>• Add multiple rooms to calculate total area</p>
               <p>• Choose from rectangle, circle, triangle, or L-shape</p>
               <p>• All measurements in feet</p>
@@ -400,8 +400,8 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
           </div>
 
           {/* Cost Calculator */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Cost Calculator (Optional)</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Cost Calculator (Optional)</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Cost per Square Foot ()
@@ -410,7 +410,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
                 type="number"
                 value={costPerSqFt}
                 onChange={(e) => setCostPerSqFt(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="0.00"
                 min="0"
                 step="0.01"
@@ -423,17 +423,17 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
         {/* Room List */}
         {rooms.length > 0 && (
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Rooms ({rooms.length})</h3>
+            <h3 className="text-xl font-semibold text-google-text mb-4">Rooms ({rooms.length})</h3>
             <div className="space-y-4">
               {rooms.map((room, index) => (
-                <div key={room.id} className="bg-white p-4 rounded-lg border">
+                <div key={room.id} className="bg-white p-4 rounded-2xl border">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center space-x-3">
                                              <input
                          type="text"
                          value={room.name}
                          onChange={(e) => updateRoom(room.id, 'name', e.target.value)}
-                         className="font-semibold text-gray-800 bg-transparent border-b border-transparent hover:border-gray-300 focus:border-blue-500 focus:outline-none px-1 py-1"
+                         className="font-semibold text-google-text bg-transparent border-b border-transparent hover:border-gray-300 focus:border-blue-500 focus:outline-none px-1 py-1"
                          placeholder="Room name"
                          aria-label="Room name"
                        />
@@ -451,7 +451,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
                       </select>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <span className="text-sm text-gray-600">
+                      <span className="text-sm text-google-gray">
                         {formatNumber(room.area)} sq ft
                       </span>
                       <button
@@ -475,7 +475,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="bg-google-blue hover:bg-google-blueHover text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Total Area</span>
@@ -487,7 +487,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-blue-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Square Footage Calculation Result"
                 inputs={[
@@ -506,24 +506,24 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
             </div>
 
             {/* Area Results */}
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-6 rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">Total Area Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.squareFeet)}</div>
-                  <div className="text-sm text-gray-600">Square Feet</div>
+                  <div className="text-sm text-google-gray">Square Feet</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.squareMeters)}</div>
-                  <div className="text-sm text-gray-600">Square Meters</div>
+                  <div className="text-sm text-google-gray">Square Meters</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.squareYards)}</div>
-                  <div className="text-sm text-gray-600">Square Yards</div>
+                  <div className="text-sm text-google-gray">Square Yards</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.acres)}</div>
-                  <div className="text-sm text-gray-600">Acres</div>
+                  <div className="text-sm text-google-gray">Acres</div>
                 </div>
               </div>
               
@@ -532,7 +532,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
                   <div className="text-2xl font-bold text-green-700">
                     ${formatNumber(result.cost)}
                   </div>
-                  <div className="text-sm text-gray-600">Total Cost</div>
+                  <div className="text-sm text-google-gray">Total Cost</div>
                 </div>
               )}
             </div>
@@ -541,28 +541,28 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -572,8 +572,8 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Square Footage Calculator</h3>
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-200">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Square Footage Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive square footage calculator helps you determine the total area of any space by adding up 
@@ -581,7 +581,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               real estate, this tool provides accurate area calculations with multiple unit conversions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Total Square Footage:</strong> Combined area of all rooms and spaces</li>
               <li><strong>Multiple Unit Conversions:</strong> Square feet, meters, yards, and acres</li>
@@ -590,10 +590,10 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               <li><strong>Complex Shapes:</strong> Support for rectangles, circles, triangles, and L-shapes</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Supported Room Shapes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Supported Room Shapes</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Basic Shapes</h5>
+                <h5 className="font-semibold text-google-text mb-2">Basic Shapes</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Rectangular rooms (length × width)</li>
                   <li>Square rooms (side × side)</li>
@@ -602,7 +602,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Complex Shapes</h5>
+                <h5 className="font-semibold text-google-text mb-2">Complex Shapes</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>L-shaped rooms (multiple rectangles)</li>
                   <li>Irregular shapes (decomposed into parts)</li>
@@ -612,26 +612,26 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Area Units</h5>
                 <p className="text-blue-700 text-sm">Square feet, meters, yards, and acres</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Cost Estimates</h5>
                 <p className="text-green-700 text-sm">Total project cost calculations</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Add rooms one by one, selecting the appropriate shape and entering dimensions. For irregular shapes, 
               break them down into simpler geometric forms. The calculator will automatically sum all areas and 
               provide conversions between different units.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Home Renovations:</strong> Calculate flooring, paint, and material needs</li>
               <li><strong>Real Estate:</strong> Evaluate property size and value</li>
@@ -641,8 +641,8 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               <li><strong>Insurance:</strong> Determine coverage amounts based on area</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Area Conversion Factors</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Area Conversion Factors</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>1 square foot =</strong></p>
@@ -663,7 +663,7 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Pro Tips for Accurate Measurements</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Pro Tips for Accurate Measurements</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Measure Twice:</strong> Double-check all dimensions for accuracy</li>
               <li><strong>Include All Spaces:</strong> Don't forget closets, hallways, and utility areas</li>
@@ -672,8 +672,8 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
               <li><strong>Round Appropriately:</strong> Use reasonable precision for practical applications</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 For complex floor plans, break down irregular shapes into simple geometric forms. Measure from 
                 wall to wall at the widest points, and remember that square footage calculations are typically 
@@ -686,4 +686,9 @@ ${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
     </div>
   )
 }
+
+
+
+
+
 

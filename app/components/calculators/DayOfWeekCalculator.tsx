@@ -27,7 +27,7 @@ export default function DayOfWeekCalculator() {
   const dayInfo = showResults ? getDayOfWeek() : null
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -45,7 +45,7 @@ export default function DayOfWeekCalculator() {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="google-input"
             title="Select a date"
           />
         </div>
@@ -53,7 +53,7 @@ export default function DayOfWeekCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Find Day of Week
           </button>
@@ -62,7 +62,7 @@ export default function DayOfWeekCalculator() {
         {showResults && dayInfo && (
           <>
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-6 rounded-lg border border-purple-200 mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-purple-200 mb-4">
               <ResultSharing
                 title="Day of Week Calculation Result"
                 inputs={[
@@ -80,19 +80,19 @@ export default function DayOfWeekCalculator() {
               />
             </div>
 
-            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200 text-center">
+            <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200 text-center">
               <h3 className="text-xl font-semibold text-purple-800 mb-4">Day of Week Results</h3>
             <div className="text-3xl font-bold text-purple-600 mb-2">
               {dayInfo.dayName}
             </div>
-            <div className="text-lg text-gray-600 mb-2">
+            <div className="text-lg text-google-gray mb-2">
               {dayInfo.fullDate}
             </div>
             <div className="text-sm text-gray-500">
               Day number: {dayInfo.dayNumber} (0 = Sunday, 6 = Saturday)
             </div>
             <div className="mt-4">
-              <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+              <button onClick={handleReset} className="google-button-primary text-white px-4 py-2 rounded-2xl">
                 Reset
               </button>
             </div>
@@ -101,8 +101,8 @@ export default function DayOfWeekCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Day of Week Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Day of Week Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our day of week calculator helps you quickly determine what day of the week any date falls on. 
@@ -110,7 +110,7 @@ export default function DayOfWeekCalculator() {
               date analysis, making it perfect for personal and professional calendar management.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Day Name:</strong> Full day name (Sunday through Saturday)</li>
               <li><strong>Day Number:</strong> Numeric representation (0-6)</li>
@@ -120,31 +120,31 @@ export default function DayOfWeekCalculator() {
               <li><strong>Instant Results:</strong> Immediate day identification</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Day Name</h5>
                 <p className="text-purple-700 text-sm">Full weekday name</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Day Number</h5>
                 <p className="text-blue-700 text-sm">0=Sunday, 6=Saturday</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Full Date</h5>
                 <p className="text-green-700 text-sm">Complete date string</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Simply select any date using the date picker, then click "Find Day of Week" to see what 
               day of the week that date falls on. The calculator instantly provides the day name, day 
               number, and full date information for easy reference and planning.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Day Numbering System</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Day Numbering System</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Weekend Days:</strong></p>
@@ -171,10 +171,10 @@ export default function DayOfWeekCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Use Cases</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Use Cases</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Personal Planning</h5>
+                <h5 className="font-semibold text-google-text mb-2">Personal Planning</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Event Planning:</strong> Choose optimal days for activities</li>
                   <li><strong>Birthday Celebrations:</strong> Plan parties on weekends</li>
@@ -185,7 +185,7 @@ export default function DayOfWeekCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Professional Applications</h5>
+                <h5 className="font-semibold text-google-text mb-2">Professional Applications</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Meeting Scheduling:</strong> Find available weekdays</li>
                   <li><strong>Project Deadlines:</strong> Avoid weekend deliveries</li>
@@ -197,7 +197,7 @@ export default function DayOfWeekCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Day of Week Patterns</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Day of Week Patterns</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>7-Day Cycle:</strong> Repeats every week consistently</li>
               <li><strong>Weekend Pattern:</strong> Saturday and Sunday are non-working days</li>
@@ -207,10 +207,10 @@ export default function DayOfWeekCalculator() {
               <li><strong>Year Patterns:</strong> Leap years affect day alignment</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calendar Mathematics</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Calendar Mathematics</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Basic Rules</h5>
+                <h5 className="font-semibold text-google-text mb-2">Basic Rules</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>7 days in a week</li>
                   <li>52 weeks + 1-2 days per year</li>
@@ -221,7 +221,7 @@ export default function DayOfWeekCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Advanced Concepts</h5>
+                <h5 className="font-semibold text-google-text mb-2">Advanced Concepts</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Zeller's Congruence</li>
                   <li>Doomsday Rule</li>
@@ -233,7 +233,7 @@ export default function DayOfWeekCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Day of Week Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Day of Week Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Event Planning:</strong> Choose optimal days for gatherings</li>
               <li><strong>Business Scheduling:</strong> Plan meetings and deadlines</li>
@@ -243,7 +243,7 @@ export default function DayOfWeekCalculator() {
               <li><strong>Calendar Management:</strong> Organize weekly schedules</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Day of Week Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Day of Week Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Remember Patterns:</strong> Days repeat every 7 days</li>
               <li><strong>Account for Weekends:</strong> Plan accordingly for non-working days</li>
@@ -253,7 +253,7 @@ export default function DayOfWeekCalculator() {
               <li><strong>Plan Buffer Time:</strong> Allow for unexpected delays</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Day of Week Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Day of Week Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Weekend Assumptions:</strong> Forgetting to check day of week</li>
               <li><strong>Business Day Confusion:</strong> Planning weekend activities</li>
@@ -263,7 +263,7 @@ export default function DayOfWeekCalculator() {
               <li><strong>Calendar Confusion:</strong> Mixing different calendar systems</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Day of Week Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Day of Week Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Zeller's Congruence:</strong> Mathematical day calculation formula</li>
               <li><strong>Doomsday Rule:</strong> Quick mental day calculation method</li>
@@ -273,8 +273,8 @@ export default function DayOfWeekCalculator() {
               <li><strong>Astronomical Calendars:</strong> Solar and lunar calendars</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-purple-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When planning important events or deadlines, always check the day of the week to ensure 
                 it falls on a working day if business-related, or on a weekend if it's a personal event. 
@@ -290,3 +290,7 @@ export default function DayOfWeekCalculator() {
     </div>
   )
 }
+
+
+
+

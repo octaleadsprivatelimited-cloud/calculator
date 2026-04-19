@@ -178,7 +178,7 @@ Converted Sizes:
   const result = showResults ? convertShoeSize(parseFloat(fromValue), fromSystem) : { us: 0, uk: 0, eu: 0, cm: 0, inches: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -197,8 +197,8 @@ Converted Sizes:
 
       <div className="p-6">
         {/* Input Section */}
-        <div className="bg-gray-50 p-6 rounded-lg mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Convert Shoe Size</h3>
+        <div className="bg-gray-50 p-6 rounded-2xl mb-8">
+          <h3 className="text-xl font-semibold text-google-text mb-4">Convert Shoe Size</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -207,7 +207,7 @@ Converted Sizes:
               <select
                 value={fromSystem}
                 onChange={(e) => setFromSystem(e.target.value as any)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="google-input"
                 aria-label="Select shoe size system"
               >
                 <option value="us">US Sizes</option>
@@ -225,7 +225,7 @@ Converted Sizes:
                 type="number"
                 value={fromValue}
                 onChange={(e) => setFromValue(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="google-input"
                 step="0.5"
                 placeholder="8"
               />
@@ -237,7 +237,7 @@ Converted Sizes:
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
           >
             <Calculator className="w-5 h-5" />
             <span>Convert Size</span>
@@ -248,7 +248,7 @@ Converted Sizes:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-purple-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Shoe Size Conversion Result"
                 inputs={[
@@ -266,28 +266,28 @@ Converted Sizes:
               />
             </div>
 
-            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+            <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-4">Converted Sizes</h3>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
                 <div>
                   <div className="text-2xl font-bold text-purple-700">{formatNumber(result.us)}</div>
-                  <div className="text-sm text-gray-600">US</div>
+                  <div className="text-sm text-google-gray">US</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-purple-700">{formatNumber(result.uk)}</div>
-                  <div className="text-sm text-gray-600">UK</div>
+                  <div className="text-sm text-google-gray">UK</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-purple-700">{formatNumber(result.eu)}</div>
-                  <div className="text-sm text-gray-600">EU</div>
+                  <div className="text-sm text-google-gray">EU</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-purple-700">{formatNumber(result.cm)}</div>
-                  <div className="text-sm text-gray-600">CM</div>
+                  <div className="text-sm text-google-gray">CM</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-purple-700">{formatNumber(result.inches)}</div>
-                  <div className="text-sm text-gray-600">Inches</div>
+                  <div className="text-sm text-google-gray">Inches</div>
                 </div>
               </div>
             </div>
@@ -296,28 +296,28 @@ Converted Sizes:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -327,12 +327,12 @@ Converted Sizes:
         )}
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Shoe Size Conversion</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Shoe Size Conversion</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Purpose & Functionality</h3>
               <p className="text-gray-700 mb-3">
                 This comprehensive shoe size converter helps you navigate between different international sizing systems 
                 used around the world. Whether you're shopping online from international retailers, traveling abroad, 
@@ -345,10 +345,10 @@ Converted Sizes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">International Shoe Sizing Systems</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">International Shoe Sizing Systems</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">US Sizing System</h4>
+                  <h4 className="font-semibold text-google-text mb-2">US Sizing System</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Range:</strong> 1-15 (men's sizes)</li>
                     <li><strong>Increment:</strong> 1 full size</li>
@@ -358,7 +358,7 @@ Converted Sizes:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">UK Sizing System</h4>
+                  <h4 className="font-semibold text-google-text mb-2">UK Sizing System</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Range:</strong> 0.5-14.5</li>
                     <li><strong>Increment:</strong> 1 full size</li>
@@ -371,10 +371,10 @@ Converted Sizes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">European & Metric Systems</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">European & Metric Systems</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">European Sizing (EU)</h4>
+                  <h4 className="font-semibold text-google-text mb-2">European Sizing (EU)</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Range:</strong> 33-47</li>
                     <li><strong>Increment:</strong> 2/3 centimeter</li>
@@ -384,7 +384,7 @@ Converted Sizes:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Metric Measurements</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Metric Measurements</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Centimeters:</strong> 20.8-32.0 cm</li>
                     <li><strong>Inches:</strong> 8.2-12.6 inches</li>
@@ -397,9 +397,9 @@ Converted Sizes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Size Conversion Methodology</h3>
-              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                <h4 className="font-semibold text-gray-800 mb-2">How Conversions Work</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Size Conversion Methodology</h3>
+              <div className="bg-purple-50 p-4 rounded-2xl border border-purple-200">
+                <h4 className="font-semibold text-google-text mb-2">How Conversions Work</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
                     <p><strong>Exact Matches:</strong></p>
@@ -426,7 +426,7 @@ Converted Sizes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Regional Size Variations</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Regional Size Variations</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>North America:</strong> US and Canadian sizing, typically whole numbers</li>
                 <li><strong>United Kingdom:</strong> UK sizing with half-size increments starting at 0.5</li>
@@ -437,10 +437,10 @@ Converted Sizes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Practical Applications</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Practical Applications</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Online Shopping</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Online Shopping</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>International retailers</li>
                     <li>Cross-border purchases</li>
@@ -450,7 +450,7 @@ Converted Sizes:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Travel & International Use</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Travel & International Use</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Local shoe shopping</li>
                     <li>Emergency replacements</li>
@@ -463,7 +463,7 @@ Converted Sizes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Size Fitting Considerations</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Size Fitting Considerations</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Brand Variations:</strong> Different brands may fit differently even with same size</li>
                 <li><strong>Style Differences:</strong> Boots, sneakers, and dress shoes may have different fits</li>
@@ -474,10 +474,10 @@ Converted Sizes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Measurement Best Practices</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Measurement Best Practices</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Accurate Measurement</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Accurate Measurement</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Measure in afternoon/evening</li>
                     <li>Stand on flat surface</li>
@@ -487,7 +487,7 @@ Converted Sizes:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Professional Fitting</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Professional Fitting</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Visit shoe stores</li>
                     <li>Use Brannock device</li>
@@ -499,8 +499,8 @@ Converted Sizes:
               </div>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Always measure your feet in the afternoon when they're at their largest</li>
                 <li>• Consider ordering multiple sizes when shopping online internationally</li>
@@ -516,3 +516,8 @@ Converted Sizes:
     </div>
   )
 }
+
+
+
+
+

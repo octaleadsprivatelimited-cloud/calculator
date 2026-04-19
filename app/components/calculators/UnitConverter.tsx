@@ -149,23 +149,23 @@ export default function UnitConverter() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
-            <Ruler className="w-12 h-12 mr-3 text-blue-600" />
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
+            <Ruler className="w-12 h-12 mr-3 text-google-blue" />
             Unit Converter
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Convert between different units of measurement
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                <Calculator className="w-6 h-6 mr-2 text-blue-600" />
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
+                <Calculator className="w-6 h-6 mr-2 text-google-blue" />
                 Conversion Type
               </h2>
 
@@ -174,9 +174,9 @@ export default function UnitConverter() {
                   <button
                     key={category.id}
                     onClick={() => handleCategoryChange(category.id)}
-                    className={`w-full flex items-center p-3 rounded-lg font-medium transition-colors ${
+                    className={`w-full flex items-center p-3 rounded-2xl font-medium transition-colors ${
                       selectedCategory === category.id
-                        ? 'bg-blue-600 text-white'
+                        ? 'bg-google-blue text-white'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
@@ -189,8 +189,8 @@ export default function UnitConverter() {
           </div>
 
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-6">
                 {currentCategory?.name} Conversion
               </h2>
 
@@ -204,7 +204,7 @@ export default function UnitConverter() {
                       <select
                         value={fromUnit}
                         onChange={(e) => setFromUnit(e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                        className="google-input"
                         aria-label="From unit"
                         title="Select source unit"
                       >
@@ -219,11 +219,11 @@ export default function UnitConverter() {
                     <div className="flex justify-center">
                       <button
                         onClick={swapUnits}
-                        className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                        className="p-3 bg-gray-100 hover:bg-gray-200 rounded-2xl transition-colors"
                         title="Swap units"
                         aria-label="Swap units"
                       >
-                        <ArrowRight className="w-6 h-6 text-gray-600" />
+                        <ArrowRight className="w-6 h-6 text-google-gray" />
                       </button>
                     </div>
 
@@ -234,7 +234,7 @@ export default function UnitConverter() {
                       <select
                         value={toUnit}
                         onChange={(e) => setToUnit(e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                        className="google-input"
                         aria-label="To unit"
                         title="Select target unit"
                       >
@@ -256,7 +256,7 @@ export default function UnitConverter() {
                         type="number"
                         value={fromValue}
                         onChange={(e) => setFromValue(e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                        className="google-input"
                         placeholder="1"
                         step="any"
                         title="Enter value to convert"
@@ -268,7 +268,7 @@ export default function UnitConverter() {
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Result
                       </label>
-                      <div className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-lg font-semibold text-gray-800">
+                      <div className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-2xl text-lg font-semibold text-google-text">
                         {toValue || '0'}
                       </div>
                     </div>
@@ -276,7 +276,7 @@ export default function UnitConverter() {
 
                   {/* Share Options - Moved to Top */}
                   {toValue && (
-                    <div className="bg-white p-4 rounded-lg border border-blue-200">
+                    <div className="google-result-card">
                       <ResultSharing
                         title="Unit Conversion Result"
                         inputs={[
@@ -298,7 +298,7 @@ export default function UnitConverter() {
                   <div className="flex gap-3 pt-4">
                     <button
                       onClick={reset}
-                      className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                      className="google-button-secondary transition-colors font-medium"
                       title="Reset to defaults"
                     >
                       <RotateCcw className="w-5 h-5" />
@@ -308,9 +308,9 @@ export default function UnitConverter() {
               )}
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200 mt-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Conversion Tips</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border mt-6">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Conversion Tips</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Length:</strong> Convert between metric and imperial units</p>
                 <p>• <strong>Weight:</strong> Convert between different weight systems</p>
                 <p>• <strong>Temperature:</strong> Convert between Celsius, Fahrenheit, and Kelvin</p>
@@ -328,5 +328,9 @@ export default function UnitConverter() {
     </div>
   )
 }
+
+
+
+
 
 

@@ -130,14 +130,13 @@ export default function ArmyBodyFatCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-green-600 to-green-800 px-6 py-4">
         <div className="flex items-center">
           <Shield className="h-8 w-8 text-white mr-3" />
           <h2 className="text-2xl font-bold text-white">Army Body Fat Calculator</h2>
         </div>
-        <p className="text-green-100 mt-1">Calculate body fat using US Army standards</p>
-      </div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -150,7 +149,7 @@ export default function ArmyBodyFatCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-600"
                 placeholder="Enter age"
                 min="17"
                 max="65"
@@ -164,7 +163,7 @@ export default function ArmyBodyFatCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-600"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -182,7 +181,7 @@ export default function ArmyBodyFatCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-600"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -195,7 +194,7 @@ export default function ArmyBodyFatCalculator() {
                 type="number"
                 value={waist}
                 onChange={(e) => setWaist(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-600"
                 placeholder="Enter waist"
                 aria-label="Waist circumference in cm"
               />
@@ -211,7 +210,7 @@ export default function ArmyBodyFatCalculator() {
                 type="number"
                 value={neck}
                 onChange={(e) => setNeck(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-600"
                 placeholder="Enter neck"
                 aria-label="Neck circumference in cm"
               />
@@ -224,7 +223,7 @@ export default function ArmyBodyFatCalculator() {
                 type="number"
                 value={hip}
                 onChange={(e) => setHip(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-600"
                 placeholder="Enter hip"
                 aria-label="Hip circumference in cm"
               />
@@ -237,14 +236,14 @@ export default function ArmyBodyFatCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -254,7 +253,7 @@ export default function ArmyBodyFatCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-2">Results</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -274,7 +273,7 @@ export default function ArmyBodyFatCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-3">Army Standards</h3>
               <div className="space-y-2">
                 {Object.entries(result.standards).map(([ageRange, standard]) => (
@@ -286,7 +285,7 @@ export default function ArmyBodyFatCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-3">Measurements Used</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
@@ -314,8 +313,8 @@ export default function ArmyBodyFatCalculator() {
       </div>
 
       {/* Calculator Description Section */}
-      <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">About Army Body Fat Calculator</h3>
+      <div className="mt-8 p-6 google-result-card">
+        <h3 className="text-xl font-semibold text-google-text mb-4">About Army Body Fat Calculator</h3>
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 mb-4">
             Our comprehensive Army Body Fat Calculator helps military personnel and fitness enthusiasts 
@@ -324,7 +323,7 @@ export default function ArmyBodyFatCalculator() {
             compliance, and pass/fail status for physical fitness tests and body composition standards.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Body Fat Percentage:</strong> Accurate calculation using Army tape test</li>
             <li><strong>Pass/Fail Status:</strong> Compliance with Army body composition standards</li>
@@ -334,10 +333,10 @@ export default function ArmyBodyFatCalculator() {
             <li><strong>Standard Compliance:</strong> Meets official Army testing protocols</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Army Tape Test Method</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Army Tape Test Method</h4>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Male Formula</h5>
+              <h5 className="font-semibold text-google-text mb-2">Male Formula</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>Body Fat % = 495 / (1.0324 - 0.19077 × log10(waist - neck) + 0.15456 × log10(height)) - 450</li>
                 <li>Uses waist and neck measurements</li>
@@ -348,7 +347,7 @@ export default function ArmyBodyFatCalculator() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Female Formula</h5>
+              <h5 className="font-semibold text-google-text mb-2">Female Formula</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>Body Fat % = 495 / (1.29579 - 0.35004 × log10(waist + hip - neck) + 0.22100 × log10(height)) - 450</li>
                 <li>Uses waist, hip, and neck measurements</li>
@@ -360,31 +359,31 @@ export default function ArmyBodyFatCalculator() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
           <div className="grid md:grid-cols-3 gap-4 mb-4">
-            <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
               <h5 className="font-semibold text-green-800 mb-1">Body Fat %</h5>
               <p className="text-green-700 text-sm">Calculated percentage</p>
             </div>
-            <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
               <h5 className="font-semibold text-blue-800 mb-1">Status</h5>
               <p className="text-blue-700 text-sm">Pass or fail result</p>
             </div>
-            <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+            <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
               <h5 className="font-semibold text-purple-800 mb-1">Age Group</h5>
               <p className="text-purple-700 text-sm">Applicable standards</p>
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
           <p className="text-gray-700 mb-4">
             Enter your age, gender, height, waist, neck, and hip measurements (hip required for females). 
             The calculator will compute your body fat percentage using the official Army formula and 
             determine if you meet the body composition standards for your age group.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Army Body Fat Standards</h4>
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+          <h4 className="text-lg font-semibold text-google-text mb-2">Army Body Fat Standards</h4>
+          <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <p><strong>Male Standards:</strong></p>
@@ -411,7 +410,7 @@ export default function ArmyBodyFatCalculator() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Measurement Techniques</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Measurement Techniques</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Height:</strong> Measure without shoes, standing straight</li>
             <li><strong>Waist:</strong> Measure at narrowest point, usually at navel level</li>
@@ -421,10 +420,10 @@ export default function ArmyBodyFatCalculator() {
             <li><strong>Measurement Timing:</strong> Measure in morning, before eating</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Army Fitness Requirements</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Army Fitness Requirements</h4>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Physical Fitness Test</h5>
+              <h5 className="font-semibold text-google-text mb-2">Physical Fitness Test</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Push-ups:</strong> Maximum repetitions in 2 minutes</li>
                 <li><strong>Sit-ups:</strong> Maximum repetitions in 2 minutes</li>
@@ -435,7 +434,7 @@ export default function ArmyBodyFatCalculator() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Body Composition Standards</h5>
+              <h5 className="font-semibold text-google-text mb-2">Body Composition Standards</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Height/Weight Tables:</strong> Basic screening tool</li>
                 <li><strong>Tape Test:</strong> Body fat percentage measurement</li>
@@ -447,7 +446,7 @@ export default function ArmyBodyFatCalculator() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Advantages of Army Tape Test</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Advantages of Army Tape Test</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Cost-Effective:</strong> Only requires measuring tape</li>
             <li><strong>Portable:</strong> Can be done anywhere</li>
@@ -457,7 +456,7 @@ export default function ArmyBodyFatCalculator() {
             <li><strong>Validated:</strong> Research-backed accuracy</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Limitations and Considerations</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Limitations and Considerations</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Measurement Error:</strong> Depends on proper technique</li>
             <li><strong>Body Shape Variations:</strong> May not account for all body types</li>
@@ -467,7 +466,7 @@ export default function ArmyBodyFatCalculator() {
             <li><strong>Professional Training:</strong> Best results with trained personnel</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Improving Body Composition</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Improving Body Composition</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Strength Training:</strong> Build lean muscle mass</li>
             <li><strong>Cardiovascular Exercise:</strong> Burn excess body fat</li>
@@ -477,7 +476,7 @@ export default function ArmyBodyFatCalculator() {
             <li><strong>Professional Guidance:</strong> Work with fitness professionals</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Military Career Impact</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Military Career Impact</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Promotion Eligibility:</strong> Fitness affects career advancement</li>
             <li><strong>Special Assignments:</strong> Some roles require higher fitness</li>
@@ -487,7 +486,7 @@ export default function ArmyBodyFatCalculator() {
             <li><strong>Professional Development:</strong> Fitness supports career growth</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Alternative Measurement Methods</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Alternative Measurement Methods</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>DEXA Scan:</strong> Dual-energy X-ray absorptiometry</li>
             <li><strong>BodPod:</strong> Air displacement plethysmography</li>
@@ -497,7 +496,7 @@ export default function ArmyBodyFatCalculator() {
             <li><strong>3D Body Scanning:</strong> Advanced imaging technology</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Measurement Mistakes</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Common Measurement Mistakes</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Incorrect Tape Placement:</strong> Wrong measurement locations</li>
             <li><strong>Compression Errors:</strong> Pulling tape too tight</li>
@@ -507,8 +506,8 @@ export default function ArmyBodyFatCalculator() {
             <li><strong>Hydration Changes:</strong> Measuring after drinking water</li>
           </ul>
           
-          <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-            <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+          <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-green-500">
+            <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
             <p className="text-gray-700 text-sm">
               For the most accurate Army tape test results, measure in the morning before eating or 
               drinking, wear minimal clothing, and ensure proper tape placement. Practice the 
@@ -524,3 +523,7 @@ export default function ArmyBodyFatCalculator() {
     </div>
   )
 }
+
+
+
+

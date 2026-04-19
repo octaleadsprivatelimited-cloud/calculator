@@ -148,22 +148,22 @@ export default function ScholarshipCalculator() {
   const eligibility = calculateEligibility()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
             <GraduationCap className="w-16 h-16 mr-4 text-purple-600" />
             Scholarship Calculator
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Calculate your eligibility for various scholarships and grants. Find opportunities based on your GPA, income, background, and achievements.
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <Calculator className="w-6 h-6 mr-2 text-purple-600" />
                 Student Profile
               </h2>
@@ -175,7 +175,7 @@ export default function ScholarshipCalculator() {
                     type="number"
                     value={studentInfo.gpa}
                     onChange={(e) => updateStudentInfo('gpa', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
                     placeholder="3.5"
                     step="0.01"
                     min="0"
@@ -191,7 +191,7 @@ export default function ScholarshipCalculator() {
                     type="number"
                     value={studentInfo.familyIncome}
                     onChange={(e) => updateStudentInfo('familyIncome', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
                     placeholder="50000"
                     min="0"
                     title="Enter your family's annual income"
@@ -205,7 +205,7 @@ export default function ScholarshipCalculator() {
                     type="number"
                     value={studentInfo.volunteerHours}
                     onChange={(e) => updateStudentInfo('volunteerHours', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
                     placeholder="50"
                     min="0"
                     title="Enter your volunteer hours"
@@ -277,8 +277,8 @@ export default function ScholarshipCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Quick Examples</h3>
+            <div className="google-card overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Quick Examples</h3>
               <div className="space-y-2">
                 <button
                   onClick={() => {
@@ -293,7 +293,7 @@ export default function ScholarshipCalculator() {
                       volunteerHours: '75'
                     })
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: high-achieving first generation student"
                   aria-label="Set example: high-achieving first generation student"
                 >
@@ -312,7 +312,7 @@ export default function ScholarshipCalculator() {
                       volunteerHours: '20'
                     })
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: minority athlete student"
                   aria-label="Set example: minority athlete student"
                 >
@@ -331,7 +331,7 @@ export default function ScholarshipCalculator() {
                       volunteerHours: '100'
                     })
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: high GPA STEM student"
                   aria-label="Set example: high GPA STEM student"
                 >
@@ -343,14 +343,14 @@ export default function ScholarshipCalculator() {
 
           <div className="lg:col-span-2">
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+              <div className="google-card overflow-hidden p-6">
+                <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                   <TrendingUp className="w-6 h-6 mr-2 text-purple-600" />
                   Scholarship Results
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-purple-50 p-6 rounded-lg">
+                  <div className="bg-purple-50 p-6 rounded-2xl">
                     <h3 className="text-lg font-semibold text-purple-800 mb-4">Summary</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between">
@@ -374,7 +374,7 @@ export default function ScholarshipCalculator() {
                     </div>
                   </div>
                   
-                  <div className="bg-indigo-50 p-6 rounded-lg">
+                  <div className="bg-indigo-50 p-6 rounded-2xl">
                     <h3 className="text-lg font-semibold text-indigo-800 mb-4">Profile Highlights</h3>
                     <div className="space-y-2">
                       {studentInfo.isFirstGeneration && <div className="text-sm text-indigo-700">✅ First Generation Student</div>}
@@ -392,17 +392,17 @@ export default function ScholarshipCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Eligible Scholarships (Ranked by Score)</h3>
+                <div className="google-card overflow-hidden p-6">
+                  <h3 className="text-xl font-bold text-google-text mb-4">Eligible Scholarships (Ranked by Score)</h3>
                   
                   {eligibility.sortedEligible.length > 0 ? (
                     <div className="space-y-4">
                       {eligibility.sortedEligible.map((scholarship, index) => (
-                        <div key={index} className="border border-gray-200 rounded-lg p-4">
+                        <div key={index} className="border border-gray-200 rounded-2xl p-4">
                           <div className="flex justify-between items-start mb-2">
                             <div>
-                              <h4 className="text-lg font-semibold text-gray-800">{scholarship.name}</h4>
-                              <p className="text-sm text-gray-600">{scholarship.category} • Score: {scholarship.score}</p>
+                              <h4 className="text-lg font-semibold text-google-text">{scholarship.name}</h4>
+                              <p className="text-sm text-google-gray">{scholarship.category} • Score: {scholarship.score}</p>
                             </div>
                             <div className="text-right">
                               <div className="text-2xl font-bold text-green-600">${scholarship.amount.toLocaleString()}</div>
@@ -412,17 +412,17 @@ export default function ScholarshipCalculator() {
                           
                           <div className="grid grid-cols-2 gap-4 text-sm">
                             <div>
-                              <span className="text-gray-600">Min GPA:</span>
+                              <span className="text-google-gray">Min GPA:</span>
                               <span className="ml-2 font-medium">{scholarship.minGPA}</span>
                             </div>
                             <div>
-                              <span className="text-gray-600">Max Income:</span>
+                              <span className="text-google-gray">Max Income:</span>
                               <span className="ml-2 font-medium">${scholarship.maxIncome.toLocaleString()}</span>
                             </div>
                           </div>
                           
                           <div className="mt-3">
-                            <div className="text-sm text-gray-600 mb-1">Requirements:</div>
+                            <div className="text-sm text-google-gray mb-1">Requirements:</div>
                             <div className="flex flex-wrap gap-2">
                               {scholarship.requirements.map((req, reqIndex) => (
                                 <span key={reqIndex} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
@@ -437,12 +437,12 @@ export default function ScholarshipCalculator() {
                   ) : (
                     <div className="text-center py-8">
                       <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-600">No eligible scholarships found. Try adjusting your profile or check the requirements.</p>
+                      <p className="text-google-gray">No eligible scholarships found. Try adjusting your profile or check the requirements.</p>
                     </div>
                   )}
                 </div>
 
-                <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                <div className="mt-6 p-4 google-result-card">
                   <h4 className="font-semibold text-green-800 mb-2">💡 Tips</h4>
                   <ul className="text-sm text-green-700 space-y-1">
                     <li>• Apply to multiple scholarships to increase your chances</li>
@@ -456,7 +456,7 @@ export default function ScholarshipCalculator() {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                   title="Share scholarship calculator results"
                   aria-label="Share scholarship calculator results"
                 >
@@ -465,7 +465,7 @@ export default function ScholarshipCalculator() {
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                   title="Download results as text file"
                   aria-label="Download scholarship calculator results"
                 >
@@ -474,7 +474,7 @@ export default function ScholarshipCalculator() {
                 </button>
                 <button
                   onClick={handlePrint}
-                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                   title="Print scholarship calculator results"
                   aria-label="Print scholarship calculator results"
                 >
@@ -487,12 +487,12 @@ export default function ScholarshipCalculator() {
         </div>
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Scholarship Calculator</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Scholarship Calculator</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Purpose & Functionality</h3>
               <p className="text-gray-700 mb-3">
                 This comprehensive scholarship calculator helps students identify and evaluate scholarship opportunities 
                 based on their academic profile, financial situation, and personal characteristics. It analyzes eligibility 
@@ -505,10 +505,10 @@ export default function ScholarshipCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Scholarship Categories Explained</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Scholarship Categories Explained</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Academic Scholarships</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Academic Scholarships</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Merit-Based:</strong> High GPA and academic achievement</li>
                     <li><strong>Subject-Specific:</strong> STEM, humanities, arts focus</li>
@@ -518,7 +518,7 @@ export default function ScholarshipCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Need-Based Scholarships</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Need-Based Scholarships</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Income Requirements:</strong> Family financial situation</li>
                     <li><strong>FAFSA Completion:</strong> Federal aid application</li>
@@ -531,10 +531,10 @@ export default function ScholarshipCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Special Category Scholarships</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Special Category Scholarships</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Demographic & Background</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Demographic & Background</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>First Generation:</strong> First in family to attend college</li>
                     <li><strong>Minority Students:</strong> Underrepresented groups</li>
@@ -544,7 +544,7 @@ export default function ScholarshipCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Activities & Interests</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Activities & Interests</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Community Service:</strong> Volunteer work and leadership</li>
                     <li><strong>Athletics:</strong> Sports participation and achievement</li>
@@ -557,9 +557,9 @@ export default function ScholarshipCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Eligibility Scoring System</h3>
-              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                <h4 className="font-semibold text-gray-800 mb-2">How Scores Are Calculated</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Eligibility Scoring System</h3>
+              <div className="bg-google-blueLight p-4 rounded-2xl border border-blue-200">
+                <h4 className="font-semibold text-google-text mb-2">How Scores Are Calculated</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
                     <p><strong>GPA Scoring:</strong></p>
@@ -586,10 +586,10 @@ export default function ScholarshipCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Scholarship Application Strategy</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Scholarship Application Strategy</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Application Timeline</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Application Timeline</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Early Bird:</strong> Apply 6-12 months in advance</li>
                     <li><strong>Regular Deadlines:</strong> 3-6 months before school year</li>
@@ -599,7 +599,7 @@ export default function ScholarshipCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Application Components</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Application Components</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Personal Statement:</strong> Compelling narrative</li>
                     <li><strong>Letters of Recommendation:</strong> Strong references</li>
@@ -612,7 +612,7 @@ export default function ScholarshipCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Maximizing Scholarship Success</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Maximizing Scholarship Success</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Academic Excellence:</strong> Maintain high GPA and strong academic record</li>
                 <li><strong>Extracurricular Involvement:</strong> Participate in meaningful activities and leadership roles</li>
@@ -623,10 +623,10 @@ export default function ScholarshipCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Scholarship Sources</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Common Scholarship Sources</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Institutional Sources</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Institutional Sources</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>University merit scholarships</li>
                     <li>Department-specific awards</li>
@@ -636,7 +636,7 @@ export default function ScholarshipCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">External Sources</h4>
+                  <h4 className="font-semibold text-google-text mb-2">External Sources</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Private foundations</li>
                     <li>Professional associations</li>
@@ -649,7 +649,7 @@ export default function ScholarshipCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Financial Aid Integration</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Financial Aid Integration</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>FAFSA Priority:</strong> Complete FAFSA early for maximum aid consideration</li>
                 <li><strong>Scholarship Coordination:</strong> Understand how scholarships affect other aid</li>
@@ -659,8 +659,8 @@ export default function ScholarshipCalculator() {
               </ul>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Apply to 10-15 scholarships to maximize your chances of success</li>
                 <li>• Customize each application to match the specific scholarship requirements</li>
@@ -676,7 +676,7 @@ export default function ScholarshipCalculator() {
         <div className="text-center mt-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
             title="Back to all calculators"
             aria-label="Back to all calculators"
           >
@@ -700,4 +700,7 @@ export default function ScholarshipCalculator() {
     </div>
   )
 }
+
+
+
 

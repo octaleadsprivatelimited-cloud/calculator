@@ -137,14 +137,9 @@ export default function CarbohydrateCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4">
-        <div className="flex items-center">
-          <Leaf className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Carbohydrate Calculator</h2>
-        </div>
-        <p className="text-green-100 mt-1">Calculate your daily carbohydrate needs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -157,7 +152,7 @@ export default function CarbohydrateCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="Enter age"
                 aria-label="Age in years"
               />
@@ -169,7 +164,7 @@ export default function CarbohydrateCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -187,7 +182,7 @@ export default function CarbohydrateCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="Enter weight"
                 aria-label="Weight in pounds"
               />
@@ -200,7 +195,7 @@ export default function CarbohydrateCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -215,7 +210,7 @@ export default function CarbohydrateCalculator() {
               <select
                 value={activityLevel}
                 onChange={(e) => setActivityLevel(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 aria-label="Select activity level"
               >
                 <option value="sedentary">Sedentary</option>
@@ -232,7 +227,7 @@ export default function CarbohydrateCalculator() {
               <select
                 value={goal}
                 onChange={(e) => setGoal(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 aria-label="Select goal"
               >
                 <option value="maintenance">Maintenance</option>
@@ -247,14 +242,14 @@ export default function CarbohydrateCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -265,7 +260,7 @@ export default function CarbohydrateCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-green-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Carbohydrate Calculation Result"
                 inputs={[
@@ -286,7 +281,7 @@ export default function CarbohydrateCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-2">Daily Carbohydrate Needs</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 mb-2">
@@ -298,7 +293,7 @@ export default function CarbohydrateCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-3">Recommended Range</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -317,7 +312,7 @@ export default function CarbohydrateCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-green-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -333,8 +328,8 @@ export default function CarbohydrateCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Carbohydrate Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Carbohydrate Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive carbohydrate calculator helps individuals determine their optimal daily 
@@ -343,7 +338,7 @@ export default function CarbohydrateCalculator() {
               energy levels, athletic performance, weight management, and overall health.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Daily Carbohydrate Needs:</strong> Optimal carb intake in grams</li>
               <li><strong>Carbohydrate Percentage:</strong> Percentage of total daily calories from carbs</li>
@@ -353,10 +348,10 @@ export default function CarbohydrateCalculator() {
               <li><strong>Health Recommendations:</strong> Personalized dietary guidance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Carbohydrate Functions</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Carbohydrate Functions</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Energy Production</h5>
+                <h5 className="font-semibold text-google-text mb-2">Energy Production</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Primary fuel source</li>
                   <li>Glucose for cells</li>
@@ -367,7 +362,7 @@ export default function CarbohydrateCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Physical Performance</h5>
+                <h5 className="font-semibold text-google-text mb-2">Physical Performance</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Muscle glycogen</li>
                   <li>Endurance support</li>
@@ -378,7 +373,7 @@ export default function CarbohydrateCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Health Benefits</h5>
+                <h5 className="font-semibold text-google-text mb-2">Health Benefits</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Fiber for digestion</li>
                   <li>Gut health support</li>
@@ -390,10 +385,10 @@ export default function CarbohydrateCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Goal-Specific Carbohydrate Intake</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Goal-Specific Carbohydrate Intake</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Weight Loss</h5>
+                <h5 className="font-semibold text-google-text mb-2">Weight Loss</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Carbs: 30-40% of total calories</li>
                   <li>Focus on complex carbs</li>
@@ -404,7 +399,7 @@ export default function CarbohydrateCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Muscle Gain</h5>
+                <h5 className="font-semibold text-google-text mb-2">Muscle Gain</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Carbs: 45-55% of total calories</li>
                   <li>Workout fuel</li>
@@ -416,10 +411,10 @@ export default function CarbohydrateCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Specialized Diet Carb Levels</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Specialized Diet Carb Levels</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Ketogenic Diet</h5>
+                <h5 className="font-semibold text-google-text mb-2">Ketogenic Diet</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Carbs: 5-10% of total calories</li>
                   <li>Induces ketosis</li>
@@ -430,7 +425,7 @@ export default function CarbohydrateCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Low Carb Diet</h5>
+                <h5 className="font-semibold text-google-text mb-2">Low Carb Diet</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Carbs: 20-30% of total calories</li>
                   <li>Moderate restriction</li>
@@ -442,31 +437,31 @@ export default function CarbohydrateCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Daily Carb Needs</h5>
                 <p className="text-green-700 text-sm">Recommended grams per day</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Carb Percentage</h5>
                 <p className="text-blue-700 text-sm">% of total daily calories</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Intake Range</h5>
                 <p className="text-purple-700 text-sm">Min and max levels</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your age, gender, weight, height, activity level, and health goal. The calculator 
               will provide your optimal daily carbohydrate intake in grams and as a percentage of total 
               calories, along with personalized recommendations.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Carbohydrate Types</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Carbohydrate Types</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Simple Carbohydrates:</strong></p>
@@ -493,7 +488,7 @@ export default function CarbohydrateCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fiber Importance</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Fiber Importance</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Soluble Fiber:</strong> Lowers cholesterol, regulates blood sugar</li>
               <li><strong>Insoluble Fiber:</strong> Promotes regular bowel movements</li>
@@ -503,7 +498,7 @@ export default function CarbohydrateCalculator() {
               <li><strong>Gradual Increase:</strong> Add fiber slowly to avoid discomfort</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Glycemic Index Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Glycemic Index Considerations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Low GI (55 or less):</strong> Slow, steady energy release</li>
               <li><strong>Medium GI (56-69):</strong> Moderate blood sugar impact</li>
@@ -513,7 +508,7 @@ export default function CarbohydrateCalculator() {
               <li><strong>Timing:</strong> High GI foods better around workouts</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Carbohydrate Timing</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Carbohydrate Timing</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Pre-Workout:</strong> 1-2 hours before, moderate carbs for energy</li>
               <li><strong>During Workout:</strong> For sessions over 60 minutes, 30-60g per hour</li>
@@ -523,8 +518,8 @@ export default function CarbohydrateCalculator() {
               <li><strong>Recovery Days:</strong> Adjust based on activity level</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Quality Carbohydrate Sources</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Quality Carbohydrate Sources</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Whole Grains:</strong></p>
@@ -551,7 +546,7 @@ export default function CarbohydrateCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Carb Intake Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Carb Intake Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Too Many Simple Carbs:</strong> Blood sugar spikes, energy crashes</li>
               <li><strong>Too Few Carbs:</strong> Low energy, poor performance, mood issues</li>
@@ -561,7 +556,7 @@ export default function CarbohydrateCalculator() {
               <li><strong>Not Adjusting for Activity:</strong> Same intake regardless of exercise</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Adjust Carb Intake</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Adjust Carb Intake</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Energy Changes:</strong> Fatigue, low motivation, poor performance</li>
               <li><strong>Weight Changes:</strong> Unwanted gain or loss</li>
@@ -571,7 +566,7 @@ export default function CarbohydrateCalculator() {
               <li><strong>Goal Changes:</strong> Switching between weight loss and maintenance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Carbohydrate Myths Debunked</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Carbohydrate Myths Debunked</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Carbs Make You Fat:</strong> Excess calories cause weight gain, not carbs specifically</li>
               <li><strong>All Carbs Are Bad:</strong> Quality and quantity matter more than elimination</li>
@@ -581,7 +576,7 @@ export default function CarbohydrateCalculator() {
               <li><strong>Carbs Cause Diabetes:</strong> Poor diet and lifestyle contribute more</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Carbohydrate Intake for Different Activities</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Carbohydrate Intake for Different Activities</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Endurance Training:</strong> 6-10g per kg body weight per day</li>
               <li><strong>Strength Training:</strong> 4-7g per kg body weight per day</li>
@@ -591,8 +586,8 @@ export default function CarbohydrateCalculator() {
               <li><strong>Weight Loss:</strong> 2-4g per kg body weight per day</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-green-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Focus on carbohydrate quality over quantity. Choose whole, minimally processed sources 
                 that provide fiber, vitamins, and minerals along with energy. Remember that your carb 
@@ -609,3 +604,8 @@ export default function CarbohydrateCalculator() {
     </div>
   )
 }
+
+
+
+
+

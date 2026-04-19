@@ -92,21 +92,21 @@ export default function RandomNumberGenerator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-50 to-purple-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
             <Shuffle className="w-12 h-12 mr-3 text-violet-600" />
             Random Number Generator
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Generate random numbers with various options and statistics
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
               <Calculator className="w-6 h-6 mr-2 text-violet-600" />
               Generator Settings
             </h2>
@@ -121,7 +121,7 @@ export default function RandomNumberGenerator() {
                     type="number"
                     value={minValue}
                     onChange={(e) => setMinValue(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                     placeholder="1"
                   />
                 </div>
@@ -133,7 +133,7 @@ export default function RandomNumberGenerator() {
                     type="number"
                     value={maxValue}
                     onChange={(e) => setMaxValue(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                     placeholder="100"
                   />
                 </div>
@@ -147,7 +147,7 @@ export default function RandomNumberGenerator() {
                   type="number"
                   value={count}
                   onChange={(e) => setCount(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                   placeholder="10"
                 />
               </div>
@@ -168,13 +168,13 @@ export default function RandomNumberGenerator() {
               <div className="flex gap-3 pt-4">
                 <button
                   onClick={generateRandomNumbers}
-                  className="flex-1 bg-violet-600 text-white py-3 px-6 rounded-lg hover:bg-violet-700 transition-colors font-medium"
+                  className="flex-1 google-button-primary transition-colors font-medium"
                 >
                   Generate Numbers
                 </button>
                 <button
                   onClick={clearHistory}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="google-button-secondary transition-colors font-medium"
                   title="Clear history"
                 >
                   <RotateCcw className="w-5 h-5" />
@@ -182,7 +182,7 @@ export default function RandomNumberGenerator() {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-violet-50 rounded-lg border border-violet-200">
+            <div className="mt-6 p-4 google-result-card">
               <h3 className="font-semibold text-violet-800 mb-2">Quick Presets</h3>
               <div className="space-y-2 text-sm text-violet-600">
                 <p>• <strong>Dice Roll:</strong> Min: 1, Max: 6, Count: 1</p>
@@ -196,7 +196,7 @@ export default function RandomNumberGenerator() {
             {result && (
               <>
                 {/* Share Options - Moved to Top */}
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
+                <div className="google-card overflow-hidden p-6 border border-google-border">
                   <ResultSharing
                     title="Random Number Generation Result"
                     inputs={[
@@ -215,8 +215,8 @@ export default function RandomNumberGenerator() {
                   />
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                     <Dice1 className="w-6 h-6 mr-2 text-violet-600" />
                     Generated Numbers
                   </h2>
@@ -225,26 +225,26 @@ export default function RandomNumberGenerator() {
                     <div className="text-2xl font-bold text-violet-600 mb-2">
                       {result.numbers.join(', ')}
                     </div>
-                    <p className="text-gray-600">
+                    <p className="text-google-gray">
                       {result.count} random numbers from {result.min} to {result.max}
                     </p>
                   </div>
 
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Sum</span>
+                      <span className="text-google-gray">Sum</span>
                       <span className="font-semibold text-green-600">{formatNumber(result.sum)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Average</span>
-                      <span className="font-semibold text-blue-600">{result.average}</span>
+                      <span className="text-google-gray">Average</span>
+                      <span className="font-semibold text-google-blue">{result.average}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Range</span>
+                      <span className="text-google-gray">Range</span>
                       <span className="font-semibold text-orange-600">{result.max - result.min + 1}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Duplicates</span>
+                      <span className="text-google-gray">Duplicates</span>
                       <span className="font-semibold text-purple-600">
                         {allowDuplicates ? 'Allowed' : 'Not Allowed'}
                       </span>
@@ -252,26 +252,26 @@ export default function RandomNumberGenerator() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">Number Analysis</h2>
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4">Number Analysis</h2>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Smallest</span>
+                      <span className="text-google-gray">Smallest</span>
                       <span className="font-semibold text-red-600">{Math.min(...result.numbers)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Largest</span>
+                      <span className="text-google-gray">Largest</span>
                       <span className="font-semibold text-green-600">{Math.max(...result.numbers)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Even Numbers</span>
-                      <span className="font-semibold text-blue-600">
+                      <span className="text-google-gray">Even Numbers</span>
+                      <span className="font-semibold text-google-blue">
                         {result.numbers.filter(n => n % 2 === 0).length}
                       </span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Odd Numbers</span>
+                      <span className="text-google-gray">Odd Numbers</span>
                       <span className="font-semibold text-purple-600">
                         {result.numbers.filter(n => n % 2 === 1).length}
                       </span>
@@ -282,12 +282,12 @@ export default function RandomNumberGenerator() {
             )}
 
             {generatedHistory.length > 0 && (
-              <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">Generation History</h2>
+              <div className="google-card overflow-hidden p-6 border border-google-border">
+                <h2 className="text-2xl font-bold text-google-text mb-4">Generation History</h2>
                 
                 <div className="space-y-3">
                   {generatedHistory.map((history, index) => (
-                    <div key={index} className="p-3 bg-violet-50 rounded-lg border border-violet-200">
+                    <div key={index} className="p-3 google-result-card">
                       <div className="text-sm text-violet-600 mb-1">
                         Set {index + 1}: {history.numbers.slice(0, 5).join(', ')}
                         {history.numbers.length > 5 && '...'}
@@ -301,9 +301,9 @@ export default function RandomNumberGenerator() {
               </div>
             )}
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Random Number Tips</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Random Number Tips</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>True randomness</strong> means each number has equal probability</p>
                 <p>• <strong>No duplicates</strong> ensures unique values in your range</p>
                 <p>• <strong>Large ranges</strong> provide more variety in results</p>
@@ -320,4 +320,7 @@ export default function RandomNumberGenerator() {
     </div>
   )
 }
+
+
+
 

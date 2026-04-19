@@ -193,7 +193,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
   const result = showResults ? calculateHandicap() : { handicapIndex: 0, courseHandicap: 0, adjustedGrossScore: 0, differentials: [], averageDifferential: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -215,8 +215,8 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Course Settings */}
           <div className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Course Settings</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4">Course Settings</h3>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -226,7 +226,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
                     type="number"
                     value={courseRating}
                     onChange={(e) => setCourseRating(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="google-input"
                     placeholder="72.0"
                     step="0.1"
                     min="60"
@@ -241,7 +241,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
                     type="number"
                     value={slopeRating}
                     onChange={(e) => setSlopeRating(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="google-input"
                     placeholder="125"
                     min="55"
                     max="155"
@@ -255,7 +255,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
                     type="number"
                     value={par}
                     onChange={(e) => setPar(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="google-input"
                     placeholder="72"
                     min="54"
                     max="80"
@@ -265,8 +265,8 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
             </div>
 
             {/* Quick Course Difficulty */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Course Difficulty</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4">Quick Course Difficulty</h3>
               <div className="grid grid-cols-2 gap-2">
                 {COURSE_DIFFICULTY_LEVELS.map((level, index) => (
                   <button
@@ -274,8 +274,8 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
                     onClick={() => handleCourseDifficulty(level)}
                     className="text-left p-2 bg-white rounded border hover:bg-green-50 transition-colors text-sm"
                   >
-                    <div className="font-medium text-gray-800">{level.name}</div>
-                    <div className="text-gray-600">Rating: {level.rating}, Slope: {level.slope}</div>
+                    <div className="font-medium text-google-text">{level.name}</div>
+                    <div className="text-google-gray">Rating: {level.rating}, Slope: {level.slope}</div>
                   </button>
                 ))}
               </div>
@@ -283,17 +283,17 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
           </div>
 
           {/* Score Entry */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Score Entry</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Score Entry</h3>
             <div className="space-y-4">
               <button
                 onClick={addScore}
-                className="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors duration-200"
+                className="w-full google-button-primary text-white py-2 px-4 rounded-2xl transition-colors duration-200"
               >
                 Add New Score
               </button>
               
-              <div className="text-sm text-gray-600">
+              <div className="text-sm text-google-gray">
                 <p>• Add at least 3 scores for a valid handicap</p>
                 <p>• 20 scores recommended for most accurate calculation</p>
                 <p>• Scores are automatically sorted by best differentials</p>
@@ -305,12 +305,12 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
         {/* Score List */}
         {scores.length > 0 && (
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Scores ({scores.length})</h3>
+            <h3 className="text-xl font-semibold text-google-text mb-4">Scores ({scores.length})</h3>
             <div className="space-y-3">
               {scores.map((score, index) => (
-                <div key={score.id} className="bg-white p-4 rounded-lg border flex items-center justify-between">
+                <div key={score.id} className="bg-white p-4 rounded-2xl border flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <span className="font-semibold text-gray-800">Round {index + 1}</span>
+                    <span className="font-semibold text-google-text">Round {index + 1}</span>
                     <input
                       type="number"
                       value={score.score}
@@ -338,7 +338,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Handicap</span>
@@ -350,7 +350,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-green-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Golf Handicap Calculation Result"
                 inputs={[
@@ -371,20 +371,20 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
             </div>
 
             {/* Handicap Results */}
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-4">Handicap Results</h3>
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-green-700">{formatNumber(result.handicapIndex)}</div>
-                  <div className="text-sm text-gray-600">Handicap Index</div>
+                  <div className="text-sm text-google-gray">Handicap Index</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{result.courseHandicap}</div>
-                  <div className="text-sm text-gray-600">Course Handicap</div>
+                  <div className="text-sm text-google-gray">Course Handicap</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{result.adjustedGrossScore}</div>
-                  <div className="text-sm text-gray-600">Total Score</div>
+                  <div className="text-sm text-google-gray">Total Score</div>
                 </div>
               </div>
             </div>
@@ -393,28 +393,28 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -424,8 +424,8 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Golf Handicap Calculator</h3>
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-200">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Golf Handicap Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our professional golf handicap calculator helps you determine your USGA Handicap Index using the official 
@@ -433,7 +433,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
               provides accurate handicap calculations to level the playing field in competitive golf.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Handicap Index:</strong> Your official USGA handicap based on your best scores</li>
               <li><strong>Course Handicap:</strong> Specific handicap for the course you're playing</li>
@@ -442,10 +442,10 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
               <li><strong>Handicap Trends:</strong> Progress tracking over multiple rounds</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How the Handicap System Works</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How the Handicap System Works</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Score Requirements</h5>
+                <h5 className="font-semibold text-google-text mb-2">Score Requirements</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Minimum 3 scores for initial handicap</li>
                   <li>8 scores for established handicap</li>
@@ -454,7 +454,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Calculation Method</h5>
+                <h5 className="font-semibold text-google-text mb-2">Calculation Method</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Uses best 8 of last 20 scores</li>
                   <li>Applies course and slope ratings</li>
@@ -464,31 +464,31 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Handicap Index</h5>
                 <p className="text-green-700 text-sm">Your official USGA handicap number</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Course Handicap</h5>
                 <p className="text-blue-700 text-sm">Handicap specific to the course you're playing</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Adjusted Score</h5>
                 <p className="text-purple-700 text-sm">Your score after handicap adjustments</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your golf scores, including the course rating and slope rating for each round. The calculator will 
               automatically select your best differentials and compute your handicap index. You can add up to 20 scores 
               for the most accurate calculation.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Golf Handicap Categories</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Golf Handicap Categories</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Scratch Golfer:</strong> Handicap of 0</p>
@@ -503,7 +503,7 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Benefits of a Handicap</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Benefits of a Handicap</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Fair Competition:</strong> Level playing field for players of different skill levels</li>
               <li><strong>Progress Tracking:</strong> Monitor improvement over time</li>
@@ -512,8 +512,8 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
               <li><strong>Social Golf:</strong> Enjoy games with players of varying abilities</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-green-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Keep your handicap updated by entering scores from every round. The more scores you have, the more 
                 accurate your handicap becomes. Remember that your handicap represents your potential ability, not 
@@ -526,3 +526,8 @@ Differentials: ${result.differentials.map(d => formatNumber(d)).join(', ')}`
     </div>
   )
 }
+
+
+
+
+

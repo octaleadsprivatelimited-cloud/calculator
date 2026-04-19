@@ -203,7 +203,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
   const result = showResults ? convertTime(sourceTime, sourceZone, targetZone) : { sourceTime: '', sourceZone: '', targetZone: '', convertedTime: '', timeDifference: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-teal-600 to-blue-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -222,16 +222,16 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
 
       <div className="p-6">
         {/* Current Time Display */}
-        <div className="mb-8 bg-gray-50 p-6 rounded-lg">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Current Time Around the World</h3>
+        <div className="mb-8 bg-gray-50 p-6 rounded-2xl">
+          <h3 className="text-xl font-semibold text-google-text mb-4">Current Time Around the World</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {TIME_ZONES.slice(0, 10).map((zone) => (
               <div key={zone.name} className="text-center p-3 bg-white rounded border">
                 <div className="font-semibold text-teal-700">{zone.name}</div>
-                <div className="text-lg font-bold text-gray-800">
+                <div className="text-lg font-bold text-google-text">
                   {formatCurrentTime(currentTime, zone.name)}
                 </div>
-                <div className="text-xs text-gray-600">{zone.location}</div>
+                <div className="text-xs text-google-gray">{zone.location}</div>
               </div>
             ))}
           </div>
@@ -240,8 +240,8 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
         {/* Time Conversion */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Source Time */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Source Time</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Source Time</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -251,7 +251,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
                   type="time"
                   value={sourceTime}
                   onChange={(e) => setSourceTime(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-lg"
+                  className="google-input text-lg"
                   aria-label="Source time"
                 />
               </div>
@@ -263,7 +263,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
                 <select
                   value={sourceZone}
                   onChange={(e) => setSourceZone(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="google-input"
                   aria-label="Source time zone"
                 >
                   {TIME_ZONES.map(zone => (
@@ -276,7 +276,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
 
               <button
                 onClick={handleCurrentTime}
-                className="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg transition-colors duration-200"
+                className="w-full google-button-primary text-white py-2 px-4 rounded-2xl transition-colors duration-200"
               >
                 Use Current Time
               </button>
@@ -284,8 +284,8 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
           </div>
 
           {/* Target Time Zone */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Target Time Zone</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Target Time Zone</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -294,7 +294,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
                                  <select
                    value={targetZone}
                    onChange={(e) => setTargetZone(e.target.value)}
-                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                   className="google-input"
                    aria-label="Target time zone"
                  >
                   {TIME_ZONES.map(zone => (
@@ -305,7 +305,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
                 </select>
               </div>
               
-              <div className="text-sm text-gray-600">
+              <div className="text-sm text-google-gray">
                 <p>• Select a different time zone to convert to</p>
                 <p>• See the time difference between zones</p>
                 <p>• Perfect for scheduling international meetings</p>
@@ -316,13 +316,13 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
 
         {/* Quick Meeting Times */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Meeting Times</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Meeting Times</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {COMMON_MEETING_TIMES.map((meeting, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickTime(meeting.time)}
-                className="p-3 bg-teal-50 hover:bg-teal-100 rounded-lg border border-teal-200 transition-colors text-sm text-center"
+                className="p-3 bg-teal-50 hover:bg-teal-100 rounded-2xl border border-teal-200 transition-colors text-sm text-center"
               >
                 <div className="font-medium text-teal-800">{meeting.name}</div>
                 <div className="text-teal-600">{formatTime(meeting.time)}</div>
@@ -336,7 +336,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Convert Time</span>
@@ -348,7 +348,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-teal-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Time Zone Conversion Result"
                 inputs={[
@@ -368,17 +368,17 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
             </div>
 
             {/* Conversion Results */}
-            <div className="bg-teal-50 p-6 rounded-lg border border-teal-200">
+            <div className="bg-teal-50 p-6 rounded-2xl border border-teal-200">
               <h3 className="text-lg font-semibold text-teal-800 mb-4">Time Conversion Results</h3>
               <div className="grid md:grid-cols-2 gap-6 text-center">
                 <div>
                   <div className="text-2xl font-bold text-teal-700 mb-2">Source Time</div>
-                  <div className="text-4xl font-bold text-gray-800">{formatTime(result.sourceTime)}</div>
+                  <div className="text-4xl font-bold text-google-text">{formatTime(result.sourceTime)}</div>
                   <div className="text-lg text-teal-600">{result.sourceZone}</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-teal-700 mb-2">Converted Time</div>
-                  <div className="text-4xl font-bold text-gray-800">{formatTime(result.convertedTime)}</div>
+                  <div className="text-4xl font-bold text-google-text">{formatTime(result.convertedTime)}</div>
                   <div className="text-lg text-teal-600">{result.targetZone}</div>
                 </div>
               </div>
@@ -387,7 +387,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
                 <div className="text-xl font-semibold text-blue-700">
                   Time Difference: {result.timeDifference}
                 </div>
-                <div className="text-sm text-gray-600">from {result.sourceZone} to {result.targetZone}</div>
+                <div className="text-sm text-google-gray">from {result.sourceZone} to {result.targetZone}</div>
               </div>
             </div>
 
@@ -395,28 +395,28 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -426,8 +426,8 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Time Zone Calculator</h3>
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-200">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Time Zone Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive time zone calculator helps you convert times between different time zones around the world. 
@@ -435,7 +435,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
               this tool provides accurate time conversions with automatic daylight saving time handling.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Time Conversions:</strong> Convert any time between different time zones</li>
               <li><strong>Current Times:</strong> Real-time display of major cities worldwide</li>
@@ -444,10 +444,10 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
               <li><strong>Global Coverage:</strong> Support for all major time zones</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Major Time Zones</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Major Time Zones</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">North America</h5>
+                <h5 className="font-semibold text-google-text mb-2">North America</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Eastern Time (ET): UTC-5/-4</li>
                   <li>Central Time (CT): UTC-6/-5</li>
@@ -457,7 +457,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">International</h5>
+                <h5 className="font-semibold text-google-text mb-2">International</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Greenwich Mean Time (GMT): UTC+0</li>
                   <li>Central European Time (CET): UTC+1/+2</li>
@@ -468,29 +468,29 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-teal-50 p-3 rounded-lg border border-teal-200">
+              <div className="bg-teal-50 p-3 rounded-2xl border border-teal-200">
                 <h5 className="font-semibold text-teal-800 mb-1">Source Time</h5>
                 <p className="text-teal-700 text-sm">Original time in source time zone</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Converted Time</h5>
                 <p className="text-blue-700 text-sm">Equivalent time in target time zone</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Time Difference</h5>
                 <p className="text-green-700 text-sm">Hours and minutes between zones</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Select your source time zone, enter the time you want to convert, and choose your target time zone. 
               The calculator will instantly show the converted time and the time difference between the zones.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Business Meetings:</strong> Schedule calls with international clients and teams</li>
               <li><strong>Travel Planning:</strong> Coordinate flights, meetings, and activities abroad</li>
@@ -500,8 +500,8 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
               <li><strong>Social Coordination:</strong> Stay connected with friends and family worldwide</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Daylight Saving Time (DST)</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Daylight Saving Time (DST)</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <p className="text-gray-700 text-sm mb-3">
                 <strong>What is DST?</strong> Daylight saving time is the practice of setting clocks forward by one hour 
                 during the warmer months to extend evening daylight.
@@ -518,7 +518,7 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Pro Tips for Time Zone Management</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Pro Tips for Time Zone Management</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use 24-Hour Format:</strong> Avoid AM/PM confusion in international communications</li>
               <li><strong>Consider DST:</strong> Always verify if daylight saving time is in effect</li>
@@ -527,8 +527,8 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
               <li><strong>Double-Check Times:</strong> Verify conversions, especially for important meetings</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-teal-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-teal-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When scheduling international meetings, consider the local time of all participants and choose 
                 times that are reasonable for everyone. Early morning in one time zone might be late evening 
@@ -541,3 +541,8 @@ ${TIME_ZONES.slice(0, 10).map(tz =>
     </div>
   )
 }
+
+
+
+
+

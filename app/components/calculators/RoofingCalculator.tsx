@@ -110,22 +110,22 @@ export default function RoofingCalculator() {
   const materials = calculateMaterials()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
             <Home className="w-16 h-16 mr-4 text-slate-600" />
             Roofing Calculator
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Calculate roofing materials, costs, and waste for different roof types. Get accurate estimates for shingles, tiles, metal, and other roofing materials.
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <Calculator className="w-6 h-6 mr-2 text-slate-600" />
                 Roof Details
               </h2>
@@ -136,7 +136,7 @@ export default function RoofingCalculator() {
                   <select
                     value={roofType}
                     onChange={(e) => setRoofType(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
                     title="Select the roof type"
                     aria-label="Roof type"
                   >
@@ -152,7 +152,7 @@ export default function RoofingCalculator() {
                     type="number"
                     value={dimensions.length}
                     onChange={(e) => handleDimensionChange('length', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
                     placeholder="0.00"
                     step="0.01"
                     min="0"
@@ -167,7 +167,7 @@ export default function RoofingCalculator() {
                     type="number"
                     value={dimensions.width}
                     onChange={(e) => handleDimensionChange('width', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
                     placeholder="0.00"
                     step="0.01"
                     min="0"
@@ -182,7 +182,7 @@ export default function RoofingCalculator() {
                     type="number"
                     value={dimensions.pitch}
                     onChange={(e) => handleDimensionChange('pitch', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
                     placeholder="4.5"
                     step="0.5"
                     min="0"
@@ -198,7 +198,7 @@ export default function RoofingCalculator() {
                     type="number"
                     value={dimensions.overhang}
                     onChange={(e) => handleDimensionChange('overhang', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
                     placeholder="0.30"
                     step="0.05"
                     min="0"
@@ -209,15 +209,15 @@ export default function RoofingCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Roofing Material</h3>
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Roofing Material</h3>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Material Type</label>
                   <select
                     value={selectedMaterial}
                     onChange={(e) => setSelectedMaterial(parseInt(e.target.value))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
                     title="Select the roofing material"
                     aria-label="Roofing material"
                   >
@@ -238,7 +238,7 @@ export default function RoofingCalculator() {
                     type="number"
                     value={installationCost}
                     onChange={(e) => setInstallationCost(parseFloat(e.target.value) || 0)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
                     min="0"
                     step="1"
                     title="Enter installation cost per square meter"
@@ -252,7 +252,7 @@ export default function RoofingCalculator() {
                     type="number"
                     value={underlayment}
                     onChange={(e) => setUnderlayment(parseFloat(e.target.value) || 0)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
                     min="0"
                     step="1"
                     title="Enter underlayment cost per square meter"
@@ -262,8 +262,8 @@ export default function RoofingCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Quick Examples</h3>
+            <div className="google-card overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Quick Examples</h3>
               <div className="space-y-2">
                 <button
                   onClick={() => {
@@ -276,7 +276,7 @@ export default function RoofingCalculator() {
                       overhang: '0.3'
                     })
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: 12m x 8m gable roof"
                   aria-label="Set example: 12m x 8m gable roof"
                 >
@@ -293,7 +293,7 @@ export default function RoofingCalculator() {
                       overhang: '0.4'
                     })
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: 15m x 10m hip roof"
                   aria-label="Set example: 15m x 10m hip roof"
                 >
@@ -310,7 +310,7 @@ export default function RoofingCalculator() {
                       overhang: '0.2'
                     })
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: 20m x 15m flat roof"
                   aria-label="Set example: 20m x 15m flat roof"
                 >
@@ -322,14 +322,14 @@ export default function RoofingCalculator() {
 
           <div className="lg:col-span-2">
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+              <div className="google-card overflow-hidden p-6">
+                <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                   <TrendingUp className="w-6 h-6 mr-2 text-slate-600" />
                   Calculation Results
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-slate-50 p-6 rounded-lg">
+                  <div className="bg-slate-50 p-6 rounded-2xl">
                     <h3 className="text-lg font-semibold text-slate-800 mb-4">Roof Area</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between">
@@ -359,20 +359,20 @@ export default function RoofingCalculator() {
                     </div>
                   </div>
                   
-                  <div className="bg-blue-50 p-6 rounded-lg">
+                  <div className="bg-google-blueLight p-6 rounded-2xl">
                     <h3 className="text-lg font-semibold text-blue-800 mb-4">Cost Breakdown</h3>
                     {materials ? (
                       <div className="space-y-3">
                         <div className="flex justify-between">
-                          <span className="text-blue-600">Material:</span>
+                          <span className="text-google-blue">Material:</span>
                           <span className="font-semibold text-blue-800">${materials.materialCost}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-blue-600">Underlayment:</span>
+                          <span className="text-google-blue">Underlayment:</span>
                           <span className="font-semibold text-blue-800">${materials.underlaymentCost}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-blue-600">Installation:</span>
+                          <span className="text-google-blue">Installation:</span>
                           <span className="font-semibold text-blue-800">${materials.installationCost}</span>
                         </div>
                         <div className="border-t pt-2 mt-3">
@@ -383,12 +383,12 @@ export default function RoofingCalculator() {
                         </div>
                       </div>
                     ) : (
-                      <p className="text-blue-600">Enter dimensions to calculate costs</p>
+                      <p className="text-google-blue">Enter dimensions to calculate costs</p>
                     )}
                   </div>
                 </div>
 
-                <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                <div className="mt-6 p-4 google-result-card">
                   <h4 className="font-semibold text-green-800 mb-2">💡 Tips</h4>
                   <ul className="text-sm text-green-700 space-y-1">
                     <li>• Steeper pitches require more material due to increased surface area</li>
@@ -402,7 +402,7 @@ export default function RoofingCalculator() {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                   title="Share roofing calculator results"
                   aria-label="Share roofing calculator results"
                 >
@@ -411,7 +411,7 @@ export default function RoofingCalculator() {
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                   title="Download results as text file"
                   aria-label="Download roofing calculator results"
                 >
@@ -420,7 +420,7 @@ export default function RoofingCalculator() {
                 </button>
                 <button
                   onClick={handlePrint}
-                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                   title="Print roofing calculator results"
                   aria-label="Print roofing calculator results"
                 >
@@ -433,12 +433,12 @@ export default function RoofingCalculator() {
         </div>
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Roofing Calculator</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Roofing Calculator</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Purpose & Functionality</h3>
               <p className="text-gray-700 mb-3">
                 This comprehensive roofing calculator helps homeowners, contractors, and builders estimate the materials, 
                 costs, and requirements for various roofing projects. It calculates roof area, material quantities, 
@@ -451,10 +451,10 @@ export default function RoofingCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Roof Types & Characteristics</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Roof Types & Characteristics</h3>
               <div className="grid md:grid-cols-3 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Gable Roof</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Gable Roof</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Two sloping sides meeting at ridge</li>
                     <li>Simple construction and drainage</li>
@@ -464,7 +464,7 @@ export default function RoofingCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Hip Roof</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Hip Roof</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Four sloping sides</li>
                     <li>Better wind resistance</li>
@@ -474,7 +474,7 @@ export default function RoofingCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Flat Roof</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Flat Roof</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Minimal slope for drainage</li>
                     <li>Easier maintenance access</li>
@@ -487,9 +487,9 @@ export default function RoofingCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Roof Pitch & Calculations</h3>
-              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                <h4 className="font-semibold text-gray-800 mb-2">Pitch Measurement</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Roof Pitch & Calculations</h3>
+              <div className="bg-google-blueLight p-4 rounded-2xl border border-blue-200">
+                <h4 className="font-semibold text-google-text mb-2">Pitch Measurement</h4>
                 <p className="text-gray-700 mb-3">
                   Roof pitch is measured as the vertical rise per 12 horizontal units (e.g., 4:12 means 4 inches 
                   of rise for every 12 inches of horizontal run). Steeper pitches increase the actual roof surface 
@@ -525,10 +525,10 @@ export default function RoofingCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Roofing Materials Overview</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Roofing Materials Overview</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Asphalt Shingles</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Asphalt Shingles</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Cost:</strong> 25-35 per m²</li>
                     <li><strong>Lifespan:</strong> 15-30 years</li>
@@ -538,7 +538,7 @@ export default function RoofingCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Metal Roofing</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Metal Roofing</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Cost:</strong> 45-80 per m²</li>
                     <li><strong>Lifespan:</strong> 40-70 years</li>
@@ -551,7 +551,7 @@ export default function RoofingCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Cost Components Explained</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Cost Components Explained</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Material Costs:</strong> Roofing materials including shingles, tiles, or metal panels</li>
                 <li><strong>Underlayment:</strong> Waterproof barrier installed beneath roofing materials</li>
@@ -562,9 +562,9 @@ export default function RoofingCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Waste Factor Considerations</h3>
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <h4 className="font-semibold text-gray-800 mb-2">Why Waste Factors Matter</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Waste Factor Considerations</h3>
+              <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200">
+                <h4 className="font-semibold text-google-text mb-2">Why Waste Factors Matter</h4>
                 <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm">
                   <li><strong>Cutting Waste:</strong> Materials cut to fit roof edges and angles</li>
                   <li><strong>Installation Errors:</strong> Mistakes during installation requiring replacement</li>
@@ -576,10 +576,10 @@ export default function RoofingCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Installation Considerations</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Installation Considerations</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Professional Installation</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Professional Installation</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Proper ventilation installation</li>
                     <li>Correct flashing placement</li>
@@ -589,7 +589,7 @@ export default function RoofingCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">DIY Considerations</h4>
+                  <h4 className="font-semibold text-google-text mb-2">DIY Considerations</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Safety requirements</li>
                     <li>Skill level assessment</li>
@@ -602,7 +602,7 @@ export default function RoofingCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Maintenance & Longevity</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Maintenance & Longevity</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Regular Inspections:</strong> Check for damage, loose materials, and wear</li>
                 <li><strong>Gutter Maintenance:</strong> Keep gutters clean to prevent water damage</li>
@@ -612,8 +612,8 @@ export default function RoofingCalculator() {
               </ul>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Always add 10-15% to material calculations for waste and future repairs</li>
                 <li>• Consider energy efficiency - lighter colored roofs reflect more heat</li>
@@ -629,7 +629,7 @@ export default function RoofingCalculator() {
         <div className="text-center mt-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
             title="Back to all calculators"
             aria-label="Back to all calculators"
           >
@@ -653,4 +653,7 @@ export default function RoofingCalculator() {
     </div>
   )
 }
+
+
+
 

@@ -142,23 +142,23 @@ export default function PaintCalculator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
-            <Palette className="w-16 h-16 mr-4 text-blue-600" />
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
+            <Palette className="w-16 h-16 mr-4 text-google-blue" />
             Paint Calculator
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Calculate paint needed for walls, ceilings, rooms, and other surfaces. Get accurate estimates for paint quantity and cost based on area and paint type.
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                <Calculator className="w-6 h-6 mr-2 text-blue-600" />
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
+                <Calculator className="w-6 h-6 mr-2 text-google-blue" />
                 Surface Details
               </h2>
               
@@ -168,7 +168,7 @@ export default function PaintCalculator() {
                   <select
                     value={selectedSurface}
                     onChange={(e) => setSelectedSurface(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="google-input"
                     title="Select the surface type to paint"
                     aria-label="Surface type to paint"
                   >
@@ -189,7 +189,7 @@ export default function PaintCalculator() {
                       type="number"
                       value={value}
                       onChange={(e) => handleDimensionChange(field, e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                      className="google-input"
                       placeholder="0.00"
                       step="0.01"
                       min="0"
@@ -201,15 +201,15 @@ export default function PaintCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Paint Settings</h3>
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Paint Settings</h3>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Paint Type</label>
                   <select
                     value={selectedPaint}
                     onChange={(e) => setSelectedPaint(parseInt(e.target.value))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="google-input"
                     title="Select the paint type"
                     aria-label="Paint type"
                   >
@@ -227,7 +227,7 @@ export default function PaintCalculator() {
                     type="number"
                     value={coats}
                     onChange={(e) => setCoats(parseInt(e.target.value) || 1)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="google-input"
                     min="1"
                     max="5"
                     title="Enter the number of paint coats needed"
@@ -241,7 +241,7 @@ export default function PaintCalculator() {
                     type="number"
                     value={wastage}
                     onChange={(e) => setWastage(parseFloat(e.target.value) || 0)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="google-input"
                     min="0"
                     max="50"
                     step="5"
@@ -253,8 +253,8 @@ export default function PaintCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Quick Examples</h3>
+            <div className="google-card overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Quick Examples</h3>
               <div className="space-y-2">
                 <button
                   onClick={() => {
@@ -266,7 +266,7 @@ export default function PaintCalculator() {
                       height: '2.4'
                     })
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: 4m x 3m x 2.4m room"
                   aria-label="Set example: 4m x 3m x 2.4m room"
                 >
@@ -281,7 +281,7 @@ export default function PaintCalculator() {
                       height: '2.4'
                     })
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: 5m x 2.4m wall"
                   aria-label="Set example: 5m x 2.4m wall"
                 >
@@ -296,7 +296,7 @@ export default function PaintCalculator() {
                       width: '4'
                     })
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: 6m x 4m ceiling"
                   aria-label="Set example: 6m x 4m ceiling"
                 >
@@ -308,32 +308,32 @@ export default function PaintCalculator() {
 
           <div className="lg:col-span-2">
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                  <TrendingUp className="w-6 h-6 mr-2 text-blue-600" />
+              <div className="google-card overflow-hidden p-6">
+                <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
+                  <TrendingUp className="w-6 h-6 mr-2 text-google-blue" />
                   Calculation Results
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-blue-50 p-6 rounded-lg">
+                  <div className="bg-google-blueLight p-6 rounded-2xl">
                     <h3 className="text-lg font-semibold text-blue-800 mb-4">Surface Area</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between">
-                        <span className="text-blue-600">Total Area:</span>
+                        <span className="text-google-blue">Total Area:</span>
                         <span className="font-semibold text-blue-800">{area.toFixed(2)} m²</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-blue-600">With Coats:</span>
+                        <span className="text-google-blue">With Coats:</span>
                         <span className="font-semibold text-blue-800">{(area * coats).toFixed(2)} m²</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-blue-600">Paint Type:</span>
+                        <span className="text-google-blue">Paint Type:</span>
                         <span className="font-semibold text-blue-800">{paintTypes[selectedPaint].name}</span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="bg-indigo-50 p-6 rounded-lg">
+                  <div className="bg-indigo-50 p-6 rounded-2xl">
                     <h3 className="text-lg font-semibold text-indigo-800 mb-4">Paint Needed</h3>
                     {paint ? (
                       <div className="space-y-3">
@@ -360,7 +360,7 @@ export default function PaintCalculator() {
                   </div>
                 </div>
 
-                <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                <div className="mt-6 p-4 google-result-card">
                   <h4 className="font-semibold text-green-800 mb-2">💡 Tips</h4>
                   <ul className="text-sm text-green-700 space-y-1">
                     <li>• Always buy slightly more paint than calculated to account for touch-ups</li>
@@ -374,7 +374,7 @@ export default function PaintCalculator() {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                   title="Share paint calculator results"
                   aria-label="Share paint calculator results"
                 >
@@ -383,7 +383,7 @@ export default function PaintCalculator() {
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                   title="Download results as text file"
                   aria-label="Download paint calculator results"
                 >
@@ -392,7 +392,7 @@ export default function PaintCalculator() {
                 </button>
                 <button
                   onClick={handlePrint}
-                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                   title="Print paint calculator results"
                   aria-label="Print paint calculator results"
                 >
@@ -405,8 +405,8 @@ export default function PaintCalculator() {
         </div>
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Paint Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Paint Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive Paint Calculator helps homeowners, contractors, and DIY enthusiasts accurately 
@@ -415,7 +415,7 @@ export default function PaintCalculator() {
               right amount of paint for your painting needs.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Surface Area:</strong> Total area to be painted in square meters</li>
               <li><strong>Paint Quantity:</strong> Amount of paint needed in liters and gallons</li>
@@ -425,10 +425,10 @@ export default function PaintCalculator() {
               <li><strong>Wastage Calculation:</strong> Extra paint for touch-ups and spills</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Surface Types and Calculations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Surface Types and Calculations</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Wall Surfaces</h5>
+                <h5 className="font-semibold text-google-text mb-2">Wall Surfaces</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Rectangular Walls:</strong> Length × Height calculations</li>
                   <li><strong>Door Deductions:</strong> Subtract door areas from total</li>
@@ -439,7 +439,7 @@ export default function PaintCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Complex Surfaces</h5>
+                <h5 className="font-semibold text-google-text mb-2">Complex Surfaces</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Irregular Shapes:</strong> Break down into simple shapes</li>
                   <li><strong>Angled Surfaces:</strong> Use trigonometry for calculations</li>
@@ -451,35 +451,35 @@ export default function PaintCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Surface Area</h5>
                 <p className="text-blue-700 text-sm">Total area to paint</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Paint Quantity</h5>
                 <p className="text-green-700 text-sm">Liters and gallons needed</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Coverage</h5>
                 <p className="text-purple-700 text-sm">Paint efficiency rate</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Total Cost</h5>
                 <p className="text-orange-700 text-sm">Project budget estimate</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Select the surface type you want to paint, enter the dimensions in meters, choose your paint type, 
               specify the number of coats needed, and add wastage percentage. The calculator will automatically 
               compute the total surface area, paint quantity required, and estimated project cost.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Paint Types and Coverage</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Paint Types and Coverage</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Interior Paints:</strong></p>
@@ -504,10 +504,10 @@ export default function PaintCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Surface Preparation Factors</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Surface Preparation Factors</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Surface Condition</h5>
+                <h5 className="font-semibold text-google-text mb-2">Surface Condition</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>New Drywall:</strong> Requires primer coat</li>
                   <li><strong>Previously Painted:</strong> May need light sanding</li>
@@ -518,7 +518,7 @@ export default function PaintCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Environmental Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Environmental Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Temperature:</strong> 10-30°C optimal range</li>
                   <li><strong>Humidity:</strong> Below 70% recommended</li>
@@ -530,7 +530,7 @@ export default function PaintCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Application Techniques</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Application Techniques</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Brush Application:</strong> Best for edges and small areas</li>
               <li><strong>Roller Application:</strong> Efficient for large flat surfaces</li>
@@ -540,10 +540,10 @@ export default function PaintCalculator() {
               <li><strong>Multiple Coats:</strong> Thin coats better than thick ones</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Paint Quality Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Paint Quality Considerations</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Premium Paints</h5>
+                <h5 className="font-semibold text-google-text mb-2">Premium Paints</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Better Coverage:</strong> More area per liter</li>
                   <li><strong>Durability:</strong> Longer lasting finish</li>
@@ -554,7 +554,7 @@ export default function PaintCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Budget Paints</h5>
+                <h5 className="font-semibold text-google-text mb-2">Budget Paints</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Lower Coverage:</strong> More paint needed</li>
                   <li><strong>Shorter Lifespan:</strong> May need repainting sooner</li>
@@ -566,7 +566,7 @@ export default function PaintCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Project Planning Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Project Planning Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Measure Twice:</strong> Double-check all dimensions</li>
               <li><strong>Buy Extra:</strong> 10-15% additional paint recommended</li>
@@ -576,7 +576,7 @@ export default function PaintCalculator() {
               <li><strong>Disposal Planning:</strong> Plan for paint waste disposal</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Painting Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Painting Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Insufficient Paint:</strong> Not buying enough paint</li>
               <li><strong>Poor Preparation:</strong> Skipping surface preparation</li>
@@ -586,8 +586,8 @@ export default function PaintCalculator() {
               <li><strong>Color Mismatch:</strong> Not testing colors first</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Safety Considerations</h4>
-            <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Safety Considerations</h4>
+            <div className="bg-yellow-50 p-4 rounded-2xl border border-yellow-200 mb-4">
               <h5 className="font-semibold text-yellow-800 mb-2">Important Safety Tips</h5>
               <ul className="list-disc list-inside text-yellow-700 space-y-1 text-sm">
                 <li><strong>Ventilation:</strong> Ensure adequate air circulation</li>
@@ -599,10 +599,10 @@ export default function PaintCalculator() {
               </ul>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Cost Optimization Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Cost Optimization Strategies</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Material Savings</h5>
+                <h5 className="font-semibold text-google-text mb-2">Material Savings</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Bulk Purchasing:</strong> Buy larger containers</li>
                   <li><strong>Quality Selection:</strong> Choose appropriate paint grade</li>
@@ -613,7 +613,7 @@ export default function PaintCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Labor Savings</h5>
+                <h5 className="font-semibold text-google-text mb-2">Labor Savings</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Proper Preparation:</strong> Reduce repainting needs</li>
                   <li><strong>Efficient Techniques:</strong> Use appropriate tools</li>
@@ -625,8 +625,8 @@ export default function PaintCalculator() {
               </div>
             </div>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Always buy 10-15% more paint than calculated to account for touch-ups, spills, and future 
                 maintenance. Consider the surface texture and condition - rough or porous surfaces will require 
@@ -641,7 +641,7 @@ export default function PaintCalculator() {
         <div className="text-center mt-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
             title="Back to all calculators"
             aria-label="Back to all calculators"
           >
@@ -665,4 +665,7 @@ export default function PaintCalculator() {
     </div>
   )
 }
+
+
+
 

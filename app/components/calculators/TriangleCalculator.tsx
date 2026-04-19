@@ -90,21 +90,21 @@ export default function TriangleCalculator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
             <Triangle className="w-12 h-12 mr-3 text-indigo-600" />
             Triangle Calculator
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Calculate triangle properties, area, perimeter, and angles
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
               <Calculator className="w-6 h-6 mr-2 text-indigo-600" />
               Triangle Dimensions
             </h2>
@@ -117,7 +117,7 @@ export default function TriangleCalculator() {
                   step="0.01"
                   value={sideA}
                   onChange={(e) => setSideA(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                   placeholder="5"
                   title="Enter length of side A"
                   aria-label="Side A length"
@@ -131,7 +131,7 @@ export default function TriangleCalculator() {
                   step="0.01"
                   value={sideB}
                   onChange={(e) => setSideB(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                   placeholder="4"
                   title="Enter length of side B"
                   aria-label="Side B length"
@@ -145,7 +145,7 @@ export default function TriangleCalculator() {
                   step="0.01"
                   value={sideC}
                   onChange={(e) => setSideC(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                   placeholder="3"
                   title="Enter length of side C"
                   aria-label="Side C length"
@@ -155,7 +155,7 @@ export default function TriangleCalculator() {
               <div className="flex gap-3 pt-4">
                 <button
                   onClick={calculateTriangle}
-                  className="flex-1 bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+                  className="flex-1 google-button-primary transition-colors font-medium"
                   title="Calculate triangle properties"
                   aria-label="Calculate triangle properties"
                 >
@@ -168,7 +168,7 @@ export default function TriangleCalculator() {
                     setSideC('3')
                     setResult(null)
                   }}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="google-button-secondary transition-colors font-medium"
                   title="Reset to defaults"
                 >
                   <RotateCcw className="w-5 h-5" />
@@ -176,7 +176,7 @@ export default function TriangleCalculator() {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <div className="mt-6 p-4 google-result-card">
               <h3 className="font-semibold text-indigo-800 mb-2">Quick Examples</h3>
               <div className="space-y-2 text-sm text-indigo-600">
                 <p>• <strong>Right Triangle:</strong> 3, 4, 5</p>
@@ -190,7 +190,7 @@ export default function TriangleCalculator() {
             {result && (
               <>
                 {/* Share Options - Moved to Top */}
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
+                <div className="google-card overflow-hidden p-6 border border-google-border">
                   <ResultSharing
                     title="Triangle Calculation Result"
                     inputs={[
@@ -208,8 +208,8 @@ export default function TriangleCalculator() {
                   />
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                     <Triangle className="w-6 h-6 mr-2 text-indigo-600" />
                     Triangle Properties
                   </h2>
@@ -218,65 +218,65 @@ export default function TriangleCalculator() {
                     <div className="text-3xl font-bold text-indigo-600 mb-2">
                       {result.type}
                     </div>
-                    <p className="text-gray-600">Triangle Classification</p>
+                    <p className="text-google-gray">Triangle Classification</p>
                   </div>
 
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Area</span>
+                      <span className="text-google-gray">Area</span>
                       <span className="font-semibold text-green-600">{formatNumber(result.area)} square units</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Perimeter</span>
-                      <span className="font-semibold text-blue-600">{formatNumber(result.perimeter)} units</span>
+                      <span className="text-google-gray">Perimeter</span>
+                      <span className="font-semibold text-google-blue">{formatNumber(result.perimeter)} units</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Height (from side A)</span>
+                      <span className="text-google-gray">Height (from side A)</span>
                       <span className="font-semibold text-purple-600">{formatNumber(result.height)} units</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">Side Lengths</h2>
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4">Side Lengths</h2>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Side A</span>
+                      <span className="text-google-gray">Side A</span>
                       <span className="font-semibold">{formatNumber(result.sideA)} units</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Side B</span>
+                      <span className="text-google-gray">Side B</span>
                       <span className="font-semibold">{formatNumber(result.sideB)} units</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Side C</span>
+                      <span className="text-google-gray">Side C</span>
                       <span className="font-semibold">{formatNumber(result.sideC)} units</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                     <Ruler className="w-6 h-6 mr-2 text-indigo-600" />
                     Angles
                   </h2>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Angle A (opposite side A)</span>
+                      <span className="text-google-gray">Angle A (opposite side A)</span>
                       <span className="font-semibold text-red-600">{formatAngle(result.angleA)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Angle B (opposite side B)</span>
+                      <span className="text-google-gray">Angle B (opposite side B)</span>
                       <span className="font-semibold text-orange-600">{formatAngle(result.angleB)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Angle C (opposite side C)</span>
+                      <span className="text-google-gray">Angle C (opposite side C)</span>
                       <span className="font-semibold text-yellow-600">{formatAngle(result.angleC)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Total</span>
+                      <span className="text-google-gray">Total</span>
                       <span className="font-semibold text-green-600">{formatAngle(result.angleA + result.angleB + result.angleC)}</span>
                     </div>
                   </div>
@@ -284,9 +284,9 @@ export default function TriangleCalculator() {
               </>
             )}
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Triangle Facts</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Triangle Facts</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Sum of angles</strong> always equals 180°</p>
                 <p>• <strong>Triangle inequality:</strong> sum of any two sides &gt; third side</p>
                 <p>• <strong>Right triangle:</strong> one angle equals 90°</p>
@@ -302,4 +302,7 @@ export default function TriangleCalculator() {
     </div>
   )
 }
+
+
+
 

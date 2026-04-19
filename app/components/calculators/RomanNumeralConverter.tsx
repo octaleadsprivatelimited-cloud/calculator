@@ -227,7 +227,7 @@ Conversion Details:
   const result = showResults ? getResult() : { arabic: 0, roman: '', isValid: false }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-amber-600 to-orange-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -247,7 +247,7 @@ Conversion Details:
       <div className="p-6">
         {/* Conversion Type Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Conversion Type</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Conversion Type</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               { key: 'arabic', label: 'Arabic to Roman', icon: Hash },
@@ -256,7 +256,7 @@ Conversion Details:
               <button
                 key={key}
                 onClick={() => setConversionType(key as any)}
-                className={`p-4 rounded-lg font-medium transition-colors text-center ${
+                className={`p-4 rounded-2xl font-medium transition-colors text-center ${
                   conversionType === key
                     ? 'bg-amber-600 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -273,8 +273,8 @@ Conversion Details:
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Input */}
           <div className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4">
                 {conversionType === 'arabic' ? 'Arabic Number' : 'Roman Numeral'}
               </h3>
               <div className="space-y-4">
@@ -286,7 +286,7 @@ Conversion Details:
                     type={conversionType === 'arabic' ? 'number' : 'text'}
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-lg"
+                    className="google-input text-lg"
                     placeholder={conversionType === 'arabic' ? '2024' : 'MMXXIV'}
                     min={conversionType === 'arabic' ? '1' : undefined}
                     max={conversionType === 'arabic' ? '3999' : undefined}
@@ -304,10 +304,10 @@ Conversion Details:
                   <button
                     onClick={handleCalculate}
                     disabled={!inputValue.trim()}
-                    className={`font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
+                    className={`font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
                       !inputValue.trim()
-                        ? 'bg-gray-400 cursor-not-allowed text-gray-600'
-                        : 'bg-amber-600 hover:bg-amber-700 text-white'
+                        ? 'bg-gray-400 cursor-not-allowed text-google-gray'
+                        : 'google-button-primary text-white'
                     }`}
                   >
                     <Calculator className="w-5 h-5" />
@@ -319,8 +319,8 @@ Conversion Details:
           </div>
 
           {/* Common Numerals */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Common Numerals</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Common Numerals</h3>
             <div className="grid grid-cols-2 gap-2">
               {COMMON_ROMAN_NUMERALS.map((item, index) => (
                 <button
@@ -328,8 +328,8 @@ Conversion Details:
                   onClick={() => handleCommonNumeral(item)}
                   className="text-left p-2 bg-white rounded border hover:bg-amber-50 transition-colors text-sm"
                 >
-                  <div className="font-medium text-gray-800">{item.arabic}</div>
-                  <div className="text-gray-600 font-mono">{item.roman}</div>
+                  <div className="font-medium text-google-text">{item.arabic}</div>
+                  <div className="text-google-gray font-mono">{item.roman}</div>
                 </button>
               ))}
             </div>
@@ -340,7 +340,7 @@ Conversion Details:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-amber-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Roman Numeral Conversion Result"
                 inputs={[
@@ -359,13 +359,13 @@ Conversion Details:
             </div>
 
             {/* Conversion Result */}
-            <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
+            <div className="bg-amber-50 p-6 rounded-2xl border border-amber-200">
               <h3 className="text-lg font-semibold text-amber-800 mb-4">Conversion Result</h3>
               <div className="text-center">
                 <div className="text-4xl font-bold text-amber-700 mb-2">
                   {inputValue} = {conversionType === 'arabic' ? result.roman : result.arabic}
                 </div>
-                <div className="text-lg text-gray-600">
+                <div className="text-lg text-google-gray">
                   {conversionType === 'arabic' ? 'Roman Numeral' : 'Arabic Number'}
                 </div>
                 {!result.isValid && (
@@ -378,28 +378,28 @@ Conversion Details:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -409,12 +409,12 @@ Conversion Details:
         )}
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-amber-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Roman Numerals</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Roman Numerals</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Historical Background</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Historical Background</h3>
               <p className="text-gray-700 mb-3">
                 Roman numerals originated in ancient Rome around 1000 BCE and were the primary number system 
                 used throughout the Roman Empire. This system uses letters from the Latin alphabet to represent 
@@ -427,8 +427,8 @@ Conversion Details:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Basic Roman Numeral Symbols</h3>
-              <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <h3 className="text-xl font-semibold text-google-text mb-3">Basic Roman Numeral Symbols</h3>
+              <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200">
                 <div className="grid md:grid-cols-4 gap-4 text-sm">
                   <div>
                     <p><strong>I = 1</strong></p>
@@ -455,10 +455,10 @@ Conversion Details:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Roman Numeral Rules</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Roman Numeral Rules</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Addition Rule</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Addition Rule</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>When a smaller numeral follows a larger one, add them</li>
                     <li>VI = 5 + 1 = 6</li>
@@ -468,7 +468,7 @@ Conversion Details:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Subtraction Rule</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Subtraction Rule</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>When a smaller numeral precedes a larger one, subtract</li>
                     <li>IV = 5 - 1 = 4</li>
@@ -481,10 +481,10 @@ Conversion Details:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Modern Usage & Applications</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Modern Usage & Applications</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Traditional Uses</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Traditional Uses</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Clock faces and watch dials</li>
                     <li>Book chapters and sections</li>
@@ -495,7 +495,7 @@ Conversion Details:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Contemporary Applications</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Contemporary Applications</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Software version numbering</li>
                     <li>Sporting event numbering</li>
@@ -509,9 +509,9 @@ Conversion Details:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Conversion Process</h3>
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <h4 className="font-semibold text-gray-800 mb-2">Arabic to Roman Conversion</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Conversion Process</h3>
+              <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200">
+                <h4 className="font-semibold text-google-text mb-2">Arabic to Roman Conversion</h4>
                 <ol className="list-decimal list-inside text-gray-700 space-y-2 text-sm">
                   <li>Start with the largest Roman numeral value</li>
                   <li>Divide the Arabic number by the Roman value</li>
@@ -527,7 +527,7 @@ Conversion Details:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Special Cases & Exceptions</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Special Cases & Exceptions</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Zero:</strong> Roman numerals have no symbol for zero - it was represented by the absence of symbols</li>
                 <li><strong>Large Numbers:</strong> Very large numbers used special symbols and overlines for multiplication by 1000</li>
@@ -538,10 +538,10 @@ Conversion Details:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Educational Value</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Educational Value</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Mathematical Skills</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Mathematical Skills</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Understanding place value</li>
                     <li>Addition and subtraction logic</li>
@@ -551,7 +551,7 @@ Conversion Details:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Cultural Knowledge</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Cultural Knowledge</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Ancient Roman history</li>
                     <li>Classical civilization</li>
@@ -564,7 +564,7 @@ Conversion Details:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Mistakes to Avoid</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Common Mistakes to Avoid</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Invalid Combinations:</strong> Using more than three of the same numeral in sequence</li>
                 <li><strong>Incorrect Subtraction:</strong> Only I, X, and C can be used for subtraction</li>
@@ -574,8 +574,8 @@ Conversion Details:
               </ul>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Remember the key rule: I can only subtract from V and X, X can only subtract from L and C</li>
                 <li>• For years, break them down into thousands, hundreds, tens, and ones</li>
@@ -591,4 +591,9 @@ Conversion Details:
     </div>
   )
 }
+
+
+
+
+
 

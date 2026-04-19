@@ -30,7 +30,7 @@ export default function DayCounterCalculator() {
   const days = showResults ? calculateDays() : null
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-green-600 to-teal-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -49,7 +49,7 @@ export default function DayCounterCalculator() {
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="google-input"
               title="Select start date"
             />
           </div>
@@ -59,7 +59,7 @@ export default function DayCounterCalculator() {
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="google-input"
               title="Select end date"
             />
           </div>
@@ -68,7 +68,7 @@ export default function DayCounterCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Count Days
           </button>
@@ -77,7 +77,7 @@ export default function DayCounterCalculator() {
         {showResults && days !== null && (
           <>
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-6 rounded-lg border border-green-200 mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-green-200 mb-4">
               <ResultSharing
                 title="Day Count Calculation Result"
                 inputs={[
@@ -95,13 +95,13 @@ export default function DayCounterCalculator() {
               />
             </div>
 
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200 text-center">
+            <div className="bg-green-50 p-6 rounded-2xl border border-green-200 text-center">
               <h3 className="text-xl font-semibold text-green-800 mb-4">Day Count Results</h3>
             <div className="text-3xl font-bold text-green-600 mb-2">
               {days} {days === 1 ? 'day' : 'days'}
             </div>
             <div className="mt-4">
-              <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+              <button onClick={handleReset} className="google-button-primary text-white px-4 py-2 rounded-2xl">
                 Reset
               </button>
             </div>
@@ -110,8 +110,8 @@ export default function DayCounterCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Day Counter Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Day Counter Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our simple and efficient day counter calculator helps you quickly determine the number of 
@@ -124,3 +124,7 @@ export default function DayCounterCalculator() {
     </div>
   )
 }
+
+
+
+

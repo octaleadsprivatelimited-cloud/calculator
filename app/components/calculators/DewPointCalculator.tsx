@@ -39,7 +39,7 @@ export default function DewPointCalculator() {
   const dewPoint = showResults ? calculateDewPoint() : 0
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -58,7 +58,7 @@ export default function DewPointCalculator() {
               type="number"
               value={temperature}
               onChange={(e) => setTemperature(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="google-input"
               title="Enter temperature"
             />
           </div>
@@ -68,7 +68,7 @@ export default function DewPointCalculator() {
               type="number"
               value={humidity}
               onChange={(e) => setHumidity(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="google-input"
               min="0"
               max="100"
               title="Enter humidity percentage"
@@ -81,7 +81,7 @@ export default function DewPointCalculator() {
           <select
             value={unit}
             onChange={(e) => setUnit(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="google-input"
             title="Select temperature unit"
           >
             <option value="fahrenheit">Fahrenheit (°F)</option>
@@ -92,7 +92,7 @@ export default function DewPointCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="bg-google-blue hover:bg-google-blueHover text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Calculate Dew Point
           </button>
@@ -101,7 +101,7 @@ export default function DewPointCalculator() {
         {showResults && (
           <div className="space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-blue-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Dew Point Calculation Result"
                 inputs={[
@@ -119,13 +119,13 @@ export default function DewPointCalculator() {
               />
             </div>
 
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 text-center">
+            <div className="bg-google-blueLight p-6 rounded-2xl border border-blue-200 text-center">
               <h3 className="text-xl font-semibold text-blue-800 mb-4">Dew Point Results</h3>
-              <div className="text-3xl font-bold text-blue-600 mb-2">
+              <div className="text-3xl font-bold text-google-blue mb-2">
                 {dewPoint.toFixed(1)}°{unit === 'fahrenheit' ? 'F' : 'C'}
               </div>
               <div className="mt-4">
-                <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+                <button onClick={handleReset} className="google-button-primary text-white px-4 py-2 rounded-2xl">
                   Reset
                 </button>
               </div>
@@ -134,8 +134,8 @@ export default function DewPointCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Dew Point Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Dew Point Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive dew point calculator helps meteorologists, HVAC professionals, and 
@@ -144,7 +144,7 @@ export default function DewPointCalculator() {
               crucial information for weather forecasting, comfort assessment, and moisture control.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Dew Point Temperature:</strong> Temperature at which condensation occurs</li>
               <li><strong>Condensation Threshold:</strong> Point where air becomes saturated</li>
@@ -154,19 +154,19 @@ export default function DewPointCalculator() {
               <li><strong>HVAC Requirements:</strong> Dehumidification needs assessment</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Dew Point</h5>
                 <p className="text-blue-700 text-sm">Condensation temperature</p>
               </div>
-              <div className="bg-cyan-50 p-3 rounded-lg border border-cyan-200">
+              <div className="bg-cyan-50 p-3 rounded-2xl border border-cyan-200">
                 <h5 className="font-semibold text-cyan-800 mb-1">Input Values</h5>
                 <p className="text-cyan-700 text-sm">Temperature and humidity</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the current temperature and relative humidity percentage, select your preferred 
               temperature unit (Fahrenheit or Celsius), and click "Calculate Dew Point" to get the 
@@ -174,8 +174,8 @@ export default function DewPointCalculator() {
               for accurate dew point determination.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Dew Point Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Dew Point Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Definition:</strong></p>
@@ -202,10 +202,10 @@ export default function DewPointCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Dew Point Significance</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Dew Point Significance</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Weather Applications</h5>
+                <h5 className="font-semibold text-google-text mb-2">Weather Applications</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Fog Formation:</strong> Predict fog development</li>
                   <li><strong>Precipitation:</strong> Rain and snow likelihood</li>
@@ -216,7 +216,7 @@ export default function DewPointCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Human Comfort</h5>
+                <h5 className="font-semibold text-google-text mb-2">Human Comfort</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Perceived Temperature:</strong> How hot/cold it feels</li>
                   <li><strong>Heat Index:</strong> Combined temperature and humidity</li>
@@ -228,7 +228,7 @@ export default function DewPointCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Dew Point Calculation Method</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Dew Point Calculation Method</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Magnus Formula:</strong> Standard meteorological equation</li>
               <li><strong>Temperature Conversion:</strong> Fahrenheit to Celsius handling</li>
@@ -238,10 +238,10 @@ export default function DewPointCalculator() {
               <li><strong>Result Conversion:</strong> Back to preferred temperature unit</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Dew Point vs. Other Metrics</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Dew Point vs. Other Metrics</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Dew Point vs. Relative Humidity</h5>
+                <h5 className="font-semibold text-google-text mb-2">Dew Point vs. Relative Humidity</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Dew Point:</strong> Absolute moisture measure</li>
                   <li><strong>Relative Humidity:</strong> Percentage of saturation</li>
@@ -252,7 +252,7 @@ export default function DewPointCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Dew Point vs. Wet Bulb</h5>
+                <h5 className="font-semibold text-google-text mb-2">Dew Point vs. Wet Bulb</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Dew Point:</strong> Condensation temperature</li>
                   <li><strong>Wet Bulb:</strong> Evaporative cooling temperature</li>
@@ -264,10 +264,10 @@ export default function DewPointCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Practical Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Practical Applications</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Meteorology</h5>
+                <h5 className="font-semibold text-google-text mb-2">Meteorology</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Weather Forecasting:</strong> Precipitation prediction</li>
                   <li><strong>Climate Studies:</strong> Long-term moisture trends</li>
@@ -278,7 +278,7 @@ export default function DewPointCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">HVAC & Building Science</h5>
+                <h5 className="font-semibold text-google-text mb-2">HVAC & Building Science</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Dehumidification:</strong> Moisture removal needs</li>
                   <li><strong>Condensation Prevention:</strong> Surface protection</li>
@@ -290,7 +290,7 @@ export default function DewPointCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Dew Point Interpretation</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Dew Point Interpretation</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Below 50°F (10°C):</strong> Very dry, comfortable conditions</li>
               <li><strong>50-60°F (10-16°C):</strong> Dry, comfortable for most people</li>
@@ -300,7 +300,7 @@ export default function DewPointCalculator() {
               <li><strong>Above 80°F (27°C):</strong> Extremely humid, oppressive conditions</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Dew Point Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Dew Point Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Accurate Measurements:</strong> Precise temperature and humidity</li>
               <li><strong>Consider Time of Day:</strong> Dew point varies throughout day</li>
@@ -310,7 +310,7 @@ export default function DewPointCalculator() {
               <li><strong>Use for Planning:</strong> Outdoor activities and events</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Dew Point Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Dew Point Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Confusing with Temperature:</strong> Dew point is always ≤ air temperature</li>
               <li><strong>Ignoring Humidity Changes:</strong> Dew point changes with humidity</li>
@@ -320,7 +320,7 @@ export default function DewPointCalculator() {
               <li><strong>Time Factor:</strong> Ignoring diurnal variations</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Dew Point Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Dew Point Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Frost Point:</strong> Temperature below freezing for ice formation</li>
               <li><strong>Wet Bulb Temperature:</strong> Evaporative cooling temperature</li>
@@ -330,8 +330,8 @@ export default function DewPointCalculator() {
               <li><strong>Absolute Humidity:</strong> Mass of water vapor per volume of air</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When using dew point calculations, remember that dew point is always equal to or lower 
                 than the air temperature. The closer the dew point is to the air temperature, the more 
@@ -347,3 +347,8 @@ export default function DewPointCalculator() {
     </div>
   )
 }
+
+
+
+
+

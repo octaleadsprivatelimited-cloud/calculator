@@ -45,9 +45,9 @@ export default function BinaryCalculatorSimple() {
 
   return (
     <div className="w-full">
-      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl shadow-lg mb-6 p-4 sm:p-6">
+      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl shadow-google mb-6 p-4 sm:p-6">
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+          <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
             <Binary className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -58,8 +58,8 @@ export default function BinaryCalculatorSimple() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
-          <h2 className="text-lg font-bold text-gray-800 mb-4">Input</h2>
+        <div className="bg-white rounded-3xl shadow-md p-4 sm:p-6 border border-google-border">
+          <h2 className="text-lg font-bold text-google-text mb-4">Input</h2>
           
           <div className="space-y-4">
             <div>
@@ -70,7 +70,7 @@ export default function BinaryCalculatorSimple() {
                 type="text"
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                 placeholder="1010"
               />
             </div>
@@ -82,7 +82,7 @@ export default function BinaryCalculatorSimple() {
               <select
                 value={operation}
                 onChange={(e) => setOperation(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                 title="Select binary operation"
                 aria-label="Select binary operation"
               >
@@ -104,33 +104,33 @@ export default function BinaryCalculatorSimple() {
                   type="text"
                   value={input2}
                   onChange={(e) => setInput2(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                   placeholder="1100"
               />
               </div>
 
                 <button
               onClick={calculate}
-              className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 focus:ring-2 focus:ring-purple-500"
+              className="w-full bg-purple-600 text-white py-2 px-4 rounded-2xl hover:bg-purple-700 focus:ring-2 focus:ring-purple-500"
             >
               Calculate
                 </button>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
-          <h2 className="text-lg font-bold text-gray-800 mb-4">Result</h2>
+        <div className="bg-white rounded-3xl shadow-md p-4 sm:p-6 border border-google-border">
+          <h2 className="text-lg font-bold text-google-text mb-4">Result</h2>
           
           {result && (
             <div className="space-y-4">
-              <div className="bg-purple-50 rounded-lg p-4">
+              <div className="bg-purple-50 rounded-2xl p-4">
                   <span className="text-sm font-medium text-purple-700">Binary Result:</span>
                 <div className="font-mono text-lg font-bold text-purple-900">
                   {result}
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-4">
+              <div className="bg-gray-50 rounded-2xl p-4">
                 <span className="text-sm font-medium text-gray-700">Decimal Result:</span>
                 <div className="font-mono text-lg font-bold text-gray-900">
                   {parseInt(result, 2)}
@@ -141,13 +141,13 @@ export default function BinaryCalculatorSimple() {
         </div>
       </div>
 
-      <div className="mt-8 bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
-        <h2 className="text-lg font-bold text-gray-800 mb-4">Binary Number System</h2>
+      <div className="mt-8 bg-white rounded-3xl shadow-md p-4 sm:p-6 border border-google-border">
+        <h2 className="text-lg font-bold text-google-text mb-4">Binary Number System</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
             <h3 className="text-md font-semibold text-gray-700 mb-3">Basic Concepts</h3>
-            <div className="space-y-3 text-sm text-gray-600">
+            <div className="space-y-3 text-sm text-google-gray">
               <div>
                 <strong>Binary System:</strong> Base-2 number system using only 0s and 1s
               </div>
@@ -165,7 +165,7 @@ export default function BinaryCalculatorSimple() {
 
           <div>
             <h3 className="text-md font-semibold text-gray-700 mb-3">Arithmetic Operations</h3>
-            <div className="space-y-2 text-sm text-gray-600">
+            <div className="space-y-2 text-sm text-google-gray">
               <div><strong>Addition:</strong> 0+0=0, 0+1=1, 1+0=1, 1+1=10</div>
               <div><strong>Subtraction:</strong> 0-0=0, 1-0=1, 1-1=0, 10-1=1</div>
               <div><strong>Multiplication:</strong> 0×0=0, 0×1=0, 1×0=0, 1×1=1</div>
@@ -175,7 +175,7 @@ export default function BinaryCalculatorSimple() {
 
           <div>
             <h3 className="text-md font-semibold text-gray-700 mb-3">Bitwise Operations</h3>
-            <div className="space-y-2 text-sm text-gray-600">
+            <div className="space-y-2 text-sm text-google-gray">
               <div><strong>AND (&):</strong> 1 if both bits are 1, else 0</div>
               <div><strong>OR (|):</strong> 1 if either bit is 1, else 0</div>
               <div><strong>XOR (^):</strong> 1 if bits differ, else 0</div>
@@ -185,7 +185,7 @@ export default function BinaryCalculatorSimple() {
 
           <div>
             <h3 className="text-md font-semibold text-gray-700 mb-3">Examples</h3>
-            <div className="space-y-2 text-sm text-gray-600">
+            <div className="space-y-2 text-sm text-google-gray">
               <div><strong>1010 + 1100 = 10110</strong> (10 + 12 = 22)</div>
               <div><strong>1010 & 1100 = 1000</strong> (10 AND 12 = 8)</div>
               <div><strong>1010 | 1100 = 1110</strong> (10 OR 12 = 14)</div>
@@ -197,3 +197,5 @@ export default function BinaryCalculatorSimple() {
     </div>
   )
 }
+
+

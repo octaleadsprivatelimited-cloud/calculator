@@ -50,14 +50,9 @@ export default function ExampleCalculator() {
   const result = showResult ? calculateResult() : 0
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4">
-        <div className="flex items-center">
-          <Calculator className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Example Calculator</h2>
-        </div>
-        <p className="text-purple-100 mt-1">Simple calculator with sharing functionality</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -70,7 +65,7 @@ export default function ExampleCalculator() {
                 type="number"
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 placeholder="Enter first number"
               />
             </div>
@@ -82,7 +77,7 @@ export default function ExampleCalculator() {
               <select
                 value={operation}
                 onChange={(e) => setOperation(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 aria-label="Select operation"
                 title="Select operation"
               >
@@ -101,7 +96,7 @@ export default function ExampleCalculator() {
                 type="number"
                 value={input2}
                 onChange={(e) => setInput2(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 placeholder="Enter second number"
               />
             </div>
@@ -110,14 +105,14 @@ export default function ExampleCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -128,7 +123,7 @@ export default function ExampleCalculator() {
         {showResult && (
           <>
             {/* Share Options - Moved to Top */}
-            <div className="mt-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="mt-6 p-4 google-result-card">
               <ResultSharing
                 title="Calculator Result"
                 inputs={[
@@ -146,7 +141,7 @@ export default function ExampleCalculator() {
               />
             </div>
 
-            <div className="mt-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="mt-6 p-4 google-result-card">
               <h3 className="text-lg font-semibold text-purple-800 mb-3">Result</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-900 mb-2">
@@ -160,3 +155,6 @@ export default function ExampleCalculator() {
     </div>
   )
 }
+
+
+

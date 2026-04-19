@@ -101,21 +101,21 @@ export default function StandardDeviationCalculator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-50 to-blue-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
             <BarChart3 className="w-12 h-12 mr-3 text-cyan-600" />
             Standard Deviation Calculator
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Calculate standard deviation, variance, mean, median, and mode
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
               <Calculator className="w-6 h-6 mr-2 text-cyan-600" />
               Data Input
             </h2>
@@ -128,7 +128,7 @@ export default function StandardDeviationCalculator() {
                 <textarea
                   value={dataInput}
                   onChange={(e) => setDataInput(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 h-32 resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 h-32 resize-none"
                   placeholder="Enter numbers separated by commas (e.g., 1, 2, 3, 4, 5)"
                 />
                 <p className="text-sm text-gray-500 mt-1">
@@ -139,13 +139,13 @@ export default function StandardDeviationCalculator() {
               <div className="flex gap-3 pt-4">
                 <button
                   onClick={calculateStatistics}
-                  className="flex-1 bg-cyan-600 text-white py-3 px-6 rounded-lg hover:bg-cyan-700 transition-colors font-medium"
+                  className="flex-1 google-button-primary transition-colors font-medium"
                 >
                   Calculate Statistics
                 </button>
                 <button
                   onClick={clearData}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="google-button-secondary transition-colors font-medium"
                   title="Reset to defaults"
                 >
                   <RotateCcw className="w-5 h-5" />
@@ -153,7 +153,7 @@ export default function StandardDeviationCalculator() {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-cyan-50 rounded-lg border border-cyan-200">
+            <div className="mt-6 p-4 google-result-card">
               <h3 className="font-semibold text-cyan-800 mb-2">Quick Examples</h3>
               <div className="space-y-2 text-sm text-cyan-600">
                 <p>• <strong>Sample Data:</strong> 1, 2, 3, 4, 5</p>
@@ -167,7 +167,7 @@ export default function StandardDeviationCalculator() {
             {result && (
               <>
                 {/* Share Options - Moved to Top */}
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
+                <div className="google-card overflow-hidden p-6 border border-google-border">
                   <ResultSharing
                     title="Standard Deviation Calculation Result"
                     inputs={[
@@ -185,8 +185,8 @@ export default function StandardDeviationCalculator() {
                   />
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                     <TrendingUp className="w-6 h-6 mr-2 text-cyan-600" />
                     Key Statistics
                   </h2>
@@ -195,54 +195,54 @@ export default function StandardDeviationCalculator() {
                     <div className="text-4xl font-bold text-cyan-600 mb-2">
                       {formatNumber(result.standardDeviation)}
                     </div>
-                    <p className="text-gray-600">Standard Deviation</p>
+                    <p className="text-google-gray">Standard Deviation</p>
                   </div>
 
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Variance</span>
-                      <span className="font-semibold text-blue-600">{formatNumber(result.variance)}</span>
+                      <span className="text-google-gray">Variance</span>
+                      <span className="font-semibold text-google-blue">{formatNumber(result.variance)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Mean (Average)</span>
+                      <span className="text-google-gray">Mean (Average)</span>
                       <span className="font-semibold text-green-600">{formatNumber(result.mean)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Median</span>
+                      <span className="text-google-gray">Median</span>
                       <span className="font-semibold text-purple-600">{formatNumber(result.median)}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">Data Summary</h2>
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4">Data Summary</h2>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Count</span>
+                      <span className="text-google-gray">Count</span>
                       <span className="font-semibold">{result.count} numbers</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Sum</span>
+                      <span className="text-google-gray">Sum</span>
                       <span className="font-semibold">{formatNumber(result.sum)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Range</span>
+                      <span className="text-google-gray">Range</span>
                       <span className="font-semibold text-orange-600">{formatNumber(result.range)}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Minimum</span>
+                      <span className="text-google-gray">Minimum</span>
                       <span className="font-semibold text-red-600">{result.min}</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Maximum</span>
+                      <span className="text-google-gray">Maximum</span>
                       <span className="font-semibold text-green-600">{result.max}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">Mode</h2>
+                <div className="google-card overflow-hidden p-6 border border-google-border">
+                  <h2 className="text-2xl font-bold text-google-text mb-4">Mode</h2>
                   
                   <div className="text-center">
                     {result.mode.length === 1 ? (
@@ -254,7 +254,7 @@ export default function StandardDeviationCalculator() {
                         {result.mode.join(', ')}
                       </div>
                     )}
-                    <p className="text-gray-600 mt-2">
+                    <p className="text-google-gray mt-2">
                       {result.mode.length === 1 ? 'Most frequent value' : 'Most frequent values'}
                     </p>
                   </div>
@@ -262,9 +262,9 @@ export default function StandardDeviationCalculator() {
               </>
             )}
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Statistical Terms</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Statistical Terms</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Mean:</strong> Average of all numbers</p>
                 <p>• <strong>Median:</strong> Middle value when sorted</p>
                 <p>• <strong>Mode:</strong> Most frequent value(s)</p>
@@ -282,4 +282,7 @@ export default function StandardDeviationCalculator() {
     </div>
   )
 }
+
+
+
 

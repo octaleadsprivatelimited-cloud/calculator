@@ -235,7 +235,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
   const result = showResults ? calculateSubnet() : { networkAddress: '', broadcastAddress: '', firstHost: '', lastHost: '', subnetMask: '', wildcardMask: '', totalHosts: 0, usableHosts: 0, networkBits: 0, hostBits: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -255,16 +255,16 @@ Network Class: ${NETWORK_CLASSES.find(c => {
       <div className="p-6">
         {/* Quick Subnet Masks */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Common Subnet Masks</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Common Subnet Masks</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {COMMON_SUBNETS.map((subnet, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickSubnet(subnet)}
-                className="p-4 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 transition-colors text-left"
+                className="p-4 bg-google-blueLight hover:bg-blue-100 rounded-2xl border border-blue-200 transition-colors text-left"
               >
                 <div className="font-semibold text-blue-800">{subnet.name}</div>
-                <div className="text-sm text-blue-600">{subnet.mask}</div>
+                <div className="text-sm text-google-blue">{subnet.mask}</div>
                 <div className="text-xs text-blue-500">{subnet.usable} usable hosts</div>
                 <div className="text-xs text-blue-400 mt-1">{subnet.description}</div>
               </button>
@@ -274,13 +274,13 @@ Network Class: ${NETWORK_CLASSES.find(c => {
 
         {/* Network Classes */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Network Classes</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Network Classes</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {NETWORK_CLASSES.map((networkClass, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickClass(networkClass)}
-                className="p-4 bg-indigo-50 hover:bg-indigo-100 rounded-lg border border-indigo-200 transition-colors text-left"
+                className="p-4 bg-indigo-50 hover:bg-indigo-100 rounded-2xl border border-indigo-200 transition-colors text-left"
               >
                 <div className="font-semibold text-indigo-800">{networkClass.name}</div>
                 <div className="text-sm text-indigo-600">{networkClass.range}</div>
@@ -297,7 +297,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* IP Address */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-gray-800">Network Configuration</h3>
+            <h3 className="text-lg font-semibold text-google-text">Network Configuration</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 IP Address
@@ -306,7 +306,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
                 type="text"
                 value={ipAddress}
                 onChange={(e) => setIpAddress(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                className="google-input font-mono"
                 placeholder="192.168.1.1"
                 aria-label="IP address"
               />
@@ -324,7 +324,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
                   setSubnetMask(e.target.value)
                   setCidr('')
                 }}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                className="google-input font-mono"
                 placeholder="255.255.255.0"
                 aria-label="Subnet mask"
               />
@@ -334,7 +334,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
 
           {/* CIDR Notation */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-gray-800">CIDR Notation</h3>
+            <h3 className="text-lg font-semibold text-google-text">CIDR Notation</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 CIDR Prefix
@@ -346,14 +346,14 @@ Network Class: ${NETWORK_CLASSES.find(c => {
                   setCidr(e.target.value)
                   setSubnetMask('')
                 }}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                className="google-input font-mono"
                 placeholder="/24"
                 aria-label="CIDR prefix"
               />
               <p className="text-xs text-gray-500 mt-1">Enter CIDR prefix (e.g., /24)</p>
             </div>
             
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-4 rounded-2xl border border-blue-200">
               <h4 className="font-semibold text-blue-800 mb-2">Input Summary</h4>
               <div className="text-sm text-blue-700 space-y-1">
                 <div>IP Address: {ipAddress || 'Not specified'}</div>
@@ -370,7 +370,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="bg-google-blue hover:bg-google-blueHover text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Subnet Information</span>
@@ -382,7 +382,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-blue-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="IP Subnet Calculation Result"
                 inputs={[
@@ -401,71 +401,71 @@ Network Class: ${NETWORK_CLASSES.find(c => {
             </div>
 
             {/* Network Information */}
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-6 rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">Network Information</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-2xl font-bold text-blue-700 font-mono">{result.networkAddress}</div>
-                  <div className="text-sm text-gray-600">Network Address</div>
-                  <div className="text-xs text-blue-600">First address</div>
+                  <div className="text-sm text-google-gray">Network Address</div>
+                  <div className="text-xs text-google-blue">First address</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-green-700 font-mono">{result.broadcastAddress}</div>
-                  <div className="text-sm text-gray-600">Broadcast Address</div>
+                  <div className="text-sm text-google-gray">Broadcast Address</div>
                   <div className="text-xs text-green-600">Last address</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-purple-700 font-mono">{result.firstHost}</div>
-                  <div className="text-sm text-gray-600">First Host</div>
+                  <div className="text-sm text-google-gray">First Host</div>
                   <div className="text-xs text-purple-600">Usable range start</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-orange-700 font-mono">{result.lastHost}</div>
-                  <div className="text-sm text-gray-600">Last Host</div>
+                  <div className="text-sm text-google-gray">Last Host</div>
                   <div className="text-xs text-orange-600">Usable range end</div>
                 </div>
               </div>
             </div>
 
             {/* Subnet Details */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Subnet Details</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Subnet Details</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Mask Information</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Mask Information</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Subnet Mask:</span>
+                      <span className="text-google-gray">Subnet Mask:</span>
                       <span className="font-semibold text-blue-700 font-mono">{result.subnetMask}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Wildcard Mask:</span>
+                      <span className="text-google-gray">Wildcard Mask:</span>
                       <span className="font-semibold text-green-700 font-mono">{result.wildcardMask}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">CIDR Notation:</span>
+                      <span className="text-google-gray">CIDR Notation:</span>
                       <span className="font-semibold text-purple-700">/{result.networkBits}</span>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Host Information</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Host Information</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Total Hosts:</span>
+                      <span className="text-google-gray">Total Hosts:</span>
                       <span className="font-semibold text-blue-700">{formatNumber(result.totalHosts)}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Usable Hosts:</span>
+                      <span className="text-google-gray">Usable Hosts:</span>
                       <span className="font-semibold text-green-700">{formatNumber(result.usableHosts)}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Network Bits:</span>
+                      <span className="text-google-gray">Network Bits:</span>
                       <span className="font-semibold text-purple-700">{result.networkBits}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Host Bits:</span>
+                      <span className="text-google-gray">Host Bits:</span>
                       <span className="font-semibold text-orange-700">{result.hostBits}</span>
                     </div>
                   </div>
@@ -477,28 +477,28 @@ Network Class: ${NETWORK_CLASSES.find(c => {
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -508,8 +508,8 @@ Network Class: ${NETWORK_CLASSES.find(c => {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About IP Subnet Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About IP Subnet Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive IP subnet calculator helps network administrators and IT professionals 
@@ -518,7 +518,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               design and management.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Network Address:</strong> First address in the subnet</li>
               <li><strong>Broadcast Address:</strong> Last address in the subnet</li>
@@ -528,31 +528,31 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               <li><strong>Host Count:</strong> Total and usable host addresses</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Network Classes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Network Classes</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Class A</h5>
                 <p className="text-blue-700 text-sm">1.0.0.0 - 126.255.255.255</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Class B</h5>
                 <p className="text-green-700 text-sm">128.0.0.0 - 191.255.255.255</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Class C</h5>
                 <p className="text-purple-700 text-sm">192.0.0.0 - 223.255.255.255</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter an IP address and either a subnet mask or CIDR notation. The calculator automatically 
               computes the network address, broadcast address, first and last usable host addresses, 
               and provides detailed subnet information including total and usable host counts.
             </p>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When planning your network, always consider future growth and scalability. Use subnetting 
                 to create logical network segments that match your organizational structure. Remember that 
@@ -564,8 +564,8 @@ Network Class: ${NETWORK_CLASSES.find(c => {
         </div>
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About IP Subnet Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About IP Subnet Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive IP subnet calculator helps network administrators and IT professionals 
@@ -574,7 +574,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               design and management.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Network Address:</strong> First address in the subnet</li>
               <li><strong>Broadcast Address:</strong> Last address in the subnet</li>
@@ -584,10 +584,10 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               <li><strong>Host Count:</strong> Total and usable host addresses</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">IP Addressing Fundamentals</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">IP Addressing Fundamentals</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">IPv4 Address Structure</h5>
+                <h5 className="font-semibold text-google-text mb-2">IPv4 Address Structure</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>32-bit Address:</strong> 4 octets of 8 bits each</li>
                   <li><strong>Dotted Decimal:</strong> 192.168.1.1 format</li>
@@ -598,7 +598,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Subnet Mask Purpose</h5>
+                <h5 className="font-semibold text-google-text mb-2">Subnet Mask Purpose</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Network Separation:</strong> Divides networks logically</li>
                   <li><strong>Traffic Control:</strong> Determines routing decisions</li>
@@ -610,35 +610,35 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Network Address</h5>
                 <p className="text-blue-700 text-sm">Subnet identifier</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Broadcast Address</h5>
                 <p className="text-green-700 text-sm">All hosts destination</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Host Range</h5>
                 <p className="text-purple-700 text-sm">Usable addresses</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Subnet Mask</h5>
                 <p className="text-orange-700 text-sm">Network boundary</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter an IP address and either a subnet mask or CIDR notation. The calculator automatically 
               computes the network address, broadcast address, first and last usable host addresses, 
               and provides detailed subnet information including total and usable host counts.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Network Classes and Ranges</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Network Classes and Ranges</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Class A Networks:</strong></p>
@@ -665,10 +665,10 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">CIDR and Subnetting</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">CIDR and Subnetting</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">CIDR Notation</h5>
+                <h5 className="font-semibold text-google-text mb-2">CIDR Notation</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Format:</strong> IP/prefix_length</li>
                   <li><strong>Example:</strong> 192.168.1.0/24</li>
@@ -679,7 +679,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Subnetting Benefits</h5>
+                <h5 className="font-semibold text-google-text mb-2">Subnetting Benefits</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Network Efficiency:</strong> Better resource utilization</li>
                   <li><strong>Traffic Management:</strong> Reduced broadcast domains</li>
@@ -691,7 +691,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Subnet Masks</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Subnet Masks</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>/24 (255.255.255.0):</strong> 256 addresses, 254 usable hosts</li>
               <li><strong>/25 (255.255.255.128):</strong> 128 addresses, 126 usable hosts</li>
@@ -701,10 +701,10 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               <li><strong>/29 (255.255.255.248):</strong> 8 addresses, 6 usable hosts</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Network Address Calculation</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Network Address Calculation</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Binary Method</h5>
+                <h5 className="font-semibold text-google-text mb-2">Binary Method</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Convert to Binary:</strong> IP and mask to binary</li>
                   <li><strong>AND Operation:</strong> IP AND mask = network</li>
@@ -715,7 +715,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Decimal Method</h5>
+                <h5 className="font-semibold text-google-text mb-2">Decimal Method</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Octet Analysis:</strong> Work with each octet</li>
                   <li><strong>Mask Application:</strong> Apply mask to IP</li>
@@ -727,7 +727,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Broadcast Address Calculation</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Broadcast Address Calculation</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Network Address:</strong> Start with calculated network address</li>
               <li><strong>Host Bits:</strong> Set all host bits to 1</li>
@@ -737,7 +737,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               <li><strong>Example:</strong> 192.168.1.0/24 → 192.168.1.255</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Host Address Range</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Host Address Range</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>First Host:</strong> Network address + 1</li>
               <li><strong>Last Host:</strong> Broadcast address - 1</li>
@@ -747,7 +747,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               <li><strong>Example:</strong> 192.168.1.1 - 192.168.1.254</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Subnet Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Subnet Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Verify Input:</strong> Ensure valid IP address format</li>
               <li><strong>Check Mask:</strong> Validate subnet mask values</li>
@@ -757,7 +757,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               <li><strong>Follow Standards:</strong> Use industry best practices</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Subnetting Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Subnetting Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Wrong Network Address:</strong> Incorrect calculation</li>
               <li><strong>Invalid Host Range:</strong> Including reserved addresses</li>
@@ -767,7 +767,7 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               <li><strong>Documentation Errors:</strong> Incorrect network records</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Subnetting Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Subnetting Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Variable Length Subnet Masking (VLSM):</strong> Different subnet sizes</li>
               <li><strong>Route Summarization:</strong> Combining multiple subnets</li>
@@ -777,8 +777,8 @@ Network Class: ${NETWORK_CLASSES.find(c => {
               <li><strong>IPv6 Planning:</strong> Future network considerations</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When planning your network, always consider future growth and scalability. Use subnetting 
                 to create logical network segments that match your organizational structure. Remember that 
@@ -795,3 +795,8 @@ Network Class: ${NETWORK_CLASSES.find(c => {
     </div>
   )
 }
+
+
+
+
+

@@ -63,44 +63,39 @@ export default function APRCalculator() {
   const result = showResults ? calculateAPR() : { apr: 0, totalCost: 0, monthlyPayment: 0, recommendations: [], details: { principal: 0, rate: 0, term: 0, fees: 0 } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-violet-500 to-purple-500 px-6 py-4">
-        <div className="flex items-center">
-          <Percent className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">APR Calculator</h2>
-        </div>
-        <p className="text-violet-100 mt-1">Calculate Annual Percentage Rate</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount</label>
-              <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Enter amount" step="100" />
+              <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="google-input" placeholder="Enter amount" step="100" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Interest Rate (%)</label>
-              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Enter rate" step="0.1" />
+              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="google-input" placeholder="Enter rate" step="0.1" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Loan Term (years)</label>
-              <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Enter term" step="0.5" />
+              <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="google-input" placeholder="Enter term" step="0.5" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Fees</label>
-              <input type="number" value={fees} onChange={(e) => setFees(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Enter fees" step="10" />
+              <input type="number" value={fees} onChange={(e) => setFees(e.target.value)} className="google-input" placeholder="Enter fees" step="10" />
             </div>
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-violet-500 hover:bg-violet-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -108,7 +103,7 @@ export default function APRCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-violet-50 rounded-lg border border-violet-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-violet-800 mb-2">APR Results</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-violet-600 mb-2">{result.apr.toFixed(2)}%</div>
@@ -116,7 +111,7 @@ export default function APRCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-violet-50 rounded-lg border border-violet-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-violet-800 mb-3">Loan Summary</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-violet-700">Principal:</span><span className="font-semibold text-violet-800">{Number(result.details.principal).toLocaleString()}</span></div>
@@ -129,7 +124,7 @@ export default function APRCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-violet-50 rounded-lg border border-violet-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-violet-800 mb-3">Analysis</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -146,8 +141,8 @@ export default function APRCalculator() {
       </div>
 
       {/* Calculator Description Section */}
-      <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">About APR Calculator</h3>
+      <div className="mt-8 p-6 google-result-card">
+        <h3 className="text-xl font-semibold text-google-text mb-4">About APR Calculator</h3>
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 mb-4">
             Our comprehensive APR calculator helps borrowers understand the true cost of loans by 
@@ -156,7 +151,7 @@ export default function APRCalculator() {
             offers, helping you make informed borrowing decisions and avoid hidden costs.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Annual Percentage Rate (APR):</strong> True cost of borrowing including fees</li>
             <li><strong>Total Cost:</strong> Complete amount paid over loan term</li>
@@ -166,10 +161,10 @@ export default function APRCalculator() {
             <li><strong>Loan Analysis:</strong> Comprehensive cost breakdown</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">APR vs. Interest Rate</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">APR vs. Interest Rate</h4>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Interest Rate</h5>
+              <h5 className="font-semibold text-google-text mb-2">Interest Rate</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>Cost of borrowing money</li>
                 <li>Expressed as annual percentage</li>
@@ -180,7 +175,7 @@ export default function APRCalculator() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">APR (Annual Percentage Rate)</h5>
+              <h5 className="font-semibold text-google-text mb-2">APR (Annual Percentage Rate)</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>True cost of borrowing</li>
                 <li>Includes interest + fees</li>
@@ -192,30 +187,30 @@ export default function APRCalculator() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
           <div className="grid md:grid-cols-3 gap-4 mb-4">
-            <div className="bg-violet-50 p-3 rounded-lg border border-violet-200">
+            <div className="bg-violet-50 p-3 rounded-2xl border border-violet-200">
               <h5 className="font-semibold text-violet-800 mb-1">APR</h5>
               <p className="text-violet-700 text-sm">True borrowing cost</p>
             </div>
-            <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+            <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
               <h5 className="font-semibold text-purple-800 mb-1">Total Cost</h5>
               <p className="text-purple-700 text-sm">Complete loan cost</p>
             </div>
-            <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+            <div className="bg-pink-50 p-3 rounded-2xl border border-pink-200">
               <h5 className="font-semibold text-pink-800 mb-1">Monthly Payment</h5>
               <p className="text-pink-700 text-sm">Regular payment amount</p>
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
           <p className="text-gray-700 mb-4">
             Enter your loan amount, interest rate, loan term, and any fees. The calculator will 
             compute the APR, total cost, and monthly payments, providing a complete picture of 
             your loan's true cost to help you compare different loan offers.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Types of Loan Fees</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Types of Loan Fees</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Origination Fees:</strong> 1-6% of loan amount for processing</li>
             <li><strong>Application Fees:</strong> One-time fee for loan application</li>
@@ -225,7 +220,7 @@ export default function APRCalculator() {
             <li><strong>Appraisal Fees:</strong> Property valuation costs (for mortgages)</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Loan Type APR Ranges</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Loan Type APR Ranges</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Mortgages:</strong> 3-8% APR (government-backed loans often lower)</li>
             <li><strong>Auto Loans:</strong> 3-18% APR (new cars lower than used)</li>
@@ -235,7 +230,7 @@ export default function APRCalculator() {
             <li><strong>Credit Cards:</strong> 12-30% APR (revolving credit)</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">APR Comparison Strategies</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">APR Comparison Strategies</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Same Loan Type:</strong> Compare similar loan products</li>
             <li><strong>Same Term Length:</strong> Equal repayment periods for fair comparison</li>
@@ -245,8 +240,8 @@ export default function APRCalculator() {
             <li><strong>Rate Changes:</strong> Fixed vs. variable rate implications</li>
           </ul>
           
-          <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-violet-500">
-            <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+          <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-violet-500">
+            <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
             <p className="text-gray-700 text-sm">
               When comparing loan offers, always look at the APR rather than just the interest rate, 
               as APR gives you the true cost of borrowing. However, remember that APR is just one 
@@ -260,3 +255,8 @@ export default function APRCalculator() {
     </div>
   )
 }
+
+
+
+
+

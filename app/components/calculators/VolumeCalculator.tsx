@@ -193,21 +193,21 @@ export default function VolumeCalculator() {
   const requiredFields = getRequiredFields()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-50 to-purple-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
             <Box className="w-12 h-12 mr-3 text-violet-600" />
             Volume Calculator
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Calculate volumes of various 3D geometric shapes
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
               <Calculator className="w-6 h-6 mr-2 text-violet-600" />
               Shape & Dimensions
             </h2>
@@ -220,7 +220,7 @@ export default function VolumeCalculator() {
                 <select
                   value={selectedShape}
                   onChange={(e) => setSelectedShape(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                   aria-label="Shape selection"
                   title="Select 3D geometric shape"
                 >
@@ -244,7 +244,7 @@ export default function VolumeCalculator() {
                 <select
                   value={units}
                   onChange={(e) => setUnits(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                   aria-label="Unit selection"
                   title="Select measurement unit"
                 >
@@ -271,7 +271,7 @@ export default function VolumeCalculator() {
                         type="number"
                         value={dimensions.length}
                         onChange={(e) => setDimensions({...dimensions, length: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                         placeholder="0"
                         step="any"
                         title="Enter length"
@@ -289,7 +289,7 @@ export default function VolumeCalculator() {
                         type="number"
                         value={dimensions.width}
                         onChange={(e) => setDimensions({...dimensions, width: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                         placeholder="0"
                         step="any"
                         title="Enter width"
@@ -307,7 +307,7 @@ export default function VolumeCalculator() {
                         type="number"
                         value={dimensions.height}
                         onChange={(e) => setDimensions({...dimensions, height: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                         placeholder="0"
                         step="any"
                         title="Enter height"
@@ -325,7 +325,7 @@ export default function VolumeCalculator() {
                         type="number"
                         value={dimensions.radius}
                         onChange={(e) => setDimensions({...dimensions, radius: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                         placeholder="0"
                         step="any"
                         title="Enter radius"
@@ -343,7 +343,7 @@ export default function VolumeCalculator() {
                         type="number"
                         value={dimensions.base}
                         onChange={(e) => setDimensions({...dimensions, base: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                         placeholder="0"
                         step="any"
                         title="Enter base"
@@ -361,7 +361,7 @@ export default function VolumeCalculator() {
                         type="number"
                         value={dimensions.side}
                         onChange={(e) => setDimensions({...dimensions, side: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                         placeholder="0"
                         step="any"
                         title="Enter side"
@@ -375,7 +375,7 @@ export default function VolumeCalculator() {
               <div className="flex gap-3 pt-4">
                 <button
                   onClick={reset}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="google-button-secondary transition-colors font-medium"
                   title="Reset to defaults"
                 >
                   <RotateCcw className="w-5 h-5" />
@@ -386,7 +386,7 @@ export default function VolumeCalculator() {
 
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
               <ResultSharing
                 title="Volume Calculation Result"
                 inputs={[
@@ -404,8 +404,8 @@ export default function VolumeCalculator() {
               />
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                 <Ruler className="w-6 h-6 mr-2 text-violet-600" />
                 Calculation Results
               </h2>
@@ -414,33 +414,33 @@ export default function VolumeCalculator() {
                 <div className="text-4xl font-bold text-violet-600 mb-2">
                   {result.volume}
                 </div>
-                <p className="text-gray-600">cubic {units}</p>
+                <p className="text-google-gray">cubic {units}</p>
               </div>
 
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Shape</span>
+                  <span className="text-google-gray">Shape</span>
                   <span className="font-semibold capitalize">
                     {selectedShape.replace('-', ' ')}
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Volume</span>
+                  <span className="text-google-gray">Volume</span>
                   <span className="font-semibold text-violet-600">
                     {result.volume} {units}³
                   </span>
                 </div>
                 {result.surfaceArea && (
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Surface Area</span>
-                    <span className="font-semibold text-blue-600">
+                    <span className="text-google-gray">Surface Area</span>
+                    <span className="font-semibold text-google-blue">
                       {result.surfaceArea} {units}²
                     </span>
                   </div>
                 )}
                 {result.lateralArea && (
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Lateral Area</span>
+                    <span className="text-google-gray">Lateral Area</span>
                     <span className="font-semibold text-green-600">
                       {result.lateralArea} {units}²
                     </span>
@@ -449,10 +449,10 @@ export default function VolumeCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Shape Information</h2>
-              <div className="space-y-3 text-sm text-gray-600">
-                <p className="font-semibold text-gray-800">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Shape Information</h2>
+              <div className="space-y-3 text-sm text-google-gray">
+                <p className="font-semibold text-google-text">
                   {selectedShape.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
                 </p>
                 <p>{getShapeDescription()}</p>
@@ -462,9 +462,9 @@ export default function VolumeCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Volume Tips</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Volume Tips</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Cube:</strong> Side³</p>
                 <p>• <strong>Sphere:</strong> (4/3) × π × Radius³</p>
                 <p>• <strong>Cylinder:</strong> π × Radius² × Height</p>
@@ -481,4 +481,7 @@ export default function VolumeCalculator() {
     </div>
   )
 }
+
+
+
 

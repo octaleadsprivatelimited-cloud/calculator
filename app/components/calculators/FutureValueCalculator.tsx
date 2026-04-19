@@ -58,36 +58,31 @@ export default function FutureValueCalculator() {
   const result = showResults ? calculateFV() : { futureValue: 0, growthFactor: 0, recommendations: [], details: { presentValue: 0, rate: 0, time: 0, periodType: '' } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-emerald-500 to-green-500 px-6 py-4">
-        <div className="flex items-center">
-          <TrendingUp className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Future Value Calculator</h2>
-        </div>
-        <p className="text-emerald-100 mt-1">Calculate future value of investments</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Present Value</label>
-              <input type="number" value={presentValue} onChange={(e) => setPresentValue(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter amount" step="100" />
+              <input type="number" value={presentValue} onChange={(e) => setPresentValue(e.target.value)} className="google-input" placeholder="Enter amount" step="100" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Interest Rate (%)</label>
-              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter rate" step="0.1" />
+              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="google-input" placeholder="Enter rate" step="0.1" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Time Period</label>
-              <input type="number" value={timePeriod} onChange={(e) => setTimePeriod(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter time" step="0.1" />
+              <input type="number" value={timePeriod} onChange={(e) => setTimePeriod(e.target.value)} className="google-input" placeholder="Enter time" step="0.1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Period Type</label>
-              <select value={periodType} onChange={(e) => setPeriodType(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Select period type">
+              <select value={periodType} onChange={(e) => setPeriodType(e.target.value)} className="google-input" aria-label="Select period type">
                 <option value="years">Years</option>
                 <option value="months">Months</option>
               </select>
@@ -95,10 +90,10 @@ export default function FutureValueCalculator() {
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -106,7 +101,7 @@ export default function FutureValueCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-2">Future Value</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-emerald-600 mb-2">{result.futureValue?.toLocaleString(undefined, {maximumFractionDigits: 2})}</div>
@@ -114,7 +109,7 @@ export default function FutureValueCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">Calculation Details</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-emerald-700">Present Value:</span><span className="font-semibold text-emerald-800">{result.details.presentValue?.toLocaleString()}</span></div>
@@ -126,7 +121,7 @@ export default function FutureValueCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-emerald-800 mb-3">Analysis</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -142,8 +137,8 @@ export default function FutureValueCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Future Value Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Future Value Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive future value calculator helps investors and financial planners determine how much 
@@ -152,7 +147,7 @@ export default function FutureValueCalculator() {
               investments, retirement planning, and long-term financial goals.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Future Value:</strong> Final amount after compound interest growth</li>
               <li><strong>Growth Factor:</strong> Multiplier effect of compound interest</li>
@@ -162,10 +157,10 @@ export default function FutureValueCalculator() {
               <li><strong>Rate Sensitivity:</strong> How interest rates affect growth</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Compound Interest vs. Simple Interest</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Compound Interest vs. Simple Interest</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Compound Interest</h5>
+                <h5 className="font-semibold text-google-text mb-2">Compound Interest</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Interest earned on interest</li>
                   <li>Exponential growth over time</li>
@@ -176,7 +171,7 @@ export default function FutureValueCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Simple Interest</h5>
+                <h5 className="font-semibold text-google-text mb-2">Simple Interest</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Interest only on principal</li>
                   <li>Linear growth over time</li>
@@ -188,29 +183,29 @@ export default function FutureValueCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+              <div className="bg-emerald-50 p-3 rounded-2xl border border-emerald-200">
                 <h5 className="font-semibold text-emerald-800 mb-1">Future Value</h5>
                 <p className="text-emerald-700 text-sm">Final investment amount</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Growth Factor</h5>
                 <p className="text-green-700 text-sm">Compound interest multiplier</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Time Period</h5>
                 <p className="text-blue-700 text-sm">Investment duration</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your present investment amount, annual interest rate, and time period. Choose between years 
               or months, then click calculate to see how much your investment will grow through compound interest.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Investment Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Key Investment Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Present Value (PV):</strong> Current amount of money invested</li>
               <li><strong>Future Value (FV):</strong> Amount money will grow to in the future</li>
@@ -220,8 +215,8 @@ export default function FutureValueCalculator() {
               <li><strong>Compound Frequency:</strong> How often interest is calculated</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Investment Growth Examples</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Investment Growth Examples</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Conservative Growth (5%):</strong></p>
@@ -242,7 +237,7 @@ export default function FutureValueCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Future Value</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Future Value</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Initial Investment:</strong> Larger amounts grow to larger future values</li>
               <li><strong>Interest Rate:</strong> Higher rates dramatically increase growth</li>
@@ -252,7 +247,7 @@ export default function FutureValueCalculator() {
               <li><strong>Tax Efficiency:</strong> Tax-advantaged accounts maximize growth</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Investment Vehicles</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Investment Vehicles</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Savings Accounts:</strong> Low risk, low return (1-3% typically)</li>
               <li><strong>Certificates of Deposit:</strong> Fixed terms, predictable returns</li>
@@ -262,7 +257,7 @@ export default function FutureValueCalculator() {
               <li><strong>Real Estate:</strong> Tangible assets with rental income potential</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Investment Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Investment Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Dollar-Cost Averaging:</strong> Invest fixed amounts regularly</li>
               <li><strong>Buy and Hold:</strong> Long-term investment strategy</li>
@@ -272,7 +267,7 @@ export default function FutureValueCalculator() {
               <li><strong>Tax-Loss Harvesting:</strong> Offset gains with losses</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Time Value of Money</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Time Value of Money</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Early Investing:</strong> More time for compound interest to work</li>
               <li><strong>Delayed Investing:</strong> Requires larger amounts to reach goals</li>
@@ -282,7 +277,7 @@ export default function FutureValueCalculator() {
               <li><strong>Inflation Impact:</strong> Real returns may be lower than nominal</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Investment Planning Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Investment Planning Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Start Early:</strong> Time is your greatest ally in investing</li>
               <li><strong>Invest Regularly:</strong> Consistent contributions build wealth</li>
@@ -292,8 +287,8 @@ export default function FutureValueCalculator() {
               <li><strong>Review Periodically:</strong> Adjust strategy as goals change</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 The most powerful factor in investment growth is time. Starting to invest just 5-10 years earlier 
                 can result in dramatically larger future values due to compound interest. For example, investing 
@@ -308,4 +303,9 @@ export default function FutureValueCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

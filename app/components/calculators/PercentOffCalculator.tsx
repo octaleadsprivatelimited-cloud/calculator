@@ -47,33 +47,28 @@ export default function PercentOffCalculator() {
   const result = showResults ? calculatePercentOff() : { savings: 0, finalPrice: 0, recommendations: [], details: { original: 0, discount: 0 } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4">
-        <div className="flex items-center">
-          <Tag className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Percent Off Calculator</h2>
-        </div>
-        <p className="text-orange-100 mt-1">Calculate savings and final prices</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Original Price ()</label>
-              <input type="number" value={originalPrice} onChange={(e) => setOriginalPrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Enter price" step="0.01" />
+              <input type="number" value={originalPrice} onChange={(e) => setOriginalPrice(e.target.value)} className="google-input" placeholder="Enter price" step="0.01" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Discount (%)</label>
-              <input type="number" value={discountPercent} onChange={(e) => setDiscountPercent(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Enter discount" step="0.1" />
+              <input type="number" value={discountPercent} onChange={(e) => setDiscountPercent(e.target.value)} className="google-input" placeholder="Enter discount" step="0.1" />
             </div>
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -81,7 +76,7 @@ export default function PercentOffCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-orange-800 mb-2">You Save</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-orange-600 mb-2">${result.savings?.toFixed(2)}</div>
@@ -89,7 +84,7 @@ export default function PercentOffCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-orange-800 mb-3">Price Breakdown</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-orange-700">Original Price:</span><span className="font-semibold text-orange-800">${result.details.original?.toFixed(2)}</span></div>
@@ -105,7 +100,7 @@ export default function PercentOffCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-orange-800 mb-3">Summary</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -121,8 +116,8 @@ export default function PercentOffCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Percent Off Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Percent Off Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive Percent Off Calculator helps shoppers, retailers, and financial planners determine 
@@ -131,7 +126,7 @@ export default function PercentOffCalculator() {
               purchasing decisions and understand the true value of discounts.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Savings Amount:</strong> Dollar value of the discount</li>
               <li><strong>Final Price:</strong> Price after discount is applied</li>
@@ -141,10 +136,10 @@ export default function PercentOffCalculator() {
               <li><strong>Budget Planning:</strong> Cost savings for financial planning</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Discount Categories and Value</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Discount Categories and Value</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Small Discounts (1-10%)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Small Discounts (1-10%)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Typical Savings:</strong> 1-10 on 100 purchase</li>
                   <li><strong>Common Use:</strong> Regular sales and promotions</li>
@@ -155,7 +150,7 @@ export default function PercentOffCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Major Discounts (50%+)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Major Discounts (50%+)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Typical Savings:</strong> 50+ on 100 purchase</li>
                   <li><strong>Common Use:</strong> Clearance sales and special events</li>
@@ -167,35 +162,35 @@ export default function PercentOffCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Savings</h5>
                 <p className="text-orange-700 text-sm">Money you save</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Final Price</h5>
                 <p className="text-green-700 text-sm">What you pay</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Original Price</h5>
                 <p className="text-blue-700 text-sm">Starting price</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Discount %</h5>
                 <p className="text-purple-700 text-sm">Percentage off</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the original price of the item and the discount percentage being offered. The calculator will 
               automatically compute your total savings, the final price you'll pay, and provide recommendations 
               on whether the discount represents good value for your money.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Shopping Strategies</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Shopping Strategies</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Timing Your Purchases:</strong></p>
@@ -218,10 +213,10 @@ export default function PercentOffCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Value Assessment Framework</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Value Assessment Framework</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Good Value Indicators</h5>
+                <h5 className="font-semibold text-google-text mb-2">Good Value Indicators</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>High Discount %:</strong> 30% or more off</li>
                   <li><strong>Quality Product:</strong> Well-reviewed items</li>
@@ -232,7 +227,7 @@ export default function PercentOffCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Poor Value Indicators</h5>
+                <h5 className="font-semibold text-google-text mb-2">Poor Value Indicators</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Low Discount %:</strong> Less than 10% off</li>
                   <li><strong>Inflated Original Price:</strong> Artificially high MSRP</li>
@@ -244,7 +239,7 @@ export default function PercentOffCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Discount Scenarios</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Discount Scenarios</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Retail Sales:</strong> Seasonal promotions and clearance events</li>
               <li><strong>Online Shopping:</strong> Digital coupons and promo codes</li>
@@ -254,26 +249,26 @@ export default function PercentOffCalculator() {
               <li><strong>First-time Buyers:</strong> New customer incentives</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Psychological Pricing Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Psychological Pricing Strategies</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Charm Pricing</h5>
                 <p className="text-blue-700 text-sm">9.99 vs 10.00</p>
-                <p className="text-blue-600 text-xs mt-1">Perceived as significantly cheaper</p>
+                <p className="text-google-blue text-xs mt-1">Perceived as significantly cheaper</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Anchoring</h5>
                 <p className="text-green-700 text-sm">Original price as reference</p>
                 <p className="text-green-600 text-xs mt-1">Makes discount seem larger</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Urgency</h5>
                 <p className="text-purple-700 text-sm">Limited time offers</p>
                 <p className="text-purple-600 text-xs mt-1">Creates fear of missing out</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budget Planning with Discounts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Budget Planning with Discounts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Savings Allocation:</strong> Put discount savings toward other goals</li>
               <li><strong>Purchase Timing:</strong> Plan major purchases around sales</li>
@@ -283,10 +278,10 @@ export default function PercentOffCalculator() {
               <li><strong>Future Purchases:</strong> Save for larger, more expensive items</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Avoiding Common Discount Pitfalls</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Avoiding Common Discount Pitfalls</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Impulse Buying</h5>
+                <h5 className="font-semibold text-google-text mb-2">Impulse Buying</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Wait 24 Hours:</strong> Sleep on major purchase decisions</li>
                   <li><strong>Need vs. Want:</strong> Distinguish between necessities and desires</li>
@@ -297,7 +292,7 @@ export default function PercentOffCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Hidden Costs</h5>
+                <h5 className="font-semibold text-google-text mb-2">Hidden Costs</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Shipping Fees:</strong> Factor in delivery costs</li>
                   <li><strong>Taxes:</strong> Include applicable sales tax</li>
@@ -309,7 +304,7 @@ export default function PercentOffCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Maximizing Discount Benefits</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Maximizing Discount Benefits</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Combine Offers:</strong> Stack multiple discount types</li>
               <li><strong>Time Your Purchases:</strong> Buy during optimal sales periods</li>
@@ -319,10 +314,10 @@ export default function PercentOffCalculator() {
               <li><strong>Consider Alternatives:</strong> Look for similar items on sale</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Technology and Discounts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Technology and Discounts</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Digital Tools</h5>
+                <h5 className="font-semibold text-google-text mb-2">Digital Tools</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Price Tracking:</strong> Monitor price changes over time</li>
                   <li><strong>Coupon Apps:</strong> Find and apply digital coupons</li>
@@ -333,7 +328,7 @@ export default function PercentOffCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Online Shopping</h5>
+                <h5 className="font-semibold text-google-text mb-2">Online Shopping</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Free Shipping:</strong> Look for shipping cost waivers</li>
                   <li><strong>Email Subscriptions:</strong> Sign up for sale notifications</li>
@@ -345,8 +340,8 @@ export default function PercentOffCalculator() {
               </div>
             </div>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-orange-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that a discount is only valuable if you actually need the item and it fits your budget. 
                 Don't let the excitement of saving money lead to spending money you wouldn't otherwise spend. 
@@ -361,4 +356,9 @@ export default function PercentOffCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

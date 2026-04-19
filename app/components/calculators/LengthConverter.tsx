@@ -108,15 +108,15 @@ export default function LengthConverter() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
             <Ruler className="w-16 h-16 mr-4 text-emerald-600" />
             Length Converter
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Convert between metric, imperial, and other length units. From nanometers to light years, get accurate conversions for any length measurement.
           </p>
         </header>
@@ -124,8 +124,8 @@ export default function LengthConverter() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Conversion Panel */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <Calculator className="w-6 h-6 mr-2 text-emerald-600" />
                 Convert Length
               </h2>
@@ -139,7 +139,7 @@ export default function LengthConverter() {
                     type="number"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                     placeholder="100"
                     step="any"
                     min="0"
@@ -155,7 +155,7 @@ export default function LengthConverter() {
                   <select
                     value={fromUnit}
                     onChange={(e) => setFromUnit(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                     title="Select the unit to convert from"
                     aria-label="Unit to convert from"
                   >
@@ -174,7 +174,7 @@ export default function LengthConverter() {
                 <div className="flex justify-center">
                   <button
                     onClick={handleSwap}
-                    className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                    className="p-2 bg-gray-100 rounded-2xl hover:bg-gray-200 transition-colors"
                     title="Swap from and to units"
                     aria-label="Swap from and to units"
                   >
@@ -189,7 +189,7 @@ export default function LengthConverter() {
                   <select
                     value={toUnit}
                     onChange={(e) => setToUnit(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                     title="Select the unit to convert to"
                     aria-label="Unit to convert to"
                   >
@@ -207,12 +207,12 @@ export default function LengthConverter() {
             </div>
 
             {/* Quick Values */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+            <div className="google-card overflow-hidden p-6 mb-6">
               <h3 className="text-sm font-medium text-gray-700 mb-3">Quick Values</h3>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => handleQuickValue('1')}
-                  className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set length to 1"
                   aria-label="Set length to 1"
                 >
@@ -220,7 +220,7 @@ export default function LengthConverter() {
                 </button>
                 <button
                   onClick={() => handleQuickValue('10')}
-                  className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set length to 10"
                   aria-label="Set length to 10"
                 >
@@ -228,7 +228,7 @@ export default function LengthConverter() {
                 </button>
                 <button
                   onClick={() => handleQuickValue('100')}
-                  className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set length to 100"
                   aria-label="Set length to 100"
                 >
@@ -236,7 +236,7 @@ export default function LengthConverter() {
                 </button>
                 <button
                   onClick={() => handleQuickValue('1000')}
-                  className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set length to 1000"
                   aria-label="Set length to 1000"
                 >
@@ -246,10 +246,10 @@ export default function LengthConverter() {
             </div>
 
             {/* Reset Button */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="google-card overflow-hidden p-6">
               <button
                 onClick={handleReset}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
                 title="Reset to default values"
                 aria-label="Reset to default values"
               >
@@ -263,8 +263,8 @@ export default function LengthConverter() {
           <div className="lg:col-span-2">
             <div className="space-y-6">
               {/* Conversion Result */}
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+              <div className="google-card overflow-hidden p-6">
+                <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                   <TrendingUp className="w-6 h-6 mr-2 text-emerald-600" />
                   Conversion Result
                 </h2>
@@ -275,7 +275,7 @@ export default function LengthConverter() {
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                    <div className="bg-emerald-50 p-4 rounded-lg">
+                    <div className="bg-emerald-50 p-4 rounded-2xl">
                       <div className="text-sm text-emerald-600 mb-1">From Unit</div>
                       <div className="text-lg font-semibold text-emerald-800">
                         {fromUnitData?.name} ({fromUnit})
@@ -285,7 +285,7 @@ export default function LengthConverter() {
                       </div>
                     </div>
                     
-                    <div className="bg-teal-50 p-4 rounded-lg">
+                    <div className="bg-teal-50 p-4 rounded-2xl">
                       <div className="text-sm text-teal-600 mb-1">To Unit</div>
                       <div className="text-lg font-semibold text-teal-800">
                         {toUnitData?.name} ({toUnit})
@@ -299,8 +299,8 @@ export default function LengthConverter() {
               </div>
 
               {/* Unit Categories */}
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">Unit Categories</h3>
+              <div className="google-card overflow-hidden p-6">
+                <h3 className="text-xl font-bold text-google-text mb-4">Unit Categories</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -309,7 +309,7 @@ export default function LengthConverter() {
                       {lengthUnits.filter(unit => unit.category === 'Metric').map(unit => (
                         <div key={unit.symbol} className="flex justify-between text-sm">
                           <span>{unit.name} ({unit.symbol})</span>
-                          <span className="text-gray-600">{unit.toMeters} m</span>
+                          <span className="text-google-gray">{unit.toMeters} m</span>
                         </div>
                       ))}
                     </div>
@@ -321,7 +321,7 @@ export default function LengthConverter() {
                       {lengthUnits.filter(unit => unit.category === 'Imperial').map(unit => (
                         <div key={unit.symbol} className="flex justify-between text-sm">
                           <span>{unit.name} ({unit.symbol})</span>
-                          <span className="text-gray-600">{unit.toMeters} m</span>
+                          <span className="text-google-gray">{unit.toMeters} m</span>
                         </div>
                       ))}
                     </div>
@@ -329,12 +329,12 @@ export default function LengthConverter() {
                 </div>
                 
                 <div className="mt-6">
-                  <h4 className="font-semibold text-gray-700 mb-3 text-blue-600">Other Units</h4>
+                  <h4 className="font-semibold text-gray-700 mb-3 text-google-blue">Other Units</h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {lengthUnits.filter(unit => !['Metric', 'Imperial'].includes(unit.category)).map(unit => (
                       <div key={unit.symbol} className="flex justify-between text-sm">
                         <span>{unit.name} ({unit.symbol})</span>
-                        <span className="text-gray-600">{unit.toMeters} m</span>
+                        <span className="text-google-gray">{unit.toMeters} m</span>
                       </div>
                     ))}
                   </div>
@@ -345,7 +345,7 @@ export default function LengthConverter() {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                   title="Share length conversion results"
                   aria-label="Share length conversion results"
                 >
@@ -354,7 +354,7 @@ export default function LengthConverter() {
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                   title="Download results as text file"
                   aria-label="Download length conversion results"
                 >
@@ -363,7 +363,7 @@ export default function LengthConverter() {
                 </button>
                 <button
                   onClick={handlePrint}
-                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                   title="Print length conversion results"
                   aria-label="Print length conversion results"
                 >
@@ -380,7 +380,7 @@ export default function LengthConverter() {
         <div className="text-center mt-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
             title="Back to all calculators"
             aria-label="Back to all calculators"
           >
@@ -405,4 +405,7 @@ export default function LengthConverter() {
     </div>
   )
 }
+
+
+
 

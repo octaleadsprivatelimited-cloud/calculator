@@ -104,14 +104,9 @@ export default function PeriodCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-rose-500 to-pink-500 px-6 py-4">
-        <div className="flex items-center">
-          <Calendar className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Period Calculator</h2>
-        </div>
-        <p className="text-rose-100 mt-1">Calculate your next period and track your cycle</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -123,7 +118,7 @@ export default function PeriodCalculator() {
               type="date"
               value={lastPeriod}
               onChange={(e) => setLastPeriod(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
+              className="google-input"
               aria-label="First day of last period"
             />
           </div>
@@ -136,7 +131,7 @@ export default function PeriodCalculator() {
               type="number"
               value={cycleLength}
               onChange={(e) => setCycleLength(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
+              className="google-input"
               placeholder="28"
               min="21"
               max="35"
@@ -147,14 +142,14 @@ export default function PeriodCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-rose-500 hover:bg-rose-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -165,7 +160,7 @@ export default function PeriodCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-rose-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Period Calculation Result"
                 inputs={[
@@ -183,7 +178,7 @@ export default function PeriodCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-rose-50 rounded-lg border border-rose-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-rose-800 mb-2">Next Period</h3>
               <div className="text-center">
                 <div className="text-2xl font-bold text-rose-600 mb-2">
@@ -197,7 +192,7 @@ export default function PeriodCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-rose-50 rounded-lg border border-rose-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-rose-800 mb-3">Cycle Information</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -221,7 +216,7 @@ export default function PeriodCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-rose-50 rounded-lg border border-rose-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-rose-800 mb-3">Future Periods (6 months)</h3>
               <div className="space-y-2">
                 {result.futurePeriods.map((date, index) => (
@@ -234,7 +229,7 @@ export default function PeriodCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-rose-50 rounded-lg border border-rose-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-rose-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -250,8 +245,8 @@ export default function PeriodCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Period Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Period Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive Period Calculator helps women track their menstrual cycles and predict future 
@@ -259,7 +254,7 @@ export default function PeriodCalculator() {
               personalized recommendations for optimal reproductive health management and planning.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Next Period Date:</strong> Predicted start of next menstrual cycle</li>
               <li><strong>Cycle Analysis:</strong> Days since last period and until next</li>
@@ -269,37 +264,37 @@ export default function PeriodCalculator() {
               <li><strong>Health Recommendations:</strong> Personalized cycle guidance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-rose-50 p-3 rounded-lg border border-rose-200">
+              <div className="bg-rose-50 p-3 rounded-2xl border border-rose-200">
                 <h5 className="font-semibold text-rose-800 mb-1">Next Period</h5>
                 <p className="text-rose-700 text-sm">Predicted start date</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Days Until</h5>
                 <p className="text-blue-700 text-sm">Countdown to next cycle</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Cycle Status</h5>
                 <p className="text-green-700 text-sm">On track or late</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Future Dates</h5>
                 <p className="text-purple-700 text-sm">6-month forecast</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the date of your last menstrual period and your average cycle length. The calculator will 
               automatically determine your next period date, provide cycle analysis, and forecast future periods 
               for comprehensive menstrual health planning.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Menstrual Cycle Phases</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Menstrual Cycle Phases</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Menstrual Phase (Days 1-5)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Menstrual Phase (Days 1-5)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Period Flow:</strong> Shedding of uterine lining</li>
                   <li><strong>Hormone Levels:</strong> Estrogen and progesterone low</li>
@@ -310,7 +305,7 @@ export default function PeriodCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Follicular Phase (Days 6-14)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Follicular Phase (Days 6-14)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Egg Development:</strong> Follicles mature in ovaries</li>
                   <li><strong>Hormone Levels:</strong> Estrogen rising</li>
@@ -322,8 +317,8 @@ export default function PeriodCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Cycle Length Variations</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Cycle Length Variations</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Short Cycles (21-24 days):</strong></p>
@@ -346,7 +341,7 @@ export default function PeriodCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Cycle Tracking Benefits</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Cycle Tracking Benefits</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Health Monitoring:</strong> Identify irregular patterns early</li>
               <li><strong>Symptom Management:</strong> Prepare for period-related symptoms</li>
@@ -356,10 +351,10 @@ export default function PeriodCalculator() {
               <li><strong>Pregnancy Detection:</strong> Identify missed periods quickly</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Cycle Irregularities</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Cycle Irregularities</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Temporary Irregularities</h5>
+                <h5 className="font-semibold text-google-text mb-2">Temporary Irregularities</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Stress:</strong> High stress can delay periods</li>
                   <li><strong>Travel:</strong> Time zone changes affect cycles</li>
@@ -370,7 +365,7 @@ export default function PeriodCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Medical Conditions</h5>
+                <h5 className="font-semibold text-google-text mb-2">Medical Conditions</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Polycystic Ovary Syndrome:</strong> Irregular or absent periods</li>
                   <li><strong>Thyroid Disorders:</strong> Hormone imbalances</li>
@@ -382,8 +377,8 @@ export default function PeriodCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Seek Medical Help</h4>
-            <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Seek Medical Help</h4>
+            <div className="bg-yellow-50 p-4 rounded-2xl border border-yellow-200 mb-4">
               <h5 className="font-semibold text-yellow-800 mb-2">Consult a Doctor If:</h5>
               <ul className="list-disc list-inside text-yellow-700 space-y-1 text-sm">
                 <li><strong>Missed Periods:</strong> No period for 3+ months</li>
@@ -395,7 +390,7 @@ export default function PeriodCalculator() {
               </ul>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Lifestyle Factors Affecting Cycles</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Lifestyle Factors Affecting Cycles</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Nutrition:</strong> Balanced diet supports regular cycles</li>
               <li><strong>Exercise:</strong> Moderate activity is beneficial</li>
@@ -405,10 +400,10 @@ export default function PeriodCalculator() {
               <li><strong>Substance Use:</strong> Avoid smoking and excessive alcohol</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Cycle-Synced Living</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Cycle-Synced Living</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">High Energy Phases</h5>
+                <h5 className="font-semibold text-google-text mb-2">High Energy Phases</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Exercise:</strong> High-intensity workouts</li>
                   <li><strong>Social Activities:</strong> Networking and socializing</li>
@@ -419,7 +414,7 @@ export default function PeriodCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Low Energy Phases</h5>
+                <h5 className="font-semibold text-google-text mb-2">Low Energy Phases</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Exercise:</strong> Gentle yoga and walking</li>
                   <li><strong>Activities:</strong> Self-care and relaxation</li>
@@ -431,7 +426,7 @@ export default function PeriodCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Tracking Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Tracking Methods</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Calendar Method:</strong> Mark period start dates</li>
               <li><strong>Mobile Apps:</strong> Digital period tracking</li>
@@ -441,7 +436,7 @@ export default function PeriodCalculator() {
               <li><strong>Professional Monitoring:</strong> Medical cycle analysis</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Period Preparation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Period Preparation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Supply Stocking:</strong> Keep period products on hand</li>
               <li><strong>Pain Management:</strong> Have pain relief options ready</li>
@@ -451,8 +446,8 @@ export default function PeriodCalculator() {
               <li><strong>Self-Care Planning:</strong> Relaxation and stress reduction</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-rose-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-rose-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that every woman's cycle is unique, and variations are normal. Use this calculator as 
                 a guide, but also pay attention to your body's signals and patterns. Track not just your period 
@@ -467,3 +462,8 @@ export default function PeriodCalculator() {
     </div>
   )
 }
+
+
+
+
+

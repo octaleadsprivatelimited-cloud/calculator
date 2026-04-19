@@ -175,7 +175,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
   const speedDiff = showResults ? calculateSpeedometerDifference() : { actualSpeed: 0, difference: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -195,7 +195,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
       <div className="p-6">
         {/* Error Display */}
         {errors.length > 0 && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6">
             <div className="flex items-center space-x-2 mb-2">
               <AlertCircle className="w-5 h-5 text-red-600" />
               <h3 className="text-sm font-medium text-red-800">Please fix the following errors:</h3>
@@ -211,8 +211,8 @@ Speedometer Analysis (at ${currentSpeed} mph):
         {/* Input Section */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Current Tire */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Current Tire</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Current Tire</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -222,7 +222,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
                   type="number"
                   value={currentTire.width}
                   onChange={(e) => setCurrentTire(prev => ({ ...prev, width: parseInt(e.target.value) || 0 }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="google-input"
                   min="135"
                   max="345"
                   title="Enter tire width in millimeters"
@@ -237,7 +237,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
                   type="number"
                   value={currentTire.aspectRatio}
                   onChange={(e) => setCurrentTire(prev => ({ ...prev, aspectRatio: parseInt(e.target.value) || 0 }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="google-input"
                   min="30"
                   max="85"
                   title="Enter aspect ratio percentage"
@@ -252,7 +252,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
                   type="number"
                   value={currentTire.diameter}
                   onChange={(e) => setCurrentTire(prev => ({ ...prev, diameter: parseInt(e.target.value) || 0 }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="google-input"
                   min="13"
                   max="24"
                   title="Enter wheel diameter in inches"
@@ -263,8 +263,8 @@ Speedometer Analysis (at ${currentSpeed} mph):
           </div>
 
           {/* New Tire */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">New Tire</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">New Tire</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -274,7 +274,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
                   type="number"
                   value={newTire.width}
                   onChange={(e) => setNewTire(prev => ({ ...prev, width: parseInt(e.target.value) || 0 }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="google-input"
                   min="135"
                   max="345"
                   title="Enter new tire width in millimeters"
@@ -289,7 +289,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
                   type="number"
                   value={newTire.aspectRatio}
                   onChange={(e) => setNewTire(prev => ({ ...prev, aspectRatio: parseInt(e.target.value) || 0 }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="google-input"
                   min="30"
                   max="85"
                   title="Enter new aspect ratio percentage"
@@ -304,7 +304,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
                   type="number"
                   value={newTire.diameter}
                   onChange={(e) => setNewTire(prev => ({ ...prev, diameter: parseInt(e.target.value) || 0 }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="google-input"
                   min="13"
                   max="24"
                   title="Enter new wheel diameter in inches"
@@ -316,8 +316,8 @@ Speedometer Analysis (at ${currentSpeed} mph):
         </div>
 
         {/* Speed Input */}
-        <div className="bg-blue-50 p-6 rounded-lg mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Speedometer Analysis</h3>
+        <div className="bg-google-blueLight p-6 rounded-2xl mb-8">
+          <h3 className="text-xl font-semibold text-google-text mb-4">Speedometer Analysis</h3>
           <div className="max-w-xs">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Current Speed (mph)
@@ -326,7 +326,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
               type="number"
               value={currentSpeed}
               onChange={(e) => setCurrentSpeed(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="google-input"
               min="1"
               max="200"
               title="Enter current speed in mph"
@@ -340,10 +340,10 @@ Speedometer Analysis (at ${currentSpeed} mph):
           <button
             onClick={handleCalculate}
             disabled={isLoading}
-            className={`font-semibold py-3 px-8 rounded-lg transition-all duration-200 flex items-center justify-center mx-auto space-x-2 ${
+            className={`font-semibold py-3 px-8 rounded-2xl transition-all duration-200 flex items-center justify-center mx-auto space-x-2 ${
               isLoading 
                 ? 'bg-gray-400 cursor-not-allowed text-white' 
-                : 'bg-blue-600 hover:bg-blue-700 text-white hover:scale-105'
+                : 'bg-google-blue hover:bg-google-blueHover text-white hover:scale-105'
             }`}
           >
             {isLoading ? (
@@ -364,7 +364,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-green-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Tire Size Calculation Result"
                 inputs={[
@@ -384,7 +384,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
             </div>
 
             {/* Success Message */}
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-4 text-center">
               <div className="flex items-center justify-center space-x-2 text-green-800">
                 <CheckCircle className="w-5 h-5" />
                 <span className="font-medium">Calculation completed successfully!</span>
@@ -393,37 +393,37 @@ Speedometer Analysis (at ${currentSpeed} mph):
 
             {/* Tire Specifications */}
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
                 <h3 className="text-lg font-semibold text-green-800 mb-4">Current Tire: {currentTire.width}/{currentTire.aspectRatio}R{currentTire.diameter}</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Circumference:</span>
+                    <span className="text-google-gray">Circumference:</span>
                     <span className="font-semibold">{formatNumber(currentSpecs.circumference)} mm</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Revolutions/mile:</span>
+                    <span className="text-google-gray">Revolutions/mile:</span>
                     <span className="font-semibold">{formatNumber(currentSpecs.revolutionsPerMile)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Sidewall height:</span>
+                    <span className="text-google-gray">Sidewall height:</span>
                     <span className="font-semibold">{formatNumber(currentSpecs.sidewallHeight)} mm</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-6 rounded-2xl border border-blue-200">
                 <h3 className="text-lg font-semibold text-blue-800 mb-4">New Tire: {newTire.width}/{newTire.aspectRatio}R{newTire.diameter}</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Circumference:</span>
+                    <span className="text-google-gray">Circumference:</span>
                     <span className="font-semibold">{formatNumber(newSpecs.circumference)} mm</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Revolutions/mile:</span>
+                    <span className="text-google-gray">Revolutions/mile:</span>
                     <span className="font-semibold">{formatNumber(newSpecs.revolutionsPerMile)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Sidewall height:</span>
+                    <span className="text-google-gray">Sidewall height:</span>
                     <span className="font-semibold">{formatNumber(newSpecs.sidewallHeight)} mm</span>
                   </div>
                 </div>
@@ -431,24 +431,24 @@ Speedometer Analysis (at ${currentSpeed} mph):
             </div>
 
             {/* Speedometer Analysis */}
-            <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+            <div className="bg-yellow-50 p-6 rounded-2xl border border-yellow-200">
               <h3 className="text-lg font-semibold text-yellow-800 mb-4">Speedometer Analysis (at {currentSpeed} mph)</h3>
               <div className="grid md:grid-cols-3 gap-4 text-center">
                 <div>
                   <div className="text-2xl font-bold text-yellow-700">{formatNumber(speedDiff.actualSpeed)}</div>
-                  <div className="text-sm text-gray-600">Actual Speed (mph)</div>
+                  <div className="text-sm text-google-gray">Actual Speed (mph)</div>
                 </div>
                 <div>
                   <div className={`text-2xl font-bold ${speedDiff.difference >= 0 ? 'text-red-600' : 'text-green-600'}`}>
                     {speedDiff.difference >= 0 ? '+' : ''}{formatNumber(speedDiff.difference)}
                   </div>
-                  <div className="text-sm text-gray-600">Speed Difference (mph)</div>
+                  <div className="text-sm text-google-gray">Speed Difference (mph)</div>
                 </div>
                 <div>
                   <div className={`text-2xl font-bold ${speedDiff.difference >= 0 ? 'text-red-600' : 'text-green-600'}`}>
                     {speedDiff.difference >= 0 ? '+' : ''}{formatNumber((speedDiff.difference / parseFloat(currentSpeed)) * 100)}%
                   </div>
-                  <div className="text-sm text-gray-600">Percentage Difference</div>
+                  <div className="text-sm text-google-gray">Percentage Difference</div>
                 </div>
               </div>
             </div>
@@ -457,7 +457,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
                 title="Download results as text file"
               >
                 <Download className="w-4 h-4" />
@@ -465,7 +465,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
                 title="Share results"
               >
                 <Share2 className="w-4 h-4" />
@@ -473,7 +473,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
                 title="Print results"
               >
                 <Printer className="w-4 h-4" />
@@ -481,7 +481,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
                 title="Reset calculator"
               >
                 <RotateCcw className="w-4 h-4" />
@@ -492,8 +492,8 @@ Speedometer Analysis (at ${currentSpeed} mph):
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Tire Size Calculator</h3>
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-200">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Tire Size Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive tire size calculator helps you compare different tire dimensions and understand their impact 
@@ -501,7 +501,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
               this tool provides accurate calculations for circumference, speedometer accuracy, and performance characteristics.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Tire Dimensions:</strong> Width, aspect ratio, and diameter measurements</li>
               <li><strong>Circumference:</strong> Distance around the tire's outer edge</li>
@@ -511,10 +511,10 @@ Speedometer Analysis (at ${currentSpeed} mph):
               <li><strong>Performance Comparison:</strong> Side-by-side analysis of different sizes</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Tire Size Notation</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Tire Size Notation</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Metric System (P-Metric)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Metric System (P-Metric)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>P215/65R15</li>
                   <li>P = Passenger vehicle</li>
@@ -525,7 +525,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Imperial System</h5>
+                <h5 className="font-semibold text-google-text mb-2">Imperial System</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>31x10.50R15</li>
                   <li>31 = Overall diameter in inches</li>
@@ -537,29 +537,29 @@ Speedometer Analysis (at ${currentSpeed} mph):
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Circumference</h5>
                 <p className="text-blue-700 text-sm">Distance around tire</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Revolutions</h5>
                 <p className="text-green-700 text-sm">Rotations per mile</p>
               </div>
-              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+              <div className="bg-yellow-50 p-3 rounded-2xl border border-yellow-200">
                 <h5 className="font-semibold text-yellow-800 mb-1">Speedometer</h5>
                 <p className="text-yellow-700 text-sm">Accuracy impact</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your current tire size and the new tire size you want to compare. The calculator will show the 
               differences in dimensions, performance characteristics, and how the change affects your speedometer accuracy.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Tire Size Impact on Performance</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Tire Size Impact on Performance</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Larger Tires:</strong> Better ground clearance, improved off-road capability</li>
               <li><strong>Smaller Tires:</strong> Better fuel economy, improved acceleration</li>
@@ -569,8 +569,8 @@ Speedometer Analysis (at ${currentSpeed} mph):
               <li><strong>Higher Aspect Ratio:</strong> Smoother ride, better comfort</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Speedometer Accuracy</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Speedometer Accuracy</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <p className="text-gray-700 text-sm mb-3">
                 <strong>Why Speedometer Accuracy Matters:</strong> Changing tire sizes affects how your speedometer reads. 
                 Larger tires make your speedometer read slower than actual speed, while smaller tires make it read faster.
@@ -595,7 +595,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Tire Size Changes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Tire Size Changes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Plus Sizing:</strong> Increasing rim diameter while maintaining overall diameter</li>
               <li><strong>Plus Zero:</strong> Changing width while maintaining overall diameter</li>
@@ -605,7 +605,7 @@ Speedometer Analysis (at ${currentSpeed} mph):
               <li><strong>Winter Tires:</strong> Smaller diameter for better snow performance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Safety Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Safety Considerations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Clearance Issues:</strong> Ensure tires don't rub against vehicle components</li>
               <li><strong>Load Capacity:</strong> Verify new tires can handle vehicle weight</li>
@@ -614,8 +614,8 @@ Speedometer Analysis (at ${currentSpeed} mph):
               <li><strong>Professional Installation:</strong> Have changes made by qualified technicians</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When changing tire sizes, aim to keep the overall diameter within 3% of the original size to maintain 
                 proper speedometer accuracy and avoid potential issues with vehicle systems like ABS and traction control. 
@@ -628,3 +628,8 @@ Speedometer Analysis (at ${currentSpeed} mph):
     </div>
   )
 }
+
+
+
+
+

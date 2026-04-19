@@ -179,9 +179,9 @@ const UnitConverterCalculator: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className="google-card overflow-hidden p-6">
       <div className="mb-6">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+        <h2 className="text-2xl font-semibold text-google-text mb-4 flex items-center gap-2">
           <Calculator className="w-6 h-6 text-teal-600" />
           Unit Converter
         </h2>
@@ -192,7 +192,7 @@ const UnitConverterCalculator: React.FC = () => {
             <button
               key={category.name}
               onClick={() => handleCategoryChange(category.name)}
-              className={`p-3 rounded-lg border-2 transition-all duration-200 flex flex-col items-center gap-2 ${
+              className={`p-3 rounded-2xl border-2 transition-all duration-200 flex flex-col items-center gap-2 ${
                 selectedCategory === category.name
                   ? 'border-teal-500 bg-teal-50 text-teal-700'
                   : 'border-gray-200 hover:border-teal-300 hover:bg-gray-50'
@@ -216,7 +216,7 @@ const UnitConverterCalculator: React.FC = () => {
             <select
               value={fromUnit}
               onChange={(e) => handleFromUnitChange(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent"
             >
               <option value="">Select unit</option>
               {currentCategory?.units.map((unit) => (
@@ -237,7 +237,7 @@ const UnitConverterCalculator: React.FC = () => {
               value={fromValue}
               onChange={(e) => setFromValue(e.target.value)}
               placeholder="Enter value"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent"
             />
           </div>
 
@@ -249,7 +249,7 @@ const UnitConverterCalculator: React.FC = () => {
             <select
               value={toUnit}
               onChange={(e) => handleToUnitChange(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent"
             >
               <option value="">Select unit</option>
               {currentCategory?.units
@@ -267,14 +267,14 @@ const UnitConverterCalculator: React.FC = () => {
         <button
           onClick={handleConversion}
           disabled={!fromValue || !fromUnit || !toUnit}
-          className="w-full bg-teal-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-teal-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200"
+          className="w-full bg-teal-600 text-white py-3 px-6 rounded-2xl font-medium hover:bg-teal-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200"
         >
           Convert
         </button>
 
         {/* Result */}
         {result && (
-          <div className="bg-teal-50 border border-teal-200 rounded-lg p-4">
+          <div className="bg-teal-50 border border-teal-200 rounded-2xl p-4">
             <div className="text-center">
               <p className="text-sm text-teal-700 mb-1">Result</p>
               <p className="text-2xl font-bold text-teal-900">
@@ -286,9 +286,9 @@ const UnitConverterCalculator: React.FC = () => {
       </div>
 
       {/* Quick Conversion Tips */}
-      <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-        <h3 className="text-lg font-semibold text-gray-800 mb-3">Quick Conversion Tips</h3>
-        <ul className="text-sm text-gray-600 space-y-1">
+      <div className="mt-8 p-4 bg-gray-50 rounded-2xl">
+        <h3 className="text-lg font-semibold text-google-text mb-3">Quick Conversion Tips</h3>
+        <ul className="text-sm text-google-gray space-y-1">
           <li>• Select a category to see available units</li>
           <li>• Choose your starting unit and value</li>
           <li>• Select the target unit for conversion</li>
@@ -301,3 +301,6 @@ const UnitConverterCalculator: React.FC = () => {
 };
 
 export default UnitConverterCalculator;
+
+
+

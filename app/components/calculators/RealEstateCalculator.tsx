@@ -153,14 +153,9 @@ export default function RealEstateCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-4">
-        <div className="flex items-center">
-          <Home className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Real Estate Calculator</h2>
-        </div>
-        <p className="text-emerald-100 mt-1">Calculate total homeownership costs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -173,7 +168,7 @@ export default function RealEstateCalculator() {
                 type="number"
                 value={purchasePrice}
                 onChange={(e) => setPurchasePrice(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="Enter price"
                 step="1000"
                 aria-label="Purchase price in dollars"
@@ -187,7 +182,7 @@ export default function RealEstateCalculator() {
                 type="number"
                 value={downPayment}
                 onChange={(e) => setDownPayment(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="Enter down payment"
                 step="1000"
                 aria-label="Down payment in dollars"
@@ -204,7 +199,7 @@ export default function RealEstateCalculator() {
                 type="number"
                 value={interestRate}
                 onChange={(e) => setInterestRate(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="Enter rate"
                 step="0.1"
                 aria-label="Annual interest rate percentage"
@@ -217,7 +212,7 @@ export default function RealEstateCalculator() {
               <select
                 value={loanTerm}
                 onChange={(e) => setLoanTerm(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 aria-label="Select loan term"
               >
                 <option value="15">15 years</option>
@@ -236,7 +231,7 @@ export default function RealEstateCalculator() {
                 type="number"
                 value={propertyTax}
                 onChange={(e) => setPropertyTax(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="Enter tax"
                 step="100"
                 aria-label="Annual property tax in dollars"
@@ -250,7 +245,7 @@ export default function RealEstateCalculator() {
                 type="number"
                 value={insurance}
                 onChange={(e) => setInsurance(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="Enter insurance"
                 step="100"
                 aria-label="Annual insurance in dollars"
@@ -264,7 +259,7 @@ export default function RealEstateCalculator() {
                 type="number"
                 value={hoa}
                 onChange={(e) => setHoa(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="Enter HOA"
                 step="50"
                 aria-label="Monthly HOA fee in dollars"
@@ -275,14 +270,14 @@ export default function RealEstateCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -292,7 +287,7 @@ export default function RealEstateCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-2">Total Monthly Payment</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-emerald-600 mb-2">
@@ -304,7 +299,7 @@ export default function RealEstateCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">Monthly Breakdown</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -332,7 +327,7 @@ export default function RealEstateCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">Property Details</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -359,7 +354,7 @@ export default function RealEstateCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-emerald-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -375,8 +370,8 @@ export default function RealEstateCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Real Estate Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Real Estate Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive real estate calculator helps you understand the true cost of homeownership by calculating 
@@ -385,7 +380,7 @@ export default function RealEstateCalculator() {
               to help you make informed decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Total Monthly Payment:</strong> Complete cost of homeownership each month</li>
               <li><strong>Principal & Interest:</strong> Core mortgage payment amount</li>
@@ -395,10 +390,10 @@ export default function RealEstateCalculator() {
               <li><strong>Cost Breakdown:</strong> Detailed analysis of all expenses</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Components of Homeownership Costs</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Components of Homeownership Costs</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Mortgage Costs</h5>
+                <h5 className="font-semibold text-google-text mb-2">Mortgage Costs</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Principal reduction</li>
                   <li>Interest payments</li>
@@ -408,7 +403,7 @@ export default function RealEstateCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Additional Expenses</h5>
+                <h5 className="font-semibold text-google-text mb-2">Additional Expenses</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Property taxes</li>
                   <li>Homeowners insurance</li>
@@ -419,30 +414,30 @@ export default function RealEstateCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+              <div className="bg-emerald-50 p-3 rounded-2xl border border-emerald-200">
                 <h5 className="font-semibold text-emerald-800 mb-1">Total Payment</h5>
                 <p className="text-emerald-700 text-sm">Complete monthly cost</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Principal & Interest</h5>
                 <p className="text-blue-700 text-sm">Core mortgage payment</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Additional Costs</h5>
                 <p className="text-purple-700 text-sm">Taxes, insurance, HOA</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the purchase price, down payment, interest rate, loan term, and additional monthly costs. 
               The calculator will compute your total monthly payment and provide a detailed breakdown of all 
               homeownership expenses.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Factors Affecting Costs</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Key Factors Affecting Costs</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Down Payment:</strong> Larger down payments reduce monthly costs</li>
               <li><strong>Interest Rate:</strong> Lower rates significantly reduce payments</li>
@@ -452,8 +447,8 @@ export default function RealEstateCalculator() {
               <li><strong>HOA Fees:</strong> Can vary widely by community and amenities</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Real Estate Investment Considerations</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Real Estate Investment Considerations</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Cash Flow Analysis:</strong></p>
@@ -474,7 +469,7 @@ export default function RealEstateCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Mistakes to Avoid</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Mistakes to Avoid</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Underestimating Costs:</strong> Don't forget maintenance and unexpected expenses</li>
               <li><strong>Ignoring Tax Implications:</strong> Property taxes can increase over time</li>
@@ -483,8 +478,8 @@ export default function RealEstateCalculator() {
               <li><strong>Forgetting Insurance:</strong> Adequate coverage is essential</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Aim to keep your total housing costs (including mortgage, taxes, insurance, and HOA) below 28% 
                 of your gross monthly income. This ensures you have enough money for other expenses and savings. 
@@ -497,3 +492,7 @@ export default function RealEstateCalculator() {
     </div>
   )
 }
+
+
+
+

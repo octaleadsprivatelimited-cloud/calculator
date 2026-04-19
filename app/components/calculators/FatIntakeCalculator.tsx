@@ -155,14 +155,9 @@ export default function FatIntakeCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-yellow-500 to-orange-500 px-6 py-4">
-        <div className="flex items-center">
-          <Droplets className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Fat Intake Calculator</h2>
-        </div>
-        <p className="text-yellow-100 mt-1">Calculate your daily fat intake needs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -175,7 +170,7 @@ export default function FatIntakeCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="google-input"
                 placeholder="Enter age"
                 aria-label="Age in years"
               />
@@ -187,7 +182,7 @@ export default function FatIntakeCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -205,7 +200,7 @@ export default function FatIntakeCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="google-input"
                 placeholder="Enter weight"
                 aria-label="Weight in pounds"
               />
@@ -218,7 +213,7 @@ export default function FatIntakeCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="google-input"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -233,7 +228,7 @@ export default function FatIntakeCalculator() {
               <select
                 value={activityLevel}
                 onChange={(e) => setActivityLevel(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="google-input"
                 aria-label="Select activity level"
               >
                 <option value="sedentary">Sedentary</option>
@@ -250,7 +245,7 @@ export default function FatIntakeCalculator() {
               <select
                 value={goal}
                 onChange={(e) => setGoal(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="google-input"
                 aria-label="Select goal"
               >
                 <option value="maintenance">Maintenance</option>
@@ -265,14 +260,14 @@ export default function FatIntakeCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -283,7 +278,7 @@ export default function FatIntakeCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-yellow-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Fat Intake Calculation Result"
                 inputs={[
@@ -304,7 +299,7 @@ export default function FatIntakeCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-yellow-800 mb-2">Daily Fat Intake</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-yellow-600 mb-2">
@@ -316,7 +311,7 @@ export default function FatIntakeCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-yellow-800 mb-3">Fat Intake Ranges</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -339,7 +334,7 @@ export default function FatIntakeCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-yellow-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -355,8 +350,8 @@ export default function FatIntakeCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Fat Intake Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Fat Intake Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive fat intake calculator helps individuals determine their optimal daily fat 
@@ -365,7 +360,7 @@ export default function FatIntakeCalculator() {
               health, hormone production, and specific fitness objectives.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Daily Fat Requirements:</strong> Optimal fat intake in grams</li>
               <li><strong>Fat Percentage:</strong> Percentage of total daily calories from fat</li>
@@ -375,10 +370,10 @@ export default function FatIntakeCalculator() {
               <li><strong>Health Recommendations:</strong> Personalized dietary guidance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Essential Fat Functions</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Essential Fat Functions</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Hormone Production</h5>
+                <h5 className="font-semibold text-google-text mb-2">Hormone Production</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Testosterone and estrogen</li>
                   <li>Thyroid hormones</li>
@@ -389,7 +384,7 @@ export default function FatIntakeCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Nutrient Absorption</h5>
+                <h5 className="font-semibold text-google-text mb-2">Nutrient Absorption</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Fat-soluble vitamins (A, D, E, K)</li>
                   <li>Carotenoids and antioxidants</li>
@@ -400,7 +395,7 @@ export default function FatIntakeCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Body Functions</h5>
+                <h5 className="font-semibold text-google-text mb-2">Body Functions</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Brain health and cognition</li>
                   <li>Cell membrane structure</li>
@@ -412,10 +407,10 @@ export default function FatIntakeCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Goal-Specific Fat Intake</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Goal-Specific Fat Intake</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Weight Loss</h5>
+                <h5 className="font-semibold text-google-text mb-2">Weight Loss</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Fat: 25-35% of total calories</li>
                   <li>Focus on healthy fats</li>
@@ -426,7 +421,7 @@ export default function FatIntakeCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Muscle Gain</h5>
+                <h5 className="font-semibold text-google-text mb-2">Muscle Gain</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Fat: 20-25% of total calories</li>
                   <li>Support testosterone production</li>
@@ -438,10 +433,10 @@ export default function FatIntakeCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Specialized Diet Fat Levels</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Specialized Diet Fat Levels</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Ketogenic Diet</h5>
+                <h5 className="font-semibold text-google-text mb-2">Ketogenic Diet</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Fat: 70-75% of total calories</li>
                   <li>Induces ketosis</li>
@@ -452,7 +447,7 @@ export default function FatIntakeCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Low Fat Diet</h5>
+                <h5 className="font-semibold text-google-text mb-2">Low Fat Diet</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Fat: 10-20% of total calories</li>
                   <li>Focus on lean proteins</li>
@@ -464,31 +459,31 @@ export default function FatIntakeCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+              <div className="bg-yellow-50 p-3 rounded-2xl border border-yellow-200">
                 <h5 className="font-semibold text-yellow-800 mb-1">Daily Fat Intake</h5>
                 <p className="text-yellow-700 text-sm">Recommended grams per day</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Fat Percentage</h5>
                 <p className="text-orange-700 text-sm">% of total daily calories</p>
               </div>
-              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+              <div className="bg-red-50 p-3 rounded-2xl border border-red-200">
                 <h5 className="font-semibold text-red-800 mb-1">Intake Ranges</h5>
                 <p className="text-red-700 text-sm">Min, recommended, max levels</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your age, gender, weight, height, activity level, and health goal. The calculator 
               will provide your optimal daily fat intake in grams and as a percentage of total calories, 
               along with personalized recommendations.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Healthy Fat Sources</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Healthy Fat Sources</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Monounsaturated Fats:</strong></p>
@@ -513,7 +508,7 @@ export default function FatIntakeCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Essential Fatty Acids</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Essential Fatty Acids</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Omega-3 Fatty Acids:</strong> EPA, DHA, ALA for brain and heart health</li>
               <li><strong>Omega-6 Fatty Acids:</strong> LA, GLA for skin and hormone health</li>
@@ -523,7 +518,7 @@ export default function FatIntakeCalculator() {
               <li><strong>Short-Chain Fatty Acids:</strong> SCFAs for gut health</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fat Intake Guidelines</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Fat Intake Guidelines</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Minimum Fat Intake:</strong> 20% of total calories (essential functions)</li>
               <li><strong>Recommended Range:</strong> 25-35% of total calories (general health)</li>
@@ -533,7 +528,7 @@ export default function FatIntakeCalculator() {
               <li><strong>Essential Fat Minimum:</strong> 3-5% of total calories</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Fat Intake Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Fat Intake Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Too Little Fat:</strong> Hormone imbalances, poor absorption</li>
               <li><strong>Too Much Saturated Fat:</strong> Heart health concerns</li>
@@ -543,7 +538,7 @@ export default function FatIntakeCalculator() {
               <li><strong>Fat Phobia:</strong> Unnecessary restriction of healthy fats</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Adjust Fat Intake</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Adjust Fat Intake</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Energy Changes:</strong> Fatigue or excessive energy</li>
               <li><strong>Hormone Issues:</strong> Irregular periods, low libido</li>
@@ -553,8 +548,8 @@ export default function FatIntakeCalculator() {
               <li><strong>Health Conditions:</strong> Heart disease, diabetes management</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fat Quality vs. Quantity</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Fat Quality vs. Quantity</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>High-Quality Fats:</strong></p>
@@ -579,7 +574,7 @@ export default function FatIntakeCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fat Intake for Different Life Stages</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Fat Intake for Different Life Stages</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Children (2-18 years):</strong> 25-35% of calories for growth and development</li>
               <li><strong>Adults (19-50 years):</strong> 20-35% of calories for maintenance</li>
@@ -589,8 +584,8 @@ export default function FatIntakeCalculator() {
               <li><strong>Athletes:</strong> 20-35% of calories based on training intensity</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-yellow-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Focus on fat quality over quantity. Choose whole food sources of healthy fats rather than 
                 processed oils. Aim for a balance of omega-3 and omega-6 fatty acids, with a ratio closer 
@@ -607,3 +602,8 @@ export default function FatIntakeCalculator() {
     </div>
   )
 }
+
+
+
+
+

@@ -76,14 +76,9 @@ export default function OvulationCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-4">
-        <div className="flex items-center">
-          <Calendar className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Ovulation Calculator</h2>
-        </div>
-        <p className="text-pink-100 mt-1">Calculate your ovulation date and fertile window</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -95,7 +90,7 @@ export default function OvulationCalculator() {
               type="date"
               value={lastPeriod}
               onChange={(e) => setLastPeriod(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="google-input"
               aria-label="First day of last period"
             />
           </div>
@@ -108,7 +103,7 @@ export default function OvulationCalculator() {
               type="number"
               value={cycleLength}
               onChange={(e) => setCycleLength(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="google-input"
               placeholder="28"
               min="21"
               max="35"
@@ -119,14 +114,14 @@ export default function OvulationCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -137,7 +132,7 @@ export default function OvulationCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-pink-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Ovulation Calculation Result"
                 inputs={[
@@ -155,7 +150,7 @@ export default function OvulationCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-pink-50 rounded-lg border border-pink-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-pink-800 mb-2">Ovulation Date</h3>
               <div className="text-center">
                 <div className="text-2xl font-bold text-pink-600 mb-2">
@@ -167,7 +162,7 @@ export default function OvulationCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-pink-50 rounded-lg border border-pink-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-pink-800 mb-3">Fertile Window</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -184,7 +179,7 @@ export default function OvulationCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-pink-50 rounded-lg border border-pink-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-pink-800 mb-2">Next Period</h3>
               <div className="text-center">
                 <div className="text-xl font-semibold text-pink-600">
@@ -194,7 +189,7 @@ export default function OvulationCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-pink-50 rounded-lg border border-pink-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-pink-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -210,8 +205,8 @@ export default function OvulationCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Ovulation Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Ovulation Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive Ovulation Calculator helps women track their menstrual cycles and identify 
@@ -220,7 +215,7 @@ export default function OvulationCalculator() {
               planning and reproductive health management.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Ovulation Date:</strong> Most fertile day of your cycle</li>
               <li><strong>Fertile Window:</strong> Optimal time period for conception</li>
@@ -230,10 +225,10 @@ export default function OvulationCalculator() {
               <li><strong>Health Monitoring:</strong> Cycle regularity tracking</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Menstrual Cycle</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Menstrual Cycle</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Cycle Phases</h5>
+                <h5 className="font-semibold text-google-text mb-2">Cycle Phases</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Menstrual Phase:</strong> Days 1-5 (period)</li>
                   <li><strong>Follicular Phase:</strong> Days 6-14 (egg development)</li>
@@ -244,7 +239,7 @@ export default function OvulationCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Fertility Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Fertility Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Egg Lifespan:</strong> 12-24 hours after ovulation</li>
                   <li><strong>Sperm Survival:</strong> 3-5 days in reproductive tract</li>
@@ -256,31 +251,31 @@ export default function OvulationCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+              <div className="bg-pink-50 p-3 rounded-2xl border border-pink-200">
                 <h5 className="font-semibold text-pink-800 mb-1">Ovulation Date</h5>
                 <p className="text-pink-700 text-sm">Most fertile day</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Fertile Window</h5>
                 <p className="text-purple-700 text-sm">Best conception time</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Next Period</h5>
                 <p className="text-blue-700 text-sm">Cycle prediction</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the first day of your last menstrual period and your average cycle length. The calculator 
               will automatically determine your ovulation date, fertile window, and next period prediction. 
               Use these results to plan conception attempts or to track your reproductive health.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Cycle Length Variations</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Cycle Length Variations</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Short Cycles (21-24 days):</strong></p>
@@ -303,10 +298,10 @@ export default function OvulationCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Fertility Tracking Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Fertility Tracking Methods</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Calendar Method</h5>
+                <h5 className="font-semibold text-google-text mb-2">Calendar Method</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Basal Body Temperature:</strong> Track daily temperature</li>
                   <li><strong>Cervical Mucus:</strong> Monitor consistency changes</li>
@@ -317,7 +312,7 @@ export default function OvulationCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Physical Signs</h5>
+                <h5 className="font-semibold text-google-text mb-2">Physical Signs</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Temperature Rise:</strong> 0.5-1°F after ovulation</li>
                   <li><strong>Mucus Changes:</strong> Clear, stretchy consistency</li>
@@ -329,7 +324,7 @@ export default function OvulationCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Conception Planning</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Conception Planning</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Timing:</strong> Intercourse 2-3 days before ovulation</li>
               <li><strong>Frequency:</strong> Every 1-2 days during fertile window</li>
@@ -339,10 +334,10 @@ export default function OvulationCalculator() {
               <li><strong>Health Optimization:</strong> Preconception care</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Fertility</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Fertility</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Age Considerations</h5>
+                <h5 className="font-semibold text-google-text mb-2">Age Considerations</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>20s:</strong> Peak fertility years</li>
                   <li><strong>30s:</strong> Gradual fertility decline</li>
@@ -353,7 +348,7 @@ export default function OvulationCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Lifestyle Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Lifestyle Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Weight Management:</strong> BMI affects hormones</li>
                   <li><strong>Exercise:</strong> Moderate activity is best</li>
@@ -365,7 +360,7 @@ export default function OvulationCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Health Conditions</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Health Conditions</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Polycystic Ovary Syndrome (PCOS):</strong> Irregular cycles</li>
               <li><strong>Endometriosis:</strong> Painful periods, fertility issues</li>
@@ -375,8 +370,8 @@ export default function OvulationCalculator() {
               <li><strong>Previous Surgeries:</strong> Scarring concerns</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Seek Help</h4>
-            <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Seek Help</h4>
+            <div className="bg-yellow-50 p-4 rounded-2xl border border-yellow-200 mb-4">
               <h5 className="font-semibold text-yellow-800 mb-2">Consult a Doctor If:</h5>
               <ul className="list-disc list-inside text-yellow-700 space-y-1 text-sm">
                 <li><strong>Under 35:</strong> Trying for 12+ months</li>
@@ -388,10 +383,10 @@ export default function OvulationCalculator() {
               </ul>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Preconception Health</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Preconception Health</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Medical Preparation</h5>
+                <h5 className="font-semibold text-google-text mb-2">Medical Preparation</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Preconception Visit:</strong> Health assessment</li>
                   <li><strong>Vaccinations:</strong> Update immunizations</li>
@@ -402,7 +397,7 @@ export default function OvulationCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Lifestyle Optimization</h5>
+                <h5 className="font-semibold text-google-text mb-2">Lifestyle Optimization</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Folic Acid:</strong> 400-800 mcg daily</li>
                   <li><strong>Healthy Weight:</strong> Achieve optimal BMI</li>
@@ -414,10 +409,10 @@ export default function OvulationCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Myths and Facts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Myths and Facts</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Fertility Myths</h5>
+                <h5 className="font-semibold text-google-text mb-2">Fertility Myths</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Daily Intercourse:</strong> Not necessary</li>
                   <li><strong>Position Matters:</strong> Minimal impact</li>
@@ -428,7 +423,7 @@ export default function OvulationCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Fertility Facts</h5>
+                <h5 className="font-semibold text-google-text mb-2">Fertility Facts</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Age Matters:</strong> Significant impact on fertility</li>
                   <li><strong>Cycle Regularity:</strong> Important indicator</li>
@@ -440,7 +435,7 @@ export default function OvulationCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Tracking and Monitoring</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Tracking and Monitoring</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Period Logging:</strong> Record start dates consistently</li>
               <li><strong>Symptom Tracking:</strong> Note physical changes</li>
@@ -450,8 +445,8 @@ export default function OvulationCalculator() {
               <li><strong>Professional Monitoring:</strong> Ultrasound tracking</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-pink-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-pink-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that every woman's cycle is unique, and variations are normal. The ovulation calculator 
                 provides estimates based on averages, but your actual ovulation may vary. Combine calendar 
@@ -468,4 +463,9 @@ export default function OvulationCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

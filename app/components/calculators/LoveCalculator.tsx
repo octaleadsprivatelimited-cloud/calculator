@@ -284,7 +284,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
   const result = showResults ? calculateLove() : { percentage: 0, compatibility: '', description: '', advice: [], emoji: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-pink-600 to-red-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -305,8 +305,8 @@ ${result.emoji} Love is in the air! ${result.emoji}`
         {/* Input Section */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Person 1 */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">First Person 💕</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">First Person 💕</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -316,7 +316,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
                   type="text"
                   value={name1}
                   onChange={(e) => setName1(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="google-input"
                   placeholder="Enter first name"
                   aria-label="First person's name"
                 />
@@ -329,7 +329,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
                 <select
                   value={zodiac1}
                   onChange={(e) => setZodiac1(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="google-input"
                   aria-label="First person's zodiac sign"
                 >
                   <option value="">Select zodiac sign</option>
@@ -347,7 +347,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
                   type="date"
                   value={birthDate1}
                   onChange={(e) => setBirthDate1(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="google-input"
                   aria-label="First person's birth date"
                 />
               </div>
@@ -355,8 +355,8 @@ ${result.emoji} Love is in the air! ${result.emoji}`
           </div>
 
           {/* Person 2 */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Second Person 💕</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Second Person 💕</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -366,7 +366,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
                   type="text"
                   value={name2}
                   onChange={(e) => setName2(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="google-input"
                   placeholder="Enter first name"
                   aria-label="Second person's name"
                 />
@@ -379,7 +379,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
                 <select
                   value={zodiac2}
                   onChange={(e) => setZodiac2(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="google-input"
                   aria-label="Second person's zodiac sign"
                 >
                   <option value="">Select zodiac sign</option>
@@ -397,7 +397,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
                   type="date"
                   value={birthDate2}
                   onChange={(e) => setBirthDate2(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="google-input"
                   aria-label="Second person's birth date"
                 />
               </div>
@@ -407,10 +407,10 @@ ${result.emoji} Love is in the air! ${result.emoji}`
 
         {/* Personality Traits */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Personality Traits (Optional)</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Personality Traits (Optional)</h3>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <h4 className="font-medium text-gray-800 mb-3">{name1 || 'Person 1'}</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl">
+              <h4 className="font-medium text-google-text mb-3">{name1 || 'Person 1'}</h4>
               <div className="grid grid-cols-2 gap-2">
                 {PERSONALITY_TRAITS.map(trait => (
                   <button
@@ -428,8 +428,8 @@ ${result.emoji} Love is in the air! ${result.emoji}`
               </div>
             </div>
             
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <h4 className="font-medium text-gray-800 mb-3">{name2 || 'Person 2'}</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl">
+              <h4 className="font-medium text-google-text mb-3">{name2 || 'Person 2'}</h4>
               <div className="grid grid-cols-2 gap-2">
                 {PERSONALITY_TRAITS.map(trait => (
                   <button
@@ -454,7 +454,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Love</span>
@@ -466,7 +466,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-6 rounded-lg border border-pink-200">
+            <div className="bg-white p-6 rounded-2xl border border-pink-200">
               <ResultSharing
                 title="Love Compatibility Result"
                 inputs={[
@@ -485,13 +485,13 @@ ${result.emoji} Love is in the air! ${result.emoji}`
             </div>
 
             {/* Love Results */}
-            <div className="bg-pink-50 p-6 rounded-lg border border-pink-200 text-center">
+            <div className="bg-pink-50 p-6 rounded-2xl border border-pink-200 text-center">
               <div className="text-6xl mb-4">{result.emoji}</div>
               <div className="text-6xl font-bold text-pink-700 mb-2">{result.percentage}%</div>
               <div className="text-2xl font-semibold text-pink-800 mb-2">{result.compatibility}</div>
               <div className="text-lg text-pink-600 mb-4">{result.description}</div>
               
-              <div className="text-sm text-gray-600">
+              <div className="text-sm text-google-gray">
                 <p>Names: <span className="font-semibold">{name1}</span> & <span className="font-semibold">{name2}</span></p>
                 {zodiac1 && zodiac2 && (
                   <p>Zodiac: <span className="font-semibold">{zodiac1}</span> & <span className="font-semibold">{zodiac2}</span></p>
@@ -501,8 +501,8 @@ ${result.emoji} Love is in the air! ${result.emoji}`
 
             {/* Advice Section */}
             {result.advice.length > 0 && (
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">Love Advice 💝</h3>
+              <div className="bg-gray-50 p-6 rounded-2xl">
+                <h3 className="text-lg font-semibold text-google-text mb-4">Love Advice 💝</h3>
                 <div className="space-y-3">
                   {result.advice.map((advice, index) => (
                     <div key={index} className="flex items-start space-x-3">
@@ -518,28 +518,28 @@ ${result.emoji} Love is in the air! ${result.emoji}`
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -549,12 +549,12 @@ ${result.emoji} Love is in the air! ${result.emoji}`
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
             <Info className="w-6 h-6 text-pink-600 mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Love Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Love Calculator</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 This fun calculator analyzes love compatibility based on names, zodiac signs, birth dates, and personality traits. 
                 While this is meant for entertainment, it can provide interesting insights into relationship dynamics. 
                 The calculator considers multiple factors to give you a comprehensive compatibility score and personalized advice. 
@@ -565,8 +565,8 @@ ${result.emoji} Love is in the air! ${result.emoji}`
         </div>
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Love Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Love Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive love calculator provides entertaining insights into relationship compatibility 
@@ -575,7 +575,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
               can spark meaningful conversations about love and compatibility.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Analyzes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Analyzes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Name Compatibility:</strong> Letter patterns and numerical values</li>
               <li><strong>Zodiac Signs:</strong> Astrological compatibility and elements</li>
@@ -585,10 +585,10 @@ ${result.emoji} Love is in the air! ${result.emoji}`
               <li><strong>Personalized Advice:</strong> Relationship guidance and insights</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Compatibility Categories</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Compatibility Categories</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">High Compatibility</h5>
+                <h5 className="font-semibold text-google-text mb-2">High Compatibility</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>90-100%:</strong> Excellent Match - Very strong romantic potential</li>
                   <li><strong>80-89%:</strong> Great Match - Strong foundation for love</li>
@@ -599,7 +599,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Moderate Compatibility</h5>
+                <h5 className="font-semibold text-google-text mb-2">Moderate Compatibility</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>60-69%:</strong> Moderate Match - Potential with some work</li>
                   <li><strong>50-59%:</strong> Challenging Match - Requires significant effort</li>
@@ -611,35 +611,35 @@ ${result.emoji} Love is in the air! ${result.emoji}`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+              <div className="bg-pink-50 p-3 rounded-2xl border border-pink-200">
                 <h5 className="font-semibold text-pink-800 mb-1">Love Percentage</h5>
                 <p className="text-pink-700 text-sm">Overall compatibility score</p>
               </div>
-              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+              <div className="bg-red-50 p-3 rounded-2xl border border-red-200">
                 <h5 className="font-semibold text-red-800 mb-1">Compatibility</h5>
                 <p className="text-red-700 text-sm">Relationship potential rating</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Description</h5>
                 <p className="text-purple-700 text-sm">Detailed compatibility explanation</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Advice</h5>
                 <p className="text-orange-700 text-sm">Personalized relationship guidance</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter both names, select zodiac signs, input birth dates, and choose personality traits for both people. 
               Click "Calculate Love" to receive a comprehensive compatibility analysis including percentage score, 
               compatibility rating, description, and personalized advice for your relationship journey.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Zodiac Compatibility Factors</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Zodiac Compatibility Factors</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Element Compatibility:</strong></p>
@@ -662,10 +662,10 @@ ${result.emoji} Love is in the air! ${result.emoji}`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Personality Trait Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Personality Trait Analysis</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Positive Traits</h5>
+                <h5 className="font-semibold text-google-text mb-2">Positive Traits</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Communication:</strong> Open, honest, and effective dialogue</li>
                   <li><strong>Empathy:</strong> Understanding and emotional intelligence</li>
@@ -676,7 +676,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Growth Areas</h5>
+                <h5 className="font-semibold text-google-text mb-2">Growth Areas</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Conflict Resolution:</strong> Healthy disagreement handling</li>
                   <li><strong>Emotional Regulation:</strong> Managing feelings constructively</li>
@@ -688,7 +688,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Numerological Influences</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Numerological Influences</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Birth Date Numbers:</strong> Life path and destiny influences</li>
               <li><strong>Name Numerology:</strong> Letter values and personality traits</li>
@@ -698,23 +698,23 @@ ${result.emoji} Love is in the air! ${result.emoji}`
               <li><strong>Karmic Connections:</strong> Past life and soul connection theories</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Relationship Development Stages</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Relationship Development Stages</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+              <div className="bg-pink-50 p-3 rounded-2xl border border-pink-200">
                 <h5 className="font-semibold text-pink-800 mb-1">Initial Attraction</h5>
                 <p className="text-pink-700 text-sm">Chemistry and first impressions</p>
               </div>
-              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+              <div className="bg-red-50 p-3 rounded-2xl border border-red-200">
                 <h5 className="font-semibold text-red-800 mb-1">Getting to Know</h5>
                 <p className="text-red-700 text-sm">Deepening understanding and connection</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Commitment</h5>
                 <p className="text-purple-700 text-sm">Long-term partnership and growth</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Compatibility Enhancement Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Compatibility Enhancement Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Open Communication:</strong> Share thoughts, feelings, and concerns honestly</li>
               <li><strong>Active Listening:</strong> Truly hear and understand your partner</li>
@@ -724,7 +724,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
               <li><strong>Growth Mindset:</strong> Embrace personal and relationship development</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Low Scores</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Low Scores</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Not a Deal-Breaker:</strong> Low scores don't mean impossible relationships</li>
               <li><strong>Growth Opportunity:</strong> Challenges can strengthen bonds</li>
@@ -734,7 +734,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
               <li><strong>Realistic Expectations:</strong> Understand relationship dynamics</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Entertainment vs. Reality</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Entertainment vs. Reality</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Fun Tool:</strong> Designed for entertainment and conversation</li>
               <li><strong>Not Scientific:</strong> Based on fun algorithms, not research</li>
@@ -744,8 +744,8 @@ ${result.emoji} Love is in the air! ${result.emoji}`
               <li><strong>Love is Action:</strong> True compatibility comes from daily choices</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-pink-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-pink-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Use this calculator as a fun conversation starter and relationship reflection tool, not as a definitive 
                 guide to your love life. True compatibility comes from mutual respect, open communication, shared values, 
@@ -760,3 +760,7 @@ ${result.emoji} Love is in the air! ${result.emoji}`
     </div>
   )
 }
+
+
+
+

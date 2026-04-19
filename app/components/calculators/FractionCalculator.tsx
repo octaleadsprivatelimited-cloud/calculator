@@ -110,9 +110,9 @@ export default function FractionCalculator() {
   return (
     <div className="w-full">
       {/* Header */}
-      <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl shadow-lg mb-6 p-4 sm:p-6">
+      <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-3xl shadow-google mb-6 p-4 sm:p-6">
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+          <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
             <Calculator className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -125,19 +125,19 @@ export default function FractionCalculator() {
       {/* Main Calculator Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
         {/* Input Section */}
-        <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-orange-200">
-          <h2 className="text-lg font-bold text-gray-800 mb-4 text-center">Fraction Input</h2>
+        <div className="bg-white rounded-3xl shadow-md p-4 sm:p-6 border border-google-border">
+          <h2 className="text-lg font-bold text-google-text mb-4 text-center">Fraction Input</h2>
 
           <div className="space-y-4">
             {/* First Fraction */}
-            <div className="bg-orange-50 rounded-lg p-3 sm:p-4 border border-orange-200">
+            <div className="bg-orange-50 rounded-2xl p-3 sm:p-4 border border-orange-200">
               <label className="block text-xs font-semibold text-gray-700 mb-2 text-center">First Fraction</label>
               <div className="flex items-center justify-center gap-2 sm:gap-4">
                 <input
                   type="number"
                   value={fraction1.numerator}
                   onChange={(e) => setFraction1(prev => ({ ...prev, numerator: parseInt(e.target.value) || 0 }))}
-                  className="w-16 h-12 sm:w-20 sm:h-16 px-2 sm:px-4 py-2 sm:py-3 border-2 border-orange-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-center text-lg sm:text-xl font-bold bg-white"
+                  className="w-16 h-12 sm:w-20 sm:h-16 px-2 sm:px-4 py-2 sm:py-3 border border-google-border rounded-2xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-center text-lg sm:text-xl font-bold bg-white"
                   placeholder="1"
                 />
                 <div className="flex items-center text-2xl sm:text-3xl font-bold text-orange-600">/</div>
@@ -145,11 +145,11 @@ export default function FractionCalculator() {
                   type="number"
                   value={fraction1.denominator}
                   onChange={(e) => setFraction1(prev => ({ ...prev, denominator: parseInt(e.target.value) || 1 }))}
-                  className="w-16 h-12 sm:w-20 sm:h-16 px-2 sm:px-4 py-2 sm:py-3 border-2 border-orange-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-center text-lg sm:text-xl font-bold bg-white"
+                  className="w-16 h-12 sm:w-20 sm:h-16 px-2 sm:px-4 py-2 sm:py-3 border border-google-border rounded-2xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-center text-lg sm:text-xl font-bold bg-white"
                   placeholder="2"
                 />
               </div>
-              <p className="text-xs sm:text-sm text-gray-600 mt-2 text-center">
+              <p className="text-xs sm:text-sm text-google-gray mt-2 text-center">
                 {formatFraction(fraction1)} = {(fraction1.numerator / fraction1.denominator).toFixed(4)}
               </p>
             </div>
@@ -162,9 +162,9 @@ export default function FractionCalculator() {
                   <button
                     key={op}
                     onClick={() => setOperation(op)}
-                    className={`w-12 h-12 sm:w-16 sm:h-16 rounded-lg transition-all duration-200 text-lg sm:text-2xl font-bold ${
+                    className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl transition-all duration-200 text-lg sm:text-2xl font-bold ${
                       operation === op
-                        ? 'bg-orange-600 text-white shadow-lg transform scale-110'
+                        ? 'bg-orange-600 text-white shadow-google transform scale-110'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
                     }`}
                     title={`${op.charAt(0).toUpperCase() + op.slice(1)} fractions`}
@@ -176,14 +176,14 @@ export default function FractionCalculator() {
             </div>
 
             {/* Second Fraction */}
-            <div className="bg-orange-50 rounded-lg p-3 sm:p-4 border border-orange-200">
+            <div className="bg-orange-50 rounded-2xl p-3 sm:p-4 border border-orange-200">
               <label className="block text-xs font-semibold text-gray-700 mb-2 text-center">Second Fraction</label>
               <div className="flex items-center justify-center gap-2 sm:gap-4">
                 <input
                   type="number"
                   value={fraction2.numerator}
                   onChange={(e) => setFraction2(prev => ({ ...prev, numerator: parseInt(e.target.value) || 0 }))}
-                  className="w-16 h-12 sm:w-20 sm:h-16 px-2 sm:px-4 py-2 sm:py-3 border-2 border-orange-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-center text-lg sm:text-xl font-bold bg-white"
+                  className="w-16 h-12 sm:w-20 sm:h-16 px-2 sm:px-4 py-2 sm:py-3 border border-google-border rounded-2xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-center text-lg sm:text-xl font-bold bg-white"
                   placeholder="1"
                 />
                 <div className="flex items-center text-2xl sm:text-3xl font-bold text-orange-600">/</div>
@@ -191,11 +191,11 @@ export default function FractionCalculator() {
                   type="number"
                   value={fraction2.denominator}
                   onChange={(e) => setFraction2(prev => ({ ...prev, denominator: parseInt(e.target.value) || 1 }))}
-                  className="w-16 h-12 sm:w-20 sm:h-16 px-2 sm:px-4 py-2 sm:py-3 border-2 border-orange-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-center text-lg sm:text-xl font-bold bg-white"
+                  className="w-16 h-12 sm:w-20 sm:h-16 px-2 sm:px-4 py-2 sm:py-3 border border-google-border rounded-2xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-center text-lg sm:text-xl font-bold bg-white"
                   placeholder="4"
                 />
               </div>
-              <p className="text-xs sm:text-sm text-gray-600 mt-2 text-center">
+              <p className="text-xs sm:text-sm text-google-gray mt-2 text-center">
                 {formatFraction(fraction2)} = {(fraction2.numerator / fraction2.denominator).toFixed(4)}
               </p>
             </div>
@@ -204,7 +204,7 @@ export default function FractionCalculator() {
             <div className="flex gap-2 sm:gap-4 pt-2">
               <button
                 onClick={calculateFractions}
-                className="flex-1 bg-orange-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg hover:bg-orange-700 transition-all duration-200 font-semibold text-sm sm:text-lg shadow-lg hover:shadow-xl"
+                className="flex-1 bg-orange-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-2xl hover:bg-orange-700 transition-all duration-200 font-semibold text-sm sm:text-lg shadow-google hover:shadow-google"
               >
                 Calculate Result
               </button>
@@ -215,7 +215,7 @@ export default function FractionCalculator() {
                   setOperation('add')
                   setResult(null)
                 }}
-                className="px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl"
+                className="px-4 sm:px-6 py-3 sm:py-4 border border-google-border text-gray-700 rounded-2xl hover:bg-gray-50 transition-all duration-200 font-semibold shadow-google hover:shadow-google"
                 title="Reset to defaults"
               >
                 <RotateCcw className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -228,7 +228,7 @@ export default function FractionCalculator() {
         <div className="space-y-3">
           {/* Share Options - Moved to Top */}
           {result && (
-            <div className="bg-white rounded-xl shadow-md p-3 sm:p-4 border-2 border-green-200">
+            <div className="bg-white rounded-3xl shadow-md p-3 sm:p-4 border border-google-border">
               <ResultSharing
                 title="Fraction Calculation Result"
                 inputs={[
@@ -249,36 +249,36 @@ export default function FractionCalculator() {
 
           {/* Results */}
           {result && (
-            <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-green-200">
-              <h2 className="text-lg font-bold text-gray-800 mb-4 text-center">Calculation Result</h2>
+            <div className="bg-white rounded-3xl shadow-md p-4 sm:p-6 border border-google-border">
+              <h2 className="text-lg font-bold text-google-text mb-4 text-center">Calculation Result</h2>
               
               <div className="text-center mb-4">
                 <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">
                   {formatFraction(fraction1)} {getOperationSymbol(operation)} {formatFraction(fraction2)} = {result.mixedNumber}
                 </div>
-                <p className="text-gray-600 text-lg">Simplified: {formatFraction(result.result)}</p>
+                <p className="text-google-gray text-lg">Simplified: {formatFraction(result.result)}</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                <div className="bg-green-50 p-4 rounded-2xl border border-green-200">
                   <div className="text-center">
                     <div className="text-sm text-green-600 font-medium">Decimal Value</div>
                     <div className="text-2xl font-bold text-green-800">{result.decimal.toFixed(6)}</div>
                   </div>
                 </div>
-                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <div className="bg-google-blueLight p-4 rounded-2xl border border-blue-200">
                   <div className="text-center">
-                    <div className="text-sm text-blue-600 font-medium">Percentage</div>
+                    <div className="text-sm text-google-blue font-medium">Percentage</div>
                     <div className="text-2xl font-bold text-blue-800">{result.percentage}%</div>
                   </div>
                 </div>
-                <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                <div className="bg-purple-50 p-4 rounded-2xl border border-purple-200">
                   <div className="text-center">
                     <div className="text-sm text-purple-600 font-medium">Mixed Number</div>
                     <div className="text-2xl font-bold text-purple-800">{result.mixedNumber}</div>
                   </div>
                 </div>
-                <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                <div className="bg-orange-50 p-4 rounded-2xl border border-orange-200">
                   <div className="text-center">
                     <div className="text-sm text-orange-600 font-medium">Simplified</div>
                     <div className="text-2xl font-bold text-orange-800">{formatFraction(result.result)}</div>
@@ -290,9 +290,9 @@ export default function FractionCalculator() {
 
 
           {/* Fraction Tips */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-            <h2 className="text-xl font-bold text-gray-800 mb-4 text-center">Fraction Tips</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-xl font-bold text-google-text mb-4 text-center">Fraction Tips</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-google-gray">
               <div>
                 <p className="mb-2">• <strong>To add/subtract:</strong> Find common denominator first</p>
                 <p className="mb-2">• <strong>To multiply:</strong> Multiply numerators and denominators</p>
@@ -307,7 +307,7 @@ export default function FractionCalculator() {
       </div>
 
       {/* Calculator Description Section */}
-      <div className="bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-200">
+      <div className="google-card overflow-hidden p-8 border border-google-border">
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 mb-6 text-center text-lg">
             Our comprehensive fraction calculator helps students, teachers, and professionals perform 
@@ -318,7 +318,7 @@ export default function FractionCalculator() {
           
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
-              <h4 className="text-xl font-semibold text-gray-800 mb-4">What It Calculates</h4>
+              <h4 className="text-xl font-semibold text-google-text mb-4">What It Calculates</h4>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Fraction Operations:</strong> Addition, subtraction, multiplication, division</li>
                 <li><strong>Decimal Conversion:</strong> Precise decimal representations</li>
@@ -330,10 +330,10 @@ export default function FractionCalculator() {
             </div>
             
             <div>
-              <h4 className="text-xl font-semibold text-gray-800 mb-4">Supported Operations</h4>
+              <h4 className="text-xl font-semibold text-google-text mb-4">Supported Operations</h4>
               <div className="space-y-4">
                 <div>
-                  <h5 className="font-semibold text-gray-800 mb-2">Basic Operations</h5>
+                  <h5 className="font-semibold text-google-text mb-2">Basic Operations</h5>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Addition:</strong> Finding common denominators</li>
                     <li><strong>Subtraction:</strong> Borrowing and regrouping</li>
@@ -342,7 +342,7 @@ export default function FractionCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h5 className="font-semibold text-gray-800 mb-2">Advanced Features</h5>
+                  <h5 className="font-semibold text-google-text mb-2">Advanced Features</h5>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Simplification:</strong> Reducing to lowest terms</li>
                     <li><strong>Decimal Conversion:</strong> Precise decimal values</li>
@@ -359,4 +359,7 @@ export default function FractionCalculator() {
     </div>
   )
 }
+
+
+
 

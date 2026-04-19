@@ -212,7 +212,7 @@ Safety Notes:
   const result = showResults ? calculateStairs() : { totalRise: 0, totalRun: 0, numberOfSteps: 0, riseHeight: 0, runDepth: 0, stringerLength: 0, angle: 0, compliance: '', safety: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-teal-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -232,13 +232,13 @@ Safety Notes:
       <div className="p-6">
         {/* Stair Type Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Stair Type Presets</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Stair Type Presets</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {STAIR_TYPES.map((stair, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickStair(stair)}
-                className="p-4 bg-green-50 hover:bg-green-100 rounded-lg border border-green-200 transition-colors text-left"
+                className="p-4 bg-green-50 hover:bg-green-100 rounded-2xl border border-green-200 transition-colors text-left"
               >
                 <div className="font-semibold text-green-800">{stair.name}</div>
                 <div className="text-sm text-green-600">Max Rise: {stair.maxRise}", Min Run: {stair.minRun}"</div>
@@ -261,7 +261,7 @@ Safety Notes:
                 type="number"
                 value={floorHeight}
                 onChange={(e) => setFloorHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="120"
                 min="24"
                 max="300"
@@ -279,7 +279,7 @@ Safety Notes:
                 type="number"
                 value={floorDistance}
                 onChange={(e) => setFloorDistance(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="180"
                 min="60"
                 max="500"
@@ -300,7 +300,7 @@ Safety Notes:
                 type="number"
                 value={maxRise}
                 onChange={(e) => setMaxRise(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="7.75"
                 min="4"
                 max="12"
@@ -318,7 +318,7 @@ Safety Notes:
                 type="number"
                 value={minRun}
                 onChange={(e) => setMinRun(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="10"
                 min="8"
                 max="16"
@@ -332,10 +332,10 @@ Safety Notes:
 
         {/* Safety Rules */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Safety Rules & Compliance</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Safety Rules & Compliance</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {SAFETY_RULES.map((rule, index) => (
-              <div key={index} className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+              <div key={index} className="bg-yellow-50 p-4 rounded-2xl border border-yellow-200">
                 <div className="font-semibold text-yellow-800 text-lg">{rule.rule}</div>
                 <div className="text-sm text-yellow-600">{rule.description}</div>
               </div>
@@ -348,7 +348,7 @@ Safety Notes:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Stairs</span>
@@ -360,7 +360,7 @@ Safety Notes:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-green-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Stair Calculation Result"
                 inputs={[
@@ -381,59 +381,59 @@ Safety Notes:
             </div>
 
             {/* Stair Results */}
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-4">Stair Calculation Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-green-700">{result.numberOfSteps}</div>
-                  <div className="text-sm text-gray-600">Total Steps</div>
+                  <div className="text-sm text-google-gray">Total Steps</div>
                   <div className="text-xs text-green-600">Including landing</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.riseHeight)}"</div>
-                  <div className="text-sm text-gray-600">Rise Height</div>
-                  <div className="text-xs text-blue-600">Per step</div>
+                  <div className="text-sm text-google-gray">Rise Height</div>
+                  <div className="text-xs text-google-blue">Per step</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{formatNumber(result.runDepth)}"</div>
-                  <div className="text-sm text-gray-600">Run Depth</div>
+                  <div className="text-sm text-google-gray">Run Depth</div>
                   <div className="text-xs text-purple-600">Per step</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{formatNumber(result.angle)}°</div>
-                  <div className="text-sm text-gray-600">Stair Angle</div>
+                  <div className="text-sm text-google-gray">Stair Angle</div>
                   <div className="text-xs text-orange-600">From horizontal</div>
                 </div>
               </div>
             </div>
 
             {/* Dimensions */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Stair Dimensions</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Stair Dimensions</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Vertical Measurements</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Vertical Measurements</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Total Rise:</span>
+                      <span className="text-google-gray">Total Rise:</span>
                       <span className="font-semibold">{formatNumber(result.totalRise)} inches</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Rise per Step:</span>
+                      <span className="text-google-gray">Rise per Step:</span>
                       <span className="font-semibold">{formatNumber(result.riseHeight)} inches</span>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Horizontal Measurements</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Horizontal Measurements</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Total Run:</span>
+                      <span className="text-google-gray">Total Run:</span>
                       <span className="font-semibold">{formatNumber(result.totalRun)} inches</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Stringer Length:</span>
+                      <span className="text-google-gray">Stringer Length:</span>
                       <span className="font-semibold">{formatNumber(result.stringerLength)} inches</span>
                     </div>
                   </div>
@@ -442,7 +442,7 @@ Safety Notes:
             </div>
 
             {/* Compliance Check */}
-            <div className={`p-6 rounded-lg border ${
+            <div className={`p-6 rounded-2xl border ${
               result.compliance === 'Compliant' 
                 ? 'bg-green-50 border-green-200' 
                 : 'bg-red-50 border-red-200'
@@ -472,28 +472,28 @@ Safety Notes:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -503,12 +503,12 @@ Safety Notes:
         )}
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-green-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Stair Calculator</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Stair Calculator</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Purpose & Functionality</h3>
               <p className="text-gray-700 mb-3">
                 This comprehensive stair calculator helps architects, builders, and homeowners design safe, 
                 comfortable, and code-compliant stairs. It automatically calculates optimal dimensions while 
@@ -521,10 +521,10 @@ Safety Notes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Stair Design Principles</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Stair Design Principles</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Comfort Formula</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Comfort Formula</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>2R + G = 22-28 inches</strong></li>
                     <li>R = Rise height (vertical step)</li>
@@ -534,7 +534,7 @@ Safety Notes:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Safety Standards</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Safety Standards</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Maximum Rise:</strong> 7.75 inches (residential)</li>
                     <li><strong>Minimum Run:</strong> 10 inches (residential)</li>
@@ -547,9 +547,9 @@ Safety Notes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Stair Types & Applications</h3>
-              <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                <h4 className="font-semibold text-gray-800 mb-2">Building Code Classifications</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Stair Types & Applications</h3>
+              <div className="bg-green-50 p-4 rounded-2xl border border-green-200">
+                <h4 className="font-semibold text-google-text mb-2">Building Code Classifications</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
                     <p><strong>Residential Stairs:</strong></p>
@@ -574,10 +574,10 @@ Safety Notes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Key Measurements Explained</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Key Measurements Explained</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Vertical Dimensions</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Vertical Dimensions</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Total Rise:</strong> Floor-to-floor height</li>
                     <li><strong>Rise Height:</strong> Individual step height</li>
@@ -586,7 +586,7 @@ Safety Notes:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Horizontal Dimensions</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Horizontal Dimensions</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Total Run:</strong> Horizontal distance</li>
                     <li><strong>Run Depth:</strong> Individual step depth</li>
@@ -598,7 +598,7 @@ Safety Notes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Building Code Compliance</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Building Code Compliance</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>International Building Code (IBC):</strong> Sets minimum safety standards</li>
                 <li><strong>Americans with Disabilities Act (ADA):</strong> Accessibility requirements</li>
@@ -609,10 +609,10 @@ Safety Notes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Safety Considerations</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Safety Considerations</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Physical Safety</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Physical Safety</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Proper rise-to-run ratios</li>
                     <li>Consistent step dimensions</li>
@@ -622,7 +622,7 @@ Safety Notes:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Accessibility</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Accessibility</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>ADA compliance requirements</li>
                     <li>Handrail specifications</li>
@@ -635,7 +635,7 @@ Safety Notes:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Design Mistakes</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Common Design Mistakes</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Inconsistent Steps:</strong> Varying rise/run dimensions cause trips</li>
                 <li><strong>Steep Angles:</strong> Angles over 37° are difficult to navigate</li>
@@ -645,8 +645,8 @@ Safety Notes:
               </ul>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Always consult local building codes before finalizing stair designs</li>
                 <li>• Use the comfort formula (2R + G = 24-26 inches) for optimal user experience</li>
@@ -662,3 +662,8 @@ Safety Notes:
     </div>
   )
 }
+
+
+
+
+

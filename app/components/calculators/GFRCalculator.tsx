@@ -149,14 +149,9 @@ export default function GFRCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-teal-500 to-cyan-500 px-6 py-4">
-        <div className="flex items-center">
-          <Activity className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">GFR Calculator</h2>
-        </div>
-        <p className="text-teal-100 mt-1">Calculate Glomerular Filtration Rate using multiple formulas</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -169,7 +164,7 @@ export default function GFRCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="google-input"
                 placeholder="Enter age"
                 aria-label="Age in years"
               />
@@ -181,7 +176,7 @@ export default function GFRCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -199,7 +194,7 @@ export default function GFRCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="google-input"
                 placeholder="Enter weight"
                 aria-label="Weight in pounds"
               />
@@ -212,7 +207,7 @@ export default function GFRCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="google-input"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -228,7 +223,7 @@ export default function GFRCalculator() {
                 type="number"
                 value={creatinine}
                 onChange={(e) => setCreatinine(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="google-input"
                 placeholder="Enter creatinine"
                 step="0.01"
                 aria-label="Serum creatinine in mg/dL"
@@ -241,7 +236,7 @@ export default function GFRCalculator() {
               <select
                 value={race}
                 onChange={(e) => setRace(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="google-input"
                 aria-label="Select race"
               >
                 <option value="other">Other</option>
@@ -253,14 +248,14 @@ export default function GFRCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-teal-500 hover:bg-teal-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -270,7 +265,7 @@ export default function GFRCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-teal-50 rounded-lg border border-teal-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-teal-800 mb-2">GFR Result</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-teal-600 mb-2">
@@ -282,7 +277,7 @@ export default function GFRCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-teal-50 rounded-lg border border-teal-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-teal-800 mb-3">All Formulas Comparison</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -305,7 +300,7 @@ export default function GFRCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-teal-50 rounded-lg border border-teal-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-teal-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -321,8 +316,8 @@ export default function GFRCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About GFR Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About GFR Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive GFR calculator helps healthcare professionals and patients understand 
@@ -331,7 +326,7 @@ export default function GFRCalculator() {
               recommendations for informed healthcare decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>GFR Values:</strong> Glomerular Filtration Rate in mL/min/1.73m²</li>
               <li><strong>Kidney Disease Staging:</strong> CKD classification (1-5)</li>
@@ -341,10 +336,10 @@ export default function GFRCalculator() {
               <li><strong>Clinical Recommendations:</strong> Evidence-based guidance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GFR Calculation Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">GFR Calculation Methods</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Cockcroft-Gault Formula</h5>
+                <h5 className="font-semibold text-google-text mb-2">Cockcroft-Gault Formula</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Formula:</strong> [(140 - age) × weight] ÷ (72 × creatinine)</li>
                   <li><strong>Gender Factor:</strong> × 0.85 for females</li>
@@ -355,7 +350,7 @@ export default function GFRCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">MDRD Formula</h5>
+                <h5 className="font-semibold text-google-text mb-2">MDRD Formula</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Formula:</strong> 175 × (creatinine)^-1.154 × (age)^-0.203</li>
                   <li><strong>Gender Factor:</strong> × 0.742 for females</li>
@@ -367,35 +362,35 @@ export default function GFRCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-teal-50 p-3 rounded-lg border border-teal-200">
+              <div className="bg-teal-50 p-3 rounded-2xl border border-teal-200">
                 <h5 className="font-semibold text-teal-800 mb-1">GFR Value</h5>
                 <p className="text-teal-700 text-sm">Kidney function rate</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">CKD Stage</h5>
                 <p className="text-blue-700 text-sm">Disease classification</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Interpretation</h5>
                 <p className="text-green-700 text-sm">Clinical meaning</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Recommendations</h5>
                 <p className="text-purple-700 text-sm">Clinical guidance</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your age, gender, weight, height, serum creatinine level, and race. The calculator 
               automatically computes GFR using multiple formulas, provides kidney disease staging, and 
               offers clinical recommendations based on your results.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GFR Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">GFR Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>What is GFR:</strong></p>
@@ -422,10 +417,10 @@ export default function GFRCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">CKD Staging System</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">CKD Staging System</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Early Stages</h5>
+                <h5 className="font-semibold text-google-text mb-2">Early Stages</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Stage 1:</strong> GFR &ge; 90, kidney damage present</li>
                   <li><strong>Stage 2:</strong> GFR 60-89, mild decrease</li>
@@ -436,7 +431,7 @@ export default function GFRCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Advanced Stages</h5>
+                <h5 className="font-semibold text-google-text mb-2">Advanced Stages</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Stage 4:</strong> GFR 15-29, severe decrease</li>
                   <li><strong>Stage 5:</strong> GFR &lt; 15, kidney failure</li>
@@ -448,7 +443,7 @@ export default function GFRCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting GFR</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting GFR</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Age:</strong> Natural decline with aging</li>
               <li><strong>Gender:</strong> Generally lower in females</li>
@@ -458,10 +453,10 @@ export default function GFRCalculator() {
               <li><strong>Medical Conditions:</strong> Diabetes, hypertension, heart disease</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Creatinine Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Creatinine Considerations</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Normal Ranges</h5>
+                <h5 className="font-semibold text-google-text mb-2">Normal Ranges</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Adult Males:</strong> 0.7-1.3 mg/dL</li>
                   <li><strong>Adult Females:</strong> 0.6-1.1 mg/dL</li>
@@ -472,7 +467,7 @@ export default function GFRCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Interpretation</h5>
+                <h5 className="font-semibold text-google-text mb-2">Interpretation</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Elevated:</strong> May indicate kidney dysfunction</li>
                   <li><strong>Normal:</strong> Kidney function likely adequate</li>
@@ -484,7 +479,7 @@ export default function GFRCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Clinical Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Clinical Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Medication Dosing:</strong> Adjust doses based on kidney function</li>
               <li><strong>Contrast Administration:</strong> Assess risk for imaging studies</li>
@@ -494,7 +489,7 @@ export default function GFRCalculator() {
               <li><strong>Diabetes Management:</strong> Monitor kidney complications</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GFR Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">GFR Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Recent Values:</strong> Creatinine levels change over time</li>
               <li><strong>Consider Context:</strong> Age, gender, race, body size</li>
@@ -504,7 +499,7 @@ export default function GFRCalculator() {
               <li><strong>Professional Review:</strong> Discuss with healthcare provider</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common GFR Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common GFR Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Using Outdated Values:</strong> Creatinine changes over time</li>
               <li><strong>Ignoring Race Factor:</strong> Important for accuracy</li>
@@ -514,7 +509,7 @@ export default function GFRCalculator() {
               <li><strong>Self-Diagnosis:</strong> Always consult healthcare provider</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced GFR Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced GFR Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Cystatin C:</strong> Alternative to creatinine</li>
               <li><strong>Dynamic GFR:</strong> Real-time measurements</li>
@@ -524,8 +519,8 @@ export default function GFRCalculator() {
               <li><strong>Machine Learning:</strong> AI-enhanced calculations</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-teal-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-teal-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When interpreting GFR results, remember that these are estimates based on mathematical 
                 formulas, not direct measurements. Always consider the clinical context, including 
@@ -543,3 +538,7 @@ export default function GFRCalculator() {
     </div>
   )
 }
+
+
+
+

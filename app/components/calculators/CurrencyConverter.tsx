@@ -182,15 +182,15 @@ export default function CurrencyConverter() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
-            <Globe className="w-16 h-16 mr-4 text-blue-600" />
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
+            <Globe className="w-16 h-16 mr-4 text-google-blue" />
             Currency Converter
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Convert between major world currencies with real-time exchange rates. Get instant currency conversions for travel, business, and personal finance.
           </p>
         </header>
@@ -198,9 +198,9 @@ export default function CurrencyConverter() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Input Form */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                <Calculator className="w-6 h-6 mr-2 text-blue-600" />
+            <div className="google-card overflow-hidden p-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
+                <Calculator className="w-6 h-6 mr-2 text-google-blue" />
                 Convert Currency
               </h2>
               
@@ -213,7 +213,7 @@ export default function CurrencyConverter() {
                     type="number"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="google-input"
                     placeholder="100"
                     step="0.01"
                     min="0"
@@ -229,7 +229,7 @@ export default function CurrencyConverter() {
                   <select
                     value={fromCurrency}
                     onChange={(e) => setFromCurrency(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="google-input"
                     title="Select the currency to convert from"
                     aria-label="Currency to convert from"
                   >
@@ -244,7 +244,7 @@ export default function CurrencyConverter() {
                 <div className="flex justify-center">
                   <button
                     onClick={handleSwapCurrencies}
-                    className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                    className="p-2 bg-gray-100 rounded-2xl hover:bg-gray-200 transition-colors"
                     title="Swap currencies"
                     aria-label="Swap from and to currencies"
                   >
@@ -259,7 +259,7 @@ export default function CurrencyConverter() {
                   <select
                     value={toCurrency}
                     onChange={(e) => setToCurrency(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="google-input"
                     title="Select the currency to convert to"
                     aria-label="Currency to convert to"
                   >
@@ -278,7 +278,7 @@ export default function CurrencyConverter() {
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     onClick={() => handleQuickAmount('1')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                     title="Set amount to 1"
                     aria-label="Set amount to 1"
                   >
@@ -286,7 +286,7 @@ export default function CurrencyConverter() {
                   </button>
                   <button
                     onClick={() => handleQuickAmount('10')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                     title="Set amount to 10"
                     aria-label="Set amount to 10"
                   >
@@ -294,7 +294,7 @@ export default function CurrencyConverter() {
                   </button>
                   <button
                     onClick={() => handleQuickAmount('100')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                     title="Set amount to 100"
                     aria-label="Set amount to 100"
                   >
@@ -302,7 +302,7 @@ export default function CurrencyConverter() {
                   </button>
                   <button
                     onClick={() => handleQuickAmount('1000')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                     title="Set amount to 1000"
                     aria-label="Set amount to 1000"
                   >
@@ -318,7 +318,7 @@ export default function CurrencyConverter() {
             {result ? (
               <div className="space-y-6">
                 {/* Share Options - Moved to Top */}
-                <div className="bg-white rounded-2xl shadow-lg p-6">
+                <div className="google-card overflow-hidden p-6">
                   <ResultSharing
                     title="Currency Conversion Result"
                     inputs={[
@@ -337,26 +337,26 @@ export default function CurrencyConverter() {
                 </div>
 
                 {/* Conversion Result */}
-                <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                    <TrendingUp className="w-6 h-6 mr-2 text-blue-600" />
+                <div className="google-card overflow-hidden p-6">
+                  <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
+                    <TrendingUp className="w-6 h-6 mr-2 text-google-blue" />
                     Conversion Result
                   </h2>
                   
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-600 mb-4">
+                    <div className="text-4xl font-bold text-google-blue mb-4">
                       {formatCurrency(result.fromAmount, result.fromCurrency)} = {formatCurrency(result.toAmount, result.toCurrency)}
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                      <div className="bg-blue-50 p-4 rounded-lg">
-                        <div className="text-sm text-blue-600 mb-1">Exchange Rate</div>
+                      <div className="bg-google-blueLight p-4 rounded-2xl">
+                        <div className="text-sm text-google-blue mb-1">Exchange Rate</div>
                         <div className="text-lg font-semibold text-blue-800">
                           1 {result.fromCurrency} = {result.rate.toFixed(4)} {result.toCurrency}
                         </div>
                       </div>
                       
-                      <div className="bg-green-50 p-4 rounded-lg">
+                      <div className="bg-green-50 p-4 rounded-2xl">
                         <div className="text-sm text-green-600 mb-1">Inverse Rate</div>
                         <div className="text-lg font-semibold text-green-800">
                           1 {result.toCurrency} = {result.inverseRate.toFixed(4)} {result.fromCurrency}
@@ -367,8 +367,8 @@ export default function CurrencyConverter() {
                 </div>
 
                 {/* Currency Information */}
-                <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Currency Information</h3>
+                <div className="google-card overflow-hidden p-6">
+                  <h3 className="text-xl font-bold text-google-text mb-4">Currency Information</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold text-gray-700 mb-3">From Currency</h4>
@@ -376,7 +376,7 @@ export default function CurrencyConverter() {
                         <span className="text-2xl">{exchangeRates[result.fromCurrency]?.flag}</span>
                         <div>
                           <div className="font-semibold">{exchangeRates[result.fromCurrency]?.name}</div>
-                          <div className="text-sm text-gray-600">{result.fromCurrency}</div>
+                          <div className="text-sm text-google-gray">{result.fromCurrency}</div>
                         </div>
                       </div>
                     </div>
@@ -387,7 +387,7 @@ export default function CurrencyConverter() {
                         <span className="text-2xl">{exchangeRates[result.toCurrency]?.flag}</span>
                         <div>
                           <div className="font-semibold">{exchangeRates[result.toCurrency]?.name}</div>
-                          <div className="text-sm text-gray-600">{result.toCurrency}</div>
+                          <div className="text-sm text-google-gray">{result.toCurrency}</div>
                         </div>
                       </div>
                     </div>
@@ -398,7 +398,7 @@ export default function CurrencyConverter() {
                 <div className="flex flex-wrap gap-4 justify-center">
                   <button
                     onClick={handleShare}
-                    className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                     title="Share currency conversion results"
                     aria-label="Share currency conversion results"
                   >
@@ -407,7 +407,7 @@ export default function CurrencyConverter() {
                   </button>
                   <button
                     onClick={handleDownload}
-                    className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                     title="Download results as text file"
                     aria-label="Download currency conversion results"
                   >
@@ -416,7 +416,7 @@ export default function CurrencyConverter() {
                   </button>
                   <button
                     onClick={handlePrint}
-                    className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                     title="Print currency conversion results"
                     aria-label="Print currency conversion results"
                   >
@@ -426,7 +426,7 @@ export default function CurrencyConverter() {
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="google-card overflow-hidden p-6">
                 <div className="text-center py-12">
                   <Globe className="w-16 h-16 mx-auto text-gray-300 mb-4" />
                   <p className="text-gray-500 text-lg">
@@ -442,7 +442,7 @@ export default function CurrencyConverter() {
         <div className="text-center mt-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
             title="Back to all calculators"
             aria-label="Back to all calculators"
           >
@@ -467,5 +467,8 @@ export default function CurrencyConverter() {
     </div>
   )
 }
+
+
+
 
 

@@ -164,7 +164,7 @@ export default function GPACalculator() {
   const result = showResults ? calculateGPA() : { gpa: 0, totalPoints: 0, totalCredits: 0, letterGrade: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -182,10 +182,10 @@ export default function GPACalculator() {
       <div className="p-6">
         <div className="mb-6">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-gray-800">Courses</h3>
+            <h3 className="text-lg font-semibold text-google-text">Courses</h3>
             <button
               onClick={addCourse}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+              className="bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
             >
               Add Course
             </button>
@@ -193,21 +193,21 @@ export default function GPACalculator() {
 
           {/* Error Display */}
           {error && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-2xl">
               <p className="text-red-700 text-sm">{error}</p>
             </div>
           )}
 
           <div className="space-y-4">
             {courses.map((course, index) => (
-              <div key={index} className="grid md:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <div key={index} className="grid md:grid-cols-4 gap-4 p-4 google-result-card">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Course Name</label>
                   <input
                     type="text"
                     value={course.name}
                     onChange={(e) => updateCourse(index, 'name', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="google-input"
                     placeholder="Course name"
                     aria-label="Course name"
                   />
@@ -219,7 +219,7 @@ export default function GPACalculator() {
                     type="number"
                     value={course.credits}
                     onChange={(e) => updateCourse(index, 'credits', parseInt(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="google-input"
                     min="1"
                     max="6"
                     step="1"
@@ -232,7 +232,7 @@ export default function GPACalculator() {
                   <select
                     value={course.grade}
                     onChange={(e) => updateCourse(index, 'grade', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="google-input"
                     aria-label="Select grade"
                   >
                     <option value="A+">A+ (4.0)</option>
@@ -254,7 +254,7 @@ export default function GPACalculator() {
                   <button
                     onClick={() => removeCourse(index)}
                     disabled={courses.length === 1}
-                    className="w-full px-3 py-2 bg-red-600 hover:bg-red-700 disabled:bg-gray-400 text-white rounded-lg transition-colors duration-200"
+                    className="w-full px-3 py-2 google-button-primary disabled:bg-gray-400 text-white rounded-2xl transition-colors duration-200"
                     aria-label="Remove course"
                   >
                     Remove
@@ -268,7 +268,7 @@ export default function GPACalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="bg-google-blue hover:bg-google-blueHover text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Calculate GPA
           </button>
@@ -277,7 +277,7 @@ export default function GPACalculator() {
         {showResults && !error && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-6 rounded-2xl border border-blue-200">
               <ResultSharing
                 title="GPA Calculation Result"
                 inputs={[
@@ -295,24 +295,24 @@ export default function GPACalculator() {
               />
             </div>
 
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-6 rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">GPA Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{result.gpa.toFixed(2)}</div>
-                  <div className="text-sm text-gray-600">GPA</div>
+                  <div className="text-sm text-google-gray">GPA</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{result.letterGrade}</div>
-                  <div className="text-sm text-gray-600">Letter Grade</div>
+                  <div className="text-sm text-google-gray">Letter Grade</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{result.totalCredits}</div>
-                  <div className="text-sm text-gray-600">Total Credits</div>
+                  <div className="text-sm text-google-gray">Total Credits</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{result.totalPoints.toFixed(1)}</div>
-                  <div className="text-sm text-gray-600">Total Points</div>
+                  <div className="text-sm text-google-gray">Total Points</div>
                 </div>
               </div>
             </div>
@@ -320,7 +320,7 @@ export default function GPACalculator() {
             <div className="flex justify-center mb-6">
               <button
                 onClick={handleReset}
-                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 Reset
               </button>
@@ -331,8 +331,8 @@ export default function GPACalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About GPA Calculator</h3>
+        <div className="mt-12 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About GPA Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our free GPA calculator helps you calculate your Grade Point Average (GPA) from course grades and credits. 
@@ -340,14 +340,14 @@ export default function GPACalculator() {
               or maintaining scholarship requirements.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How GPA is Calculated</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How GPA is Calculated</h4>
             <p className="text-gray-700 mb-4">
               GPA is calculated by dividing the total grade points earned by the total number of credit hours attempted. 
               Each letter grade corresponds to a specific point value (A = 4.0, A- = 3.7, B+ = 3.3, etc.). 
               The calculator automatically converts your grades to points and computes your cumulative GPA.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Features</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Features</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li>Add unlimited courses with custom names</li>
               <li>Support for all standard grade scales (A+ to F)</li>
@@ -356,7 +356,7 @@ export default function GPACalculator() {
               <li>Mobile-friendly design for on-the-go calculations</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Use</h4>
             <p className="text-gray-700">
               Use this GPA calculator to track your academic progress, prepare for graduate school applications, 
               maintain scholarship eligibility, or simply monitor your performance throughout the semester. 
@@ -368,3 +368,7 @@ export default function GPACalculator() {
     </div>
   )
 }
+
+
+
+

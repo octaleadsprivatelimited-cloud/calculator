@@ -81,7 +81,7 @@ export default function HeatIndexCalculator() {
   const isCalculable = parseFloat(temperature) >= (unit === 'fahrenheit' ? 80 : 27)
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-red-600 to-orange-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -100,7 +100,7 @@ export default function HeatIndexCalculator() {
               type="number"
               value={temperature}
               onChange={(e) => setTemperature(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="google-input"
               title="Enter temperature"
             />
           </div>
@@ -110,7 +110,7 @@ export default function HeatIndexCalculator() {
               type="number"
               value={humidity}
               onChange={(e) => setHumidity(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="google-input"
               min="0"
               max="100"
               title="Enter humidity percentage"
@@ -123,7 +123,7 @@ export default function HeatIndexCalculator() {
           <select
             value={unit}
             onChange={(e) => setUnit(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="google-input"
             title="Select temperature unit"
           >
             <option value="fahrenheit">Fahrenheit (°F)</option>
@@ -134,7 +134,7 @@ export default function HeatIndexCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Calculate Heat Index
           </button>
@@ -143,7 +143,7 @@ export default function HeatIndexCalculator() {
         {showResults && (
           <>
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-orange-200 mb-4">
+            <div className="google-result-card mb-4">
               <ResultSharing
                 title="Heat Index Calculation Result"
                 inputs={[
@@ -161,8 +161,8 @@ export default function HeatIndexCalculator() {
               />
             </div>
 
-            <div className={`${category?.bg} p-6 rounded-lg border ${category?.border} text-center`}>
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Heat Index Results</h3>
+            <div className={`${category?.bg} p-6 rounded-2xl border ${category?.border} text-center`}>
+              <h3 className="text-xl font-semibold text-google-text mb-4">Heat Index Results</h3>
             {isCalculable ? (
               <>
                 <div className={`text-3xl font-bold ${category?.color} mb-2`}>
@@ -173,12 +173,12 @@ export default function HeatIndexCalculator() {
                 </div>
               </>
             ) : (
-              <div className="text-lg text-gray-600">
+              <div className="text-lg text-google-gray">
                 Heat index calculation not applicable for these conditions
               </div>
             )}
             <div className="mt-4">
-              <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+              <button onClick={handleReset} className="google-button-primary text-white px-4 py-2 rounded-2xl">
                 Reset
               </button>
             </div>
@@ -187,8 +187,8 @@ export default function HeatIndexCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Heat Index Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Heat Index Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive heat index calculator helps individuals understand the combined effect of 
@@ -197,7 +197,7 @@ export default function HeatIndexCalculator() {
               assessments for informed outdoor activity planning.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Heat Index:</strong> "Feels like" temperature combining heat and humidity</li>
               <li><strong>Risk Categories:</strong> Caution, extreme caution, danger, extreme danger</li>
@@ -207,10 +207,10 @@ export default function HeatIndexCalculator() {
               <li><strong>Safety Thresholds:</strong> Critical temperature breakpoints</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Heat Index Categories</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Heat Index Categories</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Lower Risk Levels</h5>
+                <h5 className="font-semibold text-google-text mb-2">Lower Risk Levels</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Caution (80-90°F):</strong> Fatigue possible with prolonged exposure</li>
                   <li><strong>Extreme Caution (90-103°F):</strong> Heat cramps, heat exhaustion possible</li>
@@ -221,7 +221,7 @@ export default function HeatIndexCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Health Effects</h5>
+                <h5 className="font-semibold text-google-text mb-2">Health Effects</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Heat Cramps:</strong> Muscle spasms, pain</li>
                   <li><strong>Heat Exhaustion:</strong> Fatigue, dizziness, nausea</li>
@@ -233,35 +233,35 @@ export default function HeatIndexCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+              <div className="bg-yellow-50 p-3 rounded-2xl border border-yellow-200">
                 <h5 className="font-semibold text-yellow-800 mb-1">Caution</h5>
                 <p className="text-yellow-700 text-sm">80-90°F</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Extreme Caution</h5>
                 <p className="text-orange-700 text-sm">90-103°F</p>
               </div>
-              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+              <div className="bg-red-50 p-3 rounded-2xl border border-red-200">
                 <h5 className="font-semibold text-red-800 mb-1">Danger</h5>
                 <p className="text-red-700 text-sm">103-124°F</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Extreme Danger</h5>
                 <p className="text-purple-700 text-sm">125°F+</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the current temperature and relative humidity percentage. Select your preferred 
               temperature unit (Fahrenheit or Celsius). The calculator automatically computes the heat 
               index and provides appropriate risk category and safety recommendations.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Heat Index Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Heat Index Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>What is Heat Index:</strong></p>
@@ -288,10 +288,10 @@ export default function HeatIndexCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Heat Index</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Heat Index</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Primary Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Primary Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Temperature:</strong> Air temperature in °F or °C</li>
                   <li><strong>Humidity:</strong> Relative humidity percentage</li>
@@ -302,7 +302,7 @@ export default function HeatIndexCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Secondary Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Secondary Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Clothing:</strong> Insulation and heat retention</li>
                   <li><strong>Activity Level:</strong> Metabolic heat production</li>
@@ -314,7 +314,7 @@ export default function HeatIndexCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Safety Guidelines by Category</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Safety Guidelines by Category</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Caution (80-90°F):</strong> Stay hydrated, take breaks, avoid prolonged exposure</li>
               <li><strong>Extreme Caution (90-103°F):</strong> Limit outdoor activities, seek shade, drink water</li>
@@ -324,10 +324,10 @@ export default function HeatIndexCalculator() {
               <li><strong>Emergency Signs:</strong> Dizziness, nausea, confusion, rapid heartbeat</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Heat Index Calculation Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Heat Index Calculation Methods</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Steadman Formula</h5>
+                <h5 className="font-semibold text-google-text mb-2">Steadman Formula</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Scientific Basis:</strong> Human physiology research</li>
                   <li><strong>Temperature Range:</strong> 80°F and above</li>
@@ -338,7 +338,7 @@ export default function HeatIndexCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Alternative Methods</h5>
+                <h5 className="font-semibold text-google-text mb-2">Alternative Methods</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Apparent Temperature:</strong> Australian heat index</li>
                   <li><strong>Humidex:</strong> Canadian heat index</li>
@@ -350,7 +350,7 @@ export default function HeatIndexCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Prevention Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Prevention Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Hydration:</strong> Drink water before, during, and after outdoor activities</li>
               <li><strong>Clothing:</strong> Light, loose-fitting, light-colored clothing</li>
@@ -360,7 +360,7 @@ export default function HeatIndexCalculator() {
               <li><strong>Monitoring:</strong> Watch for heat-related illness symptoms</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Heat Index Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Heat Index Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Current Conditions:</strong> Real-time temperature and humidity data</li>
               <li><strong>Consider Local Factors:</strong> Urban heat island effects, elevation</li>
@@ -370,7 +370,7 @@ export default function HeatIndexCalculator() {
               <li><strong>Plan Ahead:</strong> Check forecasts for activity planning</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Heat Index Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Heat Index Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Ignoring Humidity:</strong> Temperature alone doesn't tell the full story</li>
               <li><strong>Using Outdated Data:</strong> Conditions change rapidly</li>
@@ -380,7 +380,7 @@ export default function HeatIndexCalculator() {
               <li><strong>Not Planning Ahead:</strong> Check forecasts before outdoor activities</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Heat Index Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Heat Index Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Wet Bulb Globe Temperature:</strong> Comprehensive heat stress measurement</li>
               <li><strong>Heat Stress Index:</strong> Industrial workplace applications</li>
@@ -390,8 +390,8 @@ export default function HeatIndexCalculator() {
               <li><strong>Urban Heat Islands:</strong> City temperature amplification</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-red-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-red-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that heat index is only calculated for temperatures of 80°F (27°C) and above, 
                 as this is when humidity begins to significantly impact human comfort and health. The 
@@ -408,3 +408,8 @@ export default function HeatIndexCalculator() {
     </div>
   )
 }
+
+
+
+
+

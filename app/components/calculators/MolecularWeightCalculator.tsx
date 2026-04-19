@@ -219,7 +219,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
   const result = showResults ? parseFormula(formula) : { molecularWeight: 0, elements: [], totalWeight: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -241,8 +241,8 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Formula Input */}
           <div className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Chemical Formula</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4">Chemical Formula</h3>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -252,7 +252,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
                     type="text"
                     value={formula}
                     onChange={(e) => setFormula(e.target.value.toUpperCase())}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 font-mono text-lg"
+                    className="google-input font-mono text-lg"
                     placeholder="H2O"
                   />
                   <p className="text-xs text-gray-500 mt-1">
@@ -261,7 +261,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
                 </div>
                 
                 {error && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                  <div className="bg-red-50 border border-red-200 rounded-2xl p-3">
                     <p className="text-red-700 text-sm">{error}</p>
                   </div>
                 )}
@@ -273,10 +273,10 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               <button
                 onClick={handleCalculate}
                 disabled={!formula.trim()}
-                className={`font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
+                className={`font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
                   !formula.trim()
-                    ? 'bg-gray-400 cursor-not-allowed text-gray-600'
-                    : 'bg-teal-600 hover:bg-teal-700 text-white'
+                    ? 'bg-gray-400 cursor-not-allowed text-google-gray'
+                    : 'google-button-primary text-white'
                 }`}
               >
                 <Calculator className="w-5 h-5" />
@@ -286,8 +286,8 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
           </div>
 
           {/* Common Molecules */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Common Molecules</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Common Molecules</h3>
             <div className="grid grid-cols-2 gap-2">
               {COMMON_MOLECULES.map((molecule, index) => (
                 <button
@@ -295,8 +295,8 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
                   onClick={() => handleCommonMolecule(molecule)}
                   className="text-left p-2 bg-white rounded border hover:bg-teal-50 transition-colors text-sm"
                 >
-                  <div className="font-medium text-gray-800">{molecule.name}</div>
-                  <div className="text-gray-600 font-mono">{molecule.formula}</div>
+                  <div className="font-medium text-google-text">{molecule.name}</div>
+                  <div className="text-google-gray font-mono">{molecule.formula}</div>
                 </button>
               ))}
             </div>
@@ -307,7 +307,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-teal-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Molecular Weight Calculation Result"
                 inputs={[
@@ -326,18 +326,18 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
             </div>
 
             {/* Molecular Weight */}
-            <div className="bg-teal-50 p-6 rounded-lg border border-teal-200">
+            <div className="bg-teal-50 p-6 rounded-2xl border border-teal-200">
               <h3 className="text-lg font-semibold text-teal-800 mb-4">Molecular Weight</h3>
               <div className="text-center">
                 <div className="text-4xl font-bold text-teal-700">{formatNumber(result.molecularWeight)}</div>
-                <div className="text-lg text-gray-600">grams per mole (g/mol)</div>
+                <div className="text-lg text-google-gray">grams per mole (g/mol)</div>
                 <div className="text-sm text-gray-500 mt-2">Formula: {formula}</div>
               </div>
             </div>
 
             {/* Element Breakdown */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Element Composition</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Element Composition</h3>
               <div className="space-y-3">
                 {result.elements.map((element, index) => (
                   <div key={index} className="flex justify-between items-center p-3 bg-white rounded border">
@@ -349,7 +349,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
                     </div>
                     <div className="text-right">
                       <div className="font-semibold">{formatNumber(element.weight)} g/mol</div>
-                      <div className="text-sm text-gray-600">{formatNumber(element.percentage)}%</div>
+                      <div className="text-sm text-google-gray">{formatNumber(element.percentage)}%</div>
                     </div>
                   </div>
                 ))}
@@ -360,28 +360,28 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -391,12 +391,12 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
             <Info className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Molecular Weight Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Molecular Weight Calculator</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 This calculator determines the molecular weight of chemical compounds by summing the atomic weights 
                 of all atoms in the formula. Molecular weight is essential for stoichiometry, solution preparation, 
                 and chemical analysis. Enter formulas using standard element symbols (H2O, CO2, C6H12O6).
@@ -406,8 +406,8 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
         </div>
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Molecular Weight Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Molecular Weight Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive molecular weight calculator helps chemistry students, researchers, and 
@@ -416,7 +416,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               and chemical analysis, supporting both educational and professional chemistry applications.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Molecular Weight:</strong> Total mass of one mole of compound</li>
               <li><strong>Element Composition:</strong> Individual element weights and percentages</li>
@@ -426,10 +426,10 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               <li><strong>Precise Calculations:</strong> Accurate to multiple decimal places</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Molecular Weight Fundamentals</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Molecular Weight Fundamentals</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Definition</h5>
+                <h5 className="font-semibold text-google-text mb-2">Definition</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Molecular Weight:</strong> Sum of atomic weights in molecule</li>
                   <li><strong>Units:</strong> Grams per mole (g/mol)</li>
@@ -440,7 +440,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Applications</h5>
+                <h5 className="font-semibold text-google-text mb-2">Applications</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Stoichiometry:</strong> Chemical reaction calculations</li>
                   <li><strong>Solution Preparation:</strong> Molarity and molality</li>
@@ -452,27 +452,27 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-teal-50 p-3 rounded-lg border border-teal-200">
+              <div className="bg-teal-50 p-3 rounded-2xl border border-teal-200">
                 <h5 className="font-semibold text-teal-800 mb-1">Molecular Weight</h5>
                 <p className="text-teal-700 text-sm">Total compound mass</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Element Symbol</h5>
                 <p className="text-blue-700 text-sm">Chemical element</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Atomic Count</h5>
                 <p className="text-purple-700 text-sm">Number of atoms</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Weight %</h5>
                 <p className="text-green-700 text-sm">Mass percentage</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the chemical formula using standard element symbols (e.g., H2O, CO2, C6H12O6). 
               The calculator automatically parses the formula, calculates molecular weight, and provides 
@@ -480,8 +480,8 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               or enter custom formulas for specific compounds.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Chemical Formula Rules</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Chemical Formula Rules</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Element Symbols:</strong></p>
@@ -508,10 +508,10 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Chemical Compounds</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Chemical Compounds</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Inorganic Compounds</h5>
+                <h5 className="font-semibold text-google-text mb-2">Inorganic Compounds</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Water (H2O):</strong> 18.015 g/mol</li>
                   <li><strong>Carbon Dioxide (CO2):</strong> 44.009 g/mol</li>
@@ -522,7 +522,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Organic Compounds</h5>
+                <h5 className="font-semibold text-google-text mb-2">Organic Compounds</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Glucose (C6H12O6):</strong> 180.156 g/mol</li>
                   <li><strong>Ethanol (C2H5OH):</strong> 46.068 g/mol</li>
@@ -534,7 +534,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Stoichiometry Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Stoichiometry Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Balancing Equations:</strong> Determine reactant/product ratios</li>
               <li><strong>Limiting Reagents:</strong> Calculate theoretical yields</li>
@@ -544,10 +544,10 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               <li><strong>Electrochemistry:</strong> Determine electron transfer</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Laboratory Calculations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Laboratory Calculations</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Solution Preparation</h5>
+                <h5 className="font-semibold text-google-text mb-2">Solution Preparation</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Molarity (M):</strong> Moles per liter of solution</li>
                   <li><strong>Molality (m):</strong> Moles per kilogram of solvent</li>
@@ -558,7 +558,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Analytical Chemistry</h5>
+                <h5 className="font-semibold text-google-text mb-2">Analytical Chemistry</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Titration Calculations:</strong> Determine concentrations</li>
                   <li><strong>Gravimetric Analysis:</strong> Mass-based measurements</li>
@@ -570,7 +570,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Precision and Accuracy</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Precision and Accuracy</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Atomic Mass Units:</strong> Based on carbon-12 standard</li>
               <li><strong>Isotopic Composition:</strong> Natural abundance considered</li>
@@ -580,7 +580,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               <li><strong>Validation:</strong> Cross-check with literature values</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Calculation Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Calculation Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Formula Errors:</strong> Incorrect element symbols or counts</li>
               <li><strong>Atomic Weight Errors:</strong> Using wrong periodic table values</li>
@@ -590,7 +590,7 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               <li><strong>Rounding Errors:</strong> Over-precision or under-precision</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Polymer Chemistry:</strong> Calculate average molecular weights</li>
               <li><strong>Biochemistry:</strong> Protein and nucleic acid analysis</li>
@@ -600,8 +600,8 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
               <li><strong>Forensic Chemistry:</strong> Evidence analysis and identification</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-teal-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-teal-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Always verify your chemical formulas before calculating molecular weights. Double-check 
                 element symbols, subscripts, and parentheses placement. For complex compounds, break down 
@@ -616,3 +616,8 @@ Total Weight: ${formatNumber(result.totalWeight)} g/mol`
     </div>
   )
 }
+
+
+
+
+

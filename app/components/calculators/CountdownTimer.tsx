@@ -142,15 +142,15 @@ export default function CountdownTimer() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-50 to-purple-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
             <Clock className="w-16 h-16 mr-4 text-violet-600" />
             Countdown Timer
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Count down to important dates and events. Track multiple countdowns simultaneously and never miss a deadline or celebration.
           </p>
         </header>
@@ -158,8 +158,8 @@ export default function CountdownTimer() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Add Event Form */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <Calculator className="w-6 h-6 mr-2 text-violet-600" />
                 Add New Event
               </h2>
@@ -173,7 +173,7 @@ export default function CountdownTimer() {
                     type="text"
                     value={newEventName}
                     onChange={(e) => setNewEventName(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                     placeholder="New Year 2025"
                     title="Enter the name of your event"
                     aria-label="Event name"
@@ -188,7 +188,7 @@ export default function CountdownTimer() {
                     type="date"
                     value={newEventDate}
                     onChange={(e) => setNewEventDate(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                     title="Select the target date for your event"
                     aria-label="Target date"
                   />
@@ -202,7 +202,7 @@ export default function CountdownTimer() {
                     type="time"
                     value={newEventTime}
                     onChange={(e) => setNewEventTime(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
                     title="Select the target time for your event"
                     aria-label="Target time"
                   />
@@ -211,7 +211,7 @@ export default function CountdownTimer() {
                 <button
                   onClick={addEvent}
                   disabled={!newEventName || !newEventDate}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-violet-600 text-white rounded-lg hover:bg-violet-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-violet-600 text-white rounded-2xl hover:bg-violet-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
                   title="Add new countdown event"
                   aria-label="Add new countdown event"
                 >
@@ -222,8 +222,8 @@ export default function CountdownTimer() {
             </div>
 
             {/* Quick Presets */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Quick Presets</h3>
+            <div className="google-card overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Quick Presets</h3>
               <div className="space-y-2">
                 <button
                   onClick={() => {
@@ -231,7 +231,7 @@ export default function CountdownTimer() {
                     setNewEventDate(new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0])
                     setNewEventTime('09:00')
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: Birthday in 30 days"
                   aria-label="Set example: Birthday in 30 days"
                 >
@@ -243,7 +243,7 @@ export default function CountdownTimer() {
                     setNewEventDate(new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0])
                     setNewEventTime('08:00')
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: Vacation in 7 days"
                   aria-label="Set example: Vacation in 7 days"
                 >
@@ -255,7 +255,7 @@ export default function CountdownTimer() {
                     setNewEventDate(new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0])
                     setNewEventTime('17:00')
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: Project deadline in 14 days"
                   aria-label="Set example: Project deadline in 14 days"
                 >
@@ -267,8 +267,8 @@ export default function CountdownTimer() {
 
           {/* Countdown Events */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <TrendingUp className="w-6 h-6 mr-2 text-violet-600" />
                 Active Countdowns
               </h2>
@@ -290,15 +290,15 @@ export default function CountdownTimer() {
                                     event.timeRemaining.seconds === 0
                     
                     return (
-                      <div key={event.id} className={`border rounded-lg p-4 ${
+                      <div key={event.id} className={`border rounded-2xl p-4 ${
                         isExpired ? 'border-green-200 bg-green-50' : 'border-gray-200'
                       }`}>
                         <div className="flex items-center justify-between mb-3">
-                          <h3 className="font-semibold text-gray-800">{event.name}</h3>
+                          <h3 className="font-semibold text-google-text">{event.name}</h3>
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => toggleEvent(event.id)}
-                              className={`p-2 rounded ${event.isActive ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-600'}`}
+                              className={`p-2 rounded ${event.isActive ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-google-gray'}`}
                               title={event.isActive ? 'Pause countdown' : 'Resume countdown'}
                               aria-label={event.isActive ? 'Pause countdown' : 'Resume countdown'}
                             >
@@ -306,7 +306,7 @@ export default function CountdownTimer() {
                             </button>
                             <button
                               onClick={() => resetEvent(event.id)}
-                              className="p-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200"
+                              className="p-2 bg-blue-100 text-google-blue rounded hover:bg-blue-200"
                               title="Reset countdown"
                               aria-label="Reset countdown"
                             >
@@ -324,7 +324,7 @@ export default function CountdownTimer() {
                         </div>
                         
                         {/* Share Options - Moved to Top */}
-                        <div className="bg-white p-3 rounded-lg border border-gray-200 mb-3">
+                        <div className="bg-white p-3 rounded-2xl border border-gray-200 mb-3">
                           <ResultSharing
                             title="Countdown Timer Result"
                             inputs={[
@@ -343,7 +343,7 @@ export default function CountdownTimer() {
                         </div>
 
                         <div className="text-center mb-3">
-                          <div className="text-sm text-gray-600 mb-2">
+                          <div className="text-sm text-google-gray mb-2">
                             {event.targetDate} at {event.targetTime}
                           </div>
                           
@@ -353,25 +353,25 @@ export default function CountdownTimer() {
                             </div>
                           ) : (
                             <div className="grid grid-cols-4 gap-2">
-                              <div className="bg-violet-100 p-3 rounded-lg">
+                              <div className="bg-violet-100 p-3 rounded-2xl">
                                 <div className="text-2xl font-bold text-violet-600">
                                   {formatTime(event.timeRemaining.days)}
                                 </div>
                                 <div className="text-xs text-violet-600">Days</div>
                               </div>
-                              <div className="bg-blue-100 p-3 rounded-lg">
-                                <div className="text-2xl font-bold text-blue-600">
+                              <div className="bg-blue-100 p-3 rounded-2xl">
+                                <div className="text-2xl font-bold text-google-blue">
                                   {formatTime(event.timeRemaining.hours)}
                                 </div>
-                                <div className="text-xs text-blue-600">Hours</div>
+                                <div className="text-xs text-google-blue">Hours</div>
                               </div>
-                              <div className="bg-green-100 p-3 rounded-lg">
+                              <div className="bg-green-100 p-3 rounded-2xl">
                                 <div className="text-2xl font-bold text-green-600">
                                   {formatTime(event.timeRemaining.minutes)}
                                 </div>
                                 <div className="text-xs text-green-600">Minutes</div>
                               </div>
-                              <div className="bg-orange-100 p-3 rounded-lg">
+                              <div className="bg-orange-100 p-3 rounded-2xl">
                                 <div className="text-2xl font-bold text-orange-600">
                                   {formatTime(event.timeRemaining.seconds)}
                                 </div>
@@ -402,7 +402,7 @@ export default function CountdownTimer() {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                   title="Share countdown timer results"
                   aria-label="Share countdown timer results"
                 >
@@ -411,7 +411,7 @@ export default function CountdownTimer() {
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                   title="Download results as text file"
                   aria-label="Download countdown timer results"
                 >
@@ -420,7 +420,7 @@ export default function CountdownTimer() {
                 </button>
                 <button
                   onClick={handlePrint}
-                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                   title="Print countdown timer results"
                   aria-label="Print countdown timer results"
                 >
@@ -436,7 +436,7 @@ export default function CountdownTimer() {
         <div className="text-center mt-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
             title="Back to all calculators"
             aria-label="Back to all calculators"
           >
@@ -460,8 +460,8 @@ export default function CountdownTimer() {
       )}
 
       {/* Calculator Description Section */}
-      <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">About Countdown Timer</h3>
+      <div className="mt-8 p-6 google-result-card">
+        <h3 className="text-xl font-semibold text-google-text mb-4">About Countdown Timer</h3>
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 mb-4">
             Our comprehensive countdown timer helps you track time until important events, deadlines, 
@@ -470,7 +470,7 @@ export default function CountdownTimer() {
             occasions and deadlines.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Tracks</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">What It Tracks</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Time Remaining:</strong> Days, hours, minutes, and seconds until events</li>
             <li><strong>Event Management:</strong> Multiple countdown events with custom names</li>
@@ -480,10 +480,10 @@ export default function CountdownTimer() {
             <li><strong>Reminder System:</strong> Visual countdown for motivation</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Countdown Features</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Countdown Features</h4>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Time Display</h5>
+              <h5 className="font-semibold text-google-text mb-2">Time Display</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Days:</strong> Complete days remaining</li>
                 <li><strong>Hours:</strong> Hours within current day</li>
@@ -494,7 +494,7 @@ export default function CountdownTimer() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Event Management</h5>
+              <h5 className="font-semibold text-google-text mb-2">Event Management</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Custom Names:</strong> Personal event titles</li>
                 <li><strong>Date Selection:</strong> Target date picker</li>
@@ -506,27 +506,27 @@ export default function CountdownTimer() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
           <div className="grid md:grid-cols-4 gap-4 mb-4">
-            <div className="bg-violet-50 p-3 rounded-lg border border-violet-200">
+            <div className="bg-violet-50 p-3 rounded-2xl border border-violet-200">
               <h5 className="font-semibold text-violet-800 mb-1">Days</h5>
               <p className="text-violet-700 text-sm">Complete days remaining</p>
             </div>
-            <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
               <h5 className="font-semibold text-blue-800 mb-1">Hours</h5>
               <p className="text-blue-700 text-sm">Hours within day</p>
             </div>
-            <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
               <h5 className="font-semibold text-green-800 mb-1">Minutes</h5>
               <p className="text-green-700 text-sm">Minutes within hour</p>
             </div>
-            <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+            <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
               <h5 className="font-semibold text-orange-800 mb-1">Seconds</h5>
               <p className="text-orange-700 text-sm">Real-time countdown</p>
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
           <p className="text-gray-700 mb-4">
             Enter your event name, select the target date and time, then click "Add Event" to create 
             a countdown. Use quick presets for common events, or create custom countdowns for any 
@@ -534,8 +534,8 @@ export default function CountdownTimer() {
             and seconds remaining.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Use Cases</h4>
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+          <h4 className="text-lg font-semibold text-google-text mb-2">Common Use Cases</h4>
+          <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <p><strong>Personal Events:</strong></p>
@@ -562,7 +562,7 @@ export default function CountdownTimer() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Time Management Benefits</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Time Management Benefits</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Motivation:</strong> Visual countdown increases excitement and anticipation</li>
             <li><strong>Planning:</strong> Better preparation for upcoming events</li>
@@ -572,10 +572,10 @@ export default function CountdownTimer() {
             <li><strong>Productivity:</strong> Time awareness improves efficiency</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Progress Tracking Features</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Progress Tracking Features</h4>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Visual Elements</h5>
+              <h5 className="font-semibold text-google-text mb-2">Visual Elements</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Progress Bars:</strong> Visual representation of time remaining</li>
                 <li><strong>Color Coding:</strong> Different colors for different time units</li>
@@ -586,7 +586,7 @@ export default function CountdownTimer() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Data Management</h5>
+              <h5 className="font-semibold text-google-text mb-2">Data Management</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Event Storage:</strong> Save multiple countdown events</li>
                 <li><strong>Export Options:</strong> Download results as text files</li>
@@ -598,7 +598,7 @@ export default function CountdownTimer() {
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Countdown Psychology</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Countdown Psychology</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Anticipation Building:</strong> Countdowns increase excitement</li>
             <li><strong>Motivation Boost:</strong> Visual progress encourages action</li>
@@ -608,7 +608,7 @@ export default function CountdownTimer() {
             <li><strong>Celebration Planning:</strong> Time to prepare for special events</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Event Planning Integration</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Event Planning Integration</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Preparation Timeline:</strong> Plan tasks leading up to events</li>
             <li><strong>Milestone Tracking:</strong> Break large goals into smaller countdowns</li>
@@ -618,7 +618,7 @@ export default function CountdownTimer() {
             <li><strong>Success Metrics:</strong> Track progress toward objectives</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Countdown Best Practices</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Countdown Best Practices</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Set Realistic Deadlines:</strong> Allow adequate time for preparation</li>
             <li><strong>Break Down Large Goals:</strong> Create multiple countdowns for milestones</li>
@@ -628,7 +628,7 @@ export default function CountdownTimer() {
             <li><strong>Use for Motivation:</strong> Let countdowns inspire action, not stress</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Technical Features</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Technical Features</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Real-time Updates:</strong> Live countdown with second precision</li>
             <li><strong>Cross-platform:</strong> Works on desktop, tablet, and mobile</li>
@@ -638,8 +638,8 @@ export default function CountdownTimer() {
             <li><strong>Responsive Design:</strong> Optimized for all screen sizes</li>
           </ul>
           
-          <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-violet-500">
-            <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+          <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-violet-500">
+            <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
             <p className="text-gray-700 text-sm">
               Use countdown timers strategically to boost motivation and productivity. Create countdowns 
               for both short-term deadlines and long-term goals, breaking large projects into smaller 
@@ -654,3 +654,6 @@ export default function CountdownTimer() {
     </div>
   )
 }
+
+
+

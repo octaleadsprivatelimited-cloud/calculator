@@ -97,21 +97,21 @@ export default function InvestmentCalculator() {
   const projection = calculateYearlyProjection()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
             <TrendingUp className="w-12 h-12 mr-3 text-emerald-600" />
             Investment Calculator
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Calculate investment returns, compound interest, and future value
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
               <Calculator className="w-6 h-6 mr-2 text-emerald-600" />
               Investment Details
             </h2>
@@ -126,7 +126,7 @@ export default function InvestmentCalculator() {
                     type="number"
                     value={initialInvestment}
                     onChange={(e) => setInitialInvestment(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                     placeholder="10000"
                   />
                 </div>
@@ -141,7 +141,7 @@ export default function InvestmentCalculator() {
                     type="number"
                     value={monthlyContribution}
                     onChange={(e) => setMonthlyContribution(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                     placeholder="500"
                   />
                 </div>
@@ -156,7 +156,7 @@ export default function InvestmentCalculator() {
                   step="0.01"
                   value={annualReturn}
                   onChange={(e) => setAnnualReturn(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                   placeholder="8"
                 />
               </div>
@@ -168,7 +168,7 @@ export default function InvestmentCalculator() {
                 <select
                   value={years}
                   onChange={(e) => setYears(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                   aria-label="Investment period selection"
                   title="Select investment period in years"
                 >
@@ -189,7 +189,7 @@ export default function InvestmentCalculator() {
                 <select
                   value={contributionFrequency}
                   onChange={(e) => setContributionFrequency(e.target.value as any)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                   aria-label="Contribution frequency selection"
                   title="Select contribution frequency"
                 >
@@ -202,7 +202,7 @@ export default function InvestmentCalculator() {
               <div className="flex gap-3 pt-4">
                 <button
                   onClick={() => setShowProjection(!showProjection)}
-                  className="flex-1 bg-emerald-600 text-white py-3 px-6 rounded-lg hover:bg-emerald-700 transition-colors font-medium"
+                  className="flex-1 google-button-primary transition-colors font-medium"
                 >
                   {showProjection ? 'Hide' : 'Show'} Yearly Projection
                 </button>
@@ -214,7 +214,7 @@ export default function InvestmentCalculator() {
                     setYears('20')
                     setContributionFrequency('monthly')
                   }}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="google-button-secondary transition-colors font-medium"
                   title="Reset to defaults"
                 >
                   <RotateCcw className="w-5 h-5" />
@@ -225,7 +225,7 @@ export default function InvestmentCalculator() {
 
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Investment Calculation Result"
                 inputs={[
@@ -243,8 +243,8 @@ export default function InvestmentCalculator() {
               />
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                 <BarChart3 className="w-6 h-6 mr-2 text-emerald-600" />
                 Future Value
               </h2>
@@ -253,55 +253,55 @@ export default function InvestmentCalculator() {
                 <div className="text-4xl font-bold text-emerald-600">
                   {formatCurrency(result.futureValue)}
                 </div>
-                <p className="text-gray-600">after {result.years} years</p>
+                <p className="text-google-gray">after {result.years} years</p>
               </div>
 
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Initial Investment</span>
+                  <span className="text-google-gray">Initial Investment</span>
                   <span className="font-semibold">{formatCurrency(parseFloat(initialInvestment))}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Total Contributions</span>
+                  <span className="text-google-gray">Total Contributions</span>
                   <span className="font-semibold">{formatCurrency(result.totalContribution - parseFloat(initialInvestment))}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Interest Earned</span>
+                  <span className="text-google-gray">Interest Earned</span>
                   <span className="font-semibold text-emerald-600">{formatCurrency(result.totalInterest)}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Total Investment</span>
-                  <span className="font-semibold text-blue-600">{formatCurrency(result.totalContribution)}</span>
+                  <span className="text-google-gray">Total Investment</span>
+                  <span className="font-semibold text-google-blue">{formatCurrency(result.totalContribution)}</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Investment Summary</h2>
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Investment Summary</h2>
               
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Annual Return</span>
+                  <span className="text-google-gray">Annual Return</span>
                   <span className="font-semibold">{formatPercent(result.annualReturn)}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Investment Period</span>
+                  <span className="text-google-gray">Investment Period</span>
                   <span className="font-semibold">{result.years} years</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Monthly Contribution</span>
+                  <span className="text-google-gray">Monthly Contribution</span>
                   <span className="font-semibold">{formatCurrency(result.monthlyContribution)}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Contribution Frequency</span>
+                  <span className="text-google-gray">Contribution Frequency</span>
                   <span className="font-semibold capitalize">{contributionFrequency}</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Investment Tips</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Investment Tips</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Start early</strong> to benefit from compound interest</p>
                 <p>• <strong>Consistent contributions</strong> build wealth over time</p>
                 <p>• <strong>Diversify</strong> your investment portfolio</p>
@@ -312,8 +312,8 @@ export default function InvestmentCalculator() {
         </div>
 
         {showProjection && (
-          <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Yearly Projection</h2>
+          <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6">Yearly Projection</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -348,5 +348,9 @@ export default function InvestmentCalculator() {
     </div>
   )
 }
+
+
+
+
 
 

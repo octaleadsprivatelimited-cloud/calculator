@@ -158,14 +158,9 @@ export default function OverweightCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4">
-        <div className="flex items-center">
-          <Scale className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Overweight Calculator</h2>
-        </div>
-        <p className="text-orange-100 mt-1">Calculate BMI and assess weight-related health risks</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -178,7 +173,7 @@ export default function OverweightCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="google-input"
                 placeholder="Enter weight"
                 aria-label="Weight in pounds"
               />
@@ -191,7 +186,7 @@ export default function OverweightCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="google-input"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -207,7 +202,7 @@ export default function OverweightCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="google-input"
                 placeholder="Enter age"
                 aria-label="Age in years"
               />
@@ -219,7 +214,7 @@ export default function OverweightCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -231,14 +226,14 @@ export default function OverweightCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -249,7 +244,7 @@ export default function OverweightCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-orange-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Overweight Assessment Result"
                 inputs={[
@@ -267,7 +262,7 @@ export default function OverweightCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-orange-800 mb-2">BMI Results</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-orange-600 mb-2">
@@ -282,7 +277,7 @@ export default function OverweightCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-orange-800 mb-3">Weight Analysis</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -327,7 +322,7 @@ export default function OverweightCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-orange-50 rounded-lg border border-orange-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-orange-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -340,7 +335,7 @@ export default function OverweightCalculator() {
               </div>
             )}
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">💡 Health Tips</h3>
               <div className="text-sm text-blue-700">
                 • BMI is a screening tool, not a diagnostic measure<br/>
@@ -353,8 +348,8 @@ export default function OverweightCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Overweight Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Overweight Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive Overweight Calculator helps individuals assess their weight status and 
@@ -363,7 +358,7 @@ export default function OverweightCalculator() {
               and maintaining a healthy weight through sustainable lifestyle changes.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Body Mass Index (BMI):</strong> Weight-to-height ratio assessment</li>
               <li><strong>Weight Categories:</strong> Underweight, normal, overweight, obese classifications</li>
@@ -373,10 +368,10 @@ export default function OverweightCalculator() {
               <li><strong>Body Fat Estimation:</strong> Approximate body fat percentage</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">BMI Categories and Health Implications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">BMI Categories and Health Implications</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Normal Weight Range</h5>
+                <h5 className="font-semibold text-google-text mb-2">Normal Weight Range</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>BMI 18.5-24.9:</strong> Healthy weight range</li>
                   <li><strong>Health Benefits:</strong> Lower risk of chronic diseases</li>
@@ -387,7 +382,7 @@ export default function OverweightCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Overweight Categories</h5>
+                <h5 className="font-semibold text-google-text mb-2">Overweight Categories</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>BMI 25-29.9:</strong> Overweight (Class I)</li>
                   <li><strong>BMI 30-34.9:</strong> Obese (Class I)</li>
@@ -399,27 +394,27 @@ export default function OverweightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">BMI Score</h5>
                 <p className="text-orange-700 text-sm">Weight-to-height ratio</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Category</h5>
                 <p className="text-blue-700 text-sm">Weight classification</p>
               </div>
-              <div className="bg-red-50 p-3 rounded-lg border border-red-200">
+              <div className="bg-red-50 p-3 rounded-2xl border border-red-200">
                 <h5 className="font-semibold text-red-800 mb-1">Risk Level</h5>
                 <p className="text-red-700 text-sm">Health risk assessment</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Ideal Range</h5>
                 <p className="text-green-700 text-sm">Healthy weight targets</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your weight in pounds, height in feet or centimeters, age, and gender. The calculator 
               will automatically compute your BMI, classify your weight status, assess health risks, and 
@@ -427,8 +422,8 @@ export default function OverweightCalculator() {
               lifestyle changes.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Health Risk Factors</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Health Risk Factors</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Cardiovascular Risks:</strong></p>
@@ -451,10 +446,10 @@ export default function OverweightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Weight Management Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Weight Management Strategies</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Nutrition Guidelines</h5>
+                <h5 className="font-semibold text-google-text mb-2">Nutrition Guidelines</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Calorie Balance:</strong> Create moderate calorie deficit</li>
                   <li><strong>Macronutrients:</strong> Balanced protein, carbs, and fats</li>
@@ -465,7 +460,7 @@ export default function OverweightCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Physical Activity</h5>
+                <h5 className="font-semibold text-google-text mb-2">Physical Activity</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Cardiovascular:</strong> 150+ minutes moderate activity weekly</li>
                   <li><strong>Strength Training:</strong> 2-3 sessions per week</li>
@@ -477,7 +472,7 @@ export default function OverweightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Behavioral Changes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Behavioral Changes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Goal Setting:</strong> Realistic, achievable targets</li>
               <li><strong>Self-Monitoring:</strong> Track food intake and activity</li>
@@ -487,8 +482,8 @@ export default function OverweightCalculator() {
               <li><strong>Professional Help:</strong> Consider counseling if needed</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">BMI Limitations</h4>
-            <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">BMI Limitations</h4>
+            <div className="bg-yellow-50 p-4 rounded-2xl border border-yellow-200 mb-4">
               <h5 className="font-semibold text-yellow-800 mb-2">Important Considerations</h5>
               <ul className="list-disc list-inside text-yellow-700 space-y-1 text-sm">
                 <li><strong>Muscle Mass:</strong> Athletes may have high BMI due to muscle</li>
@@ -500,26 +495,26 @@ export default function OverweightCalculator() {
               </ul>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Alternative Health Metrics</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Alternative Health Metrics</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Waist Circumference</h5>
                 <p className="text-blue-700 text-sm">Abdominal fat indicator</p>
-                <p className="text-blue-600 text-xs mt-1">Men: &lt;40", Women: &lt;35"</p>
+                <p className="text-google-blue text-xs mt-1">Men: &lt;40", Women: &lt;35"</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Waist-to-Hip Ratio</h5>
                 <p className="text-green-700 text-sm">Body fat distribution</p>
                 <p className="text-green-600 text-xs mt-1">Men: &lt;0.9, Women: &lt;0.85</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Body Fat Percentage</h5>
                 <p className="text-purple-700 text-sm">Direct fat measurement</p>
                 <p className="text-purple-600 text-xs mt-1">Men: 10-20%, Women: 18-28%</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Seek Professional Help</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Seek Professional Help</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Medical Conditions:</strong> Underlying health issues</li>
               <li><strong>Rapid Weight Changes:</strong> Unexplained weight gain/loss</li>
@@ -529,10 +524,10 @@ export default function OverweightCalculator() {
               <li><strong>Age Considerations:</strong> Special needs for elderly</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Sustainable Weight Loss</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Sustainable Weight Loss</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Realistic Expectations</h5>
+                <h5 className="font-semibold text-google-text mb-2">Realistic Expectations</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Rate:</strong> 1-2 pounds per week</li>
                   <li><strong>Timeline:</strong> Long-term commitment needed</li>
@@ -543,7 +538,7 @@ export default function OverweightCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Success Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Success Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Consistency:</strong> Daily healthy habits</li>
                   <li><strong>Patience:</strong> Results take time</li>
@@ -555,7 +550,7 @@ export default function OverweightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Prevention Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Prevention Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Regular Monitoring:</strong> Check weight and measurements</li>
               <li><strong>Early Intervention:</strong> Address weight gain promptly</li>
@@ -565,8 +560,8 @@ export default function OverweightCalculator() {
               <li><strong>Health Education:</strong> Stay informed about nutrition</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-orange-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that BMI is just one tool for health assessment. Focus on overall health rather 
                 than just the number on the scale. Sustainable weight management comes from creating healthy 
@@ -582,3 +577,8 @@ export default function OverweightCalculator() {
     </div>
   )
 }
+
+
+
+
+

@@ -196,21 +196,21 @@ export default function AreaCalculator() {
   const requiredFields = getRequiredFields()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
             <Square className="w-12 h-12 mr-3 text-emerald-600" />
             Area Calculator
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Calculate areas of various geometric shapes
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
               <Calculator className="w-6 h-6 mr-2 text-emerald-600" />
               Shape & Dimensions
             </h2>
@@ -223,7 +223,7 @@ export default function AreaCalculator() {
                 <select
                   value={selectedShape}
                   onChange={(e) => setSelectedShape(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                   aria-label="Shape selection"
                   title="Select geometric shape"
                 >
@@ -248,7 +248,7 @@ export default function AreaCalculator() {
                 <select
                   value={units}
                   onChange={(e) => setUnits(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                   aria-label="Unit selection"
                   title="Select measurement unit"
                 >
@@ -275,7 +275,7 @@ export default function AreaCalculator() {
                         type="number"
                         value={dimensions.length}
                         onChange={(e) => setDimensions({...dimensions, length: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                         placeholder="0"
                         step="any"
                         title="Enter length"
@@ -293,7 +293,7 @@ export default function AreaCalculator() {
                         type="number"
                         value={dimensions.width}
                         onChange={(e) => setDimensions({...dimensions, width: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                         placeholder="0"
                         step="any"
                         title="Enter width"
@@ -311,7 +311,7 @@ export default function AreaCalculator() {
                         type="number"
                         value={dimensions.height}
                         onChange={(e) => setDimensions({...dimensions, height: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                         placeholder="0"
                         step="any"
                         title="Enter height"
@@ -329,7 +329,7 @@ export default function AreaCalculator() {
                         type="number"
                         value={dimensions.radius}
                         onChange={(e) => setDimensions({...dimensions, radius: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                         placeholder="0"
                         step="any"
                         title="Enter radius"
@@ -347,7 +347,7 @@ export default function AreaCalculator() {
                         type="number"
                         value={dimensions.base}
                         onChange={(e) => setDimensions({...dimensions, base: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                         placeholder="0"
                         step="any"
                         title="Enter base"
@@ -365,7 +365,7 @@ export default function AreaCalculator() {
                         type="number"
                         value={dimensions.side1}
                         onChange={(e) => setDimensions({...dimensions, side1: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                         placeholder="0"
                         step="any"
                         title="Enter side 1"
@@ -383,7 +383,7 @@ export default function AreaCalculator() {
                         type="number"
                         value={dimensions.side2}
                         onChange={(e) => setDimensions({...dimensions, side2: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                         placeholder="0"
                         step="any"
                         title="Enter side 2"
@@ -401,7 +401,7 @@ export default function AreaCalculator() {
                         type="number"
                         value={dimensions.side3}
                         onChange={(e) => setDimensions({...dimensions, side3: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                         placeholder="0"
                         step="any"
                         title="Enter side 3"
@@ -419,7 +419,7 @@ export default function AreaCalculator() {
                         type="number"
                         value={dimensions.diagonal}
                         onChange={(e) => setDimensions({...dimensions, diagonal: e.target.value})}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                         placeholder="0"
                         step="any"
                         title="Enter diagonal"
@@ -433,7 +433,7 @@ export default function AreaCalculator() {
               <div className="flex gap-3 pt-4">
                 <button
                   onClick={reset}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="google-button-secondary transition-colors font-medium"
                   title="Reset to defaults"
                 >
                   <RotateCcw className="w-5 h-5" />
@@ -444,7 +444,7 @@ export default function AreaCalculator() {
 
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
               <ResultSharing
                 title="Area Calculation Result"
                 inputs={[
@@ -462,8 +462,8 @@ export default function AreaCalculator() {
               />
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                 <Ruler className="w-6 h-6 mr-2 text-emerald-600" />
                 Calculation Results
               </h2>
@@ -472,33 +472,33 @@ export default function AreaCalculator() {
                 <div className="text-4xl font-bold text-emerald-600 mb-2">
                   {result.area}
                 </div>
-                <p className="text-gray-600">square {units}</p>
+                <p className="text-google-gray">square {units}</p>
               </div>
 
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Shape</span>
+                  <span className="text-google-gray">Shape</span>
                   <span className="font-semibold capitalize">
                     {selectedShape.replace('-', ' ')}
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Area</span>
+                  <span className="text-google-gray">Area</span>
                   <span className="font-semibold text-emerald-600">
                     {result.area} {units}²
                   </span>
                 </div>
                 {result.perimeter && (
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Perimeter</span>
-                    <span className="font-semibold text-blue-600">
+                    <span className="text-google-gray">Perimeter</span>
+                    <span className="font-semibold text-google-blue">
                       {result.perimeter} {units}
                     </span>
                   </div>
                 )}
                 {result.circumference && (
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">Circumference</span>
+                    <span className="text-google-gray">Circumference</span>
                     <span className="font-semibold text-purple-600">
                       {result.circumference} {units}
                     </span>
@@ -507,10 +507,10 @@ export default function AreaCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Shape Information</h2>
-              <div className="space-y-3 text-sm text-gray-600">
-                <p className="font-semibold text-gray-800">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Shape Information</h2>
+              <div className="space-y-3 text-sm text-google-gray">
+                <p className="font-semibold text-google-text">
                   {selectedShape.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
                 </p>
                 <p>{getShapeDescription()}</p>
@@ -520,9 +520,9 @@ export default function AreaCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Area Tips</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Area Tips</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Rectangle/Square:</strong> Length × Width</p>
                 <p>• <strong>Circle:</strong> π × Radius²</p>
                 <p>• <strong>Triangle:</strong> ½ × Base × Height</p>
@@ -539,4 +539,7 @@ export default function AreaCalculator() {
     </div>
   )
 }
+
+
+
 

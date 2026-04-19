@@ -6,7 +6,7 @@
 // 2. Add the sharing component after your results section:
 //
 // {/* Result Sharing Component */}
-// <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+// <div className="p-4 google-result-card">
 //   <ResultSharing
 //     title="Calculator Result Title"
 //     inputs={[
@@ -27,7 +27,7 @@
 // 3. Example for a simple calculator:
 //
 // {/* Result Sharing Component */}
-// <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+// <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
 //   <ResultSharing
 //     title="Simple Calculation Result"
 //     inputs={[
@@ -48,7 +48,7 @@
 // 4. Example for a financial calculator:
 //
 // {/* Result Sharing Component */}
-// <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+// <div className="p-4 google-result-card">
 //   <ResultSharing
 //     title="Financial Calculation Result"
 //     inputs={[
@@ -69,7 +69,7 @@
 // 5. Example for a health calculator:
 //
 // {/* Result Sharing Component */}
-// <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+// <div className="p-4 google-result-card">
 //   <ResultSharing
 //     title="Health Calculation Result"
 //     inputs={[
@@ -89,7 +89,7 @@
 //
 // KEY POINTS:
 // - Always place the sharing component AFTER your results display
-// - Use appropriate background colors (bg-blue-50, bg-green-50, etc.)
+// - Use appropriate background colors (bg-google-blueLight, bg-green-50, etc.)
 // - Include ALL relevant inputs that were used in the calculation
 // - Make the result label descriptive and clear
 // - Use the exact calculator name for branding
@@ -101,3 +101,5 @@
 // ✅ PDF download
 // ✅ Copy to clipboard
 // ✅ All formats include website URL and branding
+
+

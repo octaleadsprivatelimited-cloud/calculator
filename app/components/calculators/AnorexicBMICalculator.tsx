@@ -143,14 +143,9 @@ export default function AnorexicBMICalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-red-500 to-pink-500 px-6 py-4">
-        <div className="flex items-center">
-          <AlertTriangle className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Anorexic BMI Calculator</h2>
-        </div>
-        <p className="text-red-100 mt-1">Calculate BMI and assess underweight risk levels</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -163,7 +158,7 @@ export default function AnorexicBMICalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="Enter weight"
                 aria-label="Weight in pounds"
               />
@@ -176,7 +171,7 @@ export default function AnorexicBMICalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -192,7 +187,7 @@ export default function AnorexicBMICalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 placeholder="Enter age"
                 aria-label="Age in years"
               />
@@ -204,7 +199,7 @@ export default function AnorexicBMICalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="female">Female</option>
@@ -216,14 +211,14 @@ export default function AnorexicBMICalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -233,7 +228,7 @@ export default function AnorexicBMICalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-red-50 rounded-lg border border-red-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-red-800 mb-2">BMI Results</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-red-600 mb-2">
@@ -248,7 +243,7 @@ export default function AnorexicBMICalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-red-50 rounded-lg border border-red-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-red-800 mb-3">Weight Analysis</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -279,7 +274,7 @@ export default function AnorexicBMICalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-red-50 rounded-lg border border-red-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-red-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -292,7 +287,7 @@ export default function AnorexicBMICalculator() {
               </div>
             )}
 
-            <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-yellow-800 mb-2">⚠️ Important Notice</h3>
               <div className="text-sm text-yellow-700">
                 This calculator is for educational purposes only. If you or someone you know is struggling with 
@@ -306,3 +301,6 @@ export default function AnorexicBMICalculator() {
     </div>
   )
 }
+
+
+

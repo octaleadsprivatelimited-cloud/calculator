@@ -56,53 +56,48 @@ export default function BudgetCalculator() {
   const result = showResults ? calculateBudget() : { totalExpenses: 0, remaining: 0, percentages: { housing: 0, transportation: 0, food: 0, utilities: 0, entertainment: 0 }, recommendations: [] }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
-        <div className="flex items-center">
-          <PieChart className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Budget Calculator</h2>
-        </div>
-        <p className="text-blue-100 mt-1">50/30/20 budget rule calculator</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Monthly Income ()</label>
-            <input type="number" value={income} onChange={(e) => setIncome(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter income" step="100" />
+            <input type="number" value={income} onChange={(e) => setIncome(e.target.value)} className="google-input" placeholder="Enter income" step="100" />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Housing ()</label>
-              <input type="number" value={housing} onChange={(e) => setHousing(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Rent/mortgage" step="100" />
+              <input type="number" value={housing} onChange={(e) => setHousing(e.target.value)} className="google-input" placeholder="Rent/mortgage" step="100" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Transportation ()</label>
-              <input type="number" value={transportation} onChange={(e) => setTransportation(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Car/gas/transit" step="50" />
+              <input type="number" value={transportation} onChange={(e) => setTransportation(e.target.value)} className="google-input" placeholder="Car/gas/transit" step="50" />
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Food ()</label>
-              <input type="number" value={food} onChange={(e) => setFood(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Groceries" step="50" />
+              <input type="number" value={food} onChange={(e) => setFood(e.target.value)} className="google-input" placeholder="Groceries" step="50" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Utilities ()</label>
-              <input type="number" value={utilities} onChange={(e) => setUtilities(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Electric/water" step="50" />
+              <input type="number" value={utilities} onChange={(e) => setUtilities(e.target.value)} className="google-input" placeholder="Electric/water" step="50" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Entertainment ()</label>
-              <input type="number" value={entertainment} onChange={(e) => setEntertainment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Fun money" step="50" />
+              <input type="number" value={entertainment} onChange={(e) => setEntertainment(e.target.value)} className="google-input" placeholder="Fun money" step="50" />
             </div>
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 bg-google-blueLight0 hover:bg-google-blue text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -110,15 +105,15 @@ export default function BudgetCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Budget Summary</h3>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">${result.remaining.toFixed(2)}</div>
+                <div className="text-3xl font-bold text-google-blue mb-2">${result.remaining.toFixed(2)}</div>
                 <div className="text-blue-700">Remaining after expenses</div>
               </div>
             </div>
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-3">Expense Breakdown</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-blue-700">Housing:</span><span className="font-semibold text-blue-800">{result.percentages.housing?.toFixed(1)}%</span></div>
@@ -136,12 +131,12 @@ export default function BudgetCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
                 <h3 className="text-lg font-semibold text-blue-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
                     <div key={index} className="flex items-start">
-                      <span className="text-blue-600 mr-2">•</span>
+                      <span className="text-google-blue mr-2">•</span>
                       <span className="text-blue-700">{rec}</span>
                     </div>
                   ))}
@@ -152,8 +147,8 @@ export default function BudgetCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Budget Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Budget Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive budget calculator helps you create and maintain a balanced monthly budget using 
@@ -162,7 +157,7 @@ export default function BudgetCalculator() {
               for your future goals.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Expense Percentages:</strong> How much of your income goes to each category</li>
               <li><strong>Budget Balance:</strong> Remaining income after all expenses</li>
@@ -172,10 +167,10 @@ export default function BudgetCalculator() {
               <li><strong>Financial Health Assessment:</strong> Overall budget evaluation</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">The 50/30/20 Budget Rule</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">The 50/30/20 Budget Rule</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">50% - Needs</h5>
+                <h5 className="font-semibold text-google-text mb-2">50% - Needs</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Housing (rent/mortgage)</li>
                   <li>Transportation</li>
@@ -186,7 +181,7 @@ export default function BudgetCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">30% - Wants</h5>
+                <h5 className="font-semibold text-google-text mb-2">30% - Wants</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Entertainment</li>
                   <li>Dining out</li>
@@ -197,7 +192,7 @@ export default function BudgetCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">20% - Savings</h5>
+                <h5 className="font-semibold text-google-text mb-2">20% - Savings</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Emergency fund</li>
                   <li>Retirement savings</li>
@@ -209,30 +204,30 @@ export default function BudgetCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Budget Summary</h5>
                 <p className="text-blue-700 text-sm">Remaining income</p>
               </div>
-              <div className="bg-cyan-50 p-3 rounded-lg border border-cyan-200">
+              <div className="bg-cyan-50 p-3 rounded-2xl border border-cyan-200">
                 <h5 className="font-semibold text-cyan-800 mb-1">Expense Breakdown</h5>
                 <p className="text-cyan-700 text-sm">Category percentages</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Recommendations</h5>
                 <p className="text-green-700 text-sm">Improvement suggestions</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your monthly income and current expenses for housing, transportation, food, utilities, and 
               entertainment. The calculator will analyze your spending patterns and provide personalized 
               recommendations to help you achieve a balanced budget.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budget Categories Explained</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Budget Categories Explained</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Housing:</strong> Rent, mortgage, property taxes, insurance, maintenance</li>
               <li><strong>Transportation:</strong> Car payments, gas, insurance, public transit, maintenance</li>
@@ -241,8 +236,8 @@ export default function BudgetCalculator() {
               <li><strong>Entertainment:</strong> Movies, dining out, hobbies, recreation, non-essential items</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budgeting Best Practices</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Budgeting Best Practices</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Track Everything:</strong></p>
@@ -265,7 +260,7 @@ export default function BudgetCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Budgeting Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Budgeting Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Unrealistic Expectations:</strong> Setting budgets too low for essential expenses</li>
               <li><strong>Forgetting Irregular Expenses:</strong> Annual costs like insurance and taxes</li>
@@ -275,7 +270,7 @@ export default function BudgetCalculator() {
               <li><strong>Not Adjusting:</strong> Failing to review and modify budgets regularly</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budgeting Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Budgeting Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Zero-Based Budgeting:</strong> Every dollar has a specific purpose</li>
               <li><strong>Envelope Method:</strong> Physical cash for different categories</li>
@@ -285,7 +280,7 @@ export default function BudgetCalculator() {
               <li><strong>Regular Reviews:</strong> Monthly budget check-ins</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Saving Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Saving Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Emergency Fund:</strong> 3-6 months of essential expenses</li>
               <li><strong>Retirement Savings:</strong> 10-15% of income for retirement</li>
@@ -295,7 +290,7 @@ export default function BudgetCalculator() {
               <li><strong>Financial Goals:</strong> Vacation, education, business startup</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budgeting Tools and Resources</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Budgeting Tools and Resources</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Budgeting Apps:</strong> Mint, YNAB, Personal Capital</li>
               <li><strong>Spreadsheets:</strong> Excel, Google Sheets templates</li>
@@ -305,7 +300,7 @@ export default function BudgetCalculator() {
               <li><strong>Community Support:</strong> Budgeting groups and forums</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Budgeting for Different Life Stages</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Budgeting for Different Life Stages</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Young Adults:</strong> Focus on building emergency fund and reducing debt</li>
               <li><strong>Families:</strong> Include childcare, education, and family activities</li>
@@ -314,8 +309,8 @@ export default function BudgetCalculator() {
               <li><strong>Retirement:</strong> Focus on income generation and healthcare costs</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Start budgeting with your current spending patterns rather than trying to implement the perfect 
                 budget immediately. Track your expenses for a month to see where your money actually goes, then 
@@ -330,4 +325,9 @@ export default function BudgetCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

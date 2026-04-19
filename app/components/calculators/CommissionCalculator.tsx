@@ -61,41 +61,36 @@ export default function CommissionCalculator() {
   const result = showResults ? calculateCommission() : { commission: 0, netAmount: 0, recommendations: [], details: { sale: 0, rate: 0, type: '' } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4">
-        <div className="flex items-center">
-          <Percent className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Commission Calculator</h2>
-        </div>
-        <p className="text-purple-100 mt-1">Calculate sales commissions and net amounts</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Sale Amount ()</label>
-              <input type="number" value={saleAmount} onChange={(e) => setSaleAmount(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Enter amount" step="100" />
+              <input type="number" value={saleAmount} onChange={(e) => setSaleAmount(e.target.value)} className="google-input" placeholder="Enter amount" step="100" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Commission</label>
-              <input type="number" value={commissionRate} onChange={(e) => setCommissionRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Enter rate/amount" step="0.1" />
+              <input type="number" value={commissionRate} onChange={(e) => setCommissionRate(e.target.value)} className="google-input" placeholder="Enter rate/amount" step="0.1" />
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Commission Type</label>
-            <select value={commissionType} onChange={(e) => setCommissionType(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" aria-label="Select commission type">
+            <select value={commissionType} onChange={(e) => setCommissionType(e.target.value)} className="google-input" aria-label="Select commission type">
               <option value="percentage">Percentage (%)</option>
               <option value="fixed">Fixed Amount ()</option>
             </select>
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -103,7 +98,7 @@ export default function CommissionCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-purple-800 mb-2">Commission</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-600 mb-2">${result.commission?.toFixed(2)}</div>
@@ -111,7 +106,7 @@ export default function CommissionCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-purple-800 mb-3">Transaction Summary</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-purple-700">Sale Amount:</span><span className="font-semibold text-purple-800">${result.details.sale?.toLocaleString()}</span></div>
@@ -126,7 +121,7 @@ export default function CommissionCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-purple-800 mb-3">Breakdown</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -142,8 +137,8 @@ export default function CommissionCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Commission Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Commission Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive commission calculator helps sales professionals, business owners, and managers 
@@ -152,7 +147,7 @@ export default function CommissionCalculator() {
               essential calculations to help you understand earnings and make informed business decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Commission Amount:</strong> Total commission earned on the sale</li>
               <li><strong>Net Amount:</strong> Sale proceeds after commission deduction</li>
@@ -162,10 +157,10 @@ export default function CommissionCalculator() {
               <li><strong>Profitability Assessment:</strong> Impact on business margins</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Commission Types</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Commission Types</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Percentage-Based Commissions</h5>
+                <h5 className="font-semibold text-google-text mb-2">Percentage-Based Commissions</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Commission varies with sale amount</li>
                   <li>Common in real estate and sales</li>
@@ -176,7 +171,7 @@ export default function CommissionCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Fixed Amount Commissions</h5>
+                <h5 className="font-semibold text-google-text mb-2">Fixed Amount Commissions</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Set commission regardless of sale size</li>
                   <li>Common in service industries</li>
@@ -188,30 +183,30 @@ export default function CommissionCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Commission</h5>
                 <p className="text-purple-700 text-sm">Amount earned</p>
               </div>
-              <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+              <div className="bg-pink-50 p-3 rounded-2xl border border-pink-200">
                 <h5 className="font-semibold text-pink-800 mb-1">Net Amount</h5>
                 <p className="text-pink-700 text-sm">Proceeds after commission</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Effective Rate</h5>
                 <p className="text-green-700 text-sm">Commission percentage</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the sale amount and commission rate or amount. Choose between percentage-based or fixed 
               amount commissions, then click calculate to see your commission earnings, net proceeds, and 
               complete transaction breakdown.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Commission Structures</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Commission Structures</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Real Estate:</strong> 5-6% of sale price (split between agents)</li>
               <li><strong>Car Sales:</strong> 20-30% of gross profit per vehicle</li>
@@ -221,8 +216,8 @@ export default function CommissionCalculator() {
               <li><strong>Consulting:</strong> 10-25% of project value</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Commission Rate Guidelines</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Commission Rate Guidelines</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Low Commission (2-8%):</strong></p>
@@ -245,7 +240,7 @@ export default function CommissionCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Commission Rates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Commission Rates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Product Margins:</strong> Higher margins allow higher commissions</li>
               <li><strong>Sales Difficulty:</strong> Complex sales justify higher rates</li>
@@ -255,7 +250,7 @@ export default function CommissionCalculator() {
               <li><strong>Industry Standards:</strong> Market norms influence commission structures</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Commission vs. Salary Structures</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Commission vs. Salary Structures</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Pure Commission:</strong> 100% performance-based earnings</li>
               <li><strong>Base + Commission:</strong> Guaranteed salary plus performance bonus</li>
@@ -265,7 +260,7 @@ export default function CommissionCalculator() {
               <li><strong>Residual Commissions:</strong> Ongoing payments for repeat business</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Commission Calculation Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Commission Calculation Methods</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Straight Percentage:</strong> Fixed rate on total sale amount</li>
               <li><strong>Tiered Commissions:</strong> Different rates for different sale levels</li>
@@ -275,7 +270,7 @@ export default function CommissionCalculator() {
               <li><strong>Performance Multipliers:</strong> Rate adjustments based on metrics</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Commission Management Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Commission Management Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Set Clear Expectations:</strong> Define commission structure upfront</li>
               <li><strong>Document Everything:</strong> Keep detailed records of all sales</li>
@@ -285,7 +280,7 @@ export default function CommissionCalculator() {
               <li><strong>Legal Compliance:</strong> Follow labor laws and regulations</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Commission Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Commission Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Unclear Structure:</strong> Vague commission terms lead to disputes</li>
               <li><strong>Inconsistent Application:</strong> Different rates for similar sales</li>
@@ -295,8 +290,8 @@ export default function CommissionCalculator() {
               <li><strong>No Performance Reviews:</strong> Failing to adjust rates as needed</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-purple-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When designing commission structures, consider both the salesperson's motivation and your 
                 business profitability. A well-balanced commission structure should incentivize the behaviors 
@@ -312,4 +307,9 @@ export default function CommissionCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

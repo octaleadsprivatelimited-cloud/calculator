@@ -35,7 +35,7 @@ export default function GravelCalculator() {
   const gravel = showResults ? calculateGravel() : null
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-gray-600 to-slate-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -54,7 +54,7 @@ export default function GravelCalculator() {
               type="number"
               value={length}
               onChange={(e) => setLength(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+              className="google-input"
               min="0"
               step="0.1"
               title="Enter length in feet"
@@ -66,7 +66,7 @@ export default function GravelCalculator() {
               type="number"
               value={width}
               onChange={(e) => setWidth(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+              className="google-input"
               min="0"
               step="0.1"
               title="Enter width in feet"
@@ -78,7 +78,7 @@ export default function GravelCalculator() {
               type="number"
               value={depth}
               onChange={(e) => setDepth(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+              className="google-input"
               min="1"
               max="12"
               title="Enter depth in inches"
@@ -89,7 +89,7 @@ export default function GravelCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Calculate Gravel Needs
           </button>
@@ -98,7 +98,7 @@ export default function GravelCalculator() {
         {showResults && gravel && (
           <>
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-6 rounded-lg border border-gray-200 mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 mb-4">
               <ResultSharing
                 title="Gravel Calculation Result"
                 inputs={[
@@ -116,28 +116,28 @@ export default function GravelCalculator() {
               />
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 text-center">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Gravel Calculation Results</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200 text-center">
+              <h3 className="text-xl font-semibold text-google-text mb-4">Gravel Calculation Results</h3>
             <div className="grid md:grid-cols-2 gap-4 mb-4">
               <div>
-                <div className="text-2xl font-bold text-gray-600">{gravel.area.toFixed(1)}</div>
-                <div className="text-sm text-gray-600">Square Feet</div>
+                <div className="text-2xl font-bold text-google-gray">{gravel.area.toFixed(1)}</div>
+                <div className="text-sm text-google-gray">Square Feet</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-gray-600">{gravel.volume.toFixed(1)}</div>
-                <div className="text-sm text-gray-600">Cubic Feet</div>
+                <div className="text-2xl font-bold text-google-gray">{gravel.volume.toFixed(1)}</div>
+                <div className="text-sm text-google-gray">Cubic Feet</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-gray-600">{gravel.cubicYards.toFixed(2)}</div>
-                <div className="text-sm text-gray-600">Cubic Yards</div>
+                <div className="text-2xl font-bold text-google-gray">{gravel.cubicYards.toFixed(2)}</div>
+                <div className="text-sm text-google-gray">Cubic Yards</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-gray-600">{gravel.tons.toFixed(1)}</div>
-                <div className="text-sm text-gray-600">Tons</div>
+                <div className="text-2xl font-bold text-google-gray">{gravel.tons.toFixed(1)}</div>
+                <div className="text-sm text-google-gray">Tons</div>
               </div>
             </div>
             <div className="mt-4">
-              <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+              <button onClick={handleReset} className="google-button-primary text-white px-4 py-2 rounded-2xl">
                 Reset
               </button>
             </div>
@@ -148,3 +148,7 @@ export default function GravelCalculator() {
     </div>
   )
 }
+
+
+
+

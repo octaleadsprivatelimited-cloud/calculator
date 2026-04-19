@@ -227,7 +227,7 @@ Energy Saving Tips:
   const result = showResults ? calculateElectricity() : { powerConsumption: 0, dailyEnergy: 0, monthlyEnergy: 0, yearlyEnergy: 0, dailyCost: 0, monthlyCost: 0, yearlyCost: 0, carbonFootprint: 0, efficiency: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -247,13 +247,13 @@ Energy Saving Tips:
       <div className="p-6">
         {/* Electricity Rate Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Electricity Rate</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Electricity Rate</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {ELECTRICITY_RATES.map((rate, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickRate(rate.rate)}
-                className="p-3 bg-indigo-50 hover:bg-indigo-100 rounded-lg border border-indigo-200 transition-colors text-sm text-center"
+                className="p-3 bg-indigo-50 hover:bg-indigo-100 rounded-2xl border border-indigo-200 transition-colors text-sm text-center"
               >
                 <div className="font-medium text-indigo-800">{rate.region}</div>
                 <div className="text-indigo-600">${rate.rate}/kWh</div>
@@ -269,7 +269,7 @@ Energy Saving Tips:
               type="number"
               value={customRate}
               onChange={(e) => setCustomRate(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="google-input"
               placeholder="0.14"
               min="0.01"
               max="1.00"
@@ -281,13 +281,13 @@ Energy Saving Tips:
 
         {/* Quick Appliance Presets */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Appliance Presets</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Appliance Presets</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {APPLIANCES.map((appliance, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickAppliance(appliance)}
-                className="p-4 bg-indigo-50 hover:bg-indigo-100 rounded-lg border border-indigo-200 transition-colors text-left"
+                className="p-4 bg-indigo-50 hover:bg-indigo-100 rounded-2xl border border-indigo-200 transition-colors text-left"
               >
                 <div className="font-semibold text-indigo-800">{appliance.name}</div>
                 <div className="text-sm text-indigo-600">{appliance.powerRating}W, {appliance.dailyUsage}h/day</div>
@@ -300,7 +300,7 @@ Energy Saving Tips:
 
         {/* Appliance Input Fields */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Appliance Details</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Appliance Details</h3>
           <div className="space-y-4">
             {appliances.map((appliance, index) => (
               <div key={index} className="grid md:grid-cols-3 gap-4 items-end">
@@ -312,7 +312,7 @@ Energy Saving Tips:
                     type="text"
                     value={appliance.name}
                     onChange={(e) => updateAppliance(index, 'name', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="google-input"
                     placeholder="e.g., Refrigerator"
                     aria-label={`Appliance ${index + 1} name`}
                   />
@@ -325,7 +325,7 @@ Energy Saving Tips:
                     type="number"
                     value={appliance.power}
                     onChange={(e) => updateAppliance(index, 'power', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="google-input"
                     placeholder="150"
                     min="1"
                     max="10000"
@@ -342,7 +342,7 @@ Energy Saving Tips:
                       type="number"
                       value={appliance.usage}
                       onChange={(e) => updateAppliance(index, 'usage', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="google-input"
                       placeholder="24"
                       min="0"
                       max="24"
@@ -353,7 +353,7 @@ Energy Saving Tips:
                   {appliances.length > 1 && (
                     <button
                       onClick={() => removeAppliance(index)}
-                      className="px-3 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors"
+                      className="px-3 py-2 google-button-primary text-white rounded-2xl transition-colors"
                       aria-label={`Remove appliance ${index + 1}`}
                     >
                       ×
@@ -364,7 +364,7 @@ Energy Saving Tips:
             ))}
             <button
               onClick={addAppliance}
-              className="w-full py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 rounded-lg transition-colors font-medium"
+              className="w-full py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 rounded-2xl transition-colors font-medium"
             >
               + Add Another Appliance
             </button>
@@ -373,10 +373,10 @@ Energy Saving Tips:
 
         {/* Energy Efficiency Tips */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Energy Efficiency Tips</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Energy Efficiency Tips</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {EFFICIENCY_TIPS.map((tip, index) => (
-              <div key={index} className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <div key={index} className="bg-green-50 p-4 rounded-2xl border border-green-200">
                 <div className="font-semibold text-green-800">{tip.tip}</div>
                 <div className="text-sm text-green-600">Save up to {tip.savings}%</div>
                 <div className="text-xs text-green-500 mt-1">{tip.description}</div>
@@ -390,7 +390,7 @@ Energy Saving Tips:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Electricity Usage</span>
@@ -402,7 +402,7 @@ Energy Saving Tips:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Electricity Calculation Result"
                 inputs={[
@@ -421,59 +421,59 @@ Energy Saving Tips:
             </div>
 
             {/* Energy Usage Results */}
-            <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+            <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-4">Energy Usage Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-indigo-700">{result.powerConsumption} W</div>
-                  <div className="text-sm text-gray-600">Total Power</div>
+                  <div className="text-sm text-google-gray">Total Power</div>
                   <div className="text-xs text-indigo-600">Peak consumption</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{formatNumber(result.dailyEnergy)} kWh</div>
-                  <div className="text-sm text-gray-600">Daily Energy</div>
+                  <div className="text-sm text-google-gray">Daily Energy</div>
                   <div className="text-xs text-green-600">24-hour usage</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.monthlyEnergy)} kWh</div>
-                  <div className="text-sm text-gray-600">Monthly Energy</div>
-                  <div className="text-xs text-blue-600">30-day average</div>
+                  <div className="text-sm text-google-gray">Monthly Energy</div>
+                  <div className="text-xs text-google-blue">30-day average</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{formatNumber(result.yearlyEnergy)} kWh</div>
-                  <div className="text-sm text-gray-600">Yearly Energy</div>
+                  <div className="text-sm text-google-gray">Yearly Energy</div>
                   <div className="text-xs text-purple-600">Annual total</div>
                 </div>
               </div>
             </div>
 
             {/* Cost Analysis */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Cost Analysis</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Cost Analysis</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Daily & Monthly Costs</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Daily & Monthly Costs</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Daily Cost:</span>
+                      <span className="text-google-gray">Daily Cost:</span>
                       <span className="font-semibold text-green-700">{formatCurrency(result.dailyCost)}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Monthly Cost:</span>
+                      <span className="text-google-gray">Monthly Cost:</span>
                       <span className="font-semibold text-blue-700">{formatCurrency(result.monthlyCost)}</span>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Annual & Environmental</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Annual & Environmental</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Yearly Cost:</span>
+                      <span className="text-google-gray">Yearly Cost:</span>
                       <span className="font-semibold text-purple-700">{formatCurrency(result.yearlyCost)}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Carbon Footprint:</span>
+                      <span className="text-google-gray">Carbon Footprint:</span>
                       <span className="font-semibold text-orange-700">{formatNumber(result.carbonFootprint)} lbs CO2</span>
                     </div>
                   </div>
@@ -482,11 +482,11 @@ Energy Saving Tips:
             </div>
 
             {/* Efficiency Rating */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Efficiency Analysis</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Efficiency Analysis</h3>
               <div className="text-center">
                 <div className="text-2xl font-bold text-indigo-700 mb-2">{result.efficiency}</div>
-                <div className="text-sm text-gray-600">Based on your total energy consumption</div>
+                <div className="text-sm text-google-gray">Based on your total energy consumption</div>
                 <div className="text-xs text-gray-500 mt-2">
                   {result.yearlyEnergy > 5000 ? 'Consider upgrading to energy-efficient appliances and implementing energy-saving practices.' :
                    result.yearlyEnergy > 3000 ? 'Your usage is moderate. Look for opportunities to reduce consumption during peak hours.' :
@@ -500,28 +500,28 @@ Energy Saving Tips:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -531,12 +531,12 @@ Energy Saving Tips:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
             <Info className="w-6 h-6 text-indigo-600 mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Electricity Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Electricity Calculator</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 This comprehensive electricity calculator helps you understand your power consumption, energy costs, and environmental impact. 
                 It calculates daily, monthly, and yearly energy usage based on appliance power ratings and daily usage patterns. 
                 The calculator provides cost analysis using current electricity rates and includes carbon footprint calculations. 
@@ -547,8 +547,8 @@ Energy Saving Tips:
         </div>
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Electricity Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Electricity Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive electricity calculator helps homeowners, businesses, and energy-conscious individuals 
@@ -557,7 +557,7 @@ Energy Saving Tips:
               sustainability assessment.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Power Consumption:</strong> Total watts and kilowatts used</li>
               <li><strong>Energy Usage:</strong> Daily, monthly, and yearly kilowatt-hours</li>
@@ -567,10 +567,10 @@ Energy Saving Tips:
               <li><strong>Appliance Analysis:</strong> Individual device power tracking</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Types</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Calculation Types</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Energy Consumption</h5>
+                <h5 className="font-semibold text-google-text mb-2">Energy Consumption</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Daily Usage:</strong> 24-hour energy consumption</li>
                   <li><strong>Monthly Usage:</strong> 30-day energy totals</li>
@@ -581,7 +581,7 @@ Energy Saving Tips:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Cost Analysis</h5>
+                <h5 className="font-semibold text-google-text mb-2">Cost Analysis</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Rate Variations:</strong> Different electricity pricing</li>
                   <li><strong>Time-of-Use:</strong> Peak vs. off-peak rates</li>
@@ -593,35 +593,35 @@ Energy Saving Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+              <div className="bg-indigo-50 p-3 rounded-2xl border border-indigo-200">
                 <h5 className="font-semibold text-indigo-800 mb-1">Power</h5>
                 <p className="text-indigo-700 text-sm">Total watts used</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Energy</h5>
                 <p className="text-green-700 text-sm">Daily/monthly kWh</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Cost</h5>
                 <p className="text-blue-700 text-sm">Monthly expenses</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Impact</h5>
                 <p className="text-orange-700 text-sm">Carbon footprint</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Select your electricity rate from preset options or enter a custom rate. Add appliances with their 
               power ratings (watts) and daily usage hours. The calculator automatically computes total consumption, 
               energy costs, and environmental impact. Use the efficiency analysis to identify improvement opportunities.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electricity Rate Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Electricity Rate Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Rate Components:</strong></p>
@@ -648,10 +648,10 @@ Energy Saving Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Appliance Power Ratings</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Appliance Power Ratings</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Low Power Devices</h5>
+                <h5 className="font-semibold text-google-text mb-2">Low Power Devices</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>LED Bulbs:</strong> 5-15 watts</li>
                   <li><strong>Phone Chargers:</strong> 5-25 watts</li>
@@ -662,7 +662,7 @@ Energy Saving Tips:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">High Power Devices</h5>
+                <h5 className="font-semibold text-google-text mb-2">High Power Devices</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Space Heaters:</strong> 1,000-1,500 watts</li>
                   <li><strong>Air Conditioners:</strong> 1,000-3,500 watts</li>
@@ -674,10 +674,10 @@ Energy Saving Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Energy Efficiency Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Energy Efficiency Analysis</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Efficiency Ratings</h5>
+                <h5 className="font-semibold text-google-text mb-2">Efficiency Ratings</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Excellent:</strong> Under 1,500 kWh/year</li>
                   <li><strong>Good:</strong> 1,500-3,000 kWh/year</li>
@@ -688,7 +688,7 @@ Energy Saving Tips:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Improvement Strategies</h5>
+                <h5 className="font-semibold text-google-text mb-2">Improvement Strategies</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Appliance Upgrades:</strong> Energy Star rated devices</li>
                   <li><strong>Smart Controls:</strong> Programmable thermostats</li>
@@ -700,7 +700,7 @@ Energy Saving Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Environmental Impact</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Environmental Impact</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Carbon Footprint:</strong> CO2 emissions from electricity generation</li>
               <li><strong>Generation Mix:</strong> Coal, natural gas, nuclear, renewable sources</li>
@@ -710,10 +710,10 @@ Energy Saving Tips:
               <li><strong>Sustainability Goals:</strong> Reducing environmental impact</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Cost Optimization Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Cost Optimization Strategies</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Rate Optimization</h5>
+                <h5 className="font-semibold text-google-text mb-2">Rate Optimization</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Time-of-Use:</strong> Shift usage to off-peak hours</li>
                   <li><strong>Demand Response:</strong> Reduce peak usage</li>
@@ -724,7 +724,7 @@ Energy Saving Tips:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Usage Optimization</h5>
+                <h5 className="font-semibold text-google-text mb-2">Usage Optimization</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Peak Shaving:</strong> Reduce high-demand usage</li>
                   <li><strong>Load Balancing:</strong> Distribute usage evenly</li>
@@ -736,7 +736,7 @@ Energy Saving Tips:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electricity Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Electricity Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Realistic Hours:</strong> Actual daily usage patterns</li>
               <li><strong>Include Standby Power:</strong> Phantom loads and standby modes</li>
@@ -746,7 +746,7 @@ Energy Saving Tips:
               <li><strong>Compare Scenarios:</strong> Analyze different usage patterns</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Electricity Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Electricity Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Underestimating Usage:</strong> Not accounting for all devices</li>
               <li><strong>Ignoring Standby Power:</strong> Phantom load calculations</li>
@@ -756,7 +756,7 @@ Energy Saving Tips:
               <li><strong>Not Monitoring Usage:</strong> Lack of real-time tracking</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Electricity Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Electricity Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Power Factor:</strong> Efficiency of power usage</li>
               <li><strong>Harmonic Distortion:</strong> Non-linear load effects</li>
@@ -766,8 +766,8 @@ Energy Saving Tips:
               <li><strong>Power Quality:</strong> Voltage and frequency stability</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-indigo-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When analyzing your electricity usage, focus on the biggest energy consumers first - typically 
                 heating, cooling, and major appliances. Small changes to these high-usage devices can have a 
@@ -784,6 +784,11 @@ Energy Saving Tips:
     </div>
   )
 }
+
+
+
+
+
 
 
 

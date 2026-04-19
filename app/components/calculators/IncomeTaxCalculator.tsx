@@ -118,21 +118,21 @@ export default function IncomeTaxCalculator() {
   const result = calculateTax()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
             <Receipt className="w-12 h-12 mr-3 text-red-600" />
             Income Tax Calculator
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Calculate your federal and state income tax liability
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-red-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
               <Calculator className="w-6 h-6 mr-2 text-red-600" />
               Tax Information
             </h2>
@@ -145,7 +145,7 @@ export default function IncomeTaxCalculator() {
                 <select
                   value={filingStatus}
                   onChange={(e) => setFilingStatus(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-red-500 focus:ring-2 focus:ring-red-200"
                   aria-label="Filing status"
                   title="Select filing status"
                 >
@@ -165,7 +165,7 @@ export default function IncomeTaxCalculator() {
                     type="number"
                     value={grossIncome}
                     onChange={(e) => setGrossIncome(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-2xl focus:border-red-500 focus:ring-2 focus:ring-red-200"
                     placeholder="75000"
                     title="Enter your gross annual income"
                     aria-label="Gross annual income"
@@ -183,7 +183,7 @@ export default function IncomeTaxCalculator() {
                     type="number"
                     value={deductions}
                     onChange={(e) => setDeductions(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-2xl focus:border-red-500 focus:ring-2 focus:ring-red-200"
                     placeholder="12950"
                     title="Enter standard deduction amount"
                     aria-label="Standard deduction amount"
@@ -201,7 +201,7 @@ export default function IncomeTaxCalculator() {
                     type="number"
                     value={additionalDeductions}
                     onChange={(e) => setAdditionalDeductions(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-2xl focus:border-red-500 focus:ring-2 focus:ring-red-200"
                     placeholder="0"
                     title="Enter additional deductions"
                     aria-label="Additional deductions amount"
@@ -216,7 +216,7 @@ export default function IncomeTaxCalculator() {
                 <select
                   value={state}
                   onChange={(e) => setState(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-red-500 focus:ring-2 focus:ring-red-200"
                   aria-label="State selection"
                   title="Select your state"
                 >
@@ -242,7 +242,7 @@ export default function IncomeTaxCalculator() {
                   step="0.01"
                   value={stateTaxRate}
                   onChange={(e) => setStateTaxRate(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-red-500 focus:ring-2 focus:ring-red-200"
                   placeholder="7.25"
                   title="Enter custom state tax rate percentage"
                   aria-label="Custom state tax rate percentage"
@@ -259,7 +259,7 @@ export default function IncomeTaxCalculator() {
                     setStateTaxRate('7.25')
                     setAdditionalDeductions('0')
                   }}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="google-button-secondary transition-colors font-medium"
                   title="Reset to defaults"
                 >
                   <RotateCcw className="w-5 h-5" />
@@ -270,7 +270,7 @@ export default function IncomeTaxCalculator() {
 
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-red-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Income Tax Calculation Result"
                 inputs={[
@@ -288,8 +288,8 @@ export default function IncomeTaxCalculator() {
               />
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-red-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                 <TrendingDown className="w-6 h-6 mr-2 text-red-600" />
                 Tax Summary
               </h2>
@@ -298,59 +298,59 @@ export default function IncomeTaxCalculator() {
                 <div className="text-4xl font-bold text-red-600 mb-2">
                   {formatCurrency(result.totalTax)}
                 </div>
-                <p className="text-gray-600">total taxes owed</p>
+                <p className="text-google-gray">total taxes owed</p>
               </div>
 
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Gross Income</span>
+                  <span className="text-google-gray">Gross Income</span>
                   <span className="font-semibold">{formatCurrency(result.grossIncome)}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Taxable Income</span>
-                  <span className="font-semibold text-blue-600">{formatCurrency(result.taxableIncome)}</span>
+                  <span className="text-google-gray">Taxable Income</span>
+                  <span className="font-semibold text-google-blue">{formatCurrency(result.taxableIncome)}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Net Income</span>
+                  <span className="text-google-gray">Net Income</span>
                   <span className="font-semibold text-green-600">{formatCurrency(result.netIncome)}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Effective Tax Rate</span>
+                  <span className="text-google-gray">Effective Tax Rate</span>
                   <span className="font-semibold text-orange-600">{formatPercent(result.effectiveTaxRate)}</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-red-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Tax Breakdown</h2>
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Tax Breakdown</h2>
               
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Federal Income Tax</span>
+                  <span className="text-google-gray">Federal Income Tax</span>
                   <span className="font-semibold text-red-600">{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">State Income Tax</span>
-                  <span className="font-semibold text-blue-600">{formatCurrency(result.stateTax)}</span>
+                  <span className="text-google-gray">State Income Tax</span>
+                  <span className="font-semibold text-google-blue">{formatCurrency(result.stateTax)}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Social Security Tax</span>
+                  <span className="text-google-gray">Social Security Tax</span>
                   <span className="font-semibold text-purple-600">{formatCurrency(result.socialSecurityTax)}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Medicare Tax</span>
+                  <span className="text-google-gray">Medicare Tax</span>
                   <span className="font-semibold text-green-600">{formatCurrency(result.medicareTax)}</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Marginal Tax Rate</span>
+                  <span className="text-google-gray">Marginal Tax Rate</span>
                   <span className="font-semibold text-orange-600">{formatPercent(result.marginalTaxRate)}</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-red-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Tax Tips</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Tax Tips</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Maximize deductions:</strong> Use itemized deductions if they exceed standard</p>
                 <p>• <strong>Retirement accounts:</strong> 401k and IRA contributions reduce taxable income</p>
                 <p>• <strong>Tax credits:</strong> Look for available tax credits to reduce liability</p>
@@ -368,6 +368,10 @@ export default function IncomeTaxCalculator() {
     </div>
   )
 }
+
+
+
+
 
 
 

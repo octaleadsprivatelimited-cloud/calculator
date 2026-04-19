@@ -120,14 +120,9 @@ export default function PregnancyWeightGainCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4">
-        <div className="flex items-center">
-          <Scale className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Pregnancy Weight Gain Calculator</h2>
-        </div>
-        <p className="text-purple-100 mt-1">Calculate recommended weight gain during pregnancy</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -140,7 +135,7 @@ export default function PregnancyWeightGainCalculator() {
                 type="number"
                 value={prePregnancyWeight}
                 onChange={(e) => setPrePregnancyWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="google-input"
                 placeholder="Enter weight"
                 aria-label="Pre-pregnancy weight in pounds"
               />
@@ -153,7 +148,7 @@ export default function PregnancyWeightGainCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="google-input"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -168,7 +163,7 @@ export default function PregnancyWeightGainCalculator() {
               type="number"
               value={currentWeek}
               onChange={(e) => setCurrentWeek(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="google-input"
               placeholder="Enter week"
               min="1"
               max="42"
@@ -179,14 +174,14 @@ export default function PregnancyWeightGainCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -197,7 +192,7 @@ export default function PregnancyWeightGainCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-purple-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Pregnancy Weight Gain Calculation Result"
                 inputs={[
@@ -215,7 +210,7 @@ export default function PregnancyWeightGainCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-purple-800 mb-2">Your Profile</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -233,7 +228,7 @@ export default function PregnancyWeightGainCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-purple-800 mb-3">Trimester Breakdown</h3>
               <div className="space-y-3">
                 <div className="border-l-4 border-purple-300 pl-3">
@@ -261,7 +256,7 @@ export default function PregnancyWeightGainCalculator() {
             </div>
 
             {parseFloat(currentWeek) > 0 && (
-              <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-purple-800 mb-2">Current Progress</h3>
                 <div className="space-y-2">
                   <div className="flex justify-between">
@@ -281,8 +276,8 @@ export default function PregnancyWeightGainCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Pregnancy Weight Gain Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Pregnancy Weight Gain Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive Pregnancy Weight Gain Calculator helps expectant mothers understand healthy 
@@ -291,7 +286,7 @@ export default function PregnancyWeightGainCalculator() {
               recommendations for optimal maternal and fetal health during pregnancy.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Pre-Pregnancy BMI:</strong> Body mass index before conception</li>
               <li><strong>BMI Category:</strong> Underweight, normal, overweight, or obese classification</li>
@@ -301,37 +296,37 @@ export default function PregnancyWeightGainCalculator() {
               <li><strong>Personalized Guidance:</strong> BMI-specific recommendations</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">BMI Category</h5>
                 <p className="text-purple-700 text-sm">Pre-pregnancy weight status</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Total Gain</h5>
                 <p className="text-blue-700 text-sm">Recommended total weight gain</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Trimester Goals</h5>
                 <p className="text-green-700 text-sm">Weekly targets by trimester</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Current Progress</h5>
                 <p className="text-orange-700 text-sm">Expected gain at current week</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your pre-pregnancy weight, height, and current pregnancy week. The calculator will determine 
               your BMI category and provide personalized weight gain recommendations for each trimester, helping 
               you maintain healthy pregnancy weight gain throughout your journey.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">BMI Categories and Weight Gain Recommendations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">BMI Categories and Weight Gain Recommendations</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Underweight (BMI &lt; 18.5)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Underweight (BMI &lt; 18.5)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Total Gain:</strong> 28-40 pounds</li>
                   <li><strong>First Trimester:</strong> 2-4 pounds</li>
@@ -342,7 +337,7 @@ export default function PregnancyWeightGainCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Normal Weight (BMI 18.5-24.9)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Normal Weight (BMI 18.5-24.9)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Total Gain:</strong> 25-35 pounds</li>
                   <li><strong>First Trimester:</strong> 2-4 pounds</li>
@@ -354,9 +349,9 @@ export default function PregnancyWeightGainCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Weight Gain by Trimester</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Weight Gain by Trimester</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-4 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-2">First Trimester</h5>
                 <p className="text-blue-700 text-sm mb-2"><strong>Weeks 1-13</strong></p>
                 <ul className="list-disc list-inside text-blue-700 space-y-1 text-xs">
@@ -366,7 +361,7 @@ export default function PregnancyWeightGainCalculator() {
                   <li>Baby development critical</li>
                 </ul>
               </div>
-              <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-4 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-2">Second Trimester</h5>
                 <p className="text-green-700 text-sm mb-2"><strong>Weeks 14-27</strong></p>
                 <ul className="list-disc list-inside text-green-700 space-y-1 text-xs">
@@ -376,7 +371,7 @@ export default function PregnancyWeightGainCalculator() {
                   <li>Baby growth accelerates</li>
                 </ul>
               </div>
-              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-4 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-2">Third Trimester</h5>
                 <p className="text-purple-700 text-sm mb-2"><strong>Weeks 28-40</strong></p>
                 <ul className="list-disc list-inside text-purple-700 space-y-1 text-xs">
@@ -388,7 +383,7 @@ export default function PregnancyWeightGainCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Components of Pregnancy Weight Gain</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Components of Pregnancy Weight Gain</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Baby:</strong> 7-8 pounds (average)</li>
               <li><strong>Placenta:</strong> 1-2 pounds</li>
@@ -400,10 +395,10 @@ export default function PregnancyWeightGainCalculator() {
               <li><strong>Fluid Retention:</strong> 2-3 pounds</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Nutrition During Pregnancy</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Nutrition During Pregnancy</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Essential Nutrients</h5>
+                <h5 className="font-semibold text-google-text mb-2">Essential Nutrients</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Folic Acid:</strong> Prevents neural tube defects</li>
                   <li><strong>Iron:</strong> Prevents anemia</li>
@@ -414,7 +409,7 @@ export default function PregnancyWeightGainCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Calorie Needs</h5>
+                <h5 className="font-semibold text-google-text mb-2">Calorie Needs</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>First Trimester:</strong> No extra calories needed</li>
                   <li><strong>Second Trimester:</strong> +340 calories daily</li>
@@ -426,8 +421,8 @@ export default function PregnancyWeightGainCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When Weight Gain May Be Concerning</h4>
-            <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">When Weight Gain May Be Concerning</h4>
+            <div className="bg-yellow-50 p-4 rounded-2xl border border-yellow-200 mb-4">
               <h5 className="font-semibold text-yellow-800 mb-2">Consult Your Doctor If:</h5>
               <ul className="list-disc list-inside text-yellow-700 space-y-1 text-sm">
                 <li><strong>Excessive Gain:</strong> More than 2 pounds per week</li>
@@ -439,7 +434,7 @@ export default function PregnancyWeightGainCalculator() {
               </ul>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Healthy Weight Gain Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Healthy Weight Gain Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Balanced Meals:</strong> Include protein, carbs, and healthy fats</li>
               <li><strong>Regular Eating:</strong> Small, frequent meals throughout the day</li>
@@ -449,7 +444,7 @@ export default function PregnancyWeightGainCalculator() {
               <li><strong>Quality Over Quantity:</strong> Focus on nutrient-dense foods</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Postpartum Weight Loss</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Postpartum Weight Loss</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Immediate Loss:</strong> 10-12 pounds (baby, placenta, fluid)</li>
               <li><strong>First Week:</strong> Additional fluid loss</li>
@@ -459,8 +454,8 @@ export default function PregnancyWeightGainCalculator() {
               <li><strong>Patience:</strong> It took 9 months to gain, allow time to lose</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-purple-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that every pregnancy is unique, and weight gain patterns vary. Focus on healthy eating 
                 habits rather than the number on the scale. Your healthcare provider will monitor your weight 
@@ -474,3 +469,8 @@ export default function PregnancyWeightGainCalculator() {
     </div>
   )
 }
+
+
+
+
+

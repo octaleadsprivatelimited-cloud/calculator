@@ -127,14 +127,9 @@ export default function AverageReturnCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4">
-        <div className="flex items-center">
-          <TrendingUp className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Average Return Calculator</h2>
-        </div>
-        <p className="text-green-100 mt-1">Calculate different types of average returns</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -146,7 +141,7 @@ export default function AverageReturnCalculator() {
               type="text"
               value={returns}
               onChange={(e) => setReturns(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="google-input"
               placeholder="5.2, -3.1, 8.7, 2.4, 6.1"
               aria-label="Returns as comma-separated percentages"
             />
@@ -162,7 +157,7 @@ export default function AverageReturnCalculator() {
                 type="number"
                 value={periods}
                 onChange={(e) => setPeriods(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="Auto-detect"
                 aria-label="Number of periods (optional)"
               />
@@ -174,7 +169,7 @@ export default function AverageReturnCalculator() {
               <select
                 value={method}
                 onChange={(e) => setMethod(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 aria-label="Select calculation method"
               >
                 <option value="arithmetic">Arithmetic Mean</option>
@@ -188,14 +183,14 @@ export default function AverageReturnCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -205,7 +200,7 @@ export default function AverageReturnCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-2">Average Return</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 mb-2">
@@ -217,7 +212,7 @@ export default function AverageReturnCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-3">All Methods Comparison</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -240,7 +235,7 @@ export default function AverageReturnCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-green-800 mb-3">Analysis & Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -256,8 +251,8 @@ export default function AverageReturnCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Average Return Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Average Return Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive average return calculator helps investors and financial analysts determine 
@@ -266,7 +261,7 @@ export default function AverageReturnCalculator() {
               different investment strategies and make informed decisions about portfolio management.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Arithmetic Mean:</strong> Simple average of returns</li>
               <li><strong>Geometric Mean:</strong> Compound average return</li>
@@ -276,10 +271,10 @@ export default function AverageReturnCalculator() {
               <li><strong>Performance Analysis:</strong> Investment strategy evaluation</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Methods Explained</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Calculation Methods Explained</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Arithmetic Mean</h5>
+                <h5 className="font-semibold text-google-text mb-2">Arithmetic Mean</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Simple average of all returns</li>
                   <li>Formula: Sum of returns ÷ Number of periods</li>
@@ -290,7 +285,7 @@ export default function AverageReturnCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Geometric Mean</h5>
+                <h5 className="font-semibold text-google-text mb-2">Geometric Mean</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Compound average return</li>
                   <li>Accounts for investment growth</li>
@@ -302,10 +297,10 @@ export default function AverageReturnCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Return Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Return Methods</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Time-Weighted Return</h5>
+                <h5 className="font-semibold text-google-text mb-2">Time-Weighted Return</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Eliminates cash flow impact</li>
                   <li>Measures pure investment performance</li>
@@ -316,7 +311,7 @@ export default function AverageReturnCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Dollar-Weighted Return</h5>
+                <h5 className="font-semibold text-google-text mb-2">Dollar-Weighted Return</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Considers investment timing</li>
                   <li>Reflects actual investor experience</li>
@@ -328,30 +323,30 @@ export default function AverageReturnCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Average Return</h5>
                 <p className="text-green-700 text-sm">Selected method result</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Method Comparison</h5>
                 <p className="text-blue-700 text-sm">All calculation results</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Analysis</h5>
                 <p className="text-purple-700 text-sm">Performance insights</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your investment returns as percentages (e.g., 5.2 for 5.2%), separated by commas. 
               Choose your preferred calculation method, and the calculator will show the average return 
               along with comparisons of all methods.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Use Each Method</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Use Each Method</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Arithmetic Mean:</strong> Quick estimates, short-term analysis</li>
               <li><strong>Geometric Mean:</strong> Long-term performance, compound growth</li>
@@ -359,8 +354,8 @@ export default function AverageReturnCalculator() {
               <li><strong>Dollar-Weighted:</strong> Personal portfolio, actual experience</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Investment Performance Analysis</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Investment Performance Analysis</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>High Volatility Impact:</strong></p>
@@ -383,7 +378,7 @@ export default function AverageReturnCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Investment Scenarios</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Investment Scenarios</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Lump Sum Investment:</strong> All methods give similar results</li>
               <li><strong>Regular Contributions:</strong> Dollar-weighted shows actual experience</li>
@@ -393,7 +388,7 @@ export default function AverageReturnCalculator() {
               <li><strong>Performance Reporting:</strong> Geometric mean for accuracy</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Return Calculation Best Practices</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Return Calculation Best Practices</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Consistent Periods:</strong> Monthly, quarterly, or annual returns</li>
               <li><strong>Include All Returns:</strong> Don't omit negative periods</li>
@@ -403,7 +398,7 @@ export default function AverageReturnCalculator() {
               <li><strong>Use Multiple Methods:</strong> Get complete performance picture</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Performance Benchmarking</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Performance Benchmarking</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Market Indices:</strong> S&P 500, Dow Jones, NASDAQ</li>
               <li><strong>Peer Groups:</strong> Similar investment strategies</li>
@@ -413,7 +408,7 @@ export default function AverageReturnCalculator() {
               <li><strong>Tax-Adjusted:</strong> After-tax performance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Calculation Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Calculation Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Using Arithmetic for Long Periods:</strong> Overstates compound returns</li>
               <li><strong>Ignoring Negative Returns:</strong> Can't use geometric mean with negatives</li>
@@ -423,8 +418,8 @@ export default function AverageReturnCalculator() {
               <li><strong>Survivorship Bias:</strong> Only including successful investments</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-green-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 For most investment analysis, use the geometric mean as it provides the most accurate 
                 representation of compound growth over time. However, if you're evaluating your personal 
@@ -440,3 +435,7 @@ export default function AverageReturnCalculator() {
     </div>
   )
 }
+
+
+
+

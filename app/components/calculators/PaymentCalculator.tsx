@@ -65,36 +65,31 @@ export default function PaymentCalculator() {
   const result = showResults ? calculatePayment() : { monthlyPayment: 0, totalPayment: 0, totalInterest: 0, recommendations: [], details: { amount: 0, rate: 0, term: 0, termType: '' } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-4">
-        <div className="flex items-center">
-          <CreditCard className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Payment Calculator</h2>
-        </div>
-        <p className="text-indigo-100 mt-1">Calculate loan payments and costs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount ()</label>
-              <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter amount" step="100" />
+              <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="google-input" placeholder="Enter amount" step="100" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Interest Rate (%)</label>
-              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter rate" step="0.1" />
+              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="google-input" placeholder="Enter rate" step="0.1" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Loan Term</label>
-              <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter term" step="0.1" />
+              <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="google-input" placeholder="Enter term" step="0.1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Term Type</label>
-              <select value={termType} onChange={(e) => setTermType(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" aria-label="Select term type">
+              <select value={termType} onChange={(e) => setTermType(e.target.value)} className="google-input" aria-label="Select term type">
                 <option value="years">Years</option>
                 <option value="months">Months</option>
               </select>
@@ -102,10 +97,10 @@ export default function PaymentCalculator() {
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -113,7 +108,7 @@ export default function PaymentCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-indigo-800 mb-2">Monthly Payment</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-indigo-600 mb-2">${result.monthlyPayment?.toFixed(2)}</div>
@@ -121,7 +116,7 @@ export default function PaymentCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-indigo-800 mb-3">Payment Summary</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-indigo-700">Loan Amount:</span><span className="font-semibold text-indigo-800">${result.details.amount?.toLocaleString()}</span></div>
@@ -138,7 +133,7 @@ export default function PaymentCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-indigo-800 mb-3">Analysis</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -154,8 +149,8 @@ export default function PaymentCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Payment Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Payment Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive payment calculator helps you determine monthly loan payments and understand the total cost 
@@ -163,7 +158,7 @@ export default function PaymentCalculator() {
               provides accurate payment calculations and cost breakdowns to help you make informed financial decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Monthly Payment:</strong> Regular payment amount due each month</li>
               <li><strong>Total Interest:</strong> Total interest paid over the loan term</li>
@@ -173,10 +168,10 @@ export default function PaymentCalculator() {
               <li><strong>Cost Analysis:</strong> Understanding the true cost of borrowing</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Loan Payment Components</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Loan Payment Components</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Principal</h5>
+                <h5 className="font-semibold text-google-text mb-2">Principal</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Original loan amount borrowed</li>
                   <li>Reduces with each payment</li>
@@ -186,7 +181,7 @@ export default function PaymentCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Interest</h5>
+                <h5 className="font-semibold text-google-text mb-2">Interest</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Cost of borrowing money</li>
                   <li>Based on current balance</li>
@@ -197,29 +192,29 @@ export default function PaymentCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+              <div className="bg-indigo-50 p-3 rounded-2xl border border-indigo-200">
                 <h5 className="font-semibold text-indigo-800 mb-1">Monthly Payment</h5>
                 <p className="text-indigo-700 text-sm">Amount due each month</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Total Interest</h5>
                 <p className="text-purple-700 text-sm">Cost of borrowing</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Total Cost</h5>
                 <p className="text-green-700 text-sm">Principal + interest</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your loan amount, interest rate, and loan term. Choose between years or months, then click calculate 
               to see your monthly payment, total interest costs, and complete payment breakdown.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Loan Types</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Loan Types</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Mortgage Loans:</strong> Home financing with long terms (15-30 years)</li>
               <li><strong>Auto Loans:</strong> Vehicle financing with medium terms (3-7 years)</li>
@@ -229,8 +224,8 @@ export default function PaymentCalculator() {
               <li><strong>Credit Cards:</strong> Revolving credit with minimum payments</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Payment Calculation Formula</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Payment Calculation Formula</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <p className="text-gray-700 text-sm mb-3">
                 <strong>Monthly Payment Formula:</strong> P = L[c(1 + c)^n]/[(1 + c)^n - 1]
               </p>
@@ -256,7 +251,7 @@ export default function PaymentCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Payments</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Payments</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Loan Amount:</strong> Larger loans mean higher payments</li>
               <li><strong>Interest Rate:</strong> Higher rates significantly increase payments</li>
@@ -266,7 +261,7 @@ export default function PaymentCalculator() {
               <li><strong>Loan Type:</strong> Different loan types have varying terms and rates</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Payment Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Payment Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Extra Payments:</strong> Pay additional principal to reduce total interest</li>
               <li><strong>Bi-weekly Payments:</strong> Make half payments every two weeks (26 payments/year)</li>
@@ -276,8 +271,8 @@ export default function PaymentCalculator() {
               <li><strong>Budget Planning:</strong> Ensure payments fit your monthly budget</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-indigo-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Consider making extra principal payments when possible. Even small additional amounts can significantly 
                 reduce your total interest costs and shorten your loan term. For example, adding just 50 extra to a 
@@ -290,4 +285,9 @@ export default function PaymentCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

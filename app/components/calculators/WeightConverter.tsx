@@ -62,22 +62,22 @@ export default function WeightConverter() {
   const toUnitData = weightUnits.find(unit => unit.symbol === toUnit)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
             <Scale className="w-16 h-16 mr-4 text-orange-600" />
             Weight Converter
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Convert between metric, imperial, and other weight units. Get accurate conversions for any weight measurement.
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <Calculator className="w-6 h-6 mr-2 text-orange-600" />
                 Convert Weight
               </h2>
@@ -89,7 +89,7 @@ export default function WeightConverter() {
                     type="number"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
                     placeholder="1000"
                     step="any"
                     min="0"
@@ -103,7 +103,7 @@ export default function WeightConverter() {
                   <select
                     value={fromUnit}
                     onChange={(e) => setFromUnit(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
                     title="Select the unit to convert from"
                     aria-label="Unit to convert from"
                   >
@@ -118,7 +118,7 @@ export default function WeightConverter() {
                 <div className="flex justify-center">
                   <button
                     onClick={handleSwap}
-                    className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                    className="p-2 bg-gray-100 rounded-2xl hover:bg-gray-200 transition-colors"
                     title="Swap from and to units"
                     aria-label="Swap from and to units"
                   >
@@ -131,7 +131,7 @@ export default function WeightConverter() {
                   <select
                     value={toUnit}
                     onChange={(e) => setToUnit(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
                     title="Select the unit to convert to"
                     aria-label="Unit to convert to"
                   >
@@ -145,10 +145,10 @@ export default function WeightConverter() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="google-card overflow-hidden p-6">
               <button
                 onClick={handleReset}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
                 title="Reset to default values"
                 aria-label="Reset to default values"
               >
@@ -161,7 +161,7 @@ export default function WeightConverter() {
           <div className="lg:col-span-2">
             <div className="space-y-6">
               {/* Share Options - Moved to Top */}
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="google-card overflow-hidden p-6">
                 <ResultSharing
                   title="Weight Conversion Result"
                   inputs={[
@@ -179,8 +179,8 @@ export default function WeightConverter() {
                 />
               </div>
 
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+              <div className="google-card overflow-hidden p-6">
+                <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                   <TrendingUp className="w-6 h-6 mr-2 text-orange-600" />
                   Conversion Result
                 </h2>
@@ -191,7 +191,7 @@ export default function WeightConverter() {
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                    <div className="bg-orange-50 p-4 rounded-lg">
+                    <div className="bg-orange-50 p-4 rounded-2xl">
                       <div className="text-sm text-orange-600 mb-1">From Unit</div>
                       <div className="text-lg font-semibold text-orange-800">
                         {fromUnitData?.name} ({fromUnit})
@@ -201,7 +201,7 @@ export default function WeightConverter() {
                       </div>
                     </div>
                     
-                    <div className="bg-amber-50 p-4 rounded-lg">
+                    <div className="bg-amber-50 p-4 rounded-2xl">
                       <div className="text-sm text-amber-600 mb-1">To Unit</div>
                       <div className="text-lg font-semibold text-amber-800">
                         {toUnitData?.name} ({toUnit})
@@ -217,7 +217,7 @@ export default function WeightConverter() {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                   title="Share weight conversion results"
                   aria-label="Share weight conversion results"
                 >
@@ -226,7 +226,7 @@ export default function WeightConverter() {
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                   title="Download results as text file"
                   aria-label="Download weight conversion results"
                 >
@@ -235,7 +235,7 @@ export default function WeightConverter() {
                 </button>
                 <button
                   onClick={handlePrint}
-                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                   title="Print weight conversion results"
                   aria-label="Print weight conversion results"
                 >
@@ -250,7 +250,7 @@ export default function WeightConverter() {
         <div className="text-center mt-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
             title="Back to all calculators"
             aria-label="Back to all calculators"
           >
@@ -274,3 +274,6 @@ export default function WeightConverter() {
     </div>
   )
 }
+
+
+

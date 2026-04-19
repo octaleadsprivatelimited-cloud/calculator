@@ -131,7 +131,7 @@ ${rollHistory.map((roll, index) =>
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -151,13 +151,13 @@ ${rollHistory.map((roll, index) =>
       <div className="p-6">
         {/* Quick Dice Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Dice Selection</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Dice Selection</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {DICE_TYPES.map((dice, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickDice(dice)}
-                className={`p-4 rounded-lg border transition-colors text-left ${
+                className={`p-4 rounded-2xl border transition-colors text-left ${
                   selectedDice === dice.name
                     ? 'bg-green-500 text-white border-green-500'
                     : 'bg-green-50 hover:bg-green-100 border-green-200 text-gray-700'
@@ -176,7 +176,7 @@ ${rollHistory.map((roll, index) =>
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Dice Configuration */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-gray-800">Dice Configuration</h3>
+            <h3 className="text-lg font-semibold text-google-text">Dice Configuration</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Dice Type
@@ -184,7 +184,7 @@ ${rollHistory.map((roll, index) =>
               <select
                 value={selectedDice}
                 onChange={(e) => setSelectedDice(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 aria-label="Select dice type"
               >
                 {DICE_TYPES.map(dice => (
@@ -205,7 +205,7 @@ ${rollHistory.map((roll, index) =>
                 max="20"
                 value={numberOfDice}
                 onChange={(e) => setNumberOfDice(parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                className="w-full h-2 bg-gray-200 rounded-2xl appearance-none cursor-pointer"
                 aria-label="Number of dice slider"
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
@@ -219,8 +219,8 @@ ${rollHistory.map((roll, index) =>
 
           {/* Dice Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-800">Dice Information</h3>
-            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+            <h3 className="text-lg font-semibold text-google-text">Dice Information</h3>
+            <div className="bg-green-50 p-4 rounded-2xl border border-green-200">
               <h4 className="font-semibold text-green-800 mb-2">Selected Dice</h4>
               <div className="text-sm text-green-700 space-y-1">
                 <div>Type: {selectedDice}</div>
@@ -237,7 +237,7 @@ ${rollHistory.map((roll, index) =>
         <div className="text-center mb-8">
           <button
             onClick={handleRoll}
-            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
           >
             <RefreshCw className="w-5 h-5" />
             <span>Roll Dice</span>
@@ -248,7 +248,7 @@ ${rollHistory.map((roll, index) =>
         {currentRoll && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-6 rounded-lg border border-green-200">
+            <div className="bg-white p-6 rounded-2xl border border-green-200">
               <ResultSharing
                 title="Dice Roll Result"
                 inputs={[
@@ -267,27 +267,27 @@ ${rollHistory.map((roll, index) =>
             </div>
 
             {/* Roll Results */}
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-4">Roll Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-green-700">{currentRoll.rolls.join(', ')}</div>
-                  <div className="text-sm text-gray-600">Individual Rolls</div>
+                  <div className="text-sm text-google-gray">Individual Rolls</div>
                   <div className="text-xs text-green-600">Each die result</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{currentRoll.total}</div>
-                  <div className="text-sm text-gray-600">Total</div>
-                  <div className="text-xs text-blue-600">Sum of all rolls</div>
+                  <div className="text-sm text-google-gray">Total</div>
+                  <div className="text-xs text-google-blue">Sum of all rolls</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{formatNumber(currentRoll.average)}</div>
-                  <div className="text-sm text-gray-600">Average</div>
+                  <div className="text-sm text-google-gray">Average</div>
                   <div className="text-xs text-purple-600">Mean roll value</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{currentRoll.min} - {currentRoll.max}</div>
-                  <div className="text-sm text-gray-600">Range</div>
+                  <div className="text-sm text-google-gray">Range</div>
                   <div className="text-xs text-orange-600">Min to max</div>
                 </div>
               </div>
@@ -295,13 +295,13 @@ ${rollHistory.map((roll, index) =>
 
             {/* Roll History */}
             {rollHistory.length > 1 && (
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">Roll History</h3>
+              <div className="bg-gray-50 p-6 rounded-2xl">
+                <h3 className="text-lg font-semibold text-google-text mb-4">Roll History</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {rollHistory.slice(1).map((roll, index) => (
-                    <div key={index} className="bg-white p-3 rounded-lg border border-gray-200">
-                      <div className="text-sm text-gray-600">Roll {index + 2}</div>
-                      <div className="font-semibold text-gray-800">{roll.rolls.join(', ')} = {roll.total}</div>
+                    <div key={index} className="bg-white p-3 rounded-2xl border border-gray-200">
+                      <div className="text-sm text-google-gray">Roll {index + 2}</div>
+                      <div className="font-semibold text-google-text">{roll.rolls.join(', ')} = {roll.total}</div>
                     </div>
                   ))}
                 </div>
@@ -312,28 +312,28 @@ ${rollHistory.map((roll, index) =>
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -343,8 +343,8 @@ ${rollHistory.map((roll, index) =>
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Dice Roller Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Dice Roller Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive dice roller calculator provides virtual dice rolling for tabletop games, 
@@ -353,7 +353,7 @@ ${rollHistory.map((roll, index) =>
               probability studies, and decision-making when physical dice aren't available.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Simulates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Simulates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Polyhedral Dice:</strong> D4, D6, D8, D10, D12, D20, D100</li>
               <li><strong>Multiple Dice:</strong> Roll 1-20 dice simultaneously</li>
@@ -363,10 +363,10 @@ ${rollHistory.map((roll, index) =>
               <li><strong>Educational Tool:</strong> Probability and statistics learning</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Supported Dice Types</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Supported Dice Types</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Common Dice</h5>
+                <h5 className="font-semibold text-google-text mb-2">Common Dice</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>D4 (Tetrahedron):</strong> 4 triangular faces, 1-4 range</li>
                   <li><strong>D6 (Cube):</strong> 6 square faces, 1-6 range</li>
@@ -377,7 +377,7 @@ ${rollHistory.map((roll, index) =>
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Specialized Dice</h5>
+                <h5 className="font-semibold text-google-text mb-2">Specialized Dice</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>D100 (Percentile):</strong> 100 faces, 1-100 range</li>
                   <li><strong>Custom Dice:</strong> User-defined number of sides</li>
@@ -389,35 +389,35 @@ ${rollHistory.map((roll, index) =>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Individual Rolls</h5>
                 <p className="text-green-700 text-sm">Each die result</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Total</h5>
                 <p className="text-blue-700 text-sm">Sum of all rolls</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Average</h5>
                 <p className="text-purple-700 text-sm">Mean roll value</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Range</h5>
                 <p className="text-orange-700 text-sm">Min to max values</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Select your dice type, choose the number of dice to roll (1-20), and click "Roll Dice" 
               to generate random results. The calculator displays individual rolls, totals, averages, 
               and maintains a history of recent rolls. Use quick dice buttons for common dice types.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Probability Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Probability Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Fair Dice:</strong></p>
@@ -444,10 +444,10 @@ ${rollHistory.map((roll, index) =>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Use Cases</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Use Cases</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Gaming Applications</h5>
+                <h5 className="font-semibold text-google-text mb-2">Gaming Applications</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Tabletop RPGs:</strong> Dungeons & Dragons, Pathfinder</li>
                   <li><strong>Board Games:</strong> Strategy and chance games</li>
@@ -458,7 +458,7 @@ ${rollHistory.map((roll, index) =>
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Educational Uses</h5>
+                <h5 className="font-semibold text-google-text mb-2">Educational Uses</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Probability Studies:</strong> Random event analysis</li>
                   <li><strong>Statistics Learning:</strong> Data collection and analysis</li>
@@ -470,7 +470,7 @@ ${rollHistory.map((roll, index) =>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Dice Rolling Statistics</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Dice Rolling Statistics</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Expected Value:</strong> Average result over many rolls</li>
               <li><strong>Variance:</strong> Spread of results around the mean</li>
@@ -480,10 +480,10 @@ ${rollHistory.map((roll, index) =>
               <li><strong>Law of Large Numbers:</strong> Convergence to expected value</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Dice Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Dice Concepts</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Special Rolling Rules</h5>
+                <h5 className="font-semibold text-google-text mb-2">Special Rolling Rules</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Advantage/Disadvantage:</strong> Roll twice, take best/worst</li>
                   <li><strong>Exploding Dice:</strong> Re-roll on maximum values</li>
@@ -494,7 +494,7 @@ ${rollHistory.map((roll, index) =>
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Probability Analysis</h5>
+                <h5 className="font-semibold text-google-text mb-2">Probability Analysis</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Success Probability:</strong> Chance of meeting targets</li>
                   <li><strong>Damage Calculations:</strong> Expected damage output</li>
@@ -506,7 +506,7 @@ ${rollHistory.map((roll, index) =>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Dice Rolling Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Dice Rolling Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Appropriate Dice:</strong> Choose dice that match your needs</li>
               <li><strong>Consider Probabilities:</strong> Understand expected outcomes</li>
@@ -516,7 +516,7 @@ ${rollHistory.map((roll, index) =>
               <li><strong>Understand Rules:</strong> Know your game's dice mechanics</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Dice Rolling Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Dice Rolling Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Probability Confusion:</strong> Misunderstanding random chance</li>
               <li><strong>Gambler's Fallacy:</strong> Believing in hot/cold streaks</li>
@@ -526,7 +526,7 @@ ${rollHistory.map((roll, index) =>
               <li><strong>Superstition:</strong> Believing in lucky dice</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Virtual vs. Physical Dice</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Virtual vs. Physical Dice</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Virtual Advantages:</strong> Always available, no loss</li>
               <li><strong>Physical Advantages:</strong> Tactile experience, tradition</li>
@@ -536,8 +536,8 @@ ${rollHistory.map((roll, index) =>
               <li><strong>Accessibility:</strong> Virtual dice help disabled players</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-green-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When using virtual dice rollers, remember that each roll is truly random and independent 
                 of previous results. Don't fall for the gambler's fallacy - past rolls don't influence 
@@ -551,12 +551,12 @@ ${rollHistory.map((roll, index) =>
         </div>
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
             <Info className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Dice Roller</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Dice Roller</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 This virtual dice roller supports various polyhedral dice commonly used in tabletop games, 
                 role-playing games, and educational activities. It provides individual roll results, totals, 
                 averages, and maintains a history of recent rolls. Perfect for gaming, probability studies, 
@@ -569,3 +569,7 @@ ${rollHistory.map((roll, index) =>
     </div>
   )
 }
+
+
+
+

@@ -228,7 +228,7 @@ Pay Summary:
   const result = showResults ? calculatePay() : { totalHours: 0, regularHours: 0, overtimeHours: 0, regularPay: 0, overtimePay: 0, totalPay: 0, breakTime: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -248,13 +248,13 @@ Pay Summary:
       <div className="p-6">
         {/* Quick Shifts */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Shift Templates</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Shift Templates</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {COMMON_SHIFTS.map((shift, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickShift(shift)}
-                className="p-3 bg-purple-50 hover:bg-purple-100 rounded-lg border border-purple-200 transition-colors text-sm text-left"
+                className="p-3 bg-purple-50 hover:bg-purple-100 rounded-2xl border border-purple-200 transition-colors text-sm text-left"
               >
                 <div className="font-medium text-purple-800">{shift.name}</div>
                 <div className="text-purple-600">{formatTime(shift.start)} - {formatTime(shift.end)}</div>
@@ -266,8 +266,8 @@ Pay Summary:
 
         {/* Pay Settings */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Pay Settings</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Pay Settings</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -277,7 +277,7 @@ Pay Summary:
                   type="number"
                   value={hourlyRate}
                   onChange={(e) => setHourlyRate(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="google-input"
                   placeholder="15.00"
                   min="0"
                   step="0.01"
@@ -291,7 +291,7 @@ Pay Summary:
                   type="number"
                   value={overtimeRate}
                   onChange={(e) => setOvertimeRate(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="google-input"
                   placeholder="1.5"
                   min="1"
                   step="0.1"
@@ -306,7 +306,7 @@ Pay Summary:
                   type="number"
                   value={overtimeThreshold}
                   onChange={(e) => setOvertimeThreshold(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="google-input"
                   placeholder="40"
                   min="0"
                   step="0.5"
@@ -317,16 +317,16 @@ Pay Summary:
           </div>
 
           {/* Add Time Entry */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Add Time Entry</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Add Time Entry</h3>
             <button
               onClick={addTimeEntry}
-              className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg transition-colors duration-200"
+              className="w-full google-button-primary text-white py-3 px-4 rounded-2xl transition-colors duration-200"
             >
               Add Entry
             </button>
             
-            <div className="mt-4 text-sm text-gray-600">
+            <div className="mt-4 text-sm text-google-gray">
               <p>• Add multiple time entries</p>
               <p>• Automatic break time deduction</p>
               <p>• Overnight shift support</p>
@@ -334,19 +334,19 @@ Pay Summary:
           </div>
 
           {/* Summary Preview */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Summary</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Summary</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-600">Total Entries:</span>
+                <span className="text-google-gray">Total Entries:</span>
                 <span className="font-semibold">{timeEntries.length}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Total Hours:</span>
+                <span className="text-google-gray">Total Hours:</span>
                 <span className="font-semibold">{formatNumber(timeEntries.reduce((sum, entry) => sum + entry.totalHours, 0))}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Break Time:</span>
+                <span className="text-google-gray">Break Time:</span>
                 <span className="font-semibold">{formatNumber(timeEntries.reduce((sum, entry) => sum + entry.breakTime, 0) / 60)} hrs</span>
               </div>
             </div>
@@ -356,13 +356,13 @@ Pay Summary:
         {/* Time Entries List */}
         {timeEntries.length > 0 && (
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Time Entries ({timeEntries.length})</h3>
+            <h3 className="text-xl font-semibold text-google-text mb-4">Time Entries ({timeEntries.length})</h3>
             <div className="space-y-4">
               {timeEntries.map((entry, index) => (
-                <div key={entry.id} className="bg-white p-4 rounded-lg border">
+                <div key={entry.id} className="bg-white p-4 rounded-2xl border">
                   <div className="grid md:grid-cols-6 gap-4 items-center">
                     <div>
-                      <label className="block text-xs text-gray-600 mb-1">Date</label>
+                      <label className="block text-xs text-google-gray mb-1">Date</label>
                       <input
                         type="date"
                         value={entry.date}
@@ -372,7 +372,7 @@ Pay Summary:
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-600 mb-1">Start Time</label>
+                      <label className="block text-xs text-google-gray mb-1">Start Time</label>
                       <input
                         type="time"
                         value={entry.startTime}
@@ -382,7 +382,7 @@ Pay Summary:
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-600 mb-1">End Time</label>
+                      <label className="block text-xs text-google-gray mb-1">End Time</label>
                       <input
                         type="time"
                         value={entry.endTime}
@@ -392,7 +392,7 @@ Pay Summary:
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-600 mb-1">Break (min)</label>
+                      <label className="block text-xs text-google-gray mb-1">Break (min)</label>
                       <select
                         value={entry.breakTime}
                         onChange={(e) => updateTimeEntry(entry.id, 'breakTime', parseInt(e.target.value))}
@@ -407,7 +407,7 @@ Pay Summary:
                       </select>
                     </div>
                     <div className="text-center">
-                      <div className="text-sm text-gray-600">Hours</div>
+                      <div className="text-sm text-google-gray">Hours</div>
                       <div className="font-semibold text-purple-700">{formatNumber(entry.totalHours)}</div>
                     </div>
                     <div className="text-center">
@@ -430,7 +430,7 @@ Pay Summary:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Pay</span>
@@ -442,7 +442,7 @@ Pay Summary:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-purple-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Time Card Calculation Result"
                 inputs={[
@@ -462,24 +462,24 @@ Pay Summary:
             </div>
 
             {/* Pay Results */}
-            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+            <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-4">Pay Calculation Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{formatNumber(result.totalHours)}</div>
-                  <div className="text-sm text-gray-600">Total Hours</div>
+                  <div className="text-sm text-google-gray">Total Hours</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{formatNumber(result.regularHours)}</div>
-                  <div className="text-sm text-gray-600">Regular Hours</div>
+                  <div className="text-sm text-google-gray">Regular Hours</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{formatNumber(result.overtimeHours)}</div>
-                  <div className="text-sm text-gray-600">Overtime Hours</div>
+                  <div className="text-sm text-google-gray">Overtime Hours</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">${formatNumber(result.totalPay)}</div>
-                  <div className="text-sm text-gray-600">Total Pay</div>
+                  <div className="text-sm text-google-gray">Total Pay</div>
                 </div>
               </div>
               
@@ -488,13 +488,13 @@ Pay Summary:
                   <div className="text-2xl font-bold text-blue-700">
                     ${formatNumber(result.regularPay)}
                   </div>
-                  <div className="text-sm text-gray-600">Regular Pay</div>
+                  <div className="text-sm text-google-gray">Regular Pay</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-orange-700">
                     ${formatNumber(result.overtimePay)}
                   </div>
-                  <div className="text-sm text-gray-600">Overtime Pay</div>
+                  <div className="text-sm text-google-gray">Overtime Pay</div>
                 </div>
               </div>
             </div>
@@ -503,28 +503,28 @@ Pay Summary:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -534,12 +534,12 @@ Pay Summary:
         )}
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Time Card Calculator</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Time Card Calculator</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Purpose & Functionality</h3>
               <p className="text-gray-700 mb-3">
                 This comprehensive time card calculator helps employees, freelancers, and employers 
                 accurately track work hours and calculate pay including overtime. It handles complex 
@@ -552,10 +552,10 @@ Pay Summary:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Overtime Calculations</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Overtime Calculations</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Standard Overtime</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Standard Overtime</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>40-Hour Week:</strong> Most common overtime threshold</li>
                     <li><strong>Time-and-a-Half:</strong> 1.5x regular rate for overtime</li>
@@ -565,7 +565,7 @@ Pay Summary:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Overtime Rules</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Overtime Rules</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Federal Law:</strong> FLSA requires 1.5x after 40 hours</li>
                     <li><strong>State Variations:</strong> Some states have stricter rules</li>
@@ -578,9 +578,9 @@ Pay Summary:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Break Time Management</h3>
-              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                <h4 className="font-semibold text-gray-800 mb-2">Break Time Guidelines</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Break Time Management</h3>
+              <div className="bg-purple-50 p-4 rounded-2xl border border-purple-200">
+                <h4 className="font-semibold text-google-text mb-2">Break Time Guidelines</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
                     <p><strong>Paid vs. Unpaid Breaks:</strong></p>
@@ -606,10 +606,10 @@ Pay Summary:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Shift Types & Scheduling</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Shift Types & Scheduling</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Common Shift Patterns</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Common Shift Patterns</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Morning Shift:</strong> 8 AM - 4 PM (8 hours)</li>
                     <li><strong>Afternoon Shift:</strong> 12 PM - 8 PM (8 hours)</li>
@@ -619,7 +619,7 @@ Pay Summary:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Special Considerations</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Special Considerations</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Overnight Shifts:</strong> Cross midnight boundary</li>
                     <li><strong>Split Shifts:</strong> Work periods with breaks</li>
@@ -632,7 +632,7 @@ Pay Summary:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Pay Calculation Methods</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Pay Calculation Methods</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Regular Hours:</strong> Hours worked up to overtime threshold</li>
                 <li><strong>Overtime Hours:</strong> Hours worked beyond threshold</li>
@@ -643,10 +643,10 @@ Pay Summary:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Legal & Compliance</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Legal & Compliance</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Federal Requirements</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Federal Requirements</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Fair Labor Standards Act (FLSA)</li>
                     <li>Minimum wage requirements</li>
@@ -656,7 +656,7 @@ Pay Summary:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">State Variations</h4>
+                  <h4 className="font-semibold text-google-text mb-2">State Variations</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Higher minimum wages</li>
                     <li>Stricter overtime rules</li>
@@ -669,7 +669,7 @@ Pay Summary:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Best Practices</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Best Practices</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Accurate Time Tracking:</strong> Record actual start/end times</li>
                 <li><strong>Break Documentation:</strong> Note all break periods taken</li>
@@ -679,8 +679,8 @@ Pay Summary:
               </ul>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Always round up to the nearest quarter hour for fair compensation</li>
                 <li>• Keep detailed records of all time entries and break periods</li>
@@ -696,5 +696,10 @@ Pay Summary:
     </div>
   )
 }
+
+
+
+
+
 
 

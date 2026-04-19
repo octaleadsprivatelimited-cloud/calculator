@@ -138,14 +138,9 @@ export default function BodySurfaceAreaCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-violet-500 to-purple-500 px-6 py-4">
-        <div className="flex items-center">
-          <Ruler className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Body Surface Area Calculator</h2>
-        </div>
-        <p className="text-violet-100 mt-1">Calculate body surface area using multiple formulas</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -158,7 +153,7 @@ export default function BodySurfaceAreaCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="google-input"
                 placeholder="Enter weight"
                 aria-label="Weight in pounds"
               />
@@ -171,7 +166,7 @@ export default function BodySurfaceAreaCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="google-input"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -187,7 +182,7 @@ export default function BodySurfaceAreaCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="google-input"
                 placeholder="Enter age"
                 aria-label="Age in years"
               />
@@ -199,7 +194,7 @@ export default function BodySurfaceAreaCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -215,7 +210,7 @@ export default function BodySurfaceAreaCalculator() {
             <select
               value={formula}
               onChange={(e) => setFormula(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+              className="google-input"
               aria-label="Select calculation formula"
             >
               <option value="dubois">DuBois & DuBois (Most Common)</option>
@@ -229,14 +224,14 @@ export default function BodySurfaceAreaCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-violet-500 hover:bg-violet-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -247,7 +242,7 @@ export default function BodySurfaceAreaCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-violet-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Body Surface Area Calculation Result"
                 inputs={[
@@ -267,7 +262,7 @@ export default function BodySurfaceAreaCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-violet-50 rounded-lg border border-violet-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-violet-800 mb-2">Body Surface Area</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-violet-600 mb-2">
@@ -279,7 +274,7 @@ export default function BodySurfaceAreaCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-violet-50 rounded-lg border border-violet-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-violet-800 mb-3">All Formulas Comparison</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -306,7 +301,7 @@ export default function BodySurfaceAreaCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-violet-50 rounded-lg border border-violet-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-violet-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -322,8 +317,8 @@ export default function BodySurfaceAreaCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Body Surface Area Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Body Surface Area Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive body surface area calculator helps healthcare professionals, researchers, 
@@ -332,7 +327,7 @@ export default function BodySurfaceAreaCalculator() {
               dosing, medical procedures, burn assessment, and various clinical applications.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Body Surface Area:</strong> Total external surface area in square meters</li>
               <li><strong>Multiple Formulas:</strong> Various calculation methods for accuracy</li>
@@ -342,10 +337,10 @@ export default function BodySurfaceAreaCalculator() {
               <li><strong>Research Support:</strong> Scientific and medical research applications</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Formulas Explained</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Calculation Formulas Explained</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">DuBois & DuBois (1916)</h5>
+                <h5 className="font-semibold text-google-text mb-2">DuBois & DuBois (1916)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Most widely used formula</li>
                   <li>BSA = 0.007184 × W^0.425 × H^0.725</li>
@@ -356,7 +351,7 @@ export default function BodySurfaceAreaCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Mosteller (1987)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Mosteller (1987)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Simplified calculation</li>
                   <li>BSA = √(W × H) / 60</li>
@@ -368,10 +363,10 @@ export default function BodySurfaceAreaCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Specialized Formulas</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Specialized Formulas</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Haycock (1978)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Haycock (1978)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Developed for children</li>
                   <li>More accurate for pediatric use</li>
@@ -382,7 +377,7 @@ export default function BodySurfaceAreaCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Gehan & George (1970)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Gehan & George (1970)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Based on body density</li>
                   <li>Accounts for body composition</li>
@@ -393,7 +388,7 @@ export default function BodySurfaceAreaCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Boyd (1935)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Boyd (1935)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Early comprehensive formula</li>
                   <li>Includes age and gender</li>
@@ -405,31 +400,31 @@ export default function BodySurfaceAreaCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-violet-50 p-3 rounded-lg border border-violet-200">
+              <div className="bg-violet-50 p-3 rounded-2xl border border-violet-200">
                 <h5 className="font-semibold text-violet-800 mb-1">Body Surface Area</h5>
                 <p className="text-violet-700 text-sm">Total surface area in m²</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Formula Comparison</h5>
                 <p className="text-purple-700 text-sm">All methods side-by-side</p>
               </div>
-              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+              <div className="bg-indigo-50 p-3 rounded-2xl border border-indigo-200">
                 <h5 className="font-semibold text-indigo-800 mb-1">Recommendations</h5>
                 <p className="text-indigo-700 text-sm">Personalized guidance</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your age, gender, weight, and height. Choose your preferred calculation formula, 
               and the calculator will provide your body surface area along with comparisons of all 
               available formulas to help you understand the range of possible values.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Clinical Applications</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Clinical Applications</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Drug Dosing:</strong></p>
@@ -456,7 +451,7 @@ export default function BodySurfaceAreaCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">BSA vs. Body Weight Dosing</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">BSA vs. Body Weight Dosing</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>BSA Dosing:</strong> More accurate for many medications</li>
               <li><strong>Weight Dosing:</strong> Simpler but less precise</li>
@@ -466,7 +461,7 @@ export default function BodySurfaceAreaCalculator() {
               <li><strong>Oncology Standard:</strong> BSA required for chemotherapy</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting BSA</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting BSA</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Body Size:</strong> Larger individuals have greater BSA</li>
               <li><strong>Body Shape:</strong> Taller people have more surface area</li>
@@ -476,10 +471,10 @@ export default function BodySurfaceAreaCalculator() {
               <li><strong>Pregnancy:</strong> Increases BSA during gestation</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">BSA in Different Populations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">BSA in Different Populations</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Adults</h5>
+                <h5 className="font-semibold text-google-text mb-2">Adults</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Typical range: 1.4-2.2 m²</li>
                   <li>DuBois formula most accurate</li>
@@ -490,7 +485,7 @@ export default function BodySurfaceAreaCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Children</h5>
+                <h5 className="font-semibold text-google-text mb-2">Children</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Range: 0.2-1.8 m²</li>
                   <li>Haycock formula recommended</li>
@@ -502,7 +497,7 @@ export default function BodySurfaceAreaCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Burn Assessment</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Burn Assessment</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Rule of Nines:</strong> Body part percentages for burns</li>
               <li><strong>Lund-Browder Chart:</strong> Age-adjusted burn assessment</li>
@@ -512,7 +507,7 @@ export default function BodySurfaceAreaCalculator() {
               <li><strong>Treatment Planning:</strong> BSA guides therapy decisions</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Research Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Research Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Clinical Trials:</strong> Standardized dosing protocols</li>
               <li><strong>Epidemiology:</strong> Population health studies</li>
@@ -522,7 +517,7 @@ export default function BodySurfaceAreaCalculator() {
               <li><strong>Public Health:</strong> Population assessments</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Limitations and Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Limitations and Considerations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Formula Variation:</strong> Different methods give different results</li>
               <li><strong>Population Specificity:</strong> Some formulas better for certain groups</li>
@@ -532,7 +527,7 @@ export default function BodySurfaceAreaCalculator() {
               <li><strong>Clinical Judgment:</strong> Always consider individual factors</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Use Each Formula</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Use Each Formula</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>DuBois & DuBois:</strong> General adult population, clinical practice</li>
               <li><strong>Mosteller:</strong> Quick estimates, pediatrics, research</li>
@@ -542,8 +537,8 @@ export default function BodySurfaceAreaCalculator() {
               <li><strong>Multiple Formulas:</strong> Compare results for accuracy</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-violet-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-violet-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 For most clinical applications, the DuBois & DuBois formula provides the most reliable 
                 results. However, always consider your specific use case - use Haycock for children, 
@@ -560,3 +555,8 @@ export default function BodySurfaceAreaCalculator() {
     </div>
   )
 }
+
+
+
+
+

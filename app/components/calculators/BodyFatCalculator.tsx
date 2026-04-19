@@ -100,14 +100,9 @@ export default function BodyFatCalculator() {
   const result = showResults ? calculateBodyFat() : { bodyFat: 0, category: '', leanMass: 0, fatMass: 0, method: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-green-500 to-teal-500 px-6 py-4">
-        <div className="flex items-center">
-          <User className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Body Fat Calculator</h2>
-        </div>
-        <p className="text-green-100 mt-1">Calculate your body fat percentage using multiple methods</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -120,7 +115,7 @@ export default function BodyFatCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="Age"
                 aria-label="Age in years"
               />
@@ -132,7 +127,7 @@ export default function BodyFatCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -150,7 +145,7 @@ export default function BodyFatCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="Weight"
                 aria-label="Weight in pounds"
               />
@@ -163,7 +158,7 @@ export default function BodyFatCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="Height"
                 aria-label="Height in feet or cm"
               />
@@ -179,7 +174,7 @@ export default function BodyFatCalculator() {
                 type="number"
                 value={waist}
                 onChange={(e) => setWaist(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="Waist"
                 aria-label="Waist circumference in cm"
               />
@@ -192,7 +187,7 @@ export default function BodyFatCalculator() {
                 type="number"
                 value={neck}
                 onChange={(e) => setNeck(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="Neck"
                 aria-label="Neck circumference in cm"
               />
@@ -205,7 +200,7 @@ export default function BodyFatCalculator() {
                 type="number"
                 value={hip}
                 onChange={(e) => setHip(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 placeholder="Hip"
                 aria-label="Hip circumference in cm"
               />
@@ -219,7 +214,7 @@ export default function BodyFatCalculator() {
             <select
               value={method}
               onChange={(e) => setMethod(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="google-input"
               aria-label="Select calculation method"
             >
               <option value="navy">US Navy Method (Most Accurate)</option>
@@ -231,14 +226,14 @@ export default function BodyFatCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -247,7 +242,7 @@ export default function BodyFatCalculator() {
         </div>
 
         {showResults && (
-          <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+          <div className="mt-6 p-4 google-result-card">
             <h3 className="text-lg font-semibold text-green-800 mb-3">Results</h3>
             <div className="space-y-2">
               <div className="flex justify-between">
@@ -277,8 +272,8 @@ export default function BodyFatCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Body Fat Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Body Fat Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive body fat calculator helps individuals determine their body fat percentage 
@@ -287,7 +282,7 @@ export default function BodyFatCalculator() {
               fitness goals, and overall health monitoring.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Body Fat Percentage:</strong> Percentage of total body weight that is fat</li>
               <li><strong>Body Fat Category:</strong> Classification based on health standards</li>
@@ -297,10 +292,10 @@ export default function BodyFatCalculator() {
               <li><strong>Health Assessment:</strong> Body composition health evaluation</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Methods Explained</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Calculation Methods Explained</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">US Navy Method</h5>
+                <h5 className="font-semibold text-google-text mb-2">US Navy Method</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Most accurate for most people</li>
                   <li>Uses circumference measurements</li>
@@ -311,7 +306,7 @@ export default function BodyFatCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">BMI-Based Estimation</h5>
+                <h5 className="font-semibold text-google-text mb-2">BMI-Based Estimation</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Uses height and weight only</li>
                   <li>Less accurate than other methods</li>
@@ -322,7 +317,7 @@ export default function BodyFatCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Skinfold Method</h5>
+                <h5 className="font-semibold text-google-text mb-2">Skinfold Method</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Measures subcutaneous fat</li>
                   <li>Requires calipers and training</li>
@@ -334,10 +329,10 @@ export default function BodyFatCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Fat Categories</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Body Fat Categories</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Men</h5>
+                <h5 className="font-semibold text-google-text mb-2">Men</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Essential Fat:</strong> 2-5% (minimum for health)</li>
                   <li><strong>Athletes:</strong> 6-13% (optimal performance)</li>
@@ -348,7 +343,7 @@ export default function BodyFatCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Women</h5>
+                <h5 className="font-semibold text-google-text mb-2">Women</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Essential Fat:</strong> 10-13% (minimum for health)</li>
                   <li><strong>Athletes:</strong> 14-20% (optimal performance)</li>
@@ -360,31 +355,31 @@ export default function BodyFatCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Body Fat %</h5>
                 <p className="text-green-700 text-sm">Percentage of total weight</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Category</h5>
                 <p className="text-blue-700 text-sm">Health classification</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Mass Breakdown</h5>
                 <p className="text-purple-700 text-sm">Fat vs. lean mass</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your age, gender, weight, height, and body measurements (waist, neck, hip). 
               Choose your preferred calculation method, and the calculator will provide your body fat 
               percentage, health category, and body composition breakdown.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Measurement Techniques</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Measurement Techniques</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Waist Measurement:</strong></p>
@@ -409,7 +404,7 @@ export default function BodyFatCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Fat vs. BMI</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Body Fat vs. BMI</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Body Fat Percentage:</strong> Measures actual fat tissue</li>
               <li><strong>BMI:</strong> Height-to-weight ratio only</li>
@@ -419,7 +414,7 @@ export default function BodyFatCalculator() {
               <li><strong>Health Assessment:</strong> Body fat % better indicator</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Health Implications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Health Implications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Too Low:</strong> Hormone issues, poor performance, health risks</li>
               <li><strong>Optimal Range:</strong> Good health, performance, longevity</li>
@@ -429,10 +424,10 @@ export default function BodyFatCalculator() {
               <li><strong>Individual Variation:</strong> Genetics and lifestyle factors</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Body Fat</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Body Fat</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Lifestyle Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Lifestyle Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Diet and nutrition</li>
                   <li>Exercise and activity level</li>
@@ -443,7 +438,7 @@ export default function BodyFatCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Biological Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Biological Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Age and metabolism</li>
                   <li>Gender differences</li>
@@ -455,7 +450,7 @@ export default function BodyFatCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Improving Body Composition</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Improving Body Composition</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Strength Training:</strong> Build muscle mass</li>
               <li><strong>Cardiovascular Exercise:</strong> Burn excess fat</li>
@@ -465,7 +460,7 @@ export default function BodyFatCalculator() {
               <li><strong>Patience:</strong> Body composition changes take time</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Measure</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Measure</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Initial Assessment:</strong> Establish baseline</li>
               <li><strong>Monthly Tracking:</strong> Monitor progress</li>
@@ -475,7 +470,7 @@ export default function BodyFatCalculator() {
               <li><strong>Health Monitoring:</strong> Prevent health issues</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Measurement Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Measurement Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Inconsistent Timing:</strong> Measure at same time of day</li>
               <li><strong>Poor Tape Placement:</strong> Wrong measurement locations</li>
@@ -485,7 +480,7 @@ export default function BodyFatCalculator() {
               <li><strong>Post-Exercise:</strong> Measuring immediately after workout</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Professional vs. Home Measurement</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Professional vs. Home Measurement</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Professional Methods:</strong> DEXA, BodPod, hydrostatic weighing</li>
               <li><strong>Home Methods:</strong> Calipers, circumference, bioelectrical impedance</li>
@@ -495,8 +490,8 @@ export default function BodyFatCalculator() {
               <li><strong>Tracking:</strong> Home methods good for trends</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-green-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Focus on trends rather than absolute numbers when tracking body fat percentage at home. 
                 Measure at the same time of day, under similar conditions, and track changes over time. 
@@ -513,3 +508,7 @@ export default function BodyFatCalculator() {
     </div>
   )
 }
+
+
+
+

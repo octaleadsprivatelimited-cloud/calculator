@@ -148,14 +148,9 @@ export default function MarginCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-500 to-indigo-500 px-6 py-4">
-        <div className="flex items-center">
-          <Percent className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Margin Calculator</h2>
-        </div>
-        <p className="text-blue-100 mt-1">Calculate gross margin, net margin, and markup</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -168,7 +163,7 @@ export default function MarginCalculator() {
                 type="number"
                 value={revenue}
                 onChange={(e) => setRevenue(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="Enter revenue"
                 step="0.01"
                 aria-label="Total revenue in dollars"
@@ -182,7 +177,7 @@ export default function MarginCalculator() {
                 type="number"
                 value={cost}
                 onChange={(e) => setCost(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="Enter total cost"
                 step="0.01"
                 aria-label="Total cost in dollars"
@@ -199,7 +194,7 @@ export default function MarginCalculator() {
                 type="number"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="Enter price"
                 step="0.01"
                 aria-label="Price per unit in dollars"
@@ -213,7 +208,7 @@ export default function MarginCalculator() {
                 type="number"
                 value={costPerUnit}
                 onChange={(e) => setCostPerUnit(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="Enter cost"
                 step="0.01"
                 aria-label="Cost per unit in dollars"
@@ -227,7 +222,7 @@ export default function MarginCalculator() {
                 type="number"
                 value={units}
                 onChange={(e) => setUnits(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="Enter units"
                 aria-label="Number of units sold"
               />
@@ -237,14 +232,14 @@ export default function MarginCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 bg-google-blueLight0 hover:bg-google-blue text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -254,10 +249,10 @@ export default function MarginCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Gross Margin</h3>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">
+                <div className="text-3xl font-bold text-google-blue mb-2">
                   {result.grossMargin.toFixed(2)}
                 </div>
                 <div className="text-blue-700">
@@ -266,7 +261,7 @@ export default function MarginCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-3">Margin Analysis</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -296,7 +291,7 @@ export default function MarginCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-3">Input Summary</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -315,12 +310,12 @@ export default function MarginCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
                 <h3 className="text-lg font-semibold text-blue-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
                     <div key={index} className="flex items-start">
-                      <span className="text-blue-600 mr-2">•</span>
+                      <span className="text-google-blue mr-2">•</span>
                       <span className="text-blue-700">{rec}</span>
                     </div>
                   ))}
@@ -331,8 +326,8 @@ export default function MarginCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Margin Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Margin Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive margin calculator helps business owners, managers, and financial analysts 
@@ -342,7 +337,7 @@ export default function MarginCalculator() {
               and business strategy.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Gross Margin:</strong> Profit after direct costs, before operating expenses</li>
               <li><strong>Net Margin:</strong> Final profit after all costs and expenses</li>
@@ -352,10 +347,10 @@ export default function MarginCalculator() {
               <li><strong>Pricing Insights:</strong> How pricing affects profitability</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Margin vs. Markup</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Margin vs. Markup</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Margin</h5>
+                <h5 className="font-semibold text-google-text mb-2">Margin</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Profit as percentage of selling price</li>
                   <li>Shows profit per dollar of revenue</li>
@@ -366,7 +361,7 @@ export default function MarginCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Markup</h5>
+                <h5 className="font-semibold text-google-text mb-2">Markup</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Profit as percentage of cost</li>
                   <li>Shows how much to add to cost</li>
@@ -378,30 +373,30 @@ export default function MarginCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Gross Margin</h5>
                 <p className="text-blue-700 text-sm">Profit after direct costs</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Net Margin</h5>
                 <p className="text-green-700 text-sm">Final profit percentage</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Markup</h5>
                 <p className="text-purple-700 text-sm">Price increase over cost</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your total revenue, total costs, and optionally price per unit, cost per unit, and units 
               sold. The calculator will compute gross margin, net margin, markup, and provide profitability 
               analysis and recommendations.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Business Metrics</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Key Business Metrics</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Revenue:</strong> Total income from sales before any deductions</li>
               <li><strong>Cost of Goods Sold (COGS):</strong> Direct costs to produce or acquire products</li>
@@ -411,8 +406,8 @@ export default function MarginCalculator() {
               <li><strong>Profitability Ratios:</strong> Margins as percentages of revenue</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Industry Margin Benchmarks</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Industry Margin Benchmarks</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>High-Margin Industries:</strong></p>
@@ -435,7 +430,7 @@ export default function MarginCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Margins</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Margins</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Pricing Strategy:</strong> Higher prices typically mean higher margins</li>
               <li><strong>Cost Structure:</strong> Lower costs increase profit margins</li>
@@ -445,7 +440,7 @@ export default function MarginCalculator() {
               <li><strong>Operational Efficiency:</strong> Streamlined processes reduce costs</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Margin Improvement Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Margin Improvement Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Increase Prices:</strong> Raise selling prices strategically</li>
               <li><strong>Reduce Costs:</strong> Negotiate better supplier terms</li>
@@ -455,7 +450,7 @@ export default function MarginCalculator() {
               <li><strong>Technology Investment:</strong> Automate to reduce labor costs</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Pricing Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Pricing Strategies</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Cost-Plus Pricing:</strong> Add markup to cost</li>
               <li><strong>Value-Based Pricing:</strong> Price based on customer value</li>
@@ -465,7 +460,7 @@ export default function MarginCalculator() {
               <li><strong>Premium Pricing:</strong> Higher prices for quality positioning</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Margin Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Margin Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Ignoring Hidden Costs:</strong> Not including all expenses</li>
               <li><strong>Pricing Too Low:</strong> Undervaluing products or services</li>
@@ -475,7 +470,7 @@ export default function MarginCalculator() {
               <li><strong>Focusing Only on Revenue:</strong> Neglecting cost control</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Margin Analysis Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Margin Analysis Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Business Planning:</strong> Set realistic profit targets</li>
               <li><strong>Pricing Decisions:</strong> Determine optimal selling prices</li>
@@ -485,8 +480,8 @@ export default function MarginCalculator() {
               <li><strong>Strategic Planning:</strong> Plan for growth and expansion</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When analyzing margins, always consider both the percentage and absolute dollar amounts. A 
                 50% margin on a 10 product (5 profit) is very different from a 20% margin on a 100 
@@ -502,4 +497,8 @@ export default function MarginCalculator() {
     </div>
   )
 }
+
+
+
+
 

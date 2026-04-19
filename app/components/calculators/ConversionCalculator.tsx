@@ -238,7 +238,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
   const currentUnits = getCurrentUnits()
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -258,13 +258,13 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
       <div className="p-6">
         {/* Conversion Categories */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Conversion Categories</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Conversion Categories</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {CONVERSION_CATEGORIES.map((category, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickCategory(category)}
-                className={`p-4 rounded-lg border transition-colors text-left ${
+                className={`p-4 rounded-2xl border transition-colors text-left ${
                   selectedCategory === category.name
                     ? 'bg-indigo-500 text-white border-indigo-500'
                     : 'bg-indigo-50 hover:bg-indigo-100 border-indigo-200 text-gray-700'
@@ -291,7 +291,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
               type="number"
               value={fromValue}
               onChange={(e) => setFromValue(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="google-input"
               placeholder="100"
               step="any"
               aria-label="Value to convert from"
@@ -306,7 +306,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             <select
               value={fromUnit}
               onChange={(e) => handleUnitChange(e.target.value, true)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="google-input"
               aria-label="Select source unit"
             >
               <option value="">Select unit</option>
@@ -326,7 +326,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             <select
               value={toUnit}
               onChange={(e) => handleUnitChange(e.target.value, false)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="google-input"
               aria-label="Select target unit"
             >
               <option value="">Select unit</option>
@@ -344,7 +344,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Convert</span>
@@ -356,7 +356,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Conversion Calculation Result"
                 inputs={[
@@ -375,52 +375,52 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             </div>
 
             {/* Conversion Results */}
-            <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+            <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-4">Conversion Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-indigo-700">{result.fromValue}</div>
-                  <div className="text-sm text-gray-600">From Value</div>
+                  <div className="text-sm text-google-gray">From Value</div>
                   <div className="text-xs text-indigo-600">{result.fromUnit}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.toValue)}</div>
-                  <div className="text-sm text-gray-600">To Value</div>
-                  <div className="text-xs text-blue-600">{result.toUnit}</div>
+                  <div className="text-sm text-google-gray">To Value</div>
+                  <div className="text-xs text-google-blue">{result.toUnit}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{formatNumber(result.conversionFactor)}</div>
-                  <div className="text-sm text-gray-600">Factor</div>
+                  <div className="text-sm text-google-gray">Factor</div>
                   <div className="text-xs text-green-600">Multiplier</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{result.fromUnit} → {result.toUnit}</div>
-                  <div className="text-sm text-gray-600">Conversion</div>
+                  <div className="text-sm text-google-gray">Conversion</div>
                   <div className="text-xs text-purple-600">Direction</div>
                 </div>
               </div>
             </div>
 
             {/* Conversion Details */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Conversion Details</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Conversion Details</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Formula Used</h4>
-                  <div className="bg-white p-3 rounded-lg border border-gray-200">
+                  <h4 className="font-semibold text-google-text mb-3">Formula Used</h4>
+                  <div className="bg-white p-3 rounded-2xl border border-gray-200">
                     <code className="text-sm text-gray-700">{result.formula}</code>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Category Information</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Category Information</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Category:</span>
+                      <span className="text-google-gray">Category:</span>
                       <span className="font-semibold text-indigo-700">{selectedCategory}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Units Available:</span>
+                      <span className="text-google-gray">Units Available:</span>
                       <span className="font-semibold text-blue-700">{currentUnits.length}</span>
                     </div>
                   </div>
@@ -432,28 +432,28 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -463,8 +463,8 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Conversion Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Conversion Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive conversion calculator helps students, professionals, and everyday users 
@@ -473,7 +473,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
               helping with homework, professional work, cooking, travel, and international projects.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Converts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Converts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Length & Distance:</strong> Metric, imperial, and international units</li>
               <li><strong>Weight & Mass:</strong> Pounds, kilograms, ounces, grams, and more</li>
@@ -483,10 +483,10 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
               <li><strong>Speed & Velocity:</strong> MPH, KPH, knots, and other speed units</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Supported Conversion Categories</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Supported Conversion Categories</h4>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Physical Measurements</h5>
+              <h5 className="font-semibold text-google-text mb-2">Physical Measurements</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Length:</strong> Inches, feet, yards, miles, meters, kilometers</li>
                 <li><strong>Weight:</strong> Ounces, pounds, tons, grams, kilograms</li>
@@ -497,7 +497,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Specialized Units</h5>
+              <h5 className="font-semibold text-google-text mb-2">Specialized Units</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Digital Storage:</strong> Bytes, kilobytes, megabytes, gigabytes</li>
                 <li><strong>Energy:</strong> Joules, calories, kilowatt-hours, BTUs</li>
@@ -509,35 +509,35 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
           <div className="grid md:grid-cols-4 gap-4 mb-4">
-            <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+            <div className="bg-indigo-50 p-3 rounded-2xl border border-indigo-200">
               <h5 className="font-semibold text-indigo-800 mb-1">From Value</h5>
               <p className="text-indigo-700 text-sm">Original measurement</p>
             </div>
-            <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
               <h5 className="font-semibold text-blue-800 mb-1">To Value</h5>
               <p className="text-blue-700 text-sm">Converted result</p>
             </div>
-            <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
               <h5 className="font-semibold text-green-800 mb-1">Factor</h5>
               <p className="text-green-700 text-sm">Conversion multiplier</p>
             </div>
-            <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+            <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
               <h5 className="font-semibold text-purple-800 mb-1">Direction</h5>
               <p className="text-purple-700 text-sm">Conversion path</p>
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
           <p className="text-gray-700 mb-4">
             Select your conversion category, enter the value you want to convert, choose the source unit, 
             and select the target unit. The calculator will instantly provide the converted value along 
             with the conversion factor and formula used for transparency and learning.
           </p>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Conversion Methods</h4>
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+          <h4 className="text-lg font-semibold text-google-text mb-2">Conversion Methods</h4>
+          <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <p><strong>Direct Conversion:</strong></p>
@@ -564,7 +564,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Conversion Factors</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Common Conversion Factors</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Length:</strong> 1 inch = 2.54 cm, 1 mile = 1.609 km, 1 yard = 0.9144 m</li>
             <li><strong>Weight:</strong> 1 pound = 0.4536 kg, 1 ounce = 28.35 g, 1 ton = 907.2 kg</li>
@@ -574,10 +574,10 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             <li><strong>Speed:</strong> 1 MPH = 1.609 KPH, 1 knot = 1.151 MPH</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Practical Applications</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Practical Applications</h4>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Academic & Professional</h5>
+              <h5 className="font-semibold text-google-text mb-2">Academic & Professional</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Mathematics:</strong> Unit conversion exercises</li>
                 <li><strong>Science:</strong> Laboratory measurements</li>
@@ -588,7 +588,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold text-gray-800 mb-2">Everyday Use</h5>
+              <h5 className="font-semibold text-google-text mb-2">Everyday Use</h5>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li><strong>Cooking:</strong> Recipe conversions</li>
                 <li><strong>Travel:</strong> Distance and speed</li>
@@ -600,7 +600,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             </div>
           </div>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Conversion Accuracy</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Conversion Accuracy</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Precision:</strong> Results accurate to 4+ decimal places</li>
             <li><strong>Standards:</strong> Based on international measurement standards</li>
@@ -610,7 +610,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             <li><strong>Regular Updates:</strong> Maintained with current standards</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">International Standards</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">International Standards</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>SI Units:</strong> International System of Units (metric)</li>
             <li><strong>ISO Standards:</strong> International Organization for Standardization</li>
@@ -620,7 +620,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             <li><strong>Global Trade:</strong> International commerce standards</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Conversion Tips</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Conversion Tips</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Verify Results:</strong> Convert back to original unit to check accuracy</li>
             <li><strong>Use Appropriate Precision:</strong> Match precision to your needs</li>
@@ -630,7 +630,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             <li><strong>Practice Regularly:</strong> Regular use improves conversion skills</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Conversion Mistakes</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Common Conversion Mistakes</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Unit Confusion:</strong> Mixing similar-sounding units</li>
             <li><strong>Direction Errors:</strong> Converting in wrong direction</li>
@@ -640,7 +640,7 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             <li><strong>Outdated Factors:</strong> Using old conversion standards</li>
           </ul>
           
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Conversion Concepts</h4>
+          <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Conversion Concepts</h4>
           <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
             <li><strong>Dimensional Analysis:</strong> Systematic unit conversion method</li>
             <li><strong>Conversion Chains:</strong> Multi-step unit conversions</li>
@@ -650,8 +650,8 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
             <li><strong>Validation Methods:</strong> Verifying conversion accuracy</li>
           </ul>
           
-          <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
-            <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+          <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-indigo-500">
+            <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
             <p className="text-gray-700 text-sm">
               When working with conversions, always verify your results by converting back to the original 
               unit. This simple check can catch most conversion errors. Also, consider the precision needed 
@@ -664,12 +664,12 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
       </div>
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
             <Info className="w-6 h-6 text-indigo-600 mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Conversion Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Conversion Calculator</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 This comprehensive conversion calculator handles various units of measurement including length, 
                 weight, and temperature. It provides accurate conversions using standard conversion factors 
                 and formulas. The calculator is useful for students, professionals, and anyone needing to 
@@ -682,3 +682,8 @@ Result: ${result.fromValue} ${result.fromUnit} = ${formatNumber(result.toValue)}
     </div>
   )
 }
+
+
+
+
+

@@ -123,7 +123,7 @@ Converted Masses:
   const result = showResults ? convertMass(parseFloat(inputValue), fromUnit) : { grams: 0, kilograms: 0, pounds: 0, ounces: 0, milligrams: 0, tons: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-600 to-red-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -144,8 +144,8 @@ Converted Masses:
         {/* Input Section */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Mass Input */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Convert Mass</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Convert Mass</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -155,7 +155,7 @@ Converted Masses:
                   type="number"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="google-input"
                   placeholder="100"
                   min="0"
                   step="0.001"
@@ -168,7 +168,7 @@ Converted Masses:
                 <select
                   value={fromUnit}
                   onChange={(e) => setFromUnit(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="google-input"
                   aria-label="Select mass unit"
                 >
                   {Object.entries(MASS_UNITS).map(([key, unit]) => (
@@ -180,8 +180,8 @@ Converted Masses:
           </div>
 
           {/* Common Masses */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Common Masses</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Common Masses</h3>
             <div className="grid grid-cols-2 gap-2">
               {COMMON_MASSES.map((item, index) => (
                 <button
@@ -189,8 +189,8 @@ Converted Masses:
                   onClick={() => handleCommonMass(item.mass, item.unit)}
                   className="text-left p-2 bg-white rounded border hover:bg-orange-50 transition-colors text-sm"
                 >
-                  <div className="font-medium text-gray-800">{item.name}</div>
-                  <div className="text-gray-600">{item.mass} {item.unit}</div>
+                  <div className="font-medium text-google-text">{item.name}</div>
+                  <div className="text-google-gray">{item.mass} {item.unit}</div>
                 </button>
               ))}
             </div>
@@ -202,10 +202,10 @@ Converted Masses:
           <button
             onClick={handleCalculate}
             disabled={!inputValue || parseFloat(inputValue) <= 0}
-            className={`font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
+            className={`font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
               !inputValue || parseFloat(inputValue) <= 0
-                ? 'bg-gray-400 cursor-not-allowed text-gray-600'
-                : 'bg-orange-600 hover:bg-orange-700 text-white'
+                ? 'bg-gray-400 cursor-not-allowed text-google-gray'
+                : 'google-button-primary text-white'
             }`}
           >
             <Calculator className="w-5 h-5" />
@@ -217,7 +217,7 @@ Converted Masses:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-orange-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Mass Conversion Result"
                 inputs={[
@@ -236,32 +236,32 @@ Converted Masses:
             </div>
 
             {/* Mass Conversions */}
-            <div className="bg-orange-50 p-6 rounded-lg border border-orange-200">
+            <div className="bg-orange-50 p-6 rounded-2xl border border-orange-200">
               <h3 className="text-lg font-semibold text-orange-800 mb-4">Mass Conversions</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-orange-700">{formatNumber(result.grams)}</div>
-                  <div className="text-sm text-gray-600">Grams (g)</div>
+                  <div className="text-sm text-google-gray">Grams (g)</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-orange-700">{formatNumber(result.kilograms)}</div>
-                  <div className="text-sm text-gray-600">Kilograms (kg)</div>
+                  <div className="text-sm text-google-gray">Kilograms (kg)</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-orange-700">{formatNumber(result.pounds)}</div>
-                  <div className="text-sm text-gray-600">Pounds (lb)</div>
+                  <div className="text-sm text-google-gray">Pounds (lb)</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-orange-700">{formatNumber(result.ounces)}</div>
-                  <div className="text-sm text-gray-600">Ounces (oz)</div>
+                  <div className="text-sm text-google-gray">Ounces (oz)</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-orange-700">{formatNumber(result.milligrams)}</div>
-                  <div className="text-sm text-gray-600">Milligrams (mg)</div>
+                  <div className="text-sm text-google-gray">Milligrams (mg)</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-orange-700">{formatNumber(result.tons)}</div>
-                  <div className="text-sm text-gray-600">Metric Tons (t)</div>
+                  <div className="text-sm text-google-gray">Metric Tons (t)</div>
                 </div>
               </div>
             </div>
@@ -270,28 +270,28 @@ Converted Masses:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -301,12 +301,12 @@ Converted Masses:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
             <Info className="w-6 h-6 text-orange-600 mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Mass Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Mass Calculator</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 This calculator converts between different mass units commonly used in everyday life. 
                 Mass is a measure of the amount of matter in an object, different from weight which 
                 depends on gravity. Use it for cooking recipes, science experiments, or understanding 
@@ -317,8 +317,8 @@ Converted Masses:
         </div>
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Mass Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Mass Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive mass calculator helps professionals, students, and everyday users 
@@ -327,7 +327,7 @@ Converted Masses:
               conversions for science, cooking, engineering, and daily life applications.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Converts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Converts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Metric Units:</strong> Kilograms, grams, milligrams, metric tons</li>
               <li><strong>Imperial Units:</strong> Pounds, ounces, stones</li>
@@ -337,10 +337,10 @@ Converted Masses:
               <li><strong>Common Masses:</strong> Pre-loaded reference values</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Mass vs. Weight Understanding</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Mass vs. Weight Understanding</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Mass</h5>
+                <h5 className="font-semibold text-google-text mb-2">Mass</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Definition:</strong> Amount of matter in an object</li>
                   <li><strong>Constant:</strong> Same regardless of location</li>
@@ -351,7 +351,7 @@ Converted Masses:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Weight</h5>
+                <h5 className="font-semibold text-google-text mb-2">Weight</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Definition:</strong> Force of gravity on an object</li>
                   <li><strong>Variable:</strong> Changes with gravitational field</li>
@@ -363,35 +363,35 @@ Converted Masses:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Input Value</h5>
                 <p className="text-orange-700 text-sm">Original mass</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">From Unit</h5>
                 <p className="text-blue-700 text-sm">Source unit</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">To Unit</h5>
                 <p className="text-purple-700 text-sm">Target unit</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Result</h5>
                 <p className="text-green-700 text-sm">Converted value</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the mass value you want to convert, select the source unit (from), and the target unit (to). 
               The calculator will instantly provide the converted value with high precision. Use the common masses 
               buttons for quick reference values, and the action buttons to download, share, or print your results.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Conversion Factors</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Conversion Factors</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Metric to Imperial:</strong></p>
@@ -414,10 +414,10 @@ Converted Masses:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Mass Unit Categories</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Mass Unit Categories</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Metric System</h5>
+                <h5 className="font-semibold text-google-text mb-2">Metric System</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Base Unit:</strong> Kilogram (kg)</li>
                   <li><strong>Large Units:</strong> Metric ton (t), megagram (Mg)</li>
@@ -428,7 +428,7 @@ Converted Masses:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Imperial System</h5>
+                <h5 className="font-semibold text-google-text mb-2">Imperial System</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Base Units:</strong> Pound (lb), ounce (oz)</li>
                   <li><strong>Large Units:</strong> Ton (US), stone (st)</li>
@@ -440,7 +440,7 @@ Converted Masses:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Practical Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Practical Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Cooking and Baking:</strong> Recipe measurements and ingredient conversions</li>
               <li><strong>Science and Laboratory:</strong> Chemical measurements and experiments</li>
@@ -450,23 +450,23 @@ Converted Masses:
               <li><strong>International Trade:</strong> Product specifications and customs</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Mass References</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Mass References</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Everyday Objects</h5>
                 <p className="text-blue-700 text-sm">Paper clip: 1g, Apple: 150g</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Human Scale</h5>
                 <p className="text-green-700 text-sm">Newborn: 3kg, Adult: 70kg</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Large Objects</h5>
                 <p className="text-purple-700 text-sm">Car: 1500kg, Elephant: 5000kg</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Precision and Accuracy</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Precision and Accuracy</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Significant Figures:</strong> Maintain appropriate precision</li>
               <li><strong>Rounding Rules:</strong> Follow standard mathematical conventions</li>
@@ -476,7 +476,7 @@ Converted Masses:
               <li><strong>Context Matters:</strong> Choose appropriate precision for application</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Mass Conversion Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Mass Conversion Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Base Units:</strong> Convert through kilograms or grams</li>
               <li><strong>Check Orders of Magnitude:</strong> Verify results make sense</li>
@@ -486,7 +486,7 @@ Converted Masses:
               <li><strong>Verify Results:</strong> Double-check important conversions</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Conversion Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Conversion Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Unit Confusion:</strong> Mixing up mass and weight units</li>
               <li><strong>Decimal Errors:</strong> Incorrect decimal placement</li>
@@ -496,8 +496,8 @@ Converted Masses:
               <li><strong>Direction Errors:</strong> Converting in wrong direction</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-orange-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When working with mass conversions, always consider the context and required precision. 
                 For scientific applications, maintain high precision and use standard metric units. 
@@ -512,3 +512,8 @@ Converted Masses:
     </div>
   )
 }
+
+
+
+
+

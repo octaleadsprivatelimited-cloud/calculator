@@ -71,14 +71,9 @@ export default function PregnancyCalculator() {
   const result = showResults ? calculatePregnancy() : { dueDate: '', currentWeek: 0, trimester: '', milestones: [] }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-4">
-        <div className="flex items-center">
-          <Heart className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Pregnancy Calculator</h2>
-        </div>
-        <p className="text-pink-100 mt-1">Calculate your due date and pregnancy progress</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -90,7 +85,7 @@ export default function PregnancyCalculator() {
               type="date"
               value={lastPeriod}
               onChange={(e) => setLastPeriod(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="google-input"
               aria-label="First day of last period"
             />
           </div>
@@ -103,7 +98,7 @@ export default function PregnancyCalculator() {
               type="number"
               value={cycleLength}
               onChange={(e) => setCycleLength(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="google-input"
               placeholder="28"
               min="21"
               max="35"
@@ -114,14 +109,14 @@ export default function PregnancyCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -132,7 +127,7 @@ export default function PregnancyCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-pink-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Pregnancy Calculation Result"
                 inputs={[
@@ -150,7 +145,7 @@ export default function PregnancyCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-pink-50 rounded-lg border border-pink-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-pink-800 mb-2">Pregnancy Progress</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -168,7 +163,7 @@ export default function PregnancyCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-pink-50 rounded-lg border border-pink-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-pink-800 mb-3">Recent Milestones</h3>
               <div className="space-y-2">
                 {result.milestones.length > 0 ? (
@@ -185,7 +180,7 @@ export default function PregnancyCalculator() {
             </div>
 
             {result.currentWeek > 0 && (
-              <div className="p-4 bg-pink-50 rounded-lg border border-pink-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-pink-800 mb-3">Progress Bar</h3>
                 <div className="w-full bg-pink-200 rounded-full h-3">
                   <div 
@@ -202,8 +197,8 @@ export default function PregnancyCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Pregnancy Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Pregnancy Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive Pregnancy Calculator helps expectant mothers track their pregnancy progress, 
@@ -212,7 +207,7 @@ export default function PregnancyCalculator() {
               care and pregnancy planning.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Due Date:</strong> Estimated delivery date based on last period</li>
               <li><strong>Current Week:</strong> Exact pregnancy week and progress</li>
@@ -222,37 +217,37 @@ export default function PregnancyCalculator() {
               <li><strong>Prenatal Care Timeline:</strong> Important medical appointment schedule</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-pink-50 p-3 rounded-lg border border-pink-200">
+              <div className="bg-pink-50 p-3 rounded-2xl border border-pink-200">
                 <h5 className="font-semibold text-pink-800 mb-1">Current Week</h5>
                 <p className="text-pink-700 text-sm">Pregnancy progress</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Trimester</h5>
                 <p className="text-blue-700 text-sm">Pregnancy stage</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Due Date</h5>
                 <p className="text-green-700 text-sm">Expected delivery</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Progress</h5>
                 <p className="text-purple-700 text-sm">Visual timeline</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the first day of your last menstrual period and your average cycle length. The calculator will 
               automatically determine your due date, current pregnancy week, trimester, and provide a visual 
               progress bar showing your pregnancy journey.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Pregnancy Dating Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Pregnancy Dating Methods</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Last Menstrual Period (LMP)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Last Menstrual Period (LMP)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Most Common Method:</strong> Used by healthcare providers</li>
                   <li><strong>Calculation:</strong> LMP + 280 days (40 weeks)</li>
@@ -263,7 +258,7 @@ export default function PregnancyCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Ultrasound Dating</h5>
+                <h5 className="font-semibold text-google-text mb-2">Ultrasound Dating</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Most Accurate:</strong> First trimester ultrasound</li>
                   <li><strong>Measurement:</strong> Crown-rump length (CRL)</li>
@@ -275,9 +270,9 @@ export default function PregnancyCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Pregnancy Trimesters</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Pregnancy Trimesters</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-4 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-2">First Trimester</h5>
                 <p className="text-blue-700 text-sm mb-2"><strong>Weeks 1-13</strong></p>
                 <ul className="list-disc list-inside text-blue-700 space-y-1 text-xs">
@@ -289,7 +284,7 @@ export default function PregnancyCalculator() {
                   <li>Prenatal vitamins essential</li>
                 </ul>
               </div>
-              <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-4 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-2">Second Trimester</h5>
                 <p className="text-green-700 text-sm mb-2"><strong>Weeks 14-27</strong></p>
                 <ul className="list-disc list-inside text-green-700 space-y-1 text-xs">
@@ -301,7 +296,7 @@ export default function PregnancyCalculator() {
                   <li>Anatomy scan scheduled</li>
                 </ul>
               </div>
-              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-4 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-2">Third Trimester</h5>
                 <p className="text-purple-700 text-sm mb-2"><strong>Weeks 28-40</strong></p>
                 <ul className="list-disc list-inside text-purple-700 space-y-1 text-xs">
@@ -315,8 +310,8 @@ export default function PregnancyCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Developmental Milestones</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Key Developmental Milestones</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>First Trimester Milestones:</strong></p>
@@ -341,7 +336,7 @@ export default function PregnancyCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Prenatal Care Schedule</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Prenatal Care Schedule</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>First Trimester:</strong> Monthly visits, blood tests, ultrasound</li>
               <li><strong>Second Trimester:</strong> Monthly visits, anatomy scan, glucose test</li>
@@ -351,10 +346,10 @@ export default function PregnancyCalculator() {
               <li><strong>Education:</strong> Childbirth classes, breastfeeding preparation</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Pregnancy Symptoms by Trimester</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Pregnancy Symptoms by Trimester</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">First Trimester Symptoms</h5>
+                <h5 className="font-semibold text-google-text mb-2">First Trimester Symptoms</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Morning Sickness:</strong> Nausea and vomiting</li>
                   <li><strong>Fatigue:</strong> Extreme tiredness</li>
@@ -365,7 +360,7 @@ export default function PregnancyCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Second & Third Trimester Symptoms</h5>
+                <h5 className="font-semibold text-google-text mb-2">Second & Third Trimester Symptoms</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Back Pain:</strong> Growing uterus pressure</li>
                   <li><strong>Heartburn:</strong> Hormonal changes</li>
@@ -377,7 +372,7 @@ export default function PregnancyCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Nutrition During Pregnancy</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Nutrition During Pregnancy</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Prenatal Vitamins:</strong> Folic acid, iron, calcium, DHA</li>
               <li><strong>Protein:</strong> Essential for fetal growth and development</li>
@@ -387,10 +382,10 @@ export default function PregnancyCalculator() {
               <li><strong>Hydration:</strong> 8-10 glasses of water daily</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Exercise and Pregnancy</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Exercise and Pregnancy</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Safe Exercises</h5>
+                <h5 className="font-semibold text-google-text mb-2">Safe Exercises</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Walking:</strong> Low-impact cardiovascular exercise</li>
                   <li><strong>Swimming:</strong> Full-body workout with support</li>
@@ -401,7 +396,7 @@ export default function PregnancyCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Exercises to Avoid</h5>
+                <h5 className="font-semibold text-google-text mb-2">Exercises to Avoid</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Contact Sports:</strong> Risk of abdominal trauma</li>
                   <li><strong>High-Impact Activities:</strong> Jumping and bouncing</li>
@@ -413,8 +408,8 @@ export default function PregnancyCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Call Your Doctor</h4>
-            <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Call Your Doctor</h4>
+            <div className="bg-yellow-50 p-4 rounded-2xl border border-yellow-200 mb-4">
               <h5 className="font-semibold text-yellow-800 mb-2">Emergency Symptoms:</h5>
               <ul className="list-disc list-inside text-yellow-700 space-y-1 text-sm">
                 <li><strong>Severe Abdominal Pain:</strong> Sharp or persistent pain</li>
@@ -426,7 +421,7 @@ export default function PregnancyCalculator() {
               </ul>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Pregnancy Planning Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Pregnancy Planning Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Financial Planning:</strong> Budget for medical costs and baby expenses</li>
               <li><strong>Work Arrangements:</strong> Plan maternity leave and work accommodations</li>
@@ -436,10 +431,10 @@ export default function PregnancyCalculator() {
               <li><strong>Postpartum Planning:</strong> Arrange help for after baby arrives</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Pregnancy Myths</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Pregnancy Myths</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Myths Debunked</h5>
+                <h5 className="font-semibold text-google-text mb-2">Myths Debunked</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Heartburn = Hairy Baby:</strong> No scientific basis</li>
                   <li><strong>Eating for Two:</strong> Only 300 extra calories needed</li>
@@ -450,7 +445,7 @@ export default function PregnancyCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Evidence-Based Facts</h5>
+                <h5 className="font-semibold text-google-text mb-2">Evidence-Based Facts</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Folic Acid:</strong> Prevents neural tube defects</li>
                   <li><strong>Exercise:</strong> Improves pregnancy outcomes</li>
@@ -462,8 +457,8 @@ export default function PregnancyCalculator() {
               </div>
             </div>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-pink-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-pink-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that every pregnancy is unique, and your experience may differ from others. Use this 
                 calculator as a guide, but always consult with your healthcare provider for personalized medical 
@@ -478,3 +473,8 @@ export default function PregnancyCalculator() {
     </div>
   )
 }
+
+
+
+
+

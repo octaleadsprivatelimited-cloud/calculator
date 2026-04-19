@@ -22,9 +22,9 @@ export default function PercentageGradeCalculator() {
       grades: [
         { min: 93, max: 100, letter: 'A', gpa: 4.0, description: 'Excellent', color: 'text-green-600' },
         { min: 90, max: 92, letter: 'A-', gpa: 3.7, description: 'Excellent', color: 'text-green-600' },
-        { min: 87, max: 89, letter: 'B+', gpa: 3.3, description: 'Good', color: 'text-blue-600' },
-        { min: 83, max: 86, letter: 'B', gpa: 3.0, description: 'Good', color: 'text-blue-600' },
-        { min: 80, max: 82, letter: 'B-', gpa: 2.7, description: 'Good', color: 'text-blue-600' },
+        { min: 87, max: 89, letter: 'B+', gpa: 3.3, description: 'Good', color: 'text-google-blue' },
+        { min: 83, max: 86, letter: 'B', gpa: 3.0, description: 'Good', color: 'text-google-blue' },
+        { min: 80, max: 82, letter: 'B-', gpa: 2.7, description: 'Good', color: 'text-google-blue' },
         { min: 77, max: 79, letter: 'C+', gpa: 2.3, description: 'Average', color: 'text-yellow-600' },
         { min: 73, max: 76, letter: 'C', gpa: 2.0, description: 'Average', color: 'text-yellow-600' },
         { min: 70, max: 72, letter: 'C-', gpa: 1.7, description: 'Average', color: 'text-yellow-600' },
@@ -40,9 +40,9 @@ export default function PercentageGradeCalculator() {
         { min: 97, max: 100, letter: 'A+', gpa: 4.0, description: 'Outstanding', color: 'text-green-600' },
         { min: 93, max: 96, letter: 'A', gpa: 4.0, description: 'Excellent', color: 'text-green-600' },
         { min: 90, max: 92, letter: 'A-', gpa: 3.7, description: 'Excellent', color: 'text-green-600' },
-        { min: 87, max: 89, letter: 'B+', gpa: 3.3, description: 'Good', color: 'text-blue-600' },
-        { min: 83, max: 86, letter: 'B', gpa: 3.0, description: 'Good', color: 'text-blue-600' },
-        { min: 80, max: 82, letter: 'B-', gpa: 2.7, description: 'Good', color: 'text-blue-600' },
+        { min: 87, max: 89, letter: 'B+', gpa: 3.3, description: 'Good', color: 'text-google-blue' },
+        { min: 83, max: 86, letter: 'B', gpa: 3.0, description: 'Good', color: 'text-google-blue' },
+        { min: 80, max: 82, letter: 'B-', gpa: 2.7, description: 'Good', color: 'text-google-blue' },
         { min: 77, max: 79, letter: 'C+', gpa: 2.3, description: 'Average', color: 'text-yellow-600' },
         { min: 73, max: 76, letter: 'C', gpa: 2.0, description: 'Average', color: 'text-yellow-600' },
         { min: 70, max: 72, letter: 'C-', gpa: 1.7, description: 'Average', color: 'text-yellow-600' },
@@ -56,7 +56,7 @@ export default function PercentageGradeCalculator() {
       name: 'International (UK/Australia)',
       grades: [
         { min: 80, max: 100, letter: 'A', gpa: 4.0, description: 'First Class', color: 'text-green-600' },
-        { min: 70, max: 79, letter: 'B', gpa: 3.0, description: 'Upper Second', color: 'text-blue-600' },
+        { min: 70, max: 79, letter: 'B', gpa: 3.0, description: 'Upper Second', color: 'text-google-blue' },
         { min: 60, max: 69, letter: 'C', gpa: 2.0, description: 'Lower Second', color: 'text-yellow-600' },
         { min: 50, max: 59, letter: 'D', gpa: 1.0, description: 'Third Class', color: 'text-orange-600' },
         { min: 0, max: 49, letter: 'F', gpa: 0.0, description: 'Fail', color: 'text-red-600' }
@@ -79,7 +79,7 @@ export default function PercentageGradeCalculator() {
         letterGrade: 'Invalid',
         gpaPoints: 0,
         gradeDescription: 'Please enter a valid percentage (0-100)',
-        color: 'text-gray-600'
+        color: 'text-google-gray'
       }
     }
 
@@ -92,7 +92,7 @@ export default function PercentageGradeCalculator() {
         letterGrade: 'Unknown',
         gpaPoints: 0,
         gradeDescription: 'Grade not found for this percentage',
-        color: 'text-gray-600'
+        color: 'text-google-gray'
       }
     }
 
@@ -122,21 +122,21 @@ export default function PercentageGradeCalculator() {
   const currentSystem = gradingSystems[gradingSystem as keyof typeof gradingSystems]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-4">
+    <div className="min-h-screen bg-google-bg p-4">
       <div className="w-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-google-text mb-2 flex items-center justify-center">
             <GraduationCap className="w-12 h-12 mr-3 text-indigo-600" />
             Percentage to Grade Calculator
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-google-gray">
             Convert percentage scores to letter grades and GPA points
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <div className="google-card overflow-hidden p-6 border border-google-border">
+            <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
               <Calculator className="w-6 h-6 mr-2 text-indigo-600" />
               Grade Calculation
             </h2>
@@ -150,7 +150,7 @@ export default function PercentageGradeCalculator() {
                   type="number"
                   value={percentage}
                   onChange={(e) => setPercentage(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                   placeholder="85"
                   min="0"
                   max="100"
@@ -168,7 +168,7 @@ export default function PercentageGradeCalculator() {
                 <select
                   value={gradingSystem}
                   onChange={(e) => setGradingSystem(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                   aria-label="Grading system selection"
                   title="Select grading system"
                 >
@@ -185,25 +185,25 @@ export default function PercentageGradeCalculator() {
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     onClick={() => setPercentage('95')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   >
                     95% - Excellent
                   </button>
                   <button
                     onClick={() => setPercentage('85')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   >
                     85% - Good
                   </button>
                   <button
                     onClick={() => setPercentage('75')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   >
                     75% - Average
                   </button>
                   <button
                     onClick={() => setPercentage('65')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   >
                     65% - Below Average
                   </button>
@@ -213,7 +213,7 @@ export default function PercentageGradeCalculator() {
               <div className="flex gap-3 pt-4">
                 <button
                   onClick={reset}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="google-button-secondary transition-colors font-medium"
                   title="Reset to defaults"
                 >
                   <RotateCcw className="w-5 h-5" />
@@ -224,7 +224,7 @@ export default function PercentageGradeCalculator() {
 
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
               <ResultSharing
                 title="Percentage to Grade Conversion Result"
                 inputs={[
@@ -242,8 +242,8 @@ export default function PercentageGradeCalculator() {
               />
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4 flex items-center">
                 <TrendingUp className="w-6 h-6 mr-2 text-indigo-600" />
                 Grade Results
               </h2>
@@ -252,35 +252,35 @@ export default function PercentageGradeCalculator() {
                 <div className={`text-6xl font-bold mb-2 ${result.color}`}>
                   {result.letterGrade}
                 </div>
-                <p className="text-gray-600 text-lg">{result.gradeDescription}</p>
+                <p className="text-google-gray text-lg">{result.gradeDescription}</p>
               </div>
 
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Percentage</span>
+                  <span className="text-google-gray">Percentage</span>
                   <span className="font-semibold">{result.percentage}%</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Letter Grade</span>
+                  <span className="text-google-gray">Letter Grade</span>
                   <span className={`font-semibold ${result.color}`}>
                     {result.letterGrade}
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">GPA Points</span>
-                  <span className="font-semibold text-blue-600">
+                  <span className="text-google-gray">GPA Points</span>
+                  <span className="font-semibold text-google-blue">
                     {result.gpaPoints}
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-600">Grading System</span>
+                  <span className="text-google-gray">Grading System</span>
                   <span className="font-semibold text-purple-600">
                     {currentSystem.name}
                   </span>
                 </div>
                 {result.gpaPoints > 0 && (
                   <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-gray-600">GPA Interpretation</span>
+                    <span className="text-google-gray">GPA Interpretation</span>
                     <span className="font-semibold text-green-600 text-sm">
                       {getGPAInterpretation(result.gpaPoints)}
                     </span>
@@ -289,8 +289,8 @@ export default function PercentageGradeCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Grade Scale</h2>
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Grade Scale</h2>
               <div className="space-y-2 max-h-64 overflow-y-auto">
                 {currentSystem.grades.map((grade, index) => (
                   <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100">
@@ -298,14 +298,14 @@ export default function PercentageGradeCalculator() {
                       <span className={`font-semibold ${grade.color}`}>
                         {grade.letter}
                       </span>
-                      <span className="text-sm text-gray-600">
+                      <span className="text-sm text-google-gray">
                         {grade.min}-{grade.max}%
                       </span>
                     </div>
                     <div className="text-right">
-                      <span className="text-sm text-gray-600">{grade.description}</span>
+                      <span className="text-sm text-google-gray">{grade.description}</span>
                       {grade.gpa > 0 && (
-                        <div className="text-xs text-blue-600">GPA: {grade.gpa}</div>
+                        <div className="text-xs text-google-blue">GPA: {grade.gpa}</div>
                       )}
                     </div>
                   </div>
@@ -313,9 +313,9 @@ export default function PercentageGradeCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Grade Information</h2>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="google-card overflow-hidden p-6 border border-google-border">
+              <h2 className="text-2xl font-bold text-google-text mb-4">Grade Information</h2>
+              <div className="space-y-3 text-sm text-google-gray">
                 <p>• <strong>Letter Grades:</strong> Standard academic performance indicators</p>
                 <p>• <strong>GPA Points:</strong> Grade Point Average scale (0.0-4.0)</p>
                 <p>• <strong>Grading Systems:</strong> Different institutions use various scales</p>
@@ -333,4 +333,7 @@ export default function PercentageGradeCalculator() {
     </div>
   )
 }
+
+
+
 

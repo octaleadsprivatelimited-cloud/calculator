@@ -128,7 +128,7 @@ Results:
   const result = showResults ? calculateTip() : { tipAmount: 0, totalAmount: 0, perPerson: 0, tipPerPerson: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -150,15 +150,15 @@ Results:
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Bill and Tip */}
           <div className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Bill Amount</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4">Bill Amount</h3>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></span>
                 <input
                   type="number"
                   value={billAmount}
                   onChange={(e) => setBillAmount(e.target.value)}
-                  className="w-full pl-8 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-lg"
+                  className="w-full pl-8 pr-3 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 text-lg"
                   placeholder="0.00"
                   min="0"
                   step="0.01"
@@ -166,14 +166,14 @@ Results:
               </div>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Tip Percentage</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4">Tip Percentage</h3>
               <div className="grid grid-cols-3 gap-2 mb-4">
                 {TIP_PRESETS.map((percentage) => (
                   <button
                     key={percentage}
                     onClick={() => handleTipPreset(percentage)}
-                    className={`py-2 px-3 rounded-lg text-sm font-medium transition-colors ${
+                    className={`py-2 px-3 rounded-2xl text-sm font-medium transition-colors ${
                       tipPercentage === percentage && customTipPercentage === ''
                         ? 'bg-green-600 text-white'
                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -192,7 +192,7 @@ Results:
                     type="number"
                     value={customTipPercentage}
                     onChange={(e) => handleCustomTip(e.target.value)}
-                    className="w-full pr-8 pl-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full pr-8 pl-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500"
                     placeholder="Enter custom %"
                     min="0"
                     max="100"
@@ -206,8 +206,8 @@ Results:
 
           {/* People and Options */}
           <div className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4 flex items-center">
                 <Users className="w-5 h-5 mr-2" />
                 Split Bill
               </h3>
@@ -219,7 +219,7 @@ Results:
                   type="number"
                   value={numberOfPeople}
                   onChange={(e) => setNumberOfPeople(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="google-input"
                   placeholder="1"
                   min="1"
                   max="20"
@@ -227,8 +227,8 @@ Results:
               </div>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Options</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4">Options</h3>
               <div className="flex items-center space-x-3">
                 <input
                   type="checkbox"
@@ -250,10 +250,10 @@ Results:
           <button
             onClick={handleCalculate}
             disabled={!billAmount || parseFloat(billAmount) <= 0}
-            className={`font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
+            className={`font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
               !billAmount || parseFloat(billAmount) <= 0
-                ? 'bg-gray-400 cursor-not-allowed text-gray-600'
-                : 'bg-green-600 hover:bg-green-700 text-white'
+                ? 'bg-gray-400 cursor-not-allowed text-google-gray'
+                : 'google-button-primary text-white'
             }`}
           >
             <Calculator className="w-5 h-5" />
@@ -265,7 +265,7 @@ Results:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
               <ResultSharing
                 title="Tip Calculation Result"
                 inputs={[
@@ -285,30 +285,30 @@ Results:
             </div>
 
             {/* Summary */}
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-4">Tip Summary</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Bill Amount:</span>
+                    <span className="text-google-gray">Bill Amount:</span>
                     <span className="font-semibold">{formatCurrency(parseFloat(billAmount))}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Tip ({tipPercentage}%):</span>
+                    <span className="text-google-gray">Tip ({tipPercentage}%):</span>
                     <span className="font-semibold text-green-600">{formatCurrency(result.tipAmount)}</span>
                   </div>
                   <div className="flex justify-between text-lg font-bold">
-                    <span className="text-gray-800">Total:</span>
+                    <span className="text-google-text">Total:</span>
                     <span className="text-green-700">{formatCurrency(result.totalAmount)}</span>
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Tip per person:</span>
+                    <span className="text-google-gray">Tip per person:</span>
                     <span className="font-semibold text-green-600">{formatCurrency(result.tipPerPerson)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Total per person:</span>
+                    <span className="text-google-gray">Total per person:</span>
                     <span className="font-semibold text-green-700">{formatCurrency(result.perPerson)}</span>
                   </div>
                   {roundUp && (
@@ -326,7 +326,7 @@ Results:
             <div className="text-center">
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 mx-auto"
+                className="flex items-center space-x-2 google-button-primary text-white px-6 py-3 rounded-2xl transition-colors duration-200 mx-auto"
               >
                 <RotateCcw className="w-5 h-5" />
                 <span>Reset Calculator</span>
@@ -336,8 +336,8 @@ Results:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Tip Calculator</h3>
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-200">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Tip Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive tip calculator helps you calculate appropriate tips for restaurants, services, and group dining. 
@@ -347,7 +347,7 @@ Results:
             
             <div className="grid md:grid-cols-2 gap-8 mb-6">
               <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-3">Standard Tipping Rates</h4>
+                <h4 className="text-lg font-semibold text-google-text mb-3">Standard Tipping Rates</h4>
                 <ul className="list-disc list-inside text-gray-700 space-y-2">
                   <li><strong>Restaurants:</strong> 15-20% of pre-tax bill</li>
                   <li><strong>Delivery Services:</strong> 15-18% of order total</li>
@@ -358,7 +358,7 @@ Results:
               </div>
               
               <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-3">Calculator Features</h4>
+                <h4 className="text-lg font-semibold text-google-text mb-3">Calculator Features</h4>
                 <ul className="list-disc list-inside text-gray-700 space-y-2">
                   <li><strong>Quick Presets:</strong> Common tip percentages (15%, 18%, 20%)</li>
                   <li><strong>Custom Tips:</strong> Enter any percentage you prefer</li>
@@ -369,31 +369,31 @@ Results:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-3">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-3">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your bill amount, select a tip percentage (or enter a custom one), and specify the number of people 
               if splitting the bill. The calculator will instantly show the tip amount, total bill, and per-person costs. 
               Use the rounding feature to simplify cash payments.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-3">Tipping Guidelines</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-3">Tipping Guidelines</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Excellent Service</h5>
                 <p className="text-green-700 text-sm">20% or more</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Good Service</h5>
                 <p className="text-blue-700 text-sm">15-18%</p>
               </div>
-              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+              <div className="bg-yellow-50 p-3 rounded-2xl border border-yellow-200">
                 <h5 className="font-semibold text-yellow-800 mb-1">Poor Service</h5>
                 <p className="text-yellow-700 text-sm">10-15%</p>
               </div>
             </div>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-green-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Always tip on the pre-tax amount for restaurants. For delivery, consider tipping more during bad weather 
                 or peak hours. Remember that tips are often shared among staff, so your generosity supports the entire team.
@@ -405,6 +405,10 @@ Results:
     </div>
   )
 }
+
+
+
+
 
 
 

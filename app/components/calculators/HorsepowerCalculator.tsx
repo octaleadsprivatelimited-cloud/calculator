@@ -218,7 +218,7 @@ Performance Analysis:
   const result = showResults ? calculateHorsepower() : { horsepower: 0, kilowatts: 0, torque: 0, powerToWeight: 0, acceleration: 0, topSpeed: 0, performance: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-yellow-600 to-orange-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -238,7 +238,7 @@ Performance Analysis:
       <div className="p-6">
         {/* Calculation Type Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">What would you like to calculate?</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">What would you like to calculate?</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { key: 'torque', label: 'Torque to HP', description: 'Calculate HP from torque & RPM' },
@@ -248,7 +248,7 @@ Performance Analysis:
               <button
                 key={key}
                 onClick={() => setCalculationType(key as any)}
-                className={`p-4 rounded-lg font-medium transition-colors text-center ${
+                className={`p-4 rounded-2xl font-medium transition-colors text-center ${
                   calculationType === key
                     ? 'bg-yellow-600 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -264,8 +264,8 @@ Performance Analysis:
         {/* Engine and Vehicle Selection */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Engine Type */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Engine Information</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Engine Information</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -274,7 +274,7 @@ Performance Analysis:
                 <select
                   value={engineType}
                   onChange={(e) => setEngineType(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="google-input"
                   aria-label="Select engine type"
                 >
                   {ENGINE_TYPES.map(engine => (
@@ -293,7 +293,7 @@ Performance Analysis:
                   type="number"
                   value={rpm}
                   onChange={(e) => setRpm(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="google-input"
                   placeholder="6500"
                   min="1000"
                   max="15000"
@@ -306,8 +306,8 @@ Performance Analysis:
           </div>
 
           {/* Vehicle Category */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Vehicle Information</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Vehicle Information</h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -316,7 +316,7 @@ Performance Analysis:
                 <select
                   value={vehicleCategory}
                   onChange={(e) => setVehicleCategory(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="google-input"
                   aria-label="Select vehicle category"
                 >
                   {VEHICLE_CATEGORIES.map(vehicle => (
@@ -335,7 +335,7 @@ Performance Analysis:
                   type="number"
                   value={vehicleWeight}
                   onChange={(e) => setVehicleWeight(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="google-input"
                   placeholder="3200"
                   min="500"
                   max="10000"
@@ -350,8 +350,8 @@ Performance Analysis:
 
         {/* Torque Input */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Torque Input</h3>
-          <div className="bg-gray-50 p-6 rounded-lg">
+          <h3 className="text-xl font-semibold text-google-text mb-4">Torque Input</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Torque (lb-ft)
@@ -360,7 +360,7 @@ Performance Analysis:
                 type="number"
                 value={torque}
                 onChange={(e) => setTorque(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-lg"
+                className="google-input text-lg"
                 placeholder="300"
                 min="0"
                 max="2000"
@@ -374,13 +374,13 @@ Performance Analysis:
 
         {/* Quick Engine Presets */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Engine Presets</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Engine Presets</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {ENGINE_TYPES.map((engine, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickEngine(engine)}
-                className="p-3 bg-yellow-50 hover:bg-yellow-100 rounded-lg border border-yellow-200 transition-colors text-sm text-center"
+                className="p-3 bg-yellow-50 hover:bg-yellow-100 rounded-2xl border border-yellow-200 transition-colors text-sm text-center"
               >
                 <div className="font-medium text-yellow-800">{engine.name}</div>
                 <div className="text-yellow-600">{engine.maxRpm} RPM</div>
@@ -392,13 +392,13 @@ Performance Analysis:
 
         {/* Quick Vehicle Presets */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Vehicle Presets</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Vehicle Presets</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {VEHICLE_CATEGORIES.map((vehicle, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickVehicle(vehicle)}
-                className="p-3 bg-yellow-50 hover:bg-yellow-100 rounded-lg border border-yellow-200 transition-colors text-sm text-center"
+                className="p-3 bg-yellow-50 hover:bg-yellow-100 rounded-2xl border border-yellow-200 transition-colors text-sm text-center"
               >
                 <div className="font-medium text-yellow-800">{vehicle.name}</div>
                 <div className="text-yellow-600">{vehicle.weight} lbs</div>
@@ -413,7 +413,7 @@ Performance Analysis:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Horsepower</span>
@@ -425,7 +425,7 @@ Performance Analysis:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-yellow-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Horsepower Calculation Result"
                 inputs={[
@@ -444,69 +444,69 @@ Performance Analysis:
             </div>
 
             {/* Horsepower Results */}
-            <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+            <div className="bg-yellow-50 p-6 rounded-2xl border border-yellow-200">
               <h3 className="text-lg font-semibold text-yellow-800 mb-4">Horsepower Calculation Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
                 <div>
                   <div className="text-4xl font-bold text-yellow-700">{formatNumber(result.horsepower)}</div>
-                  <div className="text-sm text-gray-600">Horsepower</div>
+                  <div className="text-sm text-google-gray">Horsepower</div>
                   <div className="text-xs text-yellow-600">{result.performance}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-yellow-700">{formatNumber(result.kilowatts)}</div>
-                  <div className="text-sm text-gray-600">Kilowatts</div>
+                  <div className="text-sm text-google-gray">Kilowatts</div>
                   <div className="text-xs text-yellow-600">Metric power</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-yellow-700">{formatNumber(result.powerToWeight)}</div>
-                  <div className="text-sm text-gray-600">HP per lb</div>
+                  <div className="text-sm text-google-gray">HP per lb</div>
                   <div className="text-xs text-yellow-600">Power-to-weight</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{formatNumber(result.acceleration)}</div>
-                  <div className="text-sm text-gray-600">0-60 mph</div>
+                  <div className="text-sm text-google-gray">0-60 mph</div>
                   <div className="text-xs text-green-600">Estimated time</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.topSpeed)}</div>
-                  <div className="text-sm text-gray-600">Top Speed</div>
-                  <div className="text-xs text-blue-600">Estimated mph</div>
+                  <div className="text-sm text-google-gray">Top Speed</div>
+                  <div className="text-xs text-google-blue">Estimated mph</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{formatNumber(result.torque)}</div>
-                  <div className="text-sm text-gray-600">Torque</div>
+                  <div className="text-sm text-google-gray">Torque</div>
                   <div className="text-xs text-purple-600">lb-ft input</div>
                 </div>
               </div>
             </div>
 
             {/* Performance Analysis */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Performance Analysis</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Performance Analysis</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Power-to-Weight Ratio</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Power-to-Weight Ratio</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Current Ratio:</span>
+                      <span className="text-google-gray">Current Ratio:</span>
                       <span className="font-semibold">{formatNumber(result.powerToWeight)} HP/lb</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Performance Level:</span>
+                      <span className="text-google-gray">Performance Level:</span>
                       <span className="font-semibold text-yellow-700">{result.performance}</span>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Performance Indicators</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Performance Indicators</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">0-60 mph:</span>
+                      <span className="text-google-gray">0-60 mph:</span>
                       <span className="font-semibold">{formatNumber(result.acceleration)}s</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Top Speed:</span>
+                      <span className="text-google-gray">Top Speed:</span>
                       <span className="font-semibold">{formatNumber(result.topSpeed)} mph</span>
                     </div>
                   </div>
@@ -518,28 +518,28 @@ Performance Analysis:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -549,12 +549,12 @@ Performance Analysis:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
             <Info className="w-6 h-6 text-yellow-600 mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Horsepower Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Horsepower Calculator</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 This calculator computes horsepower from torque and RPM using the formula: HP = (Torque × RPM) ÷ 5252. 
                 It also calculates power-to-weight ratios, estimates acceleration times, and provides performance analysis. 
                 The calculator considers different engine types, vehicle categories, and driving conditions to give realistic 
@@ -566,8 +566,8 @@ Performance Analysis:
         </div>
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Horsepower Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Horsepower Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive horsepower calculator helps automotive enthusiasts, engineers, and mechanics 
@@ -576,7 +576,7 @@ Performance Analysis:
               informed vehicle assessment and tuning decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Horsepower:</strong> Engine power output in HP and kilowatts</li>
               <li><strong>Power-to-Weight Ratio:</strong> Performance potential assessment</li>
@@ -586,10 +586,10 @@ Performance Analysis:
               <li><strong>Multiple Calculation Types:</strong> Torque-based, dyno, and weight analysis</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Horsepower Calculation Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Horsepower Calculation Methods</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Torque to Horsepower</h5>
+                <h5 className="font-semibold text-google-text mb-2">Torque to Horsepower</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Formula:</strong> HP = (Torque × RPM) ÷ 5252</li>
                   <li><strong>Torque Input:</strong> lb-ft or Nm measurements</li>
@@ -600,7 +600,7 @@ Performance Analysis:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Dyno Results Analysis</h5>
+                <h5 className="font-semibold text-google-text mb-2">Dyno Results Analysis</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Data Source:</strong> Dynamometer measurements</li>
                   <li><strong>Real-World Testing:</strong> Actual performance data</li>
@@ -612,35 +612,35 @@ Performance Analysis:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+              <div className="bg-yellow-50 p-3 rounded-2xl border border-yellow-200">
                 <h5 className="font-semibold text-yellow-800 mb-1">Horsepower</h5>
                 <p className="text-yellow-700 text-sm">Engine power output</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Power-to-Weight</h5>
                 <p className="text-blue-700 text-sm">Performance ratio</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">0-60 Time</h5>
                 <p className="text-green-700 text-sm">Acceleration estimate</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Top Speed</h5>
                 <p className="text-purple-700 text-sm">Maximum velocity</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Select your calculation type (torque to HP, dyno results, or power to weight), enter the required 
               values, and choose your engine type and vehicle category. The calculator automatically computes 
               horsepower, performance ratios, and provides acceleration and top speed estimates based on your inputs.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Horsepower Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Horsepower Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>What is Horsepower:</strong></p>
@@ -667,10 +667,10 @@ Performance Analysis:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Power-to-Weight Ratio Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Power-to-Weight Ratio Analysis</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Performance Categories</h5>
+                <h5 className="font-semibold text-google-text mb-2">Performance Categories</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Economy (0.05-0.10 HP/lb):</strong> Basic transportation</li>
                   <li><strong>Standard (0.10-0.15 HP/lb):</strong> Average performance</li>
@@ -681,7 +681,7 @@ Performance Analysis:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Real-World Impact</h5>
+                <h5 className="font-semibold text-google-text mb-2">Real-World Impact</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Acceleration:</strong> Higher ratios = faster 0-60 times</li>
                   <li><strong>Handling:</strong> Better power delivery control</li>
@@ -693,7 +693,7 @@ Performance Analysis:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Engine Types and Characteristics</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Engine Types and Characteristics</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Gasoline:</strong> High power density, good efficiency</li>
               <li><strong>Diesel:</strong> High torque, lower RPM range</li>
@@ -703,10 +703,10 @@ Performance Analysis:
               <li><strong>Naturally Aspirated:</strong> Linear power delivery</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Vehicle Categories and Performance</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Vehicle Categories and Performance</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Passenger Vehicles</h5>
+                <h5 className="font-semibold text-google-text mb-2">Passenger Vehicles</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Compact Cars:</strong> 100-200 HP, 0.08-0.15 HP/lb</li>
                   <li><strong>Sedans:</strong> 150-300 HP, 0.10-0.20 HP/lb</li>
@@ -717,7 +717,7 @@ Performance Analysis:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Performance Vehicles</h5>
+                <h5 className="font-semibold text-google-text mb-2">Performance Vehicles</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Hot Hatches:</strong> 200-400 HP, 0.15-0.30 HP/lb</li>
                   <li><strong>Muscle Cars:</strong> 400-800 HP, 0.20-0.40 HP/lb</li>
@@ -729,7 +729,7 @@ Performance Analysis:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Performance Estimation Factors</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Performance Estimation Factors</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Aerodynamics:</strong> Drag coefficient and frontal area</li>
               <li><strong>Transmission:</strong> Gear ratios and efficiency</li>
@@ -739,7 +739,7 @@ Performance Analysis:
               <li><strong>Environmental Conditions:</strong> Temperature, altitude, humidity</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Horsepower Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Horsepower Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Peak Values:</strong> Maximum torque and corresponding RPM</li>
               <li><strong>Consider Engine Type:</strong> Different engines have different characteristics</li>
@@ -749,7 +749,7 @@ Performance Analysis:
               <li><strong>Professional Validation:</strong> Compare with dyno results when possible</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Horsepower Calculation Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Horsepower Calculation Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Wrong RPM Values:</strong> Using incorrect engine speed</li>
               <li><strong>Unit Confusion:</strong> Mixing lb-ft and Nm torque values</li>
@@ -759,7 +759,7 @@ Performance Analysis:
               <li><strong>Environmental Factors:</strong> Ignoring temperature and altitude effects</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Horsepower Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Horsepower Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Brake Horsepower:</strong> Engine output before losses</li>
               <li><strong>Wheel Horsepower:</strong> Power delivered to wheels</li>
@@ -769,8 +769,8 @@ Performance Analysis:
               <li><strong>Torque Curves:</strong> Torque vs. RPM characteristics</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-yellow-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Remember that horsepower is just one aspect of vehicle performance. A car with high horsepower 
                 but poor power-to-weight ratio may not feel as fast as a lighter vehicle with less power. 
@@ -787,3 +787,8 @@ Performance Analysis:
     </div>
   )
 }
+
+
+
+
+

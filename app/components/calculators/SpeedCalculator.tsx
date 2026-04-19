@@ -199,7 +199,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
   const timeDistanceResult = showResults && calculationType !== 'conversion' ? calculateTimeDistance() : { time: 0, distance: 0, speed: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-cyan-600 to-blue-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -219,7 +219,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
       <div className="p-6">
         {/* Calculation Type Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Calculation Type</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Calculation Type</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { key: 'conversion', label: 'Speed Conversion', icon: Zap },
@@ -229,7 +229,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
               <button
                 key={key}
                 onClick={() => setCalculationType(key as any)}
-                className={`p-4 rounded-lg font-medium transition-colors text-center ${
+                className={`p-4 rounded-2xl font-medium transition-colors text-center ${
                   calculationType === key
                     ? 'bg-cyan-600 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -246,8 +246,8 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Speed Input */}
           <div className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Speed</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4">Speed</h3>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -257,7 +257,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
                     type="number"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                    className="google-input"
                     placeholder="60"
                     min="0"
                     step="0.1"
@@ -270,7 +270,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
                   <select
                     value={fromUnit}
                     onChange={(e) => setFromUnit(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                    className="google-input"
                     aria-label="Select speed unit"
                   >
                     {Object.entries(SPEED_UNITS).map(([key, unit]) => (
@@ -282,8 +282,8 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
             </div>
 
             {calculationType === 'time' && (
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Distance</h3>
+              <div className="bg-gray-50 p-6 rounded-2xl">
+                <h3 className="text-xl font-semibold text-google-text mb-4">Distance</h3>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Distance (miles)
@@ -292,7 +292,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
                     type="number"
                     value={distance}
                     onChange={(e) => setDistance(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                    className="google-input"
                     placeholder="100"
                     min="0"
                     step="0.1"
@@ -302,8 +302,8 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
             )}
 
             {calculationType === 'distance' && (
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Time</h3>
+              <div className="bg-gray-50 p-6 rounded-2xl">
+                <h3 className="text-xl font-semibold text-google-text mb-4">Time</h3>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Time (hours)
@@ -312,7 +312,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
                     type="number"
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                    className="google-input"
                     placeholder="2.5"
                     min="0"
                     step="0.1"
@@ -323,8 +323,8 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
           </div>
 
           {/* Common Speeds */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Common Speeds</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Common Speeds</h3>
             <div className="grid grid-cols-2 gap-2">
               {COMMON_SPEEDS.map((item, index) => (
                 <button
@@ -332,8 +332,8 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
                   onClick={() => handleCommonSpeed(item.speed, item.unit)}
                   className="text-left p-2 bg-white rounded border hover:bg-cyan-50 transition-colors text-sm"
                 >
-                  <div className="font-medium text-gray-800">{item.name}</div>
-                  <div className="text-gray-600">{item.speed} {item.unit}</div>
+                  <div className="font-medium text-google-text">{item.name}</div>
+                  <div className="text-google-gray">{item.speed} {item.unit}</div>
                 </button>
               ))}
             </div>
@@ -349,12 +349,12 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
               (calculationType === 'time' && (!distance || parseFloat(distance) <= 0)) ||
               (calculationType === 'distance' && (!time || parseFloat(time) <= 0))
             }
-            className={`font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
+            className={`font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
               !inputValue || parseFloat(inputValue) <= 0 ||
               (calculationType === 'time' && (!distance || parseFloat(distance) <= 0)) ||
               (calculationType === 'distance' && (!time || parseFloat(time) <= 0))
-                ? 'bg-gray-400 cursor-not-allowed text-gray-600'
-                : 'bg-cyan-600 hover:bg-cyan-700 text-white'
+                ? 'bg-gray-400 cursor-not-allowed text-google-gray'
+                : 'google-button-primary text-white'
             }`}
           >
             <Calculator className="w-5 h-5" />
@@ -366,7 +366,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-6 rounded-lg border border-cyan-200">
+            <div className="bg-white p-6 rounded-2xl border border-cyan-200">
               <ResultSharing
                 title="Speed Calculation Result"
                 inputs={[
@@ -385,33 +385,33 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
             </div>
 
             {calculationType === 'conversion' ? (
-              <div className="bg-cyan-50 p-6 rounded-lg border border-cyan-200">
+              <div className="bg-cyan-50 p-6 rounded-2xl border border-cyan-200">
                 <h3 className="text-lg font-semibold text-cyan-800 mb-4">Speed Conversions</h3>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-cyan-700">{formatNumber(speedResult.mph)}</div>
-                    <div className="text-sm text-gray-600">mph</div>
+                    <div className="text-sm text-google-gray">mph</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-cyan-700">{formatNumber(speedResult.kmh)}</div>
-                    <div className="text-sm text-gray-600">km/h</div>
+                    <div className="text-sm text-google-gray">km/h</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-cyan-700">{formatNumber(speedResult.ms)}</div>
-                    <div className="text-sm text-gray-600">m/s</div>
+                    <div className="text-sm text-google-gray">m/s</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-cyan-700">{formatNumber(speedResult.knots)}</div>
-                    <div className="text-sm text-gray-600">knots</div>
+                    <div className="text-sm text-google-gray">knots</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-cyan-700">{formatNumber(speedResult.fps)}</div>
-                    <div className="text-sm text-gray-600">ft/s</div>
+                    <div className="text-sm text-google-gray">ft/s</div>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="bg-cyan-50 p-6 rounded-lg border border-cyan-200">
+              <div className="bg-cyan-50 p-6 rounded-2xl border border-cyan-200">
                 <h3 className="text-lg font-semibold text-cyan-800 mb-4">Calculation Result</h3>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-cyan-700">
@@ -420,7 +420,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
                       : `${formatNumber(timeDistanceResult.distance)} miles`
                     }
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-google-gray">
                     {calculationType === 'time' ? 'Travel Time' : 'Distance Traveled'}
                   </div>
                 </div>
@@ -431,28 +431,28 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -462,12 +462,12 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
         )}
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Speed Calculator</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Speed Calculator</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Purpose & Functionality</h3>
               <p className="text-gray-700 mb-3">
                 This comprehensive speed calculator helps you convert between different speed units and 
                 perform time-distance calculations. Whether you're planning a trip, analyzing athletic 
@@ -481,10 +481,10 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Speed Units Explained</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Speed Units Explained</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Imperial Units</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Imperial Units</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Miles per Hour (mph):</strong> Standard US speed measurement</li>
                     <li><strong>Feet per Second (ft/s):</strong> Used in engineering and physics</li>
@@ -492,7 +492,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Metric Units</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Metric Units</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Kilometers per Hour (km/h):</strong> International standard</li>
                     <li><strong>Meters per Second (m/s):</strong> Scientific and engineering use</li>
@@ -503,9 +503,9 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Speed References</h3>
-              <div className="bg-cyan-50 p-4 rounded-lg border border-cyan-200">
-                <h4 className="font-semibold text-gray-800 mb-2">Everyday Speeds</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Common Speed References</h3>
+              <div className="bg-cyan-50 p-4 rounded-2xl border border-cyan-200">
+                <h4 className="font-semibold text-google-text mb-2">Everyday Speeds</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
                     <p><strong>Human Movement:</strong></p>
@@ -530,10 +530,10 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Calculation Methods</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Calculation Methods</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Speed Conversion</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Speed Conversion</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Base Unit:</strong> mph (miles per hour)</li>
                     <li><strong>Conversion Factors:</strong> Mathematical multipliers</li>
@@ -542,7 +542,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Time-Distance Calculations</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Time-Distance Calculations</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Speed = Distance ÷ Time</strong></li>
                     <li><strong>Time = Distance ÷ Speed</strong></li>
@@ -554,7 +554,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Practical Applications</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Practical Applications</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Travel Planning:</strong> Estimate driving times and arrival times</li>
                 <li><strong>Athletic Training:</strong> Analyze running, cycling, and swimming speeds</li>
@@ -564,8 +564,8 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
               </ul>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Use mph for US travel planning and km/h for international destinations</li>
                 <li>• Remember that knots are used in aviation and maritime navigation</li>
@@ -581,3 +581,7 @@ ${calculationType === 'time' ? `Time: ${formatTime(result.time)}` : `Distance: $
     </div>
   )
 }
+
+
+
+

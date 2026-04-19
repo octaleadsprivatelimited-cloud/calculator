@@ -313,9 +313,9 @@ export default function QuotationGenerator() {
   return (
     <div className="w-full">
       {/* Header */}
-      <div className={`bg-gradient-to-r ${getTemplateStyles()} rounded-lg shadow-lg mb-2 p-2`}>
+      <div className={`bg-gradient-to-r ${getTemplateStyles()} rounded-2xl shadow-google mb-2 p-2`}>
         <div className="flex items-center space-x-2">
-          <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center">
+          <div className="w-6 h-6 bg-white/20 rounded-2xl flex items-center justify-center">
             <FileText className="w-3 h-3 text-white" />
           </div>
           <div>
@@ -329,15 +329,15 @@ export default function QuotationGenerator() {
         {/* Settings Panel */}
         <div className="lg:col-span-1 space-y-3">
           {/* Template Selection */}
-          <div className="bg-white rounded-lg shadow-lg p-2">
+          <div className="google-card overflow-hidden p-2">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-semibold text-gray-800 flex items-center">
+              <h3 className="text-sm font-semibold text-google-text flex items-center">
                 <Settings className="w-4 h-4 mr-1" />
                 Template
               </h3>
               <button
                 onClick={() => setShowTemplates(!showTemplates)}
-                className="text-blue-600 hover:text-blue-800 text-xs font-medium"
+                className="text-google-blue hover:text-blue-800 text-xs font-medium"
               >
                 {showTemplates ? 'Hide' : 'Change'}
               </button>
@@ -349,9 +349,9 @@ export default function QuotationGenerator() {
                   <button
                     key={template.id}
                     onClick={() => setSelectedTemplate(template.id)}
-                    className={`p-2 rounded-lg border-2 transition-all ${
+                    className={`p-2 rounded-2xl border-2 transition-all ${
                       selectedTemplate === template.id
-                        ? 'border-blue-500 bg-blue-50'
+                        ? 'border-blue-500 bg-google-blueLight'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
@@ -364,8 +364,8 @@ export default function QuotationGenerator() {
           </div>
 
           {/* Company Information */}
-          <div className="bg-white rounded-lg shadow-lg p-2">
-            <h3 className="text-base font-medium text-gray-800 mb-3 flex items-center">
+          <div className="google-card overflow-hidden p-2">
+            <h3 className="text-base font-medium text-google-text mb-3 flex items-center">
               <Building className="w-4 h-4 mr-1" />
               Company Details
             </h3>
@@ -381,14 +381,14 @@ export default function QuotationGenerator() {
                         type={key === 'email' || key === 'website' ? 'text' : 'text'}
                         value={value}
                         onChange={(e) => setCompanyInfo(prev => ({ ...prev, [key]: e.target.value }))}
-                        className="flex-1 px-2 py-0.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                        className="flex-1 px-2 py-0.5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
                         autoFocus
                         title={`Enter ${key.replace(/([A-Z])/g, ' 1').trim()}`}
                         aria-label={`Enter ${key.replace(/([A-Z])/g, ' 1').trim()}`}
                       />
                       <button
                         onClick={saveEdit}
-                        className="p-1 text-green-600 hover:bg-green-50 rounded-lg"
+                        className="p-1 text-green-600 hover:bg-green-50 rounded-2xl"
                         title="Save changes"
                         aria-label="Save changes"
                       >
@@ -396,7 +396,7 @@ export default function QuotationGenerator() {
                       </button>
                       <button
                         onClick={cancelEdit}
-                        className="p-1 text-red-600 hover:bg-red-50 rounded-lg"
+                        className="p-1 text-red-600 hover:bg-red-50 rounded-2xl"
                         title="Cancel editing"
                         aria-label="Cancel editing"
                       >
@@ -406,7 +406,7 @@ export default function QuotationGenerator() {
                   ) : (
                     <div
                       onClick={() => startEdit(key)}
-                      className="px-2 py-1 border border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 flex items-center justify-between"
+                      className="px-2 py-1 border border-gray-200 rounded-2xl cursor-pointer hover:border-gray-300 flex items-center justify-between"
                     >
                       <span className="text-gray-700">{value}</span>
                       <Edit className="w-4 h-4 text-gray-400" />
@@ -418,8 +418,8 @@ export default function QuotationGenerator() {
           </div>
 
           {/* Client Information */}
-          <div className="bg-white rounded-lg shadow-lg p-2">
-            <h3 className="text-base font-medium text-gray-800 mb-3 flex items-center">
+          <div className="google-card overflow-hidden p-2">
+            <h3 className="text-base font-medium text-google-text mb-3 flex items-center">
               <User className="w-4 h-4 mr-1" />
               Client Details
             </h3>
@@ -434,7 +434,7 @@ export default function QuotationGenerator() {
                     value={value}
                     onChange={(e) => setClientInfo(prev => ({ ...prev, [key]: e.target.value }))}
                     placeholder={`Enter ${key.replace(/([A-Z])/g, ' 1').trim()}`}
-                    className="w-full px-2 py-0.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                    className="w-full px-2 py-0.5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
                     title={`Enter ${key.replace(/([A-Z])/g, ' 1').trim()}`}
                     aria-label={`Enter ${key.replace(/([A-Z])/g, ' 1').trim()}`}
                   />
@@ -444,8 +444,8 @@ export default function QuotationGenerator() {
           </div>
 
           {/* Quote Details */}
-          <div className="bg-white rounded-lg shadow-lg p-2">
-            <h3 className="text-base font-medium text-gray-800 mb-3 flex items-center">
+          <div className="google-card overflow-hidden p-2">
+            <h3 className="text-base font-medium text-google-text mb-3 flex items-center">
               <Hash className="w-4 h-4 mr-1" />
               Quote Details
             </h3>
@@ -456,7 +456,7 @@ export default function QuotationGenerator() {
                   type="text"
                   value={quoteDetails.quoteNumber}
                   onChange={(e) => setQuoteDetails(prev => ({ ...prev, quoteNumber: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="google-input"
                   title="Quote number"
                   aria-label="Quote number"
                 />
@@ -467,7 +467,7 @@ export default function QuotationGenerator() {
                   type="date"
                   value={quoteDetails.date}
                   onChange={(e) => setQuoteDetails(prev => ({ ...prev, date: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="google-input"
                   title="Quote date"
                   aria-label="Quote date"
                 />
@@ -478,7 +478,7 @@ export default function QuotationGenerator() {
                   type="date"
                   value={quoteDetails.validUntil}
                   onChange={(e) => setQuoteDetails(prev => ({ ...prev, validUntil: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="google-input"
                   title="Valid until date"
                   aria-label="Valid until date"
                 />
@@ -489,7 +489,7 @@ export default function QuotationGenerator() {
                   type="number"
                   value={taxRate}
                   onChange={(e) => setTaxRate(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="google-input"
                   title="Tax rate percentage"
                   aria-label="Tax rate percentage"
                 />
@@ -500,13 +500,13 @@ export default function QuotationGenerator() {
 
         {/* Quote Preview */}
         <div className="lg:col-span-2">
-          <div className="bg-white rounded-lg shadow-lg p-4">
+          <div className="google-card overflow-hidden p-4">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-semibold text-gray-800">Quote Preview</h3>
+              <h3 className="text-sm font-semibold text-google-text">Quote Preview</h3>
               <div className="flex space-x-2">
                 <button 
                   onClick={saveQuote}
-                  className="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center text-xs"
+                  className="px-3 py-1 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover flex items-center text-xs"
                   title="Save Quote"
                   aria-label="Save Quote"
                 >
@@ -515,7 +515,7 @@ export default function QuotationGenerator() {
                 </button>
                 <button 
                   onClick={copyQuote}
-                  className="px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center text-xs"
+                  className="px-3 py-1 bg-green-600 text-white rounded-2xl hover:bg-green-700 flex items-center text-xs"
                   title="Copy Quote"
                   aria-label="Copy Quote"
                 >
@@ -525,14 +525,14 @@ export default function QuotationGenerator() {
               </div>
             </div>
 
-            <div ref={quoteRef} className="bg-gray-50 rounded-lg p-4">
+            <div ref={quoteRef} className="bg-gray-50 rounded-2xl p-4">
               {/* Quote Header */}
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <h2 className={`text-lg font-bold bg-gradient-to-r ${getTemplateStyles()} bg-clip-text text-transparent mb-1`}>
                     {companyInfo.name}
                   </h2>
-                  <div className="text-gray-600 text-xs space-y-0.5">
+                  <div className="text-google-gray text-xs space-y-0.5">
                     <p>{companyInfo.address}</p>
                     <p>{companyInfo.city}, {companyInfo.state} {companyInfo.zipCode}</p>
                     <p>{companyInfo.phone}</p>
@@ -541,8 +541,8 @@ export default function QuotationGenerator() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <h1 className="text-xl font-bold text-gray-800 mb-1">QUOTATION</h1>
-                  <div className="text-gray-600 text-xs space-y-0.5">
+                  <h1 className="text-xl font-bold text-google-text mb-1">QUOTATION</h1>
+                  <div className="text-google-gray text-xs space-y-0.5">
                     <p><span className="font-semibold">Quote #:</span> {quoteDetails.quoteNumber}</p>
                     <p><span className="font-semibold">Date:</span> {quoteDetails.date}</p>
                     <p><span className="font-semibold">Valid Until:</span> {quoteDetails.validUntil}</p>
@@ -552,8 +552,8 @@ export default function QuotationGenerator() {
 
               {/* Client Information */}
               <div className="mb-4">
-                <h3 className="text-sm font-semibold text-gray-800 mb-2">Bill To:</h3>
-                <div className="text-gray-600 text-xs">
+                <h3 className="text-sm font-semibold text-google-text mb-2">Bill To:</h3>
+                <div className="text-google-gray text-xs">
                   <p className="font-semibold">{clientInfo.name || 'Client Name'}</p>
                   <p>{clientInfo.company || 'Company Name'}</p>
                   <p>{clientInfo.email || 'client@email.com'}</p>
@@ -567,11 +567,11 @@ export default function QuotationGenerator() {
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="border-b-2 border-gray-300">
-                      <th className="text-left py-2 px-1 font-semibold text-gray-800 text-xs">Description</th>
-                      <th className="text-right py-2 px-1 font-semibold text-gray-800 text-xs">Qty</th>
-                      <th className="text-right py-2 px-1 font-semibold text-gray-800 text-xs">Unit Price</th>
-                      <th className="text-right py-2 px-1 font-semibold text-gray-800 text-xs">Discount</th>
-                      <th className="text-right py-2 px-1 font-semibold text-gray-800 text-xs">Total</th>
+                      <th className="text-left py-2 px-1 font-semibold text-google-text text-xs">Description</th>
+                      <th className="text-right py-2 px-1 font-semibold text-google-text text-xs">Qty</th>
+                      <th className="text-right py-2 px-1 font-semibold text-google-text text-xs">Unit Price</th>
+                      <th className="text-right py-2 px-1 font-semibold text-google-text text-xs">Discount</th>
+                      <th className="text-right py-2 px-1 font-semibold text-google-text text-xs">Total</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -629,7 +629,7 @@ export default function QuotationGenerator() {
                 <div className="mt-4">
                   <button
                     onClick={addItem}
-                    className="flex items-center text-blue-600 hover:text-blue-800 font-medium text-xs"
+                    className="flex items-center text-google-blue hover:text-blue-800 font-medium text-xs"
                   >
                     <Plus className="w-3 h-3 mr-1" />
                     Add Item
@@ -663,7 +663,7 @@ export default function QuotationGenerator() {
                     value={quoteDetails.notes}
                     onChange={(e) => setQuoteDetails(prev => ({ ...prev, notes: e.target.value }))}
                     placeholder="Additional notes or comments..."
-                    className="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                    className="google-input text-xs"
                     rows={2}
                     title="Additional notes"
                     aria-label="Additional notes"
@@ -674,7 +674,7 @@ export default function QuotationGenerator() {
                   <textarea
                     value={quoteDetails.terms}
                     onChange={(e) => setQuoteDetails(prev => ({ ...prev, terms: e.target.value }))}
-                    className="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                    className="google-input text-xs"
                     rows={2}
                     title="Terms and conditions"
                     aria-label="Terms and conditions"
@@ -688,7 +688,7 @@ export default function QuotationGenerator() {
           <div className="mt-4 flex flex-wrap gap-2">
             <button 
               onClick={downloadPDF}
-              className="flex-1 min-w-[150px] bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 flex items-center justify-center font-medium text-xs"
+              className="flex-1 min-w-[150px] bg-google-blue text-white py-2 px-4 rounded-2xl hover:bg-google-blueHover flex items-center justify-center font-medium text-xs"
               title="Download PDF"
               aria-label="Download PDF"
             >
@@ -697,7 +697,7 @@ export default function QuotationGenerator() {
             </button>
             <button 
               onClick={printQuote}
-              className="flex-1 min-w-[150px] bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 flex items-center justify-center font-medium text-xs"
+              className="flex-1 min-w-[150px] bg-green-600 text-white py-2 px-4 rounded-2xl hover:bg-green-700 flex items-center justify-center font-medium text-xs"
               title="Print Quote"
               aria-label="Print Quote"
             >
@@ -706,7 +706,7 @@ export default function QuotationGenerator() {
             </button>
             <button 
               onClick={emailQuote}
-              className="flex-1 min-w-[150px] bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 flex items-center justify-center font-medium text-xs"
+              className="flex-1 min-w-[150px] bg-purple-600 text-white py-2 px-4 rounded-2xl hover:bg-purple-700 flex items-center justify-center font-medium text-xs"
               title="Email Quote"
               aria-label="Email Quote"
             >
@@ -733,5 +733,8 @@ export default function QuotationGenerator() {
     </div>
   )
 }
+
+
+
 
 

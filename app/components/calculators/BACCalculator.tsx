@@ -129,14 +129,9 @@ export default function BACCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-4">
-        <div className="flex items-center">
-          <Wine className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Blood Alcohol Content Calculator</h2>
-        </div>
-        <p className="text-amber-100 mt-1">Calculate your estimated BAC and understand the effects</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -149,7 +144,7 @@ export default function BACCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="google-input"
                 placeholder="Enter weight"
                 aria-label="Weight in pounds"
               />
@@ -161,7 +156,7 @@ export default function BACCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -179,7 +174,7 @@ export default function BACCalculator() {
                 type="number"
                 value={drinks}
                 onChange={(e) => setDrinks(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="google-input"
                 placeholder="Enter drinks"
                 aria-label="Number of drinks consumed"
               />
@@ -191,7 +186,7 @@ export default function BACCalculator() {
               <select
                 value={drinkType}
                 onChange={(e) => setDrinkType(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="google-input"
                 aria-label="Select drink type"
               >
                 <option value="beer">Beer</option>
@@ -210,7 +205,7 @@ export default function BACCalculator() {
               <select
                 value={drinkSize}
                 onChange={(e) => setDrinkSize(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="google-input"
                 aria-label="Select drink size"
               >
                 <option value="12oz">12 oz (Beer)</option>
@@ -235,7 +230,7 @@ export default function BACCalculator() {
                 type="number"
                 value={timeElapsed}
                 onChange={(e) => setTimeElapsed(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="google-input"
                 placeholder="Enter hours"
                 step="0.5"
                 aria-label="Time elapsed since first drink in hours"
@@ -246,14 +241,14 @@ export default function BACCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -263,7 +258,7 @@ export default function BACCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-amber-800 mb-2">Blood Alcohol Content</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-amber-600 mb-2">
@@ -275,7 +270,7 @@ export default function BACCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-amber-800 mb-3">Calculation Details</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -298,7 +293,7 @@ export default function BACCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-amber-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -311,7 +306,7 @@ export default function BACCalculator() {
               </div>
             )}
 
-            <div className="p-4 bg-red-50 rounded-lg border border-red-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-red-800 mb-2">⚠️ Important Disclaimer</h3>
               <div className="text-sm text-red-700">
                 This calculator provides estimates only and should not be used to determine if you are safe to drive. 
@@ -325,3 +320,6 @@ export default function BACCalculator() {
     </div>
   )
 }
+
+
+

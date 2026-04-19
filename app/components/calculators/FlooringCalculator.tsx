@@ -117,22 +117,22 @@ export default function FlooringCalculator() {
   const materials = calculateMaterials()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
             <Square className="w-16 h-16 mr-4 text-green-600" />
             Flooring Calculator
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Calculate flooring materials, costs, and waste for multiple rooms. Get accurate estimates for hardwood, laminate, tile, and other flooring types.
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <Calculator className="w-6 h-6 mr-2 text-green-600" />
                 Flooring Type
               </h2>
@@ -143,7 +143,7 @@ export default function FlooringCalculator() {
                   <select
                     value={selectedFlooring}
                     onChange={(e) => setSelectedFlooring(parseInt(e.target.value))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                     title="Select the flooring material"
                     aria-label="Flooring material"
                   >
@@ -164,7 +164,7 @@ export default function FlooringCalculator() {
                     type="number"
                     value={installationCost}
                     onChange={(e) => setInstallationCost(parseFloat(e.target.value) || 0)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                     min="0"
                     step="1"
                     title="Enter installation cost per square meter"
@@ -178,7 +178,7 @@ export default function FlooringCalculator() {
                     type="number"
                     value={underlayment}
                     onChange={(e) => setUnderlayment(parseFloat(e.target.value) || 0)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                     min="0"
                     step="1"
                     title="Enter underlayment cost per square meter"
@@ -188,12 +188,12 @@ export default function FlooringCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="google-card overflow-hidden p-6">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-semibold text-gray-800">Quick Examples</h3>
+                <h3 className="text-lg font-semibold text-google-text">Quick Examples</h3>
                 <button
                   onClick={addRoom}
-                  className="px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm"
+                  className="px-3 py-1 bg-green-600 text-white rounded-2xl hover:bg-green-700 text-sm"
                   title="Add a new room"
                   aria-label="Add a new room"
                 >
@@ -209,7 +209,7 @@ export default function FlooringCalculator() {
                       { name: 'Kitchen', length: 3, width: 3, area: 9 }
                     ])
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: 3 rooms"
                   aria-label="Set example: 3 rooms"
                 >
@@ -221,7 +221,7 @@ export default function FlooringCalculator() {
                       { name: 'Open Plan', length: 8, width: 6, area: 48 }
                     ])
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: large open plan"
                   aria-label="Set example: large open plan"
                 >
@@ -233,21 +233,21 @@ export default function FlooringCalculator() {
 
           <div className="lg:col-span-2">
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+              <div className="google-card overflow-hidden p-6">
+                <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                   <Ruler className="w-6 h-6 mr-2 text-green-600" />
                   Room Dimensions
                 </h2>
                 
                 <div className="space-y-4">
                   {rooms.map((room, index) => (
-                    <div key={index} className="border border-gray-200 rounded-lg p-4">
+                    <div key={index} className="border border-gray-200 rounded-2xl p-4">
                       <div className="flex items-center justify-between mb-3">
                         <input
                           type="text"
                           value={room.name}
                           onChange={(e) => updateRoomName(index, e.target.value)}
-                          className="text-lg font-semibold text-gray-800 bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-green-200 rounded px-2"
+                          className="text-lg font-semibold text-google-text bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-green-200 rounded px-2"
                           title="Edit room name"
                           aria-label="Edit room name"
                         />
@@ -270,7 +270,7 @@ export default function FlooringCalculator() {
                             type="number"
                             value={room.length || ''}
                             onChange={(e) => updateRoomArea(index, parseFloat(e.target.value) || 0, room.width)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                             placeholder="0.00"
                             step="0.01"
                             min="0"
@@ -284,7 +284,7 @@ export default function FlooringCalculator() {
                             type="number"
                             value={room.width || ''}
                             onChange={(e) => updateRoomArea(index, room.length, parseFloat(e.target.value) || 0)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                             placeholder="0.00"
                             step="0.01"
                             min="0"
@@ -295,7 +295,7 @@ export default function FlooringCalculator() {
                       </div>
                       
                       <div className="mt-3 text-right">
-                        <span className="text-sm text-gray-600">Area: </span>
+                        <span className="text-sm text-google-gray">Area: </span>
                         <span className="font-semibold text-green-600">{room.area.toFixed(2)} m²</span>
                       </div>
                     </div>
@@ -303,14 +303,14 @@ export default function FlooringCalculator() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+              <div className="google-card overflow-hidden p-6">
+                <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                   <TrendingUp className="w-6 h-6 mr-2 text-green-600" />
                   Calculation Results
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-green-50 p-6 rounded-lg">
+                  <div className="bg-green-50 p-6 rounded-2xl">
                     <h3 className="text-lg font-semibold text-green-800 mb-4">Area Summary</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between">
@@ -332,7 +332,7 @@ export default function FlooringCalculator() {
                     </div>
                   </div>
                   
-                  <div className="bg-emerald-50 p-6 rounded-lg">
+                  <div className="bg-emerald-50 p-6 rounded-2xl">
                     <h3 className="text-lg font-semibold text-emerald-800 mb-4">Cost Breakdown</h3>
                     {materials ? (
                       <div className="space-y-3">
@@ -361,7 +361,7 @@ export default function FlooringCalculator() {
                   </div>
                 </div>
 
-                <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <div className="mt-6 p-4 bg-google-blueLight rounded-2xl border border-blue-200">
                   <h4 className="font-semibold text-blue-800 mb-2">💡 Tips</h4>
                   <ul className="text-sm text-blue-700 space-y-1">
                     <li>• Waste factor accounts for cuts, pattern matching, and installation errors</li>
@@ -375,7 +375,7 @@ export default function FlooringCalculator() {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                   title="Share flooring calculator results"
                   aria-label="Share flooring calculator results"
                 >
@@ -384,7 +384,7 @@ export default function FlooringCalculator() {
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                   title="Download results as text file"
                   aria-label="Download flooring calculator results"
                 >
@@ -393,7 +393,7 @@ export default function FlooringCalculator() {
                 </button>
                 <button
                   onClick={handlePrint}
-                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                   title="Print flooring calculator results"
                   aria-label="Print flooring calculator results"
                 >
@@ -408,7 +408,7 @@ export default function FlooringCalculator() {
         <div className="text-center mt-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
             title="Back to all calculators"
             aria-label="Back to all calculators"
           >
@@ -432,4 +432,7 @@ export default function FlooringCalculator() {
     </div>
   )
 }
+
+
+
 

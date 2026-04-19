@@ -221,7 +221,7 @@ Economic Indicators:
   const result = showResults ? calculateGDP() : { gdp: 0, gdpPerCapita: 0, gdpGrowth: 0, realGDP: 0, nominalGDP: 0, purchasingPower: 0 }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-emerald-600 to-green-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -241,7 +241,7 @@ Economic Indicators:
       <div className="p-6">
         {/* Calculation Type Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">GDP Calculation Method</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">GDP Calculation Method</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { key: 'expenditure', label: 'Expenditure Approach', description: 'C + I + G + (X-M)' },
@@ -251,7 +251,7 @@ Economic Indicators:
               <button
                 key={key}
                 onClick={() => setCalculationType(key as any)}
-                className={`p-4 rounded-lg font-medium transition-colors text-center ${
+                className={`p-4 rounded-2xl font-medium transition-colors text-center ${
                   calculationType === key
                     ? 'bg-emerald-600 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -266,7 +266,7 @@ Economic Indicators:
 
         {/* Country Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Country Selection</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Country Selection</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -275,7 +275,7 @@ Economic Indicators:
               <select
                 value={country}
                 onChange={(e) => handleCountryChange(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 aria-label="Select country"
               >
                 {COUNTRIES.map(country => (
@@ -294,7 +294,7 @@ Economic Indicators:
                 type="number"
                 value={baseYear}
                 onChange={(e) => setBaseYear(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="2020"
                 min="1900"
                 max="2030"
@@ -306,7 +306,7 @@ Economic Indicators:
 
         {/* GDP Components */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">GDP Components (Expenditure Approach)</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">GDP Components (Expenditure Approach)</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div>
@@ -317,7 +317,7 @@ Economic Indicators:
                   type="number"
                   value={consumption}
                   onChange={(e) => setConsumption(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="google-input"
                   placeholder="0"
                   min="0"
                   step="0.01"
@@ -333,7 +333,7 @@ Economic Indicators:
                   type="number"
                   value={investment}
                   onChange={(e) => setInvestment(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="google-input"
                   placeholder="0"
                   step="0.01"
                   aria-label="Investment value"
@@ -350,7 +350,7 @@ Economic Indicators:
                   type="number"
                   value={government}
                   onChange={(e) => setGovernment(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="google-input"
                   placeholder="0"
                   min="0"
                   step="0.01"
@@ -366,7 +366,7 @@ Economic Indicators:
                   type="number"
                   value={netExports}
                   onChange={(e) => setNetExports(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="google-input"
                   placeholder="0"
                   step="0.01"
                   aria-label="Net exports value"
@@ -378,13 +378,13 @@ Economic Indicators:
 
         {/* Quick GDP Components */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick GDP Component Presets</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick GDP Component Presets</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {GDP_COMPONENTS.map((component, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickGDP(component)}
-                className="p-3 bg-emerald-50 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition-colors text-sm text-center"
+                className="p-3 bg-emerald-50 hover:bg-emerald-100 rounded-2xl border border-emerald-200 transition-colors text-sm text-center"
               >
                 <div className="font-medium text-emerald-800">{component.name}</div>
                 <div className="text-emerald-600">${component.default}T</div>
@@ -404,7 +404,7 @@ Economic Indicators:
               type="number"
               value={gdpGrowth}
               onChange={(e) => setGdpGrowth(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="google-input"
               placeholder="0"
               step="0.1"
               aria-label="GDP growth rate"
@@ -419,7 +419,7 @@ Economic Indicators:
               type="number"
               value={inflationRate}
               onChange={(e) => setInflationRate(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="google-input"
               placeholder="0"
               step="0.1"
               aria-label="Inflation rate"
@@ -432,7 +432,7 @@ Economic Indicators:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate GDP</span>
@@ -444,7 +444,7 @@ Economic Indicators:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="GDP Calculation Result"
                 inputs={[
@@ -463,32 +463,32 @@ Economic Indicators:
             </div>
 
             {/* GDP Results */}
-            <div className="bg-emerald-50 p-6 rounded-lg border border-emerald-200">
+            <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-200">
               <h3 className="text-lg font-semibold text-emerald-800 mb-4">GDP Calculation Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-emerald-700">{formatCurrency(result.gdp)}</div>
-                  <div className="text-sm text-gray-600">Total GDP</div>
+                  <div className="text-sm text-google-gray">Total GDP</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-emerald-700">{formatCurrency(result.gdpPerCapita)}</div>
-                  <div className="text-sm text-gray-600">GDP per Capita</div>
+                  <div className="text-sm text-google-gray">GDP per Capita</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-emerald-700">{formatCurrency(result.realGDP)}</div>
-                  <div className="text-sm text-gray-600">Real GDP</div>
+                  <div className="text-sm text-google-gray">Real GDP</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-emerald-700">{formatCurrency(result.nominalGDP)}</div>
-                  <div className="text-sm text-gray-600">Nominal GDP</div>
+                  <div className="text-sm text-google-gray">Nominal GDP</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-emerald-700">{formatCurrency(result.purchasingPower)}</div>
-                  <div className="text-sm text-gray-600">Purchasing Power</div>
+                  <div className="text-sm text-google-gray">Purchasing Power</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-emerald-700">{formatCurrency(result.gdpGrowth)}</div>
-                  <div className="text-sm text-gray-600">GDP Growth</div>
+                  <div className="text-sm text-google-gray">GDP Growth</div>
                 </div>
               </div>
             </div>
@@ -497,28 +497,28 @@ Economic Indicators:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -528,8 +528,8 @@ Economic Indicators:
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About GDP Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About GDP Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive GDP calculator helps economists, students, and financial analysts understand 
@@ -538,7 +538,7 @@ Economic Indicators:
               for informed economic decision-making and analysis.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Total GDP:</strong> Gross Domestic Product in current dollars</li>
               <li><strong>GDP per Capita:</strong> Economic output per person</li>
@@ -548,10 +548,10 @@ Economic Indicators:
               <li><strong>GDP Growth:</strong> Economic expansion rates</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Calculation Approaches</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">GDP Calculation Approaches</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Expenditure Approach</h5>
+                <h5 className="font-semibold text-google-text mb-2">Expenditure Approach</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Consumption (C):</strong> Consumer spending on goods/services</li>
                   <li><strong>Investment (I):</strong> Business capital expenditures</li>
@@ -562,7 +562,7 @@ Economic Indicators:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Income Approach</h5>
+                <h5 className="font-semibold text-google-text mb-2">Income Approach</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Wages:</strong> Labor income and compensation</li>
                   <li><strong>Profits:</strong> Corporate and business earnings</li>
@@ -574,8 +574,8 @@ Economic Indicators:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">GDP Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Definition:</strong></p>
@@ -602,7 +602,7 @@ Economic Indicators:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Real vs. Nominal GDP</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Real vs. Nominal GDP</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Nominal GDP:</strong> Current dollar values, includes inflation</li>
               <li><strong>Real GDP:</strong> Constant dollar values, inflation-adjusted</li>
@@ -612,8 +612,8 @@ Economic Indicators:
               <li><strong>Policy Analysis:</strong> True economic performance</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When analyzing GDP, always consider both nominal and real values to distinguish between 
                 actual economic growth and inflation effects. Remember that GDP is just one measure of 
@@ -626,8 +626,8 @@ Economic Indicators:
         </div>
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About GDP Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About GDP Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive GDP calculator helps economists, students, and financial analysts understand 
@@ -636,7 +636,7 @@ Economic Indicators:
               for informed economic decision-making and analysis.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Total GDP:</strong> Gross Domestic Product in current dollars</li>
               <li><strong>GDP per Capita:</strong> Economic output per person</li>
@@ -646,10 +646,10 @@ Economic Indicators:
               <li><strong>GDP Growth:</strong> Economic expansion rates</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Calculation Approaches</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">GDP Calculation Approaches</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Expenditure Approach</h5>
+                <h5 className="font-semibold text-google-text mb-2">Expenditure Approach</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Consumption (C):</strong> Consumer spending on goods/services</li>
                   <li><strong>Investment (I):</strong> Business capital expenditures</li>
@@ -660,7 +660,7 @@ Economic Indicators:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Income Approach</h5>
+                <h5 className="font-semibold text-google-text mb-2">Income Approach</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Wages:</strong> Labor income and compensation</li>
                   <li><strong>Profits:</strong> Corporate and business earnings</li>
@@ -672,23 +672,23 @@ Economic Indicators:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+              <div className="bg-emerald-50 p-3 rounded-2xl border border-emerald-200">
                 <h5 className="font-semibold text-emerald-800 mb-1">Total GDP</h5>
                 <p className="text-emerald-700 text-sm">Economic output</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">GDP per Capita</h5>
                 <p className="text-blue-700 text-sm">Per-person output</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Real GDP</h5>
                 <p className="text-green-700 text-sm">Inflation-adjusted</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Select your calculation approach (expenditure, income, or production), enter the economic 
               components, and specify the country and base year. The calculator automatically computes 
@@ -696,8 +696,8 @@ Economic Indicators:
               economic analysis.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">GDP Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Definition:</strong></p>
@@ -724,10 +724,10 @@ Economic Indicators:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Components Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">GDP Components Analysis</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Consumption (C)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Consumption (C)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Durable Goods:</strong> Cars, appliances, furniture</li>
                   <li><strong>Non-durable Goods:</strong> Food, clothing, fuel</li>
@@ -738,7 +738,7 @@ Economic Indicators:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Investment (I)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Investment (I)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Business Investment:</strong> Equipment, machinery, buildings</li>
                   <li><strong>Residential Construction:</strong> New homes, renovations</li>
@@ -750,10 +750,10 @@ Economic Indicators:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Government and Trade</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Government and Trade</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Government Spending (G)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Government Spending (G)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Federal Spending:</strong> Defense, social programs</li>
                   <li><strong>State & Local:</strong> Education, infrastructure</li>
@@ -764,7 +764,7 @@ Economic Indicators:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Net Exports (X-M)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Net Exports (X-M)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Exports (X):</strong> Goods/services sold abroad</li>
                   <li><strong>Imports (M):</strong> Goods/services purchased abroad</li>
@@ -776,7 +776,7 @@ Economic Indicators:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Real vs. Nominal GDP</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Real vs. Nominal GDP</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Nominal GDP:</strong> Current dollar values, includes inflation</li>
               <li><strong>Real GDP:</strong> Constant dollar values, inflation-adjusted</li>
@@ -786,10 +786,10 @@ Economic Indicators:
               <li><strong>Policy Analysis:</strong> True economic performance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP per Capita Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">GDP per Capita Analysis</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Calculation Method</h5>
+                <h5 className="font-semibold text-google-text mb-2">Calculation Method</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Formula:</strong> GDP ÷ Population</li>
                   <li><strong>Standard of Living:</strong> Economic welfare indicator</li>
@@ -800,7 +800,7 @@ Economic Indicators:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Interpretation</h5>
+                <h5 className="font-semibold text-google-text mb-2">Interpretation</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>High Values:</strong> Developed economies</li>
                   <li><strong>Low Values:</strong> Developing economies</li>
@@ -812,7 +812,7 @@ Economic Indicators:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Purchasing Power Parity</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Purchasing Power Parity</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Definition:</strong> Price level equalization across countries</li>
               <li><strong>Currency Adjustment:</strong> Real exchange rate calculation</li>
@@ -822,7 +822,7 @@ Economic Indicators:
               <li><strong>Development Analysis:</strong> Economic progress assessment</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Growth Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">GDP Growth Analysis</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Economic Expansion:</strong> Real GDP increase over time</li>
               <li><strong>Business Cycles:</strong> Growth and contraction patterns</li>
@@ -832,7 +832,7 @@ Economic Indicators:
               <li><strong>Policy Effectiveness:</strong> Economic intervention results</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">GDP Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">GDP Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Consistent Data:</strong> Same time period and currency</li>
               <li><strong>Account for Inflation:</strong> Real vs. nominal considerations</li>
@@ -842,7 +842,7 @@ Economic Indicators:
               <li><strong>Update Regularly:</strong> Economic data changes</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common GDP Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common GDP Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Double Counting:</strong> Including intermediate goods</li>
               <li><strong>Transfer Payments:</strong> Social security, unemployment</li>
@@ -852,7 +852,7 @@ Economic Indicators:
               <li><strong>Quality Changes:</strong> Technology improvements</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced GDP Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced GDP Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>GDP Deflator:</strong> Price level measurement</li>
               <li><strong>Chain-weighted GDP:</strong> Improved measurement method</li>
@@ -862,8 +862,8 @@ Economic Indicators:
               <li><strong>Genuine Progress Indicator:</strong> Alternative to GDP</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-emerald-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When analyzing GDP, always consider both nominal and real values to distinguish between 
                 actual economic growth and inflation effects. Remember that GDP is just one measure of 
@@ -881,6 +881,11 @@ Economic Indicators:
     </div>
   )
 }
+
+
+
+
+
 
 
 

@@ -285,7 +285,7 @@ Circuit Analysis:
   const result = showResults ? calculateResistance() : { totalResistance: 0, totalCurrent: 0, totalPower: 0, voltageDrop: 0, powerDissipation: 0, tolerance: 0, colorCode: [] }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -305,13 +305,13 @@ Circuit Analysis:
       <div className="p-6">
         {/* Circuit Type Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Circuit Configuration</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Circuit Configuration</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {CIRCUIT_TYPES.map((circuit, index) => (
               <button
                 key={index}
                 onClick={() => setCircuitType(circuit.name)}
-                className={`p-4 rounded-lg font-medium transition-colors text-center ${
+                className={`p-4 rounded-2xl font-medium transition-colors text-center ${
                   circuitType === circuit.name
                     ? 'bg-purple-600 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -327,13 +327,13 @@ Circuit Analysis:
 
         {/* Quick Resistor Values */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Resistor Values</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Resistor Values</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {RESISTOR_VALUES.map((resistor, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickResistor(resistor)}
-                className="p-3 bg-purple-50 hover:bg-purple-100 rounded-lg border border-purple-200 transition-colors text-sm text-center"
+                className="p-3 bg-purple-50 hover:bg-purple-100 rounded-2xl border border-purple-200 transition-colors text-sm text-center"
               >
                 <div className="font-medium text-purple-800">{formatResistance(resistor.value)}</div>
                 <div className="text-purple-600">±{resistor.tolerance}%</div>
@@ -347,14 +347,14 @@ Circuit Analysis:
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Resistor Values */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-800">Resistor Values (Ω)</h3>
+            <h3 className="text-lg font-semibold text-google-text">Resistor Values (Ω)</h3>
             {resistors.map((resistor, index) => (
               <div key={index} className="flex space-x-2">
                 <input
                   type="number"
                   value={resistor}
                   onChange={(e) => updateResistor(index, e.target.value)}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="flex-1 px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="1000"
                   min="0.1"
                   max="10000000"
@@ -364,7 +364,7 @@ Circuit Analysis:
                 {resistors.length > 1 && (
                   <button
                     onClick={() => removeResistor(index)}
-                    className="px-3 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors"
+                    className="px-3 py-2 google-button-primary text-white rounded-2xl transition-colors"
                     aria-label={`Remove resistor ${index + 1}`}
                   >
                     ×
@@ -374,7 +374,7 @@ Circuit Analysis:
             ))}
             <button
               onClick={addResistor}
-              className="w-full py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg transition-colors font-medium"
+              className="w-full py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-2xl transition-colors font-medium"
             >
               + Add Resistor
             </button>
@@ -382,7 +382,7 @@ Circuit Analysis:
 
           {/* Voltage Input */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-800">Power Supply</h3>
+            <h3 className="text-lg font-semibold text-google-text">Power Supply</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Voltage (V)
@@ -391,7 +391,7 @@ Circuit Analysis:
                 type="number"
                 value={voltage}
                 onChange={(e) => setVoltage(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="google-input"
                 placeholder="12"
                 min="0.1"
                 max="1000"
@@ -408,7 +408,7 @@ Circuit Analysis:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate Circuit</span>
@@ -420,7 +420,7 @@ Circuit Analysis:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-purple-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Resistor Circuit Calculation Result"
                 inputs={[
@@ -439,42 +439,42 @@ Circuit Analysis:
             </div>
 
             {/* Circuit Results */}
-            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+            <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200">
               <h3 className="text-lg font-semibold text-purple-800 mb-4">Circuit Calculation Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{formatResistance(result.totalResistance)}</div>
-                  <div className="text-sm text-gray-600">Total Resistance</div>
+                  <div className="text-sm text-google-gray">Total Resistance</div>
                   <div className="text-xs text-purple-600">{circuitType} circuit</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatNumber(result.totalCurrent)} A</div>
-                  <div className="text-sm text-gray-600">Total Current</div>
-                  <div className="text-xs text-blue-600">At {voltage}V</div>
+                  <div className="text-sm text-google-gray">Total Current</div>
+                  <div className="text-xs text-google-blue">At {voltage}V</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{formatNumber(result.totalPower)} W</div>
-                  <div className="text-sm text-gray-600">Total Power</div>
+                  <div className="text-sm text-google-gray">Total Power</div>
                   <div className="text-xs text-green-600">Dissipated</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{formatNumber(result.voltageDrop)} V</div>
-                  <div className="text-sm text-gray-600">Voltage Drop</div>
+                  <div className="text-sm text-google-gray">Voltage Drop</div>
                   <div className="text-xs text-orange-600">Per resistor</div>
                 </div>
               </div>
             </div>
 
             {/* Color Code */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Resistor Color Code</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Resistor Color Code</h3>
               <div className="text-center">
-                <div className="text-sm text-gray-600 mb-3">Color bands for {formatResistance(result.totalResistance)}</div>
+                <div className="text-sm text-google-gray mb-3">Color bands for {formatResistance(result.totalResistance)}</div>
                 <div className="flex justify-center space-x-2">
                   {result.colorCode.map((color, index) => (
                     <div
                       key={index}
-                      className="w-12 h-8 rounded border-2 border-gray-300 flex items-center justify-center text-xs font-medium"
+                      className="w-12 h-8 rounded border border-google-border flex items-center justify-center text-xs font-medium"
                       style={{
                         backgroundColor: getColorValue(color),
                         color: getTextColor(color)
@@ -491,32 +491,32 @@ Circuit Analysis:
             </div>
 
             {/* Power Analysis */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Power Analysis</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Power Analysis</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Circuit Power</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Circuit Power</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Total Power:</span>
+                      <span className="text-google-gray">Total Power:</span>
                       <span className="font-semibold">{formatNumber(result.totalPower)} W</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Power per Resistor:</span>
+                      <span className="text-google-gray">Power per Resistor:</span>
                       <span className="font-semibold">{formatNumber(result.powerDissipation)} W</span>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Current Flow</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Current Flow</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Total Current:</span>
+                      <span className="text-google-gray">Total Current:</span>
                       <span className="font-semibold">{formatNumber(result.totalCurrent)} A</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Voltage Drop:</span>
+                      <span className="text-google-gray">Voltage Drop:</span>
                       <span className="font-semibold">{formatNumber(result.voltageDrop)} V</span>
                     </div>
                   </div>
@@ -528,28 +528,28 @@ Circuit Analysis:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -559,12 +559,12 @@ Circuit Analysis:
         )}
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Resistor Calculator</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Resistor Calculator</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Purpose & Functionality</h3>
               <p className="text-gray-700 mb-3">
                 This comprehensive resistor calculator is designed for electronics engineers, hobbyists, and students to 
                 analyze electrical circuits containing resistors. It calculates total resistance, current flow, power 
@@ -577,10 +577,10 @@ Circuit Analysis:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Electrical Circuit Fundamentals</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Electrical Circuit Fundamentals</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Series Circuits</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Series Circuits</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Current flows through each resistor sequentially</li>
                     <li>Total resistance = R1 + R2 + R3 + ...</li>
@@ -590,7 +590,7 @@ Circuit Analysis:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Parallel Circuits</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Parallel Circuits</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Current divides among parallel branches</li>
                     <li>1/R_total = 1/R1 + 1/R2 + 1/R3 + ...</li>
@@ -603,7 +603,7 @@ Circuit Analysis:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Key Calculations Explained</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Key Calculations Explained</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Total Resistance:</strong> Effective resistance of the entire circuit configuration</li>
                 <li><strong>Current Flow:</strong> Total current drawn from the voltage source (I = V/R)</li>
@@ -614,9 +614,9 @@ Circuit Analysis:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Resistor Color Code System</h3>
-              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                <h4 className="font-semibold text-gray-800 mb-2">4-Band Color Code</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Resistor Color Code System</h3>
+              <div className="bg-purple-50 p-4 rounded-2xl border border-purple-200">
+                <h4 className="font-semibold text-google-text mb-2">4-Band Color Code</h4>
                 <div className="grid md:grid-cols-4 gap-2 text-sm">
                   <div>
                     <p><strong>Band 1:</strong> First significant digit</p>
@@ -639,10 +639,10 @@ Circuit Analysis:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Practical Applications</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Practical Applications</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Electronics Design</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Electronics Design</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Voltage divider circuits</li>
                     <li>Current limiting applications</li>
@@ -652,7 +652,7 @@ Circuit Analysis:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Educational & Learning</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Educational & Learning</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Circuit theory understanding</li>
                     <li>Ohm's Law applications</li>
@@ -665,7 +665,7 @@ Circuit Analysis:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Safety Considerations</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Safety Considerations</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Power Rating:</strong> Ensure resistors can handle calculated power dissipation</li>
                 <li><strong>Voltage Rating:</strong> Check maximum voltage ratings for high-voltage circuits</li>
@@ -676,10 +676,10 @@ Circuit Analysis:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Component Selection Guidelines</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Component Selection Guidelines</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Resistance Value</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Resistance Value</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Choose standard E12/E24 series values</li>
                     <li>Consider tolerance requirements</li>
@@ -688,7 +688,7 @@ Circuit Analysis:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Power Rating</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Power Rating</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Select power rating 2x calculated dissipation</li>
                     <li>Consider ambient temperature effects</li>
@@ -700,7 +700,7 @@ Circuit Analysis:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Mistakes to Avoid</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Common Mistakes to Avoid</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Power Rating:</strong> Underestimating power dissipation requirements</li>
                 <li><strong>Voltage Rating:</strong> Exceeding maximum voltage ratings</li>
@@ -710,8 +710,8 @@ Circuit Analysis:
               </ul>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Always derate power ratings by 50% for reliable operation</li>
                 <li>• Use precision resistors (1% tolerance) for measurement circuits</li>
@@ -751,3 +751,8 @@ function getTextColor(color: string): string {
   const darkColors = ['Black', 'Blue', 'Violet', 'Brown']
   return darkColors.includes(color) ? '#FFFFFF' : '#000000'
 }
+
+
+
+
+

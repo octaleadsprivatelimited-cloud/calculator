@@ -37,7 +37,7 @@ export default function TimeDurationCalculator() {
   const duration = showResults ? calculateDuration() : null
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -56,7 +56,7 @@ export default function TimeDurationCalculator() {
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="google-input"
               title="Select start date"
             />
           </div>
@@ -66,7 +66,7 @@ export default function TimeDurationCalculator() {
               type="time"
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="google-input"
               title="Select start time"
             />
           </div>
@@ -76,7 +76,7 @@ export default function TimeDurationCalculator() {
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="google-input"
               title="Select end date"
             />
           </div>
@@ -86,7 +86,7 @@ export default function TimeDurationCalculator() {
               type="time"
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="google-input"
               title="Select end time"
             />
           </div>
@@ -95,7 +95,7 @@ export default function TimeDurationCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Calculate Duration
           </button>
@@ -104,7 +104,7 @@ export default function TimeDurationCalculator() {
         {showResults && duration && (
           <>
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-6 rounded-lg border border-indigo-200 mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-indigo-200 mb-4">
               <ResultSharing
                 title="Time Duration Calculation Result"
                 inputs={[
@@ -122,28 +122,28 @@ export default function TimeDurationCalculator() {
               />
             </div>
 
-            <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200 text-center">
+            <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-200 text-center">
               <h3 className="text-xl font-semibold text-indigo-800 mb-4">Duration Results</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                 <div>
                   <div className="text-2xl font-bold text-indigo-600">{duration.days}</div>
-                  <div className="text-sm text-gray-600">Days</div>
+                  <div className="text-sm text-google-gray">Days</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-indigo-600">{duration.hours}</div>
-                  <div className="text-sm text-gray-600">Hours</div>
+                  <div className="text-sm text-google-gray">Hours</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-indigo-600">{duration.minutes}</div>
-                  <div className="text-sm text-gray-600">Minutes</div>
+                  <div className="text-sm text-google-gray">Minutes</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-indigo-600">{duration.seconds}</div>
-                  <div className="text-sm text-gray-600">Seconds</div>
+                  <div className="text-sm text-google-gray">Seconds</div>
                 </div>
               </div>
               <div className="mt-4">
-                <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+                <button onClick={handleReset} className="google-button-primary text-white px-4 py-2 rounded-2xl">
                   Reset
                 </button>
               </div>
@@ -153,8 +153,8 @@ export default function TimeDurationCalculator() {
       </div>
 
       {/* Calculator Description Section */}
-      <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">About Time Duration Calculator</h3>
+      <div className="mt-8 p-6 google-result-card">
+        <h3 className="text-xl font-semibold text-google-text mb-4">About Time Duration Calculator</h3>
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 mb-4">
             Our time duration calculator helps you determine the exact time span between two specific dates 
@@ -166,3 +166,7 @@ export default function TimeDurationCalculator() {
     </div>
   )
 }
+
+
+
+

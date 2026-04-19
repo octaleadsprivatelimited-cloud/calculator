@@ -82,7 +82,7 @@ export default function HeightCalculator() {
   const result = showResults ? calculateHeight() : { feet: 0, inches: 0, centimeters: 0, meters: 0, comparison: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-teal-600 to-blue-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -108,7 +108,7 @@ export default function HeightCalculator() {
                 type="number"
                 value={inputHeight}
                 onChange={(e) => setInputHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-lg"
+                className="google-input text-lg"
                 placeholder="5.9"
                 min="0"
                 max="1000"
@@ -123,7 +123,7 @@ export default function HeightCalculator() {
               <select
                 value={inputUnit}
                 onChange={(e) => setInputUnit(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="google-input"
                 aria-label="Select height unit"
               >
                 <option value="feet">Feet (decimal)</option>
@@ -135,23 +135,23 @@ export default function HeightCalculator() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-800">Height Categories</h3>
+            <h3 className="text-lg font-semibold text-google-text">Height Categories</h3>
             <div className="space-y-2">
-              <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-                <div className="font-medium text-gray-800">Very Short</div>
-                <div className="text-sm text-gray-600">Below 5 feet</div>
+              <div className="bg-gray-50 p-3 rounded-2xl border border-gray-200">
+                <div className="font-medium text-google-text">Very Short</div>
+                <div className="text-sm text-google-gray">Below 5 feet</div>
               </div>
-              <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-                <div className="font-medium text-gray-800">Short</div>
-                <div className="text-sm text-gray-600">5 feet to 5'3"</div>
+              <div className="bg-gray-50 p-3 rounded-2xl border border-gray-200">
+                <div className="font-medium text-google-text">Short</div>
+                <div className="text-sm text-google-gray">5 feet to 5'3"</div>
               </div>
-              <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-                <div className="font-medium text-gray-800">Average</div>
-                <div className="text-sm text-gray-600">5'7" to 5'11"</div>
+              <div className="bg-gray-50 p-3 rounded-2xl border border-gray-200">
+                <div className="font-medium text-google-text">Average</div>
+                <div className="text-sm text-google-gray">5'7" to 5'11"</div>
               </div>
-              <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-                <div className="font-medium text-gray-800">Tall</div>
-                <div className="text-sm text-gray-600">6'3" to 6'7"</div>
+              <div className="bg-gray-50 p-3 rounded-2xl border border-gray-200">
+                <div className="font-medium text-google-text">Tall</div>
+                <div className="text-sm text-google-gray">6'3" to 6'7"</div>
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function HeightCalculator() {
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+              className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
             >
               Calculate Height
             </button>
@@ -171,7 +171,7 @@ export default function HeightCalculator() {
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-teal-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Height Conversion Result"
                 inputs={[
@@ -189,24 +189,24 @@ export default function HeightCalculator() {
               />
             </div>
 
-            <div className="bg-teal-50 p-6 rounded-lg border border-teal-200">
+            <div className="bg-teal-50 p-6 rounded-2xl border border-teal-200">
               <h3 className="text-lg font-semibold text-teal-800 mb-4">Height Conversion Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-teal-700">{result.feet}'{result.inches}"</div>
-                  <div className="text-sm text-gray-600">Feet & Inches</div>
+                  <div className="text-sm text-google-gray">Feet & Inches</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{result.centimeters.toFixed(1)}</div>
-                  <div className="text-sm text-gray-600">Centimeters</div>
+                  <div className="text-sm text-google-gray">Centimeters</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{result.meters.toFixed(2)}</div>
-                  <div className="text-sm text-gray-600">Meters</div>
+                  <div className="text-sm text-google-gray">Meters</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{result.comparison}</div>
-                  <div className="text-sm text-gray-600">Category</div>
+                  <div className="text-sm text-google-gray">Category</div>
                 </div>
               </div>
             </div>
@@ -214,7 +214,7 @@ export default function HeightCalculator() {
             <div className="flex justify-center">
               <button
                 onClick={handleReset}
-                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 Reset
               </button>
@@ -223,8 +223,8 @@ export default function HeightCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Height Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Height Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive height calculator helps individuals convert between different height 
@@ -233,7 +233,7 @@ export default function HeightCalculator() {
               height classification for personal reference and planning purposes.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Height Conversions:</strong> Feet, inches, centimeters, meters</li>
               <li><strong>Height Categories:</strong> Very short, short, average, tall, very tall</li>
@@ -243,10 +243,10 @@ export default function HeightCalculator() {
               <li><strong>International Standards:</strong> Metric and imperial system support</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Height Measurement Systems</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Height Measurement Systems</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Imperial System (US/UK)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Imperial System (US/UK)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Feet:</strong> Primary unit (1 foot = 12 inches)</li>
                   <li><strong>Inches:</strong> Secondary unit for precision</li>
@@ -257,7 +257,7 @@ export default function HeightCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Metric System (International)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Metric System (International)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Centimeters:</strong> Primary unit for human height</li>
                   <li><strong>Meters:</strong> Larger measurements</li>
@@ -269,35 +269,35 @@ export default function HeightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-teal-50 p-3 rounded-lg border border-teal-200">
+              <div className="bg-teal-50 p-3 rounded-2xl border border-teal-200">
                 <h5 className="font-semibold text-teal-800 mb-1">Feet & Inches</h5>
                 <p className="text-teal-700 text-sm">Imperial measurement</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Centimeters</h5>
                 <p className="text-blue-700 text-sm">Metric precision</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Meters</h5>
                 <p className="text-green-700 text-sm">Metric standard</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Category</h5>
                 <p className="text-purple-700 text-sm">Height classification</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your height in any unit (feet, inches, centimeters, or meters) and select the 
               corresponding input unit. The calculator automatically converts your height to all other 
               units and provides a height category classification based on population averages.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Height Category System</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Height Category System</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Very Short:</strong></p>
@@ -324,10 +324,10 @@ export default function HeightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Height Conversion Factors</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Height Conversion Factors</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Imperial to Metric</h5>
+                <h5 className="font-semibold text-google-text mb-2">Imperial to Metric</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>1 foot = 30.48 centimeters</strong></li>
                   <li><strong>1 inch = 2.54 centimeters</strong></li>
@@ -338,7 +338,7 @@ export default function HeightCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Metric to Imperial</h5>
+                <h5 className="font-semibold text-google-text mb-2">Metric to Imperial</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>1 centimeter = 0.3937 inches</strong></li>
                   <li><strong>1 meter = 3.2808 feet</strong></li>
@@ -350,10 +350,10 @@ export default function HeightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Height Categories Explained</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Height Categories Explained</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Average Heights</h5>
+                <h5 className="font-semibold text-google-text mb-2">Average Heights</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Average (5'7"-5'11"):</strong> 68% of population</li>
                   <li><strong>Tall (6'3"-6'7"):</strong> Top 2.5% of population</li>
@@ -364,7 +364,7 @@ export default function HeightCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Practical Applications</h5>
+                <h5 className="font-semibold text-google-text mb-2">Practical Applications</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Clothing Sizing:</strong> Proper fit and proportions</li>
                   <li><strong>Furniture Selection:</strong> Ergonomic considerations</li>
@@ -376,7 +376,7 @@ export default function HeightCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Height Measurement Best Practices</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Height Measurement Best Practices</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Consistent Time:</strong> Measure at the same time of day</li>
               <li><strong>Proper Posture:</strong> Stand straight, feet together</li>
@@ -386,7 +386,7 @@ export default function HeightCalculator() {
               <li><strong>Multiple Measurements:</strong> Take several readings for accuracy</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Height Conversion Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Height Conversion Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Precise Values:</strong> Enter exact measurements for accuracy</li>
               <li><strong>Check Units:</strong> Verify input unit selection</li>
@@ -396,7 +396,7 @@ export default function HeightCalculator() {
               <li><strong>Update Regularly:</strong> Re-measure periodically</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Height Conversion Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Height Conversion Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Unit Confusion:</strong> Mixing feet and inches incorrectly</li>
               <li><strong>Decimal Errors:</strong> Incorrect decimal point placement</li>
@@ -406,7 +406,7 @@ export default function HeightCalculator() {
               <li><strong>Unit Selection:</strong> Choosing incorrect input unit</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Height Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Height Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Percentile Rankings:</strong> Height relative to population</li>
               <li><strong>Growth Charts:</strong> Pediatric height development</li>
@@ -416,8 +416,8 @@ export default function HeightCalculator() {
               <li><strong>Anthropometric Data:</strong> Scientific body measurements</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-teal-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-teal-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When converting between height units, remember that precision matters. A height of 5'9" 
                 is exactly 69 inches, which converts to 175.26 centimeters. For most practical purposes, 
@@ -434,5 +434,10 @@ export default function HeightCalculator() {
     </div>
   )
 }
+
+
+
+
+
 
 

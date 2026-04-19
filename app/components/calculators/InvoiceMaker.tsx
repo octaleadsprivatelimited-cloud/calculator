@@ -235,9 +235,9 @@ export default function InvoiceMaker() {
 
   // Template Preview Component
   const TemplatePreview = ({ template }: { template: InvoiceTemplate }) => (
-    <div className="w-full h-48 p-3 bg-gray-50 rounded-lg overflow-hidden">
+    <div className="w-full h-48 p-3 bg-gray-50 rounded-2xl overflow-hidden">
       <div 
-        className="w-full h-full rounded-lg shadow-sm relative overflow-hidden"
+        className="w-full h-full rounded-2xl shadow-sm relative overflow-hidden"
         style={{ backgroundColor: template.colors.background }}
       >
         {/* Header */}
@@ -328,7 +328,7 @@ export default function InvoiceMaker() {
 
       <div className="relative z-10 w-full p-4 lg:p-6 max-w-7xl mx-auto">
         {/* Enhanced Navigation Tabs */}
-        <div className="w-full bg-white/90 backdrop-blur-sm border-b border-gray-200/50 rounded-xl mb-6 shadow-lg">
+        <div className="w-full bg-white/90 backdrop-blur-sm border-b border-gray-200/50 rounded-3xl mb-6 shadow-google">
           <div className="flex space-x-1 p-2">
             {[
               { id: 'templates', label: 'Templates', icon: Layout, color: 'from-blue-500 to-blue-600' },
@@ -338,10 +338,10 @@ export default function InvoiceMaker() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as 'templates' | 'details' | 'preview')}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 relative ${
+                className={`flex items-center space-x-2 px-4 py-2 rounded-2xl font-medium transition-all duration-300 relative ${
                   activeTab === tab.id
-                    ? `bg-gradient-to-r ${tab.color} text-white shadow-lg transform scale-105`
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    ? `bg-gradient-to-r ${tab.color} text-white shadow-google transform scale-105`
+                    : 'text-google-gray hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 <tab.icon className="w-4 h-4" />
@@ -359,13 +359,13 @@ export default function InvoiceMaker() {
           <div className="space-y-6">
             {/* Hero Section */}
             <div className="text-center py-8">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-google">
                 <Layout className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">
                 Choose Your Perfect Template
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-google-gray max-w-2xl mx-auto">
                 Select from our collection of professionally designed invoice templates with realistic previews.
               </p>
             </div>
@@ -375,10 +375,10 @@ export default function InvoiceMaker() {
               {['All', 'Modern', 'Classic', 'Minimal'].map((category) => (
                 <button
                   key={category}
-                  className="px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full font-medium hover:bg-white hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:border-blue-300 flex items-center space-x-2 text-sm"
+                  className="px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full font-medium hover:bg-white hover:shadow-google transition-all duration-300 border border-gray-200/50 hover:border-blue-300 flex items-center space-x-2 text-sm"
                 >
                   <span>{category}</span>
-                  <span className="bg-gray-200 text-gray-600 px-2 py-1 rounded-full text-xs">
+                  <span className="bg-gray-200 text-google-gray px-2 py-1 rounded-full text-xs">
                     {category === 'All' ? '6' : category === 'Modern' ? '3' : '1'}
                   </span>
                 </button>
@@ -390,7 +390,7 @@ export default function InvoiceMaker() {
               {invoiceTemplates.map((template) => (
                 <div
                   key={template.id}
-                  className={`group bg-white rounded-2xl border-2 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 cursor-pointer relative overflow-hidden shadow-lg hover:shadow-2xl ${
+                  className={`group bg-white rounded-2xl border-2 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 cursor-pointer relative overflow-hidden shadow-google hover:shadow-2xl ${
                     selectedTemplate === template.id
                       ? 'border-blue-500 shadow-2xl shadow-blue-500/25 ring-4 ring-blue-500/20'
                       : 'border-gray-200 hover:border-blue-300'
@@ -401,7 +401,7 @@ export default function InvoiceMaker() {
                     setTimeout(() => {
                       setActiveTab('details')
                       const notification = document.createElement('div')
-                      notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg flex items-center z-50'
+                      notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-2xl shadow-google flex items-center z-50'
                       notification.innerHTML = '<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Template selected! Moving to details...'
                       document.body.appendChild(notification)
                       setTimeout(() => notification.remove(), 3000)
@@ -413,7 +413,7 @@ export default function InvoiceMaker() {
 
                   {/* Template Info */}
                   <div className="p-4">
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg group-hover:text-blue-600 transition-colors duration-200">
+                    <h3 className="font-bold text-gray-900 mb-2 text-lg group-hover:text-google-blue transition-colors duration-200">
                       {template.name}
                     </h3>
                     <div className="flex items-center justify-between">
@@ -424,7 +424,7 @@ export default function InvoiceMaker() {
                         {template.category}
                       </span>
                       {selectedTemplate === template.id && (
-                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center shadow-google animate-pulse">
                           <Check className="w-4 h-4 text-white" />
                         </div>
                       )}
@@ -444,9 +444,9 @@ export default function InvoiceMaker() {
           <div className="space-y-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Company Information */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4">
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-google border border-white/20 p-4">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-2">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-2">
                     <Building2 className="w-5 h-5 text-white" />
                   </div>
                   Your Company
@@ -460,7 +460,7 @@ export default function InvoiceMaker() {
                       ...prev,
                       company: { ...prev.company, name: e.target.value }
                     }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
                   />
                   <input
                     type="text"
@@ -470,7 +470,7 @@ export default function InvoiceMaker() {
                       ...prev,
                       company: { ...prev.company, address: e.target.value }
                     }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
                   />
                   <div className="grid grid-cols-2 gap-2">
                     <input
@@ -481,7 +481,7 @@ export default function InvoiceMaker() {
                         ...prev,
                         company: { ...prev.company, city: e.target.value }
                       }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
                     />
                     <input
                       type="text"
@@ -491,7 +491,7 @@ export default function InvoiceMaker() {
                         ...prev,
                         company: { ...prev.company, state: e.target.value }
                       }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
                     />
                   </div>
                   <input
@@ -502,7 +502,7 @@ export default function InvoiceMaker() {
                       ...prev,
                       company: { ...prev.company, email: e.target.value }
                     }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
                   />
                   <input
                     type="tel"
@@ -512,15 +512,15 @@ export default function InvoiceMaker() {
                       ...prev,
                       company: { ...prev.company, phone: e.target.value }
                     }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
                   />
                 </div>
               </div>
 
               {/* Client Information */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4">
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-google border border-white/20 p-4">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-2">
+                  <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mr-2">
                     <User className="w-5 h-5 text-white" />
                   </div>
                   Bill To
@@ -534,7 +534,7 @@ export default function InvoiceMaker() {
                       ...prev,
                       client: { ...prev.client, name: e.target.value }
                     }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
                   />
                   <input
                     type="text"
@@ -544,7 +544,7 @@ export default function InvoiceMaker() {
                       ...prev,
                       client: { ...prev.client, address: e.target.value }
                     }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
                   />
                   <div className="grid grid-cols-2 gap-2">
                     <input
@@ -555,7 +555,7 @@ export default function InvoiceMaker() {
                         ...prev,
                         client: { ...prev.client, city: e.target.value }
                       }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
                     />
                     <input
                       type="text"
@@ -565,7 +565,7 @@ export default function InvoiceMaker() {
                         ...prev,
                         client: { ...prev.client, state: e.target.value }
                       }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
                     />
                   </div>
                   <input
@@ -576,7 +576,7 @@ export default function InvoiceMaker() {
                       ...prev,
                       client: { ...prev.client, email: e.target.value }
                     }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
                   />
                   <input
                     type="tel"
@@ -586,16 +586,16 @@ export default function InvoiceMaker() {
                       ...prev,
                       client: { ...prev.client, phone: e.target.value }
                     }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-sm"
                   />
                 </div>
               </div>
             </div>
 
             {/* Invoice Information */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4">
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-google border border-white/20 p-4">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-2">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-2">
                   <Calendar className="w-5 h-5 text-white" />
                 </div>
                 Invoice Information
@@ -607,7 +607,7 @@ export default function InvoiceMaker() {
                     type="text"
                     value={invoiceData.invoiceNumber}
                     onChange={(e) => setInvoiceData(prev => ({ ...prev, invoiceNumber: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
                     placeholder="Enter invoice number"
                     title="Invoice number"
                     aria-label="Invoice number"
@@ -619,7 +619,7 @@ export default function InvoiceMaker() {
                     type="date"
                     value={invoiceData.date}
                     onChange={(e) => setInvoiceData(prev => ({ ...prev, date: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
                     title="Invoice date"
                     aria-label="Invoice date"
                   />
@@ -630,7 +630,7 @@ export default function InvoiceMaker() {
                     type="date"
                     value={invoiceData.dueDate}
                     onChange={(e) => setInvoiceData(prev => ({ ...prev, dueDate: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
                     title="Due date"
                     aria-label="Due date"
                   />
@@ -640,7 +640,7 @@ export default function InvoiceMaker() {
                   <select
                     value={invoiceData.currency}
                     onChange={(e) => setInvoiceData(prev => ({ ...prev, currency: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
                     title="Select currency"
                     aria-label="Select currency"
                   >
@@ -655,17 +655,17 @@ export default function InvoiceMaker() {
             </div>
 
             {/* Line Items */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4">
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-google border border-white/20 p-4">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold text-gray-900 flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-2">
+                  <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mr-2">
                     <Calculator className="w-5 h-5 text-white" />
                   </div>
                   Line Items
                 </h3>
                 <button
                   onClick={addLineItem}
-                  className="px-3 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-medium hover:from-green-600 hover:to-green-700 transition-all duration-200 flex items-center space-x-2 text-sm"
+                  className="px-3 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl font-medium hover:from-green-600 hover:to-green-700 transition-all duration-200 flex items-center space-x-2 text-sm"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Add Item</span>
@@ -674,14 +674,14 @@ export default function InvoiceMaker() {
 
               <div className="space-y-3">
                 {invoiceData.lineItems.map((item, index) => (
-                  <div key={item.id} className="grid grid-cols-1 md:grid-cols-6 gap-2 p-3 bg-gray-50 rounded-lg">
+                  <div key={item.id} className="grid grid-cols-1 md:grid-cols-6 gap-2 p-3 bg-gray-50 rounded-2xl">
                     <div className="md:col-span-2">
                       <input
                         type="text"
                         value={item.description}
                         onChange={(e) => updateLineItem(item.id, 'description', e.target.value)}
                         placeholder="Item description"
-                        className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+                        className="w-full px-2 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
                         title="Item description"
                         aria-label="Item description"
                       />
@@ -691,7 +691,7 @@ export default function InvoiceMaker() {
                         type="number"
                         value={item.quantity}
                         onChange={(e) => updateLineItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
-                        className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+                        className="w-full px-2 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
                         placeholder="Quantity"
                         title="Quantity"
                         aria-label="Quantity"
@@ -703,7 +703,7 @@ export default function InvoiceMaker() {
                         step="0.01"
                         value={item.rate}
                         onChange={(e) => updateLineItem(item.id, 'rate', parseFloat(e.target.value) || 0)}
-                        className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+                        className="w-full px-2 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
                         placeholder="Rate"
                         title="Rate per unit"
                         aria-label="Rate per unit"
@@ -714,7 +714,7 @@ export default function InvoiceMaker() {
                         type="number"
                         value={item.amount}
                         readOnly
-                        className="w-full px-2 py-2 border border-gray-300 rounded-lg bg-gray-100 text-sm"
+                        className="w-full px-2 py-2 border border-gray-300 rounded-2xl bg-gray-100 text-sm"
                         title="Total amount"
                         aria-label="Total amount"
                       />
@@ -722,7 +722,7 @@ export default function InvoiceMaker() {
                     <div className="flex items-center">
                       <button
                         onClick={() => removeLineItem(item.id)}
-                        className="p-1 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                        className="p-1 text-red-600 hover:bg-red-50 rounded-2xl transition-colors"
                         disabled={invoiceData.lineItems.length === 1}
                         title="Remove item"
                         aria-label="Remove item"
@@ -744,7 +744,7 @@ export default function InvoiceMaker() {
                       step="0.01"
                       value={invoiceData.taxRate}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, taxRate: parseFloat(e.target.value) || 0 }))}
-                      className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                      className="w-full px-2 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
                       placeholder="Tax rate"
                       title="Tax rate percentage"
                       aria-label="Tax rate percentage"
@@ -757,7 +757,7 @@ export default function InvoiceMaker() {
                       step="0.01"
                       value={invoiceData.discountRate}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, discountRate: parseFloat(e.target.value) || 0 }))}
-                      className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                      className="w-full px-2 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
                       placeholder="Discount rate"
                       title="Discount rate percentage"
                       aria-label="Discount rate percentage"
@@ -766,7 +766,7 @@ export default function InvoiceMaker() {
                   <div className="flex items-end">
                     <button
                       onClick={calculateTotals}
-                      className="w-full px-3 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-200 flex items-center justify-center space-x-2 text-sm"
+                      className="w-full px-3 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-2xl font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-200 flex items-center justify-center space-x-2 text-sm"
                       title="Calculate totals"
                       aria-label="Calculate totals"
                     >
@@ -807,13 +807,13 @@ export default function InvoiceMaker() {
               <div className="flex space-x-2">
                 <button
                   onClick={() => setActiveTab('details')}
-                  className="px-3 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors text-sm"
+                  className="px-3 py-2 bg-gray-500 text-white rounded-2xl hover:bg-gray-600 transition-colors text-sm"
                 >
                   Edit Details
                 </button>
                 <button
                   onClick={downloadPDF}
-                  className="px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center space-x-2 text-sm"
+                  className="px-3 py-2 bg-google-blueLight0 text-white rounded-2xl hover:bg-google-blue transition-colors flex items-center space-x-2 text-sm"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download PDF</span>
@@ -822,7 +822,7 @@ export default function InvoiceMaker() {
             </div>
 
             {/* Invoice Preview */}
-            <div className="bg-white rounded-lg shadow-lg p-4" ref={invoiceRef}>
+            <div className="google-card overflow-hidden p-4" ref={invoiceRef}>
               <div 
                 className="max-w-4xl mx-auto"
                 style={{ 
@@ -958,5 +958,8 @@ export default function InvoiceMaker() {
     </div>
   )
 }
+
+
+
 
 

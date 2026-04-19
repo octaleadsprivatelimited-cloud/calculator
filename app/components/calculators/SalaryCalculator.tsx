@@ -130,15 +130,15 @@ export default function SalaryCalculator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
             <TrendingUp className="w-16 h-16 mr-4 text-green-600" />
             Salary Calculator
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Calculate your take-home pay after taxes and deductions. Get detailed breakdowns of federal and state taxes, Social Security, Medicare, and more.
           </p>
         </header>
@@ -146,8 +146,8 @@ export default function SalaryCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Input Form */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <Calculator className="w-6 h-6 mr-2 text-green-600" />
                 Salary Details
               </h2>
@@ -163,7 +163,7 @@ export default function SalaryCalculator() {
                       type="number"
                       value={grossSalary}
                       onChange={(e) => setGrossSalary(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                       placeholder="75000"
                       title="Enter your gross annual salary"
                       aria-label="Gross annual salary"
@@ -178,7 +178,7 @@ export default function SalaryCalculator() {
                   <select
                     value={filingStatus}
                     onChange={(e) => setFilingStatus(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                     title="Select your tax filing status"
                     aria-label="Tax filing status"
                   >
@@ -195,7 +195,7 @@ export default function SalaryCalculator() {
                   <select
                     value={state}
                     onChange={(e) => setState(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                     title="Select your state for state tax calculation"
                     aria-label="State for tax calculation"
                   >
@@ -217,7 +217,7 @@ export default function SalaryCalculator() {
                       type="number"
                       value={otherDeductions}
                       onChange={(e) => setOtherDeductions(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                       placeholder="0"
                       title="Enter any other deductions (health insurance, retirement, etc.)"
                       aria-label="Other deductions amount"
@@ -232,7 +232,7 @@ export default function SalaryCalculator() {
                   <select
                     value={payFrequency}
                     onChange={(e) => setPayFrequency(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                     title="Select your pay frequency"
                     aria-label="Pay frequency"
                   >
@@ -251,7 +251,7 @@ export default function SalaryCalculator() {
                     type="number"
                     value={hoursPerWeek}
                     onChange={(e) => setHoursPerWeek(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-green-500 focus:ring-2 focus:ring-green-200"
                     placeholder="40"
                     min="1"
                     max="168"
@@ -265,8 +265,8 @@ export default function SalaryCalculator() {
 
           {/* Results */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <TrendingUp className="w-6 h-6 mr-2 text-green-600" />
                 Salary Breakdown
               </h2>
@@ -277,7 +277,7 @@ export default function SalaryCalculator() {
                   <h3 className="text-lg font-semibold text-gray-700 mb-4">Tax Breakdown</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Gross Salary:</span>
+                      <span className="text-google-gray">Gross Salary:</span>
                       <span className="font-semibold">${breakdown.grossSalary.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-red-600">
@@ -313,23 +313,23 @@ export default function SalaryCalculator() {
                   <h3 className="text-lg font-semibold text-gray-700 mb-4">Pay by Period</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Monthly:</span>
+                      <span className="text-google-gray">Monthly:</span>
                       <span className="font-semibold">${breakdown.monthlyPay.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Bi-weekly:</span>
+                      <span className="text-google-gray">Bi-weekly:</span>
                       <span className="font-semibold">${breakdown.biweeklyPay.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Weekly:</span>
+                      <span className="text-google-gray">Weekly:</span>
                       <span className="font-semibold">${breakdown.weeklyPay.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Daily:</span>
+                      <span className="text-google-gray">Daily:</span>
                       <span className="font-semibold">${breakdown.dailyPay.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Hourly Rate:</span>
+                      <span className="text-google-gray">Hourly Rate:</span>
                       <span className="font-semibold">${breakdown.hourlyRate.toFixed(2)}</span>
                     </div>
                   </div>
@@ -341,7 +341,7 @@ export default function SalaryCalculator() {
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={handleShare}
-                className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                 title="Share salary breakdown"
                 aria-label="Share salary breakdown"
               >
@@ -350,7 +350,7 @@ export default function SalaryCalculator() {
               </button>
               <button
                 onClick={handleDownload}
-                className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                 title="Download salary breakdown as text file"
                 aria-label="Download salary breakdown"
               >
@@ -359,7 +359,7 @@ export default function SalaryCalculator() {
               </button>
               <button
                 onClick={handlePrint}
-                className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                 title="Print salary breakdown"
                 aria-label="Print salary breakdown"
               >
@@ -371,12 +371,12 @@ export default function SalaryCalculator() {
         </div>
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-green-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Salary Calculator</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Salary Calculator</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Purpose & Functionality</h3>
               <p className="text-gray-700 mb-3">
                 This comprehensive salary calculator helps employees, job seekers, and HR professionals understand 
                 the complete picture of compensation by calculating take-home pay after all deductions. It provides 
@@ -389,10 +389,10 @@ export default function SalaryCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Understanding Your Paycheck</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Understanding Your Paycheck</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Gross vs. Net Pay</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Gross vs. Net Pay</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Gross Salary:</strong> Total compensation before any deductions</li>
                     <li><strong>Net Salary:</strong> Take-home pay after all taxes and deductions</li>
@@ -401,7 +401,7 @@ export default function SalaryCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Pay Period Conversions</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Pay Period Conversions</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Monthly:</strong> Net salary ÷ 12 months</li>
                     <li><strong>Bi-weekly:</strong> Net salary ÷ 26 pay periods</li>
@@ -413,9 +413,9 @@ export default function SalaryCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Federal Tax System</h3>
-              <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                <h4 className="font-semibold text-gray-800 mb-2">2024 Federal Tax Brackets</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Federal Tax System</h3>
+              <div className="bg-green-50 p-4 rounded-2xl border border-green-200">
+                <h4 className="font-semibold text-google-text mb-2">2024 Federal Tax Brackets</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
                     <p><strong>Single Filer:</strong></p>
@@ -443,10 +443,10 @@ export default function SalaryCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Payroll Deductions Explained</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Payroll Deductions Explained</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Mandatory Deductions</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Mandatory Deductions</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Federal Income Tax:</strong> Progressive tax based on income level</li>
                     <li><strong>State Income Tax:</strong> Varies by state (some states have no income tax)</li>
@@ -455,7 +455,7 @@ export default function SalaryCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Optional Deductions</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Optional Deductions</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>401(k) Contributions:</strong> Pre-tax retirement savings</li>
                     <li><strong>Health Insurance:</strong> Medical, dental, vision coverage</li>
@@ -467,7 +467,7 @@ export default function SalaryCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">State Tax Variations</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">State Tax Variations</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>No State Income Tax:</strong> Alaska, Florida, Nevada, South Dakota, Texas, Washington, Wyoming</li>
                 <li><strong>Flat Rate States:</strong> Colorado (4.4%), Illinois (4.95%), Indiana (3.23%)</li>
@@ -478,10 +478,10 @@ export default function SalaryCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Financial Planning Considerations</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Financial Planning Considerations</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Budgeting</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Budgeting</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Use net pay for monthly budgeting</li>
                     <li>Account for irregular expenses</li>
@@ -490,7 +490,7 @@ export default function SalaryCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Tax Planning</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Tax Planning</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Adjust withholding as needed</li>
                     <li>Maximize retirement contributions</li>
@@ -502,7 +502,7 @@ export default function SalaryCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Salary Negotiation Factors</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Salary Negotiation Factors</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Total Compensation:</strong> Look beyond base salary to benefits and perks</li>
                 <li><strong>Tax Implications:</strong> Higher salary means higher tax bracket</li>
@@ -513,10 +513,10 @@ export default function SalaryCalculator() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Salary Calculator Uses</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Common Salary Calculator Uses</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Job Seekers</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Job Seekers</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Compare job offers</li>
                     <li>Negotiate compensation</li>
@@ -525,7 +525,7 @@ export default function SalaryCalculator() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Current Employees</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Current Employees</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Budget planning</li>
                     <li>Tax preparation</li>
@@ -536,8 +536,8 @@ export default function SalaryCalculator() {
               </div>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Always negotiate based on total compensation, not just base salary</li>
                 <li>• Consider the value of benefits - they can add 20-40% to your total compensation</li>
@@ -554,7 +554,7 @@ export default function SalaryCalculator() {
         <div className="text-center mt-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
             title="Back to all calculators"
             aria-label="Back to all calculators"
           >
@@ -579,6 +579,9 @@ export default function SalaryCalculator() {
     </div>
   )
 }
+
+
+
 
 
 

@@ -147,14 +147,9 @@ export default function HealthyWeightCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-4">
-        <div className="flex items-center">
-          <Heart className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Healthy Weight Calculator</h2>
-        </div>
-        <p className="text-emerald-100 mt-1">Calculate your healthy weight range using multiple methods</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -167,7 +162,7 @@ export default function HealthyWeightCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -180,7 +175,7 @@ export default function HealthyWeightCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 placeholder="Enter age"
                 aria-label="Age in years"
               />
@@ -195,7 +190,7 @@ export default function HealthyWeightCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -209,7 +204,7 @@ export default function HealthyWeightCalculator() {
               <select
                 value={bodyFrame}
                 onChange={(e) => setBodyFrame(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="google-input"
                 aria-label="Select body frame"
               >
                 <option value="small">Small</option>
@@ -226,7 +221,7 @@ export default function HealthyWeightCalculator() {
             <select
               value={activityLevel}
               onChange={(e) => setActivityLevel(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="google-input"
               aria-label="Select activity level"
             >
               <option value="sedentary">Sedentary</option>
@@ -240,14 +235,14 @@ export default function HealthyWeightCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -258,7 +253,7 @@ export default function HealthyWeightCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-emerald-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Healthy Weight Calculation Result"
                 inputs={[
@@ -278,7 +273,7 @@ export default function HealthyWeightCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-2">Health Score</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-emerald-600 mb-2">
@@ -292,7 +287,7 @@ export default function HealthyWeightCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">Healthy Weight Ranges (lbs)</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -328,7 +323,7 @@ export default function HealthyWeightCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-emerald-800 mb-3">BMI-Based Healthy Range</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -347,7 +342,7 @@ export default function HealthyWeightCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-emerald-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -365,4 +360,8 @@ export default function HealthyWeightCalculator() {
     </div>
   )
 }
+
+
+
+
 

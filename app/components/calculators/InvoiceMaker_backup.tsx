@@ -280,13 +280,13 @@ export default function InvoiceMaker() {
   const currentTemplate = invoiceTemplates.find(t => t.id === selectedTemplate) || invoiceTemplates[0]
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="w-full min-h-screen bg-google-bg">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-blue-600 rounded-lg">
+              <div className="p-2 bg-google-blue rounded-2xl">
                 <FileText className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -295,13 +295,13 @@ export default function InvoiceMaker() {
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <button title="Save" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
+              <button title="Save" className="p-2 text-gray-400 hover:text-google-gray rounded-2xl hover:bg-gray-100">
                 <Save className="w-5 h-5" />
               </button>
-              <button title="Share" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
+              <button title="Share" className="p-2 text-gray-400 hover:text-google-gray rounded-2xl hover:bg-gray-100">
                 <Share2 className="w-5 h-5" />
               </button>
-              <button title="Settings" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
+              <button title="Settings" className="p-2 text-gray-400 hover:text-google-gray rounded-2xl hover:bg-gray-100">
                 <Settings className="w-5 h-5" />
               </button>
             </div>
@@ -323,7 +323,7 @@ export default function InvoiceMaker() {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm ${
                   activeTab === tab.id
-                    ? 'border-blue-500 text-blue-600'
+                    ? 'border-blue-500 text-google-blue'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -341,7 +341,7 @@ export default function InvoiceMaker() {
           <div className="space-y-6">
             <div className="text-center">
               <h2 className="text-3xl font-bold text-gray-900 mb-2">Choose Your Template</h2>
-              <p className="text-lg text-gray-600">Select from 30+ professional invoice templates</p>
+              <p className="text-lg text-google-gray">Select from 30+ professional invoice templates</p>
             </div>
 
             {/* Template Categories */}
@@ -365,7 +365,7 @@ export default function InvoiceMaker() {
                     setSelectedTemplate(template.id)
                     setInvoiceData(prev => ({ ...prev, template: template.id }))
                   }}
-                  className={`relative cursor-pointer group rounded-xl border-2 transition-all duration-200 ${
+                  className={`relative cursor-pointer group rounded-3xl border-2 transition-all duration-200 ${
                     selectedTemplate === template.id
                       ? 'border-blue-500 ring-2 ring-blue-200'
                       : 'border-gray-200 hover:border-gray-300'
@@ -374,7 +374,7 @@ export default function InvoiceMaker() {
                   <div className="p-4">
                     {/* Template Preview */}
                     <div
-                      className="w-full h-32 rounded-lg mb-3 relative overflow-hidden"
+                      className="w-full h-32 rounded-2xl mb-3 relative overflow-hidden"
                       style={{ backgroundColor: template.colors.background }}
                     >
                       <div className="absolute inset-0 p-3">
@@ -389,7 +389,7 @@ export default function InvoiceMaker() {
                       </div>
                       {selectedTemplate === template.id && (
                         <div className="absolute top-2 right-2">
-                          <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                          <div className="w-6 h-6 bg-google-blueLight0 rounded-full flex items-center justify-center">
                             <Check className="w-4 h-4 text-white" />
                           </div>
                         </div>
@@ -420,7 +420,7 @@ export default function InvoiceMaker() {
                   </div>
 
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-blue-500 bg-opacity-0 group-hover:bg-opacity-10 rounded-xl transition-all duration-200"></div>
+                  <div className="absolute inset-0 bg-google-blueLight0 bg-opacity-0 group-hover:bg-opacity-10 rounded-3xl transition-all duration-200"></div>
                 </div>
               ))}
             </div>
@@ -429,7 +429,7 @@ export default function InvoiceMaker() {
             <div className="text-center pt-8">
               <button
                 onClick={() => setActiveTab('details')}
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-google-blue text-white font-medium rounded-2xl hover:bg-google-blueHover focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
               >
                 <span>Continue to Details</span>
                 <Star className="w-4 h-4 ml-2" />
@@ -443,17 +443,17 @@ export default function InvoiceMaker() {
             {/* Invoice Form */}
             <div className="xl:col-span-2 space-y-6">
               {/* Quick Actions */}
-              <div className="bg-white rounded-xl shadow-sm border p-4">
+              <div className="bg-white rounded-3xl shadow-sm border p-4">
                 <div className="flex items-center justify-between">
                   <h2 className="text-lg font-semibold text-gray-900">Invoice Details</h2>
                   <div className="flex items-center space-x-2">
-                    <button title="Copy" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
+                    <button title="Copy" className="p-2 text-gray-400 hover:text-google-gray rounded-2xl hover:bg-gray-100">
                       <Copy className="w-4 h-4" />
                     </button>
-                    <button title="Print" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
+                    <button title="Print" className="p-2 text-gray-400 hover:text-google-gray rounded-2xl hover:bg-gray-100">
                       <Printer className="w-4 h-4" />
                     </button>
-                    <button title="Email" className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
+                    <button title="Email" className="p-2 text-gray-400 hover:text-google-gray rounded-2xl hover:bg-gray-100">
                       <Mail className="w-4 h-4" />
                     </button>
                   </div>
@@ -461,9 +461,9 @@ export default function InvoiceMaker() {
               </div>
 
               {/* Invoice Header */}
-              <div className="bg-white rounded-xl shadow-sm border p-6">
+              <div className="bg-white rounded-3xl shadow-sm border p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Calendar className="w-5 h-5 mr-2 text-blue-600" />
+                  <Calendar className="w-5 h-5 mr-2 text-google-blue" />
                   Invoice Information
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -473,7 +473,7 @@ export default function InvoiceMaker() {
                       type="text"
                       value={invoiceData.invoiceNumber}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, invoiceNumber: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                   <div>
@@ -482,7 +482,7 @@ export default function InvoiceMaker() {
                       type="date"
                       value={invoiceData.date}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, date: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                   <div>
@@ -491,7 +491,7 @@ export default function InvoiceMaker() {
                       type="date"
                       value={invoiceData.dueDate}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, dueDate: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                   <div>
@@ -499,7 +499,7 @@ export default function InvoiceMaker() {
                     <select
                       value={invoiceData.currency}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, currency: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     >
                       {currencies.map(currency => (
                         <option key={currency.code} value={currency.code}>
@@ -514,9 +514,9 @@ export default function InvoiceMaker() {
               {/* Company & Client Info */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Company Info */}
-                <div className="bg-white rounded-xl shadow-sm border p-6">
+                <div className="bg-white rounded-3xl shadow-sm border p-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <Building2 className="w-5 h-5 mr-2 text-blue-600" />
+                    <Building2 className="w-5 h-5 mr-2 text-google-blue" />
                     Your Company
                   </h3>
 
@@ -533,7 +533,7 @@ export default function InvoiceMaker() {
                       )}
                       <button
                         onClick={() => fileInputRef.current?.click()}
-                        className="flex items-center px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 text-sm font-medium"
+                        className="flex items-center px-3 py-2 bg-google-blueLight text-google-blue rounded-2xl hover:bg-blue-100 text-sm font-medium"
                       >
                         <Upload className="w-4 h-4 mr-2" />
                         Upload Logo
@@ -556,14 +556,14 @@ export default function InvoiceMaker() {
                       placeholder="Company Name"
                       value={invoiceData.company.name}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, name: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                     <input
                       type="text"
                       placeholder="Address"
                       value={invoiceData.company.address}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, address: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                     <div className="grid grid-cols-2 gap-3">
                       <input
@@ -571,14 +571,14 @@ export default function InvoiceMaker() {
                         placeholder="City"
                         value={invoiceData.company.city}
                         onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, city: e.target.value } }))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       />
                       <input
                         type="text"
                         placeholder="State"
                         value={invoiceData.company.state}
                         onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, state: e.target.value } }))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       />
                     </div>
                     <input
@@ -586,22 +586,22 @@ export default function InvoiceMaker() {
                       placeholder="Phone"
                       value={invoiceData.company.phone}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, phone: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                     <input
                       type="email"
                       placeholder="Email"
                       value={invoiceData.company.email}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, company: { ...prev.company, email: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                 </div>
 
                 {/* Client Info */}
-                <div className="bg-white rounded-xl shadow-sm border p-6">
+                <div className="bg-white rounded-3xl shadow-sm border p-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <User className="w-5 h-5 mr-2 text-blue-600" />
+                    <User className="w-5 h-5 mr-2 text-google-blue" />
                     Bill To
                   </h3>
                   <div className="space-y-3">
@@ -610,14 +610,14 @@ export default function InvoiceMaker() {
                       placeholder="Client Name"
                       value={invoiceData.client.name}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, name: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                     <input
                       type="text"
                       placeholder="Address"
                       value={invoiceData.client.address}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, address: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                     <div className="grid grid-cols-2 gap-3">
                       <input
@@ -625,14 +625,14 @@ export default function InvoiceMaker() {
                         placeholder="City"
                         value={invoiceData.client.city}
                         onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, city: e.target.value } }))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       />
                       <input
                         type="text"
                         placeholder="State"
                         value={invoiceData.client.state}
                         onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, state: e.target.value } }))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       />
                     </div>
                     <input
@@ -640,29 +640,29 @@ export default function InvoiceMaker() {
                       placeholder="Phone"
                       value={invoiceData.client.phone}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, phone: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                     <input
                       type="email"
                       placeholder="Email"
                       value={invoiceData.client.email}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, client: { ...prev.client, email: e.target.value } }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Line Items */}
-              <div className="bg-white rounded-xl shadow-sm border p-6">
+              <div className="bg-white rounded-3xl shadow-sm border p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-                    <Calculator className="w-5 h-5 mr-2 text-blue-600" />
+                    <Calculator className="w-5 h-5 mr-2 text-google-blue" />
                     Line Items
                   </h3>
                   <button
                     onClick={addLineItem}
-                    className="flex items-center px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 text-sm font-medium"
+                    className="flex items-center px-3 py-2 bg-google-blueLight text-google-blue rounded-2xl hover:bg-blue-100 text-sm font-medium"
                   >
                     <Plus className="w-4 h-4 mr-1" />
                     Add Item
@@ -671,14 +671,14 @@ export default function InvoiceMaker() {
 
                 <div className="space-y-3">
                   {invoiceData.lineItems.map((item, index) => (
-                    <div key={item.id} className="grid grid-cols-12 gap-3 items-center p-3 bg-gray-50 rounded-lg">
+                    <div key={item.id} className="grid grid-cols-12 gap-3 items-center p-3 bg-gray-50 rounded-2xl">
                       <div className="col-span-5">
                         <input
                           type="text"
                           placeholder="Description"
                           value={item.description}
                           onChange={(e) => updateLineItem(item.id, 'description', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         />
                       </div>
                       <div className="col-span-2">
@@ -687,7 +687,7 @@ export default function InvoiceMaker() {
                           placeholder="Qty"
                           value={item.quantity}
                           onChange={(e) => updateLineItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         />
                       </div>
                       <div className="col-span-2">
@@ -696,11 +696,11 @@ export default function InvoiceMaker() {
                           placeholder="Rate"
                           value={item.rate}
                           onChange={(e) => updateLineItem(item.id, 'rate', parseFloat(e.target.value) || 0)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         />
                       </div>
                       <div className="col-span-2">
-                        <div className="px-3 py-2 bg-white border rounded-lg text-sm font-medium">
+                        <div className="px-3 py-2 bg-white border rounded-2xl text-sm font-medium">
                           {getCurrencySymbol(invoiceData.currency)}{item.amount.toFixed(2)}
                         </div>
                       </div>
@@ -708,7 +708,7 @@ export default function InvoiceMaker() {
                         <button
                           onClick={() => removeLineItem(item.id)}
                           title="Remove item"
-                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                          className="p-2 text-red-600 hover:bg-red-50 rounded-2xl"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
@@ -719,9 +719,9 @@ export default function InvoiceMaker() {
               </div>
 
               {/* Totals */}
-              <div className="bg-white rounded-xl shadow-sm border p-6">
+              <div className="bg-white rounded-3xl shadow-sm border p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Calculator className="w-5 h-5 mr-2 text-blue-600" />
+                  <Calculator className="w-5 h-5 mr-2 text-google-blue" />
                   Calculations
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -731,7 +731,7 @@ export default function InvoiceMaker() {
                       type="number"
                       value={invoiceData.taxRate}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, taxRate: parseFloat(e.target.value) || 0 }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                   <div>
@@ -740,20 +740,20 @@ export default function InvoiceMaker() {
                       type="number"
                       value={invoiceData.discountRate}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, discountRate: parseFloat(e.target.value) || 0 }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                 </div>
                 <button
                   onClick={calculateTotals}
-                  className="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 font-medium"
+                  className="mt-4 w-full bg-google-blue text-white py-2 px-4 rounded-2xl hover:bg-google-blueHover font-medium"
                 >
                   Calculate Totals
                 </button>
               </div>
 
               {/* Notes */}
-              <div className="bg-white rounded-xl shadow-sm border p-6">
+              <div className="bg-white rounded-3xl shadow-sm border p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Notes & Terms</h3>
                 <div className="space-y-4">
                   <div>
@@ -761,7 +761,7 @@ export default function InvoiceMaker() {
                     <textarea
                       value={invoiceData.notes}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, notes: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       rows={3}
                       placeholder="Additional notes..."
                     />
@@ -772,7 +772,7 @@ export default function InvoiceMaker() {
                       type="text"
                       value={invoiceData.paymentTerms}
                       onChange={(e) => setInvoiceData(prev => ({ ...prev, paymentTerms: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Net 30"
                     />
                   </div>
@@ -783,14 +783,14 @@ export default function InvoiceMaker() {
               <div className="flex space-x-4">
                 <button
                   onClick={() => setActiveTab('preview')}
-                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 font-medium flex items-center justify-center"
+                  className="flex-1 bg-google-blue text-white py-3 px-6 rounded-2xl hover:bg-google-blueHover font-medium flex items-center justify-center"
                 >
                   <Eye className="w-4 h-4 mr-2" />
                   Preview Invoice
                 </button>
                 <button
                   onClick={downloadPDF}
-                  className="flex-1 bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 font-medium flex items-center justify-center"
+                  className="flex-1 google-button-primary font-medium flex items-center justify-center"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download PDF
@@ -800,7 +800,7 @@ export default function InvoiceMaker() {
 
             {/* Live Preview Sidebar */}
             <div className="xl:col-span-1">
-              <div className="bg-white rounded-xl shadow-sm border p-6 sticky top-8">
+              <div className="bg-white rounded-3xl shadow-sm border p-6 sticky top-8">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Live Preview</h3>
                 <div className="text-center text-gray-500 py-8">
                   <Eye className="w-12 h-12 mx-auto mb-2 text-gray-300" />
@@ -818,13 +818,13 @@ export default function InvoiceMaker() {
               <div className="flex space-x-3">
                 <button
                   onClick={() => setActiveTab('details')}
-                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 font-medium"
+                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-2xl hover:bg-gray-200 font-medium"
                 >
                   Edit Details
                 </button>
                 <button
                   onClick={downloadPDF}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium flex items-center"
+                  className="px-4 py-2 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover font-medium flex items-center"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download PDF
@@ -833,7 +833,7 @@ export default function InvoiceMaker() {
             </div>
 
             {/* Invoice Preview */}
-            <div className="bg-white rounded-xl shadow-lg border">
+            <div className="google-card overflow-hidden border">
               <div
                 ref={invoiceRef}
                 className="p-8"
@@ -855,12 +855,12 @@ export default function InvoiceMaker() {
                       >
                         INVOICE
                       </h1>
-                      <p className="text-gray-600">#{invoiceData.invoiceNumber}</p>
+                      <p className="text-google-gray">#{invoiceData.invoiceNumber}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm text-gray-600">Date: {invoiceData.date}</p>
-                    <p className="text-sm text-gray-600">Due: {invoiceData.dueDate}</p>
+                    <p className="text-sm text-google-gray">Date: {invoiceData.date}</p>
+                    <p className="text-sm text-google-gray">Due: {invoiceData.dueDate}</p>
                   </div>
                 </div>
 
@@ -960,19 +960,19 @@ export default function InvoiceMaker() {
                     {invoiceData.notes && (
                       <div>
                         <h4 className="font-semibold mb-2">Notes:</h4>
-                        <p className="text-sm text-gray-600">{invoiceData.notes}</p>
+                        <p className="text-sm text-google-gray">{invoiceData.notes}</p>
                       </div>
                     )}
                     {invoiceData.paymentTerms && (
                       <div>
                         <h4 className="font-semibold mb-2">Payment Terms:</h4>
-                        <p className="text-sm text-gray-600">{invoiceData.paymentTerms}</p>
+                        <p className="text-sm text-google-gray">{invoiceData.paymentTerms}</p>
                       </div>
                     )}
                     {invoiceData.terms && (
                       <div>
                         <h4 className="font-semibold mb-2">Terms & Conditions:</h4>
-                        <p className="text-sm text-gray-600">{invoiceData.terms}</p>
+                        <p className="text-sm text-google-gray">{invoiceData.terms}</p>
                       </div>
                     )}
                   </div>
@@ -985,6 +985,9 @@ export default function InvoiceMaker() {
     </div>
   )
 }
+
+
+
 
 
 

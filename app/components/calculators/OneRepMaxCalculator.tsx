@@ -100,14 +100,13 @@ export default function OneRepMaxCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-4">
         <div className="flex items-center">
           <Dumbbell className="h-8 w-8 text-white mr-3" />
           <h2 className="text-2xl font-bold text-white">One Rep Max Calculator</h2>
         </div>
-        <p className="text-purple-100 mt-1">Calculate your one rep maximum using multiple formulas</p>
-      </div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -120,7 +119,7 @@ export default function OneRepMaxCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-600"
                 placeholder="Enter weight"
                 aria-label="Weight lifted in pounds"
               />
@@ -133,7 +132,7 @@ export default function OneRepMaxCalculator() {
                 type="number"
                 value={reps}
                 onChange={(e) => setReps(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-600"
                 placeholder="Enter reps"
                 min="1"
                 max="20"
@@ -149,7 +148,7 @@ export default function OneRepMaxCalculator() {
             <select
               value={formula}
               onChange={(e) => setFormula(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-600"
               aria-label="Select calculation formula"
             >
               <option value="brzycki">Brzycki (Most Popular)</option>
@@ -163,14 +162,14 @@ export default function OneRepMaxCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -181,7 +180,7 @@ export default function OneRepMaxCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-purple-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="One Rep Max Calculation Result"
                 inputs={[
@@ -199,7 +198,7 @@ export default function OneRepMaxCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-purple-800 mb-2">Your One Rep Max</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-600 mb-2">
@@ -211,7 +210,7 @@ export default function OneRepMaxCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-purple-800 mb-3">Training Percentages</h3>
               <div className="grid grid-cols-2 gap-4">
                 {Object.entries(result.percentages).map(([percentage, weight]) => (
@@ -224,7 +223,7 @@ export default function OneRepMaxCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-purple-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -240,8 +239,8 @@ export default function OneRepMaxCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About One Rep Max Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About One Rep Max Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive One Rep Max (1RM) calculator helps strength athletes, powerlifters, and fitness 
@@ -250,7 +249,7 @@ export default function OneRepMaxCalculator() {
               for optimal strength development.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>One Rep Max:</strong> Maximum weight you can lift for one repetition</li>
               <li><strong>Training Percentages:</strong> Weight loads for different training intensities</li>
@@ -260,10 +259,10 @@ export default function OneRepMaxCalculator() {
               <li><strong>Program Design:</strong> Optimal training load determination</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">1RM Calculation Formulas</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">1RM Calculation Formulas</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Brzycki Formula</h5>
+                <h5 className="font-semibold text-google-text mb-2">Brzycki Formula</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Most Popular:</strong> Widely used in strength training</li>
                   <li><strong>Formula:</strong> 1RM = Weight × (36 ÷ (37 - Reps))</li>
@@ -274,7 +273,7 @@ export default function OneRepMaxCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Epley Formula</h5>
+                <h5 className="font-semibold text-google-text mb-2">Epley Formula</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Simple Formula:</strong> Easy to remember and calculate</li>
                   <li><strong>Formula:</strong> 1RM = Weight × (1 + Reps ÷ 30)</li>
@@ -286,27 +285,27 @@ export default function OneRepMaxCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">1RM Estimate</h5>
                 <p className="text-purple-700 text-sm">Maximum strength capacity</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Training %</h5>
                 <p className="text-blue-700 text-sm">Optimal workout loads</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Formula Used</h5>
                 <p className="text-green-700 text-sm">Calculation method</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Recommendations</h5>
                 <p className="text-orange-700 text-sm">Training guidance</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the weight you lifted and the number of reps you completed. Select your preferred 
               calculation formula, and the calculator will estimate your one rep max and provide training 
@@ -314,8 +313,8 @@ export default function OneRepMaxCalculator() {
               strength training programs.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Training Percentage Guidelines</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Training Percentage Guidelines</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Strength Development:</strong></p>
@@ -338,10 +337,10 @@ export default function OneRepMaxCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Strength Training Fundamentals</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Strength Training Fundamentals</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Training Principles</h5>
+                <h5 className="font-semibold text-google-text mb-2">Training Principles</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Progressive Overload:</strong> Gradually increase training stress</li>
                   <li><strong>Specificity:</strong> Train movements you want to improve</li>
@@ -352,7 +351,7 @@ export default function OneRepMaxCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Training Variables</h5>
+                <h5 className="font-semibold text-google-text mb-2">Training Variables</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Intensity:</strong> Percentage of 1RM</li>
                   <li><strong>Volume:</strong> Total work performed</li>
@@ -364,9 +363,9 @@ export default function OneRepMaxCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Exercise Categories</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Exercise Categories</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Compound Movements</h5>
                 <p className="text-blue-700 text-sm">Multi-joint exercises</p>
                 <ul className="list-disc list-inside text-blue-700 space-y-1 text-xs mt-2">
@@ -375,7 +374,7 @@ export default function OneRepMaxCalculator() {
                   <li>Pull-ups, Dips</li>
                 </ul>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Isolation Movements</h5>
                 <p className="text-green-700 text-sm">Single-joint exercises</p>
                 <ul className="list-disc list-inside text-green-700 space-y-1 text-xs mt-2">
@@ -384,7 +383,7 @@ export default function OneRepMaxCalculator() {
                   <li>Lateral Raises, Flyes</li>
                 </ul>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Accessory Movements</h5>
                 <p className="text-purple-700 text-sm">Supporting exercises</p>
                 <ul className="list-disc list-inside text-purple-700 space-y-1 text-xs mt-2">
@@ -395,7 +394,7 @@ export default function OneRepMaxCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Training Program Design</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Training Program Design</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Beginner Programs:</strong> Focus on technique and consistency</li>
               <li><strong>Intermediate Programs:</strong> Add volume and variation</li>
@@ -405,7 +404,7 @@ export default function OneRepMaxCalculator() {
               <li><strong>Endurance Focus:</strong> Lower intensity, very high volume</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Safety Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Safety Considerations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Proper Form:</strong> Always prioritize technique over weight</li>
               <li><strong>Warm-up Sets:</strong> Gradually increase to working weight</li>
@@ -415,10 +414,10 @@ export default function OneRepMaxCalculator() {
               <li><strong>Listen to Body:</strong> Stop if you feel pain or discomfort</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Progress Tracking</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Progress Tracking</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Strength Metrics</h5>
+                <h5 className="font-semibold text-google-text mb-2">Strength Metrics</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>1RM Testing:</strong> Periodic max effort attempts</li>
                   <li><strong>Volume Tracking:</strong> Total weight lifted per session</li>
@@ -429,7 +428,7 @@ export default function OneRepMaxCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Training Log</h5>
+                <h5 className="font-semibold text-google-text mb-2">Training Log</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Workout Details:</strong> Exercises, sets, reps, weights</li>
                   <li><strong>Performance Notes:</strong> How the workout felt</li>
@@ -441,7 +440,7 @@ export default function OneRepMaxCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Training Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Training Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Too Much Too Soon:</strong> Rapidly increasing training load</li>
               <li><strong>Poor Form:</strong> Sacrificing technique for weight</li>
@@ -451,7 +450,7 @@ export default function OneRepMaxCalculator() {
               <li><strong>Poor Nutrition:</strong> Inadequate fueling for training</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Training Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Training Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Periodization:</strong> Systematic training variation</li>
               <li><strong>Deloading:</strong> Planned recovery periods</li>
@@ -461,8 +460,8 @@ export default function OneRepMaxCalculator() {
               <li><strong>Cluster Sets:</strong> Short rest intervals within sets</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-purple-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Your 1RM is a moving target that changes based on training, recovery, nutrition, and other factors. 
                 Test your 1RM every 4-8 weeks to track progress, but don't become obsessed with the number. 
@@ -477,3 +476,8 @@ export default function OneRepMaxCalculator() {
     </div>
   )
 }
+
+
+
+
+

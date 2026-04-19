@@ -199,7 +199,7 @@ Cost Breakdown:
   const result = showResults ? calculateTileNeeds() : null
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-teal-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -217,8 +217,8 @@ Cost Breakdown:
 
       <div className="p-6">
         {/* Material Selection */}
-        <div className="bg-gray-50 p-6 rounded-lg mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Tile Material</h3>
+        <div className="bg-gray-50 p-6 rounded-2xl mb-8">
+          <h3 className="text-xl font-semibold text-google-text mb-4">Tile Material</h3>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -227,7 +227,7 @@ Cost Breakdown:
               <select
                 value={selectedMaterial}
                 onChange={(e) => setSelectedMaterial(parseInt(e.target.value))}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 title="Select tile material type"
               >
                 {tileMaterials.map((material, index) => (
@@ -236,7 +236,7 @@ Cost Breakdown:
                   </option>
                 ))}
               </select>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className="text-sm text-google-gray mt-1">
                 {tileMaterials[selectedMaterial]?.description} • {tileMaterials[selectedMaterial]?.wasteFactor}% waste factor
               </p>
             </div>
@@ -248,7 +248,7 @@ Cost Breakdown:
                 type="number"
                 value={groutPrice}
                 onChange={(e) => setGroutPrice(parseFloat(e.target.value) || 0)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="google-input"
                 min="0"
                 step="0.01"
                 title="Enter grout price per square foot"
@@ -260,10 +260,10 @@ Cost Breakdown:
         {/* Room Inputs */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-semibold text-gray-800">Room Dimensions</h3>
+            <h3 className="text-xl font-semibold text-google-text">Room Dimensions</h3>
             <button
               onClick={addRoom}
-              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+              className="google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
             >
               Add Room
             </button>
@@ -271,9 +271,9 @@ Cost Breakdown:
           
           <div className="space-y-4">
             {rooms.map((room, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+              <div key={index} className="bg-gray-50 p-6 rounded-2xl border border-gray-200">
                 <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-lg font-medium text-gray-800">{room.name}</h4>
+                  <h4 className="text-lg font-medium text-google-text">{room.name}</h4>
                   {rooms.length > 1 && (
                     <button
                       onClick={() => removeRoom(index)}
@@ -293,7 +293,7 @@ Cost Breakdown:
                       type="text"
                       value={room.name}
                       onChange={(e) => updateRoom(index, 'name', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="google-input"
                       title="Enter room name"
                     />
                   </div>
@@ -305,7 +305,7 @@ Cost Breakdown:
                       type="number"
                       value={room.length}
                       onChange={(e) => updateRoom(index, 'length', parseFloat(e.target.value) || 0)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="google-input"
                       min="1"
                       step="0.1"
                       title="Enter room length in feet"
@@ -319,7 +319,7 @@ Cost Breakdown:
                       type="number"
                       value={room.width}
                       onChange={(e) => updateRoom(index, 'width', parseFloat(e.target.value) || 0)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="google-input"
                       min="1"
                       step="0.1"
                       title="Enter room width in feet"
@@ -333,7 +333,7 @@ Cost Breakdown:
                       type="number"
                       value={room.height}
                       onChange={(e) => updateRoom(index, 'height', parseFloat(e.target.value) || 0)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="google-input"
                       min="1"
                       step="0.1"
                       title="Enter room height in feet"
@@ -365,7 +365,7 @@ Cost Breakdown:
                         type="number"
                         value={room.backsplashHeight}
                         onChange={(e) => updateRoom(index, 'backsplashHeight', parseFloat(e.target.value) || 0)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="google-input"
                         min="1"
                         max="48"
                         title="Enter backsplash height in inches"
@@ -382,7 +382,7 @@ Cost Breakdown:
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
           >
             <Calculator className="w-5 h-5" />
             <span>Calculate Tile Requirements</span>
@@ -393,7 +393,7 @@ Cost Breakdown:
         {result && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-green-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Tile Calculation Result"
                 inputs={[
@@ -413,61 +413,61 @@ Cost Breakdown:
             </div>
 
             {/* Summary */}
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
               <h3 className="text-xl font-semibold text-green-800 mb-4">Project Summary</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
                 <div>
                   <div className="text-2xl font-bold text-green-700">{formatNumber(result.totalArea)}</div>
-                  <div className="text-sm text-gray-600">Total Floor Area (sq ft)</div>
+                  <div className="text-sm text-google-gray">Total Floor Area (sq ft)</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-green-700">{formatNumber(result.tileArea)}</div>
-                  <div className="text-sm text-gray-600">Tile Area (sq ft)</div>
+                  <div className="text-sm text-google-gray">Tile Area (sq ft)</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-green-700">{formatNumber(result.totalWithWaste)}</div>
-                  <div className="text-sm text-gray-600">With Waste (sq ft)</div>
+                  <div className="text-sm text-google-gray">With Waste (sq ft)</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-green-700">{formatCurrency(result.totalProjectCost)}</div>
-                  <div className="text-sm text-gray-600">Total Cost</div>
+                  <div className="text-sm text-google-gray">Total Cost</div>
                 </div>
               </div>
             </div>
 
             {/* Detailed Results */}
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-6 rounded-2xl border border-blue-200">
                 <h3 className="text-lg font-semibold text-blue-800 mb-4">Material Requirements</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Floor tiles needed:</span>
+                    <span className="text-google-gray">Floor tiles needed:</span>
                     <span className="font-semibold">{formatNumber(result.totalWithWaste)} sq ft</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Waste allowance:</span>
+                    <span className="text-google-gray">Waste allowance:</span>
                     <span className="font-semibold">{formatNumber(result.wasteArea)} sq ft</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Grout needed:</span>
+                    <span className="text-google-gray">Grout needed:</span>
                     <span className="font-semibold">{formatNumber(result.groutArea)} sq ft</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200">
                 <h3 className="text-lg font-semibold text-purple-800 mb-4">Cost Breakdown</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Tile cost:</span>
+                    <span className="text-google-gray">Tile cost:</span>
                     <span className="font-semibold">{formatCurrency(result.totalCost)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Grout cost:</span>
+                    <span className="text-google-gray">Grout cost:</span>
                     <span className="font-semibold">{formatCurrency(result.groutCost)}</span>
                   </div>
                   <div className="flex justify-between border-t pt-2">
-                    <span className="text-gray-800 font-medium">Total project:</span>
+                    <span className="text-google-text font-medium">Total project:</span>
                     <span className="font-bold text-lg">{formatCurrency(result.totalProjectCost)}</span>
                   </div>
                 </div>
@@ -478,7 +478,7 @@ Cost Breakdown:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
                 title="Download results as text file"
               >
                 <Download className="w-4 h-4" />
@@ -486,7 +486,7 @@ Cost Breakdown:
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
                 title="Share results"
               >
                 <Share2 className="w-4 h-4" />
@@ -494,7 +494,7 @@ Cost Breakdown:
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
                 title="Print results"
               >
                 <Printer className="w-4 h-4" />
@@ -502,7 +502,7 @@ Cost Breakdown:
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
                 title="Reset calculator"
               >
                 <RotateCcw className="w-4 h-4" />
@@ -513,12 +513,12 @@ Cost Breakdown:
         )}
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-green-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Tile Calculator</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Tile Calculator</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Purpose & Functionality</h3>
               <p className="text-gray-700 mb-3">
                 This comprehensive tile calculator helps homeowners, contractors, and designers accurately 
                 estimate materials, costs, and waste for tiling projects. It handles complex layouts including 
@@ -531,10 +531,10 @@ Cost Breakdown:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Tile Material Types</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Tile Material Types</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Ceramic & Porcelain</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Ceramic & Porcelain</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Ceramic:</strong> Affordable, durable, easy to install</li>
                     <li><strong>Porcelain:</strong> Premium ceramic, very low water absorption</li>
@@ -544,7 +544,7 @@ Cost Breakdown:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Natural & Specialty</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Natural & Specialty</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Natural Stone:</strong> Marble, granite, travertine</li>
                     <li><strong>Glass Tile:</strong> Modern, translucent, artistic</li>
@@ -557,9 +557,9 @@ Cost Breakdown:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Project Planning Considerations</h3>
-              <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                <h4 className="font-semibold text-gray-800 mb-2">Room Measurements</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Project Planning Considerations</h3>
+              <div className="bg-green-50 p-4 rounded-2xl border border-green-200">
+                <h4 className="font-semibold text-google-text mb-2">Room Measurements</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
                     <p><strong>Floor Tiling:</strong></p>
@@ -584,10 +584,10 @@ Cost Breakdown:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Waste Factor Calculations</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Waste Factor Calculations</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Why Waste Factors Matter</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Why Waste Factors Matter</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Cuts & Trims:</strong> Tiles need cutting for edges</li>
                     <li><strong>Pattern Matching:</strong> Aligning patterns requires extra</li>
@@ -597,7 +597,7 @@ Cost Breakdown:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Recommended Waste Factors</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Recommended Waste Factors</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Ceramic:</strong> 10% - Standard installation</li>
                     <li><strong>Porcelain:</strong> 12% - Harder to cut</li>
@@ -610,7 +610,7 @@ Cost Breakdown:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Grout Selection & Application</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Grout Selection & Application</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Standard Cement Grout:</strong> Affordable, easy to apply, requires sealing</li>
                 <li><strong>Epoxy Grout:</strong> Stain-resistant, waterproof, more expensive</li>
@@ -621,10 +621,10 @@ Cost Breakdown:
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Installation Tips</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Installation Tips</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Preparation</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Preparation</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Ensure subfloor is level and stable</li>
                     <li>Use proper underlayment materials</li>
@@ -634,7 +634,7 @@ Cost Breakdown:
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Installation</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Installation</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li>Start from center and work outward</li>
                     <li>Use tile spacers for consistent joints</li>
@@ -646,8 +646,8 @@ Cost Breakdown:
               </div>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Always buy 10-15% more tile than calculated to account for waste</li>
                 <li>• Consider tile size - larger tiles show fewer grout lines but are harder to install</li>
@@ -663,5 +663,10 @@ Cost Breakdown:
     </div>
   )
 }
+
+
+
+
+
 
 

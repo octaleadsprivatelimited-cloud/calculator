@@ -121,14 +121,9 @@ export default function MacroCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-4">
-        <div className="flex items-center">
-          <PieChart className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Macro Calculator</h2>
-        </div>
-        <p className="text-indigo-100 mt-1">Calculate your macronutrient needs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -141,7 +136,7 @@ export default function MacroCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="google-input"
                 placeholder="Age"
                 aria-label="Age in years"
               />
@@ -153,7 +148,7 @@ export default function MacroCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -171,7 +166,7 @@ export default function MacroCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="google-input"
                 placeholder="Weight"
                 aria-label="Weight in pounds"
               />
@@ -184,7 +179,7 @@ export default function MacroCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="google-input"
                 placeholder="Height"
                 aria-label="Height in feet or cm"
               />
@@ -199,7 +194,7 @@ export default function MacroCalculator() {
               <select
                 value={activityLevel}
                 onChange={(e) => setActivityLevel(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="google-input"
                 aria-label="Select activity level"
               >
                 <option value="sedentary">Sedentary</option>
@@ -216,7 +211,7 @@ export default function MacroCalculator() {
               <select
                 value={goal}
                 onChange={(e) => setGoal(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="google-input"
                 aria-label="Select goal"
               >
                 <option value="maintenance">Maintenance</option>
@@ -231,14 +226,14 @@ export default function MacroCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -249,7 +244,7 @@ export default function MacroCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Macro Calculation Result"
                 inputs={[
@@ -267,12 +262,12 @@ export default function MacroCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-indigo-800 mb-2">Daily Calories</h3>
               <div className="text-2xl font-bold text-indigo-600">{result.calories.toFixed(0)} calories</div>
             </div>
 
-            <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-indigo-800 mb-3">Macronutrients</h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
@@ -302,8 +297,8 @@ export default function MacroCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Macro Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Macro Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive macro calculator helps fitness enthusiasts, athletes, and health-conscious 
@@ -312,7 +307,7 @@ export default function MacroCalculator() {
               to support weight management, muscle building, athletic performance, and overall health.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Daily Calorie Needs:</strong> Total energy requirements based on activity</li>
               <li><strong>Protein Requirements:</strong> Essential for muscle building and repair</li>
@@ -322,10 +317,10 @@ export default function MacroCalculator() {
               <li><strong>Goal-Specific Adjustments:</strong> Customized for weight loss, muscle gain, etc.</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Macronutrient Functions</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Macronutrient Functions</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Protein (4 cal/g)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Protein (4 cal/g)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Muscle building and repair</li>
                   <li>Enzyme and hormone production</li>
@@ -336,7 +331,7 @@ export default function MacroCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Carbohydrates (4 cal/g)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Carbohydrates (4 cal/g)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Primary energy source</li>
                   <li>Brain and nervous system fuel</li>
@@ -347,7 +342,7 @@ export default function MacroCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Fat (9 cal/g)</h5>
+                <h5 className="font-semibold text-google-text mb-2">Fat (9 cal/g)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Hormone production</li>
                   <li>Vitamin absorption</li>
@@ -359,10 +354,10 @@ export default function MacroCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Goal-Specific Macro Ratios</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Goal-Specific Macro Ratios</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Weight Loss</h5>
+                <h5 className="font-semibold text-google-text mb-2">Weight Loss</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Protein: 30-35% (preserves muscle)</li>
                   <li>Carbs: 30-40% (maintains energy)</li>
@@ -373,7 +368,7 @@ export default function MacroCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Muscle Gain</h5>
+                <h5 className="font-semibold text-google-text mb-2">Muscle Gain</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Protein: 25-30% (muscle synthesis)</li>
                   <li>Carbs: 45-55% (workout fuel)</li>
@@ -385,10 +380,10 @@ export default function MacroCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Specialized Diets</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Specialized Diets</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Ketogenic Diet</h5>
+                <h5 className="font-semibold text-google-text mb-2">Ketogenic Diet</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Protein: 20-25% (moderate)</li>
                   <li>Carbs: 5-10% (very low)</li>
@@ -399,7 +394,7 @@ export default function MacroCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Low Carb Diet</h5>
+                <h5 className="font-semibold text-google-text mb-2">Low Carb Diet</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Protein: 25-30% (increased)</li>
                   <li>Carbs: 20-30% (reduced)</li>
@@ -411,7 +406,7 @@ export default function MacroCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Activity Level Impact</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Activity Level Impact</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Sedentary:</strong> Office work, minimal exercise (1.2x BMR)</li>
               <li><strong>Light:</strong> Light exercise 1-3 days/week (1.375x BMR)</li>
@@ -420,30 +415,30 @@ export default function MacroCalculator() {
               <li><strong>Very Active:</strong> Very hard exercise, physical job (1.9x BMR)</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+              <div className="bg-indigo-50 p-3 rounded-2xl border border-indigo-200">
                 <h5 className="font-semibold text-indigo-800 mb-1">Daily Calories</h5>
                 <p className="text-indigo-700 text-sm">Total energy needs</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Macro Grams</h5>
                 <p className="text-green-700 text-sm">Daily intake amounts</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Macro Percentages</h5>
                 <p className="text-purple-700 text-sm">Ratio distribution</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your age, gender, weight, height, activity level, and fitness goal. The calculator 
               will provide your daily calorie needs and optimal macronutrient breakdown to support your 
               specific objectives.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Macro Tracking Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Macro Tracking Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Food Scales:</strong> Accurate portion measurement</li>
               <li><strong>Track Consistently:</strong> Daily logging for best results</li>
@@ -453,8 +448,8 @@ export default function MacroCalculator() {
               <li><strong>Monitor Progress:</strong> Track weight, energy, and performance</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Quality Food Sources</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Quality Food Sources</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-3 gap-4 text-sm">
                 <div>
                   <p><strong>Protein Sources:</strong></p>
@@ -489,7 +484,7 @@ export default function MacroCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Macro Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Macro Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Too Much Protein:</strong> Can strain kidneys, displace other nutrients</li>
               <li><strong>Too Little Fat:</strong> Hormone imbalances, poor absorption</li>
@@ -499,7 +494,7 @@ export default function MacroCalculator() {
               <li><strong>Focusing Only on Macros:</strong> Food quality matters too</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When to Adjust Macros</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When to Adjust Macros</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Plateau in Progress:</strong> Weight loss or muscle gain stalls</li>
               <li><strong>Energy Changes:</strong> Fatigue or excessive energy</li>
@@ -509,7 +504,7 @@ export default function MacroCalculator() {
               <li><strong>Health Issues:</strong> Digestive problems or allergies</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Macro Calculation Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Macro Calculation Methods</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>BMR Calculation:</strong> Basal metabolic rate using Mifflin-St Jeor</li>
               <li><strong>Activity Multiplier:</strong> TDEE calculation based on lifestyle</li>
@@ -519,8 +514,8 @@ export default function MacroCalculator() {
               <li><strong>Flexibility Range:</strong> ±5% tolerance for daily adherence</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-indigo-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Start with the calculated macros for 2-3 weeks to establish a baseline, then adjust based 
                 on your progress and how you feel. Remember that consistency is more important than 
@@ -537,3 +532,8 @@ export default function MacroCalculator() {
     </div>
   )
 }
+
+
+
+
+

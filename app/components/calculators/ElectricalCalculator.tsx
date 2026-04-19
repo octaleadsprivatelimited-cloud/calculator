@@ -104,22 +104,22 @@ export default function ElectricalCalculator() {
   const loads = calculateLoads()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-amber-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
             <Zap className="w-16 h-16 mr-4 text-yellow-600" />
             Electrical Load Calculator
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Calculate electrical loads, power consumption, and energy costs for your home or business. Track daily usage and estimate monthly electricity bills.
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <Calculator className="w-6 h-6 mr-2 text-yellow-600" />
                 Electrical Settings
               </h2>
@@ -130,7 +130,7 @@ export default function ElectricalCalculator() {
                   <select
                     value={voltage}
                     onChange={(e) => setVoltage(parseInt(e.target.value))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
                     title="Select the voltage system"
                     aria-label="Voltage system"
                   >
@@ -147,7 +147,7 @@ export default function ElectricalCalculator() {
                     type="number"
                     value={powerFactor}
                     onChange={(e) => setPowerFactor(parseFloat(e.target.value) || 0.9)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
                     min="0.5"
                     max="1"
                     step="0.05"
@@ -159,19 +159,19 @@ export default function ElectricalCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Common Appliances</h3>
+            <div className="google-card overflow-hidden p-6 mb-6">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Common Appliances</h3>
               <div className="space-y-2 max-h-64 overflow-y-auto">
                 {commonAppliances.map((appliance, index) => (
                   <button
                     key={index}
                     onClick={() => addCommonAppliance(appliance)}
-                    className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                    className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                     title={`Add ${appliance.name} to your list`}
                     aria-label={`Add ${appliance.name} to your list`}
                   >
                     <div className="font-medium">{appliance.name}</div>
-                    <div className="text-xs text-gray-600">
+                    <div className="text-xs text-google-gray">
                       {appliance.watts}W • {appliance.hours}h • {appliance.quantity}×
                     </div>
                   </button>
@@ -179,12 +179,12 @@ export default function ElectricalCalculator() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="google-card overflow-hidden p-6">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-semibold text-gray-800">Quick Examples</h3>
+                <h3 className="text-lg font-semibold text-google-text">Quick Examples</h3>
                 <button
                   onClick={addAppliance}
-                  className="px-3 py-1 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 text-sm"
+                  className="px-3 py-1 bg-yellow-600 text-white rounded-2xl hover:bg-yellow-700 text-sm"
                   title="Add a custom appliance"
                   aria-label="Add a custom appliance"
                 >
@@ -201,7 +201,7 @@ export default function ElectricalCalculator() {
                       { name: 'Computer', watts: 200, hours: 6, quantity: 1 }
                     ])
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: basic home setup"
                   aria-label="Set example: basic home setup"
                 >
@@ -217,7 +217,7 @@ export default function ElectricalCalculator() {
                       { name: 'Dryer', watts: 3000, hours: 1, quantity: 1 }
                     ])
                   }}
-                  className="w-full text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm"
+                  className="w-full text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm"
                   title="Set example: large home setup"
                   aria-label="Set example: large home setup"
                 >
@@ -229,21 +229,21 @@ export default function ElectricalCalculator() {
 
           <div className="lg:col-span-2">
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+              <div className="google-card overflow-hidden p-6">
+                <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                   <TrendingUp className="w-6 h-6 mr-2 text-yellow-600" />
                   Appliance List
                 </h2>
                 
                 <div className="space-y-4">
                   {appliances.map((appliance, index) => (
-                    <div key={index} className="border border-gray-200 rounded-lg p-4">
+                    <div key={index} className="border border-gray-200 rounded-2xl p-4">
                       <div className="flex items-center justify-between mb-3">
                         <input
                           type="text"
                           value={appliance.name}
                           onChange={(e) => updateAppliance(index, 'name', e.target.value)}
-                          className="text-lg font-semibold text-gray-800 bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-yellow-200 rounded px-2"
+                          className="text-lg font-semibold text-google-text bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-yellow-200 rounded px-2"
                           title="Edit appliance name"
                           aria-label="Edit appliance name"
                         />
@@ -266,7 +266,7 @@ export default function ElectricalCalculator() {
                             type="number"
                             value={appliance.watts}
                             onChange={(e) => updateAppliance(index, 'watts', parseFloat(e.target.value) || 0)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
                             placeholder="0"
                             min="0"
                             title="Enter power consumption in watts"
@@ -279,7 +279,7 @@ export default function ElectricalCalculator() {
                             type="number"
                             value={appliance.hours}
                             onChange={(e) => updateAppliance(index, 'hours', parseFloat(e.target.value) || 0)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
                             placeholder="0"
                             min="0"
                             step="0.1"
@@ -293,7 +293,7 @@ export default function ElectricalCalculator() {
                             type="number"
                             value={appliance.quantity}
                             onChange={(e) => updateAppliance(index, 'quantity', parseInt(e.target.value) || 1)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
                             placeholder="1"
                             min="1"
                             title="Enter quantity of this appliance"
@@ -303,7 +303,7 @@ export default function ElectricalCalculator() {
                       </div>
                       
                       <div className="mt-3 text-right">
-                        <span className="text-sm text-gray-600">Daily Usage: </span>
+                        <span className="text-sm text-google-gray">Daily Usage: </span>
                         <span className="font-semibold text-yellow-600">
                           {((appliance.watts * appliance.hours * appliance.quantity) / 1000).toFixed(2)} kWh
                         </span>
@@ -313,14 +313,14 @@ export default function ElectricalCalculator() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+              <div className="google-card overflow-hidden p-6">
+                <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                   <Zap className="w-6 h-6 mr-2 text-yellow-600" />
                   Load Summary
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-yellow-50 p-6 rounded-lg">
+                  <div className="bg-yellow-50 p-6 rounded-2xl">
                     <h3 className="text-lg font-semibold text-yellow-800 mb-4">Power & Energy</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between">
@@ -342,7 +342,7 @@ export default function ElectricalCalculator() {
                     </div>
                   </div>
                   
-                  <div className="bg-amber-50 p-6 rounded-lg">
+                  <div className="bg-amber-50 p-6 rounded-2xl">
                     <h3 className="text-lg font-semibold text-amber-800 mb-4">Current & Cost</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between">
@@ -365,7 +365,7 @@ export default function ElectricalCalculator() {
                   </div>
                 </div>
 
-                <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <div className="mt-6 p-4 bg-google-blueLight rounded-2xl border border-blue-200">
                   <h4 className="font-semibold text-blue-800 mb-2">💡 Tips</h4>
                   <ul className="text-sm text-blue-700 space-y-1">
                     <li>• Circuit breakers should be rated higher than your calculated load</li>
@@ -379,7 +379,7 @@ export default function ElectricalCalculator() {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                   title="Share electrical calculator results"
                   aria-label="Share electrical calculator results"
                 >
@@ -388,7 +388,7 @@ export default function ElectricalCalculator() {
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                   title="Download results as text file"
                   aria-label="Download electrical calculator results"
                 >
@@ -397,7 +397,7 @@ export default function ElectricalCalculator() {
                 </button>
                 <button
                   onClick={handlePrint}
-                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                   title="Print electrical calculator results"
                   aria-label="Print electrical calculator results"
                 >
@@ -410,8 +410,8 @@ export default function ElectricalCalculator() {
         </div>
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Electrical Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Electrical Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive electrical calculator helps homeowners, electricians, and engineers 
@@ -420,7 +420,7 @@ export default function ElectricalCalculator() {
               applications, helping optimize electrical systems and reduce energy expenses.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Power Consumption:</strong> Watts, kilowatts, and kilowatt-hours</li>
               <li><strong>Electrical Loads:</strong> Current draw and circuit requirements</li>
@@ -430,10 +430,10 @@ export default function ElectricalCalculator() {
               <li><strong>Appliance Management:</strong> Individual device power tracking</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Types</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Calculation Types</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Power Calculations</h5>
+                <h5 className="font-semibold text-google-text mb-2">Power Calculations</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Watts:</strong> Instantaneous power consumption</li>
                   <li><strong>Kilowatts:</strong> Power in thousands of watts</li>
@@ -444,7 +444,7 @@ export default function ElectricalCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Electrical Analysis</h5>
+                <h5 className="font-semibold text-google-text mb-2">Electrical Analysis</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Current Draw:</strong> Amperage requirements</li>
                   <li><strong>Circuit Loading:</strong> Breaker capacity analysis</li>
@@ -456,27 +456,27 @@ export default function ElectricalCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+              <div className="bg-yellow-50 p-3 rounded-2xl border border-yellow-200">
                 <h5 className="font-semibold text-yellow-800 mb-1">Power</h5>
                 <p className="text-yellow-700 text-sm">Watts and kilowatts</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Energy</h5>
                 <p className="text-blue-700 text-sm">Daily/monthly kWh</p>
               </div>
-              <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
+              <div className="bg-amber-50 p-3 rounded-2xl border border-amber-200">
                 <h5 className="font-semibold text-amber-800 mb-1">Current</h5>
                 <p className="text-amber-700 text-sm">Amperage draw</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Cost</h5>
                 <p className="text-green-700 text-sm">Monthly expenses</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Add appliances with their power ratings (watts), daily usage hours, and quantities. 
               The calculator automatically computes total power consumption, energy usage, current 
@@ -484,8 +484,8 @@ export default function ElectricalCalculator() {
               entries for specific devices.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electrical Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Electrical Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Power Relationships:</strong></p>
@@ -512,10 +512,10 @@ export default function ElectricalCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Appliance Power Ratings</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Appliance Power Ratings</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Low Power Devices</h5>
+                <h5 className="font-semibold text-google-text mb-2">Low Power Devices</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>LED Bulbs:</strong> 5-15 watts</li>
                   <li><strong>Phone Chargers:</strong> 5-25 watts</li>
@@ -526,7 +526,7 @@ export default function ElectricalCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">High Power Devices</h5>
+                <h5 className="font-semibold text-google-text mb-2">High Power Devices</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Space Heaters:</strong> 1,000-1,500 watts</li>
                   <li><strong>Air Conditioners:</strong> 1,000-3,500 watts</li>
@@ -538,10 +538,10 @@ export default function ElectricalCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electrical System Design</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Electrical System Design</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Circuit Planning</h5>
+                <h5 className="font-semibold text-google-text mb-2">Circuit Planning</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Load Calculation:</strong> Total power requirements</li>
                   <li><strong>Breaker Sizing:</strong> Circuit protection rating</li>
@@ -552,7 +552,7 @@ export default function ElectricalCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Energy Management</h5>
+                <h5 className="font-semibold text-google-text mb-2">Energy Management</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Peak Usage:</strong> Maximum demand periods</li>
                   <li><strong>Load Shifting:</strong> Off-peak operation</li>
@@ -564,7 +564,7 @@ export default function ElectricalCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Power Factor Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Power Factor Considerations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Definition:</strong> Ratio of real power to apparent power</li>
               <li><strong>Ideal Value:</strong> 1.0 (100% efficient)</li>
@@ -574,10 +574,10 @@ export default function ElectricalCalculator() {
               <li><strong>Correction Methods:</strong> Capacitor banks, power factor controllers</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Energy Cost Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Energy Cost Analysis</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Cost Factors</h5>
+                <h5 className="font-semibold text-google-text mb-2">Cost Factors</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Electricity Rate:</strong> Cost per kilowatt-hour</li>
                   <li><strong>Usage Patterns:</strong> Daily and seasonal variations</li>
@@ -588,7 +588,7 @@ export default function ElectricalCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Savings Strategies</h5>
+                <h5 className="font-semibold text-google-text mb-2">Savings Strategies</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Energy Efficiency:</strong> High-efficiency appliances</li>
                   <li><strong>Load Management:</strong> Off-peak operation</li>
@@ -600,7 +600,7 @@ export default function ElectricalCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electrical Safety Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Electrical Safety Considerations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Circuit Overloading:</strong> Never exceed breaker capacity</li>
               <li><strong>Wire Sizing:</strong> Use appropriate conductor sizes</li>
@@ -610,7 +610,7 @@ export default function ElectricalCalculator() {
               <li><strong>Professional Installation:</strong> Hire licensed electricians</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electrical Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Electrical Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Use Realistic Hours:</strong> Actual daily usage patterns</li>
               <li><strong>Consider Seasonal Changes:</strong> Heating and cooling variations</li>
@@ -620,7 +620,7 @@ export default function ElectricalCalculator() {
               <li><strong>Compare Scenarios:</strong> Analyze different usage patterns</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Electrical Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Electrical Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Underestimating Usage:</strong> Not accounting for all devices</li>
               <li><strong>Ignoring Power Factor:</strong> Not considering efficiency</li>
@@ -630,7 +630,7 @@ export default function ElectricalCalculator() {
               <li><strong>DIY Electrical Work:</strong> Attempting complex installations</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Electrical Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Electrical Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Three-Phase Power:</strong> Commercial and industrial systems</li>
               <li><strong>Harmonic Distortion:</strong> Non-linear load effects</li>
@@ -640,8 +640,8 @@ export default function ElectricalCalculator() {
               <li><strong>Smart Grid Technology:</strong> Advanced power management</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-yellow-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When analyzing electrical loads, always include a safety margin of 20-25% above your 
                 calculated requirements. This accounts for future additions, peak usage periods, and 
@@ -670,4 +670,7 @@ export default function ElectricalCalculator() {
     </div>
   )
 }
+
+
+
 

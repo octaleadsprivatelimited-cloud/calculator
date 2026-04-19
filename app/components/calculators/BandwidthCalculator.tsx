@@ -54,7 +54,7 @@ export default function BandwidthCalculator() {
   const time = showResults ? calculateTime() : 0
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -121,7 +121,7 @@ export default function BandwidthCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="google-button-primary text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Calculate Transfer Time
           </button>
@@ -130,7 +130,7 @@ export default function BandwidthCalculator() {
         {showResults && (
           <>
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-6 rounded-lg border border-purple-200 mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-purple-200 mb-4">
               <ResultSharing
                 title="Bandwidth Calculation Result"
                 inputs={[
@@ -148,13 +148,13 @@ export default function BandwidthCalculator() {
               />
             </div>
 
-            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200 text-center">
+            <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200 text-center">
               <h3 className="text-xl font-semibold text-purple-800 mb-4">Transfer Time Results</h3>
             <div className="text-3xl font-bold text-purple-600 mb-2">
               {formatTime(time)}
             </div>
             <div className="mt-4">
-              <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+              <button onClick={handleReset} className="google-button-primary text-white px-4 py-2 rounded-2xl">
                 Reset
               </button>
             </div>
@@ -165,3 +165,5 @@ export default function BandwidthCalculator() {
     </div>
   )
 }
+
+

@@ -235,7 +235,7 @@ Safety Notes:
   const result = showResults ? calculateOhmsLaw() : { voltage: 0, current: 0, resistance: 0, power: 0, energy: 0, efficiency: 0, safety: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -255,7 +255,7 @@ Safety Notes:
       <div className="p-6">
         {/* Calculation Type Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">What would you like to calculate?</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">What would you like to calculate?</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
               { key: 'voltage', label: 'Voltage', description: 'Calculate voltage (V)' },
@@ -266,9 +266,9 @@ Safety Notes:
               <button
                 key={key}
                 onClick={() => setCalculationType(key as any)}
-                className={`p-4 rounded-lg font-medium transition-colors text-center ${
+                className={`p-4 rounded-2xl font-medium transition-colors text-center ${
                   calculationType === key
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-google-blue text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
@@ -281,16 +281,16 @@ Safety Notes:
 
         {/* Quick Circuit Presets */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Circuit Presets</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Quick Circuit Presets</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {CIRCUIT_TYPES.map((circuit, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickCircuit(circuit)}
-                className="p-4 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 transition-colors text-left"
+                className="p-4 bg-google-blueLight hover:bg-blue-100 rounded-2xl border border-blue-200 transition-colors text-left"
               >
                 <div className="font-semibold text-blue-800">{circuit.name}</div>
-                <div className="text-sm text-blue-600">{circuit.voltage}V, {circuit.current}A, {circuit.resistance}Ω</div>
+                <div className="text-sm text-google-blue">{circuit.voltage}V, {circuit.current}A, {circuit.resistance}Ω</div>
                 <div className="text-xs text-blue-500">{circuit.description}</div>
                 <div className="text-xs text-blue-400 mt-1">{circuit.application}</div>
               </button>
@@ -310,7 +310,7 @@ Safety Notes:
                 type="number"
                 value={voltage}
                 onChange={(e) => setVoltage(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="12"
                 min="0"
                 max="10000"
@@ -327,7 +327,7 @@ Safety Notes:
                 type="number"
                 value={current}
                 onChange={(e) => setCurrent(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="1.0"
                 min="0"
                 max="1000"
@@ -344,7 +344,7 @@ Safety Notes:
                 type="number"
                 value={resistance}
                 onChange={(e) => setResistance(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="100"
                 min="0.1"
                 max="1000000"
@@ -364,7 +364,7 @@ Safety Notes:
                 type="number"
                 value={power}
                 onChange={(e) => setPower(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="12"
                 min="0"
                 max="100000"
@@ -381,7 +381,7 @@ Safety Notes:
                 type="number"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="3600"
                 min="0"
                 max="86400"
@@ -391,7 +391,7 @@ Safety Notes:
               <p className="text-xs text-gray-500 mt-1">For energy calculations (1 hour = 3600s)</p>
             </div>
             
-            <div className="bg-blue-50 p-4 rounded-lg">
+            <div className="bg-google-blueLight p-4 rounded-2xl">
               <h4 className="font-semibold text-blue-800 mb-2">Ohms Law Formula</h4>
               <div className="text-sm text-blue-700 space-y-1">
                 <div>V = I × R</div>
@@ -405,10 +405,10 @@ Safety Notes:
 
         {/* Safety Levels */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Voltage Safety Levels</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">Voltage Safety Levels</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {SAFETY_LEVELS.map((level, index) => (
-              <div key={index} className={`p-4 rounded-lg border-2 text-center ${
+              <div key={index} className={`p-4 rounded-2xl border-2 text-center ${
                 level.color === 'green' ? 'bg-green-50 border-green-200' :
                 level.color === 'yellow' ? 'bg-yellow-50 border-yellow-200' :
                 level.color === 'orange' ? 'bg-orange-50 border-orange-200' :
@@ -434,7 +434,7 @@ Safety Notes:
           <div className="text-center mb-8">
             <button
               onClick={handleCalculate}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
+              className="bg-google-blue hover:bg-google-blueHover text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2"
             >
               <Calculator className="w-5 h-5" />
               <span>Calculate {calculationType.charAt(0).toUpperCase() + calculationType.slice(1)}</span>
@@ -446,7 +446,7 @@ Safety Notes:
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-blue-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Ohms Law Calculation Result"
                 inputs={[
@@ -466,59 +466,59 @@ Safety Notes:
             </div>
 
             {/* Ohms Law Results */}
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <div className="bg-google-blueLight p-6 rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-4">Ohms Law Calculation Results</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-blue-700">{formatUnit(result.voltage, 'V')}</div>
-                  <div className="text-sm text-gray-600">Voltage</div>
-                  <div className="text-xs text-blue-600">Electrical potential</div>
+                  <div className="text-sm text-google-gray">Voltage</div>
+                  <div className="text-xs text-google-blue">Electrical potential</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-green-700">{formatUnit(result.current, 'A')}</div>
-                  <div className="text-sm text-gray-600">Current</div>
+                  <div className="text-sm text-google-gray">Current</div>
                   <div className="text-xs text-green-600">Electron flow</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-700">{formatUnit(result.resistance, 'Ω')}</div>
-                  <div className="text-sm text-gray-600">Resistance</div>
+                  <div className="text-sm text-google-gray">Resistance</div>
                   <div className="text-xs text-purple-600">Opposition to flow</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-orange-700">{formatUnit(result.power, 'W')}</div>
-                  <div className="text-sm text-gray-600">Power</div>
+                  <div className="text-sm text-google-gray">Power</div>
                   <div className="text-xs text-orange-600">Energy per second</div>
                 </div>
               </div>
             </div>
 
             {/* Additional Calculations */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Additional Calculations</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Additional Calculations</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Energy & Efficiency</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Energy & Efficiency</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Energy Consumed:</span>
+                      <span className="text-google-gray">Energy Consumed:</span>
                       <span className="font-semibold">{formatUnit(result.energy, 'J')}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Circuit Efficiency:</span>
+                      <span className="text-google-gray">Circuit Efficiency:</span>
                       <span className="font-semibold">{result.efficiency}%</span>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Safety Information</h4>
+                  <h4 className="font-semibold text-google-text mb-3">Safety Information</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Safety Level:</span>
+                      <span className="text-google-gray">Safety Level:</span>
                       <span className="font-semibold text-blue-700">{result.safety}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Voltage Range:</span>
+                      <span className="text-google-gray">Voltage Range:</span>
                       <span className="font-semibold">{formatUnit(result.voltage, 'V')}</span>
                     </div>
                   </div>
@@ -530,28 +530,28 @@ Safety Notes:
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -561,12 +561,12 @@ Safety Notes:
         )}
 
         {/* Info Section */}
-        <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+        <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
           <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+            <Info className="w-6 h-6 text-google-blue mt-1 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">About Ohms Law Calculator</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h4 className="font-semibold text-google-text mb-2">About Ohms Law Calculator</h4>
+              <p className="text-google-gray text-sm leading-relaxed">
                 This calculator uses Ohms Law (V = I × R) and power formulas to solve electrical circuit problems. 
                 It can calculate any missing value when you know two of the three basic electrical quantities: voltage, 
                 current, and resistance. The calculator also computes power, energy consumption, and provides safety 
@@ -577,8 +577,8 @@ Safety Notes:
         </div>
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Ohms Law Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Ohms Law Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive Ohms Law calculator helps electronics enthusiasts, students, and electrical 
@@ -587,7 +587,7 @@ Safety Notes:
               professional electrical applications.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Voltage (V):</strong> Electrical potential difference in volts</li>
               <li><strong>Current (I):</strong> Electrical current flow in amperes</li>
@@ -597,10 +597,10 @@ Safety Notes:
               <li><strong>Efficiency:</strong> Circuit efficiency percentage</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Ohms Law Fundamentals</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Ohms Law Fundamentals</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Basic Formula</h5>
+                <h5 className="font-semibold text-google-text mb-2">Basic Formula</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>V = I × R:</strong> Voltage equals current times resistance</li>
                   <li><strong>I = V ÷ R:</strong> Current equals voltage divided by resistance</li>
@@ -611,7 +611,7 @@ Safety Notes:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Power Formulas</h5>
+                <h5 className="font-semibold text-google-text mb-2">Power Formulas</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>P = V × I:</strong> Power equals voltage times current</li>
                   <li><strong>P = V² ÷ R:</strong> Power equals voltage squared divided by resistance</li>
@@ -623,35 +623,35 @@ Safety Notes:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Voltage</h5>
                 <p className="text-blue-700 text-sm">Electrical potential</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Current</h5>
                 <p className="text-green-700 text-sm">Electron flow rate</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Resistance</h5>
                 <p className="text-purple-700 text-sm">Flow opposition</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Power</h5>
                 <p className="text-orange-700 text-sm">Energy per second</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Select the calculation type (voltage, current, resistance, or power), enter the known values, 
               and the calculator will automatically compute the missing quantities. The tool provides comprehensive 
               results including power, energy, efficiency, and safety information for informed circuit design.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Electrical Units and Prefixes</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Electrical Units and Prefixes</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Voltage Units:</strong></p>
@@ -674,10 +674,10 @@ Safety Notes:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Circuit Analysis Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Circuit Analysis Applications</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Series Circuits</h5>
+                <h5 className="font-semibold text-google-text mb-2">Series Circuits</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Current:</strong> Same through all components</li>
                   <li><strong>Voltage:</strong> Divides across components</li>
@@ -688,7 +688,7 @@ Safety Notes:
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Parallel Circuits</h5>
+                <h5 className="font-semibold text-google-text mb-2">Parallel Circuits</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Voltage:</strong> Same across all components</li>
                   <li><strong>Current:</strong> Divides among components</li>
@@ -700,7 +700,7 @@ Safety Notes:
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Safety Considerations</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Safety Considerations</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Low Voltage:</strong> Below 50V - generally safe for contact</li>
               <li><strong>Medium Voltage:</strong> 50V to 1000V - requires caution</li>
@@ -710,23 +710,23 @@ Safety Notes:
               <li><strong>Protection Devices:</strong> Use fuses and circuit breakers</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Circuit Components</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Circuit Components</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Resistors</h5>
                 <p className="text-blue-700 text-sm">Limit current flow</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Capacitors</h5>
                 <p className="text-green-700 text-sm">Store electrical charge</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Inductors</h5>
                 <p className="text-purple-700 text-sm">Store magnetic energy</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Practical Applications</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Practical Applications</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>LED Circuits:</strong> Calculate current-limiting resistors</li>
               <li><strong>Voltage Dividers:</strong> Create reference voltages</li>
@@ -736,7 +736,7 @@ Safety Notes:
               <li><strong>Battery Circuits:</strong> Load resistance and capacity</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Advanced Concepts</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Advanced Concepts</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>AC vs. DC:</strong> Ohms Law applies to both</li>
               <li><strong>Impedance:</strong> Complex resistance in AC circuits</li>
@@ -746,7 +746,7 @@ Safety Notes:
               <li><strong>Temperature Effects:</strong> Resistance changes with heat</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Calculation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Unit Consistency:</strong> Always use compatible units</li>
               <li><strong>Significant Figures:</strong> Maintain appropriate precision</li>
@@ -756,7 +756,7 @@ Safety Notes:
               <li><strong>Documentation:</strong> Keep calculation records</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Calculation Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Calculation Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Unit Confusion:</strong> Mixing volts, millivolts, etc.</li>
               <li><strong>Formula Errors:</strong> Using wrong Ohms Law variant</li>
@@ -766,8 +766,8 @@ Safety Notes:
               <li><strong>Safety Neglect:</strong> Ignoring voltage/current limits</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Always verify your Ohms Law calculations by checking that the relationships make sense. 
                 Remember that power increases with both voltage and current, and resistance limits current 
@@ -783,3 +783,8 @@ Safety Notes:
     </div>
   )
 }
+
+
+
+
+

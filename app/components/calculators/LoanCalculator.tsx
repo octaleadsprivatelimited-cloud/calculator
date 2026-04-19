@@ -62,36 +62,31 @@ export default function LoanCalculator() {
   const result = showResults ? calculateLoan() : { monthlyPayment: 0, totalInterest: 0, totalPayment: 0, recommendations: [], details: { amount: 0, rate: 0, term: 0, termType: '' } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4">
-        <div className="flex items-center">
-          <CreditCard className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Loan Calculator</h2>
-        </div>
-        <p className="text-green-100 mt-1">Calculate loan payments and costs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount ()</label>
-              <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter amount" step="100" />
+              <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="google-input" placeholder="Enter amount" step="100" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Interest Rate (%)</label>
-              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter rate" step="0.1" />
+              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="google-input" placeholder="Enter rate" step="0.1" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Loan Term</label>
-              <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter term" step="0.1" />
+              <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="google-input" placeholder="Enter term" step="0.1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Term Type</label>
-              <select value={termType} onChange={(e) => setTermType(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" aria-label="Select term type">
+              <select value={termType} onChange={(e) => setTermType(e.target.value)} className="google-input" aria-label="Select term type">
                 <option value="years">Years</option>
                 <option value="months">Months</option>
               </select>
@@ -99,10 +94,10 @@ export default function LoanCalculator() {
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -111,7 +106,7 @@ export default function LoanCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-green-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Loan Calculation Result"
                 inputs={[
@@ -129,7 +124,7 @@ export default function LoanCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-2">Monthly Payment</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 mb-2">{result.monthlyPayment?.toFixed(2)}</div>
@@ -137,7 +132,7 @@ export default function LoanCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-3">Loan Summary</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-green-700">Loan Amount:</span><span className="font-semibold text-green-800">{result.details.amount?.toLocaleString()}</span></div>
@@ -154,7 +149,7 @@ export default function LoanCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-green-800 mb-3">Analysis</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -170,8 +165,8 @@ export default function LoanCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Loan Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Loan Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive loan calculator helps you understand the true cost of borrowing money. Whether you're 
@@ -179,7 +174,7 @@ export default function LoanCalculator() {
               provides accurate monthly payment calculations and total cost breakdowns.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Monthly Payment:</strong> Your fixed monthly loan payment amount</li>
               <li><strong>Total Interest:</strong> Total interest paid over the loan term</li>
@@ -188,10 +183,10 @@ export default function LoanCalculator() {
               <li><strong>Amortization:</strong> Payment breakdown and loan progression</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Types of Loans Supported</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Types of Loans Supported</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Personal Loans</h5>
+                <h5 className="font-semibold text-google-text mb-2">Personal Loans</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Debt consolidation</li>
                   <li>Home improvements</li>
@@ -201,7 +196,7 @@ export default function LoanCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Secured Loans</h5>
+                <h5 className="font-semibold text-google-text mb-2">Secured Loans</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Auto loans</li>
                   <li>Home equity loans</li>
@@ -212,30 +207,30 @@ export default function LoanCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your loan amount, annual interest rate, and loan term (in years or months). The calculator will 
               instantly compute your monthly payment and provide a complete breakdown of costs, including total interest 
               and recommendations for better loan terms.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Monthly Payment</h5>
                 <p className="text-green-700 text-sm">Fixed amount due each month</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Total Interest</h5>
                 <p className="text-blue-700 text-sm">Cost of borrowing the money</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Total Payment</h5>
                 <p className="text-purple-700 text-sm">Principal + all interest</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Loan Optimization Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Loan Optimization Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Shorter Terms:</strong> Pay less interest but higher monthly payments</li>
               <li><strong>Lower Rates:</strong> Shop around and improve your credit score</li>
@@ -244,8 +239,8 @@ export default function LoanCalculator() {
               <li><strong>Refinancing:</strong> Consider when rates drop significantly</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-green-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Always compare the total cost of loans, not just the monthly payment. A lower monthly payment with a 
                 longer term often means paying significantly more in total interest. Use this calculator to find the 
@@ -258,4 +253,9 @@ export default function LoanCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

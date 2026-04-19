@@ -177,7 +177,7 @@ ${SLEEP_TIPS.join('\n')}`
   const result = showResults ? calculateSleep() : { wakeUpTime: '', bedtimes: [], sleepCycles: 0, totalSleepHours: 0, sleepQuality: '' }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
@@ -197,7 +197,7 @@ ${SLEEP_TIPS.join('\n')}`
       <div className="p-6">
         {/* Calculation Type Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">What would you like to calculate?</h3>
+          <h3 className="text-xl font-semibold text-google-text mb-4">What would you like to calculate?</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               { key: 'wakeup', label: 'Wake-up Time to Bedtime', icon: Clock },
@@ -206,7 +206,7 @@ ${SLEEP_TIPS.join('\n')}`
               <button
                 key={key}
                 onClick={() => setCalculationType(key as any)}
-                className={`p-4 rounded-lg font-medium transition-colors text-center ${
+                className={`p-4 rounded-2xl font-medium transition-colors text-center ${
                   calculationType === key
                     ? 'bg-indigo-600 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -223,8 +223,8 @@ ${SLEEP_TIPS.join('\n')}`
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Time Input */}
           <div className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4">
                 {calculationType === 'wakeup' ? 'Wake-up Time' : 'Bedtime'}
               </h3>
               <div className="space-y-4">
@@ -236,7 +236,7 @@ ${SLEEP_TIPS.join('\n')}`
                     type="time"
                     value={targetTime}
                     onChange={(e) => setTargetTime(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg"
+                    className="google-input text-lg"
                     aria-label={`Select ${calculationType === 'wakeup' ? 'wake-up' : 'bed'} time`}
                   />
                 </div>
@@ -249,7 +249,7 @@ ${SLEEP_TIPS.join('\n')}`
                     type="number"
                     value={sleepHours}
                     onChange={(e) => setSleepHours(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="google-input"
                     placeholder="7.5"
                     step="0.5"
                     min="4"
@@ -261,8 +261,8 @@ ${SLEEP_TIPS.join('\n')}`
             </div>
 
             {/* Quick Sleep Options */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Sleep Options</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-google-text mb-4">Quick Sleep Options</h3>
               <div className="grid grid-cols-2 gap-2">
                 {['6', '6.5', '7', '7.5', '8', '8.5', '9'].map((hours) => (
                   <button
@@ -278,28 +278,28 @@ ${SLEEP_TIPS.join('\n')}`
           </div>
 
           {/* Sleep Information */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Sleep Cycle Information</h3>
+          <div className="bg-gray-50 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold text-google-text mb-4">Sleep Cycle Information</h3>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-600">Sleep Cycle Duration:</span>
+                <span className="text-google-gray">Sleep Cycle Duration:</span>
                 <span className="font-semibold">90 minutes</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">REM Sleep:</span>
+                <span className="text-google-gray">REM Sleep:</span>
                 <span className="font-semibold">20-25% of total</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Deep Sleep:</span>
+                <span className="text-google-gray">Deep Sleep:</span>
                 <span className="font-semibold">15-20% of total</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Light Sleep:</span>
+                <span className="text-google-gray">Light Sleep:</span>
                 <span className="font-semibold">50-60% of total</span>
               </div>
             </div>
             
-            <div className="mt-4 p-3 bg-blue-50 rounded border border-blue-200">
+            <div className="mt-4 p-3 bg-google-blueLight rounded border border-blue-200">
               <h4 className="font-semibold text-blue-800 mb-2">Why Sleep Cycles Matter</h4>
               <p className="text-blue-700 text-xs">
                 Waking up in the middle of a sleep cycle can leave you feeling groggy. 
@@ -314,10 +314,10 @@ ${SLEEP_TIPS.join('\n')}`
           <button
             onClick={handleCalculate}
             disabled={!targetTime}
-            className={`font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
+            className={`font-semibold py-3 px-8 rounded-2xl transition-colors duration-200 flex items-center justify-center mx-auto space-x-2 ${
               !targetTime
-                ? 'bg-gray-400 cursor-not-allowed text-gray-600'
-                : 'bg-indigo-600 hover:bg-indigo-700 text-white'
+                ? 'bg-gray-400 cursor-not-allowed text-google-gray'
+                : 'google-button-primary text-white'
             }`}
           >
             <Calculator className="w-5 h-5" />
@@ -329,7 +329,7 @@ ${SLEEP_TIPS.join('\n')}`
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-6 rounded-lg border border-indigo-200">
+            <div className="bg-white p-6 rounded-2xl border border-indigo-200">
               <ResultSharing
                 title="Sleep Schedule Calculation Result"
                 inputs={[
@@ -348,7 +348,7 @@ ${SLEEP_TIPS.join('\n')}`
             </div>
 
             {/* Sleep Results */}
-            <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+            <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-4">Sleep Schedule</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="text-center">
@@ -369,23 +369,23 @@ ${SLEEP_TIPS.join('\n')}`
                 <div className="text-center space-y-4">
                   <div>
                     <div className="text-2xl font-bold text-indigo-700">{result.sleepCycles}</div>
-                    <div className="text-sm text-gray-600">Sleep Cycles</div>
+                    <div className="text-sm text-google-gray">Sleep Cycles</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-indigo-700">{result.totalSleepHours}</div>
-                    <div className="text-sm text-gray-600">Total Hours</div>
+                    <div className="text-sm text-google-gray">Total Hours</div>
                   </div>
                   <div>
                     <div className="text-lg font-semibold text-indigo-700">{result.sleepQuality}</div>
-                    <div className="text-sm text-gray-600">Sleep Quality</div>
+                    <div className="text-sm text-google-gray">Sleep Quality</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Sleep Tips */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Sleep Tips for Better Rest</h3>
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <h3 className="text-lg font-semibold text-google-text mb-4">Sleep Tips for Better Rest</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {SLEEP_TIPS.map((tip, index) => (
                   <div key={index} className="flex items-start space-x-2">
@@ -400,28 +400,28 @@ ${SLEEP_TIPS.join('\n')}`
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={downloadResults}
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Download className="w-4 h-4" />
                 <span>Download</span>
               </button>
               <button
                 onClick={shareResults}
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-google-blue hover:bg-google-blueHover text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Share</span>
               </button>
               <button
                 onClick={printResults}
-                className="flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <Printer className="w-4 h-4" />
                 <span>Print</span>
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 google-button-primary text-white px-4 py-2 rounded-2xl transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset</span>
@@ -431,12 +431,12 @@ ${SLEEP_TIPS.join('\n')}`
         )}
 
         {/* Comprehensive Description Section */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">About Sleep Calculator</h2>
+        <div className="mt-8 google-card overflow-hidden p-6 border border-google-border">
+          <h2 className="text-2xl font-bold text-google-text mb-6">About Sleep Calculator</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Purpose & Functionality</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Purpose & Functionality</h3>
               <p className="text-gray-700 mb-3">
                 This comprehensive sleep calculator helps you optimize your sleep schedule by aligning your 
                 bedtime and wake-up times with natural sleep cycles. Understanding sleep cycles is crucial 
@@ -450,10 +450,10 @@ ${SLEEP_TIPS.join('\n')}`
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Understanding Sleep Cycles</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Understanding Sleep Cycles</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Sleep Cycle Structure</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Sleep Cycle Structure</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Duration:</strong> Approximately 90 minutes per cycle</li>
                     <li><strong>Stages:</strong> 4-5 stages including REM and non-REM</li>
@@ -463,7 +463,7 @@ ${SLEEP_TIPS.join('\n')}`
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Sleep Stages</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Sleep Stages</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Stage 1:</strong> Light sleep, easy to wake</li>
                     <li><strong>Stage 2:</strong> Deeper sleep, body temperature drops</li>
@@ -475,9 +475,9 @@ ${SLEEP_TIPS.join('\n')}`
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Optimal Sleep Duration</h3>
-              <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
-                <h4 className="font-semibold text-gray-800 mb-2">Age-Based Sleep Recommendations</h4>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Optimal Sleep Duration</h3>
+              <div className="bg-indigo-50 p-4 rounded-2xl border border-indigo-200">
+                <h4 className="font-semibold text-google-text mb-2">Age-Based Sleep Recommendations</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
                     <p><strong>Adults (18-64):</strong></p>
@@ -506,10 +506,10 @@ ${SLEEP_TIPS.join('\n')}`
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Sleep Cycle Timing</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Sleep Cycle Timing</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Why Timing Matters</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Why Timing Matters</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Complete Cycles:</strong> Waking mid-cycle causes grogginess</li>
                     <li><strong>REM Sleep:</strong> Essential for memory and learning</li>
@@ -519,7 +519,7 @@ ${SLEEP_TIPS.join('\n')}`
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Optimal Wake Times</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Optimal Wake Times</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Cycle End:</strong> Natural awakening point</li>
                     <li><strong>Light Sleep:</strong> Easier to wake from</li>
@@ -532,7 +532,7 @@ ${SLEEP_TIPS.join('\n')}`
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Sleep Optimization Strategies</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Sleep Optimization Strategies</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Consistent Schedule:</strong> Go to bed and wake up at the same time daily</li>
                 <li><strong>Sleep Environment:</strong> Cool, dark, quiet bedroom with comfortable bedding</li>
@@ -543,10 +543,10 @@ ${SLEEP_TIPS.join('\n')}`
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Common Sleep Problems</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Common Sleep Problems</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Sleep Disorders</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Sleep Disorders</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Insomnia:</strong> Difficulty falling or staying asleep</li>
                     <li><strong>Sleep Apnea:</strong> Breathing interruptions during sleep</li>
@@ -556,7 +556,7 @@ ${SLEEP_TIPS.join('\n')}`
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Lifestyle Factors</h4>
+                  <h4 className="font-semibold text-google-text mb-2">Lifestyle Factors</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Caffeine:</strong> Stimulant effects lasting 6+ hours</li>
                     <li><strong>Alcohol:</strong> Disrupts sleep architecture</li>
@@ -569,7 +569,7 @@ ${SLEEP_TIPS.join('\n')}`
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Sleep Quality Indicators</h3>
+              <h3 className="text-xl font-semibold text-google-text mb-3">Sleep Quality Indicators</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong>Morning Energy:</strong> Feeling refreshed upon waking</li>
                 <li><strong>Daytime Alertness:</strong> Sustained focus and concentration</li>
@@ -580,8 +580,8 @@ ${SLEEP_TIPS.join('\n')}`
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">When to Seek Professional Help</h3>
-              <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+              <h3 className="text-xl font-semibold text-google-text mb-3">When to Seek Professional Help</h3>
+              <div className="bg-red-50 p-4 rounded-2xl border border-red-200">
                 <h4 className="font-semibold text-red-800 mb-2">Warning Signs</h4>
                 <ul className="list-disc list-inside text-red-700 space-y-2 text-sm">
                   <li><strong>Chronic Insomnia:</strong> Difficulty sleeping for 3+ months</li>
@@ -597,8 +597,8 @@ ${SLEEP_TIPS.join('\n')}`
               </div>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-              <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
+            <div className="bg-amber-50 p-4 rounded-2xl border-l-4 border-amber-500">
+              <h4 className="font-semibold text-google-text mb-2">Pro Tips</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li>• Use this calculator to plan your sleep schedule around your natural wake-up time</li>
                 <li>• Aim for 5-6 complete sleep cycles (7.5-9 hours) for optimal rest</li>
@@ -614,3 +614,7 @@ ${SLEEP_TIPS.join('\n')}`
     </div>
   )
 }
+
+
+
+

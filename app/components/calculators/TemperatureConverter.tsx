@@ -86,31 +86,31 @@ export default function TemperatureConverter() {
 
   const getTemperatureColor = (temp: number, unit: string) => {
     if (unit === 'celsius') {
-      if (temp < 0) return 'text-blue-600'
+      if (temp < 0) return 'text-google-blue'
       if (temp > 30) return 'text-red-600'
       return 'text-green-600'
     } else if (unit === 'fahrenheit') {
-      if (temp < 32) return 'text-blue-600'
+      if (temp < 32) return 'text-google-blue'
       if (temp > 86) return 'text-red-600'
       return 'text-green-600'
     } else if (unit === 'kelvin') {
-      if (temp < 273.15) return 'text-blue-600'
+      if (temp < 273.15) return 'text-google-blue'
       if (temp > 303.15) return 'text-red-600'
       return 'text-green-600'
     }
-    return 'text-gray-600'
+    return 'text-google-gray'
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-100">
+    <div className="min-h-screen bg-google-bg">
       <div className="w-full px-4 py-8">
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
+          <h1 className="text-5xl font-bold text-google-text mb-4 flex items-center justify-center">
             <Thermometer className="w-16 h-16 mr-4 text-orange-600" />
             Temperature Converter
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-google-gray max-w-3xl mx-auto">
             Convert between Celsius, Fahrenheit, and Kelvin. Get instant temperature conversions with precision and ease.
           </p>
         </header>
@@ -118,8 +118,8 @@ export default function TemperatureConverter() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Input Form */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <div className="google-card overflow-hidden p-6">
+              <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                 <Calculator className="w-6 h-6 mr-2 text-orange-600" />
                 Convert Temperature
               </h2>
@@ -133,7 +133,7 @@ export default function TemperatureConverter() {
                     type="number"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
                     placeholder="25"
                     step="0.01"
                     title="Enter the temperature value to convert"
@@ -148,7 +148,7 @@ export default function TemperatureConverter() {
                   <select
                     value={fromUnit}
                     onChange={(e) => setFromUnit(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
                     title="Select the temperature unit to convert from"
                     aria-label="Temperature unit to convert from"
                   >
@@ -160,7 +160,7 @@ export default function TemperatureConverter() {
 
                 <button
                   onClick={handleReset}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 text-gray-700 rounded-2xl hover:bg-gray-200 transition-colors"
                   title="Reset the converter"
                   aria-label="Reset temperature converter"
                 >
@@ -175,7 +175,7 @@ export default function TemperatureConverter() {
                 <div className="space-y-2">
                   <button
                     onClick={() => handleQuickExample('0', 'celsius')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm w-full"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm w-full"
                     title="Set example: 0°C (freezing point of water)"
                     aria-label="Set example: 0°C (freezing point of water)"
                   >
@@ -183,7 +183,7 @@ export default function TemperatureConverter() {
                   </button>
                   <button
                     onClick={() => handleQuickExample('100', 'celsius')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm w-full"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm w-full"
                     title="Set example: 100°C (boiling point of water)"
                     aria-label="Set example: 100°C (boiling point of water)"
                   >
@@ -191,7 +191,7 @@ export default function TemperatureConverter() {
                   </button>
                   <button
                     onClick={() => handleQuickExample('98.6', 'fahrenheit')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm w-full"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm w-full"
                     title="Set example: 98.6°F (normal body temperature)"
                     aria-label="Set example: 98.6°F (normal body temperature)"
                   >
@@ -199,7 +199,7 @@ export default function TemperatureConverter() {
                   </button>
                   <button
                     onClick={() => handleQuickExample('273.15', 'kelvin')}
-                    className="text-left p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-sm w-full"
+                    className="text-left p-2 bg-gray-50 rounded-2xl hover:bg-gray-100 text-sm w-full"
                     title="Set example: 273.15K (absolute zero + 273.15)"
                     aria-label="Set example: 273.15K (absolute zero + 273.15)"
                   >
@@ -215,7 +215,7 @@ export default function TemperatureConverter() {
             {result ? (
               <div className="space-y-6">
                 {/* Share Options - Moved to Top */}
-                <div className="bg-white rounded-2xl shadow-lg p-6">
+                <div className="google-card overflow-hidden p-6">
                   <ResultSharing
                     title="Temperature Conversion Result"
                     inputs={[
@@ -234,8 +234,8 @@ export default function TemperatureConverter() {
                 </div>
 
                 {/* Conversion Results */}
-                <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <div className="google-card overflow-hidden p-6">
+                  <h2 className="text-2xl font-bold text-google-text mb-6 flex items-center">
                     <TrendingUp className="w-6 h-6 mr-2 text-orange-600" />
                     Conversion Results
                   </h2>
@@ -245,42 +245,42 @@ export default function TemperatureConverter() {
                       <div className={`text-4xl font-bold mb-2 ${getTemperatureColor(result.celsius, 'celsius')}`}>
                         {result.celsius}°C
                       </div>
-                      <div className="text-sm text-gray-600">Celsius</div>
+                      <div className="text-sm text-google-gray">Celsius</div>
                     </div>
                     
                     <div className="text-center">
                       <div className={`text-4xl font-bold mb-2 ${getTemperatureColor(result.fahrenheit, 'fahrenheit')}`}>
                         {result.fahrenheit}°F
                       </div>
-                      <div className="text-sm text-gray-600">Fahrenheit</div>
+                      <div className="text-sm text-google-gray">Fahrenheit</div>
                     </div>
                     
                     <div className="text-center">
                       <div className={`text-4xl font-bold mb-2 ${getTemperatureColor(result.kelvin, 'kelvin')}`}>
                         {result.kelvin}K
                       </div>
-                      <div className="text-sm text-gray-600">Kelvin</div>
+                      <div className="text-sm text-google-gray">Kelvin</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Temperature Scale Info */}
-                <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Temperature Scales</h3>
+                <div className="google-card overflow-hidden p-6">
+                  <h3 className="text-xl font-bold text-google-text mb-4">Temperature Scales</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-blue-50 p-4 rounded-lg">
+                    <div className="bg-google-blueLight p-4 rounded-2xl">
                       <h4 className="font-semibold text-blue-800 mb-2">Celsius (°C)</h4>
                       <p className="text-sm text-blue-700">
                         Water freezes at 0°C and boils at 100°C. Used in most countries worldwide.
                       </p>
                     </div>
-                    <div className="bg-orange-50 p-4 rounded-lg">
+                    <div className="bg-orange-50 p-4 rounded-2xl">
                       <h4 className="font-semibold text-orange-800 mb-2">Fahrenheit (°F)</h4>
                       <p className="text-sm text-orange-700">
                         Water freezes at 32°F and boils at 212°F. Primarily used in the United States.
                       </p>
                     </div>
-                    <div className="bg-purple-50 p-4 rounded-lg">
+                    <div className="bg-purple-50 p-4 rounded-2xl">
                       <h4 className="font-semibold text-purple-800 mb-2">Kelvin (K)</h4>
                       <p className="text-sm text-purple-700">
                         Absolute zero is 0K. Used in scientific research and calculations.
@@ -293,7 +293,7 @@ export default function TemperatureConverter() {
                 <div className="flex flex-wrap gap-4 justify-center">
                   <button
                     onClick={handleShare}
-                    className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 bg-google-blue text-white rounded-2xl hover:bg-google-blueHover transition-colors"
                     title="Share temperature conversion results"
                     aria-label="Share temperature conversion results"
                   >
@@ -302,7 +302,7 @@ export default function TemperatureConverter() {
                   </button>
                   <button
                     onClick={handleDownload}
-                    className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition-colors"
                     title="Download results as text file"
                     aria-label="Download temperature conversion results"
                   >
@@ -311,7 +311,7 @@ export default function TemperatureConverter() {
                   </button>
                   <button
                     onClick={handlePrint}
-                    className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-2xl hover:bg-purple-700 transition-colors"
                     title="Print temperature conversion results"
                     aria-label="Print temperature conversion results"
                   >
@@ -321,7 +321,7 @@ export default function TemperatureConverter() {
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="google-card overflow-hidden p-6">
                 <div className="text-center py-12">
                   <Thermometer className="w-16 h-16 mx-auto text-gray-300 mb-4" />
                   <p className="text-gray-500 text-lg">
@@ -337,7 +337,7 @@ export default function TemperatureConverter() {
         <div className="text-center mt-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-2xl hover:bg-gray-700 transition-colors"
             title="Back to all calculators"
             aria-label="Back to all calculators"
           >
@@ -362,3 +362,6 @@ export default function TemperatureConverter() {
     </div>
   )
 }
+
+
+

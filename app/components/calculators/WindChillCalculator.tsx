@@ -40,7 +40,7 @@ export default function WindChillCalculator() {
   const isCalculable = (parseFloat(temperature) <= (unit === 'fahrenheit' ? 50 : 10)) && parseFloat(windSpeed) >= (unit === 'fahrenheit' ? 3 : 1.34)
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-8 text-white">
         <div className="flex items-center justify-between">
           <div>
@@ -59,7 +59,7 @@ export default function WindChillCalculator() {
               type="number"
               value={temperature}
               onChange={(e) => setTemperature(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="google-input"
               title="Enter temperature"
             />
           </div>
@@ -69,7 +69,7 @@ export default function WindChillCalculator() {
               type="number"
               value={windSpeed}
               onChange={(e) => setWindSpeed(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="google-input"
               min="0"
               title="Enter wind speed"
             />
@@ -81,7 +81,7 @@ export default function WindChillCalculator() {
           <select
             value={unit}
             onChange={(e) => setUnit(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="google-input"
             title="Select temperature unit"
           >
             <option value="fahrenheit">Fahrenheit (°F)</option>
@@ -92,7 +92,7 @@ export default function WindChillCalculator() {
         <div className="text-center mb-8">
           <button
             onClick={handleCalculate}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            className="bg-google-blue hover:bg-google-blueHover text-white font-semibold py-3 px-8 rounded-2xl transition-colors duration-200"
           >
             Calculate Wind Chill
           </button>
@@ -101,7 +101,7 @@ export default function WindChillCalculator() {
         {showResults && (
           <div className="space-y-6">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-blue-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Wind Chill Calculation Result"
                 inputs={[
@@ -119,19 +119,19 @@ export default function WindChillCalculator() {
               />
             </div>
 
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 text-center">
+            <div className="bg-google-blueLight p-6 rounded-2xl border border-blue-200 text-center">
               <h3 className="text-xl font-semibold text-blue-800 mb-4">Wind Chill Results</h3>
               {isCalculable ? (
-                <div className="text-3xl font-bold text-blue-600 mb-2">
+                <div className="text-3xl font-bold text-google-blue mb-2">
                   {windChill.toFixed(1)}°{unit === 'fahrenheit' ? 'F' : 'C'}
                 </div>
               ) : (
-                <div className="text-lg text-gray-600">
+                <div className="text-lg text-google-gray">
                   Wind chill calculation not applicable for these conditions
                 </div>
               )}
               <div className="mt-4">
-                <button onClick={handleReset} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">
+                <button onClick={handleReset} className="google-button-primary text-white px-4 py-2 rounded-2xl">
                   Reset
                 </button>
               </div>
@@ -142,3 +142,8 @@ export default function WindChillCalculator() {
     </div>
   )
 }
+
+
+
+
+

@@ -66,36 +66,31 @@ export default function FHALoanCalculator() {
   const result = showResults ? calculateFHA() : { loanAmount: 0, monthlyPayment: 0, pmi: 0, totalPayment: 0, recommendations: [], details: { price: 0, down: 0, rate: 0, term: 0 } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-500 to-indigo-500 px-6 py-4">
-        <div className="flex items-center">
-          <Home className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">FHA Loan Calculator</h2>
-        </div>
-        <p className="text-blue-100 mt-1">Calculate FHA loan payments with PMI</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Home Price ()</label>
-              <input type="number" value={homePrice} onChange={(e) => setHomePrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter price" step="1000" />
+              <input type="number" value={homePrice} onChange={(e) => setHomePrice(e.target.value)} className="google-input" placeholder="Enter price" step="1000" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ()</label>
-              <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter down payment" step="1000" />
+              <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="google-input" placeholder="Enter down payment" step="1000" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Interest Rate (%)</label>
-              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter rate" step="0.1" />
+              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="google-input" placeholder="Enter rate" step="0.1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Loan Term</label>
-              <select value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Select loan term">
+              <select value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="google-input" aria-label="Select loan term">
                 <option value="15">15 years</option>
                 <option value="30">30 years</option>
               </select>
@@ -103,10 +98,10 @@ export default function FHALoanCalculator() {
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 bg-google-blueLight0 hover:bg-google-blue text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -114,15 +109,15 @@ export default function FHALoanCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Monthly Payment</h3>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">${(result.monthlyPayment + result.pmi).toFixed(2)}</div>
+                <div className="text-3xl font-bold text-google-blue mb-2">${(result.monthlyPayment + result.pmi).toFixed(2)}</div>
                 <div className="text-blue-700">Including PMI if applicable</div>
               </div>
             </div>
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-3">Loan Breakdown</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-blue-700">Principal & Interest:</span><span className="font-semibold text-blue-800">${result.monthlyPayment?.toFixed(2)}</span></div>
@@ -137,12 +132,12 @@ export default function FHALoanCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
                 <h3 className="text-lg font-semibold text-blue-800 mb-3">Summary</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
                     <div key={index} className="flex items-start">
-                      <span className="text-blue-600 mr-2">•</span>
+                      <span className="text-google-blue mr-2">•</span>
                       <span className="text-blue-700">{rec}</span>
                     </div>
                   ))}
@@ -153,8 +148,8 @@ export default function FHALoanCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About FHA Loan Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About FHA Loan Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive FHA loan calculator helps first-time homebuyers and those with limited down payment 
@@ -163,7 +158,7 @@ export default function FHALoanCalculator() {
               home purchase and budget.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Monthly Payment:</strong> Principal and interest payment</li>
               <li><strong>PMI Costs:</strong> Private Mortgage Insurance premiums</li>
@@ -173,10 +168,10 @@ export default function FHALoanCalculator() {
               <li><strong>FHA Loan Viability:</strong> Whether FHA financing makes sense</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">FHA Loans vs. Conventional Mortgages</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">FHA Loans vs. Conventional Mortgages</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">FHA Loan Advantages</h5>
+                <h5 className="font-semibold text-google-text mb-2">FHA Loan Advantages</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Lower down payment (3.5% minimum)</li>
                   <li>More flexible credit requirements</li>
@@ -187,7 +182,7 @@ export default function FHALoanCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">FHA Loan Considerations</h5>
+                <h5 className="font-semibold text-google-text mb-2">FHA Loan Considerations</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>PMI required for entire loan term</li>
                   <li>Higher interest rates than conventional</li>
@@ -199,30 +194,30 @@ export default function FHALoanCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Principal & Interest</h5>
                 <p className="text-blue-700 text-sm">Base loan payment</p>
               </div>
-              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+              <div className="bg-indigo-50 p-3 rounded-2xl border border-indigo-200">
                 <h5 className="font-semibold text-indigo-800 mb-1">PMI</h5>
                 <p className="text-indigo-700 text-sm">Insurance premium</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Total Payment</h5>
                 <p className="text-green-700 text-sm">Complete monthly cost</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the home price, down payment amount, interest rate, and loan term. The calculator will show 
               your monthly principal and interest payment, PMI costs, and total monthly payment to help evaluate 
               FHA loan affordability.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">FHA Loan Requirements</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">FHA Loan Requirements</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Credit Score:</strong> Minimum 580 for 3.5% down, 500-579 for 10% down</li>
               <li><strong>Down Payment:</strong> 3.5% minimum for qualified borrowers</li>
@@ -232,8 +227,8 @@ export default function FHALoanCalculator() {
               <li><strong>Loan Limits:</strong> Vary by county and property type</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">FHA Mortgage Insurance</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">FHA Mortgage Insurance</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Upfront MIP:</strong></p>
@@ -256,7 +251,7 @@ export default function FHALoanCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">FHA Loan Types</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">FHA Loan Types</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>FHA 203(b):</strong> Standard FHA home purchase loan</li>
               <li><strong>FHA 203(k):</strong> Purchase and renovation financing</li>
@@ -266,7 +261,7 @@ export default function FHALoanCalculator() {
               <li><strong>FHA Energy Efficient Mortgage:</strong> Energy improvement financing</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">When FHA Loans Make Sense</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">When FHA Loans Make Sense</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>First-Time Buyers:</strong> Limited down payment funds</li>
               <li><strong>Lower Credit Scores:</strong> Below conventional loan requirements</li>
@@ -276,7 +271,7 @@ export default function FHALoanCalculator() {
               <li><strong>Investment Properties:</strong> Multi-unit properties (owner-occupied)</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">FHA Loan Costs to Consider</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">FHA Loan Costs to Consider</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Upfront MIP:</strong> 1.75% of loan amount</li>
               <li><strong>Annual MIP:</strong> 0.45% to 1.05% of loan balance</li>
@@ -286,7 +281,7 @@ export default function FHALoanCalculator() {
               <li><strong>Property Repairs:</strong> Required repairs to meet FHA standards</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">FHA Loan Application Process</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">FHA Loan Application Process</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Pre-approval:</strong> Get pre-approved before house hunting</li>
               <li><strong>Property Selection:</strong> Choose FHA-eligible property</li>
@@ -296,7 +291,7 @@ export default function FHALoanCalculator() {
               <li><strong>Closing:</strong> Final loan approval and property transfer</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">FHA Loan Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">FHA Loan Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Improve Credit First:</strong> Better credit means lower MIP rates</li>
               <li><strong>Save for Larger Down Payment:</strong> Reduces MIP costs</li>
@@ -306,8 +301,8 @@ export default function FHALoanCalculator() {
               <li><strong>Refinance Later:</strong> Consider refinancing to conventional when possible</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 FHA loans are excellent for first-time buyers and those with limited down payment funds, but 
                 remember that MIP (Mortgage Insurance Premium) adds significant cost over the life of the loan. 
@@ -323,4 +318,9 @@ export default function FHALoanCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

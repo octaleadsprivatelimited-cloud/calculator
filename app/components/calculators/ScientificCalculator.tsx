@@ -476,8 +476,8 @@ export default function ScientificCalculator() {
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
       isDarkMode 
-        ? 'bg-gradient-to-br from-gray-900 to-gray-800' 
-        : 'bg-gradient-to-br from-blue-50 to-indigo-100'
+        ? 'bg-google-bg' 
+        : 'bg-google-bg'
     }`}>
       <div className="max-w-6xl mx-auto px-2 py-2">
         {/* Modern Header */}
@@ -494,7 +494,7 @@ export default function ScientificCalculator() {
                 className={`p-1.5 rounded-md transition-all duration-200 ${
                   isDarkMode 
                     ? 'bg-gray-500 hover:bg-gray-400 text-white' 
-                    : 'bg-gray-400 hover:bg-gray-500 text-white shadow-lg'
+                    : 'bg-gray-400 hover:bg-gray-500 text-white shadow-google'
                 }`}
                 title="Toggle theme"
               >
@@ -510,7 +510,7 @@ export default function ScientificCalculator() {
                     ? 'bg-gray-600 text-white' 
                     : isDarkMode 
                       ? 'bg-gray-500 text-white' 
-                      : 'bg-gray-400 text-white shadow-lg'
+                      : 'bg-gray-400 text-white shadow-google'
                 }`}
                 title="Toggle history"
               >
@@ -523,7 +523,7 @@ export default function ScientificCalculator() {
 
         {/* Share Options - Moved to Top */}
         {history.length > 0 && (
-          <div className={`mb-3 rounded-xl shadow-md p-3 transition-colors duration-300 ${
+          <div className={`mb-3 rounded-3xl shadow-md p-3 transition-colors duration-300 ${
             isDarkMode 
               ? 'bg-gray-800 border-gray-700' 
               : 'bg-white border-gray-200'
@@ -550,14 +550,14 @@ export default function ScientificCalculator() {
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-2">
           {/* Calculator Display and Basic Functions */}
           <div className="xl:col-span-3">
-            <div className={`rounded-xl shadow-lg p-2 sm:p-3 transition-colors duration-300 ${
+            <div className={`rounded-3xl shadow-google p-2 sm:p-3 transition-colors duration-300 ${
               isDarkMode 
                 ? 'bg-gray-800 border-gray-700' 
                 : 'bg-white border-gray-200'
             } border-2`}>
               {/* Modern Display */}
               <div className="mb-2">
-                <div className={`relative rounded-lg p-2 sm:p-3 transition-colors duration-300 ${
+                <div className={`relative rounded-2xl p-2 sm:p-3 transition-colors duration-300 ${
                   isDarkMode 
                     ? 'bg-gray-900 border-gray-700' 
                     : 'bg-gray-900 border-gray-600'
@@ -585,7 +585,7 @@ export default function ScientificCalculator() {
                   {history.length > 0 && (
                     <button
                       onClick={() => {/* Share functionality */}}
-                      className={`absolute top-3 right-3 p-2 rounded-lg transition-colors ${
+                      className={`absolute top-3 right-3 p-2 rounded-2xl transition-colors ${
                         isDarkMode 
                           ? 'text-gray-400 hover:text-white hover:bg-gray-700' 
                           : 'text-gray-300 hover:text-white hover:bg-gray-700'
@@ -1156,7 +1156,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     }`}
                 >
                   7
@@ -1166,7 +1166,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     }`}
                 >
                   8
@@ -1176,7 +1176,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     }`}
                 >
                   9
@@ -1199,7 +1199,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     }`}
                 >
                   4
@@ -1209,7 +1209,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     }`}
                 >
                   5
@@ -1219,7 +1219,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     }`}
                 >
                   6
@@ -1242,7 +1242,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     }`}
                 >
                   1
@@ -1252,7 +1252,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     }`}
                 >
                   2
@@ -1262,7 +1262,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     }`}
                 >
                   3
@@ -1285,7 +1285,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     } col-span-2`}
                 >
                   0
@@ -1295,7 +1295,7 @@ export default function ScientificCalculator() {
                     className={`h-10 rounded-md font-semibold text-sm transition-all duration-200 active:scale-95 ${
                       isDarkMode 
                         ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                        : 'bg-gray-200 hover:bg-gray-300 text-google-text'
                     }`}
                 >
                   .
@@ -1315,7 +1315,7 @@ export default function ScientificCalculator() {
               } border-2 h-fit`}>
               <div className="flex items-center justify-between mb-4">
                   <h3 className={`text-lg sm:text-xl font-semibold flex items-center ${
-                    isDarkMode ? 'text-white' : 'text-gray-800'
+                    isDarkMode ? 'text-white' : 'text-google-text'
                   }`}>
                     <History className="w-5 h-5 mr-2 text-blue-500" />
                     History
@@ -1323,12 +1323,12 @@ export default function ScientificCalculator() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => setShowHistory(!showHistory)}
-                      className={`p-2 rounded-lg transition-colors ${
+                      className={`p-2 rounded-2xl transition-colors ${
                         showHistory 
                           ? 'bg-gray-600 text-white' 
                           : isDarkMode 
                             ? 'text-gray-400 hover:text-white hover:bg-gray-700' 
-                            : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
+                            : 'text-google-gray hover:text-google-blue hover:bg-gray-100'
                       }`}
                     title="Toggle History"
                   >
@@ -1336,10 +1336,10 @@ export default function ScientificCalculator() {
                   </button>
                   <button
                     onClick={clearHistory}
-                      className={`p-2 rounded-lg transition-colors ${
+                      className={`p-2 rounded-2xl transition-colors ${
                         isDarkMode 
                           ? 'text-gray-400 hover:text-white hover:bg-gray-600' 
-                          : 'text-gray-600 hover:text-white hover:bg-gray-500'
+                          : 'text-google-gray hover:text-white hover:bg-gray-500'
                       }`}
                     title="Clear History"
                   >
@@ -1360,19 +1360,19 @@ export default function ScientificCalculator() {
                     history.map((calc, index) => (
                       <div
                         key={index}
-                          className={`rounded-lg p-3 border-l-4 border-blue-500 transition-colors duration-300 ${
+                          className={`rounded-2xl p-3 border-l-4 border-blue-500 transition-colors duration-300 ${
                             isDarkMode 
                               ? 'bg-gray-700 hover:bg-gray-600' 
                               : 'bg-gray-50 hover:bg-gray-100'
                           }`}
                         >
                           <div className={`text-xs mb-1 ${
-                            isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                            isDarkMode ? 'text-gray-400' : 'text-google-gray'
                           }`}>
                           {calc.timestamp.toLocaleTimeString()}
                         </div>
                           <div className={`font-mono text-sm mb-1 ${
-                            isDarkMode ? 'text-gray-200' : 'text-gray-800'
+                            isDarkMode ? 'text-gray-200' : 'text-google-text'
                           }`}>
                           {calc.expression}
                         </div>
@@ -1390,13 +1390,13 @@ export default function ScientificCalculator() {
                   isDarkMode ? 'border-gray-700' : 'border-gray-200'
                 }`}>
                   <h4 className={`text-sm font-medium mb-2 ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                    isDarkMode ? 'text-gray-300' : 'text-google-gray'
                   }`}>Memory</h4>
-                  <div className={`rounded-lg p-3 ${
+                  <div className={`rounded-2xl p-3 ${
                     isDarkMode ? 'bg-gray-700' : 'bg-gray-50'
                   }`}>
                     <div className={`text-xl font-bold font-mono ${
-                      isDarkMode ? 'text-white' : 'text-gray-800'
+                      isDarkMode ? 'text-white' : 'text-google-text'
                     }`}>
                     {memory.toFixed(8)}
                   </div>
@@ -1408,7 +1408,7 @@ export default function ScientificCalculator() {
                   isDarkMode ? 'border-gray-700' : 'border-gray-200'
                 }`}>
                   <h4 className={`text-sm font-medium mb-2 ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                    isDarkMode ? 'text-gray-300' : 'text-google-gray'
                   }`}>Quick Info</h4>
                   <div className={`text-xs space-y-1 ${
                     isDarkMode ? 'text-gray-400' : 'text-gray-500'
@@ -1433,17 +1433,17 @@ export default function ScientificCalculator() {
               }`}>
                 <div className="flex items-center justify-between mb-4">
                   <h3 className={`text-xl font-semibold flex items-center ${
-                    isDarkMode ? 'text-white' : 'text-gray-800'
+                    isDarkMode ? 'text-white' : 'text-google-text'
                   }`}>
                     <History className="w-5 h-5 mr-2 text-blue-500" />
                     Calculation History
                   </h3>
                   <button
                     onClick={() => setShowHistory(false)}
-                    className={`p-2 rounded-lg ${
+                    className={`p-2 rounded-2xl ${
                       isDarkMode 
                         ? 'text-gray-400 hover:text-white hover:bg-gray-700' 
-                        : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
+                        : 'text-google-gray hover:text-google-text hover:bg-gray-100'
                     }`}
                     title="Close history"
                   >
@@ -1462,19 +1462,19 @@ export default function ScientificCalculator() {
                     history.map((calc, index) => (
                       <div
                         key={index}
-                        className={`rounded-lg p-3 border-l-4 border-blue-500 ${
+                        className={`rounded-2xl p-3 border-l-4 border-blue-500 ${
                           isDarkMode 
                             ? 'bg-gray-700' 
                             : 'bg-gray-50'
                         }`}
                       >
                         <div className={`text-xs mb-1 ${
-                          isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                          isDarkMode ? 'text-gray-400' : 'text-google-gray'
                         }`}>
                           {calc.timestamp.toLocaleTimeString()}
                         </div>
                         <div className={`font-mono text-sm mb-1 ${
-                          isDarkMode ? 'text-gray-200' : 'text-gray-800'
+                          isDarkMode ? 'text-gray-200' : 'text-google-text'
                         }`}>
                           {calc.expression}
                         </div>
@@ -1497,7 +1497,7 @@ export default function ScientificCalculator() {
             : 'bg-white border-gray-200'
         } border-2`}>
           <h3 className={`text-2xl font-semibold mb-6 text-center ${
-            isDarkMode ? 'text-white' : 'text-gray-800'
+            isDarkMode ? 'text-white' : 'text-google-text'
           }`}>About Scientific Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className={`mb-6 text-lg ${
@@ -1511,7 +1511,7 @@ export default function ScientificCalculator() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h4 className={`text-xl font-semibold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-800'
+                  isDarkMode ? 'text-white' : 'text-google-text'
                 }`}>Mathematical Functions</h4>
                 <ul className={`list-disc list-inside mb-4 space-y-2 ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-700'
@@ -1526,7 +1526,7 @@ export default function ScientificCalculator() {
               
               <div>
                 <h4 className={`text-xl font-semibold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-800'
+                  isDarkMode ? 'text-white' : 'text-google-text'
                 }`}>Advanced Features</h4>
                 <ul className={`list-disc list-inside mb-4 space-y-2 ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-700'
@@ -1541,34 +1541,34 @@ export default function ScientificCalculator() {
             </div>
             
             <h4 className={`text-xl font-semibold mb-4 mt-8 ${
-              isDarkMode ? 'text-white' : 'text-gray-800'
+              isDarkMode ? 'text-white' : 'text-google-text'
             }`}>Perfect For</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className={`p-4 rounded-lg ${
+              <div className={`p-4 rounded-2xl ${
                 isDarkMode ? 'bg-gray-800' : 'bg-gray-100'
               }`}>
                 <h5 className={`font-semibold mb-2 ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-800'
+                  isDarkMode ? 'text-gray-200' : 'text-google-text'
                 }`}>Students</h5>
                 <p className={`text-sm ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-700'
                 }`}>Mathematics, physics, engineering courses</p>
               </div>
-              <div className={`p-4 rounded-lg ${
+              <div className={`p-4 rounded-2xl ${
                 isDarkMode ? 'bg-gray-800' : 'bg-gray-100'
               }`}>
                 <h5 className={`font-semibold mb-2 ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-800'
+                  isDarkMode ? 'text-gray-200' : 'text-google-text'
                 }`}>Engineers</h5>
                 <p className={`text-sm ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-700'
                 }`}>Technical calculations and design work</p>
               </div>
-              <div className={`p-4 rounded-lg ${
+              <div className={`p-4 rounded-2xl ${
                 isDarkMode ? 'bg-gray-800' : 'bg-gray-100'
               }`}>
                 <h5 className={`font-semibold mb-2 ${
-                  isDarkMode ? 'text-gray-200' : 'text-gray-800'
+                  isDarkMode ? 'text-gray-200' : 'text-google-text'
                 }`}>Scientists</h5>
                 <p className={`text-sm ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-700'
@@ -1577,7 +1577,7 @@ export default function ScientificCalculator() {
             </div>
             
             <h4 className={`text-xl font-semibold mb-4 ${
-              isDarkMode ? 'text-white' : 'text-gray-800'
+              isDarkMode ? 'text-white' : 'text-google-text'
             }`}>How to Use</h4>
             <p className={`mb-4 ${
               isDarkMode ? 'text-gray-300' : 'text-gray-700'
@@ -1587,11 +1587,11 @@ export default function ScientificCalculator() {
               values and the history feature to review your calculation steps.
             </p>
             
-            <div className={`p-4 rounded-lg border-l-4 border-blue-500 ${
+            <div className={`p-4 rounded-2xl border-l-4 border-blue-500 ${
               isDarkMode ? 'bg-gray-700' : 'bg-gray-50'
             }`}>
               <h5 className={`font-semibold mb-2 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
+                isDarkMode ? 'text-white' : 'text-google-text'
               }`}>Pro Tip</h5>
               <p className={`text-sm ${
                 isDarkMode ? 'text-gray-300' : 'text-gray-700'
@@ -1612,4 +1612,6 @@ export default function ScientificCalculator() {
     </div>
   )
 }
+
+
 

@@ -143,14 +143,13 @@ export default function LeanBodyMassCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full google-card overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
         <div className="flex items-center">
           <Dumbbell className="h-8 w-8 text-white mr-3" />
           <h2 className="text-2xl font-bold text-white">Lean Body Mass Calculator</h2>
         </div>
-        <p className="text-blue-100 mt-1">Calculate your lean body mass using multiple formulas</p>
-      </div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -163,7 +162,7 @@ export default function LeanBodyMassCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600"
                 placeholder="Enter weight"
                 aria-label="Weight in pounds"
               />
@@ -176,7 +175,7 @@ export default function LeanBodyMassCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600"
                 placeholder="Enter height"
                 aria-label="Height in feet or cm"
               />
@@ -192,7 +191,7 @@ export default function LeanBodyMassCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600"
                 placeholder="Enter age"
                 aria-label="Age in years"
               />
@@ -204,7 +203,7 @@ export default function LeanBodyMassCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -222,7 +221,7 @@ export default function LeanBodyMassCalculator() {
                 type="number"
                 value={bodyFat}
                 onChange={(e) => setBodyFat(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600"
                 placeholder="Enter body fat %"
                 min="0"
                 max="100"
@@ -236,7 +235,7 @@ export default function LeanBodyMassCalculator() {
               <select
                 value={method}
                 onChange={(e) => setMethod(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-3 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600"
                 aria-label="Select calculation method"
               >
                 <option value="boer">Boer Formula</option>
@@ -250,14 +249,14 @@ export default function LeanBodyMassCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 bg-google-blue hover:bg-google-blueHover text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -268,7 +267,7 @@ export default function LeanBodyMassCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-blue-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Lean Body Mass Calculation Result"
                 inputs={[
@@ -286,7 +285,7 @@ export default function LeanBodyMassCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Results</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -308,7 +307,7 @@ export default function LeanBodyMassCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-3">All Methods Comparison</h3>
               <div className="space-y-2">
                 {Object.entries(result.methods).map(([key, value]) => (
@@ -323,12 +322,12 @@ export default function LeanBodyMassCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
                 <h3 className="text-lg font-semibold text-blue-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
                     <div key={index} className="flex items-start">
-                      <span className="text-blue-600 mr-2">•</span>
+                      <span className="text-google-blue mr-2">•</span>
                       <span className="text-blue-700">{rec}</span>
                     </div>
                   ))}
@@ -339,8 +338,8 @@ export default function LeanBodyMassCalculator() {
         )}
         
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Lean Body Mass Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Lean Body Mass Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive lean body mass calculator helps athletes, fitness enthusiasts, and health professionals 
@@ -349,7 +348,7 @@ export default function LeanBodyMassCalculator() {
               analysis and fitness goal planning.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Lean Body Mass:</strong> Fat-free mass including muscles, bones, organs</li>
               <li><strong>Fat Mass:</strong> Total body fat weight and percentage</li>
@@ -359,10 +358,10 @@ export default function LeanBodyMassCalculator() {
               <li><strong>Goal Tracking:</strong> Progress monitoring capabilities</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Calculation Methods</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Calculation Methods</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Boer Formula</h5>
+                <h5 className="font-semibold text-google-text mb-2">Boer Formula</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Male:</strong> LBM = 0.407 × weight + 0.267 × height - 19.2</li>
                   <li><strong>Female:</strong> LBM = 0.252 × weight + 0.473 × height - 48.3</li>
@@ -373,7 +372,7 @@ export default function LeanBodyMassCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">James Formula</h5>
+                <h5 className="font-semibold text-google-text mb-2">James Formula</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Male:</strong> LBM = 1.1 × weight - 128 × (weight/height)²</li>
                   <li><strong>Female:</strong> LBM = 1.07 × weight - 148 × (weight/height)²</li>
@@ -385,35 +384,35 @@ export default function LeanBodyMassCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Lean Body Mass</h5>
                 <p className="text-blue-700 text-sm">Fat-free mass</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Fat Mass</h5>
                 <p className="text-green-700 text-sm">Body fat weight</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Method Used</h5>
                 <p className="text-purple-700 text-sm">Calculation formula</p>
               </div>
-              <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
+              <div className="bg-orange-50 p-3 rounded-2xl border border-orange-200">
                 <h5 className="font-semibold text-orange-800 mb-1">Comparison</h5>
                 <p className="text-orange-700 text-sm">All methods results</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your weight, height, age, gender, and optionally your body fat percentage. Select your preferred 
               calculation method or let the calculator show results from all methods. The tool will compute your lean 
               body mass, fat mass, and provide method comparisons for comprehensive analysis.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Lean Body Mass Fundamentals</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Lean Body Mass Fundamentals</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>What is Lean Body Mass:</strong></p>
@@ -440,10 +439,10 @@ export default function LeanBodyMassCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Body Composition Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Body Composition Analysis</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Essential Fat</h5>
+                <h5 className="font-semibold text-google-text mb-2">Essential Fat</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Male:</strong> 2-5% of total body weight</li>
                   <li><strong>Female:</strong> 10-13% of total body weight</li>
@@ -454,7 +453,7 @@ export default function LeanBodyMassCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Storage Fat</h5>
+                <h5 className="font-semibold text-google-text mb-2">Storage Fat</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Function:</strong> Energy storage and insulation</li>
                   <li><strong>Location:</strong> Subcutaneous and visceral fat</li>
@@ -466,7 +465,7 @@ export default function LeanBodyMassCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">LBM and Performance</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">LBM and Performance</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Athletic Performance:</strong> Higher LBM correlates with strength and power</li>
               <li><strong>Endurance Sports:</strong> Optimal LBM for power-to-weight ratio</li>
@@ -476,10 +475,10 @@ export default function LeanBodyMassCalculator() {
               <li><strong>Health and Wellness:</strong> Metabolic health and longevity</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">LBM Optimization Strategies</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">LBM Optimization Strategies</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Training Methods</h5>
+                <h5 className="font-semibold text-google-text mb-2">Training Methods</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Resistance Training:</strong> Progressive overload principles</li>
                   <li><strong>Compound Movements:</strong> Multi-joint exercises</li>
@@ -490,7 +489,7 @@ export default function LeanBodyMassCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Nutrition Support</h5>
+                <h5 className="font-semibold text-google-text mb-2">Nutrition Support</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li><strong>Protein Intake:</strong> 1.6-2.2g per kg body weight</li>
                   <li><strong>Calorie Surplus:</strong> 200-500 calories above maintenance</li>
@@ -502,7 +501,7 @@ export default function LeanBodyMassCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">LBM Monitoring and Tracking</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">LBM Monitoring and Tracking</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Regular Measurements:</strong> Monthly or quarterly assessments</li>
               <li><strong>Multiple Methods:</strong> Cross-reference different calculations</li>
@@ -512,7 +511,7 @@ export default function LeanBodyMassCalculator() {
               <li><strong>Professional Assessment:</strong> DEXA scans or hydrostatic weighing</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common LBM Misconceptions</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common LBM Misconceptions</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Weight Loss = Fat Loss:</strong> May include muscle loss</li>
               <li><strong>More Protein = More Muscle:</strong> Training stimulus required</li>
@@ -522,7 +521,7 @@ export default function LeanBodyMassCalculator() {
               <li><strong>Genetics Determine All:</strong> Lifestyle factors significant</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Health Implications of LBM</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Health Implications of LBM</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Metabolic Rate:</strong> Higher LBM increases BMR</li>
               <li><strong>Insulin Sensitivity:</strong> Better glucose metabolism</li>
@@ -532,8 +531,8 @@ export default function LeanBodyMassCalculator() {
               <li><strong>Longevity:</strong> Increased life expectancy and quality</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-blue-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Focus on building and maintaining lean body mass through consistent resistance training and proper nutrition. 
                 Remember that LBM includes more than just muscle - it's your body's metabolically active tissue that 
@@ -547,3 +546,8 @@ export default function LeanBodyMassCalculator() {
     </div>
   )
 }
+
+
+
+
+

@@ -73,56 +73,51 @@ export default function LeaseCalculator() {
   const result = showResults ? calculateLease() : { monthlyPayment: 0, totalCost: 0, depreciation: 0, recommendations: [], details: { price: 0, down: 0, residual: 0, rate: 0, term: 0, termType: '' } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-slate-500 to-gray-500 px-6 py-4">
-        <div className="flex items-center">
-          <FileText className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Lease Calculator</h2>
-        </div>
-        <p className="text-slate-100 mt-1">Calculate vehicle lease payments and costs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Vehicle Price ()</label>
-              <input type="number" value={vehiclePrice} onChange={(e) => setVehiclePrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Enter price" step="1000" />
+              <input type="number" value={vehiclePrice} onChange={(e) => setVehiclePrice(e.target.value)} className="google-input" placeholder="Enter price" step="1000" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ()</label>
-              <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Enter down payment" step="100" />
+              <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="google-input" placeholder="Enter down payment" step="100" />
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Residual Value ()</label>
-              <input type="number" value={residualValue} onChange={(e) => setResidualValue(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Enter residual" step="1000" />
+              <input type="number" value={residualValue} onChange={(e) => setResidualValue(e.target.value)} className="google-input" placeholder="Enter residual" step="1000" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Interest Rate (%)</label>
-              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Enter rate" step="0.1" />
+              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="google-input" placeholder="Enter rate" step="0.1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Lease Term</label>
-              <input type="number" value={leaseTerm} onChange={(e) => setLeaseTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Enter term" step="1" />
+              <input type="number" value={leaseTerm} onChange={(e) => setLeaseTerm(e.target.value)} className="google-input" placeholder="Enter term" step="1" />
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Term Type</label>
-            <select value={termType} onChange={(e) => setTermType(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500" aria-label="Select term type">
+            <select value={termType} onChange={(e) => setTermType(e.target.value)} className="google-input" aria-label="Select term type">
               <option value="months">Months</option>
               <option value="years">Years</option>
             </select>
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-slate-500 hover:bg-slate-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -130,7 +125,7 @@ export default function LeaseCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-slate-50 rounded-lg border border-slate-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-slate-800 mb-2">Monthly Payment</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-slate-600 mb-2">${result.monthlyPayment?.toFixed(2)}</div>
@@ -138,7 +133,7 @@ export default function LeaseCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-slate-50 rounded-lg border border-slate-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-slate-800 mb-3">Lease Summary</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-slate-700">Vehicle Price:</span><span className="font-semibold text-slate-800">${result.details.price?.toLocaleString()}</span></div>
@@ -157,7 +152,7 @@ export default function LeaseCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-slate-50 rounded-lg border border-slate-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-slate-800 mb-3">Analysis</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -173,8 +168,8 @@ export default function LeaseCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Lease Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Lease Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive lease calculator helps you determine monthly lease payments and total costs for vehicle 
@@ -183,7 +178,7 @@ export default function LeaseCalculator() {
               leasing decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Monthly Payment:</strong> Regular lease payment amount</li>
               <li><strong>Total Cost:</strong> Complete cost of leasing over the term</li>
@@ -193,10 +188,10 @@ export default function LeaseCalculator() {
               <li><strong>Payment Factors:</strong> How different terms affect payments</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Lease vs. Purchase Analysis</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Lease vs. Purchase Analysis</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Leasing Advantages</h5>
+                <h5 className="font-semibold text-google-text mb-2">Leasing Advantages</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Lower monthly payments</li>
                   <li>Newer vehicles every few years</li>
@@ -207,7 +202,7 @@ export default function LeaseCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Leasing Disadvantages</h5>
+                <h5 className="font-semibold text-google-text mb-2">Leasing Disadvantages</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>No equity building</li>
                   <li>Mileage restrictions</li>
@@ -219,29 +214,29 @@ export default function LeaseCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+              <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
                 <h5 className="font-semibold text-slate-800 mb-1">Monthly Payment</h5>
                 <p className="text-slate-700 text-sm">Regular lease amount</p>
               </div>
-              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+              <div className="bg-google-blueLight p-3 rounded-2xl border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Depreciation</h5>
                 <p className="text-blue-700 text-sm">Value loss during lease</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Total Cost</h5>
                 <p className="text-green-700 text-sm">Complete lease expense</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter the vehicle price, down payment, residual value, interest rate, and lease term. The calculator 
               will compute your monthly payment, depreciation, and total lease costs to help evaluate the leasing option.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Lease Terms</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Key Lease Terms</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Capitalized Cost:</strong> Negotiated price of the vehicle</li>
               <li><strong>Residual Value:</strong> Estimated value at lease end</li>
@@ -251,8 +246,8 @@ export default function LeaseCalculator() {
               <li><strong>Acquisition Fee:</strong> One-time fee to start lease</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Lease Payment Components</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Lease Payment Components</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Depreciation Cost:</strong></p>
@@ -275,7 +270,7 @@ export default function LeaseCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Lease Payments</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Lease Payments</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Vehicle Price:</strong> Higher prices mean higher payments</li>
               <li><strong>Residual Value:</strong> Higher residuals reduce payments</li>
@@ -285,7 +280,7 @@ export default function LeaseCalculator() {
               <li><strong>Vehicle Type:</strong> Luxury vehicles have higher depreciation</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Lease Negotiation Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Lease Negotiation Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Negotiate Price:</strong> Focus on capitalized cost, not monthly payment</li>
               <li><strong>Research Residuals:</strong> Compare residual values across lenders</li>
@@ -295,7 +290,7 @@ export default function LeaseCalculator() {
               <li><strong>Compare Options:</strong> Evaluate lease vs. purchase carefully</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Lease Mistakes</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Lease Mistakes</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Focusing Only on Payment:</strong> Consider total cost, not just monthly amount</li>
               <li><strong>Ignoring Mileage Limits:</strong> Excess mileage charges can be expensive</li>
@@ -305,8 +300,8 @@ export default function LeaseCalculator() {
               <li><strong>Forgetting Insurance:</strong> Gap insurance may be required</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-slate-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-slate-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Always negotiate the capitalized cost (vehicle price) first, then focus on the money factor (interest rate). 
                 A lower capitalized cost will reduce your monthly payment more than negotiating the interest rate alone. 
@@ -320,4 +315,9 @@ export default function LeaseCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

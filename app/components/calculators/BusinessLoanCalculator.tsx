@@ -64,36 +64,31 @@ export default function BusinessLoanCalculator() {
   const result = showResults ? calculateBusinessLoan() : { monthlyPayment: 0, totalInterest: 0, totalPayment: 0, recommendations: [], details: { amount: 0, rate: 0, term: 0, termType: '' } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-4">
-        <div className="flex items-center">
-          <Building2 className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Business Loan Calculator</h2>
-        </div>
-        <p className="text-indigo-100 mt-1">Calculate business loan payments and costs</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount ()</label>
-              <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter amount" step="1000" />
+              <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="google-input" placeholder="Enter amount" step="1000" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Interest Rate (%)</label>
-              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter rate" step="0.1" />
+              <input type="number" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="google-input" placeholder="Enter rate" step="0.1" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Loan Term</label>
-              <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter term" step="0.1" />
+              <input type="number" value={loanTerm} onChange={(e) => setLoanTerm(e.target.value)} className="google-input" placeholder="Enter term" step="0.1" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Term Type</label>
-              <select value={termType} onChange={(e) => setTermType(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" aria-label="Select term type">
+              <select value={termType} onChange={(e) => setTermType(e.target.value)} className="google-input" aria-label="Select term type">
                 <option value="years">Years</option>
                 <option value="months">Months</option>
               </select>
@@ -101,10 +96,10 @@ export default function BusinessLoanCalculator() {
           </div>
 
           <div className="flex space-x-3">
-            <button onClick={handleCalculate} className="flex-1 bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleCalculate} className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <Calculator className="h-5 w-5 inline mr-2" />Calculate
             </button>
-            <button onClick={handleReset} className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            <button onClick={handleReset} className="flex-1 google-button-secondary text-white font-medium py-2 px-4 rounded-2xl transition-colors">
               <RotateCcw className="h-5 w-5 inline mr-2" />Reset
             </button>
           </div>
@@ -112,7 +107,7 @@ export default function BusinessLoanCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-indigo-800 mb-2">Monthly Payment</h3>
               <div className="text-center">
                 <div className="text-3xl font-bold text-indigo-600 mb-2">${result.monthlyPayment?.toFixed(2)}</div>
@@ -120,7 +115,7 @@ export default function BusinessLoanCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-indigo-800 mb-3">Loan Summary</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-indigo-700">Loan Amount:</span><span className="font-semibold text-indigo-800">${result.details.amount?.toLocaleString()}</span></div>
@@ -137,7 +132,7 @@ export default function BusinessLoanCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+              <div className="p-4 google-result-card">
                 <h3 className="text-lg font-semibold text-indigo-800 mb-3">Analysis</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
@@ -153,8 +148,8 @@ export default function BusinessLoanCalculator() {
         )}
 
         {/* Calculator Description Section */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">About Business Loan Calculator</h3>
+        <div className="mt-8 p-6 google-result-card">
+          <h3 className="text-xl font-semibold text-google-text mb-4">About Business Loan Calculator</h3>
           <div className="prose prose-gray max-w-none">
             <p className="text-gray-700 mb-4">
               Our comprehensive business loan calculator helps entrepreneurs and business owners determine monthly 
@@ -163,7 +158,7 @@ export default function BusinessLoanCalculator() {
               to help you understand the true cost of business borrowing and make informed financial decisions.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">What It Calculates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">What It Calculates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Monthly Payment:</strong> Regular business loan payment amount</li>
               <li><strong>Total Interest:</strong> Complete interest cost over loan term</li>
@@ -173,10 +168,10 @@ export default function BusinessLoanCalculator() {
               <li><strong>Cost Comparison:</strong> Compare different loan terms and rates</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Business Loan vs. Other Financing</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Business Loan vs. Other Financing</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Business Loan Advantages</h5>
+                <h5 className="font-semibold text-google-text mb-2">Business Loan Advantages</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Dedicated business financing</li>
                   <li>Potentially lower rates than personal loans</li>
@@ -187,7 +182,7 @@ export default function BusinessLoanCalculator() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-gray-800 mb-2">Business Loan Considerations</h5>
+                <h5 className="font-semibold text-google-text mb-2">Business Loan Considerations</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                   <li>Business plan requirements</li>
                   <li>Financial documentation needed</li>
@@ -199,29 +194,29 @@ export default function BusinessLoanCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Understanding Your Results</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Understanding Your Results</h4>
             <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-indigo-50 p-3 rounded-lg border border-indigo-200">
+              <div className="bg-indigo-50 p-3 rounded-2xl border border-indigo-200">
                 <h5 className="font-semibold text-indigo-800 mb-1">Monthly Payment</h5>
                 <p className="text-indigo-700 text-sm">Regular loan amount</p>
               </div>
-              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+              <div className="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                 <h5 className="font-semibold text-purple-800 mb-1">Total Interest</h5>
                 <p className="text-purple-700 text-sm">Cost of borrowing</p>
               </div>
-              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+              <div className="bg-green-50 p-3 rounded-2xl border border-green-200">
                 <h5 className="font-semibold text-green-800 mb-1">Total Cost</h5>
                 <p className="text-green-700 text-sm">Complete loan cost</p>
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">How to Use</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">How to Use</h4>
             <p className="text-gray-700 mb-4">
               Enter your desired loan amount, interest rate, and loan term. Choose between years or months, then 
               click calculate to see your monthly payment, total interest costs, and complete loan breakdown.
             </p>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Common Business Loan Uses</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Common Business Loan Uses</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Working Capital:</strong> Daily operations and cash flow management</li>
               <li><strong>Equipment Financing:</strong> Machinery, vehicles, and technology</li>
@@ -231,8 +226,8 @@ export default function BusinessLoanCalculator() {
               <li><strong>Debt Consolidation:</strong> Combine multiple business debts</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Business Loan Requirements</h4>
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="text-lg font-semibold text-google-text mb-2">Business Loan Requirements</h4>
+            <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 mb-4">
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p><strong>Business Requirements:</strong></p>
@@ -255,7 +250,7 @@ export default function BusinessLoanCalculator() {
               </div>
             </div>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Types of Business Loans</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Types of Business Loans</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Term Loans:</strong> Traditional installment loans with fixed payments</li>
               <li><strong>SBA Loans:</strong> Government-backed loans with favorable terms</li>
@@ -265,7 +260,7 @@ export default function BusinessLoanCalculator() {
               <li><strong>Business Lines of Credit:</strong> Revolving credit for ongoing needs</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Factors Affecting Business Loan Rates</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Factors Affecting Business Loan Rates</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Business Credit Score:</strong> Higher scores mean lower rates</li>
               <li><strong>Personal Credit Score:</strong> Often required for small business loans</li>
@@ -275,7 +270,7 @@ export default function BusinessLoanCalculator() {
               <li><strong>Collateral:</strong> Secured loans typically have lower rates</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Business Loan Application Process</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Business Loan Application Process</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Business Plan:</strong> Comprehensive business strategy and financials</li>
               <li><strong>Financial Documents:</strong> Tax returns, bank statements, P&L statements</li>
@@ -285,7 +280,7 @@ export default function BusinessLoanCalculator() {
               <li><strong>Lender Interview:</strong> Discussion of business and loan purpose</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Alternative Business Financing</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Alternative Business Financing</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Business Credit Cards:</strong> Revolving credit for smaller expenses</li>
               <li><strong>Invoice Factoring:</strong> Sell outstanding invoices for immediate cash</li>
@@ -295,7 +290,7 @@ export default function BusinessLoanCalculator() {
               <li><strong>Crowdfunding:</strong> Raise funds from many small investors</li>
             </ul>
             
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Business Loan Tips</h4>
+            <h4 className="text-lg font-semibold text-google-text mb-2">Business Loan Tips</h4>
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li><strong>Prepare Thoroughly:</strong> Have all documentation ready before applying</li>
               <li><strong>Shop Around:</strong> Compare rates and terms from multiple lenders</li>
@@ -305,8 +300,8 @@ export default function BusinessLoanCalculator() {
               <li><strong>Plan for Repayment:</strong> Ensure the loan fits your cash flow</li>
             </ul>
             
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
-              <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
+            <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-indigo-500">
+              <h5 className="font-semibold text-google-text mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Before applying for a business loan, ensure your business financials are in order and you have a 
                 solid business plan. Lenders want to see that you can afford the loan and have a clear plan for 
@@ -321,4 +316,9 @@ export default function BusinessLoanCalculator() {
     </div>
   )
 }
+
+
+
+
+
 

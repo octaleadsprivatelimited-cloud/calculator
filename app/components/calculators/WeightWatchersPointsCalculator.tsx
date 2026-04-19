@@ -108,14 +108,9 @@ export default function WeightWatchersPointsCalculator() {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
-        <div className="flex items-center">
-          <Target className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">Weight Watchers Points Calculator</h2>
-        </div>
-        <p className="text-blue-100 mt-1">Calculate SmartPoints for your food items</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -128,7 +123,7 @@ export default function WeightWatchersPointsCalculator() {
                 type="number"
                 value={calories}
                 onChange={(e) => setCalories(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="Enter calories"
                 aria-label="Calories per serving"
               />
@@ -141,7 +136,7 @@ export default function WeightWatchersPointsCalculator() {
                 type="number"
                 value={saturatedFat}
                 onChange={(e) => setSaturatedFat(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="Enter saturated fat"
                 step="0.1"
                 aria-label="Saturated fat in grams"
@@ -158,7 +153,7 @@ export default function WeightWatchersPointsCalculator() {
                 type="number"
                 value={sugar}
                 onChange={(e) => setSugar(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="Enter sugar"
                 step="0.1"
                 aria-label="Sugar in grams"
@@ -172,7 +167,7 @@ export default function WeightWatchersPointsCalculator() {
                 type="number"
                 value={protein}
                 onChange={(e) => setProtein(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="google-input"
                 placeholder="Enter protein"
                 step="0.1"
                 aria-label="Protein in grams"
@@ -188,7 +183,7 @@ export default function WeightWatchersPointsCalculator() {
               type="number"
               value={fiber}
               onChange={(e) => setFiber(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="google-input"
               placeholder="Enter fiber"
               step="0.1"
               aria-label="Fiber in grams"
@@ -198,14 +193,14 @@ export default function WeightWatchersPointsCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 bg-google-blueLight0 hover:bg-google-blue text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -216,7 +211,7 @@ export default function WeightWatchersPointsCalculator() {
         {showResults && (
           <div className="mt-6 space-y-4">
             {/* Share Options - Moved to Top */}
-            <div className="bg-white p-4 rounded-lg border border-blue-200">
+            <div className="google-result-card">
               <ResultSharing
                 title="Weight Watchers Points Calculation Result"
                 inputs={[
@@ -236,10 +231,10 @@ export default function WeightWatchersPointsCalculator() {
               />
             </div>
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">SmartPoints Result</h3>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">
+                <div className="text-3xl font-bold text-google-blue mb-2">
                   {result.points.toFixed(1)} Points
                 </div>
                 <div className="text-blue-700">
@@ -248,7 +243,7 @@ export default function WeightWatchersPointsCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
               <h3 className="text-lg font-semibold text-blue-800 mb-3">Points Breakdown</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -281,12 +276,12 @@ export default function WeightWatchersPointsCalculator() {
             </div>
 
             {result.recommendations.length > 0 && (
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="p-4 bg-google-blueLight rounded-2xl border border-blue-200">
                 <h3 className="text-lg font-semibold text-blue-800 mb-3">Recommendations</h3>
                 <div className="space-y-2">
                   {result.recommendations.map((rec, index) => (
                     <div key={index} className="flex items-start">
-                      <span className="text-blue-600 mr-2">•</span>
+                      <span className="text-google-blue mr-2">•</span>
                       <span className="text-blue-700">{rec}</span>
                     </div>
                   ))}
@@ -294,7 +289,7 @@ export default function WeightWatchersPointsCalculator() {
               </div>
             )}
 
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-green-800 mb-2">💡 Tips</h3>
               <div className="text-sm text-green-700">
                 • Protein and fiber reduce points, making them great choices<br/>
@@ -309,3 +304,7 @@ export default function WeightWatchersPointsCalculator() {
     </div>
   )
 }
+
+
+
+

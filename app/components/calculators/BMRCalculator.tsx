@@ -87,14 +87,9 @@ export default function BMRCalculator() {
   const result = showResults ? calculateBMR() : { bmr: 0, formula: '', tdee: { sedentary: 0, light: 0, moderate: 0, active: 0, very_active: 0 } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-purple-500 to-indigo-500 px-6 py-4">
-        <div className="flex items-center">
-          <Zap className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">BMR Calculator</h2>
-        </div>
-        <p className="text-purple-100 mt-1">Calculate your Basal Metabolic Rate</p>
-      </div>
+    <div className="w-full google-card overflow-hidden">
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white"><div className="flex items-center space-x-3"><div className="p-2 bg-google-blueLight rounded-3xl"><Calculator className="w-5 h-5 text-google-blue" /></div><div><h1 className="text-xl font-medium text-google-text">Calculator</h1><p className="text-google-gray text-xs">Professional calculation tool</p></div></div></div>
+        
 
       <div className="p-6">
         <div className="space-y-4">
@@ -107,7 +102,7 @@ export default function BMRCalculator() {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="google-input"
                 placeholder="Age"
                 aria-label="Age in years"
               />
@@ -119,7 +114,7 @@ export default function BMRCalculator() {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="google-input"
                 aria-label="Select gender"
               >
                 <option value="male">Male</option>
@@ -137,7 +132,7 @@ export default function BMRCalculator() {
                 type="number"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="google-input"
                 placeholder="Weight"
                 aria-label="Weight in pounds"
               />
@@ -150,7 +145,7 @@ export default function BMRCalculator() {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="google-input"
                 placeholder="Height"
                 aria-label="Height in feet or cm"
               />
@@ -164,7 +159,7 @@ export default function BMRCalculator() {
             <select
               value={formula}
               onChange={(e) => setFormula(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="google-input"
               aria-label="Select formula"
             >
               <option value="mifflin">Mifflin-St Jeor (Most Accurate)</option>
@@ -177,14 +172,14 @@ export default function BMRCalculator() {
           <div className="flex space-x-3">
             <button
               onClick={handleCalculate}
-              className="flex-1 bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <Calculator className="h-5 w-5 inline mr-2" />
               Calculate
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="flex-1 google-button-primary text-white font-medium py-2 px-4 rounded-2xl transition-colors"
             >
               <RotateCcw className="h-5 w-5 inline mr-2" />
               Reset
@@ -194,7 +189,7 @@ export default function BMRCalculator() {
 
         {showResults && (
           <div className="mt-6 space-y-4">
-            <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-purple-800 mb-2">Results</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -208,7 +203,7 @@ export default function BMRCalculator() {
               </div>
             </div>
 
-            <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="p-4 google-result-card">
               <h3 className="text-lg font-semibold text-purple-800 mb-3">Daily Calorie Needs (TDEE)</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -240,3 +235,6 @@ export default function BMRCalculator() {
     </div>
   )
 }
+
+
+
