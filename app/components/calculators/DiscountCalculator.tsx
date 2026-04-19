@@ -53,10 +53,10 @@ export default function DiscountCalculator() {
 
     // Generate recommendations
     const recommendations = []
-    recommendations.push(`Original price: $${original.toFixed(2)}`)
+    recommendations.push(`Original price: ${original.toFixed(2)}`)
     recommendations.push(`Discount: ${calculatedDiscountPercent.toFixed(1)}%`)
-    recommendations.push(`You save: $${savings.toFixed(2)}`)
-    recommendations.push(`Final price: $${calculatedFinalPrice.toFixed(2)}`)
+    recommendations.push(`You save: ${savings.toFixed(2)}`)
+    recommendations.push(`Final price: ${calculatedFinalPrice.toFixed(2)}`)
 
     if (calculatedDiscountPercent > 50) {
       recommendations.push('Excellent discount - great value!')
@@ -126,7 +126,7 @@ export default function DiscountCalculator() {
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Original Price ($)
+              Original Price ()
             </label>
             <input
               type="number"
@@ -156,7 +156,7 @@ export default function DiscountCalculator() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Final Price ($)
+                Final Price ()
               </label>
               <input
                 type="number"
@@ -170,7 +170,7 @@ export default function DiscountCalculator() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Discount Amount ($)
+                Discount Amount ()
               </label>
               <input
                 type="number"
@@ -209,13 +209,13 @@ export default function DiscountCalculator() {
               <ResultSharing
                 title="Discount Calculation Result"
                 inputs={[
-                  { label: "Original Price", value: `$${result.details.originalPrice?.toFixed(2)}` },
+                  { label: "Original Price", value: `${result.details.originalPrice?.toFixed(2)}` },
                   { label: "Discount", value: `${result.details.discountPercent?.toFixed(1)}%` },
                   { label: "Calculation Type", value: "Discount Analysis" }
                 ]}
                 result={{ 
                   label: "Total Savings", 
-                  value: `$${result.savings.toFixed(2)}`,
+                  value: `${result.savings.toFixed(2)}`,
                   unit: ""
                 }}
                 calculatorName="Discount Calculator"
@@ -306,7 +306,7 @@ export default function DiscountCalculator() {
                   <li><strong>Input:</strong> Original price + discount %</li>
                   <li><strong>Output:</strong> Final price and savings</li>
                   <li><strong>Use Case:</strong> Sale price calculations</li>
-                  <li><strong>Example:</strong> 20% off $100 item</li>
+                  <li><strong>Example:</strong> 20% off 100 item</li>
                   <li><strong>Formula:</strong> Final = Original × (1 - %)</li>
                   <li><strong>Common:</strong> Most retail discounts</li>
                 </ul>
@@ -317,7 +317,7 @@ export default function DiscountCalculator() {
                   <li><strong>Input:</strong> Original price + discount amount</li>
                   <li><strong>Output:</strong> Final price and discount %</li>
                   <li><strong>Use Case:</strong> Dollar-off promotions</li>
-                  <li><strong>Example:</strong> $25 off $100 item</li>
+                  <li><strong>Example:</strong> 25 off 100 item</li>
                   <li><strong>Formula:</strong> Final = Original - Amount</li>
                   <li><strong>Common:</strong> Coupon and rebate offers</li>
                 </ul>
@@ -469,7 +469,7 @@ export default function DiscountCalculator() {
               <li><strong>Threshold Discounts:</strong> Discounts based on purchase amount</li>
               <li><strong>Seasonal Pricing:</strong> Time-based discount patterns</li>
               <li><strong>Dynamic Pricing:</strong> Algorithm-based price adjustments</li>
-              <li><strong>Psychological Pricing:</strong> $9.99 vs. $10.00 effects</li>
+              <li><strong>Psychological Pricing:</strong> 9.99 vs. 10.00 effects</li>
             </ul>
             
             <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
@@ -490,3 +490,4 @@ export default function DiscountCalculator() {
     </div>
   )
 }
+

@@ -33,12 +33,12 @@ export default function LoanCalculator() {
     const totalInterest = totalPayment - amount
 
     const recommendations = []
-    recommendations.push(`Loan amount: $${amount.toLocaleString()}`)
+    recommendations.push(`Loan amount: ${amount.toLocaleString()}`)
     recommendations.push(`Interest rate: ${rate.toFixed(2)}%`)
     recommendations.push(`Loan term: ${term} ${termType}`)
-    recommendations.push(`Monthly payment: $${monthlyPayment.toFixed(2)}`)
-    recommendations.push(`Total interest: $${totalInterest.toFixed(2)}`)
-    recommendations.push(`Total payment: $${totalPayment.toFixed(2)}`)
+    recommendations.push(`Monthly payment: ${monthlyPayment.toFixed(2)}`)
+    recommendations.push(`Total interest: ${totalInterest.toFixed(2)}`)
+    recommendations.push(`Total payment: ${totalPayment.toFixed(2)}`)
 
     if (rate > 20) recommendations.push('High interest rate - consider alternatives')
     else if (rate > 15) recommendations.push('Moderate-high rate - shop around')
@@ -75,7 +75,7 @@ export default function LoanCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount ()</label>
               <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter amount" step="100" />
             </div>
             <div>
@@ -115,13 +115,13 @@ export default function LoanCalculator() {
               <ResultSharing
                 title="Loan Calculation Result"
                 inputs={[
-                  { label: "Loan Amount", value: `$${loanAmount}` },
+                  { label: "Loan Amount", value: `${loanAmount}` },
                   { label: "Interest Rate", value: `${interestRate}%` },
                   { label: "Loan Term", value: `${loanTerm} ${termType}` }
                 ]}
                 result={{ 
                   label: "Monthly Payment", 
-                  value: `$${result.monthlyPayment?.toFixed(2)}`,
+                  value: `${result.monthlyPayment?.toFixed(2)}`,
                   unit: ""
                 }}
                 calculatorName="Loan Calculator"
@@ -132,7 +132,7 @@ export default function LoanCalculator() {
             <div className="p-4 bg-green-50 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-2">Monthly Payment</h3>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">${result.monthlyPayment?.toFixed(2)}</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">{result.monthlyPayment?.toFixed(2)}</div>
                 <div className="text-green-700">Monthly loan payment</div>
               </div>
             </div>
@@ -140,14 +140,14 @@ export default function LoanCalculator() {
             <div className="p-4 bg-green-50 rounded-lg border border-green-200">
               <h3 className="text-lg font-semibold text-green-800 mb-3">Loan Summary</h3>
               <div className="space-y-2">
-                <div className="flex justify-between"><span className="text-green-700">Loan Amount:</span><span className="font-semibold text-green-800">${result.details.amount?.toLocaleString()}</span></div>
+                <div className="flex justify-between"><span className="text-green-700">Loan Amount:</span><span className="font-semibold text-green-800">{result.details.amount?.toLocaleString()}</span></div>
                 <div className="flex justify-between"><span className="text-green-700">Interest Rate:</span><span className="font-semibold text-green-800">{result.details.rate?.toFixed(2)}%</span></div>
                 <div className="flex justify-between"><span className="text-green-700">Loan Term:</span><span className="font-semibold text-green-800">{result.details.term} {result.details.termType}</span></div>
-                <div className="flex justify-between"><span className="text-green-700">Total Interest:</span><span className="font-semibold text-green-800">${result.totalInterest?.toFixed(2)}</span></div>
+                <div className="flex justify-between"><span className="text-green-700">Total Interest:</span><span className="font-semibold text-green-800">{result.totalInterest?.toFixed(2)}</span></div>
                 <div className="border-t border-green-200 pt-2 mt-2">
                   <div className="flex justify-between font-bold">
                     <span className="text-green-700">Total Payment:</span>
-                    <span className="text-green-800">${result.totalPayment?.toFixed(2)}</span>
+                    <span className="text-green-800">{result.totalPayment?.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -258,3 +258,4 @@ export default function LoanCalculator() {
     </div>
   )
 }
+

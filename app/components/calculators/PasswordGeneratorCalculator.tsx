@@ -56,7 +56,7 @@ export default function PasswordGeneratorCalculator() {
     if (useUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     if (useLowercase) charset += 'abcdefghijklmnopqrstuvwxyz'
     if (useNumbers) charset += '0123456789'
-    if (useSymbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?'
+    if (useSymbols) charset += '!@#%^&*()_+-=[]{}|;:,.<>?'
     
     if (excludeSimilar) {
       charset = charset.replace(/[0O1lI]/g, '')
@@ -360,7 +360,7 @@ Security Tips:
                   className="mr-2"
                   aria-label="Include special symbols"
                 />
-                <span className="text-sm text-gray-700">Include Symbols (!@#$%^&*)</span>
+                <span className="text-sm text-gray-700">Include Symbols (!@#%^&*)</span>
               </label>
             </div>
           </div>
@@ -436,7 +436,7 @@ Security Tips:
                 title="Password Generation Result"
                 inputs={[
                   { label: "Password Length", value: `${passwordLength} characters` },
-                  { label: "Character Types", value: `${useUppercase ? 'Uppercase, ' : ''}${useLowercase ? 'Lowercase, ' : ''}${useNumbers ? 'Numbers, ' : ''}${useSymbols ? 'Symbols' : ''}`.replace(/,\s*$/, '') },
+                  { label: "Character Types", value: `${useUppercase ? 'Uppercase, ' : ''}${useLowercase ? 'Lowercase, ' : ''}${useNumbers ? 'Numbers, ' : ''}${useSymbols ? 'Symbols' : ''}`.replace(/,\s*/, '') },
                   { label: "Strength", value: result.strength }
                 ]}
                 result={{ 
@@ -684,3 +684,4 @@ Security Tips:
     </div>
   )
 }
+

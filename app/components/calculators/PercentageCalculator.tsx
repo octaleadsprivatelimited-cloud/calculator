@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Percent, TrendingUp, TrendingDown, Calculator as CalculatorIcon, RotateCcw } from 'lucide-react'
+import { Percent, TrendingUp, TrendingDown, Calculator, RotateCcw } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface PercentageResult {
@@ -113,7 +113,7 @@ export default function PercentageCalculator() {
           {/* Input Form */}
           <div className="xl:col-span-2 bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-purple-200">
             <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
-              <CalculatorIcon className="w-5 h-5 mr-2 text-purple-600" />
+              <Calculator className="w-5 h-5 mr-2 text-purple-600" />
               Calculation Type
             </h2>
 
@@ -250,7 +250,7 @@ export default function PercentageCalculator() {
                   <p className="text-blue-600 text-sm">200 × 15% = 30</p>
                 </div>
                 <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-                  <h3 className="font-semibold text-green-800">Price increased from $50 to $60</h3>
+                  <h3 className="font-semibold text-green-800">Price increased from 50 to 60</h3>
                   <p className="text-green-600 text-sm">Change = (60-50)/50 × 100 = 20%</p>
                 </div>
                 <div className="p-3 bg-yellow-50 rounded-lg border border-yellow-200">
@@ -380,3 +380,5 @@ export default function PercentageCalculator() {
     </div>
   )
 }
+
+

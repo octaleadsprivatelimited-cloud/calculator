@@ -100,8 +100,8 @@ export default function MileageCalculator() {
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
+      style: 'decimal',
+      
     }).format(amount)
   }
 
@@ -296,7 +296,7 @@ Results:
                     Fuel Price per Gallon
                   </label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></span>
                     <input
                       type="number"
                       value={tripData.fuelPrice}
@@ -664,3 +664,5 @@ Results:
     </div>
   )
 }
+
+

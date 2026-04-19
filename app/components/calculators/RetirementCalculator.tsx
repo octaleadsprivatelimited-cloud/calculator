@@ -44,13 +44,13 @@ export default function RetirementCalculator() {
     recommendations.push(`Current age: ${current} years`)
     recommendations.push(`Retirement age: ${retirement} years`)
     recommendations.push(`Years to retirement: ${yearsToRetirement} years`)
-    recommendations.push(`Current savings: $${savings.toLocaleString()}`)
-    recommendations.push(`Monthly contribution: $${contribution.toFixed(2)}`)
+    recommendations.push(`Current savings: ${savings.toLocaleString()}`)
+    recommendations.push(`Monthly contribution: ${contribution.toFixed(2)}`)
     recommendations.push(`Expected return: ${returnRate.toFixed(2)}%`)
-    recommendations.push(`Future value of savings: $${futureValueOfSavings.toLocaleString(undefined, {maximumFractionDigits: 0})}`)
-    recommendations.push(`Future value of contributions: $${futureValueOfContributions.toLocaleString(undefined, {maximumFractionDigits: 0})}`)
-    recommendations.push(`Total retirement savings: $${totalSavings.toLocaleString(undefined, {maximumFractionDigits: 0})}`)
-    recommendations.push(`Estimated monthly income: $${monthlyIncome.toLocaleString(undefined, {maximumFractionDigits: 0})}`)
+    recommendations.push(`Future value of savings: ${futureValueOfSavings.toLocaleString(undefined, {maximumFractionDigits: 0})}`)
+    recommendations.push(`Future value of contributions: ${futureValueOfContributions.toLocaleString(undefined, {maximumFractionDigits: 0})}`)
+    recommendations.push(`Total retirement savings: ${totalSavings.toLocaleString(undefined, {maximumFractionDigits: 0})}`)
+    recommendations.push(`Estimated monthly income: ${monthlyIncome.toLocaleString(undefined, {maximumFractionDigits: 0})}`)
 
     if (yearsToRetirement < 10) recommendations.push('Short time to retirement - consider aggressive saving')
     else if (yearsToRetirement < 20) recommendations.push('Moderate time to retirement - balanced approach')
@@ -102,11 +102,11 @@ export default function RetirementCalculator() {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Current Savings ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Current Savings ()</label>
               <input type="number" value={currentSavings} onChange={(e) => setCurrentSavings(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter savings" step="1000" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Monthly Contribution ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Monthly Contribution ()</label>
               <input type="number" value={monthlyContribution} onChange={(e) => setMonthlyContribution(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter contribution" step="100" />
             </div>
           </div>
@@ -135,13 +135,13 @@ export default function RetirementCalculator() {
                 inputs={[
                   { label: "Current Age", value: `${currentAge} years` },
                   { label: "Retirement Age", value: `${retirementAge} years` },
-                  { label: "Current Savings", value: `$${currentSavings}` },
-                  { label: "Monthly Contribution", value: `$${monthlyContribution}` },
+                  { label: "Current Savings", value: `${currentSavings}` },
+                  { label: "Monthly Contribution", value: `${monthlyContribution}` },
                   { label: "Expected Return", value: `${expectedReturn}%` }
                 ]}
                 result={{ 
                   label: "Total Retirement Savings", 
-                  value: `$${result.totalSavings?.toLocaleString(undefined, {maximumFractionDigits: 0})}`,
+                  value: `${result.totalSavings?.toLocaleString(undefined, {maximumFractionDigits: 0})}`,
                   unit: ""
                 }}
                 calculatorName="Retirement Calculator"
@@ -300,3 +300,4 @@ export default function RetirementCalculator() {
     </div>
   )
 }
+

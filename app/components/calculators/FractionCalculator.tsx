@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator as CalculatorIcon, RotateCcw, Plus, Minus, X, Divide } from 'lucide-react'
+import { Calculator, RotateCcw, Plus, Minus, X, Divide } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface Fraction {
@@ -113,7 +113,7 @@ export default function FractionCalculator() {
       <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl shadow-lg mb-6 p-4 sm:p-6">
         <div className="flex items-center space-x-3">
           <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-            <CalculatorIcon className="w-7 h-7 text-white" />
+            <Calculator className="w-7 h-7 text-white" />
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-white">Fraction Calculator</h1>
@@ -359,3 +359,4 @@ export default function FractionCalculator() {
     </div>
   )
 }
+

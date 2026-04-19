@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Square, Calculator as CalculatorIcon, RotateCcw, Ruler } from 'lucide-react'
+import { Square, Calculator, RotateCcw, Ruler } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface AreaResult {
@@ -211,7 +211,7 @@ export default function AreaCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <CalculatorIcon className="w-6 h-6 mr-2 text-emerald-600" />
+              <Calculator className="w-6 h-6 mr-2 text-emerald-600" />
               Shape & Dimensions
             </h2>
 
@@ -539,3 +539,4 @@ export default function AreaCalculator() {
     </div>
   )
 }
+

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Ruler, Calculator as CalculatorIcon, RotateCcw, ArrowRight, Thermometer, Scale } from 'lucide-react'
+import { Ruler, Calculator, RotateCcw, ArrowRight, Thermometer, Scale } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface ConversionCategory {
@@ -111,7 +111,7 @@ export default function UnitConverter() {
     const baseValue = fromUnitData.toBase(value)
     const result = toUnitData.fromBase(baseValue)
 
-    setToValue(result.toFixed(6).replace(/\.?0+$/, ''))
+    setToValue(result.toFixed(6).replace(/\.?0+/, ''))
   }, [fromUnit, toUnit, fromValue, currentCategory])
 
   React.useEffect(() => {
@@ -165,7 +165,7 @@ export default function UnitConverter() {
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                <CalculatorIcon className="w-6 h-6 mr-2 text-blue-600" />
+                <Calculator className="w-6 h-6 mr-2 text-blue-600" />
                 Conversion Type
               </h2>
 
@@ -328,3 +328,5 @@ export default function UnitConverter() {
     </div>
   )
 }
+
+

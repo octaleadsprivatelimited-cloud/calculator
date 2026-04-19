@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useCallback } from 'react'
-import { Calculator, RotateCcw, DollarSign } from 'lucide-react'
+import { Calculator, RotateCcw, } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 export default function TakeHomePaycheckCalculator() {
@@ -101,7 +101,7 @@ export default function TakeHomePaycheckCalculator() {
     <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4">
         <div className="flex items-center">
-          <DollarSign className="h-8 w-8 text-white mr-3" />
+          <Calculator className="h-8 w-8 text-white mr-3" />
           <h2 className="text-2xl font-bold text-white">Take-Home Paycheck Calculator</h2>
         </div>
         <p className="text-green-100 mt-1">Calculate your net take-home pay after deductions</p>
@@ -324,3 +324,5 @@ export default function TakeHomePaycheckCalculator() {
     </div>
   )
 }
+
+

@@ -104,7 +104,7 @@ export default function LengthConverter() {
     if (value === 0) return '0'
     if (Math.abs(value) < 0.000001) return value.toExponential(6)
     if (Math.abs(value) >= 1000000) return value.toExponential(6)
-    return value.toFixed(6).replace(/\.?0+$/, '')
+    return value.toFixed(6).replace(/\.?0+/, '')
   }
 
   return (
@@ -405,3 +405,4 @@ export default function LengthConverter() {
     </div>
   )
 }
+

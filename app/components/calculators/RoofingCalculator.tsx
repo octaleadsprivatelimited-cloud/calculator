@@ -96,7 +96,7 @@ export default function RoofingCalculator() {
   const handleDownload = () => {
     const materials = calculateMaterials()
     
-    const data = `Roofing Calculator Results\n\nRoof Type: ${roofType}\nDimensions: ${dimensions.length}m × ${dimensions.width}m\nPitch: ${dimensions.pitch}/12\n\nMaterial: ${roofingMaterials[selectedMaterial].name}\nRoof Area: ${materials?.roofArea} m²\nWaste Area: ${materials?.wasteArea} m²\nTotal with Waste: ${materials?.totalAreaWithWaste} m²\nSquares: ${materials?.squares}\n\nCosts:\nMaterial: $${materials?.materialCost}\nUnderlayment: $${materials?.underlaymentCost}\nInstallation: $${materials?.installationCost}\nTotal: $${materials?.totalCost}`
+    const data = `Roofing Calculator Results\n\nRoof Type: ${roofType}\nDimensions: ${dimensions.length}m × ${dimensions.width}m\nPitch: ${dimensions.pitch}/12\n\nMaterial: ${roofingMaterials[selectedMaterial].name}\nRoof Area: ${materials?.roofArea} m²\nWaste Area: ${materials?.wasteArea} m²\nTotal with Waste: ${materials?.totalAreaWithWaste} m²\nSquares: ${materials?.squares}\n\nCosts:\nMaterial: ${materials?.materialCost}\nUnderlayment: ${materials?.underlaymentCost}\nInstallation: ${materials?.installationCost}\nTotal: ${materials?.totalCost}`
     
     const blob = new Blob([data], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -233,7 +233,7 @@ export default function RoofingCalculator() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Installation Cost ($/m²)</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Installation Cost (/m²)</label>
                   <input
                     type="number"
                     value={installationCost}
@@ -247,7 +247,7 @@ export default function RoofingCalculator() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Underlayment ($/m²)</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Underlayment (/m²)</label>
                   <input
                     type="number"
                     value={underlayment}
@@ -530,7 +530,7 @@ export default function RoofingCalculator() {
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-2">Asphalt Shingles</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                    <li><strong>Cost:</strong> $25-35 per m²</li>
+                    <li><strong>Cost:</strong> 25-35 per m²</li>
                     <li><strong>Lifespan:</strong> 15-30 years</li>
                     <li><strong>Waste Factor:</strong> 10-15%</li>
                     <li><strong>Pros:</strong> Affordable, easy installation</li>
@@ -540,7 +540,7 @@ export default function RoofingCalculator() {
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-2">Metal Roofing</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                    <li><strong>Cost:</strong> $45-80 per m²</li>
+                    <li><strong>Cost:</strong> 45-80 per m²</li>
                     <li><strong>Lifespan:</strong> 40-70 years</li>
                     <li><strong>Waste Factor:</strong> 5-8%</li>
                     <li><strong>Pros:</strong> Durable, energy efficient</li>
@@ -645,7 +645,7 @@ export default function RoofingCalculator() {
           onClose={() => setShowShareModal(false)}
           calculation={{
             expression: `${roofType} Roof - ${roofingMaterials[selectedMaterial]?.name}`,
-            result: `${materials?.roofArea} m² - $${materials?.totalCost} total cost`,
+            result: `${materials?.roofArea} m² - ${materials?.totalCost} total cost`,
             timestamp: new Date()
           }}
         />
@@ -653,3 +653,4 @@ export default function RoofingCalculator() {
     </div>
   )
 }
+

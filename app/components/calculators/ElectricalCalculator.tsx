@@ -72,7 +72,7 @@ export default function ElectricalCalculator() {
 
     const powerFactorAmps = totalAmps / powerFactor
     const monthlyKWh = totalKWh * 30
-    const estimatedMonthlyCost = monthlyKWh * 0.12 // $0.12 per kWh average
+    const estimatedMonthlyCost = monthlyKWh * 0.12 // 0.12 per kWh average
 
     return {
       totalWatts: Math.round(totalWatts),
@@ -90,7 +90,7 @@ export default function ElectricalCalculator() {
   const handleDownload = () => {
     const loads = calculateLoads()
     
-    const data = `Electrical Load Calculator Results\n\nVoltage: ${voltage}V\nPower Factor: ${powerFactor}\n\nLoad Summary:\nTotal Watts: ${loads.totalWatts}W\nTotal kWh/day: ${loads.totalKWh}kWh\nMax Single Load: ${loads.maxWatts}W\nTotal Amps: ${loads.totalAmps}A\nPower Factor Amps: ${loads.powerFactorAmps}A\n\nMonthly Usage:\nMonthly kWh: ${loads.monthlyKWh}kWh\nEstimated Cost: $${loads.estimatedMonthlyCost}\n\nAppliances:\n${appliances.map(app => `${app.name}: ${app.watts}W × ${app.hours}h × ${app.quantity} = ${(app.watts * app.hours * app.quantity / 1000).toFixed(2)}kWh/day`).join('\n')}`
+    const data = `Electrical Load Calculator Results\n\nVoltage: ${voltage}V\nPower Factor: ${powerFactor}\n\nLoad Summary:\nTotal Watts: ${loads.totalWatts}W\nTotal kWh/day: ${loads.totalKWh}kWh\nMax Single Load: ${loads.maxWatts}W\nTotal Amps: ${loads.totalAmps}A\nPower Factor Amps: ${loads.powerFactorAmps}A\n\nMonthly Usage:\nMonthly kWh: ${loads.monthlyKWh}kWh\nEstimated Cost: ${loads.estimatedMonthlyCost}\n\nAppliances:\n${appliances.map(app => `${app.name}: ${app.watts}W × ${app.hours}h × ${app.quantity} = ${(app.watts * app.hours * app.quantity / 1000).toFixed(2)}kWh/day`).join('\n')}`
     
     const blob = new Blob([data], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -495,7 +495,7 @@ export default function ElectricalCalculator() {
                     <li>Current (A) = Power (W) ÷ Voltage (V)</li>
                     <li>Power Factor = Real Power ÷ Apparent Power</li>
                     <li>Efficiency = Output Power ÷ Input Power</li>
-                    <li>Cost = Energy (kWh) × Rate ($/kWh)</li>
+                    <li>Cost = Energy (kWh) × Rate (/kWh)</li>
                   </ul>
                 </div>
                 <div>
@@ -662,7 +662,7 @@ export default function ElectricalCalculator() {
           onClose={() => setShowShareModal(false)}
           calculation={{
             expression: `${appliances.length} appliances`,
-            result: `${loads.totalWatts}W - ${loads.totalKWh}kWh/day - $${loads.estimatedMonthlyCost}/month`,
+            result: `${loads.totalWatts}W - ${loads.totalKWh}kWh/day - ${loads.estimatedMonthlyCost}/month`,
             timestamp: new Date()
           }}
         />
@@ -670,3 +670,4 @@ export default function ElectricalCalculator() {
     </div>
   )
 }
+

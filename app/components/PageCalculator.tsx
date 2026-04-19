@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState, useEffect, useCallback } from 'react'
-import { Calculator as CalculatorIcon, DollarSign, Heart, Clock, Car, Home, GraduationCap, Wrench, Globe, Plus, Minus, X, Divide } from 'lucide-react'
+import React, { useState, useEffect, useCallback, memo } from 'react'
+import { Calculator, TrendingUp, Heart, Clock, GraduationCap, Wrench, Globe, X, Search } from 'lucide-react'
 
 interface CalculatorCategory {
   id: string
@@ -22,26 +22,26 @@ const calculatorCategories: CalculatorCategory[] = [
   {
     id: 'financial',
     name: 'Financial Calculators',
-    icon: <DollarSign className="w-8 h-8 text-green-600" />,
+    icon: <TrendingUp className="w-6 h-6 text-green-600" />,
     description: 'Calculate loans, mortgages, investments, and more',
     calculators: [
-      { id: 'mortgage', name: 'Mortgage Calculator', description: 'Calculate monthly mortgage payments', url: '/mortgage-calculator' },
-      { id: 'loan', name: 'Loan Calculator', description: 'Calculate loan payments and interest', url: '/loan-calculator' },
-      { id: 'auto-loan', name: 'Auto Loan Calculator', description: 'Calculate car loan payments', url: '/auto-loan-calculator' },
-      { id: 'investment', name: 'Investment Calculator', description: 'Calculate investment returns', url: '/investment-calculator' },
-      { id: 'retirement', name: 'Retirement Calculator', description: 'Plan your retirement savings', url: '/retirement-calculator' },
-      { id: 'compound-interest', name: 'Compound Interest Calculator', description: 'Calculate compound interest growth', url: '/compound-interest-calculator' },
-      { id: 'simple-interest', name: 'Simple Interest Calculator', description: 'Calculate simple interest', url: '/simple-interest-calculator' },
-      { id: 'discount', name: 'Discount Calculator', description: 'Calculate discounts and savings', url: '/discount-calculator' },
-      { id: 'tip', name: 'Tip Calculator', description: 'Calculate tips and split bills', url: '/tip-calculator' },
-      { id: 'income-tax', name: 'Income Tax Calculator', description: 'Calculate income tax liability', url: '/income-tax-calculator' },
-      { id: 'salary', name: 'Salary Calculator', description: 'Calculate take-home pay', url: '/calculators/salary' }
+      { id: 'mortgage', name: 'Mortgage Calculator', description: 'Monthly mortgage payments', url: '/mortgage-calculator' },
+      { id: 'loan', name: 'Loan Calculator', description: 'Loan payments and interest', url: '/loan-calculator' },
+      { id: 'auto-loan', name: 'Auto Loan Calculator', description: 'Car loan payments', url: '/auto-loan-calculator' },
+      { id: 'investment', name: 'Investment Calculator', description: 'Investment returns', url: '/investment-calculator' },
+      { id: 'retirement', name: 'Retirement Calculator', description: 'Retirement savings plan', url: '/retirement-calculator' },
+      { id: 'compound-interest', name: 'Compound Interest', description: 'Compound interest growth', url: '/compound-interest-calculator' },
+      { id: 'simple-interest', name: 'Simple Interest', description: 'Simple interest calculation', url: '/simple-interest-calculator' },
+      { id: 'discount', name: 'Discount Calculator', description: 'Discounts and savings', url: '/discount-calculator' },
+      { id: 'tip', name: 'Tip Calculator', description: 'Tips and split bills', url: '/tip-calculator' },
+      { id: 'income-tax', name: 'Income Tax Calculator', description: 'Income tax liability', url: '/income-tax-calculator' },
+      { id: 'salary', name: 'Salary Calculator', description: 'Take-home pay', url: '/calculators/salary' }
     ]
   },
   {
     id: 'math',
     name: 'Math Calculators',
-    icon: <CalculatorIcon className="w-8 h-8 text-blue-600" />,
+    icon: <Calculator className="w-8 h-8 text-blue-600" />,
     description: 'Advanced mathematical calculations and functions',
     calculators: [
       { id: 'scientific', name: 'Scientific Calculator', description: 'Advanced scientific functions', url: '/scientific-calculator' },
@@ -85,8 +85,7 @@ const calculatorCategories: CalculatorCategory[] = [
       { id: 'wind-chill', name: 'Wind Chill Calculator', description: 'Calculate wind chill factor', url: '/wind-chill-calculator' },
       { id: 'heat-index', name: 'Heat Index Calculator', description: 'Calculate heat index and safety levels', url: '/heat-index-calculator' },
       { id: 'dew-point', name: 'Dew Point Calculator', description: 'Calculate dew point temperature', url: '/dew-point-calculator' },
-      { id: 'bandwidth', name: 'Bandwidth Calculator', description: 'Calculate download/upload times', url: '/bandwidth-calculator' },
-      { id: 'currency', name: 'Currency Converter', description: 'Convert between currencies', url: '/calculators/currency' }
+      { id: 'bandwidth', name: 'Bandwidth Calculator', description: 'Download/upload times', url: '/bandwidth-calculator' },
     ]
   },
   {
@@ -146,6 +145,21 @@ export default function PageCalculator() {
   const [waitingForOperand, setWaitingForOperand] = useState(false)
 
   // Calculator functions
+  const performCalculation = useCallback((firstValue: number, secondValue: number, op: string): number => {
+    switch (op) {
+      case '+':
+        return firstValue + secondValue
+      case '-':
+        return firstValue - secondValue
+      case '×':
+        return firstValue * secondValue
+      case '÷':
+        return secondValue !== 0 ? firstValue / secondValue : 0
+      default:
+        return secondValue
+    }
+  }, [])
+
   const handleCalculatorInput = useCallback((input: string) => {
     switch (input) {
       case '0':
@@ -190,6 +204,14 @@ export default function PageCalculator() {
         }
         break
       
+      case '+/-':
+        setDisplay(String(parseFloat(display) * -1))
+        break
+      
+      case '%':
+        setDisplay(String(parseFloat(display) / 100))
+        break
+      
       case '+':
       case '-':
       case '×':
@@ -219,22 +241,8 @@ export default function PageCalculator() {
         }
         break
     }
-  }, [display, previousValue, operation, waitingForOperand])
+  }, [display, previousValue, operation, waitingForOperand, performCalculation])
 
-  const performCalculation = (firstValue: number, secondValue: number, op: string): number => {
-    switch (op) {
-      case '+':
-        return firstValue + secondValue
-      case '-':
-        return firstValue - secondValue
-      case '×':
-        return firstValue * secondValue
-      case '÷':
-        return secondValue !== 0 ? firstValue / secondValue : 0
-      default:
-        return secondValue
-    }
-  }
 
   // Keyboard input support
   useEffect(() => {
@@ -276,20 +284,23 @@ export default function PageCalculator() {
     window.history.replaceState({}, '', url.toString())
   }
 
-  // Get search query from URL if present
+  // Get search query from URL if present — sanitize before setting state
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search)
-    const searchParam = urlParams.get('q') || urlParams.get('search') // Support both 'q' and 'search' for backward compatibility
-    if (searchParam) {
-      setSearchTerm(searchParam)
+    const raw = urlParams.get('q') || urlParams.get('search')
+    if (raw) {
+      // Strip dangerous characters, limit length
+      const safe = raw.replace(/[<>"'`]/g, '').slice(0, 200)
+      if (safe) setSearchTerm(safe)
     }
   }, [])
 
-  // Update URL when search term changes
+  // Update URL when search term changes — use URLSearchParams to safely encode
   useEffect(() => {
     if (searchTerm) {
       const url = new URL(window.location.href)
-      url.searchParams.set('q', searchTerm)
+      // URLSearchParams.set automatically encodes the value safely
+      url.searchParams.set('q', searchTerm.slice(0, 200))
       window.history.replaceState({}, '', url.toString())
     }
   }, [searchTerm])
@@ -314,148 +325,73 @@ export default function PageCalculator() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="min-h-screen bg-google-bg text-google-text">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
         {/* Welcome Section */}
-        <div className="text-center mb-12">
-          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            200+ calculators
+        <div className="text-center mb-6 sm:mb-10">
+          <p className="text-sm sm:text-base lg:text-lg text-google-gray max-w-3xl mx-auto mb-4 sm:mb-6 font-medium">
+            200+ free calculators
           </p>
           
-          {/* Simple Calculator */}
-          <div className="max-w-xs mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3">
-              <div className="text-right text-white font-mono text-lg min-h-[1.5rem] break-all">
-                {display}
+          {/* Calculator Widget — Clean Google-style */}
+          <div className="w-full max-w-[300px] sm:max-w-[340px] mx-auto bg-white rounded-2xl overflow-hidden" style={{boxShadow: '0 2px 10px rgba(60,64,67,0.15), 0 1px 3px rgba(60,64,67,0.1)'}}>
+            {/* Display */}
+            <div className="bg-white px-5 pt-5 pb-3">
+              <div className="text-right">
+                <div className="text-google-gray text-xs h-4 mb-1 truncate">
+                  {operation ? `${previousValue} ${operation}` : ''}
+                </div>
+                <div className="text-google-text font-light tracking-tight break-all" style={{fontSize: display.length > 10 ? '1.75rem' : '2.5rem', lineHeight: 1.1}}>
+                  {display.includes('.') && display.endsWith('0') ? display : 
+                   display.endsWith('.') ? display :
+                   Number(display).toLocaleString('en-US', { maximumFractionDigits: 10 })}
+                </div>
               </div>
             </div>
-            <div className="p-3">
-              <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
-                {/* Calculator Buttons */}
+            {/* Divider */}
+            <div className="h-px bg-google-border mx-4" />
+            {/* Buttons */}
+            <div className="p-3 grid grid-cols-4 gap-1.5">
+              {[
+                { label: 'AC',  action: 'C',  cls: 'text-google-red   bg-transparent hover:bg-red-50',   span: 1 },
+                { label: '+/-', action: '+/-', cls: 'text-google-blue  bg-transparent hover:bg-blue-50', span: 1 },
+                { label: '%',   action: '%',  cls: 'text-google-blue  bg-transparent hover:bg-blue-50', span: 1 },
+                { label: '÷',   action: '÷',  cls: 'text-google-blue  bg-transparent hover:bg-blue-50 font-semibold', span: 1 },
+                { label: '7',   action: '7',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '8',   action: '8',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '9',   action: '9',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '×',   action: '×',  cls: 'text-google-blue  bg-transparent hover:bg-blue-50 font-semibold', span: 1 },
+                { label: '4',   action: '4',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '5',   action: '5',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '6',   action: '6',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '-',   action: '-',  cls: 'text-google-blue  bg-transparent hover:bg-blue-50 font-semibold', span: 1 },
+                { label: '1',   action: '1',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '2',   action: '2',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '3',   action: '3',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '+',   action: '+',  cls: 'text-google-blue  bg-transparent hover:bg-blue-50 font-semibold', span: 1 },
+                { label: '⌫',  action: '⌫', cls: 'text-google-gray  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '0',   action: '0',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '.',   action: '.',  cls: 'text-google-text  bg-transparent hover:bg-google-lightGray', span: 1 },
+                { label: '=',   action: '=',  cls: 'text-white        bg-google-blue hover:bg-google-blueHover shadow-sm', span: 1 },
+              ].map(({ label, action, cls, span }) => (
                 <button
-                  onClick={() => handleCalculatorInput('C')}
-                  className="col-span-2 bg-red-500 hover:bg-red-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
+                  key={label}
+                  onClick={() => handleCalculatorInput(action)}
+                  className={`${cls} ${span === 2 ? 'col-span-2' : ''} h-12 sm:h-13 rounded-xl text-base sm:text-lg transition-colors touch-manipulation select-none font-normal`}
+                  aria-label={label}
                 >
-                  AC
+                  {label}
                 </button>
-                <button
-                  onClick={() => handleCalculatorInput('⌫')}
-                  className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  ⌫
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('÷')}
-                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  ÷
-                </button>
-                
-                <button
-                  onClick={() => handleCalculatorInput('7')}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  7
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('8')}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  8
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('9')}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  9
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('×')}
-                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  ×
-                </button>
-                
-                <button
-                  onClick={() => handleCalculatorInput('4')}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  4
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('5')}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  5
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('6')}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  6
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('-')}
-                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  -
-                </button>
-                
-                <button
-                  onClick={() => handleCalculatorInput('1')}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  1
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('2')}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  2
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('3')}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  3
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('+')}
-                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  +
-                </button>
-                
-                <button
-                  onClick={() => handleCalculatorInput('0')}
-                  className="col-span-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  0
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('.')}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  .
-                </button>
-                <button
-                  onClick={() => handleCalculatorInput('=')}
-                  className="bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 sm:py-3 px-1 sm:px-2 rounded-lg transition-colors text-xs sm:text-sm"
-                >
-                  =
-                </button>
-              </div>
+              ))}
             </div>
           </div>
-          
-          {/* Calculator Instructions */}
-          <p className="text-sm text-gray-500 mt-3 max-w-xs mx-auto">
-            💡 Use keyboard: Numbers, +, -, *, /, Enter, Escape, Backspace
+          <p className="text-[11px] text-google-gray mt-2 text-center hidden sm:block">
+            Keyboard supported · Numbers · + − × ÷ · Enter · Esc
           </p>
         </div>
 
         {/* Search Bar */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <div className="max-w-2xl mx-auto">
             <div className="relative">
               <input
@@ -463,48 +399,36 @@ export default function PageCalculator() {
                 placeholder="Search calculators..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-2xl focus:border-blue-500 focus:outline-none shadow-lg pr-12"
+                className="w-full py-3 sm:py-4 text-sm sm:text-base bg-white border border-google-border rounded-full shadow-google hover:shadow-google-hover focus:shadow-google-hover focus:outline-none transition-shadow pl-10 sm:pl-12 pr-10 sm:pr-12 text-google-text placeholder-google-gray"
               />
-              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-                {searchTerm && (
-                  <button
-                    onClick={clearSearch}
-                    className="p-1 text-gray-400 hover:text-gray-600 transition-colors"
-                    aria-label="Clear search"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                )}
-                <CalculatorIcon className="w-6 h-6 text-gray-400" />
-              </div>
+              <Search className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-google-gray" />
+              {searchTerm && (
+                <button
+                  onClick={clearSearch}
+                  className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 p-1 text-google-gray hover:text-google-text transition-colors touch-manipulation"
+                  aria-label="Clear search"
+                >
+                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
+                </button>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Category Filter */}
-        <div className="mb-8">
-          <div className="flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => setSelectedCategory(null)}
-              className={`px-6 py-3 rounded-full font-medium transition-colors ${
-                selectedCategory === null
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md'
-              }`}
-            >
-              All Categories
-            </button>
-            {calculatorCategories.map(category => (
+        {/* Category Filter — horizontal scroll on mobile */}
+        <div className="mb-6 sm:mb-8">
+          <div className="flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center scrollbar-hide">
+            {[{ id: null, label: 'All' }, ...calculatorCategories.map(c => ({ id: c.id, label: c.name.replace(' Calculators', '') }))].map(({ id, label }) => (
               <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-colors ${
-                  selectedCategory === category.id
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md'
+                key={String(id)}
+                onClick={() => setSelectedCategory(id as string | null)}
+                className={`flex-shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium text-xs sm:text-sm transition-colors border touch-manipulation ${
+                  selectedCategory === id
+                    ? 'bg-google-blueLight text-google-blue border-google-blueLight'
+                    : 'bg-white text-google-gray border-google-border active:bg-google-lightGray'
                 }`}
               >
-                {category.name}
+                {label}
               </button>
             ))}
           </div>
@@ -512,28 +436,28 @@ export default function PageCalculator() {
 
         {/* Search Results */}
         {searchTerm && (
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Search Results for "{searchTerm}"
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-lg sm:text-xl font-medium text-google-text mb-4">
+              Results for &ldquo;{searchTerm}&rdquo;
             </h2>
             {filteredCalculators.length === 0 ? (
-              <div className="text-center py-12 bg-gray-50 rounded-2xl">
-                <CalculatorIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-600 mb-2">No calculators found</h3>
-                <p className="text-gray-500">Try adjusting your search terms or browse categories below</p>
+              <div className="text-center py-10 bg-white rounded-2xl border border-google-border">
+                <Calculator className="w-12 h-12 text-google-gray mx-auto mb-3 opacity-40" />
+                <h3 className="text-base font-medium text-google-gray mb-1">No calculators found</h3>
+                <p className="text-sm text-google-gray">Try different keywords or browse categories</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {filteredCalculators.map(calculator => (
                   <a
                     key={calculator.id}
                     href={calculator.url}
-                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow cursor-pointer border-l-4 border-blue-500 block"
+                    className="bg-white rounded-xl p-4 border border-google-border hover:bg-google-lightGray active:bg-google-lightGray transition-colors block group touch-manipulation"
                   >
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                    <h3 className="text-sm font-medium text-google-blue group-hover:underline mb-1">
                       {calculator.name}
                     </h3>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-xs text-google-gray leading-relaxed">
                       {calculator.description}
                     </p>
                   </a>
@@ -545,28 +469,27 @@ export default function PageCalculator() {
 
         {/* Calculator Categories */}
         {!searchTerm && (
-          <div className="space-y-12">
+          <div className="space-y-4 sm:space-y-6">
             {filteredCategories.map(category => (
-              <div key={category.id} className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  {category.icon}
+              <div key={category.id} className="bg-white rounded-2xl sm:rounded-3xl border border-google-border p-4 sm:p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                  <span className="flex-shrink-0">{category.icon}</span>
                   <div>
-                    <h2 className="text-3xl font-bold text-gray-800">{category.name}</h2>
-                    <p className="text-gray-600">{category.description}</p>
+                    <h2 className="text-lg sm:text-xl font-normal text-google-text">{category.name}</h2>
+                    <p className="text-google-gray text-xs sm:text-sm">{category.description}</p>
                   </div>
                 </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
                   {category.calculators.map(calculator => (
                     <a
                       key={calculator.id}
                       href={calculator.url}
-                      className="bg-gray-50 rounded-lg p-4 hover:bg-blue-50 transition-colors cursor-pointer border border-gray-200 hover:border-blue-300 block"
+                      className="bg-google-bg rounded-xl p-3 sm:p-4 hover:bg-google-lightGray active:bg-google-lightGray transition-colors border border-google-border block group touch-manipulation"
                     >
-                      <h3 className="font-semibold text-gray-800 mb-2">
+                      <h3 className="font-medium text-google-blue group-hover:underline text-xs sm:text-sm mb-0.5 sm:mb-1 line-clamp-2">
                         {calculator.name}
                       </h3>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-[11px] sm:text-xs text-google-gray leading-relaxed line-clamp-2 hidden sm:block">
                         {calculator.description}
                       </p>
                     </a>
@@ -577,16 +500,17 @@ export default function PageCalculator() {
           </div>
         )}
 
-        {/* Footer */}
-        <div className="text-center py-8 border-t border-gray-200">
-          <p className="text-gray-600 mb-2">
-            Online Calculator.live's sole focus is to provide fast, comprehensive, convenient, free online calculators.
+        {/* Footer note */}
+        <div className="text-center py-6 sm:py-8 border-t border-google-border mt-6">
+          <p className="text-google-gray text-xs sm:text-sm mb-1">
+            Online Calculator.live — fast, free, and accurate calculators for every need.
           </p>
-          <p className="text-gray-500 text-sm">
-            © 2024 Online Calculator.live - All calculators are completely free with no registration required.
+          <p className="text-google-gray text-[11px] sm:text-xs">
+            © {new Date().getFullYear()} Online Calculator.live · No registration required
           </p>
         </div>
       </div>
     </div>
   )
 }
+

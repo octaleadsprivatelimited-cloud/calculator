@@ -37,12 +37,12 @@ export default function FHALoanCalculator() {
     const totalPayment = totalMonthly * termMonths
 
     const recommendations = []
-    recommendations.push(`Home price: $${price.toLocaleString()}`)
-    recommendations.push(`Down payment: $${down.toLocaleString()} (${downPaymentPercent.toFixed(1)}%)`)
-    recommendations.push(`Loan amount: $${loanAmount.toLocaleString()}`)
-    recommendations.push(`Monthly payment: $${monthlyPayment.toFixed(2)}`)
-    if (pmi > 0) recommendations.push(`PMI: $${pmi.toFixed(2)}/month`)
-    recommendations.push(`Total monthly: $${totalMonthly.toFixed(2)}`)
+    recommendations.push(`Home price: ${price.toLocaleString()}`)
+    recommendations.push(`Down payment: ${down.toLocaleString()} (${downPaymentPercent.toFixed(1)}%)`)
+    recommendations.push(`Loan amount: ${loanAmount.toLocaleString()}`)
+    recommendations.push(`Monthly payment: ${monthlyPayment.toFixed(2)}`)
+    if (pmi > 0) recommendations.push(`PMI: ${pmi.toFixed(2)}/month`)
+    recommendations.push(`Total monthly: ${totalMonthly.toFixed(2)}`)
 
     if (downPaymentPercent < 3.5) recommendations.push('Minimum 3.5% down required for FHA')
     else if (downPaymentPercent < 10) recommendations.push('Low down payment - PMI required')
@@ -79,11 +79,11 @@ export default function FHALoanCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Home Price ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Home Price ()</label>
               <input type="number" value={homePrice} onChange={(e) => setHomePrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter price" step="1000" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ()</label>
               <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter down payment" step="1000" />
             </div>
           </div>
@@ -323,3 +323,4 @@ export default function FHALoanCalculator() {
     </div>
   )
 }
+

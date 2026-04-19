@@ -43,16 +43,16 @@ export default function RefinanceCalculator() {
     const totalSavings = monthlySavings * termMonths - costs
 
     const recommendations = []
-    recommendations.push(`Current balance: $${balance.toLocaleString()}`)
+    recommendations.push(`Current balance: ${balance.toLocaleString()}`)
     recommendations.push(`Current rate: ${oldRate.toFixed(2)}%`)
     recommendations.push(`New rate: ${newRateVal.toFixed(2)}%`)
     recommendations.push(`Remaining term: ${term} ${termType}`)
-    recommendations.push(`Current payment: $${currentPayment.toFixed(2)}`)
-    recommendations.push(`New payment: $${newPayment.toFixed(2)}`)
-    recommendations.push(`Monthly savings: $${monthlySavings.toFixed(2)}`)
-    recommendations.push(`Closing costs: $${costs.toFixed(2)}`)
+    recommendations.push(`Current payment: ${currentPayment.toFixed(2)}`)
+    recommendations.push(`New payment: ${newPayment.toFixed(2)}`)
+    recommendations.push(`Monthly savings: ${monthlySavings.toFixed(2)}`)
+    recommendations.push(`Closing costs: ${costs.toFixed(2)}`)
     recommendations.push(`Break-even: ${breakEvenMonths.toFixed(1)} months`)
-    recommendations.push(`Total savings: $${totalSavings.toFixed(2)}`)
+    recommendations.push(`Total savings: ${totalSavings.toFixed(2)}`)
 
     if (newRateVal >= oldRate) recommendations.push('New rate is higher - refinancing not recommended')
     else if (breakEvenMonths > 24) recommendations.push('Long break-even period - consider carefully')
@@ -91,7 +91,7 @@ export default function RefinanceCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Current Balance ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Current Balance ()</label>
               <input type="number" value={currentBalance} onChange={(e) => setCurrentBalance(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Enter balance" step="1000" />
             </div>
             <div>
@@ -119,7 +119,7 @@ export default function RefinanceCalculator() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Closing Costs ($)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Closing Costs ()</label>
             <input type="number" value={closingCosts} onChange={(e) => setClosingCosts(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Enter closing costs" step="100" />
           </div>
 
@@ -262,11 +262,11 @@ export default function RefinanceCalculator() {
                 <div>
                   <p><strong>Typical Closing Costs:</strong></p>
                   <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>Application fees: $200-500</li>
-                    <li>Appraisal: $300-500</li>
-                    <li>Title search: $200-400</li>
-                    <li>Attorney fees: $500-1,000</li>
-                    <li>Recording fees: $50-200</li>
+                    <li>Application fees: 200-500</li>
+                    <li>Appraisal: 300-500</li>
+                    <li>Title search: 200-400</li>
+                    <li>Attorney fees: 500-1,000</li>
+                    <li>Recording fees: 50-200</li>
                     <li>Total: 2-5% of loan amount</li>
                   </ul>
                 </div>
@@ -318,7 +318,7 @@ export default function RefinanceCalculator() {
               <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Don't just focus on monthly payment reduction - consider the total cost and long-term benefits. A 
-                refinance that saves $100 per month but costs $3,000 in closing costs takes 30 months to break even. 
+                refinance that saves 100 per month but costs 3,000 in closing costs takes 30 months to break even. 
                 If you plan to move within 2-3 years, the refinance may not be worth it. Always calculate the 
                 break-even point and consider your long-term plans before refinancing.
               </p>
@@ -329,3 +329,4 @@ export default function RefinanceCalculator() {
     </div>
   )
 }
+

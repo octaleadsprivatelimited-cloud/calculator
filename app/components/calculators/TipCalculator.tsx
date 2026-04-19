@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback, useEffect } from 'react'
-import { Calculator, Download, Share2, Printer, RotateCcw, Info, DollarSign, Users } from 'lucide-react'
+import { Calculator, Download, Share2, Printer, RotateCcw, Info, Users } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface TipResult {
@@ -73,8 +73,8 @@ export default function TipCalculator() {
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
+      style: 'decimal',
+      
     }).format(amount)
   }
 
@@ -140,7 +140,7 @@ Results:
             </p>
           </div>
           <div className="hidden md:block">
-            <DollarSign className="w-16 h-16 text-green-200" />
+            <Calculator className="w-16 h-16 text-green-200" />
           </div>
         </div>
       </div>
@@ -153,7 +153,7 @@ Results:
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Bill Amount</h3>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></span>
                 <input
                   type="number"
                   value={billAmount}
@@ -352,7 +352,7 @@ Results:
                   <li><strong>Restaurants:</strong> 15-20% of pre-tax bill</li>
                   <li><strong>Delivery Services:</strong> 15-18% of order total</li>
                   <li><strong>Personal Services:</strong> 15-20% of service cost</li>
-                  <li><strong>Bartenders:</strong> $1-2 per drink or 15-20%</li>
+                  <li><strong>Bartenders:</strong> 1-2 per drink or 15-20%</li>
                   <li><strong>Taxi/Rideshare:</strong> 15-20% of fare</li>
                 </ul>
               </div>
@@ -405,3 +405,7 @@ Results:
     </div>
   )
 }
+
+
+
+

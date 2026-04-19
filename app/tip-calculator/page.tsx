@@ -59,10 +59,10 @@ export default function TipCalculatorPage() {
             <h3 className="text-xl font-semibold mb-2">Standard Tip Percentages:</h3>
             <ul className="list-disc pl-6 mb-4">
               <li><strong>Restaurants:</strong> 15-20% of pre-tax bill</li>
-              <li><strong>Bars:</strong> $1-2 per drink or 15-20% of total</li>
+              <li><strong>Bars:</strong> 1-2 per drink or 15-20% of total</li>
               <li><strong>Taxi/Rideshare:</strong> 15-20% of fare</li>
               <li><strong>Hair Salons:</strong> 15-20% of service cost</li>
-              <li><strong>Hotel Staff:</strong> $2-5 per night for housekeeping</li>
+              <li><strong>Hotel Staff:</strong> 2-5 per night for housekeeping</li>
               <li><strong>Food Delivery:</strong> 15-20% of order total</li>
             </ul>
             <h3 className="text-xl font-semibold mb-2">Tip Calculation Formula:</h3>
@@ -90,3 +90,4 @@ export default function TipCalculatorPage() {
     </div>
   );
 }
+

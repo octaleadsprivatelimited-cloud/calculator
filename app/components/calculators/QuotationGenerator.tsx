@@ -19,7 +19,6 @@ import {
   MapPin,
   Calendar,
   Hash,
-  DollarSign,
   Percent,
   Edit,
   Check,
@@ -374,7 +373,7 @@ export default function QuotationGenerator() {
               {Object.entries(companyInfo).map(([key, value]) => (
                 <div key={key}>
                   <label className="block text-xs font-medium text-gray-700 mb-0.5 capitalize">
-                    {key.replace(/([A-Z])/g, ' $1').trim()}
+                    {key.replace(/([A-Z])/g, ' 1').trim()}
                   </label>
                   {isEditing && editingField === key ? (
                     <div className="flex space-x-1">
@@ -384,8 +383,8 @@ export default function QuotationGenerator() {
                         onChange={(e) => setCompanyInfo(prev => ({ ...prev, [key]: e.target.value }))}
                         className="flex-1 px-2 py-0.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
                         autoFocus
-                        title={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
-                        aria-label={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
+                        title={`Enter ${key.replace(/([A-Z])/g, ' 1').trim()}`}
+                        aria-label={`Enter ${key.replace(/([A-Z])/g, ' 1').trim()}`}
                       />
                       <button
                         onClick={saveEdit}
@@ -428,16 +427,16 @@ export default function QuotationGenerator() {
               {Object.entries(clientInfo).map(([key, value]) => (
                 <div key={key}>
                   <label className="block text-xs font-medium text-gray-700 mb-0.5 capitalize">
-                    {key.replace(/([A-Z])/g, ' $1').trim()}
+                    {key.replace(/([A-Z])/g, ' 1').trim()}
                   </label>
                   <input
                     type={key === 'email' ? 'email' : 'text'}
                     value={value}
                     onChange={(e) => setClientInfo(prev => ({ ...prev, [key]: e.target.value }))}
-                    placeholder={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
+                    placeholder={`Enter ${key.replace(/([A-Z])/g, ' 1').trim()}`}
                     className="w-full px-2 py-0.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
-                    title={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
-                    aria-label={`Enter ${key.replace(/([A-Z])/g, ' $1').trim()}`}
+                    title={`Enter ${key.replace(/([A-Z])/g, ' 1').trim()}`}
+                    aria-label={`Enter ${key.replace(/([A-Z])/g, ' 1').trim()}`}
                   />
                 </div>
               ))}
@@ -725,7 +724,7 @@ export default function QuotationGenerator() {
                 { label: "Client", value: clientInfo.name || 'Client' },
                 { label: "Items", value: items.length }
               ]}
-              result={{ label: "Total Amount", value: total.toFixed(2), unit: "$" }}
+              result={{ label: "Total Amount", value: total.toFixed(2), unit: "" }}
               calculatorName="Quotation Generator"
             />
           </div>
@@ -734,3 +733,5 @@ export default function QuotationGenerator() {
     </div>
   )
 }
+
+

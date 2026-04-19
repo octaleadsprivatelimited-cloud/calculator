@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, Download, Share2, Printer, RotateCcw, Info, Clock, DollarSign, Calendar } from 'lucide-react'
+import { Calculator, Download, Share2, Printer, RotateCcw, Info, Clock, Calendar } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface TimeEntry {
@@ -188,10 +188,10 @@ Pay Summary:
 - Regular Hours: ${formatNumber(result.regularHours)}
 - Overtime Hours: ${formatNumber(result.overtimeHours)}
 - Break Time: ${formatNumber(result.breakTime)} hours
-- Hourly Rate: $${hourlyRate}
-- Regular Pay: $${formatNumber(result.regularPay)}
-- Overtime Pay: $${formatNumber(result.overtimePay)}
-- Total Pay: $${formatNumber(result.totalPay)}`
+- Hourly Rate: ${hourlyRate}
+- Regular Pay: ${formatNumber(result.regularPay)}
+- Overtime Pay: ${formatNumber(result.overtimePay)}
+- Total Pay: ${formatNumber(result.totalPay)}`
     
     const blob = new Blob([data], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -210,12 +210,12 @@ Pay Summary:
       
       navigator.share({
         title: 'Time Card Calculator Results',
-        text: `Total hours: ${formatNumber(result.totalHours)}, Total pay: $${formatNumber(result.totalPay)}`,
+        text: `Total hours: ${formatNumber(result.totalHours)}, Total pay: ${formatNumber(result.totalPay)}`,
         url: window.location.href
       })
     } else {
       const result = calculatePay()
-      const text = `Time Card: ${formatNumber(result.totalHours)} hours, $${formatNumber(result.totalPay)} pay`
+      const text = `Time Card: ${formatNumber(result.totalHours)} hours, ${formatNumber(result.totalPay)} pay`
       navigator.clipboard.writeText(text)
       alert('Results copied to clipboard!')
     }
@@ -271,7 +271,7 @@ Pay Summary:
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Hourly Rate ($)
+                  Hourly Rate ()
                 </label>
                 <input
                   type="number"
@@ -447,13 +447,13 @@ Pay Summary:
                 title="Time Card Calculation Result"
                 inputs={[
                   { label: "Number of Entries", value: `${timeEntries.length} time entries` },
-                  { label: "Hourly Rate", value: `$${hourlyRate}/hour` },
-                  { label: "Overtime Rate", value: `$${overtimeRate}/hour` },
+                  { label: "Hourly Rate", value: `${hourlyRate}/hour` },
+                  { label: "Overtime Rate", value: `${overtimeRate}/hour` },
                   { label: "Overtime Threshold", value: `${overtimeThreshold} hours` }
                 ]}
                 result={{ 
                   label: "Total Pay", 
-                  value: `$${formatNumber(result.totalPay)}`,
+                  value: `${formatNumber(result.totalPay)}`,
                   unit: ""
                 }}
                 calculatorName="Time Card Calculator"
@@ -696,3 +696,5 @@ Pay Summary:
     </div>
   )
 }
+
+

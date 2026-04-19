@@ -3,7 +3,7 @@
 import React, { useState, useRef, useCallback } from 'react'
 import {
   Upload, Plus, Trash2, Download, Eye, FileText, Building2, User,
-  Calculator, Calendar, DollarSign, Check, Star, Layout, Save
+  Calculator, Calendar, Check, Star, Layout, Save
 } from 'lucide-react'
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
@@ -107,18 +107,18 @@ export default function InvoiceMaker() {
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const currencies = [
-    { code: 'USD', symbol: '$', name: 'US Dollar' },
+    { code: 'USD', symbol: '', name: 'US Dollar' },
     { code: 'EUR', symbol: '€', name: 'Euro' },
     { code: 'GBP', symbol: '£', name: 'British Pound' },
-    { code: 'CAD', symbol: 'C$', name: 'Canadian Dollar' },
-    { code: 'AUD', symbol: 'A$', name: 'Australian Dollar' },
+    { code: 'CAD', symbol: 'C', name: 'Canadian Dollar' },
+    { code: 'AUD', symbol: 'A', name: 'Australian Dollar' },
     { code: 'JPY', symbol: '¥', name: 'Japanese Yen' },
     { code: 'CNY', symbol: '¥', name: 'Chinese Yuan' },
     { code: 'INR', symbol: '₹', name: 'Indian Rupee' }
   ]
 
   const getCurrencySymbol = (code: string) => {
-    return currencies.find(c => c.code === code)?.symbol || '$'
+    return currencies.find(c => c.code === code)?.symbol || ''
   }
 
   const calculateTotals = useCallback(() => {
@@ -958,3 +958,5 @@ export default function InvoiceMaker() {
     </div>
   )
 }
+
+

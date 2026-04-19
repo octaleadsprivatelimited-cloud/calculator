@@ -68,32 +68,32 @@ export default function BudgetCalculator() {
       <div className="p-6">
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Monthly Income ($)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Monthly Income ()</label>
             <input type="number" value={income} onChange={(e) => setIncome(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter income" step="100" />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Housing ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Housing ()</label>
               <input type="number" value={housing} onChange={(e) => setHousing(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Rent/mortgage" step="100" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Transportation ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Transportation ()</label>
               <input type="number" value={transportation} onChange={(e) => setTransportation(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Car/gas/transit" step="50" />
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Food ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Food ()</label>
               <input type="number" value={food} onChange={(e) => setFood(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Groceries" step="50" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Utilities ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Utilities ()</label>
               <input type="number" value={utilities} onChange={(e) => setUtilities(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Electric/water" step="50" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Entertainment ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Entertainment ()</label>
               <input type="number" value={entertainment} onChange={(e) => setEntertainment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Fun money" step="50" />
             </div>
           </div>
@@ -330,3 +330,4 @@ export default function BudgetCalculator() {
     </div>
   )
 }
+

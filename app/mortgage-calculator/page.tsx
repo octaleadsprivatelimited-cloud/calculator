@@ -35,44 +35,78 @@ export const metadata: Metadata = {
 
 export default function MortgagePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100">
+    <div className="min-h-screen bg-google-bg py-8 sm:py-12">
       <CalculatorWithAds>
         <MortgageCalculator />
         
-        <div className="mt-6 bg-white rounded-lg shadow-lg p-4 sm:p-6">
-          <h2 className="text-lg font-semibold text-gray-800 mb-3">
-            About Mortgage Calculations
-          </h2>
-          <div className="prose prose-gray max-w-none">
-            <p className="mb-3 text-sm sm:text-base">
-              A mortgage calculator helps you estimate the monthly payments and total costs 
-              associated with a home loan. Understanding these costs is crucial for budgeting 
-              and making informed decisions about homeownership.
-            </p>
-            <h3 className="text-lg font-semibold mb-2">Key Components:</h3>
-            <ul className="list-disc pl-4 mb-3 text-sm sm:text-base space-y-1">
-              <li><strong>Principal:</strong> The amount borrowed to purchase the home</li>
-              <li><strong>Interest Rate:</strong> Annual percentage rate charged by the lender</li>
-              <li><strong>Loan Term:</strong> Length of time to repay the loan (typically 15-30 years)</li>
-              <li><strong>Property Taxes:</strong> Annual taxes assessed by local government</li>
-              <li><strong>Insurance:</strong> Homeowner's insurance and PMI if applicable</li>
-            </ul>
-            <h3 className="text-lg font-semibold mb-2">Benefits of Using a Mortgage Calculator:</h3>
-            <ul className="list-disc pl-4 mb-3 text-sm sm:text-base space-y-1">
-              <li>Compare different loan scenarios and terms</li>
-              <li>Understand the true cost of homeownership</li>
-              <li>Plan your budget and monthly expenses</li>
-              <li>Evaluate refinancing opportunities</li>
-              <li>Make informed decisions about down payments</li>
-            </ul>
-            <h3 className="text-lg font-semibold mb-2">Tips for Homebuyers:</h3>
-            <ul className="list-disc pl-4 text-sm sm:text-base space-y-1">
-              <li>Consider your total monthly budget, not just the mortgage payment</li>
-              <li>Factor in maintenance costs and emergency funds</li>
-              <li>Shop around for the best interest rates and terms</li>
-              <li>Understand the difference between fixed and adjustable rates</li>
-              <li>Calculate the break-even point for refinancing</li>
-            </ul>
+        <div className="mt-12 bg-white rounded-3xl shadow-google border border-google-border p-6 sm:p-10">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-normal text-google-text mb-6 flex items-center">
+              <span className="w-1.5 h-8 bg-google-blue rounded-full mr-4"></span>
+              About Mortgage Calculations
+            </h2>
+            <div className="prose prose-gray max-w-none text-google-gray">
+              <p className="mb-8 text-base leading-relaxed">
+                A mortgage calculator helps you estimate the monthly payments and total costs 
+                associated with a home loan. Understanding these costs is crucial for budgeting 
+                and making informed decisions about homeownership.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h3 className="text-lg font-medium text-google-text mb-4">Key Components</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <span className="text-google-blue mr-3">•</span>
+                      <span><strong>Principal:</strong> The amount borrowed to purchase the home</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-google-blue mr-3">•</span>
+                      <span><strong>Interest Rate:</strong> Annual percentage rate charged by the lender</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-google-blue mr-3">•</span>
+                      <span><strong>Loan Term:</strong> Length of time to repay (typically 15-30 years)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-google-text mb-4">Benefits</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <span className="text-google-blue mr-3">•</span>
+                      <span>Compare different loan scenarios and terms</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-google-blue mr-3">•</span>
+                      <span>Plan your budget and monthly expenses</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-google-blue mr-3">•</span>
+                      <span>Evaluate refinancing opportunities</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <h3 className="text-lg font-medium text-google-text mb-4">Quick Tips</h3>
+              <div className="bg-google-lightGray p-6 rounded-2xl border border-google-border">
+                <ul className="space-y-3 text-sm">
+                  <li className="flex items-center text-google-text">
+                    <div className="w-1.5 h-1.5 bg-google-green rounded-full mr-3"></div>
+                    Consider your total monthly budget, not just the mortgage payment
+                  </li>
+                  <li className="flex items-center text-google-text">
+                    <div className="w-1.5 h-1.5 bg-google-green rounded-full mr-3"></div>
+                    Shop around for the best interest rates and terms
+                  </li>
+                  <li className="flex items-center text-google-text">
+                    <div className="w-1.5 h-1.5 bg-google-green rounded-full mr-3"></div>
+                    Understand the difference between fixed and adjustable rates
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </CalculatorWithAds>

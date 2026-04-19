@@ -127,7 +127,7 @@ export default function DebtToIncomeCalculator() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Monthly Income ($)
+                Monthly Income ()
               </label>
               <input
                 type="number"
@@ -141,7 +141,7 @@ export default function DebtToIncomeCalculator() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Monthly Debt ($)
+                Monthly Debt ()
               </label>
               <input
                 type="number"
@@ -278,3 +278,4 @@ export default function DebtToIncomeCalculator() {
     </div>
   )
 }
+

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { BarChart3, Calculator as CalculatorIcon, RotateCcw, TrendingUp } from 'lucide-react'
+import { BarChart3, Calculator, RotateCcw, TrendingUp } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface StatisticsResult {
@@ -116,7 +116,7 @@ export default function StandardDeviationCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <CalculatorIcon className="w-6 h-6 mr-2 text-cyan-600" />
+              <Calculator className="w-6 h-6 mr-2 text-cyan-600" />
               Data Input
             </h2>
 
@@ -282,3 +282,4 @@ export default function StandardDeviationCalculator() {
     </div>
   )
 }
+

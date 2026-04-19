@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Box, Calculator as CalculatorIcon, RotateCcw, Ruler } from 'lucide-react'
+import { Box, Calculator, RotateCcw, Ruler } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface VolumeResult {
@@ -208,7 +208,7 @@ export default function VolumeCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-violet-200">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <CalculatorIcon className="w-6 h-6 mr-2 text-violet-600" />
+              <Calculator className="w-6 h-6 mr-2 text-violet-600" />
               Shape & Dimensions
             </h2>
 
@@ -481,3 +481,4 @@ export default function VolumeCalculator() {
     </div>
   )
 }
+

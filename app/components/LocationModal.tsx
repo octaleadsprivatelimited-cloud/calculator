@@ -19,14 +19,14 @@ interface CountryData {
 
 const countries: CountryData[] = [
   { name: 'India', country: 'India', currency: 'INR', symbol: '₹', flag: '🇮🇳' },
-  { name: 'United States', country: 'United States', currency: 'USD', symbol: '$', flag: '🇺🇸' },
+  { name: 'United States', country: 'United States', currency: 'USD', symbol: '', flag: '🇺🇸' },
   { name: 'United Kingdom', country: 'United Kingdom', currency: 'GBP', symbol: '£', flag: '🇬🇧' },
   { name: 'European Union', country: 'European Union', currency: 'EUR', symbol: '€', flag: '🇪🇺' },
   { name: 'Japan', country: 'Japan', currency: 'JPY', symbol: '¥', flag: '🇯🇵' },
-  { name: 'Canada', country: 'Canada', currency: 'CAD', symbol: 'C$', flag: '🇨🇦' },
-  { name: 'Australia', country: 'Australia', currency: 'AUD', symbol: 'A$', flag: '🇦🇺' },
+  { name: 'Canada', country: 'Canada', currency: 'CAD', symbol: 'C', flag: '🇨🇦' },
+  { name: 'Australia', country: 'Australia', currency: 'AUD', symbol: 'A', flag: '🇦🇺' },
   { name: 'China', country: 'China', currency: 'CNY', symbol: '¥', flag: '🇨🇳' },
-  { name: 'Brazil', country: 'Brazil', currency: 'BRL', symbol: 'R$', flag: '🇧🇷' },
+  { name: 'Brazil', country: 'Brazil', currency: 'BRL', symbol: 'R', flag: '🇧🇷' },
   { name: 'South Korea', country: 'South Korea', currency: 'KRW', symbol: '₩', flag: '🇰🇷' },
 ]
 
@@ -201,4 +201,5 @@ export default function LocationModal({ isOpen, onClose, onLocationSet }: Locati
     </div>
   )
 }
+
 

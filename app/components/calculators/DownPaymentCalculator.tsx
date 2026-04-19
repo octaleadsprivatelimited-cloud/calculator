@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useCallback } from 'react'
-import { Calculator, RotateCcw, DollarSign } from 'lucide-react'
+import { Calculator, RotateCcw, } from 'lucide-react'
 
 export default function DownPaymentCalculator() {
   const [homePrice, setHomePrice] = useState('')
@@ -24,9 +24,9 @@ export default function DownPaymentCalculator() {
     const pmiRequired = percent < 20
 
     const recommendations = []
-    recommendations.push(`Home price: $${price.toLocaleString()}`)
-    recommendations.push(`Down payment: $${downPayment.toLocaleString()} (${percent}%)`)
-    recommendations.push(`Loan amount: $${loanAmount.toLocaleString()}`)
+    recommendations.push(`Home price: ${price.toLocaleString()}`)
+    recommendations.push(`Down payment: ${downPayment.toLocaleString()} (${percent}%)`)
+    recommendations.push(`Loan amount: ${loanAmount.toLocaleString()}`)
     
     if (pmiRequired) {
       recommendations.push('PMI required - down payment below 20%')
@@ -59,7 +59,7 @@ export default function DownPaymentCalculator() {
     <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4">
         <div className="flex items-center">
-          <DollarSign className="h-8 w-8 text-white mr-3" />
+          <Calculator className="h-8 w-8 text-white mr-3" />
           <h2 className="text-2xl font-bold text-white">Down Payment Calculator</h2>
         </div>
         <p className="text-green-100 mt-1">Calculate down payment and loan amounts</p>
@@ -69,7 +69,7 @@ export default function DownPaymentCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Home Price ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Home Price ()</label>
               <input type="number" value={homePrice} onChange={(e) => setHomePrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter price" step="1000" />
             </div>
             <div>
@@ -353,3 +353,6 @@ export default function DownPaymentCalculator() {
     </div>
   )
 }
+
+
+

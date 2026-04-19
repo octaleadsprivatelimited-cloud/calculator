@@ -8,7 +8,6 @@ import {
   X,
   Search,
   ChevronDown,
-  DollarSign,
   Heart,
   Clock,
   Wrench,
@@ -119,9 +118,13 @@ export default function Header() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
-    if (searchQuery.trim()) {
-      window.location.href = `/search-calculator?q=${encodeURIComponent(searchQuery.trim())}`
-    }
+    const raw = searchQuery.trim()
+    if (!raw) return
+    // Sanitize: strip control characters, limit length to prevent injection
+    const safe = raw.replace(/[^\w\s\-.,+%]/g, '').slice(0, 200)
+    if (!safe) return
+    // Use Next.js router-safe navigation — never interpolate raw user input into href
+    window.location.href = `/search-calculator?q=${encodeURIComponent(safe)}`
   }
 
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null)
@@ -165,31 +168,35 @@ export default function Header() {
   return (
     <>
       {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#003366] ${
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
         isScrolled 
-          ? 'shadow-lg border-b border-blue-800' 
-          : ''
+          ? 'shadow-google' 
+          : 'border-b border-google-border'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 lg:h-15 xl:h-16">
+        <div className="flex items-center justify-between h-14 lg:h-16">
             
-                         {/* Logo */}
-             <div className="flex items-center">
-               <Link href="/" className="flex items-center space-x-2 group" onClick={closeAllDropdowns}>
-                 <div className="relative">
-                   <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
-                     <Calculator className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
-                   </div>
-                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
-                 </div>
-                                 <div className="hidden sm:block">
-                  <h1 className="text-base lg:text-lg xl:text-xl font-bold text-white whitespace-nowrap">
-                    Online Calculator.live
-                  </h1>
-                  <p className="text-xs text-gray-300 hidden xl:block">Free Online Calculators</p>
+                        {/* Logo */}
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center space-x-2 group" onClick={closeAllDropdowns}>
+                <div className="relative">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-google-blue rounded-full flex items-center justify-center shadow-sm transition-all duration-300 group-hover:bg-google-blueHover group-hover:shadow-google">
+                    <Calculator className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+                  </div>
                 </div>
-               </Link>
-             </div>
+                <div className="hidden sm:block">
+                  <h1 className="text-base lg:text-lg xl:text-xl font-medium text-google-gray whitespace-nowrap tracking-tight">
+                    <span className="text-google-blue font-bold">O</span>
+                    <span className="text-google-red font-bold">n</span>
+                    <span className="text-google-yellow font-bold">l</span>
+                    <span className="text-google-blue font-bold">i</span>
+                    <span className="text-google-green font-bold">n</span>
+                    <span className="text-google-red font-bold">e</span>
+                    <span className="text-google-text font-normal ml-1">Calculator.live</span>
+                  </h1>
+                </div>
+              </Link>
+            </div>
 
                                          {/* Desktop Navigation */}
                 <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
@@ -202,7 +209,7 @@ export default function Header() {
                     >
                       {item.href === '#' ? (
                         <button
-                          className="flex items-center space-x-1.5 px-2.5 py-2 rounded-lg text-white hover:text-blue-200 hover:bg-white/10 transition-all duration-200 text-xs font-medium header-nav-item"
+                          className="flex items-center space-x-1.5 px-3 py-2 rounded-full text-google-gray hover:text-google-text hover:bg-google-lightGray transition-all duration-200 text-sm font-medium header-nav-item"
                         >
                           <span className="header-nav-text">{item.name}</span>
                           <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 flex-shrink-0 ${
@@ -212,7 +219,7 @@ export default function Header() {
                       ) : (
                         <Link
                           href={item.href}
-                          className="flex items-center space-x-1.5 px-2.5 py-2 rounded-lg text-white hover:text-blue-200 hover:bg-white/10 transition-all duration-200 text-xs font-medium header-nav-item"
+                          className="flex items-center space-x-1.5 px-3 py-2 rounded-full text-google-gray hover:text-google-text hover:bg-google-lightGray transition-all duration-200 text-sm font-medium header-nav-item"
                           onClick={closeAllDropdowns}
                         >
                           <span className="header-nav-text">{item.name}</span>
@@ -260,18 +267,17 @@ export default function Header() {
               {/* Invoice Maker Button */}
               <Link
                 href="/invoice-maker"
-                className="hidden sm:flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-md hover:shadow-lg"
+                className="hidden sm:flex items-center space-x-2 px-4 py-2 bg-google-blue text-white rounded-full hover:bg-google-blueHover hover:shadow-google transition-all duration-200"
                 onClick={closeAllDropdowns}
               >
                 <FileText className="w-4 h-4" />
                 <span className="text-sm font-medium">Invoice Maker</span>
-                <span className="px-1.5 py-0.5 bg-white/20 text-xs rounded-full">NEW</span>
               </Link>
 
               {/* Search Button */}
               <button
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="p-2 text-white hover:text-blue-200 hover:bg-white/10 rounded-lg transition-colors duration-200"
+                className="p-2 text-google-gray hover:text-google-text hover:bg-google-lightGray rounded-full transition-colors duration-200"
                 aria-label="Search calculators"
               >
                 <Search className="w-5 h-5" />
@@ -280,7 +286,7 @@ export default function Header() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 text-white hover:text-blue-200 hover:bg-white/10 rounded-lg transition-colors duration-200"
+                className="lg:hidden p-2 text-google-gray hover:text-google-text hover:bg-google-lightGray rounded-full transition-colors duration-200"
                 aria-label="Toggle mobile menu"
               >
                 {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -297,13 +303,13 @@ export default function Header() {
                    placeholder="Search for calculators..."
                    value={searchQuery}
                    onChange={(e) => setSearchQuery(e.target.value)}
-                   className="w-full px-3 py-2.5 pl-10 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-all duration-200"
+                   className="w-full px-4 py-3 pl-12 text-sm text-google-text bg-white border border-google-border rounded-full focus:shadow-google focus:outline-none transition-all duration-200"
                    autoFocus
                  />
-                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-google-gray" />
                  <button
                    type="submit"
-                   className="absolute right-1.5 top-1/2 transform -translate-y-1/2 px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 text-xs font-medium"
+                   className="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-1.5 bg-google-blue text-white rounded-full hover:bg-google-blueHover transition-colors duration-200 text-sm font-medium"
                  >
                    Search
                  </button>
@@ -314,17 +320,16 @@ export default function Header() {
 
                  {/* Mobile Menu */}
          {isMobileMenuOpen && (
-           <div className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-blue-800 shadow-lg">
-             <div className="px-4 py-4 space-y-2">
+           <div className="lg:hidden bg-white border-t border-google-border shadow-google-hover overflow-y-auto max-h-[70vh]">
+             <div className="px-4 py-3 space-y-1">
                {/* Mobile Invoice Maker Button */}
                <Link
                  href="/invoice-maker"
-                 className="flex items-center space-x-2 p-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-md"
+                 className="flex items-center space-x-2 p-3 bg-google-blue text-white rounded-xl hover:bg-google-blueHover transition-all duration-200 touch-manipulation"
                  onClick={closeAllDropdowns}
                >
                  <FileText className="w-5 h-5" />
-                 <span className="font-medium">Invoice Maker</span>
-                 <span className="px-2 py-0.5 bg-white/20 text-xs rounded-full">NEW</span>
+                 <span className="font-medium text-sm">Invoice Maker</span>
                </Link>
                
                {navigation.map((item) => (
@@ -332,12 +337,10 @@ export default function Header() {
                    {item.href === '#' ? (
                      <button
                        onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                       className="flex items-center justify-between w-full p-2.5 text-left text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                       className="flex items-center justify-between w-full px-3 py-3 text-left text-google-text hover:text-google-blue hover:bg-google-lightGray rounded-xl transition-colors touch-manipulation"
                      >
-                       <div className="flex items-center space-x-2.5">
-                         <span className="text-sm font-medium">{item.name}</span>
-                       </div>
-                       <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                       <span className="text-sm font-medium">{item.name}</span>
+                       <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-google-gray ${
                          activeDropdown === item.name ? 'rotate-180' : ''
                        }`} />
                      </button>
@@ -345,29 +348,26 @@ export default function Header() {
                      <Link
                        href={item.href}
                        onClick={closeAllDropdowns}
-                       className="flex items-center justify-between w-full p-2.5 text-left text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                       className="flex items-center justify-between w-full px-3 py-3 text-left text-google-text hover:text-google-blue hover:bg-google-lightGray rounded-xl transition-colors touch-manipulation"
                      >
-                       <div className="flex items-center space-x-2.5">
-                         <span className="text-sm font-medium">{item.name}</span>
-                       </div>
-                       <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                         activeDropdown === item.name ? 'rotate-180' : ''
-                       }`} />
+                       <span className="text-sm font-medium">{item.name}</span>
                      </Link>
                    )}
                    
                    {activeDropdown === item.name && (
-                     <div className="ml-6 mt-1 space-y-1">
-                       {item.subItems?.map((subItem) => (
-                         <Link
-                           key={subItem.name}
-                           href={subItem.href}
-                           className="flex items-center space-x-2.5 p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200"
-                           onClick={closeAllDropdowns}
-                         >
-                           <div className="text-sm">{subItem.name}</div>
-                         </Link>
-                       ))}
+                     <div className="mx-3 mb-1 rounded-xl bg-google-bg border border-google-border overflow-hidden">
+                       <div className="grid grid-cols-2 gap-0">
+                         {item.subItems?.map((subItem) => (
+                           <Link
+                             key={subItem.name}
+                             href={subItem.href}
+                             className="px-3 py-2.5 text-google-blue text-xs hover:bg-google-lightGray transition-colors border-b border-google-border"
+                             onClick={closeAllDropdowns}
+                           >
+                             {subItem.name}
+                           </Link>
+                         ))}
+                       </div>
                      </div>
                    )}
                  </div>
@@ -382,3 +382,4 @@ export default function Header() {
     </>
   )
 }
+

@@ -226,17 +226,17 @@ export default function FutureValueCalculator() {
                 <div>
                   <p><strong>Conservative Growth (5%):</strong></p>
                   <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>$10,000 → $16,289 in 10 years</li>
-                    <li>$10,000 → $26,533 in 20 years</li>
-                    <li>$10,000 → $43,219 in 30 years</li>
+                    <li>10,000 → 16,289 in 10 years</li>
+                    <li>10,000 → 26,533 in 20 years</li>
+                    <li>10,000 → 43,219 in 30 years</li>
                   </ul>
                 </div>
                 <div>
                   <p><strong>Moderate Growth (8%):</strong></p>
                   <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>$10,000 → $21,589 in 10 years</li>
-                    <li>$10,000 → $46,610 in 20 years</li>
-                    <li>$10,000 → $100,627 in 30 years</li>
+                    <li>10,000 → 21,589 in 10 years</li>
+                    <li>10,000 → 46,610 in 20 years</li>
+                    <li>10,000 → 100,627 in 30 years</li>
                   </ul>
                 </div>
               </div>
@@ -297,8 +297,8 @@ export default function FutureValueCalculator() {
               <p className="text-gray-700 text-sm">
                 The most powerful factor in investment growth is time. Starting to invest just 5-10 years earlier 
                 can result in dramatically larger future values due to compound interest. For example, investing 
-                $10,000 at 8% for 30 years grows to $100,627, but starting 10 years earlier (40 years total) 
-                grows to $217,245. This demonstrates why it's crucial to start investing as early as possible, 
+                10,000 at 8% for 30 years grows to 100,627, but starting 10 years earlier (40 years total) 
+                grows to 217,245. This demonstrates why it's crucial to start investing as early as possible, 
                 even with smaller amounts. Remember, compound interest works best when given time to work its magic.
               </p>
             </div>
@@ -308,3 +308,4 @@ export default function FutureValueCalculator() {
     </div>
   )
 }
+

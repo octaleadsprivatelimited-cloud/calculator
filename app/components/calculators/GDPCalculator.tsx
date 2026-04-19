@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, Download, Share2, Printer, RotateCcw, Info, TrendingUp, DollarSign, Globe } from 'lucide-react'
+import { Calculator, Download, Share2, Printer, RotateCcw, Info, TrendingUp, Globe } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface GDPResult {
@@ -148,10 +148,10 @@ export default function GDPCalculator() {
   }
 
   const formatCurrency = (num: number) => {
-    if (isNaN(num) || !isFinite(num)) return '$0.00'
+    if (isNaN(num) || !isFinite(num)) return '0.00'
     return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+      style: 'decimal',
+      
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     }).format(num)
@@ -881,3 +881,6 @@ Economic Indicators:
     </div>
   )
 }
+
+
+

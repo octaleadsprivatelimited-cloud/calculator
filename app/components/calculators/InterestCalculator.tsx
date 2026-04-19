@@ -30,12 +30,12 @@ export default function InterestCalculator() {
     const totalAmount = p + compoundInterest
 
     const recommendations = []
-    recommendations.push(`Principal: $${p.toLocaleString()}`)
+    recommendations.push(`Principal: ${p.toLocaleString()}`)
     recommendations.push(`Interest rate: ${rate.toFixed(2)}%`)
     recommendations.push(`Time period: ${time} ${periodType}`)
-    recommendations.push(`Simple interest: $${simpleInterest.toFixed(2)}`)
-    recommendations.push(`Compound interest: $${compoundInterest.toFixed(2)}`)
-    recommendations.push(`Total amount: $${totalAmount.toFixed(2)}`)
+    recommendations.push(`Simple interest: ${simpleInterest.toFixed(2)}`)
+    recommendations.push(`Compound interest: ${compoundInterest.toFixed(2)}`)
+    recommendations.push(`Total amount: ${totalAmount.toFixed(2)}`)
 
     if (rate > 15) recommendations.push('High interest rate - significant growth potential')
     else if (rate > 8) recommendations.push('Moderate rate - steady growth')
@@ -75,7 +75,7 @@ export default function InterestCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Principal ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Principal ()</label>
               <input type="number" value={principal} onChange={(e) => setPrincipal(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="Enter amount" step="100" />
             </div>
             <div>
@@ -287,3 +287,4 @@ export default function InterestCalculator() {
     </div>
   )
 }
+

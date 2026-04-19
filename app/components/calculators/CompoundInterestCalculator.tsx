@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { TrendingUp, DollarSign, Calculator as CalculatorIcon, RotateCcw, BarChart3 } from 'lucide-react'
+import { TrendingUp, Calculator, RotateCcw, BarChart3 } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface CompoundResult {
@@ -145,7 +145,7 @@ export default function CompoundInterestCalculator() {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6">
           <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-2 border-blue-200">
             <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
-              <CalculatorIcon className="w-5 h-5 mr-2 text-blue-600" />
+              <Calculator className="w-5 h-5 mr-2 text-blue-600" />
               Investment Parameters
             </h2>
 
@@ -377,3 +377,5 @@ export default function CompoundInterestCalculator() {
     </div>
   )
 }
+
+

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback, useEffect } from 'react'
-import { Calculator as CalculatorIcon, RotateCcw, History, Trash2, Share2, Sun, Moon, Smartphone, Monitor, X } from 'lucide-react'
+import { Calculator, RotateCcw, History, Trash2, Share2, Sun, Moon, Smartphone, Monitor, X } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface Calculation {
@@ -1612,3 +1612,4 @@ export default function ScientificCalculator() {
     </div>
   )
 }
+

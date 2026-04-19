@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { DollarSign, Calculator, TrendingUp, Share2, Download, Printer, RefreshCw, Globe } from 'lucide-react'
+import { Calculator, TrendingUp, Share2, Download, Printer, RefreshCw, Globe } from 'lucide-react'
 import ShareModal from '../ShareModal'
 import ResultSharing from '../ResultSharing'
 
@@ -15,8 +15,8 @@ interface CurrencyRate {
 interface ConversionResult {
   fromAmount: number
   toAmount: number
-  fromCurrency: string
-  toCurrency: string
+  from
+  to
   rate: number
   inverseRate: number
 }
@@ -172,10 +172,10 @@ export default function CurrencyConverter() {
     URL.revokeObjectURL(url)
   }
 
-  const formatCurrency = (amount: number, currency: string) => {
+  const formatCurrency = (amount: number, ) => {
     return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: currency,
+      style: 'decimal',
+      
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
     }).format(amount)
@@ -467,3 +467,5 @@ export default function CurrencyConverter() {
     </div>
   )
 }
+
+

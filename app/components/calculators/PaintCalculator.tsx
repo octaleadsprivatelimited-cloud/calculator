@@ -115,7 +115,7 @@ export default function PaintCalculator() {
     const area = calculateArea()
     const paint = calculatePaintNeeded()
     
-    const data = `Paint Calculator Results\n\nSurface: ${surfaces.find(s => s.key === selectedSurface)?.name}\nArea: ${area.toFixed(2)} m²\nCoats: ${coats}\nWastage: ${wastage}%\n\nPaint: ${paintTypes[selectedPaint].name}\nCoverage: ${paintTypes[selectedPaint].coverage} ${paintTypes[selectedPaint].unit}\n\nPaint Needed:\n${paint?.paintLiters} L (${paint?.paintGallons} gallons)\nTotal Cost: $${paint?.totalCost}`
+    const data = `Paint Calculator Results\n\nSurface: ${surfaces.find(s => s.key === selectedSurface)?.name}\nArea: ${area.toFixed(2)} m²\nCoats: ${coats}\nWastage: ${wastage}%\n\nPaint: ${paintTypes[selectedPaint].name}\nCoverage: ${paintTypes[selectedPaint].coverage} ${paintTypes[selectedPaint].unit}\n\nPaint Needed:\n${paint?.paintLiters} L (${paint?.paintGallons} gallons)\nTotal Cost: ${paint?.totalCost}`
     
     const blob = new Blob([data], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -665,3 +665,4 @@ export default function PaintCalculator() {
     </div>
   )
 }
+

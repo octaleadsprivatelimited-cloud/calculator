@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calendar, Calculator as CalculatorIcon, RotateCcw, Plus, Minus, Clock } from 'lucide-react'
+import { Calendar, Calculator, RotateCcw, Plus, Minus, Clock } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface DateResult {
@@ -171,7 +171,7 @@ export default function DateCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-cyan-200">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <CalculatorIcon className="w-6 h-6 mr-2 text-cyan-600" />
+              <Calculator className="w-6 h-6 mr-2 text-cyan-600" />
               Date Calculation
             </h2>
 
@@ -494,3 +494,4 @@ export default function DateCalculator() {
     </div>
   )
 }
+

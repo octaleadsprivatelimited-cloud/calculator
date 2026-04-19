@@ -32,12 +32,12 @@ export default function PaymentCalculator() {
     const totalInterest = totalPayment - amount
 
     const recommendations = []
-    recommendations.push(`Loan amount: $${amount.toLocaleString()}`)
+    recommendations.push(`Loan amount: ${amount.toLocaleString()}`)
     recommendations.push(`Interest rate: ${rate.toFixed(2)}%`)
     recommendations.push(`Loan term: ${term} ${termType}`)
-    recommendations.push(`Monthly payment: $${monthlyPayment.toFixed(2)}`)
-    recommendations.push(`Total interest: $${totalInterest.toFixed(2)}`)
-    recommendations.push(`Total payment: $${totalPayment.toFixed(2)}`)
+    recommendations.push(`Monthly payment: ${monthlyPayment.toFixed(2)}`)
+    recommendations.push(`Total interest: ${totalInterest.toFixed(2)}`)
+    recommendations.push(`Total payment: ${totalPayment.toFixed(2)}`)
 
     if (rate > 20) recommendations.push('High interest rate - consider alternatives')
     else if (rate > 15) recommendations.push('Moderate-high rate - shop around')
@@ -78,7 +78,7 @@ export default function PaymentCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount ()</label>
               <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter amount" step="100" />
             </div>
             <div>
@@ -247,10 +247,10 @@ export default function PaymentCalculator() {
                 <div>
                   <p><strong>Example:</strong></p>
                   <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>$200,000 loan</li>
+                    <li>200,000 loan</li>
                     <li>4% annual rate</li>
                     <li>30-year term</li>
-                    <li>Monthly payment: $954.83</li>
+                    <li>Monthly payment: 954.83</li>
                   </ul>
                 </div>
               </div>
@@ -280,8 +280,8 @@ export default function PaymentCalculator() {
               <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 Consider making extra principal payments when possible. Even small additional amounts can significantly 
-                reduce your total interest costs and shorten your loan term. For example, adding just $50 extra to a 
-                $200,000 mortgage payment can save thousands in interest and reduce the loan term by several years.
+                reduce your total interest costs and shorten your loan term. For example, adding just 50 extra to a 
+                200,000 mortgage payment can save thousands in interest and reduce the loan term by several years.
               </p>
             </div>
           </div>
@@ -290,3 +290,4 @@ export default function PaymentCalculator() {
     </div>
   )
 }
+

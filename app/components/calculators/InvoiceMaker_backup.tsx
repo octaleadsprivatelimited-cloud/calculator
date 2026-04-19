@@ -4,7 +4,7 @@ import React, { useState, useRef, useCallback } from 'react'
 import {
   Upload, Plus, Trash2, Download, Eye, FileText, Building2, User,
   Calculator, RotateCcw, Image as ImageIcon, Palette, Layout, Settings,
-  Save, Copy, Share2, Printer, Mail, Calendar, DollarSign, Check, Star
+  Save, Copy, Share2, Printer, Mail, Calendar, Check, Star
 } from 'lucide-react'
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
@@ -161,18 +161,18 @@ export default function InvoiceMaker() {
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const currencies = [
-    { code: 'USD', symbol: '$', name: 'US Dollar' },
+    { code: 'USD', symbol: '', name: 'US Dollar' },
     { code: 'EUR', symbol: '€', name: 'Euro' },
     { code: 'GBP', symbol: '£', name: 'British Pound' },
-    { code: 'CAD', symbol: 'C$', name: 'Canadian Dollar' },
-    { code: 'AUD', symbol: 'A$', name: 'Australian Dollar' },
+    { code: 'CAD', symbol: 'C', name: 'Canadian Dollar' },
+    { code: 'AUD', symbol: 'A', name: 'Australian Dollar' },
     { code: 'JPY', symbol: '¥', name: 'Japanese Yen' },
     { code: 'CNY', symbol: '¥', name: 'Chinese Yuan' },
     { code: 'INR', symbol: '₹', name: 'Indian Rupee' }
   ]
 
   const getCurrencySymbol = (code: string) => {
-    return currencies.find(c => c.code === code)?.symbol || '$'
+    return currencies.find(c => c.code === code)?.symbol || ''
   }
 
   const calculateTotals = useCallback(() => {
@@ -721,7 +721,7 @@ export default function InvoiceMaker() {
               {/* Totals */}
               <div className="bg-white rounded-xl shadow-sm border p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <DollarSign className="w-5 h-5 mr-2 text-blue-600" />
+                  <Calculator className="w-5 h-5 mr-2 text-blue-600" />
                   Calculations
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -985,3 +985,6 @@ export default function InvoiceMaker() {
     </div>
   )
 }
+
+
+

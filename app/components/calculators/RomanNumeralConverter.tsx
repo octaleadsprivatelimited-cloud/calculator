@@ -116,7 +116,7 @@ export default function RomanNumeralConverter() {
     const romanUpper = roman.toUpperCase()
     
     // Check for invalid characters
-    if (!/^[IVXLCDM]+$/i.test(romanUpper)) return false
+    if (!/^[IVXLCDM]+/i.test(romanUpper)) return false
     
     // Check for invalid sequences
     const invalidSequences = ['IIII', 'VVVV', 'XXXX', 'LLLL', 'CCCC', 'DDDD', 'MMMM']
@@ -591,3 +591,4 @@ Conversion Details:
     </div>
   )
 }
+

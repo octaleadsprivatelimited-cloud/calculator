@@ -47,15 +47,15 @@ export default function RentalPropertyCalculator() {
     const capRate = (annualCashFlow / price) * 100
 
     const recommendations = []
-    recommendations.push(`Purchase price: $${price.toLocaleString()}`)
-    recommendations.push(`Down payment: $${down.toLocaleString()}`)
-    recommendations.push(`Loan amount: $${loanAmount.toLocaleString()}`)
+    recommendations.push(`Purchase price: ${price.toLocaleString()}`)
+    recommendations.push(`Down payment: ${down.toLocaleString()}`)
+    recommendations.push(`Loan amount: ${loanAmount.toLocaleString()}`)
     recommendations.push(`Interest rate: ${rate.toFixed(2)}%`)
     recommendations.push(`Loan term: ${term} years`)
-    recommendations.push(`Monthly rent: $${rent.toFixed(2)}`)
-    recommendations.push(`Monthly mortgage: $${monthlyPayment.toFixed(2)}`)
-    recommendations.push(`Monthly expenses: $${monthlyExpenses.toFixed(2)}`)
-    recommendations.push(`Monthly cash flow: $${monthlyCashFlow.toFixed(2)}`)
+    recommendations.push(`Monthly rent: ${rent.toFixed(2)}`)
+    recommendations.push(`Monthly mortgage: ${monthlyPayment.toFixed(2)}`)
+    recommendations.push(`Monthly expenses: ${monthlyExpenses.toFixed(2)}`)
+    recommendations.push(`Monthly cash flow: ${monthlyCashFlow.toFixed(2)}`)
     recommendations.push(`Annual ROI: ${annualROI.toFixed(2)}%`)
     recommendations.push(`Cap rate: ${capRate.toFixed(2)}%`)
 
@@ -106,11 +106,11 @@ export default function RentalPropertyCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Purchase Price ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Purchase Price ()</label>
               <input type="number" value={purchasePrice} onChange={(e) => setPurchasePrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter price" step="1000" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ()</label>
               <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter down payment" step="1000" />
             </div>
           </div>
@@ -132,22 +132,22 @@ export default function RentalPropertyCalculator() {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Monthly Rent ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Monthly Rent ()</label>
               <input type="number" value={monthlyRent} onChange={(e) => setMonthlyRent(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter rent" step="100" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Property Tax ($/year)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Property Tax (/year)</label>
               <input type="number" value={propertyTax} onChange={(e) => setPropertyTax(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter tax" step="100" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Insurance ($/year)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Insurance (/year)</label>
               <input type="number" value={insurance} onChange={(e) => setInsurance(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter insurance" step="100" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Maintenance ($/month)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Maintenance (/month)</label>
               <input type="number" value={maintenance} onChange={(e) => setMaintenance(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter maintenance" step="50" />
             </div>
           </div>
@@ -350,3 +350,4 @@ export default function RentalPropertyCalculator() {
     </div>
   )
 }
+

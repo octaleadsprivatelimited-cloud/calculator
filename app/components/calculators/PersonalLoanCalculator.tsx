@@ -32,12 +32,12 @@ export default function PersonalLoanCalculator() {
     const totalInterest = totalPayment - amount
 
     const recommendations = []
-    recommendations.push(`Loan amount: $${amount.toLocaleString()}`)
+    recommendations.push(`Loan amount: ${amount.toLocaleString()}`)
     recommendations.push(`Interest rate: ${rate.toFixed(2)}%`)
     recommendations.push(`Loan term: ${term} ${termType}`)
-    recommendations.push(`Monthly payment: $${monthlyPayment.toFixed(2)}`)
-    recommendations.push(`Total interest: $${totalInterest.toFixed(2)}`)
-    recommendations.push(`Total payment: $${totalPayment.toFixed(2)}`)
+    recommendations.push(`Monthly payment: ${monthlyPayment.toFixed(2)}`)
+    recommendations.push(`Total interest: ${totalInterest.toFixed(2)}`)
+    recommendations.push(`Total payment: ${totalPayment.toFixed(2)}`)
 
     if (rate > 20) recommendations.push('High interest rate - consider alternatives')
     else if (rate > 15) recommendations.push('Moderate-high rate - shop around')
@@ -78,7 +78,7 @@ export default function PersonalLoanCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount ()</label>
               <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Enter amount" step="100" />
             </div>
             <div>
@@ -312,3 +312,4 @@ export default function PersonalLoanCalculator() {
     </div>
   )
 }
+

@@ -489,8 +489,8 @@ export default function MarginCalculator() {
               <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When analyzing margins, always consider both the percentage and absolute dollar amounts. A 
-                50% margin on a $10 product ($5 profit) is very different from a 20% margin on a $100 
-                product ($20 profit). Also, regularly review your margins to ensure they're keeping pace 
+                50% margin on a 10 product (5 profit) is very different from a 20% margin on a 100 
+                product (20 profit). Also, regularly review your margins to ensure they're keeping pace 
                 with rising costs. Many businesses fail to adjust prices when costs increase, leading to 
                 margin erosion over time. Remember that healthy margins are essential for business growth, 
                 reinvestment, and weathering economic downturns.
@@ -502,3 +502,4 @@ export default function MarginCalculator() {
     </div>
   )
 }
+

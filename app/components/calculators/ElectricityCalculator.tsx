@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, Download, Share2, Printer, RotateCcw, Info, Zap, DollarSign, Gauge } from 'lucide-react'
+import { Calculator, Download, Share2, Printer, RotateCcw, Info, Zap, Gauge } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface ElectricityResult {
@@ -155,8 +155,8 @@ export default function ElectricityCalculator() {
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
+      style: 'decimal',
+      
     }).format(amount)
   }
 
@@ -165,7 +165,7 @@ export default function ElectricityCalculator() {
     
     const data = `Electricity Calculator Results
 
-Electricity Rate: $${parseFloat(customRate) || parseFloat(electricityRate)} per kWh
+Electricity Rate: ${parseFloat(customRate) || parseFloat(electricityRate)} per kWh
 
 Appliances:
 ${appliances.filter(a => a.name.trim() !== '').map(a => `- ${a.name}: ${a.power}W × ${a.usage}h = ${((parseFloat(a.power) || 0) * (parseFloat(a.usage) || 0) / 1000).toFixed(2)} kWh/day`).join('\n')}
@@ -263,7 +263,7 @@ Energy Saving Tips:
           </div>
           <div className="mt-4">
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Custom Rate ($/kWh)
+              Custom Rate (/kWh)
             </label>
             <input
               type="number"
@@ -407,7 +407,7 @@ Energy Saving Tips:
                 title="Electricity Calculation Result"
                 inputs={[
                   { label: "Appliances", value: `${appliances.filter(a => a.name && a.power && a.usage).length} devices` },
-                  { label: "Electricity Rate", value: `$${customRate || electricityRate}/kWh` },
+                  { label: "Electricity Rate", value: `${customRate || electricityRate}/kWh` },
                   { label: "Calculation Type", value: "Energy Usage Analysis" }
                 ]}
                 result={{ 
@@ -784,3 +784,6 @@ Energy Saving Tips:
     </div>
   )
 }
+
+
+

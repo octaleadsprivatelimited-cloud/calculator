@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { TrendingUp, DollarSign, Calendar, Calculator as CalculatorIcon, RotateCcw, BarChart3 } from 'lucide-react'
+import { TrendingUp, Calendar, Calculator, RotateCcw, BarChart3 } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface InvestmentResult {
@@ -84,8 +84,6 @@ export default function InvestmentCalculator() {
 
   const formatCurrency = (amount: number): string => {
     return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     }).format(amount)
@@ -114,7 +112,7 @@ export default function InvestmentCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-200">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <CalculatorIcon className="w-6 h-6 mr-2 text-emerald-600" />
+              <Calculator className="w-6 h-6 mr-2 text-emerald-600" />
               Investment Details
             </h2>
 
@@ -124,12 +122,11 @@ export default function InvestmentCalculator() {
                   Initial Investment
                 </label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
                     type="number"
                     value={initialInvestment}
                     onChange={(e) => setInitialInvestment(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                     placeholder="10000"
                   />
                 </div>
@@ -140,12 +137,11 @@ export default function InvestmentCalculator() {
                   Monthly Contribution
                 </label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
                     type="number"
                     value={monthlyContribution}
                     onChange={(e) => setMonthlyContribution(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
                     placeholder="500"
                   />
                 </div>
@@ -352,3 +348,5 @@ export default function InvestmentCalculator() {
     </div>
   )
 }
+
+

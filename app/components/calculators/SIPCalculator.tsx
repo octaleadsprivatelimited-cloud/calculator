@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, TrendingUp, DollarSign, Calendar, Percent } from 'lucide-react'
+import { Calculator, TrendingUp, Calendar, Percent } from 'lucide-react'
 
 export default function SIPCalculator() {
   const [monthlyInvestment, setMonthlyInvestment] = useState<number>(5000)
@@ -68,8 +68,8 @@ export default function SIPCalculator() {
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
+      style: 'decimal',
+      
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(amount)
@@ -108,7 +108,7 @@ export default function SIPCalculator() {
                   Monthly Investment Amount
                 </label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Calculator className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
                     type="number"
                     value={monthlyInvestment}
@@ -188,7 +188,7 @@ export default function SIPCalculator() {
                         <p className="text-sm font-medium text-blue-700">Total Investment</p>
                         <p className="text-2xl font-bold text-blue-900">{formatCurrency(results.totalInvestment)}</p>
                       </div>
-                      <DollarSign className="w-8 h-8 text-blue-600" />
+                      <Calculator className="w-8 h-8 text-blue-600" />
                     </div>
                   </div>
 
@@ -316,3 +316,6 @@ export default function SIPCalculator() {
     </div>
   )
 }
+
+
+

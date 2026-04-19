@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { DollarSign, Calculator as CalculatorIcon, RotateCcw, Receipt, TrendingDown } from 'lucide-react'
+import { Calculator, RotateCcw, Receipt, TrendingDown } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface TaxResult {
@@ -80,7 +80,7 @@ export default function IncomeTaxCalculator() {
     }
 
     // Calculate other taxes
-    const socialSecurityTax = Math.min(income * 0.062, 160200 * 0.062) // 6.2% up to $160,200
+    const socialSecurityTax = Math.min(income * 0.062, 160200 * 0.062) // 6.2% up to 160,200
     const medicareTax = income * 0.0145 // 1.45%
     const stateTax = taxableIncome * stateRate
 
@@ -104,8 +104,8 @@ export default function IncomeTaxCalculator() {
 
   const formatCurrency = (amount: number): string => {
     return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+      style: 'decimal',
+      
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     }).format(amount)
@@ -133,7 +133,7 @@ export default function IncomeTaxCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-red-200">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <CalculatorIcon className="w-6 h-6 mr-2 text-red-600" />
+              <Calculator className="w-6 h-6 mr-2 text-red-600" />
               Tax Information
             </h2>
 
@@ -160,7 +160,7 @@ export default function IncomeTaxCalculator() {
                   Gross Annual Income
                 </label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Calculator className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
                     type="number"
                     value={grossIncome}
@@ -178,7 +178,7 @@ export default function IncomeTaxCalculator() {
                   Standard Deduction
                 </label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Calculator className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
                     type="number"
                     value={deductions}
@@ -196,7 +196,7 @@ export default function IncomeTaxCalculator() {
                   Additional Deductions
                 </label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Calculator className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
                     type="number"
                     value={additionalDeductions}
@@ -368,3 +368,8 @@ export default function IncomeTaxCalculator() {
     </div>
   )
 }
+
+
+
+
+

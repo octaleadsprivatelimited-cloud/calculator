@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator as CalculatorIcon, RotateCcw, History, Trash2, Share2 } from 'lucide-react'
+import { Calculator, RotateCcw, History, Trash2, Share2 } from 'lucide-react'
 import ShareModal from './ShareModal'
 
 interface Calculation {
@@ -230,7 +230,7 @@ export default function Calculator() {
         {/* Header */}
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">
-            <CalculatorIcon className="inline-block w-10 h-10 mr-3 text-blue-600" />
+            <Calculator className="inline-block w-10 h-10 mr-3 text-blue-600" />
             Scientific Calculator
           </h1>
           <p className="text-lg text-gray-600">
@@ -640,3 +640,4 @@ export default function Calculator() {
     </div>
   )
 }
+

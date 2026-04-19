@@ -37,14 +37,14 @@ export default function BoatLoanCalculator() {
     const downPaymentPercent = (down / price) * 100
 
     const recommendations = []
-    recommendations.push(`Boat price: $${price.toLocaleString()}`)
-    recommendations.push(`Down payment: $${down.toLocaleString()} (${downPaymentPercent.toFixed(1)}%)`)
-    recommendations.push(`Loan amount: $${loanAmount.toLocaleString()}`)
+    recommendations.push(`Boat price: ${price.toLocaleString()}`)
+    recommendations.push(`Down payment: ${down.toLocaleString()} (${downPaymentPercent.toFixed(1)}%)`)
+    recommendations.push(`Loan amount: ${loanAmount.toLocaleString()}`)
     recommendations.push(`Interest rate: ${rate.toFixed(2)}%`)
     recommendations.push(`Loan term: ${term} ${termType}`)
-    recommendations.push(`Monthly payment: $${monthlyPayment.toFixed(2)}`)
-    recommendations.push(`Total interest: $${totalInterest.toFixed(2)}`)
-    recommendations.push(`Total payment: $${totalPayment.toFixed(2)}`)
+    recommendations.push(`Monthly payment: ${monthlyPayment.toFixed(2)}`)
+    recommendations.push(`Total interest: ${totalInterest.toFixed(2)}`)
+    recommendations.push(`Total payment: ${totalPayment.toFixed(2)}`)
 
     if (rate > 12) recommendations.push('High interest rate - typical for boat loans')
     else if (rate > 8) recommendations.push('Moderate rate - good boat loan terms')
@@ -85,11 +85,11 @@ export default function BoatLoanCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Boat Price ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Boat Price ()</label>
               <input type="number" value={boatPrice} onChange={(e) => setBoatPrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter price" step="1000" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ()</label>
               <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter down payment" step="1000" />
             </div>
           </div>
@@ -311,9 +311,9 @@ export default function BoatLoanCalculator() {
             <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
               <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
-                Consider the total cost of boat ownership, not just the loan payment. A $500 monthly payment might seem 
-                affordable, but when you add insurance ($100/month), storage ($200/month), maintenance ($100/month), and 
-                fuel ($150/month), your total monthly cost is $1,050. Also, boat loans typically have higher interest 
+                Consider the total cost of boat ownership, not just the loan payment. A 500 monthly payment might seem 
+                affordable, but when you add insurance (100/month), storage (200/month), maintenance (100/month), and 
+                fuel (150/month), your total monthly cost is 1,050. Also, boat loans typically have higher interest 
                 rates than auto loans, so shop around and consider using home equity if you have it available.
               </p>
             </div>
@@ -323,3 +323,4 @@ export default function BoatLoanCalculator() {
     </div>
   )
 }
+

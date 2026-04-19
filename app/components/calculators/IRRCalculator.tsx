@@ -44,10 +44,10 @@ export default function IRRCalculator() {
     }
 
     const recommendations = []
-    recommendations.push(`Initial investment: $${initial.toLocaleString()}`)
-    recommendations.push(`Cash flows: ${flows.map(f => `$${f.toLocaleString()}`).join(', ')}`)
+    recommendations.push(`Initial investment: ${initial.toLocaleString()}`)
+    recommendations.push(`Cash flows: ${flows.map(f => `${f.toLocaleString()}`).join(', ')}`)
     recommendations.push(`IRR: ${(irr * 100).toFixed(2)}%`)
-    recommendations.push(`NPV: $${npv.toFixed(2)}`)
+    recommendations.push(`NPV: ${npv.toFixed(2)}`)
 
     if (irr > 0.15) recommendations.push('Excellent IRR - highly profitable investment')
     else if (irr > 0.10) recommendations.push('Good IRR - solid investment')
@@ -82,12 +82,12 @@ export default function IRRCalculator() {
       <div className="p-6">
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Initial Investment ($)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Initial Investment ()</label>
             <input type="number" value={initialInvestment} onChange={(e) => setInitialInvestment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Enter investment amount" step="1000" />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Cash Flows ($)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Cash Flows ()</label>
             <input type="text" value={cashFlows} onChange={(e) => setCashFlows(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Enter cash flows separated by commas" />
             <p className="text-sm text-gray-500 mt-1">Enter positive cash flows separated by commas (e.g., 1000, 1500, 2000)</p>
           </div>
@@ -116,7 +116,7 @@ export default function IRRCalculator() {
               <h3 className="text-lg font-semibold text-violet-800 mb-3">Investment Analysis</h3>
               <div className="space-y-2">
                 <div className="flex justify-between"><span className="text-violet-700">Initial Investment:</span><span className="font-semibold text-violet-800">${result.details.initial.toLocaleString()}</span></div>
-                <div className="flex justify-between"><span className="text-violet-700">Cash Flows:</span><span className="font-semibold text-violet-800">{result.details.flows.map(f => `$${f.toLocaleString()}`).join(', ')}</span></div>
+                <div className="flex justify-between"><span className="text-violet-700">Cash Flows:</span><span className="font-semibold text-violet-800">{result.details.flows.map(f => `${f.toLocaleString()}`).join(', ')}</span></div>
                 <div className="flex justify-between"><span className="text-violet-700">IRR:</span><span className="font-semibold text-violet-800">{result.irr.toFixed(2)}%</span></div>
                 <div className="flex justify-between"><span className="text-violet-700">NPV:</span><span className="font-semibold text-violet-800">${result.npv.toFixed(2)}</span></div>
               </div>
@@ -276,3 +276,4 @@ export default function IRRCalculator() {
     </div>
   )
 }
+

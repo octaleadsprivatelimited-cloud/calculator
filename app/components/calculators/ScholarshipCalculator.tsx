@@ -62,7 +62,7 @@ export default function ScholarshipCalculator() {
       // Income check
       if (familyIncome > scholarship.maxIncome) {
         isEligible = false
-        reasons.push(`Income above $${scholarship.maxIncome.toLocaleString()}`)
+        reasons.push(`Income above ${scholarship.maxIncome.toLocaleString()}`)
       } else {
         score += Math.max(0, (scholarship.maxIncome - familyIncome) / 1000)
       }
@@ -134,7 +134,7 @@ export default function ScholarshipCalculator() {
   const handleDownload = () => {
     const eligibility = calculateEligibility()
     
-    const data = `Scholarship Calculator Results\n\nStudent Profile:\nGPA: ${studentInfo.gpa}\nFamily Income: $${parseFloat(studentInfo.familyIncome || '0').toLocaleString()}\nFirst Generation: ${studentInfo.isFirstGeneration ? 'Yes' : 'No'}\nMinority Student: ${studentInfo.isMinority ? 'Yes' : 'No'}\nCommunity Service: ${studentInfo.hasCommunityService ? 'Yes' : 'No'}\nSTEM Major: ${studentInfo.isStemMajor ? 'Yes' : 'No'}\nAthlete: ${studentInfo.isAthlete ? 'Yes' : 'No'}\n\nEligible Scholarships: ${eligibility.eligible.length}\nTotal Potential Amount: $${eligibility.totalAmount.toLocaleString()}\n\nScholarships:\n${eligibility.sortedEligible.map(s => `${s.name}: $${s.amount.toLocaleString()} (Score: ${s.score})`).join('\n')}`
+    const data = `Scholarship Calculator Results\n\nStudent Profile:\nGPA: ${studentInfo.gpa}\nFamily Income: ${parseFloat(studentInfo.familyIncome || '0').toLocaleString()}\nFirst Generation: ${studentInfo.isFirstGeneration ? 'Yes' : 'No'}\nMinority Student: ${studentInfo.isMinority ? 'Yes' : 'No'}\nCommunity Service: ${studentInfo.hasCommunityService ? 'Yes' : 'No'}\nSTEM Major: ${studentInfo.isStemMajor ? 'Yes' : 'No'}\nAthlete: ${studentInfo.isAthlete ? 'Yes' : 'No'}\n\nEligible Scholarships: ${eligibility.eligible.length}\nTotal Potential Amount: ${eligibility.totalAmount.toLocaleString()}\n\nScholarships:\n${eligibility.sortedEligible.map(s => `${s.name}: ${s.amount.toLocaleString()} (Score: ${s.score})`).join('\n')}`
     
     const blob = new Blob([data], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -186,7 +186,7 @@ export default function ScholarshipCalculator() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Family Annual Income ($)</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Family Annual Income ()</label>
                   <input
                     type="number"
                     value={studentInfo.familyIncome}
@@ -368,7 +368,7 @@ export default function ScholarshipCalculator() {
                       <div className="flex justify-between">
                         <span className="text-purple-600">Family Income:</span>
                         <span className="font-semibold text-purple-800">
-                          {studentInfo.familyIncome ? `$${parseFloat(studentInfo.familyIncome).toLocaleString()}` : 'Not entered'}
+                          {studentInfo.familyIncome ? `${parseFloat(studentInfo.familyIncome).toLocaleString()}` : 'Not entered'}
                         </span>
                       </div>
                     </div>
@@ -692,7 +692,7 @@ export default function ScholarshipCalculator() {
           onClose={() => setShowShareModal(false)}
           calculation={{
             expression: `${eligibility.eligible.length} eligible scholarships`,
-            result: `$${eligibility.totalAmount.toLocaleString()} total potential`,
+            result: `${eligibility.totalAmount.toLocaleString()} total potential`,
             timestamp: new Date()
           }}
         />
@@ -700,3 +700,4 @@ export default function ScholarshipCalculator() {
     </div>
   )
 }
+

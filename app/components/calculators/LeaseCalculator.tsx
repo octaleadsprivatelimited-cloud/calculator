@@ -38,13 +38,13 @@ export default function LeaseCalculator() {
     const downPaymentPercent = (down / price) * 100
 
     const recommendations = []
-    recommendations.push(`Vehicle price: $${price.toLocaleString()}`)
-    recommendations.push(`Down payment: $${down.toLocaleString()} (${downPaymentPercent.toFixed(1)}%)`)
-    recommendations.push(`Residual value: $${residual.toLocaleString()}`)
+    recommendations.push(`Vehicle price: ${price.toLocaleString()}`)
+    recommendations.push(`Down payment: ${down.toLocaleString()} (${downPaymentPercent.toFixed(1)}%)`)
+    recommendations.push(`Residual value: ${residual.toLocaleString()}`)
     recommendations.push(`Interest rate: ${rate.toFixed(2)}%`)
     recommendations.push(`Lease term: ${term} ${termType}`)
-    recommendations.push(`Monthly payment: $${monthlyPayment.toFixed(2)}`)
-    recommendations.push(`Total cost: $${totalCost.toFixed(2)}`)
+    recommendations.push(`Monthly payment: ${monthlyPayment.toFixed(2)}`)
+    recommendations.push(`Total cost: ${totalCost.toFixed(2)}`)
 
     if (rate > 8) recommendations.push('High interest rate - consider financing instead')
     else if (rate > 5) recommendations.push('Moderate rate - typical lease terms')
@@ -86,18 +86,18 @@ export default function LeaseCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Vehicle Price ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Vehicle Price ()</label>
               <input type="number" value={vehiclePrice} onChange={(e) => setVehiclePrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Enter price" step="1000" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Down Payment ()</label>
               <input type="number" value={downPayment} onChange={(e) => setDownPayment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Enter down payment" step="100" />
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Residual Value ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Residual Value ()</label>
               <input type="number" value={residualValue} onChange={(e) => setResidualValue(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Enter residual" step="1000" />
             </div>
             <div>
@@ -320,3 +320,4 @@ export default function LeaseCalculator() {
     </div>
   )
 }
+

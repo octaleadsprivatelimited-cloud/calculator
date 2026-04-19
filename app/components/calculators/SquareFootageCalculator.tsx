@@ -169,7 +169,7 @@ Total Results:
 - Square Meters: ${formatNumber(result.squareMeters)}
 - Square Yards: ${formatNumber(result.squareYards)}
 - Acres: ${formatNumber(result.acres)}
-${costPerSqFt ? `- Total Cost: $${formatNumber(result.cost)}` : ''}`
+${costPerSqFt ? `- Total Cost: ${formatNumber(result.cost)}` : ''}`
     
     const blob = new Blob([data], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -404,7 +404,7 @@ ${costPerSqFt ? `- Total Cost: $${formatNumber(result.cost)}` : ''}`
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Cost Calculator (Optional)</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Cost per Square Foot ($)
+                Cost per Square Foot ()
               </label>
               <input
                 type="number"
@@ -493,7 +493,7 @@ ${costPerSqFt ? `- Total Cost: $${formatNumber(result.cost)}` : ''}`
                 inputs={[
                   { label: "Number of Rooms", value: `${rooms.length} rooms` },
                   { label: "Total Area", value: `${formatNumber(result.squareFeet)} sq ft` },
-                  { label: "Cost per Sq Ft", value: costPerSqFt ? `$${costPerSqFt}` : "Not specified" }
+                  { label: "Cost per Sq Ft", value: costPerSqFt ? `${costPerSqFt}` : "Not specified" }
                 ]}
                 result={{ 
                   label: "Total Square Footage", 
@@ -686,3 +686,4 @@ ${costPerSqFt ? `- Total Cost: $${formatNumber(result.cost)}` : ''}`
     </div>
   )
 }
+

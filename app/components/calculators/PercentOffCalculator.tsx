@@ -22,10 +22,10 @@ export default function PercentOffCalculator() {
     const finalPrice = original - savings
 
     const recommendations = []
-    recommendations.push(`Original price: $${original.toFixed(2)}`)
+    recommendations.push(`Original price: ${original.toFixed(2)}`)
     recommendations.push(`Discount: ${discount.toFixed(1)}%`)
-    recommendations.push(`Savings: $${savings.toFixed(2)}`)
-    recommendations.push(`Final price: $${finalPrice.toFixed(2)}`)
+    recommendations.push(`Savings: ${savings.toFixed(2)}`)
+    recommendations.push(`Final price: ${finalPrice.toFixed(2)}`)
 
     if (discount > 50) recommendations.push('Major discount - great deal!')
     else if (discount > 25) recommendations.push('Good discount - worth considering')
@@ -60,7 +60,7 @@ export default function PercentOffCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Original Price ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Original Price ()</label>
               <input type="number" value={originalPrice} onChange={(e) => setOriginalPrice(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Enter price" step="0.01" />
             </div>
             <div>
@@ -146,7 +146,7 @@ export default function PercentOffCalculator() {
               <div>
                 <h5 className="font-semibold text-gray-800 mb-2">Small Discounts (1-10%)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                  <li><strong>Typical Savings:</strong> $1-10 on $100 purchase</li>
+                  <li><strong>Typical Savings:</strong> 1-10 on 100 purchase</li>
                   <li><strong>Common Use:</strong> Regular sales and promotions</li>
                   <li><strong>Value Assessment:</strong> Minimal but immediate savings</li>
                   <li><strong>Best For:</strong> Essential purchases and necessities</li>
@@ -157,7 +157,7 @@ export default function PercentOffCalculator() {
               <div>
                 <h5 className="font-semibold text-gray-800 mb-2">Major Discounts (50%+)</h5>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                  <li><strong>Typical Savings:</strong> $50+ on $100 purchase</li>
+                  <li><strong>Typical Savings:</strong> 50+ on 100 purchase</li>
                   <li><strong>Common Use:</strong> Clearance sales and special events</li>
                   <li><strong>Value Assessment:</strong> Significant savings opportunity</li>
                   <li><strong>Best For:</strong> Non-essential items and luxury goods</li>
@@ -258,7 +258,7 @@ export default function PercentOffCalculator() {
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
                 <h5 className="font-semibold text-blue-800 mb-1">Charm Pricing</h5>
-                <p className="text-blue-700 text-sm">$9.99 vs $10.00</p>
+                <p className="text-blue-700 text-sm">9.99 vs 10.00</p>
                 <p className="text-blue-600 text-xs mt-1">Perceived as significantly cheaper</p>
               </div>
               <div className="bg-green-50 p-3 rounded-lg border border-green-200">
@@ -361,3 +361,4 @@ export default function PercentOffCalculator() {
     </div>
   )
 }
+

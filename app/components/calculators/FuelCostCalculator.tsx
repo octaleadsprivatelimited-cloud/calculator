@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, Download, Share2, Printer, RotateCcw, Info, Fuel, Car, DollarSign, MapPin } from 'lucide-react'
+import { Calculator, Download, Share2, Printer, RotateCcw, Info, Fuel, Car, MapPin } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface FuelResult {
@@ -150,8 +150,8 @@ export default function FuelCostCalculator() {
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
+      style: 'decimal',
+      
     }).format(amount)
   }
 
@@ -372,7 +372,7 @@ Cost Comparison:
                 <div>Fuel Type: {selectedFuelType}</div>
                 <div>Vehicle: {selectedVehicle || 'Custom MPG'}</div>
                 <div>Distance: {distance || '0'} miles</div>
-                <div>Price: {fuelPrice ? `$${fuelPrice}` : '$0'} per gallon</div>
+                <div>Price: {fuelPrice ? `${fuelPrice}` : '0'} per gallon</div>
               </div>
             </div>
           </div>
@@ -400,7 +400,7 @@ Cost Comparison:
                 title="Fuel Cost Calculation Result"
                 inputs={[
                   { label: "Distance", value: `${distance} miles` },
-                  { label: "Fuel Price", value: `$${fuelPrice}/gallon` },
+                  { label: "Fuel Price", value: `${fuelPrice}/gallon` },
                   { label: "MPG", value: mpg }
                 ]}
                 result={{ 
@@ -745,3 +745,6 @@ Cost Comparison:
     </div>
   )
 }
+
+
+

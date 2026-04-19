@@ -127,8 +127,8 @@ export default function TileCalculator() {
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+      style: 'decimal',
+      
       minimumFractionDigits: 2
     }).format(amount)
   }
@@ -540,7 +540,7 @@ Cost Breakdown:
                     <li><strong>Porcelain:</strong> Premium ceramic, very low water absorption</li>
                     <li><strong>Best For:</strong> Kitchens, bathrooms, high-traffic areas</li>
                     <li><strong>Maintenance:</strong> Easy to clean, stain-resistant</li>
-                    <li><strong>Cost:</strong> $2.50-4.00 per sq ft</li>
+                    <li><strong>Cost:</strong> 2.50-4.00 per sq ft</li>
                   </ul>
                 </div>
                 <div>
@@ -550,7 +550,7 @@ Cost Breakdown:
                     <li><strong>Glass Tile:</strong> Modern, translucent, artistic</li>
                     <li><strong>Mosaic:</strong> Small tiles, intricate patterns</li>
                     <li><strong>Best For:</strong> Accent walls, artistic installations</li>
-                    <li><strong>Cost:</strong> $6.00-12.00+ per sq ft</li>
+                    <li><strong>Cost:</strong> 6.00-12.00+ per sq ft</li>
                   </ul>
                 </div>
               </div>
@@ -663,3 +663,5 @@ Cost Breakdown:
     </div>
   )
 }
+
+

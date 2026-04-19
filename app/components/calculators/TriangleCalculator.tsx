@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Triangle, Calculator as CalculatorIcon, RotateCcw, Ruler } from 'lucide-react'
+import { Triangle, Calculator, RotateCcw, Ruler } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface TriangleData {
@@ -105,7 +105,7 @@ export default function TriangleCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-200">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <CalculatorIcon className="w-6 h-6 mr-2 text-indigo-600" />
+              <Calculator className="w-6 h-6 mr-2 text-indigo-600" />
               Triangle Dimensions
             </h2>
 
@@ -302,3 +302,4 @@ export default function TriangleCalculator() {
     </div>
   )
 }
+

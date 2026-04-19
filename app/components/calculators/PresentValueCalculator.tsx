@@ -27,11 +27,11 @@ export default function PresentValueCalculator() {
     const presentValue = fv * discountFactor
 
     const recommendations = []
-    recommendations.push(`Future value: $${fv.toLocaleString()}`)
+    recommendations.push(`Future value: ${fv.toLocaleString()}`)
     recommendations.push(`Interest rate: ${rate.toFixed(2)}%`)
     recommendations.push(`Time period: ${time} ${periodType}`)
     recommendations.push(`Discount factor: ${discountFactor.toFixed(4)}`)
-    recommendations.push(`Present value: $${presentValue.toLocaleString(undefined, {maximumFractionDigits: 2})}`)
+    recommendations.push(`Present value: ${presentValue.toLocaleString(undefined, {maximumFractionDigits: 2})}`)
 
     if (rate > 10) recommendations.push('High interest rate - significant discounting')
     else if (rate > 5) recommendations.push('Moderate interest rate - standard discounting')
@@ -71,7 +71,7 @@ export default function PresentValueCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Future Value ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Future Value ()</label>
               <input type="number" value={futureValue} onChange={(e) => setFutureValue(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Enter amount" step="100" />
             </div>
             <div>
@@ -227,17 +227,17 @@ export default function PresentValueCalculator() {
                 <div>
                   <p><strong>Conservative Rate (5%):</strong></p>
                   <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>$10,000 in 10 years = $6,139 today</li>
-                    <li>$10,000 in 20 years = $3,769 today</li>
-                    <li>$10,000 in 30 years = $2,314 today</li>
+                    <li>10,000 in 10 years = 6,139 today</li>
+                    <li>10,000 in 20 years = 3,769 today</li>
+                    <li>10,000 in 30 years = 2,314 today</li>
                   </ul>
                 </div>
                 <div>
                   <p><strong>Moderate Rate (8%):</strong></p>
                   <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>$10,000 in 10 years = $4,632 today</li>
-                    <li>$10,000 in 20 years = $2,145 today</li>
-                    <li>$10,000 in 30 years = $994 today</li>
+                    <li>10,000 in 10 years = 4,632 today</li>
+                    <li>10,000 in 20 years = 2,145 today</li>
+                    <li>10,000 in 30 years = 994 today</li>
                   </ul>
                 </div>
               </div>
@@ -307,10 +307,10 @@ export default function PresentValueCalculator() {
               <h5 className="font-semibold text-gray-800 mb-2">Pro Tip</h5>
               <p className="text-gray-700 text-sm">
                 When using present value calculations for investment decisions, always consider the opportunity 
-                cost of your money. A $10,000 investment that returns $15,000 in 10 years might seem good, 
-                but if you could earn 8% annually elsewhere, the present value is only $6,945. This means 
-                you'd need to invest just $6,945 today at 8% to have $15,000 in 10 years, making the 
-                $10,000 investment less attractive. Always compare present values to make informed decisions.
+                cost of your money. A 10,000 investment that returns 15,000 in 10 years might seem good, 
+                but if you could earn 8% annually elsewhere, the present value is only 6,945. This means 
+                you'd need to invest just 6,945 today at 8% to have 15,000 in 10 years, making the 
+                10,000 investment less attractive. Always compare present values to make informed decisions.
               </p>
             </div>
           </div>
@@ -319,3 +319,4 @@ export default function PresentValueCalculator() {
     </div>
   )
 }
+

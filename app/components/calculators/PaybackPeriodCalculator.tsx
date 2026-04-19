@@ -22,8 +22,8 @@ export default function PaybackPeriodCalculator() {
     const monthlyPayback = investment / (cashFlow / 12)
 
     const recommendations = []
-    recommendations.push(`Initial investment: $${investment.toLocaleString()}`)
-    recommendations.push(`Annual cash flow: $${cashFlow.toLocaleString()}`)
+    recommendations.push(`Initial investment: ${investment.toLocaleString()}`)
+    recommendations.push(`Annual cash flow: ${cashFlow.toLocaleString()}`)
     recommendations.push(`Payback period: ${paybackPeriod.toFixed(2)} years`)
     recommendations.push(`Payback period: ${monthlyPayback.toFixed(1)} months`)
 
@@ -61,11 +61,11 @@ export default function PaybackPeriodCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Initial Investment ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Initial Investment ()</label>
               <input type="number" value={initialInvestment} onChange={(e) => setInitialInvestment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500" placeholder="Enter investment" step="1000" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Annual Cash Flow ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Annual Cash Flow ()</label>
               <input type="number" value={annualCashFlow} onChange={(e) => setAnnualCashFlow(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500" placeholder="Enter cash flow" step="100" />
             </div>
           </div>
@@ -263,3 +263,4 @@ export default function PaybackPeriodCalculator() {
     </div>
   )
 }
+

@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useCallback } from 'react'
-import { Calculator, RotateCcw, Scale } from 'lucide-react'
+import { Calculator, RotateCcw, Scale, Info } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 export default function BMICalculator() {
@@ -39,22 +39,16 @@ export default function BMICalculator() {
 
     if (bmi < 18.5) {
       category = 'Underweight'
-      healthRisk = 'Low (but may indicate malnutrition)'
+      healthRisk = 'Low'
     } else if (bmi < 25) {
-      category = 'Normal weight'
+      category = 'Normal'
       healthRisk = 'Low'
     } else if (bmi < 30) {
       category = 'Overweight'
       healthRisk = 'Moderate'
-    } else if (bmi < 35) {
-      category = 'Obese Class I'
-      healthRisk = 'High'
-    } else if (bmi < 40) {
-      category = 'Obese Class II'
-      healthRisk = 'Very High'
     } else {
-      category = 'Obese Class III'
-      healthRisk = 'Extremely High'
+      category = 'Obese'
+      healthRisk = 'High'
     }
 
     // Calculate ideal weight range
@@ -81,137 +75,149 @@ export default function BMICalculator() {
   const result = showResults ? calculateBMI() : { bmi: 0, category: '', healthRisk: '', idealWeight: { min: 0, max: 0 } }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-500 to-indigo-500 px-6 py-4">
-        <div className="flex items-center">
-          <Scale className="h-8 w-8 text-white mr-3" />
-          <h2 className="text-2xl font-bold text-white">BMI Calculator</h2>
+    <div className="w-full bg-white rounded-3xl shadow-google border border-google-border overflow-hidden">
+      {/* Title Bar */}
+      <div className="px-6 py-5 border-b border-google-border flex items-center justify-between bg-white">
+        <div className="flex items-center space-x-3">
+          <div className="p-2 bg-google-blueLight rounded-xl">
+            <Scale className="w-5 h-5 text-google-blue" />
+          </div>
+          <div>
+            <h1 className="text-xl font-medium text-google-text">BMI Calculator</h1>
+            <p className="text-google-gray text-xs">Calculate your Body Mass Index</p>
+          </div>
         </div>
-        <p className="text-blue-100 mt-1">Calculate your Body Mass Index and health status</p>
+        <Info className="w-5 h-5 text-google-gray opacity-50 cursor-help" />
       </div>
 
-      <div className="p-6">
-        {/* Share Options - Moved to Top */}
-        {showResults && (
-          <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <ResultSharing
-              title="BMI Calculator Result"
-              inputs={[
-                { label: "Weight", value: `${weight} ${weightUnit}` },
-                { label: "Height", value: `${height} ${heightUnit}` }
-              ]}
-              result={{ 
-                label: "BMI", 
-                value: result.bmi.toFixed(1),
-                unit: ""
-              }}
-              calculatorName="BMI Calculator"
-              className="mb-0"
-            />
-          </div>
-        )}
-        <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Weight
-              </label>
-              <div className="flex">
-                <input
-                  type="number"
-                  value={weight}
-                  onChange={(e) => setWeight(e.target.value)}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter weight"
-                  aria-label="Weight value"
-                />
-                <select
-                  value={weightUnit}
-                  onChange={(e) => setWeightUnit(e.target.value)}
-                  className="px-3 py-2 border border-l-0 border-gray-300 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  aria-label="Weight unit"
-                >
-                  <option value="lbs">lbs</option>
-                  <option value="kg">kg</option>
-                </select>
+      <div className="p-6 lg:p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Inputs Column */}
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-google-text px-1">Weight</label>
+                <div className="flex gap-2">
+                  <div className="relative flex-1 group">
+                    <input 
+                      type="number" 
+                      value={weight} 
+                      onChange={(e) => setWeight(e.target.value)} 
+                      className="w-full px-4 py-3 bg-google-lightGray border-none rounded-2xl focus:ring-2 focus:ring-google-blue transition-all outline-none text-google-text placeholder-google-gray/50" 
+                      placeholder="0"
+                    />
+                  </div>
+                  <select 
+                    value={weightUnit} 
+                    onChange={(e) => setWeightUnit(e.target.value)} 
+                    className="w-24 px-4 py-3 bg-google-lightGray border-none rounded-2xl focus:ring-2 focus:ring-google-blue transition-all outline-none text-google-text appearance-none cursor-pointer text-center"
+                    aria-label="Weight unit"
+                  >
+                    <option value="lbs">lbs</option>
+                    <option value="kg">kg</option>
+                  </select>
+                </div>
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Height
-              </label>
-              <div className="flex">
-                <input
-                  type="number"
-                  value={height}
-                  onChange={(e) => setHeight(e.target.value)}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter height"
-                  aria-label="Height value"
-                />
-                <select
-                  value={heightUnit}
-                  onChange={(e) => setHeightUnit(e.target.value)}
-                  className="px-3 py-2 border border-l-0 border-gray-300 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  aria-label="Height unit"
-                >
-                  <option value="ft">ft</option>
-                  <option value="in">in</option>
-                  <option value="cm">cm</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex space-x-3">
-            <button
-              onClick={handleCalculate}
-              className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
-            >
-              <Calculator className="h-5 w-5 inline mr-2" />
-              Calculate
-            </button>
-            <button
-              onClick={handleReset}
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
-            >
-              <RotateCcw className="h-5 w-5 inline mr-2" />
-              Reset
-            </button>
-          </div>
-        </div>
-
-        {showResults && (
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <h3 className="text-lg font-semibold text-blue-800 mb-3">Results</h3>
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="text-blue-700">BMI:</span>
-                <span className="font-semibold text-blue-800">{result.bmi.toFixed(1)}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-blue-700">Category:</span>
-                <span className="font-semibold text-blue-800">{result.category}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-blue-700">Health Risk:</span>
-                <span className="font-semibold text-blue-800">{result.healthRisk}</span>
-              </div>
-              <div className="border-t border-blue-200 pt-2 mt-2">
-                <div className="flex justify-between">
-                  <span className="text-blue-700">Ideal Weight Range:</span>
-                  <span className="font-semibold text-blue-800">
-                    {result.idealWeight.min.toFixed(1)} - {result.idealWeight.max.toFixed(1)} {weightUnit}
-                  </span>
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-google-text px-1">Height</label>
+                <div className="flex gap-2">
+                  <div className="relative flex-1 group">
+                    <input 
+                      type="number" 
+                      value={height} 
+                      onChange={(e) => setHeight(e.target.value)} 
+                      className="w-full px-4 py-3 bg-google-lightGray border-none rounded-2xl focus:ring-2 focus:ring-google-blue transition-all outline-none text-google-text placeholder-google-gray/50" 
+                      placeholder="0"
+                    />
+                  </div>
+                  <select 
+                    value={heightUnit} 
+                    onChange={(e) => setHeightUnit(e.target.value)} 
+                    className="w-24 px-4 py-3 bg-google-lightGray border-none rounded-2xl focus:ring-2 focus:ring-google-blue transition-all outline-none text-google-text appearance-none cursor-pointer text-center"
+                    aria-label="Height unit"
+                  >
+                    <option value="ft">ft</option>
+                    <option value="in">in</option>
+                    <option value="cm">cm</option>
+                  </select>
                 </div>
               </div>
             </div>
-            
 
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <button 
+                onClick={handleCalculate} 
+                className="flex-1 bg-google-blue hover:bg-google-blueHover text-white font-medium py-3.5 px-6 rounded-full transition-all flex items-center justify-center shadow-sm"
+              >
+                <Calculator className="h-5 w-5 mr-2" />
+                Calculate BMI
+              </button>
+              <button 
+                onClick={handleReset} 
+                className="bg-google-lightGray hover:bg-google-border text-google-text font-medium py-3.5 px-6 rounded-full transition-all flex items-center justify-center"
+              >
+                <RotateCcw className="h-5 w-5 mr-2" />
+                Reset
+              </button>
+            </div>
           </div>
-        )}
 
+          {/* Results Column */}
+          <div className="flex flex-col">
+            {!showResults ? (
+              <div className="flex-1 flex flex-col items-center justify-center p-8 bg-google-bg rounded-3xl border border-dashed border-google-border">
+                <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-4">
+                  <Scale className="w-8 h-8 text-google-gray opacity-20" />
+                </div>
+                <h3 className="text-google-text font-medium mb-1">Enter your metrics</h3>
+                <p className="text-google-gray text-sm text-center">Calculate your BMI to understand your body weight status and health category.</p>
+              </div>
+            ) : (
+              <div className="flex-1 space-y-4">
+                {/* Primary Result */}
+                <div className="p-6 bg-google-blueLight rounded-3xl border border-google-blue/10 relative overflow-hidden group text-center">
+                  <h3 className="text-google-blue font-medium mb-1 text-sm uppercase tracking-wider">Your BMI</h3>
+                  <div className="text-5xl font-light text-google-blue tracking-tight mb-2">
+                    {result.bmi.toFixed(1)}
+                  </div>
+                  <div className="inline-flex px-4 py-1.5 bg-white rounded-full text-google-blue font-medium text-sm shadow-sm border border-google-blue/10">
+                    {result.category}
+                  </div>
+                </div>
+
+                {/* Info Card */}
+                <div className="p-4 bg-white border border-google-border rounded-2xl">
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-google-gray text-xs">Ideal weight for your height</span>
+                    <Info className="w-3 h-3 text-google-gray opacity-30" />
+                  </div>
+                  <div className="text-lg font-medium text-google-text">
+                    {result.idealWeight.min.toFixed(1)} - {result.idealWeight.max.toFixed(1)} {weightUnit}
+                  </div>
+                </div>
+
+                {/* Share/Actions */}
+                <div className="mt-2">
+                  <ResultSharing
+                    title="BMI Health Result"
+                    inputs={[
+                      { label: "Weight", value: `${weight}${weightUnit}` },
+                      { label: "Height", value: `${height}${heightUnit}` }
+                    ]}
+                    result={{ 
+                      label: "BMI Score", 
+                      value: result.bmi.toFixed(1),
+                      unit: ""
+                    }}
+                    calculatorName="BMI Calculator"
+                    className="p-0 border-none shadow-none bg-transparent"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   )

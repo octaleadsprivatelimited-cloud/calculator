@@ -103,7 +103,7 @@ export default function FlooringCalculator() {
   const handleDownload = () => {
     const materials = calculateMaterials()
     
-    const data = `Flooring Calculator Results\n\nFlooring: ${flooringTypes[selectedFlooring].name}\nTotal Area: ${materials?.totalArea} m²\nWaste Area: ${materials?.wasteArea} m²\nTotal with Waste: ${materials?.totalAreaWithWaste} m²\n\nCosts:\nFlooring: $${materials?.flooringCost}\nUnderlayment: $${materials?.underlaymentCost}\nInstallation: $${materials?.installationCost}\nTotal: $${materials?.totalCost}`
+    const data = `Flooring Calculator Results\n\nFlooring: ${flooringTypes[selectedFlooring].name}\nTotal Area: ${materials?.totalArea} m²\nWaste Area: ${materials?.wasteArea} m²\nTotal with Waste: ${materials?.totalAreaWithWaste} m²\n\nCosts:\nFlooring: ${materials?.flooringCost}\nUnderlayment: ${materials?.underlaymentCost}\nInstallation: ${materials?.installationCost}\nTotal: ${materials?.totalCost}`
     
     const blob = new Blob([data], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -159,7 +159,7 @@ export default function FlooringCalculator() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Installation Cost ($/m²)</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Installation Cost (/m²)</label>
                   <input
                     type="number"
                     value={installationCost}
@@ -173,7 +173,7 @@ export default function FlooringCalculator() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Underlayment ($/m²)</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Underlayment (/m²)</label>
                   <input
                     type="number"
                     value={underlayment}
@@ -424,7 +424,7 @@ export default function FlooringCalculator() {
           onClose={() => setShowShareModal(false)}
           calculation={{
             expression: `${flooringTypes[selectedFlooring]?.name} Flooring`,
-            result: `${materials?.totalArea} m² - $${materials?.totalCost} total cost`,
+            result: `${materials?.totalArea} m² - ${materials?.totalCost} total cost`,
             timestamp: new Date()
           }}
         />
@@ -432,3 +432,4 @@ export default function FlooringCalculator() {
     </div>
   )
 }
+

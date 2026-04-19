@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Roboto } from 'next/font/google'
 import './globals.css'
 import Header from './components/Header'
 import CalculatorFavorites from './components/CalculatorFavorites'
@@ -9,7 +9,7 @@ import SEOOptimizer from './components/SEOOptimizer'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({ weight: ['300', '400', '500', '700'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Free Online Calculators - Math, Finance, Health, Construction & More | Online Calculator.live',
@@ -227,9 +227,17 @@ export const metadata: Metadata = {
   other: {
     'apple-mobile-web-app-title': 'Online Calculator.live',
     'application-name': 'Online Calculator.live',
-    'msapplication-TileColor': '#3B82F6',
-    'theme-color': '#3B82F6',
+    'msapplication-TileColor': '#1a73e8',
+    'theme-color': '#ffffff',
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: '#ffffff',
 }
 
 export default function RootLayout({
@@ -238,7 +246,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full scroll-smooth">
       <head>
         {/* Google AdSense Verification */}
         <script 
@@ -282,11 +290,11 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       </head>
-      <body className={`${inter.className} h-full`}>
+      <body className={`${roboto.className} h-full bg-google-bg text-google-text antialiased`}>
         <GoogleAnalytics />
         <SEOOptimizer />
         <Header />
-        {children}
+        <main>{children}</main>
         <CalculatorFavorites />
         <Footer />
         <Analytics />

@@ -21,9 +21,9 @@ export default function ROICalculator() {
     const annualizedROI = time > 0 ? (Math.pow(final / initial, 1 / time) - 1) * 100 : 0
 
     const recommendations = []
-    recommendations.push(`Initial investment: $${initial.toLocaleString()}`)
-    recommendations.push(`Final value: $${final.toLocaleString()}`)
-    recommendations.push(`Profit/Loss: $${profit.toLocaleString()}`)
+    recommendations.push(`Initial investment: ${initial.toLocaleString()}`)
+    recommendations.push(`Final value: ${final.toLocaleString()}`)
+    recommendations.push(`Profit/Loss: ${profit.toLocaleString()}`)
     recommendations.push(`ROI: ${roi.toFixed(2)}%`)
     if (time > 0) recommendations.push(`Annualized ROI: ${annualizedROI.toFixed(2)}%`)
 
@@ -63,11 +63,11 @@ export default function ROICalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Initial Investment ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Initial Investment ()</label>
               <input type="number" value={initialInvestment} onChange={(e) => setInitialInvestment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter amount" step="100" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Final Value ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Final Value ()</label>
               <input type="number" value={finalValue} onChange={(e) => setFinalValue(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Enter value" step="100" />
             </div>
           </div>
@@ -304,3 +304,4 @@ export default function ROICalculator() {
     </div>
   )
 }
+

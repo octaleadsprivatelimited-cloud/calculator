@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { Calculator, Download, Share2, Printer, RotateCcw, Info, Fuel, Car, DollarSign } from 'lucide-react'
+import { Calculator, Download, Share2, Printer, RotateCcw, Info, Fuel, Car, } from 'lucide-react'
 import ResultSharing from '../ResultSharing'
 
 interface MileageResult {
@@ -846,3 +846,4 @@ Results:
     </div>
   )
 }
+

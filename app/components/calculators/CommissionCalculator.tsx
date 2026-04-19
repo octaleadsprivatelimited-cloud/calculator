@@ -29,15 +29,15 @@ export default function CommissionCalculator() {
     const netAmount = sale - commission
 
     const recommendations = []
-    recommendations.push(`Sale amount: $${sale.toLocaleString()}`)
+    recommendations.push(`Sale amount: ${sale.toLocaleString()}`)
     if (commissionType === 'percentage') {
       recommendations.push(`Commission rate: ${rate.toFixed(2)}%`)
-      recommendations.push(`Commission amount: $${commission.toFixed(2)}`)
+      recommendations.push(`Commission amount: ${commission.toFixed(2)}`)
     } else {
-      recommendations.push(`Commission amount: $${rate.toFixed(2)}`)
+      recommendations.push(`Commission amount: ${rate.toFixed(2)}`)
       recommendations.push(`Effective rate: ${((rate / sale) * 100).toFixed(2)}%`)
     }
-    recommendations.push(`Net amount: $${netAmount.toFixed(2)}`)
+    recommendations.push(`Net amount: ${netAmount.toFixed(2)}`)
 
     if (commissionType === 'percentage') {
       if (rate > 15) recommendations.push('High commission rate - typical for luxury goods')
@@ -74,7 +74,7 @@ export default function CommissionCalculator() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Sale Amount ($)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Sale Amount ()</label>
               <input type="number" value={saleAmount} onChange={(e) => setSaleAmount(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Enter amount" step="100" />
             </div>
             <div>
@@ -87,7 +87,7 @@ export default function CommissionCalculator() {
             <label className="block text-sm font-medium text-gray-700 mb-2">Commission Type</label>
             <select value={commissionType} onChange={(e) => setCommissionType(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" aria-label="Select commission type">
               <option value="percentage">Percentage (%)</option>
-              <option value="fixed">Fixed Amount ($)</option>
+              <option value="fixed">Fixed Amount ()</option>
             </select>
           </div>
 
@@ -312,3 +312,4 @@ export default function CommissionCalculator() {
     </div>
   )
 }
+

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
-import { DollarSign, Calculator, TrendingUp, FileText, Share2, Download, Printer } from 'lucide-react'
+import { Calculator, TrendingUp, FileText, Share2, Download, Printer } from 'lucide-react'
 import PageCalculator from '../PageCalculator'
 import ShareModal from '../ShareModal'
 
@@ -75,7 +75,7 @@ export default function SalaryCalculator() {
       }
     }
 
-    // Social Security (6.2% up to $168,600 in 2024)
+    // Social Security (6.2% up to 168,600 in 2024)
     const socialSecurity = Math.min(gross * 0.062, 168600 * 0.062)
     
     // Medicare (1.45%)
@@ -118,7 +118,7 @@ export default function SalaryCalculator() {
   }
 
   const handleDownload = () => {
-    const data = `Salary Breakdown\n\nGross Salary: $${breakdown.grossSalary.toLocaleString()}\nFederal Tax: $${breakdown.federalTax.toLocaleString()}\nState Tax: $${breakdown.stateTax.toLocaleString()}\nSocial Security: $${breakdown.socialSecurity.toLocaleString()}\nMedicare: $${breakdown.medicare.toLocaleString()}\nOther Deductions: $${breakdown.otherDeductions.toLocaleString()}\nNet Salary: $${breakdown.netSalary.toLocaleString()}\n\nMonthly Pay: $${breakdown.monthlyPay.toLocaleString()}\nBiweekly Pay: $${breakdown.biweeklyPay.toLocaleString()}\nWeekly Pay: $${breakdown.weeklyPay.toLocaleString()}\nDaily Pay: $${breakdown.dailyPay.toLocaleString()}\nHourly Rate: $${breakdown.hourlyRate.toFixed(2)}`
+    const data = `Salary Breakdown\n\nGross Salary: ${breakdown.grossSalary.toLocaleString()}\nFederal Tax: ${breakdown.federalTax.toLocaleString()}\nState Tax: ${breakdown.stateTax.toLocaleString()}\nSocial Security: ${breakdown.socialSecurity.toLocaleString()}\nMedicare: ${breakdown.medicare.toLocaleString()}\nOther Deductions: ${breakdown.otherDeductions.toLocaleString()}\nNet Salary: ${breakdown.netSalary.toLocaleString()}\n\nMonthly Pay: ${breakdown.monthlyPay.toLocaleString()}\nBiweekly Pay: ${breakdown.biweeklyPay.toLocaleString()}\nWeekly Pay: ${breakdown.weeklyPay.toLocaleString()}\nDaily Pay: ${breakdown.dailyPay.toLocaleString()}\nHourly Rate: ${breakdown.hourlyRate.toFixed(2)}`
     
     const blob = new Blob([data], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -135,7 +135,7 @@ export default function SalaryCalculator() {
         {/* Header */}
         <header className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
-            <DollarSign className="w-16 h-16 mr-4 text-green-600" />
+            <TrendingUp className="w-16 h-16 mr-4 text-green-600" />
             Salary Calculator
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -158,7 +158,7 @@ export default function SalaryCalculator() {
                     Gross Annual Salary
                   </label>
                   <div className="relative">
-                    <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Calculator className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <input
                       type="number"
                       value={grossSalary}
@@ -212,7 +212,7 @@ export default function SalaryCalculator() {
                     Other Deductions
                   </label>
                   <div className="relative">
-                    <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Calculator className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <input
                       type="number"
                       value={otherDeductions}
@@ -420,18 +420,18 @@ export default function SalaryCalculator() {
                   <div>
                     <p><strong>Single Filer:</strong></p>
                     <ul className="list-disc list-inside text-gray-700 space-y-1">
-                      <li>10%: $0 - $11,600</li>
-                      <li>12%: $11,601 - $47,150</li>
-                      <li>22%: $47,151 - $100,525</li>
-                      <li>24%: $100,526 - $191,950</li>
+                      <li>10%: 0 - 11,600</li>
+                      <li>12%: 11,601 - 47,150</li>
+                      <li>22%: 47,151 - 100,525</li>
+                      <li>24%: 100,526 - 191,950</li>
                     </ul>
                   </div>
                   <div>
                     <p><strong>Higher Brackets:</strong></p>
                     <ul className="list-disc list-inside text-gray-700 space-y-1">
-                      <li>32%: $191,951 - $243,725</li>
-                      <li>35%: $243,726 - $609,350</li>
-                      <li>37%: $609,351+</li>
+                      <li>32%: 191,951 - 243,725</li>
+                      <li>35%: 243,726 - 609,350</li>
+                      <li>37%: 609,351+</li>
                     </ul>
                   </div>
                 </div>
@@ -450,7 +450,7 @@ export default function SalaryCalculator() {
                   <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                     <li><strong>Federal Income Tax:</strong> Progressive tax based on income level</li>
                     <li><strong>State Income Tax:</strong> Varies by state (some states have no income tax)</li>
-                    <li><strong>Social Security:</strong> 6.2% up to $168,600 (2024 limit)</li>
+                    <li><strong>Social Security:</strong> 6.2% up to 168,600 (2024 limit)</li>
                     <li><strong>Medicare:</strong> 1.45% on all earnings (no limit)</li>
                   </ul>
                 </div>
@@ -570,8 +570,8 @@ export default function SalaryCalculator() {
           isOpen={showShareModal}
           onClose={() => setShowShareModal(false)}
           calculation={{
-            expression: `$${breakdown.grossSalary.toLocaleString()} gross salary`,
-            result: `$${breakdown.netSalary.toLocaleString()} net salary`,
+            expression: `${breakdown.grossSalary.toLocaleString()} gross salary`,
+            result: `${breakdown.netSalary.toLocaleString()} net salary`,
             timestamp: new Date()
           }}
         />
@@ -579,3 +579,6 @@ export default function SalaryCalculator() {
     </div>
   )
 }
+
+
+
