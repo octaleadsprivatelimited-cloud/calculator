@@ -61,15 +61,7 @@ const nextConfig = {
     ]
   },
   async redirects() {
-    return [
-      // Redirect www to non-www (canonical)
-      {
-        source: '/(.*)',
-        has: [{ type: 'host', value: 'www.onlinecalculator.live' }],
-        destination: 'https://onlinecalculator.live/:path*',
-        permanent: true,
-      },
-    ]
+    return []
   },
 }
 
