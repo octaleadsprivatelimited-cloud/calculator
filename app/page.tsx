@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     'construction calculators',
     'conversion calculators',
     'time calculators',
+    'marriage biodata generator',
+    'matrimony resume maker',
     'education calculators',
     'GPA calculator',
     'online calculator.live',

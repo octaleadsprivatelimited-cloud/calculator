@@ -28,10 +28,17 @@ export default function MarriageBiodataGenerator() {
     weight: '',
     bloodGroup: '',
     complexion: '',
+    nickname: '',
+    gender: 'Male',
+    age: '',
+    maritalStatus: 'Never Married',
+    religion: 'Hindu',
+    motherTongue: '',
     education: '',
     college: '',
     profession: '',
     company: '',
+    workLocation: '',
     income: '',
     fatherName: '',
     fatherProfession: '',
@@ -46,8 +53,14 @@ export default function MarriageBiodataGenerator() {
     raashi: '',
     nakshatra: '',
     manglik: 'No',
+    foodPreference: 'Vegetarian',
+    smoking: 'No',
+    drinking: 'No',
+    personality: '',
     aboutMe: '',
     hobbies: '',
+    partnerExpectations: '',
+    contactPerson: '',
     contactAddress: '',
     contactPhone: '',
     contactEmail: ''
@@ -138,9 +151,34 @@ export default function MarriageBiodataGenerator() {
                     <label className="block text-xs font-medium text-google-gray mb-1">Time of Birth</label>
                     <input type="time" name="tob" value={formData.tob} onChange={handleInputChange} className="google-input" />
                   </div>
-                  <div className="col-span-full">
+                  <div>
                     <label className="block text-xs font-medium text-google-gray mb-1">Place of Birth</label>
                     <input type="text" name="pob" value={formData.pob} onChange={handleInputChange} className="google-input" placeholder="e.g. Mumbai, Maharashtra" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-google-gray mb-1">Nickname</label>
+                    <input type="text" name="nickname" value={formData.nickname} onChange={handleInputChange} className="google-input" placeholder="Optional" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-google-gray mb-1">Marital Status</label>
+                    <select name="maritalStatus" value={formData.maritalStatus} onChange={handleInputChange} className="google-input">
+                      <option value="Never Married">Never Married</option>
+                      <option value="Divorced">Divorced</option>
+                      <option value="Widowed">Widowed</option>
+                      <option value="Awaiting Divorce">Awaiting Divorce</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-google-gray mb-1">Gender</label>
+                    <select name="gender" value={formData.gender} onChange={handleInputChange} className="google-input">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-google-gray mb-1">Age</label>
+                    <input type="text" name="age" value={formData.age} onChange={handleInputChange} className="google-input" placeholder="e.g. 28" />
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-google-gray mb-1">Height</label>
@@ -180,6 +218,10 @@ export default function MarriageBiodataGenerator() {
                     <div className="col-span-full">
                       <label className="block text-xs font-medium text-google-gray mb-1">Annual Income</label>
                       <input type="text" name="income" value={formData.income} onChange={handleInputChange} className="google-input" placeholder="e.g. 15-20 LPA" />
+                    </div>
+                    <div className="col-span-full">
+                      <label className="block text-xs font-medium text-google-gray mb-1">Work Location</label>
+                      <input type="text" name="workLocation" value={formData.workLocation} onChange={handleInputChange} className="google-input" placeholder="e.g. Bangalore, India" />
                     </div>
                   </div>
                 </div>
@@ -238,8 +280,12 @@ export default function MarriageBiodataGenerator() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-google-gray mb-1">Caste</label>
-                    <input type="text" name="caste" value={formData.caste} onChange={handleInputChange} className="google-input" />
+                    <label className="block text-xs font-medium text-google-gray mb-1">Religion</label>
+                    <input type="text" name="religion" value={formData.religion} onChange={handleInputChange} className="google-input" placeholder="e.g. Hindu" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-google-gray mb-1">Caste / Sub-caste</label>
+                    <input type="text" name="caste" value={formData.caste} onChange={handleInputChange} className="google-input" placeholder="e.g. Brahmin (Kanyakubj)" />
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-google-gray mb-1">Gotra</label>
@@ -261,6 +307,71 @@ export default function MarriageBiodataGenerator() {
                 </div>
               </section>
 
+              {/* Lifestyle Section */}
+              <section>
+                <div className="flex items-center space-x-2 mb-4">
+                  <User className="w-4 h-4 text-google-blue" />
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-google-gray">Lifestyle & Traits</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-medium text-google-gray mb-1">Mother Tongue</label>
+                    <input type="text" name="motherTongue" value={formData.motherTongue} onChange={handleInputChange} className="google-input" placeholder="e.g. Hindi" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-google-gray mb-1">Food Preference</label>
+                    <select name="foodPreference" value={formData.foodPreference} onChange={handleInputChange} className="google-input">
+                      <option value="Vegetarian">Vegetarian</option>
+                      <option value="Non-Vegetarian">Non-Vegetarian</option>
+                      <option value="Eggetarian">Eggetarian</option>
+                      <option value="Vegan">Vegan</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-google-gray mb-1">Smoking Habit</label>
+                    <select name="smoking" value={formData.smoking} onChange={handleInputChange} className="google-input">
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
+                      <option value="Occasionally">Occasionally</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-google-gray mb-1">Drinking Habit</label>
+                    <select name="drinking" value={formData.drinking} onChange={handleInputChange} className="google-input">
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
+                      <option value="Occasionally">Occasionally</option>
+                    </select>
+                  </div>
+                  <div className="col-span-full">
+                    <label className="block text-xs font-medium text-google-gray mb-1">Personality Traits</label>
+                    <input type="text" name="personality" value={formData.personality} onChange={handleInputChange} className="google-input" placeholder="e.g. Simple, Ambitious, Caring" />
+                  </div>
+                  <div className="col-span-full">
+                    <label className="block text-xs font-medium text-google-gray mb-1">Hobbies & Interests</label>
+                    <input type="text" name="hobbies" value={formData.hobbies} onChange={handleInputChange} className="google-input" placeholder="e.g. Reading, Travel, Cooking" />
+                  </div>
+                </div>
+              </section>
+
+              {/* Partner Expectations Section */}
+              <section>
+                <div className="flex items-center space-x-2 mb-4">
+                  <Heart className="w-4 h-4 text-google-blue" />
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-google-gray">Partner Preferences</h3>
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-google-gray mb-1">Expectations from Partner</label>
+                  <textarea 
+                    name="partnerExpectations" 
+                    value={formData.partnerExpectations} 
+                    onChange={handleInputChange} 
+                    className="google-input h-24 resize-none" 
+                    placeholder="Describe your ideal partner (age range, education, location, etc.)..."
+                  />
+                </div>
+              </section>
+
               {/* Contact Section */}
               <section>
                 <div className="flex items-center space-x-2 mb-4">
@@ -268,6 +379,10 @@ export default function MarriageBiodataGenerator() {
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-google-gray">Contact Information</h3>
                 </div>
                 <div className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-medium text-google-gray mb-1">Contact Person</label>
+                    <input type="text" name="contactPerson" value={formData.contactPerson} onChange={handleInputChange} className="google-input" placeholder="e.g. Father / Brother" />
+                  </div>
                   <div>
                     <label className="block text-xs font-medium text-google-gray mb-1">Contact Number</label>
                     <input type="text" name="contactPhone" value={formData.contactPhone} onChange={handleInputChange} className="google-input" />
@@ -319,11 +434,16 @@ export default function MarriageBiodataGenerator() {
                     <tbody className="divide-y divide-pink-50/30">
                       {[
                         ['Full Name', formData.name],
+                        ['Nickname', formData.nickname],
+                        ['Gender', formData.gender],
+                        ['Age', formData.age],
+                        ['Marital Status', formData.maritalStatus],
                         ['Date of Birth', formData.dob],
                         ['Time of Birth', formData.tob],
                         ['Place of Birth', formData.pob],
                         ['Height', formData.height],
-                        ['Weight', formData.weight]
+                        ['Weight', formData.weight],
+                        ['Blood Group', formData.bloodGroup]
                       ].map(([label, value]) => (
                         <tr key={label as string}>
                           <td className="py-1.5 font-bold w-1/3 text-sm">{label}:</td>
@@ -344,6 +464,7 @@ export default function MarriageBiodataGenerator() {
                         ['College', formData.college],
                         ['Profession', formData.profession],
                         ['Company', formData.company],
+                        ['Work Location', formData.workLocation],
                         ['Income', formData.income]
                       ].map(([label, value]) => (
                         <tr key={label as string}>
@@ -382,8 +503,10 @@ export default function MarriageBiodataGenerator() {
                   <table className="w-full">
                     <tbody className="divide-y divide-pink-50/30">
                       {[
-                        ['Caste', formData.caste],
+                        ['Religion', formData.religion],
+                        ['Caste/Sub-caste', formData.caste],
                         ['Gotra', formData.gotra],
+                        ['Mother Tongue', formData.motherTongue],
                         ['Raashi', formData.raashi],
                         ['Manglik', formData.manglik]
                       ].map(([label, value]) => (
@@ -396,11 +519,41 @@ export default function MarriageBiodataGenerator() {
                   </table>
                 </div>
 
+                {/* Lifestyle Info */}
+                <div>
+                  <h4 className="text-pink-800 font-bold border-b border-pink-100 mb-3 uppercase text-sm tracking-widest">Lifestyle & Traits</h4>
+                  <table className="w-full">
+                    <tbody className="divide-y divide-pink-50/30">
+                      {[
+                        ['Food Preference', formData.foodPreference],
+                        ['Smoking', formData.smoking],
+                        ['Drinking', formData.drinking],
+                        ['Personality', formData.personality],
+                        ['Hobbies', formData.hobbies]
+                      ].map(([label, value]) => (
+                        <tr key={label as string}>
+                          <td className="py-1.5 font-bold w-1/3 text-sm">{label}:</td>
+                          <td className="py-1.5 text-sm">{value || '---'}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Partner Expectations */}
+                {formData.partnerExpectations && (
+                  <div>
+                    <h4 className="text-pink-800 font-bold border-b border-pink-100 mb-3 uppercase text-sm tracking-widest">Partner Preferences</h4>
+                    <p className="text-sm leading-relaxed text-gray-700 whitespace-pre-wrap">{formData.partnerExpectations}</p>
+                  </div>
+                )}
+
                 {/* Contact Info */}
                 <div className="pt-4 border-t-2 border-pink-200 mt-10">
                   <div className="text-center">
                     <h4 className="text-pink-900 font-bold uppercase text-xs tracking-widest mb-4">Contact Details</h4>
                     <div className="space-y-1 text-sm italic text-gray-700">
+                      <p className="font-bold not-italic">{formData.contactPerson ? `Contact: ${formData.contactPerson}` : ''}</p>
                       <p>{formData.contactAddress || 'Residential Address'}</p>
                       <p>Phone: {formData.contactPhone || 'Phone Number'}</p>
                       <p>Email: {formData.contactEmail || 'Email Address'}</p>

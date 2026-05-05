@@ -5,9 +5,9 @@ import Header from './components/Header'
 import CalculatorFavorites from './components/CalculatorFavorites'
 import Footer from './components/Footer'
 import GoogleAnalytics from './components/GoogleAnalytics'
-import SEOOptimizer from './components/SEOOptimizer'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import Script from 'next/script'
 
 const roboto = Roboto({ weight: ['300', '400', '500', '700'], subsets: ['latin'] })
 
@@ -249,26 +249,10 @@ export default function RootLayout({
     <html lang="en" className="h-full scroll-smooth">
       <head>
         {/* Google AdSense Verification */}
-        <script 
-          async 
+        <Script 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3793493831699803"
           crossOrigin="anonymous"
-        />
-        
-        {/* Google Analytics 4 */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'GA_MEASUREMENT_ID');
-            `,
-          }}
+          strategy="lazyOnload"
         />
         
         {/* Google Search Console Verification */}
@@ -292,7 +276,6 @@ export default function RootLayout({
       </head>
       <body className={`${roboto.className} h-full bg-google-bg text-google-text antialiased`}>
         <GoogleAnalytics />
-        <SEOOptimizer />
         <Header />
         <main>{children}</main>
         <CalculatorFavorites />
