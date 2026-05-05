@@ -251,12 +251,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
 
-        {/* === Google AdSense (lazy — never blocks render) === */}
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3793493831699803"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
+        {/* === Google AdSense — must be in body, not head === */}
+        {/* Moved below — see body section */}
 
         {/* === Global JSON-LD Structured Data (SSR — Googlebot reads immediately) === */}
         <script
@@ -291,6 +287,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <Analytics />
         <SpeedInsights />
+        {/* AdSense — placed in body to avoid 'data-nscript' warning */}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3793493831699803"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   )
