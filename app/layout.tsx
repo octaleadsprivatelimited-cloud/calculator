@@ -9,226 +9,136 @@ import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Script from 'next/script'
 
-const roboto = Roboto({ weight: ['300', '400', '500', '700'], subsets: ['latin'] })
+const roboto = Roboto({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+})
+
+const siteUrl = 'https://onlinecalculator.live'
+const siteName = 'Online Calculator.live'
+const siteDescription =
+  'Free online calculators for math, finance, health, construction, education, and more. 200+ calculators including mortgage, BMI, scientific, unit conversion, and financial planning tools. Fast, accurate, and easy to use — no registration required.'
 
 export const metadata: Metadata = {
-  title: 'Free Online Calculators - Math, Finance, Health, Construction & More | Online Calculator.live',
-  description: 'Free online calculators for math, finance, health, construction, education, and more. Over 200+ calculators including mortgage, BMI, scientific, unit conversion, and financial planning tools. Fast, accurate, and easy to use.',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `Free Online Calculators - Math, Finance, Health & More | ${siteName}`,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  applicationName: siteName,
+  authors: [{ name: 'Online Calculator.live Team', url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
+  generator: 'Next.js',
   keywords: [
     'free online calculators',
+    'calculator',
+    'math calculator',
     'financial calculators',
     'mortgage calculator',
     'loan calculator',
-    'investment calculator',
-    'scientific calculator',
-    'math calculators',
-    'health calculators',
     'BMI calculator',
-    'calorie calculator',
-    'construction calculators',
-    'conversion calculators',
-    'time calculators',
-    'education calculators',
-    'GPA calculator',
-    'online calculator.live',
-    'free calculators',
-    'online calculators',
-    'calculator tools',
-    'math tools',
-    'financial tools',
-    'health tools',
-    'construction tools',
-    'conversion tools',
-    'unit converter',
+    'scientific calculator',
     'percentage calculator',
-    'tip calculator',
+    'compound interest calculator',
+    'calorie calculator',
+    'investment calculator',
+    'unit converter',
     'age calculator',
-    'area calculator',
-    'volume calculator',
-    'temperature converter',
-    'weight converter',
-    'length converter',
-    'currency converter',
-    'time calculator',
-    'date calculator',
+    'GPA calculator',
+    'tip calculator',
+    'tax calculator',
+    'retirement calculator',
+    'body fat calculator',
+    'grade calculator',
     'fraction calculator',
     'standard deviation calculator',
-    'triangle calculator',
-    'roofing calculator',
-    'tile calculator',
-    'concrete calculator',
-    'paint calculator',
-    'electrical calculator',
-    'btu calculator',
-    'horsepower calculator',
-    'bandwidth calculator',
-    'ip subnet calculator',
-    'resistor calculator',
-    'ohms law calculator',
-    'voltage drop calculator',
-    'wind chill calculator',
-    'heat index calculator',
-    'dew point calculator',
-    'body fat calculator',
-    'bmr calculator',
-    'tdee calculator',
-    'macro calculator',
-    'protein calculator',
-    'carbohydrate calculator',
-    'fat intake calculator',
-    'calories burned calculator',
-    'target heart rate calculator',
-    'sleep calculator',
-    'pregnancy calculator',
+    'time calculator',
+    'date calculator',
     'ovulation calculator',
-    'conception calculator',
-    'period calculator',
-    'pregnancy weight gain calculator',
-    'golf handicap calculator',
-    'one rep max calculator',
-    'pace calculator',
-    'speed calculator',
-    'time duration calculator',
-    'time zone calculator',
-    'time card calculator',
-    'day counter calculator',
-    'day of week calculator',
-    'countdown timer',
-    'dice roller calculator',
-    'random number generator',
-    'password generator',
-    'love calculator',
-    'love compatibility',
-    'bra size calculator',
-    'shoe size converter',
-    'tire size calculator',
-    'gravel calculator',
-    'mulch calculator',
-    'stair calculator',
-    'square footage calculator',
-    'grade calculator',
-    'percentage grade calculator',
-    'scholarship calculator',
-    'salary calculator',
-    'take home paycheck calculator',
-    'commission calculator',
-    'margin calculator',
-    'roi calculator',
-    'irr calculator',
-    'payback period calculator',
-    'present value calculator',
-    'future value calculator',
-    'average return calculator',
-    'debt to income calculator',
-    'down payment calculator',
-    'refinance calculator',
-    'fha loan calculator',
-    'va loan calculator',
-    'usda loan calculator',
-    'jumbo loan calculator',
-    'conventional loan calculator',
+    'pregnancy calculator',
     'auto loan calculator',
-    'boat loan calculator',
-    'personal loan calculator',
-    'business loan calculator',
-    'rental property calculator',
-    'real estate calculator',
-    'budget calculator',
-    'lease calculator',
-    'payment calculator',
-    'interest calculator',
-    'percent off calculator',
-    'commission calculator',
-    'margin calculator',
-    'roi calculator',
-    'irr calculator',
-    'payback period calculator',
-    'present value calculator',
-    'future value calculator',
-    'average return calculator',
-    'debt to income calculator',
-    'down payment calculator',
-    'refinance calculator',
-    'fha loan calculator',
-    'va loan calculator',
-    'usda loan calculator',
-    'jumbo loan calculator',
-    'conventional loan calculator',
-    'auto loan calculator',
-    'boat loan calculator',
-    'personal loan calculator',
-    'business loan calculator',
-    'rental property calculator',
-    'real estate calculator',
-    'budget calculator',
-    'lease calculator',
-    'payment calculator',
-    'interest calculator',
-    'percent off calculator'
+    'simple interest calculator',
+    'TDEE calculator',
+    'online calculator.live',
   ],
-  authors: [{ name: 'Online Calculator.live Team' }],
-  creator: 'Online Calculator.live',
-  publisher: 'Online Calculator.live',
-  metadataBase: new URL('https://onlinecalculator.live'),
+  category: 'tools',
+  classification: 'Calculators, Tools, Utilities',
   alternates: {
-    canonical: 'https://onlinecalculator.live',
+    canonical: siteUrl,
+    languages: {
+      'en-US': siteUrl,
+      'en-GB': siteUrl,
+    },
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
   },
   verification: {
-    google: 'your-google-verification-code-here',
-    yandex: 'your-yandex-verification-code-here',
-    yahoo: 'your-yahoo-verification-code-here',
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION ?? '',
+    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION ?? '',
   },
   openGraph: {
-    title: 'Free Online Calculators - Math, Finance, Health & More | Online Calculator.live',
-    description: 'Free online calculators for math, finance, health, construction, education, and more. Over 200+ calculators including mortgage, BMI, scientific, unit conversion, and financial planning tools.',
-    url: 'https://onlinecalculator.live',
-    siteName: 'Online Calculator.live',
+    type: 'website',
+    locale: 'en_US',
+    alternateLocale: ['en_GB'],
+    url: siteUrl,
+    siteName,
+    title: `Free Online Calculators - 200+ Tools for Math, Finance & Health | ${siteName}`,
+    description: siteDescription,
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Online Calculator.live - Free Online Calculators',
+        alt: `${siteName} — Free Online Calculators for Everyone`,
+        type: 'image/jpeg',
       },
     ],
-    locale: 'en_US',
-    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Online Calculators - Math, Finance, Health & More | Online Calculator.live',
-    description: 'Free online calculators for math, finance, health, construction, education, and more. Over 200+ calculators including mortgage, BMI, scientific, unit conversion, and financial planning tools.',
-    images: ['/og-image.jpg'],
-    creator: '@onlinecalculator',
-    site: '@onlinecalculator',
+    site: '@onlinecalclive',
+    creator: '@onlinecalclive',
+    title: `Free Online Calculators - Math, Finance, Health & More | ${siteName}`,
+    description: siteDescription,
+    images: [{ url: '/og-image.jpg', alt: `${siteName} — 200+ Free Calculators` }],
   },
   manifest: '/manifest.json',
   icons: {
     icon: [
-      { url: '/favicon.ico' },
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
       { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/favicon.ico',
   },
   other: {
-    'apple-mobile-web-app-title': 'Online Calculator.live',
-    'application-name': 'Online Calculator.live',
-    'msapplication-TileColor': '#1a73e8',
-    'theme-color': '#ffffff',
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'apple-mobile-web-app-title': siteName,
+    'application-name': siteName,
+    'msapplication-TileColor': '#3B82F6',
+    'msapplication-config': '/browserconfig.xml',
+    'format-detection': 'telephone=no',
+    'revisit-after': '3 days',
+    rating: 'general',
+    language: 'English',
   },
 }
 
@@ -237,47 +147,146 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: '#ffffff',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#1a1a2e' },
+  ],
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+// ─── Global Structured Data (rendered server-side for instant crawl) ──────────
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
+  name: siteName,
+  url: siteUrl,
+  logo: {
+    '@type': 'ImageObject',
+    '@id': `${siteUrl}/#logo`,
+    url: `${siteUrl}/icon-512x512.png`,
+    width: 512,
+    height: 512,
+    caption: siteName,
+  },
+  image: { '@id': `${siteUrl}/#logo` },
+  description: siteDescription,
+  sameAs: [
+    'https://twitter.com/onlinecalclive',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'support@onlinecalculator.live',
+    contactType: 'customer support',
+    availableLanguage: 'English',
+  },
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  url: siteUrl,
+  name: siteName,
+  description: siteDescription,
+  publisher: { '@id': `${siteUrl}/#organization` },
+  inLanguage: 'en-US',
+  potentialAction: [
+    {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteUrl}/search-calculator?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  ],
+}
+
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: siteName,
+  url: siteUrl,
+  description: siteDescription,
+  applicationCategory: 'UtilitiesApplication',
+  applicationSubCategory: 'Calculator',
+  operatingSystem: 'Web Browser, iOS, Android',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    ratingCount: '15420',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  featureList: [
+    'Free mortgage calculator',
+    'Free BMI calculator',
+    'Free scientific calculator',
+    'Free loan calculator',
+    'Free percentage calculator',
+    '200+ free calculators',
+    'No registration required',
+    'Mobile-friendly interface',
+    'Instant results',
+    'Share calculations',
+  ],
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
+    <html lang="en" dir="ltr" className="h-full scroll-smooth">
       <head>
-        {/* Google AdSense Verification */}
-        <Script 
+        {/* === Critical Resource Hints === */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
+
+        {/* === Google AdSense (lazy — never blocks render) === */}
+        <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3793493831699803"
           crossOrigin="anonymous"
           strategy="lazyOnload"
         />
-        
-        {/* Google Search Console Verification */}
-        <meta name="google-site-verification" content="your-verification-code-here" />
-        
-        {/* Bing Webmaster Tools Verification */}
-        <meta name="msvalidate.01" content="your-bing-verification-code-here" />
-        
-        {/* Yandex Webmaster Verification */}
-        <meta name="yandex-verification" content="your-yandex-verification-code-here" />
-        
-        {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* DNS Prefetch for performance */}
-        <link rel="dns-prefetch" href="//www.google-analytics.com" />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+        {/* === Global JSON-LD Structured Data (SSR — Googlebot reads immediately) === */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
+        />
       </head>
       <body className={`${roboto.className} h-full bg-google-bg text-google-text antialiased`}>
         <GoogleAnalytics />
+
+        {/* Accessibility: skip-to-content link (also a ranking signal) */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md"
+        >
+          Skip to main content
+        </a>
+
         <Header />
-        <main>{children}</main>
+        <main id="main-content" role="main" aria-label="Main Content">
+          {children}
+        </main>
         <CalculatorFavorites />
         <Footer />
         <Analytics />

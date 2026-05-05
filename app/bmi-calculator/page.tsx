@@ -1,40 +1,50 @@
 import { Metadata } from 'next'
 import BMICalculator from '../components/calculators/BMICalculator'
 import CalculatorWithAds from '../components/CalculatorWithAds'
+import CalculatorSchema from '../components/CalculatorSchema'
 
 export const metadata: Metadata = {
-  title: 'BMI Calculator - Calculate Body Mass Index | Online Calculator.live',
-  description: 'Free BMI calculator to determine your Body Mass Index. Calculate BMI using height and weight, understand BMI categories, and get health recommendations based on your results.',
-  keywords: ['BMI calculator', 'body mass index calculator', 'BMI chart', 'weight calculator', 'health calculator', 'body mass index'],
+  title: 'BMI Calculator - Free Body Mass Index Calculator (Metric & Imperial)',
+  description: 'Calculate your BMI instantly with our free BMI calculator. Supports metric and imperial units. Understand your weight category, health risks, and get personalized recommendations.',
+  keywords: ['BMI calculator', 'body mass index calculator', 'BMI chart', 'healthy weight calculator', 'overweight calculator', 'BMI formula', 'BMI metric', 'BMI imperial'],
+  alternates: { canonical: 'https://onlinecalculator.live/bmi-calculator' },
   openGraph: {
-    title: 'BMI Calculator - Calculate Body Mass Index | Online Calculator.live',
-    description: 'Free BMI calculator to determine your Body Mass Index. Calculate BMI using height and weight, understand BMI categories, and get health recommendations based on your results.',
+    title: 'Free BMI Calculator — Calculate Body Mass Index Online',
+    description: 'Calculate your Body Mass Index instantly. Supports metric and imperial. Understand your BMI category and get health recommendations.',
     url: 'https://onlinecalculator.live/bmi-calculator',
     siteName: 'Online Calculator.live',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'BMI Calculator',
-      },
-    ],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'BMI Calculator — Online Calculator.live' }],
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BMI Calculator - Calculate Body Mass Index | Online Calculator.live',
-    description: 'Free BMI calculator to determine your Body Mass Index. Calculate BMI using height and weight, understand BMI categories, and get health recommendations based on your results.',
+    title: 'Free BMI Calculator — Calculate Body Mass Index Online',
+    description: 'Calculate your Body Mass Index instantly. Supports metric and imperial. Get health recommendations based on your BMI.',
     images: ['/og-image.jpg'],
-  },
-  alternates: {
-    canonical: 'https://onlinecalculator.live/bmi-calculator',
   },
 }
 
 export default function BMIPage() {
   return (
+    <>
+      <CalculatorSchema
+        name="BMI Calculator"
+        description="Free online BMI calculator. Calculate your Body Mass Index using height and weight in metric or imperial units."
+        url="/bmi-calculator"
+        category="HealthApplication"
+        keywords={['BMI calculator', 'body mass index', 'healthy weight', 'weight calculator']}
+        faqs={[
+          { question: 'What is a healthy BMI?', answer: 'A healthy BMI is between 18.5 and 24.9. Below 18.5 is underweight, 25–29.9 is overweight, and 30 or above is obese.' },
+          { question: 'How is BMI calculated?', answer: 'BMI = weight (kg) / height (m)². In imperial: (weight lbs × 703) / height (in)².' },
+          { question: 'Is BMI accurate for athletes?', answer: 'BMI may overestimate body fat in athletes with high muscle mass. It is a screening tool, not a direct measure of body fat.' },
+        ]}
+        howToSteps={[
+          { name: 'Enter your weight', text: 'Type your weight in kilograms or pounds.' },
+          { name: 'Enter your height', text: 'Enter your height in centimetres or feet/inches.' },
+          { name: 'Click Calculate', text: 'Press Calculate to see your BMI and health category instantly.' },
+        ]}
+      />
     <div className="min-h-screen bg-google-bg py-8 sm:py-12">
       <CalculatorWithAds>
         <BMICalculator />
@@ -107,5 +117,6 @@ export default function BMIPage() {
         </div>
       </CalculatorWithAds>
     </div>
+    </>
   );
 }
