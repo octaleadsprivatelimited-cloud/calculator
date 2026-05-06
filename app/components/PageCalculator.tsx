@@ -1,7 +1,12 @@
 'use client'
 
 import React, { useState, useEffect, useCallback, memo } from 'react'
-import { Calculator, TrendingUp, Heart, Clock, GraduationCap, Wrench, Globe, X, Search } from 'lucide-react'
+import { Calculator, TrendingUp, Heart, Clock, GraduationCap, Wrench, Globe, X, Search,
+  Home, CreditCard, Car, PieChart, PiggyBank, Percent, Tag, DollarSign, FileText, Banknote,
+  Binary, Divide, Triangle, Activity, Hash, Ruler, Box, Scale, User, Baby,
+  Thermometer, CloudRain, Zap, Wind, Download, Calendar, Timer, Watch, Hourglass,
+  Hammer, PenTool, Grid, Layers, ZapIcon, Award, BookOpen, Users
+} from 'lucide-react'
 
 interface CalculatorCategory {
   id: string
@@ -16,6 +21,7 @@ interface CalculatorItem {
   name: string
   description: string
   url: string
+  icon?: React.ReactNode
 }
 
 const calculatorCategories: CalculatorCategory[] = [
@@ -25,17 +31,17 @@ const calculatorCategories: CalculatorCategory[] = [
     icon: <TrendingUp className="w-6 h-6 text-green-600" />,
     description: 'Calculate loans, mortgages, investments, and more',
     calculators: [
-      { id: 'mortgage', name: 'Mortgage Calculator', description: 'Monthly mortgage payments', url: '/mortgage-calculator' },
-      { id: 'loan', name: 'Loan Calculator', description: 'Loan payments and interest', url: '/loan-calculator' },
-      { id: 'auto-loan', name: 'Auto Loan Calculator', description: 'Car loan payments', url: '/auto-loan-calculator' },
-      { id: 'investment', name: 'Investment Calculator', description: 'Investment returns', url: '/investment-calculator' },
-      { id: 'retirement', name: 'Retirement Calculator', description: 'Retirement savings plan', url: '/retirement-calculator' },
-      { id: 'compound-interest', name: 'Compound Interest', description: 'Compound interest growth', url: '/compound-interest-calculator' },
-      { id: 'simple-interest', name: 'Simple Interest', description: 'Simple interest calculation', url: '/simple-interest-calculator' },
-      { id: 'discount', name: 'Discount Calculator', description: 'Discounts and savings', url: '/discount-calculator' },
-      { id: 'tip', name: 'Tip Calculator', description: 'Tips and split bills', url: '/tip-calculator' },
-      { id: 'income-tax', name: 'Income Tax Calculator', description: 'Income tax liability', url: '/income-tax-calculator' },
-      { id: 'salary', name: 'Salary Calculator', description: 'Take-home pay', url: '/calculators/salary' }
+      { id: 'mortgage', name: 'Mortgage Calculator', description: 'Monthly mortgage payments', url: '/mortgage-calculator', icon: <Home className="w-4 h-4" /> },
+      { id: 'loan', name: 'Loan Calculator', description: 'Loan payments and interest', url: '/loan-calculator', icon: <CreditCard className="w-4 h-4" /> },
+      { id: 'auto-loan', name: 'Auto Loan Calculator', description: 'Car loan payments', url: '/auto-loan-calculator', icon: <Car className="w-4 h-4" /> },
+      { id: 'investment', name: 'Investment Calculator', description: 'Investment returns', url: '/investment-calculator', icon: <PieChart className="w-4 h-4" /> },
+      { id: 'retirement', name: 'Retirement Calculator', description: 'Retirement savings plan', url: '/retirement-calculator', icon: <PiggyBank className="w-4 h-4" /> },
+      { id: 'compound-interest', name: 'Compound Interest', description: 'Compound interest growth', url: '/compound-interest-calculator', icon: <TrendingUp className="w-4 h-4" /> },
+      { id: 'simple-interest', name: 'Simple Interest', description: 'Simple interest calculation', url: '/simple-interest-calculator', icon: <Percent className="w-4 h-4" /> },
+      { id: 'discount', name: 'Discount Calculator', description: 'Discounts and savings', url: '/discount-calculator', icon: <Tag className="w-4 h-4" /> },
+      { id: 'tip', name: 'Tip Calculator', description: 'Tips and split bills', url: '/tip-calculator', icon: <DollarSign className="w-4 h-4" /> },
+      { id: 'income-tax', name: 'Income Tax Calculator', description: 'Income tax liability', url: '/income-tax-calculator', icon: <FileText className="w-4 h-4" /> },
+      { id: 'salary', name: 'Salary Calculator', description: 'Take-home pay', url: '/calculators/salary', icon: <Banknote className="w-4 h-4" /> }
     ]
   },
   {
@@ -44,16 +50,16 @@ const calculatorCategories: CalculatorCategory[] = [
     icon: <Calculator className="w-8 h-8 text-blue-600" />,
     description: 'Advanced mathematical calculations and functions',
     calculators: [
-      { id: 'scientific', name: 'Scientific Calculator', description: 'Advanced scientific functions', url: '/scientific-calculator' },
-      { id: 'binary', name: 'Binary Calculator', description: 'Binary arithmetic and bitwise operations', url: '/binary-calculator' },
-      { id: 'fraction', name: 'Fraction Calculator', description: 'Fraction arithmetic and conversion', url: '/fraction-calculator' },
-      { id: 'percentage', name: 'Percentage Calculator', description: 'Calculate percentages and changes', url: '/percentage-calculator' },
-      { id: 'triangle', name: 'Triangle Calculator', description: 'Calculate triangle properties', url: '/triangle-calculator' },
-      { id: 'standard-deviation', name: 'Standard Deviation Calculator', description: 'Statistical calculations', url: '/standard-deviation-calculator' },
-      { id: 'random-number', name: 'Random Number Generator', description: 'Generate random numbers', url: '/random-number-calculator' },
-      { id: 'unit-converter', name: 'Unit Converter', description: 'Convert between units', url: '/unit-converter-calculator' },
-      { id: 'area', name: 'Area Calculator', description: 'Calculate areas of shapes', url: '/area-calculator' },
-      { id: 'volume', name: 'Volume Calculator', description: 'Calculate volumes of 3D shapes', url: '/volume-calculator' }
+      { id: 'scientific', name: 'Scientific Calculator', description: 'Advanced scientific functions', url: '/scientific-calculator', icon: <Calculator className="w-4 h-4" /> },
+      { id: 'binary', name: 'Binary Calculator', description: 'Binary arithmetic and bitwise operations', url: '/binary-calculator', icon: <Binary className="w-4 h-4" /> },
+      { id: 'fraction', name: 'Fraction Calculator', description: 'Fraction arithmetic and conversion', url: '/fraction-calculator', icon: <Divide className="w-4 h-4" /> },
+      { id: 'percentage', name: 'Percentage Calculator', description: 'Calculate percentages and changes', url: '/percentage-calculator', icon: <Percent className="w-4 h-4" /> },
+      { id: 'triangle', name: 'Triangle Calculator', description: 'Calculate triangle properties', url: '/triangle-calculator', icon: <Triangle className="w-4 h-4" /> },
+      { id: 'standard-deviation', name: 'Standard Deviation Calculator', description: 'Statistical calculations', url: '/standard-deviation-calculator', icon: <Activity className="w-4 h-4" /> },
+      { id: 'random-number', name: 'Random Number Generator', description: 'Generate random numbers', url: '/random-number-calculator', icon: <Hash className="w-4 h-4" /> },
+      { id: 'unit-converter', name: 'Unit Converter', description: 'Convert between units', url: '/unit-converter-calculator', icon: <Ruler className="w-4 h-4" /> },
+      { id: 'area', name: 'Area Calculator', description: 'Calculate areas of shapes', url: '/area-calculator', icon: <Box className="w-4 h-4" /> },
+      { id: 'volume', name: 'Volume Calculator', description: 'Calculate volumes of 3D shapes', url: '/volume-calculator', icon: <Box className="w-4 h-4" /> }
     ]
   },
   {
@@ -62,12 +68,12 @@ const calculatorCategories: CalculatorCategory[] = [
     icon: <Heart className="w-8 h-8 text-red-600" />,
     description: 'Calculate BMI, calories, body metrics, and more',
     calculators: [
-      { id: 'bmi', name: 'BMI Calculator', description: 'Calculate Body Mass Index', url: '/bmi-calculator' },
-      { id: 'calorie', name: 'Calorie Calculator', description: 'Calculate daily calorie needs', url: '/calorie-calculator' },
-      { id: 'body-fat', name: 'Body Fat Calculator', description: 'Estimate body fat percentage', url: '/body-fat-calculator' },
-      { id: 'bmr', name: 'BMR Calculator', description: 'Calculate Basal Metabolic Rate', url: '/bmr-calculator' },
-      { id: 'ideal-weight', name: 'Ideal Weight Calculator', description: 'Calculate ideal body weight', url: '/calculators/ideal-weight' },
-      { id: 'pregnancy', name: 'Pregnancy Calculator', description: 'Calculate due dates and milestones', url: '/calculators/pregnancy' }
+      { id: 'bmi', name: 'BMI Calculator', description: 'Calculate Body Mass Index', url: '/bmi-calculator', icon: <Scale className="w-4 h-4" /> },
+      { id: 'calorie', name: 'Calorie Calculator', description: 'Calculate daily calorie needs', url: '/calorie-calculator', icon: <Activity className="w-4 h-4" /> },
+      { id: 'body-fat', name: 'Body Fat Calculator', description: 'Estimate body fat percentage', url: '/body-fat-calculator', icon: <User className="w-4 h-4" /> },
+      { id: 'bmr', name: 'BMR Calculator', description: 'Calculate Basal Metabolic Rate', url: '/bmr-calculator', icon: <Heart className="w-4 h-4" /> },
+      { id: 'ideal-weight', name: 'Ideal Weight Calculator', description: 'Calculate ideal body weight', url: '/calculators/ideal-weight', icon: <Scale className="w-4 h-4" /> },
+      { id: 'pregnancy', name: 'Pregnancy Calculator', description: 'Calculate due dates and milestones', url: '/calculators/pregnancy', icon: <Baby className="w-4 h-4" /> }
     ]
   },
   {
@@ -76,16 +82,16 @@ const calculatorCategories: CalculatorCategory[] = [
     icon: <Globe className="w-8 h-8 text-purple-600" />,
     description: 'Convert between different units and measurements',
     calculators: [
-      { id: 'length', name: 'Length Converter', description: 'Convert length units', url: '/calculators/length' },
-      { id: 'weight', name: 'Weight Converter', description: 'Convert weight units', url: '/calculators/weight' },
-      { id: 'temperature', name: 'Temperature Converter', description: 'Convert temperature units', url: '/calculators/temperature' },
-      { id: 'area', name: 'Area Converter', description: 'Convert area units', url: '/calculators/area' },
-      { id: 'volume', name: 'Volume Converter', description: 'Convert volume units', url: '/calculators/volume' },
-      { id: 'tire-size', name: 'Tire Size Calculator', description: 'Compare tire sizes and specifications', url: '/tire-size-calculator' },
-      { id: 'wind-chill', name: 'Wind Chill Calculator', description: 'Calculate wind chill factor', url: '/wind-chill-calculator' },
-      { id: 'heat-index', name: 'Heat Index Calculator', description: 'Calculate heat index and safety levels', url: '/heat-index-calculator' },
-      { id: 'dew-point', name: 'Dew Point Calculator', description: 'Calculate dew point temperature', url: '/dew-point-calculator' },
-      { id: 'bandwidth', name: 'Bandwidth Calculator', description: 'Download/upload times', url: '/bandwidth-calculator' },
+      { id: 'length', name: 'Length Converter', description: 'Convert length units', url: '/calculators/length', icon: <Ruler className="w-4 h-4" /> },
+      { id: 'weight', name: 'Weight Converter', description: 'Convert weight units', url: '/calculators/weight', icon: <Scale className="w-4 h-4" /> },
+      { id: 'temperature', name: 'Temperature Converter', description: 'Convert temperature units', url: '/calculators/temperature', icon: <Thermometer className="w-4 h-4" /> },
+      { id: 'area', name: 'Area Converter', description: 'Convert area units', url: '/calculators/area', icon: <Box className="w-4 h-4" /> },
+      { id: 'volume', name: 'Volume Converter', description: 'Convert volume units', url: '/calculators/volume', icon: <Box className="w-4 h-4" /> },
+      { id: 'tire-size', name: 'Tire Size Calculator', description: 'Compare tire sizes and specifications', url: '/tire-size-calculator', icon: <Car className="w-4 h-4" /> },
+      { id: 'wind-chill', name: 'Wind Chill Calculator', description: 'Calculate wind chill factor', url: '/wind-chill-calculator', icon: <Wind className="w-4 h-4" /> },
+      { id: 'heat-index', name: 'Heat Index Calculator', description: 'Calculate heat index and safety levels', url: '/heat-index-calculator', icon: <Thermometer className="w-4 h-4" /> },
+      { id: 'dew-point', name: 'Dew Point Calculator', description: 'Calculate dew point temperature', url: '/dew-point-calculator', icon: <CloudRain className="w-4 h-4" /> },
+      { id: 'bandwidth', name: 'Bandwidth Calculator', description: 'Download/upload times', url: '/bandwidth-calculator', icon: <Download className="w-4 h-4" /> },
     ]
   },
   {
@@ -94,14 +100,14 @@ const calculatorCategories: CalculatorCategory[] = [
     icon: <Clock className="w-8 h-8 text-orange-600" />,
     description: 'Calculate time differences, dates, and durations',
     calculators: [
-      { id: 'age', name: 'Age Calculator', description: 'Calculate exact age', url: '/age-calculator' },
-      { id: 'date', name: 'Date Calculator', description: 'Add or subtract dates', url: '/date-calculator' },
-      { id: 'time', name: 'Time Calculator', description: 'Calculate time differences', url: '/time-calculator' },
-      { id: 'time-duration', name: 'Time Duration Calculator', description: 'Calculate duration between dates and times', url: '/time-duration-calculator' },
-      { id: 'day-counter', name: 'Day Counter', description: 'Count days between two dates', url: '/day-counter-calculator' },
-      { id: 'day-of-week', name: 'Day of Week Calculator', description: 'Find what day of the week any date falls on', url: '/day-of-week-calculator' },
-      { id: 'hours', name: 'Hours Calculator', description: 'Calculate work hours and overtime', url: '/calculators/hours' },
-      { id: 'countdown', name: 'Countdown Timer', description: 'Count down to important dates', url: '/calculators/countdown' }
+      { id: 'age', name: 'Age Calculator', description: 'Calculate exact age', url: '/age-calculator', icon: <User className="w-4 h-4" /> },
+      { id: 'date', name: 'Date Calculator', description: 'Add or subtract dates', url: '/date-calculator', icon: <Calendar className="w-4 h-4" /> },
+      { id: 'time', name: 'Time Calculator', description: 'Calculate time differences', url: '/time-calculator', icon: <Clock className="w-4 h-4" /> },
+      { id: 'time-duration', name: 'Time Duration Calculator', description: 'Calculate duration between dates and times', url: '/time-duration-calculator', icon: <Timer className="w-4 h-4" /> },
+      { id: 'day-counter', name: 'Day Counter', description: 'Count days between two dates', url: '/day-counter-calculator', icon: <Calendar className="w-4 h-4" /> },
+      { id: 'day-of-week', name: 'Day of Week Calculator', description: 'Find what day of the week any date falls on', url: '/day-of-week-calculator', icon: <Calendar className="w-4 h-4" /> },
+      { id: 'hours', name: 'Hours Calculator', description: 'Calculate work hours and overtime', url: '/calculators/hours', icon: <Watch className="w-4 h-4" /> },
+      { id: 'countdown', name: 'Countdown Timer', description: 'Count down to important dates', url: '/calculators/countdown', icon: <Hourglass className="w-4 h-4" /> }
     ]
   },
   {
@@ -110,14 +116,14 @@ const calculatorCategories: CalculatorCategory[] = [
     icon: <Wrench className="w-8 h-8 text-gray-600" />,
     description: 'Calculate construction materials and costs',
     calculators: [
-      { id: 'concrete', name: 'Concrete Calculator', description: 'Calculate concrete volume needed', url: '/calculators/concrete' },
-      { id: 'paint', name: 'Paint Calculator', description: 'Calculate paint coverage', url: '/calculators/paint' },
-      { id: 'flooring', name: 'Flooring Calculator', description: 'Calculate flooring materials', url: '/calculators/flooring' },
-      { id: 'roofing', name: 'Roofing Calculator', description: 'Calculate roofing materials', url: '/calculators/roofing' },
-      { id: 'tile', name: 'Tile Calculator', description: 'Calculate tile materials and costs', url: '/tile-calculator' },
-      { id: 'mulch', name: 'Mulch Calculator', description: 'Calculate mulch coverage needed', url: '/mulch-calculator' },
-      { id: 'gravel', name: 'Gravel Calculator', description: 'Calculate gravel materials needed', url: '/gravel-calculator' },
-      { id: 'electrical', name: 'Electrical Calculator', description: 'Calculate electrical requirements', url: '/calculators/electrical' }
+      { id: 'concrete', name: 'Concrete Calculator', description: 'Calculate concrete volume needed', url: '/calculators/concrete', icon: <Hammer className="w-4 h-4" /> },
+      { id: 'paint', name: 'Paint Calculator', description: 'Calculate paint coverage', url: '/calculators/paint', icon: <PenTool className="w-4 h-4" /> },
+      { id: 'flooring', name: 'Flooring Calculator', description: 'Calculate flooring materials', url: '/calculators/flooring', icon: <Grid className="w-4 h-4" /> },
+      { id: 'roofing', name: 'Roofing Calculator', description: 'Calculate roofing materials', url: '/calculators/roofing', icon: <Layers className="w-4 h-4" /> },
+      { id: 'tile', name: 'Tile Calculator', description: 'Calculate tile materials and costs', url: '/tile-calculator', icon: <Grid className="w-4 h-4" /> },
+      { id: 'mulch', name: 'Mulch Calculator', description: 'Calculate mulch coverage needed', url: '/mulch-calculator', icon: <Box className="w-4 h-4" /> },
+      { id: 'gravel', name: 'Gravel Calculator', description: 'Calculate gravel materials needed', url: '/gravel-calculator', icon: <Layers className="w-4 h-4" /> },
+      { id: 'electrical', name: 'Electrical Calculator', description: 'Calculate electrical requirements', url: '/calculators/electrical', icon: <Zap className="w-4 h-4" /> }
     ]
   },
   {
@@ -126,10 +132,10 @@ const calculatorCategories: CalculatorCategory[] = [
     icon: <GraduationCap className="w-8 h-8 text-indigo-600" />,
     description: 'Calculate grades, GPA, and academic metrics',
     calculators: [
-      { id: 'gpa', name: 'GPA Calculator', description: 'Calculate Grade Point Average', url: '/gpa-calculator' },
-      { id: 'grade', name: 'Grade Calculator', description: 'Calculate final grades', url: '/grade-calculator' },
-      { id: 'percentage-grade', name: 'Percentage to Grade', description: 'Convert percentages to letter grades', url: '/percentage-grade-calculator' },
-      { id: 'scholarship', name: 'Scholarship Calculator', description: 'Calculate scholarship eligibility', url: '/calculators/scholarship' }
+      { id: 'gpa', name: 'GPA Calculator', description: 'Calculate Grade Point Average', url: '/gpa-calculator', icon: <Award className="w-4 h-4" /> },
+      { id: 'grade', name: 'Grade Calculator', description: 'Calculate final grades', url: '/grade-calculator', icon: <BookOpen className="w-4 h-4" /> },
+      { id: 'percentage-grade', name: 'Percentage to Grade', description: 'Convert percentages to letter grades', url: '/percentage-grade-calculator', icon: <Percent className="w-4 h-4" /> },
+      { id: 'scholarship', name: 'Scholarship Calculator', description: 'Calculate scholarship eligibility', url: '/calculators/scholarship', icon: <Award className="w-4 h-4" /> }
     ]
   },
   {
@@ -138,9 +144,9 @@ const calculatorCategories: CalculatorCategory[] = [
     icon: <Heart className="w-8 h-8 text-pink-600" />,
     description: 'Generators and calculators for social and lifestyle needs',
     calculators: [
-      { id: 'marriage-biodata', name: 'Marriage Biodata Generator', description: 'Create professional matrimony resumes', url: '/marriage-biodata-generator' },
-      { id: 'love', name: 'Love Calculator', description: 'Calculate compatibility between two people', url: '/love-calculator' },
-      { id: 'quotation', name: 'Quotation Generator', description: 'Generate professional business quotes', url: '/quotation-generator' }
+      { id: 'marriage-biodata', name: 'Marriage Biodata Generator', description: 'Create professional matrimony resumes', url: '/marriage-biodata-generator', icon: <Users className="w-4 h-4" /> },
+      { id: 'love', name: 'Love Calculator', description: 'Calculate compatibility between two people', url: '/love-calculator', icon: <Heart className="w-4 h-4" /> },
+      { id: 'quotation', name: 'Quotation Generator', description: 'Generate professional business quotes', url: '/quotation-generator', icon: <FileText className="w-4 h-4" /> }
     ]
   }
 ]
@@ -465,7 +471,8 @@ export default function PageCalculator() {
                     href={calculator.url}
                     className="bg-white rounded-xl p-4 border border-google-border hover:bg-google-lightGray active:bg-google-lightGray transition-colors block group touch-manipulation"
                   >
-                    <h3 className="text-sm font-medium text-google-blue group-hover:underline mb-1">
+                    <h3 className="flex items-center gap-2 text-sm font-medium text-google-blue group-hover:underline mb-1">
+                      {calculator.icon && <span className="text-google-blue opacity-80">{calculator.icon}</span>}
                       {calculator.name}
                     </h3>
                     <p className="text-xs text-google-gray leading-relaxed">
@@ -490,14 +497,15 @@ export default function PageCalculator() {
                     <p className="text-google-gray text-xs sm:text-sm">{category.description}</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
                   {category.calculators.map(calculator => (
                     <a
                       key={calculator.id}
                       href={calculator.url}
                       className="bg-google-bg rounded-xl p-3 sm:p-4 hover:bg-google-lightGray active:bg-google-lightGray transition-colors border border-google-border block group touch-manipulation"
                     >
-                      <h3 className="font-medium text-google-blue group-hover:underline text-xs sm:text-sm mb-0.5 sm:mb-1 line-clamp-2">
+                      <h3 className="flex items-center gap-2 font-medium text-google-blue group-hover:underline text-xs sm:text-sm mb-0.5 sm:mb-1 line-clamp-2">
+                        {calculator.icon && <span className="text-google-blue opacity-80">{calculator.icon}</span>}
                         {calculator.name}
                       </h3>
                       <p className="text-[11px] sm:text-xs text-google-gray leading-relaxed line-clamp-2 hidden sm:block">
